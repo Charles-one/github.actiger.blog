@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>小新实验室</title>
+    <link>https://charles-one.github.io/xiaoxinLab/</link>
+    <description>Recent content on 小新实验室</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 Mar 2019 23:25:37 +0800</lastBuildDate>
+    
+	<atom:link href="https://charles-one.github.io/xiaoxinLab/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>https://charles-one.github.io/xiaoxinLab/about/</link>
+      <pubDate>Sat, 09 Mar 2019 23:25:37 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/xiaoxinLab/about/</guid>
+      <description> 靡不有初 鲜克有终 </description>
+    </item>
+    
+  </channel>
+</rss>
