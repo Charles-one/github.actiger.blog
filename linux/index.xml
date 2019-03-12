@@ -17,8 +17,14 @@
       <pubDate>Tue, 12 Mar 2019 15:27:58 +0800</pubDate>
       
       <guid>https://charles-one.github.io/xiaoxinLab/linux/%E6%9B%B4%E6%94%B9linux%E7%94%A8%E6%88%B7%E5%90%8D/</guid>
-      <description>0.前提条件  root用户及密码 原用户ccc  1. 更改用户ccc 使用root用户编辑更改 /etc/passwd /etc/group /etc/shadow /etc/gshadow 中&amp;rdquo;原用户名&amp;rdquo;为&amp;rdquo;新用户名&amp;rdquo;即可
-同时mv /home/olderuser /home/newuser</description>
+      <description> 0.前提条件  root用户及密码 原用户ccc  1. 更改用户ccc 使用root用户编辑更改
+/etc/passwd
+/etc/group
+/etc/shadow
+/etc/gshadow
+中&amp;rdquo;原用户名&amp;rdquo;为&amp;rdquo;新用户名&amp;rdquo;即可
+同时
+mv /home/olderuser /home/newuser  </description>
     </item>
     
     <item>
