@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>小新实验室</title>
-    <link>https://charles-one.github.io/xiaoxinLab/</link>
-    <description>Recent content on 小新实验室</description>
+    <title>Linuxes on 小新实验室</title>
+    <link>https://charles-one.github.io/xiaoxinLab/linux/</link>
+    <description>Recent content in Linuxes on 小新实验室</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 12 Mar 2019 14:39:09 +0800</lastBuildDate>
     
-	<atom:link href="https://charles-one.github.io/xiaoxinLab/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://charles-one.github.io/xiaoxinLab/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -24,15 +24,6 @@ reboot  1.登录root  需要查询当前Centos7的主机ip  ifconfig  提示无�
 systemctl restart sshd   添加防火墙端口
 firewall-cmd --zone=public --add-port=12340/tcp --permanent (永久生效必须用--permanent) firewall-cmd --reload  更改SELINUX端口, 因为SELINUX的原因, ssh被设定到22端口上了, 必须更改
   借助软件来更改 安装 yum -y install policycoreutils-python semanage port -a -t ssh_port_t -p tcp 12340</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://charles-one.github.io/xiaoxinLab/about/</link>
-      <pubDate>Sat, 09 Mar 2019 23:25:37 +0800</pubDate>
-      
-      <guid>https://charles-one.github.io/xiaoxinLab/about/</guid>
-      <description> 靡不有初 鲜克有终 </description>
     </item>
     
   </channel>

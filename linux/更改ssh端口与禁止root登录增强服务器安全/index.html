@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>更改ssh端口与禁止root登录增强服务器安全 - 小新实验室</title>
+  
+  <meta name="description" content="0.前提条件 1.安装软件Centos7, 版本7.6.1810 CentOS-7-x86_64-Minimal-1810.iso 2.root用户及密码, 已联网  如未联网,请打开网卡, 并重启 设置/etc/sysconfig/network-scripts/ifcfg-eth0 中ONBOOT =yes  重启电脑
+reboot  1.登录root  需要查询当前Centos7的主机ip  ifconfig  提示无此命令  yum -y install net-tools
+再次 ifconfig查询ip
+ 使用ssh软件登录root用户, 默认使用22端口, 不用指定  ssh root@ip  输入密码  2.更改ssh服务端口, 防火墙端口, SELINUX端口  更改sshd.service端口, 端口可选择&gt;10000避免与其他软件冲突.  vim /etc/ssh/sshd_config更改Port 12340
+systemctl restart sshd   添加防火墙端口
+firewall-cmd --zone=public --add-port=12340/tcp --permanent (永久生效必须用--permanent) firewall-cmd --reload  更改SELINUX端口, 因为SELINUX的原因, ssh被设定到22端口上了, 必须更改
+  借助软件来更改 安装 yum -y install policycoreutils-python semanage port -a -t ssh_port_t -p tcp 12340">
+  <meta name="author" content="">
+  
+  <link href="https://charles-one.github.io/xiaoxinLab/css/font.css" rel="stylesheet">
+  <link href="https://charles-one.github.io/xiaoxinLab/css/atom-one-dark.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link href="https://charles-one.github.io/xiaoxinLab/css/style.css" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" href="https://charles-one.github.io/xiaoxinLab/img/apple-touch-icon.png">
+  <link rel="icon" href="https://charles-one.github.io/xiaoxinLab/img/favicon.ico">
+  
+  <meta name="generator" content="Hugo 0.54.0" />
+  
+  <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/xiaoxinLab/index.xml" title="小新实验室">
+  
+</head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://charles-one.github.io/xiaoxinLab/">小新实验室</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view">
+  <header class="post-header">
+    <h1 class="post-title">更改ssh端口与禁止root登录增强服务器安全</h1>
+    <p class="post-meta">2019.3.12</p>
+  </header>
+  <div class="post-content">
+
+<h3 id="0-前提条件">0.前提条件</h3>
+
+<h5 id="1-安装软件centos7-版本7-6-1810-centos-7-x86-64-minimal-1810-iso">1.安装软件Centos7, 版本7.6.1810 CentOS-7-x86_64-Minimal-1810.iso</h5>
+
+<h5 id="2-root用户及密码-已联网">2.root用户及密码, 已联网</h5>
+
+<ul>
+<li>如未联网,请打开网卡, 并重启
+设置/etc/sysconfig/network-scripts/ifcfg-eth0 中ONBOOT =yes</li>
+</ul>
+
+<p>重启电脑</p>
+
+<pre><code>reboot
+</code></pre>
+
+<h3 id="1-登录root">1.登录root</h3>
+
+<ol>
+<li>需要查询当前Centos7的主机ip
+<code>
+ifconfig
+</code>
+提示无此命令</li>
+</ol>
+
+<p>yum -y install net-tools</p>
+
+<p>再次
+ifconfig查询ip</p>
+
+<ol>
+<li>使用ssh软件登录root用户, 默认使用22端口, 不用指定
+<code>
+ssh root@ip
+</code>
+输入密码</li>
+</ol>
+
+<h3 id="2-更改ssh服务端口-防火墙端口-selinux端口">2.更改ssh服务端口, 防火墙端口, SELINUX端口</h3>
+
+<ol>
+<li>更改sshd.service端口, 端口可选择&gt;10000避免与其他软件冲突.</li>
+</ol>
+
+<p>vim /etc/ssh/sshd_config更改Port 12340</p>
+
+<pre><code>systemctl restart sshd
+</code></pre>
+
+<ol>
+<li><p>添加防火墙端口</p>
+
+<pre><code>firewall-cmd --zone=public --add-port=12340/tcp --permanent  (永久生效必须用--permanent)
+firewall-cmd --reload
+</code></pre></li>
+
+<li><p>更改SELINUX端口, 因为SELINUX的原因, ssh被设定到22端口上了, 必须更改</p></li>
+</ol>
+
+<p>借助软件来更改
+安装 yum -y install policycoreutils-python
+semanage port -a -t ssh_port_t -p tcp 12340</p>
+
+<ol>
+<li><strong>注意不要关闭当前窗口</strong></li>
+</ol>
+
+<p>另开一个窗口, 尝试登录</p>
+
+<pre><code>ssh root@ip -P 12340
+</code></pre>
+
+<p>输入密码</p>
+
+<h3 id="3-设置root用户无法远程登录">3.设置root用户无法远程登录</h3>
+
+<p><strong>如果当且仅有一个root用户, 可直接添加一个add user ccc password hellocc</strong></p>
+
+<ol>
+<li>设置root用户不能登录, <strong>注意不能关闭当前窗口</strong>
+vim /etc/ssh/sshd_config
+更改
+PermitRootLogin no</li>
+</ol>
+
+<p>重启sshd服务
+systemctl restart sshd</p>
+
+<ol>
+<li>新建窗口检测root能否登录
+<code>
+ssh root@ip -P 12340
+</code>
+这时登录失败的
+<code>
+ssh ccc@ip -P 12340
+</code>
+输入密码, 预期是登录成功的</li>
+</ol>
+
+<pre><code>su
+</code></pre>
+
+<p>输入root密码即可变成root用户</p>
+
+<p><strong>需要2个用户密码才更改服务器设置,是不是安全了很多</strong></p>
+</div>
+  <footer class="post-footer">
+    
+  </footer>
+  
+  
+  
+  
+</article>
+</main>
+<footer class="footer">
+  <span>&copy; 2019 小新实验室</span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Designed by <a href="http://21beats.com/" rel="noopener" target="_blank">️21beats️</a>️</span>
+</footer>
+<script src="https://charles-one.github.io/xiaoxinLab/js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="https://charles-one.github.io/xiaoxinLab/js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  addMenuListener();
+  InstantClick.on('change', function() {
+    addMenuListener();
+  });
+  function addMenuListener() {
+    var $toggle = document.querySelector('.menu-toggle');
+    var $body = document.querySelector('body');
+    $toggle.addEventListener('click', function() {
+      $body.classList.toggle('noscroll');
+    }, false);
+  }
+</script>
+</body>
+</html>
+
