@@ -12,11 +12,11 @@
     
     
     <item>
-      <title>设置用户可sudo的命令</title>
-      <link>https://charles-one.github.io/xiaoxinLab/linux/%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%8F%AFsudo%E7%9A%84%E5%91%BD%E4%BB%A4/</link>
+      <title>设置用户可sudo命令</title>
+      <link>https://charles-one.github.io/xiaoxinLab/linux/%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%8F%AFsudo%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Tue, 12 Mar 2019 22:16:35 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/linux/%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%8F%AFsudo%E7%9A%84%E5%91%BD%E4%BB%A4/</guid>
+      <guid>https://charles-one.github.io/xiaoxinLab/linux/%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%8F%AFsudo%E5%91%BD%E4%BB%A4/</guid>
       <description>vim /etc/sudoers # new cc ALL=/bin/yum # cc用户名就可使用sudo yum  在cc用户下 sudo yum install vim 输入密码后再就可安装vim了</description>
     </item>
     
