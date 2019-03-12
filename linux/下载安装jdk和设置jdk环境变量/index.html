@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>下载安装JDK和设置JDK环境变量 - 小新实验室</title>
+  
+  <meta name="description" content="0. 准备工作  root用户及密码  1. 卸载原有JDK rpm -qa | grep &quot;java&quot;  yum remove 上面筛选内容
+2. 下载JDK, 解压 进入https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html 右键选择linux x64 jdk-8u201-linux-i586.tar.gz的下载地址 使用wget下载
+wget --no-check-certificate --no-cookies --header &quot;Cookie: oraclelicense=accept-securebackup-cookie&quot; https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz  解压
+tar -zxvf jdk-8u201-linux-x64.tar.gz
+3. root移动文件, 并设置JAVA_HOME环境变量 mv jdk1.8.0_201 /usr/local  设置JAVA_HOME环境变量 vim /etc/profile 可以对所有用户生效 添加下列信息 export JAVA_HOME=/usr/local/jdk1.8.0_201 export JRE_HOME=${JAVA_HOME}/jre export CLASSPATH=.:${JAVA_HOME}/lib/dt.JAVA_HOME/lib/tools.jar:${JRE_HOME}/lib export PATH=${JAVA_HOME}/bin:${PATH}
+重新生效/etc/profile
+source /etc/profile  检测 java -version 会弹出java的版本">
+  <meta name="author" content="">
+  
+  <link href="https://charles-one.github.io/xiaoxinLab/css/font.css" rel="stylesheet">
+  <link href="https://charles-one.github.io/xiaoxinLab/css/atom-one-dark.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link href="https://charles-one.github.io/xiaoxinLab/css/style.css" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" href="https://charles-one.github.io/xiaoxinLab/img/apple-touch-icon.png">
+  <link rel="icon" href="https://charles-one.github.io/xiaoxinLab/img/favicon.ico">
+  
+  <meta name="generator" content="Hugo 0.54.0" />
+  
+  <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/xiaoxinLab/index.xml" title="小新实验室">
+  
+</head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://charles-one.github.io/xiaoxinLab/">小新实验室</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view">
+  <header class="post-header">
+    <h1 class="post-title">下载安装JDK和设置JDK环境变量</h1>
+    <p class="post-meta">2019.3.12</p>
+  </header>
+  <div class="post-content">
+
+<h3 id="0-准备工作">0. 准备工作</h3>
+
+<ul>
+<li>root用户及密码</li>
+</ul>
+
+<h3 id="1-卸载原有jdk">1. 卸载原有JDK</h3>
+
+<pre><code>rpm -qa | grep &quot;java&quot;
+</code></pre>
+
+<p>yum remove 上面筛选内容</p>
+
+<h3 id="2-下载jdk-解压">2. 下载JDK, 解压</h3>
+
+<p>进入<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a>
+右键选择linux x64 jdk-8u201-linux-i586.tar.gz的下载地址
+使用wget下载</p>
+
+<pre><code>wget --no-check-certificate --no-cookies --header &quot;Cookie: oraclelicense=accept-securebackup-cookie&quot; https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz
+</code></pre>
+
+<p>解压</p>
+
+<p>tar -zxvf jdk-8u201-linux-x64.tar.gz</p>
+
+<h3 id="3-root移动文件-并设置java-home环境变量">3. root移动文件, 并设置JAVA_HOME环境变量</h3>
+
+<pre><code>mv jdk1.8.0_201 /usr/local
+</code></pre>
+
+<p>设置JAVA_HOME环境变量
+vim /etc/profile 可以对所有用户生效
+添加下列信息
+export JAVA_HOME=/usr/local/jdk1.8.0_201
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib/dt.JAVA_HOME/lib/tools.jar:${JRE_HOME}/lib
+export PATH=${JAVA_HOME}/bin:${PATH}</p>
+
+<p><strong>重新生效/etc/profile</strong></p>
+
+<pre><code>source /etc/profile
+</code></pre>
+
+<p>检测
+java -version
+会弹出java的版本</p>
+</div>
+  <footer class="post-footer">
+    
+  </footer>
+  
+  
+  
+  
+</article>
+</main>
+<footer class="footer">
+  <span>&copy; 2019 小新实验室</span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Designed by <a href="http://21beats.com/" rel="noopener" target="_blank">️21beats️</a>️</span>
+</footer>
+<script src="https://charles-one.github.io/xiaoxinLab/js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="https://charles-one.github.io/xiaoxinLab/js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  addMenuListener();
+  InstantClick.on('change', function() {
+    addMenuListener();
+  });
+  function addMenuListener() {
+    var $toggle = document.querySelector('.menu-toggle');
+    var $body = document.querySelector('body');
+    $toggle.addEventListener('click', function() {
+      $body.classList.toggle('noscroll');
+    }, false);
+  }
+</script>
+</body>
+</html>
+
