@@ -49,6 +49,37 @@
 <article class="post first-entry">
   <header class="post-header">
     <span class="welcome-emoji">👉</span>
+    <h2 class="post-title">安装jenkins和插件</h2>
+  </header>
+  <p class="post-summary">0.安装Jenkins, 需要提前安装JDK 1.8 安装JDK参考
+1.安装Jnekins  尽量翻墙执行,否则容易报443错误  sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key yum search jenkins sudo yum install jenkins  2. 启动服务与添加防火墙端口  启动jenkins  systemctl start jenkins
+ 检查是否能访问成功  jenkins 使用的8080端口
+访问http://&lt;服务器ip&gt;/8080
+访问失败, 检查端口是否存在
+netstat -lntup
+检查防火墙端口是否打开
+firewall-cmd --list-ports firewall-cmd --add-port=8080 --permanent  重启防火墙, 生效刚刚添加的端口
+firewall-cmd –reload
+再次访问http://&lt;服务器ip&gt;/8080
+查询jenkins存放的密码
+cat /var/lib/jenkins/secrets/initialAdminPassword
+进入后提示离线
+vim /var/lib/jenkins/hudson.model.UpdateCenter.xml https://updates.jenkins.io/update-center.json 中https更改成http
+重启jenkins服务
+sudo systemctl restart jenkins
+再次访问http://&lt;服务器ip&gt;/8080...</p>
+  <footer class="post-footer">
+    <p class="post-meta">2019.3.13</p>
+  </footer>
+  <a class="post-link" href="https://charles-one.github.io/xiaoxinLab/linux/%E5%AE%89%E8%A3%85jenkins%E5%92%8C%E6%8F%92%E4%BB%B6/"></a>
+</article>
+
+
+
+
+<article class="post post-entry">
+  <header class="post-header">
+    
     <h2 class="post-title">设置用户可sudo命令</h2>
   </header>
   <p class="post-summary">vi /etc/sudoers # new cc ALL=/bin/yum # cc用户名就可使用sudo yum  在cc用户下 sudo yum install vim 输入密码后再就可安装vim了...</p>

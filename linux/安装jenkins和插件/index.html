@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>安装jenkins和插件 - 小新实验室</title>
+  
+  <meta name="description" content="0.安装Jenkins, 需要提前安装JDK 1.8 安装JDK参考
+1.安装Jnekins  尽量翻墙执行,否则容易报443错误  sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key yum search jenkins sudo yum install jenkins  2. 启动服务与添加防火墙端口  启动jenkins  systemctl start jenkins
+ 检查是否能访问成功  jenkins 使用的8080端口
+访问http://&lt;服务器ip&gt;/8080
+访问失败, 检查端口是否存在
+netstat -lntup
+检查防火墙端口是否打开
+firewall-cmd --list-ports firewall-cmd --add-port=8080 --permanent  重启防火墙, 生效刚刚添加的端口
+firewall-cmd &ndash;reload
+再次访问http://&lt;服务器ip&gt;/8080
+查询jenkins存放的密码
+cat /var/lib/jenkins/secrets/initialAdminPassword
+进入后提示离线
+vim /var/lib/jenkins/hudson.model.UpdateCenter.xml https://updates.jenkins.io/update-center.json 中https更改成http
+重启jenkins服务
+sudo systemctl restart jenkins
+再次访问http://&lt;服务器ip&gt;/8080">
+  <meta name="author" content="">
+  
+  <link href="https://charles-one.github.io/xiaoxinLab/css/font.css" rel="stylesheet">
+  <link href="https://charles-one.github.io/xiaoxinLab/css/atom-one-dark.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link href="https://charles-one.github.io/xiaoxinLab/css/style.css" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" href="https://charles-one.github.io/xiaoxinLab/img/apple-touch-icon.png">
+  <link rel="icon" href="https://charles-one.github.io/xiaoxinLab/img/favicon.ico">
+  
+  <meta name="generator" content="Hugo 0.54.0" />
+  
+  <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/xiaoxinLab/index.xml" title="小新实验室">
+  
+</head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://charles-one.github.io/xiaoxinLab/">小新实验室</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view">
+  <header class="post-header">
+    <h1 class="post-title">安装jenkins和插件</h1>
+    <p class="post-meta">2019.3.13</p>
+  </header>
+  <div class="post-content">
+
+<h3 id="0-安装jenkins-需要提前安装jdk-1-8">0.安装Jenkins, 需要提前安装JDK 1.8</h3>
+
+<p><a href="https://charles-one.github.io/xiaoxinLab/linux/下载安装jdk和设置jdk环境变量/">安装JDK参考</a></p>
+
+<h3 id="1-安装jnekins">1.安装Jnekins</h3>
+
+<ul>
+<li>尽量翻墙执行,否则容易报443错误</li>
+</ul>
+
+<pre><code>sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+yum search jenkins
+sudo yum install jenkins
+</code></pre>
+
+<h3 id="2-启动服务与添加防火墙端口">2. 启动服务与添加防火墙端口</h3>
+
+<ul>
+<li>启动jenkins</li>
+</ul>
+
+<p>systemctl start jenkins</p>
+
+<ul>
+<li>检查是否能访问成功</li>
+</ul>
+
+<p>jenkins 使用的8080端口</p>
+
+<p>访问http://&lt;服务器ip&gt;/8080</p>
+
+<p>访问失败, 检查端口是否存在</p>
+
+<p>netstat -lntup</p>
+
+<p>检查防火墙端口是否打开</p>
+
+<pre><code>firewall-cmd --list-ports
+
+firewall-cmd --add-port=8080 --permanent
+
+</code></pre>
+
+<p>重启防火墙, 生效刚刚添加的端口</p>
+
+<p>firewall-cmd &ndash;reload</p>
+
+<p>再次访问http://&lt;服务器ip&gt;/8080</p>
+
+<p>查询jenkins存放的密码</p>
+
+<p>cat /var/lib/jenkins/secrets/initialAdminPassword</p>
+
+<p>进入后提示离线</p>
+
+<p>vim /var/lib/jenkins/hudson.model.UpdateCenter.xml
+<a href="https://updates.jenkins.io/update-center.json">https://updates.jenkins.io/update-center.json</a> 中https更改成http</p>
+
+<p>重启jenkins服务</p>
+
+<p>sudo systemctl restart jenkins</p>
+
+<p>再次访问http://&lt;服务器ip&gt;/8080</p>
+
+<h3 id="3-这里重新设置管理员密码-原来的就不可用了-安装推荐插件">3.这里重新设置管理员密码,原来的就不可用了.安装推荐插件</h3>
+
+<ul>
+<li>设置登录名,密码,全名,邮箱.</li>
+</ul>
+
+<p>访问http://&lt;服务器ip&gt;/8080, 并登录
+出现空白页
+<strong>这里需要再次重启jenkins(更改登录用户和密码, 需要重新加载)</strong></p>
+
+<pre><code>sudo systemctl restart jenkins
+</code></pre>
+
+<ul>
+<li>安装插件, 推荐Blue Ocean(更好的界面管理), Git Parameter</li>
+</ul>
+</div>
+  <footer class="post-footer">
+    
+  </footer>
+  
+  
+  
+  
+</article>
+</main>
+<footer class="footer">
+  <span>&copy; 2019 小新实验室</span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Designed by <a href="http://21beats.com/" rel="noopener" target="_blank">️21beats️</a>️</span>
+</footer>
+<script src="https://charles-one.github.io/xiaoxinLab/js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="https://charles-one.github.io/xiaoxinLab/js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  addMenuListener();
+  InstantClick.on('change', function() {
+    addMenuListener();
+  });
+  function addMenuListener() {
+    var $toggle = document.querySelector('.menu-toggle');
+    var $body = document.querySelector('body');
+    $toggle.addEventListener('click', function() {
+      $body.classList.toggle('noscroll');
+    }, false);
+  }
+</script>
+</body>
+</html>
+
