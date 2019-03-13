@@ -17,7 +17,7 @@
       <pubDate>Wed, 13 Mar 2019 21:35:23 +0800</pubDate>
       
       <guid>https://charles-one.github.io/xiaoxinLab/linux/%E4%BD%BF%E7%94%A8hugo%E5%92%8Cgithub-pages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/</guid>
-      <description>0. 前提条件  电脑安装git(必要条件) 安装go并设置环境变量(linux下必要条件)  1. 安装hugo  mac直接使用brew install hugo就可以了
+      <description>0. 前提条件  电脑安装git(所有平台必要条件) 安装go并设置环境变量(linux下必要条件)  1. 安装hugo  mac直接使用brew install hugo就可以了
  linux下源码安装
    下载并编译
 mkdir ~/src cd ~/src git clone https://github.com/gohugoio/hugo.git cd hugo go install  添加环境变量
