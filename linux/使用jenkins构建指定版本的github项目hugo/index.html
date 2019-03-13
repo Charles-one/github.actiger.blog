@@ -160,7 +160,7 @@ yum -y isntall gcc gcc-c++</p>
 <p>保存后, 再次构建v0.54.0(这个版本)
 应该是构建成功的</p>
 
-<h3 id="4-检查hugo能否使用">4. 检查Hugo能否使用</h3>
+<h3 id="4-检查hugo构建的版本">4. 检查Hugo构建的版本</h3>
 
 <ul>
 <li>解决在命令行hugo命令不识别问题</li>
@@ -179,7 +179,9 @@ export PATH=${PATH}:$GOPATH/bin
 
 <p>再次hugo vimersion</p>
 
-<pre><code>hugo version提示hugo命令未找到
+<pre><code>hugo version
+返回信息, 是我构建的版本
+Hugo Static Site Generator v0.54.0/extended linux/amd64 BuildDate: unknown
 </code></pre>
 </div>
   <footer class="post-footer">
