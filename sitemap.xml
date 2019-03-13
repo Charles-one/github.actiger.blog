@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://charles-one.github.io/xiaoxinLab/linux/%E4%BD%BF%E7%94%A8hugo%E5%92%8Cgithub-pages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/</loc>
+    <lastmod>2019-03-13T21:35:23+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://charles-one.github.io/xiaoxinLab/linux/%E4%BD%BF%E7%94%A8jenkins%E6%9E%84%E5%BB%BA%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC%E7%9A%84github%E9%A1%B9%E7%9B%AEhugo/</loc>
     <lastmod>2019-03-13T17:02:19+08:00</lastmod>
   </url>
@@ -54,7 +59,7 @@
   
   <url>
     <loc>https://charles-one.github.io/xiaoxinLab/linux/</loc>
-    <lastmod>2019-03-13T17:02:19+08:00</lastmod>
+    <lastmod>2019-03-13T21:35:23+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -71,7 +76,7 @@
   
   <url>
     <loc>https://charles-one.github.io/xiaoxinLab/</loc>
-    <lastmod>2019-03-13T17:02:19+08:00</lastmod>
+    <lastmod>2019-03-13T21:35:23+08:00</lastmod>
     <priority>0</priority>
   </url>
   

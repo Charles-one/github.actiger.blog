@@ -49,6 +49,29 @@
 <article class="post first-entry">
   <header class="post-header">
     <span class="welcome-emoji">👉</span>
+    <h2 class="post-title">使用Hugo和GitHub Pages搭建静态网站</h2>
+  </header>
+  <p class="post-summary">0. 前提条件  电脑安装git(必要条件) 安装go并设置环境变量(linux下必要条件)  1. 安装hugo  mac直接使用brew install hugo就可以了
+ linux下源码安装
+   下载并编译
+mkdir ~/src cd ~/src git clone https://github.com/gohugoio/hugo.git cd hugo go install  添加环境变量
+  # 当前用户~/go文件绝对路径是GOPATH,Go编译后的文件在~/go/bin中 # 如现在当前用户是jenkins vim /etc/profile 添加 export export GOPATH=/var/lib/jenkins/go export PATH=${PATH}:$GOPATH/bin  重新生效/etc/profile文件
+source /etc/profile
+再次hugo vimersion
+就会显示hugo版本, 表示可用
+2. 使用Hugo创建个人网站  创建静态网站文件夹  cd ~ hugo new site xiaoxinLab   写第一篇markdown文章, markdown语法参考  cd ~/xiaoxinLab 在目录~/xiaoxinLab下执行hugo new about....</p>
+  <footer class="post-footer">
+    <p class="post-meta">2019.3.13</p>
+  </footer>
+  <a class="post-link" href="https://charles-one.github.io/xiaoxinLab/linux/%E4%BD%BF%E7%94%A8hugo%E5%92%8Cgithub-pages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/"></a>
+</article>
+
+
+
+
+<article class="post post-entry">
+  <header class="post-header">
+    
     <h2 class="post-title">使用jenkins构建指定版本的Github项目Hugo</h2>
   </header>
   <p class="post-summary">0. 前提条件, 会使用到jenkins, go语言编译hugo  安装jenkinx&lt;/&gt;

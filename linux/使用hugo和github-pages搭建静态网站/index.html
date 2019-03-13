@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>使用Hugo和GitHub Pages搭建静态网站 - 小新实验室</title>
+  
+  <meta name="description" content="0. 前提条件  电脑安装git(必要条件) 安装go并设置环境变量(linux下必要条件)  1. 安装hugo  mac直接使用brew install hugo就可以了
+ linux下源码安装
+   下载并编译
+mkdir ~/src cd ~/src git clone https://github.com/gohugoio/hugo.git cd hugo go install  添加环境变量
+  # 当前用户~/go文件绝对路径是GOPATH,Go编译后的文件在~/go/bin中 # 如现在当前用户是jenkins vim /etc/profile 添加 export export GOPATH=/var/lib/jenkins/go export PATH=${PATH}:$GOPATH/bin  重新生效/etc/profile文件
+source /etc/profile
+再次hugo vimersion
+就会显示hugo版本, 表示可用
+2. 使用Hugo创建个人网站  创建静态网站文件夹  cd ~ hugo new site xiaoxinLab   写第一篇markdown文章, markdown语法参考  cd ~/xiaoxinLab 在目录~/xiaoxinLab下执行hugo new about.">
+  <meta name="author" content="">
+  
+  <link href="https://charles-one.github.io/xiaoxinLab/css/font.css" rel="stylesheet">
+  <link href="https://charles-one.github.io/xiaoxinLab/css/atom-one-dark.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link href="https://charles-one.github.io/xiaoxinLab/css/style.css" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" href="https://charles-one.github.io/xiaoxinLab/img/apple-touch-icon.png">
+  <link rel="icon" href="https://charles-one.github.io/xiaoxinLab/img/favicon.ico">
+  
+  <meta name="generator" content="Hugo 0.54.0" />
+  
+  <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/xiaoxinLab/index.xml" title="小新实验室">
+  
+</head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://charles-one.github.io/xiaoxinLab/">小新实验室</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view">
+  <header class="post-header">
+    <h1 class="post-title">使用Hugo和GitHub Pages搭建静态网站</h1>
+    <p class="post-meta">2019.3.13</p>
+  </header>
+  <div class="post-content">
+
+<h3 id="0-前提条件">0. 前提条件</h3>
+
+<ol>
+<li>电脑安装git(必要条件)</li>
+<li><a href="https://charles-one.github.io/xiaoxinLab/linux/linux安装go并设置环境变量/">安装go并设置环境变量(linux下必要条件)</a></li>
+</ol>
+
+<h3 id="1-安装hugo">1. 安装hugo</h3>
+
+<ul>
+<li><p>mac直接使用brew install hugo就可以了</p></li>
+
+<li><p>linux下源码安装</p></li>
+</ul>
+
+<ol>
+<li><p>下载并编译</p>
+
+<pre><code>mkdir ~/src
+cd ~/src
+git clone https://github.com/gohugoio/hugo.git
+cd hugo
+go install
+</code></pre></li>
+
+<li><p>添加环境变量</p></li>
+</ol>
+
+<pre><code># 当前用户~/go文件绝对路径是GOPATH,Go编译后的文件在~/go/bin中
+# 如现在当前用户是jenkins
+vim /etc/profile 添加
+export export GOPATH=/var/lib/jenkins/go
+export PATH=${PATH}:$GOPATH/bin
+</code></pre>
+
+<p>重新生效/etc/profile文件</p>
+
+<p>source /etc/profile</p>
+
+<p>再次hugo vimersion</p>
+
+<p>就会显示hugo版本, 表示可用</p>
+
+<h3 id="2-使用hugo创建个人网站">2. 使用Hugo创建个人网站</h3>
+
+<ul>
+<li>创建静态网站文件夹</li>
+</ul>
+
+<pre><code>cd ~
+
+hugo new site xiaoxinLab
+</code></pre>
+
+<ul>
+<li>写第一篇markdown文章, <a href="http://xianbai.me/learn-md/article/about/readme.html">markdown语法参考</a></li>
+</ul>
+
+<p>cd ~/xiaoxinLab
+在目录~/xiaoxinLab下执行hugo new about.md</p>
+
+<p>在这里会在~/xiaoxinLab/content下创建一个文件about.md</p>
+
+<p>ls ~/xiaoxinLab/content # 可以查看到</p>
+
+<p>添加内容&rdquo;我写的第1篇文章&rdquo;</p>
+
+<p>更改draft: true 为 draft:false</p>
+
+<ul>
+<li>使用主题生成本地服务, 查看博客效果</li>
+</ul>
+
+<p>cd ~/xiaoxinLab/themes</p>
+
+<p>git clone <a href="https://github.com/nanxiaobei/hugo-paper.git">https://github.com/nanxiaobei/hugo-paper.git</a></p>
+
+<p>cd ~/xiaoxinLab</p>
+
+<p>hugo server &ndash;theme=hugo-paper</p>
+
+<p>这里会提示输入<a href="http://locahost:1313">http://locahost:1313</a> 即可查看静态博客</p>
+
+<h3 id="3-创建github项目">3. 创建GitHub项目</h3>
+
+<ul>
+<li>在GitHub中创建xiaoxinLab的public公共类型(私人需要付费)项目, 创建完后<a href="https://github.com/Charles-one/xiaoxinLab">https://github.com/Charles-one/xiaoxinLab</a></li>
+</ul>
+
+<h3 id="4-生成本地静态网站">4. 生成本地静态网站</h3>
+
+<pre><code>cd ~/xiaoxinLab
+</code></pre>
+
+<h4 id="生成静态网页">生成静态网页</h4>
+
+<p><strong>注意baseUrl后的地址是HTTPS的类型, githup pages强制https类型</strong></p>
+
+<p><strong>baseUrl的结束有/</strong></p>
+
+<p><strong>xiaoxinLab注意大小写</strong></p>
+
+<pre><code>hugo --theme=hugo-paper --baseUrl=&quot;https://charles-one.github.io/xiaoxinLab/&quot;
+</code></pre>
+
+<p>这里会生成public文件夹</p>
+
+<p>cd ~/xiaoxinLab/public</p>
+
+<p>git init</p>
+
+<p>git remote add github git@github.com:Charles-one/xiaoxinLab.git</p>
+
+<p>git config user.email &ldquo;你的邮箱&rdquo;</p>
+
+<p>git config user.name &ldquo;你的名字&rdquo;</p>
+
+<p>git add .</p>
+
+<p>git commit -m &ldquo;init&rdquo;</p>
+
+<p>git push -u github master:master</p>
+
+<h3 id="5-github中选择github-pages的分支">5. Github中选择GitHub Pages的分支</h3>
+
+<p>进入,以我的项目setting设置里
+<a href="https://github.com/Charles-one/xiaoxinLab/settings">https://github.com/Charles-one/xiaoxinLab/settings</a></p>
+
+<p>设置-&gt;Github Pages</p>
+
+<p>选择Source为master即可</p>
+
+<h3 id="6-查看github-pages">6. 查看GitHub Pages</h3>
+
+<p>刷新进入<a href="https://github.com/Charles-one/xiaoxinLab/settings">https://github.com/Charles-one/xiaoxinLab/settings</a></p>
+
+<p>设置-&gt;Github Pages下, 看到你的网站地址是
+<strong><a href="https://charles-one.github.io/xiaoxinLab/">https://charles-one.github.io/xiaoxinLab/</a></strong></p>
+
+<p>哈哈, 终于可以博客了</p>
+</div>
+  <footer class="post-footer">
+    
+  </footer>
+  
+  
+  
+  
+</article>
+</main>
+<footer class="footer">
+  <span>&copy; 2019 小新实验室</span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Designed by <a href="http://21beats.com/" rel="noopener" target="_blank">️21beats️</a>️</span>
+</footer>
+<script src="https://charles-one.github.io/xiaoxinLab/js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="https://charles-one.github.io/xiaoxinLab/js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  addMenuListener();
+  InstantClick.on('change', function() {
+    addMenuListener();
+  });
+  function addMenuListener() {
+    var $toggle = document.querySelector('.menu-toggle');
+    var $body = document.querySelector('body');
+    $toggle.addEventListener('click', function() {
+      $body.classList.toggle('noscroll');
+    }, false);
+  }
+</script>
+</body>
+</html>
+
