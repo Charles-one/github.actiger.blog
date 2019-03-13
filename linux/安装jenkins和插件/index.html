@@ -8,22 +8,12 @@
   <title>安装jenkins和插件 - 小新实验室</title>
   
   <meta name="description" content="0.安装Jenkins, 需要提前安装JDK 1.8 安装JDK参考
-1.安装Jnekins  尽量翻墙执行,否则容易报443错误  sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key yum search jenkins sudo yum install jenkins  2. 启动服务与添加防火墙端口  启动jenkins  systemctl start jenkins
- 检查是否能访问成功  jenkins 使用的8080端口
-访问http://&lt;服务器ip&gt;/8080
-访问失败, 检查端口是否存在
-netstat -lntup
-检查防火墙端口是否打开
-firewall-cmd --list-ports firewall-cmd --add-port=8080 --permanent  重启防火墙, 生效刚刚添加的端口
-firewall-cmd &ndash;reload
-再次访问http://&lt;服务器ip&gt;/8080
-查询jenkins存放的密码
-cat /var/lib/jenkins/secrets/initialAdminPassword
-进入后提示离线
-vim /var/lib/jenkins/hudson.model.UpdateCenter.xml https://updates.jenkins.io/update-center.json 中https更改成http
-重启jenkins服务
-sudo systemctl restart jenkins
-再次访问http://&lt;服务器ip&gt;/8080">
+1.安装Jnekins  尽量翻墙执行,否则容易报443错误  sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key yum search jenkins sudo yum install jenkins  2. 启动服务与添加防火墙端口  启动jenkins  systemctl start jenkins 如果这里有报错信息,并且提示 &ldquo;systemctl status jenkins.service&rdquo; and &ldquo;journalctl -xe&rdquo; for details 查看详情
+journalctl -xe可以看到原因/usr/bin/java: 没有那个文件或目录
+需要更改vim /etc/init.d/jenkins
+candidates=&quot; /etc/alternatives/java /usr/lib/jvm/java-1.8.0/bin/java /usr/lib/jvm/jre-1.8.0/bin/java /usr/lib/jvm/java-1.7.0/bin/java /usr/lib/jvm/jre-1.7.0/bin/java /usr/java/jdk1.8.0_152/bin/java 这个是修改后的jdk路径（修改前是/usr/bin/java） &quot;  systemctl daemon-reload (重新加载工具)
+systemctl start jenkins (再次启动jenkins)
+ 检查是否能访问成功  jenkins 使用的8080端口">
   <meta name="author" content="">
   
   <link href="https://charles-one.github.io/xiaoxinLab/css/font.css" rel="stylesheet">
@@ -83,7 +73,26 @@ sudo yum install jenkins
 <li>启动jenkins</li>
 </ul>
 
-<p>systemctl start jenkins</p>
+<p>systemctl start jenkins
+如果这里有报错信息,并且提示 &ldquo;systemctl status jenkins.service&rdquo; and &ldquo;journalctl -xe&rdquo; for details 查看详情</p>
+
+<p>journalctl -xe可以看到原因/usr/bin/java: 没有那个文件或目录</p>
+
+<p>需要更改vim /etc/init.d/jenkins</p>
+
+<pre><code>candidates=&quot;
+/etc/alternatives/java
+/usr/lib/jvm/java-1.8.0/bin/java
+/usr/lib/jvm/jre-1.8.0/bin/java
+/usr/lib/jvm/java-1.7.0/bin/java
+/usr/lib/jvm/jre-1.7.0/bin/java
+/usr/java/jdk1.8.0_152/bin/java  这个是修改后的jdk路径（修改前是/usr/bin/java）
+&quot;
+</code></pre>
+
+<p>systemctl daemon-reload (重新加载工具)</p>
+
+<p>systemctl start jenkins (再次启动jenkins)</p>
 
 <ul>
 <li>检查是否能访问成功</li>
