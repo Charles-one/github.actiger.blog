@@ -55,7 +55,7 @@
     
     <h2 class="post-title">Jmeter性能测试并添加服务器cpu内存使用率</h2>
   </header>
-  <p class="post-summary">0. 准备工作  测试服务静态博客Hugo, 建立Hugo服务作为测试接口 服务端centOS7.6.1810, 服务端ServerAgent 本机jmeter, jmeter插件管理, Servers Performance Monitoring插件  1.服务端CentOS7 搭建Hugo, 并建立Hugo服务, 创建接口.  搭建Huog  请参考这个搭建Hugo文章
+  <p class="post-summary">0. 准备工作  测试服务静态博客Hugo, 建立Hugo服务作为测试接口 服务端centOS7.6.1810, 服务端ServerAgent 本机安装Java8, 并设置环境变量 本机jmeter, jmeter插件管理, Servers Performance Monitoring插件  1.服务端CentOS7 搭建Hugo, 并建立Hugo服务, 创建接口.  搭建Huog  请参考这个搭建Hugo文章
 参考到这条语句就可以了,这条语句下面的内容不用看了
 hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&#34; --port=1313   创建接口  hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&#34; --port=1313   检测服务端接口  在浏览器中访问 http://你的ip:1313.如未指定,则是http://localhost:1313
 能正常访问显示文章就完成了
