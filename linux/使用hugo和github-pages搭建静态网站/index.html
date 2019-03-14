@@ -7,7 +7,7 @@
   
   <title>使用Hugo和GitHub Pages搭建静态网站 - 小新实验室</title>
   
-  <meta name="description" content="0. 前提条件  电脑安装git(所有平台必要条件) 安装go并设置环境变量(linux下必要条件)  1. 安装hugo  mac直接使用brew install hugo就可以了
+  <meta name="description" content="0. 前提条件  电脑安装git(所有平台必要条件) 安装go并设置环境变量(linux下必要条件) 虚拟机Centos7.6.1810  1. 安装hugo  mac直接使用brew install hugo就可以了
  linux下源码安装
    下载并编译
 mkdir ~/src cd ~/src git clone https://github.com/gohugoio/hugo.git cd hugo go install  添加环境变量
@@ -58,6 +58,7 @@ source /etc/profile
 <ol>
 <li>电脑安装git(所有平台必要条件)</li>
 <li><a href="https://charles-one.github.io/xiaoxinLab/linux/linux安装go并设置环境变量/">安装go并设置环境变量(linux下必要条件)</a></li>
+<li>虚拟机Centos7.6.1810</li>
 </ol>
 
 <h3 id="1-安装hugo">1. 安装hugo</h3>
@@ -121,6 +122,14 @@ hugo new site xiaoxinLab
 <p>添加内容&rdquo;我写的第1篇文章&rdquo;</p>
 
 <p>更改draft: true 为 draft:false</p>
+
+<ul>
+<li>Centos7.6.1810需要添加防火墙端口</li>
+</ul>
+
+<pre><code>firewall-cmd --add-port=1313/tcp --permanent
+firewall-cmd --reload
+</code></pre>
 
 <ul>
 <li>使用主题生成本地服务, 查看博客效果</li>
