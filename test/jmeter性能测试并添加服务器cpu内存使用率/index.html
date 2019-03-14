@@ -141,7 +141,7 @@ cd ServerAgent-2.2.1
 <p>在apache-jmeter-5.1/bin下 ./jmeter(linxu mac下启动)</p>
 
 <ol>
-<li><p>使用Jmeter建一个线程组(Thread Group), 并设置线程数500, 线程组时间300</p></li>
+<li><p>使用Jmeter建一个线程组(Thread Group), 并设置线程数500, 线程组时间300, 循环3</p></li>
 
 <li><p>线程组(Thread Group)-&gt;add-&gt;Sample-&gt;HTTP Request, 即上面线程创建HTTP请求</p></li>
 </ol>
@@ -171,6 +171,20 @@ cd ServerAgent-2.2.1
 <h3 id="5-运行刚刚的线程">5. 运行刚刚的线程</h3>
 
 <p>运行刚刚的线程即可获取10.211.55.9 服务端的cpu,内存,网络情况</p>
+
+<ol>
+<li><p>在图像Jmeter上运行</p></li>
+
+<li><p>后台运行
+在apache-jmeter-5.1/bin下 (linxu mac下启动, windows是jmeter.bat)</p></li>
+</ol>
+
+<pre><code>./jmeter -n -t test_file/my_hugo_test.jmx -l result_report_4.jtl -e -o Report_4
+</code></pre>
+
+<p>报告放在Report_4中, 用浏览器打开index.html即可</p>
+
+<p>结合图形页面中cpu 内存使用, 分析接口压力情况</p>
 </div>
   <footer class="post-footer">
     
