@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://charles-one.github.io/xiaoxinLab/test/jmeter%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B9%B6%E6%B7%BB%E5%8A%A0%E6%9C%8D%E5%8A%A1%E5%99%A8cpu%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E7%8E%87/</loc>
+    <lastmod>2019-03-14T23:31:20+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://charles-one.github.io/xiaoxinLab/linux/%E4%BD%BF%E7%94%A8hugo%E5%92%8Cgithub-pages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/</loc>
     <lastmod>2019-03-13T21:35:23+08:00</lastmod>
   </url>
@@ -75,8 +80,14 @@
   </url>
   
   <url>
+    <loc>https://charles-one.github.io/xiaoxinLab/test/</loc>
+    <lastmod>2019-03-14T23:31:20+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://charles-one.github.io/xiaoxinLab/</loc>
-    <lastmod>2019-03-13T21:35:23+08:00</lastmod>
+    <lastmod>2019-03-14T23:31:20+08:00</lastmod>
     <priority>0</priority>
   </url>
   
