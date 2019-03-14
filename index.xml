@@ -17,8 +17,8 @@
       <pubDate>Thu, 14 Mar 2019 23:31:20 +0800</pubDate>
       
       <guid>https://charles-one.github.io/xiaoxinLab/test/jmeter%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B9%B6%E6%B7%BB%E5%8A%A0%E6%9C%8D%E5%8A%A1%E5%99%A8cpu%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E7%8E%87/</guid>
-      <description>0. 准备工作  测试服务静态博客Hugo, 建立Hugo服务作为测试接口 服务端centOS7.6.1810, 服务端ServerAgent 本机安装Java8, 并设置环境变量 本机jmeter, jmeter插件管理, Servers Performance Monitoring插件  1.服务端CentOS7 搭建Hugo, 并建立Hugo服务, 创建接口.  搭建Huog  请参考这个搭建Hugo文章
-参考到这条语句就可以了,这条语句下面的内容不用看了
+      <description>0. 准备工作  搭建静态博客Hugo, 建立Hugo服务作为测试接口 服务端centOS7.6.1810, 服务端ServerAgent 本机安装Java8, 并设置环境变量 本机jmeter, jmeter插件管理, Servers Performance Monitoring插件  1.服务端CentOS7 搭建Hugo, 并建立Hugo服务, 创建接口.  搭建Huog  请参考这个搭建Hugo文章
+参考到这条语句下就可以了,这条语句下面的内容不用看了
 hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&amp;quot; --port=1313   创建接口  hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&amp;quot; --port=1313   检测服务端接口  在浏览器中访问 http://你的ip:1313.如未指定,则是http://localhost:1313
 能正常访问显示文章就完成了
 2. 本机下载jmeter, jmeter插件管理, Servers Performance Monitoring插件  下载地址Jmeter, 安装插件  Jmeter下载地址
