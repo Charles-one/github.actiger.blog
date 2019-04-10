@@ -7,10 +7,9 @@
   
   <title>Mac使用sshpass和alias管理ssh账号密码 - 小新实验室</title>
   
-  <meta name="description" content="0.准备工作  使用brew安装sshpass软件 在.bashrc或者.zshrc中写入连接服务器别名alias  1.使用brew安装sshpass软件 因为sshpass对新手来手使用不安全, 所以仅推荐连接本机虚拟机中. 正是因为担心会滥用所以brew并没有直接提供sshpass的安装. 项目地址 https://github.com/hudochenkov/homebrew-sshpass  直接使用brew安装  brew install hudochenkov/sshpass/sshpass  2.在.bashrc或者.zshrc中写入连接服务器别名alias  sshpass使用  # sshpass -p后接密码, ssh 后的-p是指定端口 # 分成2部分内容一是sshpass -p, 二是ssh root@10.211.55.9 -p 22 # 使用密码password连接10.211.55.9中22端口的root用户 sshpass -p&#39;password&#39; ssh root@10.211.55.9 -p 22   建立别名并生效  alias tolocal=&quot;sshpass -p&#39;password&#39; ssh root@10.211.55.9 -p 12340&quot;  将上面内容放到.bashrc(bash用户)或者.zshrc(zsh用户)中
+  <meta name="description" content="0.内容.  使用brew安装sshpass软件 在.bashrc或者.zshrc中写入连接服务器别名alias, 并测试连接.  1.使用brew安装sshpass软件 因为sshpass对新手来手使用不安全(某方面密码可以history中看到), 所以仅推荐连接本机虚拟机中. 正是因为担心会滥用所以brew并没有直接提供sshpass的安装. 项目地址 https://github.com/hudochenkov/homebrew-sshpass 强制推荐使用SSH密钥  直接使用brew安装  brew install hudochenkov/sshpass/sshpass  2.在.bashrc或者.zshrc中写入连接服务器别名alias  sshpass使用  # sshpass -p后接密码, ssh 后的-p是指定端口 # 分成2部分内容一是sshpass -p, 二是ssh root@10.211.55.9 -p 22 # 使用密码password连接10.211.55.9中22端口的root用户 sshpass -p&#39;password&#39; ssh root@10.211.55.9 -p 22   建立别名并生效, 这样就避免在history中直接看到密码.  alias tolocal=&quot;sshpass -p&#39;password&#39; ssh root@10.211.55.9 -p 12340&quot;  将上面内容放到.bashrc(bash用户)或者.zshrc(zsh用户)中
 再次生成配置
-source ~/.bashrc # 或者 source ~/.zshrc   测试  在终端中输入并回车
-tolocal  即可连接本地虚拟机中.">
+source ~/.bashrc # 或者 source ~/.zshrc   测试  在终端中输入并回车">
   <meta name="author" content="">
   
   <link href="https://charles-one.github.io/xiaoxinLab/css/font.css" rel="stylesheet">
@@ -48,18 +47,20 @@ tolocal  即可连接本地虚拟机中.">
   </header>
   <div class="post-content">
 
-<h2 id="0-准备工作">0.准备工作</h2>
+<h2 id="0-内容">0.内容.</h2>
 
 <ol>
 <li>使用brew安装sshpass软件</li>
-<li>在.bashrc或者.zshrc中写入连接服务器别名alias</li>
+<li>在.bashrc或者.zshrc中写入连接服务器别名alias, 并测试连接.</li>
 </ol>
 
 <h2 id="1-使用brew安装sshpass软件">1.使用brew安装sshpass软件</h2>
 
-<h3 id="因为sshpass对新手来手使用不安全-所以仅推荐连接本机虚拟机中-正是因为担心会滥用所以brew并没有直接提供sshpass的安装">因为sshpass对新手来手使用不安全, 所以仅推荐连接本机虚拟机中. 正是因为担心会滥用所以brew并没有直接提供sshpass的安装.</h3>
+<h3 id="因为sshpass对新手来手使用不安全-某方面密码可以history中看到-所以仅推荐连接本机虚拟机中-正是因为担心会滥用所以brew并没有直接提供sshpass的安装">因为sshpass对新手来手使用不安全(某方面密码可以history中看到), 所以仅推荐连接本机虚拟机中. 正是因为担心会滥用所以brew并没有直接提供sshpass的安装.</h3>
 
 <h3 id="项目地址-https-github-com-hudochenkov-homebrew-sshpass-https-github-com-hudochenkov-homebrew-sshpass">项目地址 <a href="https://github.com/hudochenkov/homebrew-sshpass">https://github.com/hudochenkov/homebrew-sshpass</a></h3>
+
+<h3 id="强制推荐使用-ssh密钥-https-charles-one-github-io-xiaoxinlab-linux-ssh密钥生成配置和登陆服务器与github使用钥匙">强制推荐使用<a href="https://charles-one.github.io/xiaoxinLab/linux/ssh密钥生成配置和登陆服务器与github使用钥匙/">SSH密钥</a></h3>
 
 <ul>
 <li>直接使用brew安装</li>
@@ -82,7 +83,7 @@ sshpass -p'password' ssh root@10.211.55.9 -p 22
 </code></pre>
 
 <ul>
-<li>建立别名并生效</li>
+<li>建立别名并生效, 这样就避免在history中直接看到密码.</li>
 </ul>
 
 <pre><code>alias tolocal=&quot;sshpass -p'password' ssh root@10.211.55.9 -p 12340&quot;

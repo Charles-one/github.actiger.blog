@@ -6,10 +6,19 @@
     <description>Recent content in Linuxes on 小新实验室</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Apr 2019 23:31:03 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 11 Apr 2019 00:45:56 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/xiaoxinLab/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>tmux保存会话和剪贴板插件安装及使用</title>
+      <link>https://charles-one.github.io/xiaoxinLab/linux/tmux%E4%BF%9D%E5%AD%98%E4%BC%9A%E8%AF%9D%E5%92%8C%E5%89%AA%E8%B4%B4%E6%9D%BF%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Thu, 11 Apr 2019 00:45:56 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/xiaoxinLab/linux/tmux%E4%BF%9D%E5%AD%98%E4%BC%9A%E8%AF%9D%E5%92%8C%E5%89%AA%E8%B4%B4%E6%9D%BF%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/</guid>
+      <description>0.内容  安装tmux 安装tmux插件管理 安装保存会话和剪贴板插件  1.安装tmux 为什么要使用tmux, 可以永久保存会话, 就不用每次都要切换到对应工作目录中.  Mac下  brew install tmux   linux, 参考Github地址  git clone https://github.com/tmux/tmux.git cd tmux sh autogen.sh ./configure &amp;amp;&amp;amp; make  2.安装tmux插件管理  参考地址  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm   新建~/.tmux.conf, 复制下面内容到这个文件下.  # List of plugins set -g @plugin &#39;tmux-plugins/tpm&#39; set -g @plugin &#39;tmux-plugins/tmux-sensible&#39; # Other examples: # set -g @plugin &#39;github_username/plugin_name&#39; # set -g @plugin &#39;git@github.</description>
+    </item>
     
     <item>
       <title>Mac使用sshpass和alias管理ssh账号密码</title>
@@ -17,10 +26,9 @@
       <pubDate>Wed, 10 Apr 2019 23:31:03 +0800</pubDate>
       
       <guid>https://charles-one.github.io/xiaoxinLab/linux/mac%E4%BD%BF%E7%94%A8sshpass%E5%92%8Calias%E7%AE%A1%E7%90%86ssh%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/</guid>
-      <description>0.准备工作  使用brew安装sshpass软件 在.bashrc或者.zshrc中写入连接服务器别名alias  1.使用brew安装sshpass软件 因为sshpass对新手来手使用不安全, 所以仅推荐连接本机虚拟机中. 正是因为担心会滥用所以brew并没有直接提供sshpass的安装. 项目地址 https://github.com/hudochenkov/homebrew-sshpass  直接使用brew安装  brew install hudochenkov/sshpass/sshpass  2.在.bashrc或者.zshrc中写入连接服务器别名alias  sshpass使用  # sshpass -p后接密码, ssh 后的-p是指定端口 # 分成2部分内容一是sshpass -p, 二是ssh root@10.211.55.9 -p 22 # 使用密码password连接10.211.55.9中22端口的root用户 sshpass -p&#39;password&#39; ssh root@10.211.55.9 -p 22   建立别名并生效  alias tolocal=&amp;quot;sshpass -p&#39;password&#39; ssh root@10.211.55.9 -p 12340&amp;quot;  将上面内容放到.bashrc(bash用户)或者.zshrc(zsh用户)中
+      <description>0.内容.  使用brew安装sshpass软件 在.bashrc或者.zshrc中写入连接服务器别名alias, 并测试连接.  1.使用brew安装sshpass软件 因为sshpass对新手来手使用不安全(某方面密码可以history中看到), 所以仅推荐连接本机虚拟机中. 正是因为担心会滥用所以brew并没有直接提供sshpass的安装. 项目地址 https://github.com/hudochenkov/homebrew-sshpass 强制推荐使用SSH密钥  直接使用brew安装  brew install hudochenkov/sshpass/sshpass  2.在.bashrc或者.zshrc中写入连接服务器别名alias  sshpass使用  # sshpass -p后接密码, ssh 后的-p是指定端口 # 分成2部分内容一是sshpass -p, 二是ssh root@10.211.55.9 -p 22 # 使用密码password连接10.211.55.9中22端口的root用户 sshpass -p&#39;password&#39; ssh root@10.211.55.9 -p 22   建立别名并生效, 这样就避免在history中直接看到密码.  alias tolocal=&amp;quot;sshpass -p&#39;password&#39; ssh root@10.211.55.9 -p 12340&amp;quot;  将上面内容放到.bashrc(bash用户)或者.zshrc(zsh用户)中
 再次生成配置
-source ~/.bashrc # 或者 source ~/.zshrc   测试  在终端中输入并回车
-tolocal  即可连接本地虚拟机中.</description>
+source ~/.bashrc # 或者 source ~/.zshrc   测试  在终端中输入并回车</description>
     </item>
     
     <item>
