@@ -53,6 +53,24 @@
 <article class="post post-entry">
   <header class="post-header">
     
+    <h2 class="post-title">Mac使用sshpass和alias管理ssh账号密码</h2>
+  </header>
+  <p class="post-summary">0.准备工作  使用brew安装sshpass软件 在.bashrc或者.zshrc中写入连接服务器别名alias  1.使用brew安装sshpass软件 因为sshpass对新手来手使用不安全, 所以仅推荐连接本机虚拟机中. 正是因为担心会滥用所以brew并没有直接提供sshpass的安装. 项目地址 https://github.com/hudochenkov/homebrew-sshpass  直接使用brew安装  brew install hudochenkov/sshpass/sshpass  2.在.bashrc或者.zshrc中写入连接服务器别名alias  sshpass使用  # sshpass -p后接密码, ssh 后的-p是指定端口 # 分成2部分内容一是sshpass -p, 二是ssh root@10.211.55.9 -p 22 # 使用密码password连接10.211.55.9中22端口的root用户 sshpass -p&#39;password&#39; ssh root@10.211.55.9 -p 22   建立别名并生效  alias tolocal=&#34;sshpass -p&#39;password&#39; ssh root@10.211.55.9 -p 12340&#34;  将上面内容放到.bashrc(bash用户)或者.zshrc(zsh用户)中
+再次生成配置
+source ~/.bashrc # 或者 source ~/.zshrc   测试  在终端中输入并回车
+tolocal  即可连接本地虚拟机中....</p>
+  <footer class="post-footer">
+    <p class="post-meta">2019.4.10</p>
+  </footer>
+  <a class="post-link" href="https://charles-one.github.io/xiaoxinLab/linux/mac%E4%BD%BF%E7%94%A8sshpass%E5%92%8Calias%E7%AE%A1%E7%90%86ssh%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/"></a>
+</article>
+
+
+
+
+<article class="post post-entry">
+  <header class="post-header">
+    
     <h2 class="post-title">SSH密钥生成配置和登陆服务器与github使用钥匙</h2>
   </header>
   <p class="post-summary">1.生成SSH公钥私钥  进入文件夹中(注:所有”#“表示说明)  cd ~/.ssh/ # 其中-t rsa是指定rsa加密算法, -C &#34;asus&#34;是添加描述asus ssh-keygen -t rsa -C &#34;asus&#34;  # 说明: 默认是保存在/Users/你的用户名/.ssh/下, 如果你指定了名字则保存在当前路径下. # 指定的必须是文件且是绝对路径 # 在这里我已经在 ~/.ssh/中, 默认会保存在这里 Enter file in which to save the key (/Users/username(你的用户名)/.ssh/id_rsa): asus_rsa # 这里提示输入密码, 直接Enter表示不要密码 Enter passphrase (empty for no passphrase): # 与上面输入的密码保持一致, 如果上面没输入,这里也不要输入 Enter same passphrase again:   提示这些信息就表示生成成功  Your identification has been saved in /Users/username/.ssh/asus_rsa. Your public key has been saved in /Users/username/....</p>
@@ -227,26 +245,14 @@ mv /home/olderuser /home/newuser  ...</p>
 
 
 
-
-<article class="post post-entry">
-  <header class="post-header">
+<footer class="list-footer">
+  <nav class="pagination">
     
-    <h2 class="post-title">更改ssh端口与禁止root登录增强服务器安全</h2>
-  </header>
-  <p class="post-summary">0.前提条件 1.安装软件Centos7, 版本7.6.1810 CentOS-7-x86_64-Minimal-1810.iso 2.root用户及密码, 已联网  如未联网,请打开网卡, 并重启 设置/etc/sysconfig/network-scripts/ifcfg-eth0 中ONBOOT =yes  重启电脑
-reboot  1.登录root  需要查询当前Centos7的主机ip  ifconfig  提示无此命令  yum -y install net-tools
-再次 ifconfig查询ip
- 使用ssh软件登录root用户, 默认使用22端口, 不用指定  ssh root@ip  输入密码  2.更改ssh服务端口, 防火墙端口, SELINUX端口  更改sshd.service端口, 端口可选择&gt;10000避免与其他软件冲突.  vim /etc/ssh/sshd_config更改Port 12340
-systemctl restart sshd   添加防火墙端口
-firewall-cmd --zone=public --add-port=12340/tcp --permanent (永久生效必须用--permanent) firewall-cmd --reload  更改SELINUX端口, 因为SELINUX的原因, ssh被设定到22端口上了, 必须更改
-  借助软件来更改 安装 yum -y install policycoreutils-python semanage port -a -t ssh_port_t -p tcp 12340...</p>
-  <footer class="post-footer">
-    <p class="post-meta">2019.3.12</p>
-  </footer>
-  <a class="post-link" href="https://charles-one.github.io/xiaoxinLab/linux/%E6%9B%B4%E6%94%B9ssh%E7%AB%AF%E5%8F%A3%E4%B8%8E%E7%A6%81%E6%AD%A2root%E7%99%BB%E5%BD%95%E5%A2%9E%E5%BC%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8/"></a>
-</article>
-
-
+    
+    <a class="pagination-next" href="/xiaoxinLab/linux/page/2/">Next Page →</a>
+    
+  </nav>
+</footer>
 
 </main>
 <footer class="footer">
