@@ -115,15 +115,6 @@ systemctl start jenkins (再次启动jenkins)
     </item>
     
     <item>
-      <title>安装docker Ce和使用docker安装nginx</title>
-      <link>https://charles-one.github.io/xiaoxinLab/linux/%E5%AE%89%E8%A3%85docker-ce%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
-      <pubDate>Tue, 12 Mar 2019 23:59:11 +0800</pubDate>
-      
-      <guid>https://charles-one.github.io/xiaoxinLab/linux/%E5%AE%89%E8%A3%85docker-ce%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
-      <description>0. 目录  安装Docker Docker简单使用  1.安装docker  卸载版本Docker  sudo yum remove docker \ docker-common \ docker-selinux \ docker-engine   设置仓库  sudo yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 sudo yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo   安装docker-ce  sudo yum install docker-ce   卸载docker-ce  sudo yum remove docker-ce sudo rm -rf /var/lib/docker   更换国内源  vim vim /etc/docker/daemon.json { &amp;quot;registry-mirrors&amp;quot;: [ &amp;quot;http://hub-mirror.</description>
-    </item>
-    
-    <item>
       <title>设置用户可sudo命令</title>
       <link>https://charles-one.github.io/xiaoxinLab/linux/%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%8F%AFsudo%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Tue, 12 Mar 2019 22:16:35 +0800</pubDate>

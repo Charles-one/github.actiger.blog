@@ -207,15 +207,15 @@ systemctl start jenkins (再次启动jenkins)
 
 <article class="post-entry">
   <header class="entry-header">
-    <h2>安装docker Ce和使用docker安装nginx</h2>
+    <h2>设置用户可sudo命令</h2>
   </header>
   <section class="entry-content">
-   <p>0. 目录  安装Docker Docker简单使用  1.安装docker  卸载版本Docker  sudo yum remove docker \ docker-common \ docker-selinux \ docker-engine   设置仓库  sudo yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 sudo yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo   安装docker-ce  sudo yum install docker-ce   卸载docker-ce  sudo yum remove docker-ce sudo rm -rf /var/lib/docker   更换国内源  vim vim /etc/docker/daemon.json { &#34;registry-mirrors&#34;: [ &#34;http://hub-mirror....</p>
+   <p>vi /etc/sudoers # new cc ALL=/bin/yum # cc用户名就可使用sudo yum  在cc用户下 sudo yum install vim 输入密码后再就可安装vim了...</p>
   </section>
   <footer class="entry-footer">
     <time >2019.3.12</time>
   </footer>
-  <a class="entry-link" href="https://charles-one.github.io/xiaoxinLab/linux/%E5%AE%89%E8%A3%85docker-ce%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"></a>
+  <a class="entry-link" href="https://charles-one.github.io/xiaoxinLab/linux/%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%8F%AFsudo%E5%91%BD%E4%BB%A4/"></a>
 </article>
 
 
