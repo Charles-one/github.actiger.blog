@@ -1,51 +1,53 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-  <title>Linux安装go并设置环境变量 - 小新实验室</title>
-  
-  <meta name="description" content=" Mac用户直接使用brew install go即可 Linux用户 wget https://dl.google.com/go/go1.12.linux-amd64.tar.gz
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Linux安装go并设置环境变量 - 小新实验室</title>
+    
+    <meta name="description" content=" Mac用户直接使用brew install go即可 Linux用户 wget https://dl.google.com/go/go1.12.linux-amd64.tar.gz
 tar -C /usr/local -xzf go1.12.linux-amd64.tar.gz
 root用户去编辑vim /etc/profile中添加如下信息
 export PATH=$PATH:/usr/local/go/bin  用户使用go需要 重新生效这个文件
 source /etc/profile  ">
-  <meta name="author" content="">
-  
-  <link href="https://charles-one.github.io/xiaoxinLab/css/font.css" rel="stylesheet">
-  <link href="https://charles-one.github.io/xiaoxinLab/css/atom-one-dark.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
-  <link href="https://charles-one.github.io/xiaoxinLab/css/style.css" rel="stylesheet">
-  
-  <link rel="apple-touch-icon" href="https://charles-one.github.io/xiaoxinLab/img/apple-touch-icon.png">
-  <link rel="icon" href="https://charles-one.github.io/xiaoxinLab/img/favicon.ico">
-  
-  <meta name="generator" content="Hugo 0.54.0" />
-  
-  <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/xiaoxinLab/index.xml" title="小新实验室">
-  
-</head>
-<body class="single">
-  <header class="header">
+    <meta name="author" content="">
     
-    <p class="title"><a href="https://charles-one.github.io/xiaoxinLab/">小新实验室</a></p>
+    <link href="https://charles-one.github.io/xiaoxinLab/css/github-gist.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/xiaoxinLab/css/style.css" rel="stylesheet">
     
-    <button class="menu-toggle" type="button"></button>
-    <nav class="menu">
-      <ul>
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/xiaoxinLab/img/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/xiaoxinLab/img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.54.0" />
+    
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/xiaoxinLab/index.xml" title="小新实验室">
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <div class="wrap">
         
+        <p class="logo"><a href="https://charles-one.github.io/xiaoxinLab/">小新实验室 </a></p>
         
-      </ul>
+        <button class="menu-toggle" type="button"></button>
+      </div>
+    </header>
+    <nav class="nav">
+    <ul class="menu">
+      
+      
+    </ul>
     </nav>
-  </header>
-  <main class="main">
+    <main class="main">
 
-<article class="post post-view">
+
+<article class="post-single">
   <header class="post-header">
     <h1 class="post-title">Linux安装go并设置环境变量</h1>
-    <p class="post-meta">2019.3.13</p>
+    <div class="post-meta">2019.3.13</div>
   </header>
   <div class="post-content">
 
@@ -76,6 +78,7 @@ source /etc/profile  ">
   
   
 </article>
+
 </main>
 <footer class="footer">
   <span>&copy; 2019 小新实验室</span>
@@ -86,15 +89,21 @@ source /etc/profile  ">
 <script data-no-instant>InstantClick.init();</script>
 <script src="https://charles-one.github.io/xiaoxinLab/js/highlight.min.js" data-no-instant></script>
 <script data-no-instant>
-  addMenuListener();
+  hljs.initHighlightingOnLoad();
+  setMenuListener();
+
   InstantClick.on('change', function() {
-    addMenuListener();
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuListener();
   });
-  function addMenuListener() {
-    var $toggle = document.querySelector('.menu-toggle');
-    var $body = document.querySelector('body');
-    $toggle.addEventListener('click', function() {
-      $body.classList.toggle('noscroll');
+
+  function setMenuListener() {
+    var menuToggle = document.querySelector('.menu-toggle');
+    var body = document.querySelector('body');
+    menuToggle.addEventListener('click', function() {
+      body.classList.toggle('no-scroll');
     }, false);
   }
 </script>

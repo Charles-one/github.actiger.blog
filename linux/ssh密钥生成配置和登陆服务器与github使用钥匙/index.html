@@ -1,47 +1,49 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-  <title>SSH密钥生成配置和登陆服务器与github使用钥匙 - 小新实验室</title>
-  
-  <meta name="description" content="1.生成SSH公钥私钥  进入文件夹中(注:所有&rdquo;#&ldquo;表示说明)  cd ~/.ssh/ # 其中-t rsa是指定rsa加密算法, -C &quot;asus&quot;是添加描述asus ssh-keygen -t rsa -C &quot;asus&quot;  # 说明: 默认是保存在/Users/你的用户名/.ssh/下, 如果你指定了名字则保存在当前路径下. # 指定的必须是文件且是绝对路径 # 在这里我已经在 ~/.ssh/中, 默认会保存在这里 Enter file in which to save the key (/Users/username(你的用户名)/.ssh/id_rsa): asus_rsa # 这里提示输入密码, 直接Enter表示不要密码 Enter passphrase (empty for no passphrase): # 与上面输入的密码保持一致, 如果上面没输入,这里也不要输入 Enter same passphrase again:   提示这些信息就表示生成成功  Your identification has been saved in /Users/username/.ssh/asus_rsa. Your public key has been saved in /Users/username/.">
-  <meta name="author" content="">
-  
-  <link href="https://charles-one.github.io/xiaoxinLab/css/font.css" rel="stylesheet">
-  <link href="https://charles-one.github.io/xiaoxinLab/css/atom-one-dark.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
-  <link href="https://charles-one.github.io/xiaoxinLab/css/style.css" rel="stylesheet">
-  
-  <link rel="apple-touch-icon" href="https://charles-one.github.io/xiaoxinLab/img/apple-touch-icon.png">
-  <link rel="icon" href="https://charles-one.github.io/xiaoxinLab/img/favicon.ico">
-  
-  <meta name="generator" content="Hugo 0.54.0" />
-  
-  <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/xiaoxinLab/index.xml" title="小新实验室">
-  
-</head>
-<body class="single">
-  <header class="header">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <p class="title"><a href="https://charles-one.github.io/xiaoxinLab/">小新实验室</a></p>
+    <title>SSH密钥生成配置和登陆服务器与github使用钥匙 - 小新实验室</title>
     
-    <button class="menu-toggle" type="button"></button>
-    <nav class="menu">
-      <ul>
+    <meta name="description" content="1.生成SSH公钥私钥  进入文件夹中(注:所有&rdquo;#&ldquo;表示说明)  cd ~/.ssh/ # 其中-t rsa是指定rsa加密算法, -C &quot;asus&quot;是添加描述asus ssh-keygen -t rsa -C &quot;asus&quot;  # 说明: 默认是保存在/Users/你的用户名/.ssh/下, 如果你指定了名字则保存在当前路径下. # 指定的必须是文件且是绝对路径 # 在这里我已经在 ~/.ssh/中, 默认会保存在这里 Enter file in which to save the key (/Users/username(你的用户名)/.ssh/id_rsa): asus_rsa # 这里提示输入密码, 直接Enter表示不要密码 Enter passphrase (empty for no passphrase): # 与上面输入的密码保持一致, 如果上面没输入,这里也不要输入 Enter same passphrase again:   提示这些信息就表示生成成功  Your identification has been saved in /Users/username/.ssh/asus_rsa. Your public key has been saved in /Users/username/.">
+    <meta name="author" content="">
+    
+    <link href="https://charles-one.github.io/xiaoxinLab/css/github-gist.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/xiaoxinLab/css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/xiaoxinLab/img/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/xiaoxinLab/img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.54.0" />
+    
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/xiaoxinLab/index.xml" title="小新实验室">
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <div class="wrap">
         
+        <p class="logo"><a href="https://charles-one.github.io/xiaoxinLab/">小新实验室 </a></p>
         
-      </ul>
+        <button class="menu-toggle" type="button"></button>
+      </div>
+    </header>
+    <nav class="nav">
+    <ul class="menu">
+      
+      
+    </ul>
     </nav>
-  </header>
-  <main class="main">
+    <main class="main">
 
-<article class="post post-view">
+
+<article class="post-single">
   <header class="post-header">
     <h1 class="post-title">SSH密钥生成配置和登陆服务器与github使用钥匙</h1>
-    <p class="post-meta">2019.3.30</p>
+    <div class="post-meta">2019.3.30</div>
   </header>
   <div class="post-content">
 
@@ -231,6 +233,7 @@ git clone git@work.github.com:Charles-one/xiaoxinLab.git
   
   
 </article>
+
 </main>
 <footer class="footer">
   <span>&copy; 2019 小新实验室</span>
@@ -241,15 +244,21 @@ git clone git@work.github.com:Charles-one/xiaoxinLab.git
 <script data-no-instant>InstantClick.init();</script>
 <script src="https://charles-one.github.io/xiaoxinLab/js/highlight.min.js" data-no-instant></script>
 <script data-no-instant>
-  addMenuListener();
+  hljs.initHighlightingOnLoad();
+  setMenuListener();
+
   InstantClick.on('change', function() {
-    addMenuListener();
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuListener();
   });
-  function addMenuListener() {
-    var $toggle = document.querySelector('.menu-toggle');
-    var $body = document.querySelector('body');
-    $toggle.addEventListener('click', function() {
-      $body.classList.toggle('noscroll');
+
+  function setMenuListener() {
+    var menuToggle = document.querySelector('.menu-toggle');
+    var body = document.querySelector('body');
+    menuToggle.addEventListener('click', function() {
+      body.classList.toggle('no-scroll');
     }, false);
   }
 </script>
