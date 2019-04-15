@@ -175,21 +175,22 @@ hugo server -\-theme=hugo-paper -\-bind=&quot;10.211.55.9即是你的ip(不指�
 
 <p>这里会生成public文件夹</p>
 
-<p>cd ~/xiaoxinLab/public</p>
+<pre><code>cd ~/xiaoxinLab/public
 
-<p>git init</p>
+git init
 
-<p>git remote add github git@github.com:Charles-one/xiaoxinLab.git</p>
+git remote add github git@github.com:Charles-one/xiaoxinLab.git
 
-<p>git config user.email &ldquo;你的邮箱&rdquo;</p>
+git config user.email &quot;你的邮箱&quot;
 
-<p>git config user.name &ldquo;你的名字&rdquo;</p>
+git config user.name &quot;你的名字&quot;
 
-<p>git add .</p>
+git add .
 
-<p>git commit -m &ldquo;init&rdquo;</p>
+git commit -m &quot;init&quot;
 
-<p>git push -u github master:master</p>
+git push -u github master:master
+</code></pre>
 
 <h3 id="5-github中选择github-pages的分支">5. Github中选择GitHub Pages的分支</h3>
 
@@ -209,26 +210,29 @@ hugo server -\-theme=hugo-paper -\-bind=&quot;10.211.55.9即是你的ip(不指�
 
 <p>哈哈, 可以自由的写博客了</p>
 
-<h3 id="7-补充下如何添加图片">7. 补充下如何添加图片</h3>
+<h3 id="7-补充下如何添加图片-mac压缩图片工具imageoptim">7. 补充下如何添加图片.(Mac压缩图片工具ImageOptim)</h3>
 
-<pre><code># 图片存放位置
+<pre><code># 将自己的图片存放到如下位置
 ~/xiaoxinLab/static/img/cat.JPG
 
 # 执行hugo -\-theme=hugo-paper -\-baseUrl=&quot;https://charles-one.github.io/xiaoxinLab/&quot;
 # 会把cat.JPG存放到, ~/xiaoxinLab/public/img/cat.JPG
 # 文章的存放的位置 ~/xiaoxinLab/public/about/index.html
 
-# 使用相对路径添加图片, 以about文章存放位置index.html为参考系统.
+# 使用相对路径添加图片, 以about文章存放位置index.html为参考系.
 # 在Markdown中添加
 
+# 将下面内容写入about.md中
+
 ![猫](../img/cat.JPG)
+
+# 本文的路径是 xiaoxinLab/public/linux/使用hugo和github-pages搭建静态网站/index.html
+# 所以添加图片的相对路径是
+
+![cat](../../img/cat.JPG)
 </code></pre>
 
-<p><img src="../img/cat.JPG" alt="猫" /></p>
-
-<p><img src="/img/cat.JPG" alt="猫" /></p>
-
-<p><img src="img/cat.JPG" alt="猫" /></p>
+<p><img src="../../img/cat.JPG" alt="猫" /></p>
 </div>
   <footer class="post-footer">
     
