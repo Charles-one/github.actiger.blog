@@ -7,7 +7,7 @@
     
     <title>使用Hugo和GitHub Pages搭建静态网站 - 小新实验室</title>
     
-    <meta name="description" content="0. 前提条件  电脑安装git(所有平台必要条件) 安装go并设置环境变量(linux下必要条件) 虚拟机Centos7.6.1810  1. 安装hugo  mac直接使用brew install hugo就可以了
+    <meta name="description" content="0. 前提条件  电脑安装git(Mac linux都需要安装) 安装go并设置环境变量(仅linux下需要) 虚拟机Centos7.6.1810(测试用, 不需要安装)  1. 安装hugo  mac直接使用brew install hugo就可以了
  linux下源码安装
    下载并编译
 mkdir ~/src cd ~/src git clone https://github.com/gohugoio/hugo.git cd hugo go install  添加环境变量
@@ -57,9 +57,9 @@ source /etc/profile
 <h3 id="0-前提条件">0. 前提条件</h3>
 
 <ol>
-<li>电脑安装git(所有平台必要条件)</li>
-<li><a href="https://charles-one.github.io/xiaoxinLab/linux/linux安装go并设置环境变量/">安装go并设置环境变量(linux下必要条件)</a></li>
-<li>虚拟机Centos7.6.1810</li>
+<li>电脑安装git(Mac linux都需要安装)</li>
+<li><a href="https://charles-one.github.io/xiaoxinLab/linux/linux安装go并设置环境变量/">安装go并设置环境变量(仅linux下需要)</a></li>
+<li>虚拟机Centos7.6.1810(测试用, 不需要安装)</li>
 </ol>
 
 <h3 id="1-安装hugo">1. 安装hugo</h3>
@@ -136,13 +136,16 @@ firewall-cmd --reload
 <li>使用主题生成本地服务, 查看博客效果</li>
 </ul>
 
-<p>cd ~/xiaoxinLab/themes</p>
+<pre><code>cd ~/xiaoxinLab/themes
 
-<p>git clone <a href="https://github.com/nanxiaobei/hugo-paper.git">https://github.com/nanxiaobei/hugo-paper.git</a></p>
+git clone https://github.com/nanxiaobei/hugo-paper.git
 
-<p>cd ~/xiaoxinLab</p>
+cd ~/xiaoxinLab
 
-<p>hugo server --theme=hugo-paper --bind=&ldquo;10.211.55.9即是你的ip(不指定则默认只能本地访问)&rdquo;  --baseUrl=&ldquo;<a href="http://10.211.55.9&quot;">http://10.211.55.9&quot;</a> --port=1313</p>
+# -\-bind=&quot;10.211.55.9&quot;绑定ip , 使用本机则不需要绑定.
+hugo server -\-theme=hugo-paper -\-bind=&quot;10.211.55.9即是你的ip(不指定则默认只能本地访问)&quot;  -\-baseUrl=&quot;http://10.211.55.9&quot; -\-port=1313
+
+</code></pre>
 
 <p>浏览器输入http://你的ip:1313.如未指定,则是<a href="http://localhost:1313">http://localhost:1313</a></p>
 
@@ -205,6 +208,27 @@ firewall-cmd --reload
 <strong><a href="https://charles-one.github.io/xiaoxinLab/">https://charles-one.github.io/xiaoxinLab/</a></strong></p>
 
 <p>哈哈, 可以自由的写博客了</p>
+
+<h3 id="7-补充下如何添加图片">7. 补充下如何添加图片</h3>
+
+<pre><code># 图片存放位置
+~/xiaoxinLab/static/img/cat.JPG
+
+# 执行hugo -\-theme=hugo-paper -\-baseUrl=&quot;https://charles-one.github.io/xiaoxinLab/&quot;
+# 会把cat.JPG存放到, ~/xiaoxinLab/public/img/cat.JPG
+# 文章的存放的位置 ~/xiaoxinLab/public/about/index.html
+
+# 使用相对路径添加图片, 以about文章存放位置index.html为参考系统.
+# 在Markdown中添加
+
+![猫](../img/cat.JPG)
+</code></pre>
+
+<p><img src="../img/cat.JPG" alt="猫" /></p>
+
+<p><img src="/img/cat.JPG" alt="猫" /></p>
+
+<p><img src="img/cat.JPG" alt="猫" /></p>
 </div>
   <footer class="post-footer">
     
