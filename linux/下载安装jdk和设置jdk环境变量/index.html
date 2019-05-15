@@ -14,15 +14,18 @@ tar -zxvf jdk-8u201-linux-x64.tar.gz
 3. root移动文件, 并设置JAVA_HOME环境变量  移动文件夹
 mv jdk1.8.0_201 /usr/local  设置JAVA_HOME环境变量
   vim /etc/profile 可以对所有用户生效 添加下列信息
-export JAVA_HOME=/usr/local/jdk1.8.0_201 export JRE_HOME=${JAVA_HOME}/jre export CLASSPATH=.:${JAVA_HOME}/lib/dt.JAVA_HOME/lib/tools.jar:${JRE_HOME}/lib export PATH=${JAVA_HOME}/bin:${PATH}   重新生效/etc/profile  source /etc/profile   检测  java -version  预期会弹出java的版本">
+export JAVA_HOME=/usr/local/jdk1.8.0_201 export JRE_HOME=${JAVA_HOME}/jre export CLASSPATH=.:${JAVA_HOME}/lib/dt.JAVA_HOME/lib/tools.jar:${JRE_HOME}/lib export PATH=${JAVA_HOME}/bin:${PATH}   重新生效/etc/profile
+source /etc/profile  检测
+java -version   预期会弹出java的版本">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/xiaoxinLab/css/github-gist.min.css" rel="stylesheet">
     <link href="https://charles-one.github.io/xiaoxinLab/css/style.css" rel="stylesheet">
     
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/xiaoxinLab/img/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/xiaoxinLab/img/favicon.ico">
     
-    <meta name="generator" content="Hugo 0.55.3" />
+    <meta name="generator" content="Hugo 0.55.5" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/xiaoxinLab/index.xml" title="小新实验室">
     
@@ -100,18 +103,16 @@ export PATH=${JAVA_HOME}/bin:${PATH}
 </code></pre>
 
 <ul>
-<li>重新生效/etc/profile</li>
-</ul>
+<li><p>重新生效/etc/profile</p>
 
 <pre><code>source /etc/profile
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>检测</li>
-</ul>
+<li><p>检测</p>
 
 <pre><code>java -version
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>预期会弹出java的版本</p>
 </div>
@@ -128,7 +129,9 @@ export PATH=${JAVA_HOME}/bin:${PATH}
 <footer class="footer">
   <span>&copy; 2019 小新实验室</span>
   <span>&middot;</span>
-  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Powered by Hugo️️</a>️</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
 </footer>
 <script src="https://charles-one.github.io/xiaoxinLab/js/instantclick.min.js" data-no-instant></script>
 <script data-no-instant>InstantClick.init();</script>

@@ -7,15 +7,20 @@
     
     <title>tmux保存会话和剪贴板插件安装及使用 - 小新实验室</title>
     
-    <meta name="description" content="0.内容  安装tmux 安装tmux插件管理 安装保存会话和剪贴板插件  1.安装tmux 为什么要使用tmux, 可以永久保存会话, 就不用每次都要切换到对应工作目录中.  Mac下  brew install tmux   linux, 参考Github地址  git clone https://github.com/tmux/tmux.git cd tmux sh autogen.sh ./configure &amp;&amp; make  2.安装tmux插件管理  参考地址  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm   新建~/.tmux.conf, 复制下面内容到这个文件下.  # List of plugins set -g @plugin &#39;tmux-plugins/tpm&#39; set -g @plugin &#39;tmux-plugins/tmux-sensible&#39; # Other examples: # set -g @plugin &#39;github_username/plugin_name&#39; # set -g @plugin &#39;git@github.">
+    <meta name="description" content="0.内容  安装tmux 安装tmux插件管理 安装保存会话和剪贴板插件  1.安装tmux 为什么要使用tmux, 可以永久保存会话, 就不用每次都要切换到对应工作目录中.  Mac下
+brew install tmux  linux, 参考Github地址
+git clone https://github.com/tmux/tmux.git cd tmux sh autogen.sh ./configure &amp;&amp; make   2.安装tmux插件管理  参考地址
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  新建~/.tmux.conf, 复制下面内容到这个文件下.
+# List of plugins set -g @plugin &#39;tmux-plugins/tpm&#39; set -g @plugin &#39;tmux-plugins/tmux-sensible&#39; # Other examples: # set -g @plugin &#39;github_username/plugin_name&#39; # set -g @plugin &#39;git@github.com/user/plugin&#39; # set -g @plugin &#39;git@bitbucket.">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/xiaoxinLab/css/github-gist.min.css" rel="stylesheet">
     <link href="https://charles-one.github.io/xiaoxinLab/css/style.css" rel="stylesheet">
     
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/xiaoxinLab/img/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/xiaoxinLab/img/favicon.ico">
     
-    <meta name="generator" content="Hugo 0.55.3" />
+    <meta name="generator" content="Hugo 0.55.5" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/xiaoxinLab/index.xml" title="小新实验室">
     
@@ -59,34 +64,29 @@
 <h3 id="为什么要使用tmux-可以永久保存会话-就不用每次都要切换到对应工作目录中">为什么要使用tmux, 可以永久保存会话, 就不用每次都要切换到对应工作目录中.</h3>
 
 <ul>
-<li>Mac下</li>
-</ul>
+<li><p>Mac下</p>
 
 <pre><code>brew install tmux
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>linux, 参考<a href="https://github.com/tmux/tmux">Github地址</a></li>
-</ul>
+<li><p>linux, 参考<a href="https://github.com/tmux/tmux">Github地址</a></p>
 
 <pre><code>git clone https://github.com/tmux/tmux.git
 cd tmux
 sh autogen.sh
 ./configure &amp;&amp; make
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h3 id="2-安装tmux插件管理">2.安装tmux插件管理</h3>
 
 <ul>
-<li><a href="https://github.com/tmux-plugins/tpm">参考地址</a></li>
-</ul>
+<li><p><a href="https://github.com/tmux-plugins/tpm">参考地址</a></p>
 
 <pre><code>git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>新建~/.tmux.conf, 复制下面内容到这个文件下.</li>
-</ul>
+<li><p>新建~/.tmux.conf, 复制下面内容到这个文件下.</p>
 
 <pre><code># List of plugins
 set -g @plugin 'tmux-plugins/tpm'
@@ -99,43 +99,39 @@ set -g @plugin 'tmux-plugins/tmux-sensible'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run -b '~/.tmux/plugins/tpm/tpm'
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>执行安装</li>
-</ul>
+<li><p>执行安装</p>
 
 <pre><code>tmux
 # 然后按 Prefix + I(Prefix 前置键默认是Control + b, I是大写, 先按Prefix再按大写I)
 # 等待安装完成
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h3 id="3-安装保存会话与剪贴板插件">3.安装保存会话与剪贴板插件.</h3>
 
 <ul>
-<li>在~/.tmux.conf文件中 # List of plugins 行下, 增加</li>
-</ul>
+<li><p>在~/.tmux.conf文件中 # List of plugins 行下, 增加</p>
 
 <pre><code># 保存会话
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 # tmux下复制粘贴
 set -g @plugin 'tmux-plugins/tmux-yank'
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>执行安装</li>
-</ul>
+<li><p>执行安装</p>
 
 <pre><code>tmux
 # 然后按 Prefix + I(Prefix 前置键默认是Control + b, I是大写, 先按Prefix再按大写I)
 # 等待安装完成
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h3 id="4-使用保存-会话-https-github-com-tmux-plugins-tmux-resurrect-和-剪贴板-https-github-com-tmux-plugins-tmux-yank">4.使用保存<a href="https://github.com/tmux-plugins/tmux-resurrect">会话</a>和<a href="https://github.com/tmux-plugins/tmux-yank">剪贴板</a>.</h3>
 
 <ul>
-<li>保存和恢复会话</li>
-</ul>
+<li><p>保存和恢复会话</p>
 
 <pre><code># 新建指定名字hugo的会话
 tmux new -t hugo
@@ -148,7 +144,8 @@ tmux new -t hugo
 tmux
 操作Profix + C-r
 
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p><strong>多个会话也是使用同样的命令</strong></p>
 
@@ -168,13 +165,13 @@ source ~/.bashrc
 </code></pre>
 
 <ul>
-<li>复制当前和鼠标选中复制</li>
-</ul>
+<li><p>复制当前和鼠标选中复制</p>
 
 <pre><code># Profix + y, 这个是复制当前命令行
 
 # 用鼠标选中tmux任意内容再释放, 就可以复制到剪贴板中.
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>mac用command+v就可以验证</p>
 
@@ -195,7 +192,9 @@ source ~/.bashrc
 <footer class="footer">
   <span>&copy; 2019 小新实验室</span>
   <span>&middot;</span>
-  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Powered by Hugo️️</a>️</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
 </footer>
 <script src="https://charles-one.github.io/xiaoxinLab/js/instantclick.min.js" data-no-instant></script>
 <script data-no-instant>InstantClick.init();</script>

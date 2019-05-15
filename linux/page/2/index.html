@@ -13,9 +13,10 @@
     <link href="https://charles-one.github.io/xiaoxinLab/css/github-gist.min.css" rel="stylesheet">
     <link href="https://charles-one.github.io/xiaoxinLab/css/style.css" rel="stylesheet">
     
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/xiaoxinLab/img/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/xiaoxinLab/img/favicon.ico">
     
-    <meta name="generator" content="Hugo 0.55.3" />
+    <meta name="generator" content="Hugo 0.55.5" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/xiaoxinLab/index.xml" title="小新实验室">
     
@@ -41,15 +42,28 @@
 
 
 <header class="page-header">
-  
-  <h1>Posts</h1>
-  
+  <h1>
+  Posts
+  </h1>
 </header>
 
 
 
 
 
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>设置用户可sudo命令</h2>
+  </header>
+  <section class="entry-content">
+   <p>vi /etc/sudoers # new cc ALL=/bin/yum # cc用户名就可使用sudo yum  在cc用户下 sudo yum install vim 输入密码后再就可安装vim了...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.3.12</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/xiaoxinLab/linux/%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%8F%AFsudo%E5%91%BD%E4%BB%A4/"></a>
+</article>
 
 <article class="post-entry">
   <header class="entry-header">
@@ -63,10 +77,12 @@ tar -zxvf jdk-8u201-linux-x64.tar.gz
 3. root移动文件, 并设置JAVA_HOME环境变量  移动文件夹
 mv jdk1.8.0_201 /usr/local  设置JAVA_HOME环境变量
   vim /etc/profile 可以对所有用户生效 添加下列信息
-export JAVA_HOME=/usr/local/jdk1.8.0_201 export JRE_HOME=${JAVA_HOME}/jre export CLASSPATH=.:${JAVA_HOME}/lib/dt.JAVA_HOME/lib/tools.jar:${JRE_HOME}/lib export PATH=${JAVA_HOME}/bin:${PATH}   重新生效/etc/profile  source /etc/profile   检测  java -version  预期会弹出java的版本...</p>
+export JAVA_HOME=/usr/local/jdk1.8.0_201 export JRE_HOME=${JAVA_HOME}/jre export CLASSPATH=.:${JAVA_HOME}/lib/dt.JAVA_HOME/lib/tools.jar:${JRE_HOME}/lib export PATH=${JAVA_HOME}/bin:${PATH}   重新生效/etc/profile
+source /etc/profile  检测
+java -version   预期会弹出java的版本...</p>
   </section>
   <footer class="entry-footer">
-    <time >2019.3.12</time>
+    <time>2019.3.12</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/xiaoxinLab/linux/%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85jdk%E5%92%8C%E8%AE%BE%E7%BD%AEjdk%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"></a>
 </article>
@@ -86,7 +102,7 @@ export JAVA_HOME=/usr/local/jdk1.8.0_201 export JRE_HOME=${JAVA_HOME}/jre export
 mv /home/olderuser /home/newuser  ...</p>
   </section>
   <footer class="entry-footer">
-    <time >2019.3.12</time>
+    <time>2019.3.12</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/xiaoxinLab/linux/%E6%9B%B4%E6%94%B9linux%E7%94%A8%E6%88%B7%E5%90%8D/"></a>
 </article>
@@ -97,15 +113,19 @@ mv /home/olderuser /home/newuser  ...</p>
   </header>
   <section class="entry-content">
    <p>0.前提条件 1.安装软件Centos7, 版本7.6.1810 CentOS-7-x86_64-Minimal-1810.iso 2.root用户及密码, 已联网  如未联网,请打开网卡, 并重启 设置/etc/sysconfig/network-scripts/ifcfg-eth0 中ONBOOT =yes  重启电脑
-reboot  1.登录root  需要查询当前Centos7的主机ip  ifconfig  提示无此命令  yum -y install net-tools
+reboot  1.登录root  需要查询当前Centos7的主机ip
+ifconfig  提示无此命令
+  yum -y install net-tools
 再次 ifconfig查询ip
- 使用ssh软件登录root用户, 默认使用22端口, 不用指定  ssh root@ip  输入密码  2.更改ssh服务端口, 防火墙端口, SELINUX端口  更改sshd.service端口, 端口可选择&gt;10000避免与其他软件冲突.  vim /etc/ssh/sshd_config更改Port 12340
+ 使用ssh软件登录root用户, 默认使用22端口, 不用指定
+ssh root@ip  输入密码
+  2.更改ssh服务端口, 防火墙端口, SELINUX端口  更改sshd.service端口, 端口可选择&gt;10000避免与其他软件冲突.  vim /etc/ssh/sshd_config更改Port 12340
 systemctl restart sshd   添加防火墙端口
 firewall-cmd --zone=public --add-port=12340/tcp --permanent (永久生效必须用--permanent) firewall-cmd --reload  更改SELINUX端口, 因为SELINUX的原因, ssh被设定到22端口上了, 必须更改
   借助软件来更改 安装 yum -y install policycoreutils-python semanage port -a -t ssh_port_t -p tcp 12340...</p>
   </section>
   <footer class="entry-footer">
-    <time >2019.3.12</time>
+    <time>2019.3.12</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/xiaoxinLab/linux/%E6%9B%B4%E6%94%B9ssh%E7%AB%AF%E5%8F%A3%E4%B8%8E%E7%A6%81%E6%AD%A2root%E7%99%BB%E5%BD%95%E5%A2%9E%E5%BC%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8/"></a>
 </article>
@@ -116,7 +136,7 @@ firewall-cmd --zone=public --add-port=12340/tcp --permanent (永久生效必须�
 <footer class="page-footer">
   <nav class="pagination">
     
-    <a class="prev" href="/xiaoxinLab/linux/">← </a>
+    <a class="prev" href="/xiaoxinLab/linux/">← Prev Page</a>
     
     
   </nav>
@@ -127,7 +147,9 @@ firewall-cmd --zone=public --add-port=12340/tcp --permanent (永久生效必须�
 <footer class="footer">
   <span>&copy; 2019 小新实验室</span>
   <span>&middot;</span>
-  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Powered by Hugo️️</a>️</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
 </footer>
 <script src="https://charles-one.github.io/xiaoxinLab/js/instantclick.min.js" data-no-instant></script>
 <script data-no-instant>InstantClick.init();</script>

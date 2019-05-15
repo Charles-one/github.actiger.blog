@@ -21,9 +21,10 @@ Score(s_id,c_id,s_s_score) –学生编号,课程编号,分数
     <link href="https://charles-one.github.io/xiaoxinLab/css/github-gist.min.css" rel="stylesheet">
     <link href="https://charles-one.github.io/xiaoxinLab/css/style.css" rel="stylesheet">
     
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/xiaoxinLab/img/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/xiaoxinLab/img/favicon.ico">
     
-    <meta name="generator" content="Hugo 0.55.3" />
+    <meta name="generator" content="Hugo 0.55.5" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/xiaoxinLab/index.xml" title="小新实验室">
     
@@ -162,33 +163,39 @@ insert into Score values('09', '04', 99);
 <li><p>查询姓&rdquo;张&rdquo;老师的个数</p>
 
 <pre><code class="language-sql">select count(t_id) from Teacher where t_name like &quot;张%&quot;;
-</code></pre></li>
+</code></pre>
 
-<li><p>查询1990年出生的学生名单</p>
-
-<pre><code class="language-sql">select s_id, s_name from Student where year(s_birth)=1990;
-</code></pre></li>
+<ul>
+<li>查询1990年出生的学生名单
+<code>sql
+select s_id, s_name from Student where year(s_birth)=1990;
+</code></li>
+</ul></li>
 
 <li><p>查询课程编号为&rdquo;02&rdquo;的总成绩</p>
 
 <pre><code class="language-sql">select c_id,sum(s_score) as '总成绩' from Score where c_id=02;
-</code></pre></li>
+</code></pre>
 
-<li><p>查询选了课程的学生人数
-思路学生唯一, 然后再计算总数</p>
-
-<pre><code class="language-sql">select count(distinct s_id) as &quot;选课人数&quot; from Score;
-</code></pre></li>
+<ul>
+<li>查询选了课程的学生人数
+思路学生唯一, 然后再计算总数
+<code>sql
+select count(distinct s_id) as &quot;选课人数&quot; from Score;
+</code></li>
+</ul></li>
 
 <li><p>查询各科成绩最高和最低的分: 以如下的形式显示: 课程ID, 最高分, 最低分</p>
 
 <pre><code class="language-sql">select c_id as 课程ID, max(s_score) as 最高分, min(s_score) as 最低分 from Score group by c_id;
-</code></pre></li>
+</code></pre>
 
-<li><p>查询每门课程被选修的学生数</p>
-
-<pre><code class="language-sql">select c_id, count(s_id) from Score group by c_id;
-</code></pre></li>
+<ul>
+<li>查询每门课程被选修的学生数
+<code>sql
+select c_id, count(s_id) from Score group by c_id;
+</code></li>
+</ul></li>
 
 <li><p>查询男生,女生人数</p></li>
 </ul>
@@ -210,8 +217,9 @@ insert into Score values('09', '04', 99);
 学生学号与学生选修课程数都在Score表中</p>
 
 <pre><code class="language-sql">select s_id as 学号,count(c_id) as 选修课程数 from Score group by s_id having count(c_id)&gt;=2;
-</code></pre></li>
+</code></pre>
 
+<ul>
 <li><p>查询两门以上不及格课程的同学的学号及其平均成绩</p>
 
 <h4 id="这种做法是错误的-只计算不及格课程的平均成绩-如果还有其他课程及格就未计算在内了">这种做法是错误的, 只计算不及格课程的平均成绩, 如果还有其他课程及格就未计算在内了</h4>
@@ -221,10 +229,11 @@ from Score
 where s_score &lt;60
 group by s_id
 having count(c_id)&gt;=2;
-</code></pre>
-
-<h4 id="学生学号-学生不及格课程总数-平均成绩都在score表中-但是一条语句无法查询出来-不及格条件后的平均成绩是不正确-即是不及格课程的平均成绩-不是总成绩-包含及格与不及格课程成绩">学生学号, 学生不及格课程总数, 平均成绩都在Score表中, 但是一条语句无法查询出来,不及格条件后的平均成绩是不正确(即是不及格课程的平均成绩),不是总成绩(包含及格与不及格课程成绩).</h4></li>
+</code></pre></li>
+</ul></li>
 </ul>
+
+<h4 id="学生学号-学生不及格课程总数-平均成绩都在score表中-但是一条语句无法查询出来-不及格条件后的平均成绩是不正确-即是不及格课程的平均成绩-不是总成绩-包含及格与不及格课程成绩">学生学号, 学生不及格课程总数, 平均成绩都在Score表中, 但是一条语句无法查询出来,不及格条件后的平均成绩是不正确(即是不及格课程的平均成绩),不是总成绩(包含及格与不及格课程成绩).</h4>
 
 <pre><code class="language-sql">-- 查询到不及格课程总断&gt;2的学生
 select s_id from Score where s_score&lt;60 group by s_id having count(c_id)&gt;2;
@@ -265,12 +274,14 @@ on s1.s_id=s2.s_id;
 
 <pre><code class="language-sql">-- 名字, 同名人数都在表Student中
 select s_name, count(s_id) as 同名人数 from Student group by s_name having count(s_id)&gt;1;
-</code></pre></li>
+</code></pre>
 
-<li><p>查询每门课程的平均成绩，结果按平均成绩升序排序，平均成绩相同时，按课程号降序排列</p>
-
-<pre><code class="language-sql">select c_id, avg(s_score) as '平均成绩' from Score group by c_id order by avg(s_score) ASC, c_id DESC;
-</code></pre></li>
+<ul>
+<li>查询每门课程的平均成绩，结果按平均成绩升序排序，平均成绩相同时，按课程号降序排列
+<code>sql
+select c_id, avg(s_score) as '平均成绩' from Score group by c_id order by avg(s_score) ASC, c_id DESC;
+</code></li>
+</ul></li>
 
 <li><p>查询不及格课程号和学生号, 课程号从大到小排列
 ```sql
@@ -289,13 +300,14 @@ select s_id, s_score from Score where c_id=03 and s_score&lt;60;
 <li><p>统计每门课程的学生选修人数(超过5人的课程才统计), 要求输出课程号和选修人数，查询结果按人数降序排序，若人数相同，按课程号升序排序</p>
 
 <pre><code class="language-sql">select c_id, count(s_id) from Score group by c_id having count(s_id)&gt;5 order by count(s_id) DESC, c_id ASC;
-</code></pre></li>
+</code></pre>
 
-<li><p>查询所有课程成绩小于60分的学生的学号、姓名.
+<ul>
+<li>查询所有课程成绩小于60分的学生的学号、姓名.
 学生成绩在表Score中, 学生姓名在表Student, 内连接2个表
 ```sql
 &ndash; 小于60分的学生号
-select s_id, s_score where s_score&lt;60;</p></li>
+select s_id, s_score where s_score&lt;60;</li>
 </ul>
 
 <p>&ndash; 学生姓名</p>
@@ -307,94 +319,99 @@ select s_id, s_score where s_score&lt;60;</p></li>
 <p>select sco.s_id,s.s_name from Score as sco join Student as s on sco.s_id=s.s_id where s_score&lt;60 group by s_id;</p>
 
 <p>&ndash; 还可以这么写
-select s_id,s_name from Student where s_id in (select s_id from Score where s_score&lt;60);</p>
+select s_id,s_name from Student where s_id in (select s_id from Score where s_score&lt;60);
+```</p></li>
 
-<pre><code>
-* 查询没有学全所有课的学生的学号、姓名
-#### 全部课程数在Course中, 学生所选课程在Score中, 学生姓名在Student中.(隐藏条件学生所学课程一定属于全部课程中的一种)
-#### 理解是学没有学全所有课程的所有学号与学生姓名(注意是所有学生)
-```sql
--- 查询全部课程数
-select count(c_id) from Course;
+<li><p>查询没有学全所有课的学生的学号、姓名</p>
 
--- 查询学生学号与课程数
-select s_id, count(c_id) as count_cid from Score group by s_id;
+<h4 id="全部课程数在course中-学生所选课程在score中-学生姓名在student中-隐藏条件学生所学课程一定属于全部课程中的一种">全部课程数在Course中, 学生所选课程在Score中, 学生姓名在Student中.(隐藏条件学生所学课程一定属于全部课程中的一种)</h4>
 
--- 查询学生学号与学生姓名
-select s_id, s_name from Student;
+<h4 id="理解是学没有学全所有课程的所有学号与学生姓名-注意是所有学生">理解是学没有学全所有课程的所有学号与学生姓名(注意是所有学生)</h4>
 
--- 左连Student与Score表, 为什么左连接, 因为是没有学无所有课程的学生, 学生一定会有, 学生不一定有选修的课程成绩.
-select s.s_id, s.s_name from 
-Student as s 
-left join 
-Score as sco 
-on sco.s_id=s.s_id 
-group by s.s_id 
-having count(c_id)&lt;(select count(c_id) from Course);
-
-</code></pre>
-
-<ul>
-<li><p>查询出只选修了两门课程的全部学生的学号和姓名</p>
-
-<h4 id="学生选修课程数在score表中-学生姓名在表student中">学生选修课程数在Score表中, 学生姓名在表Student中</h4>
-
-<p>```sql</p></li>
+<p>```sql
+&ndash; 查询全部课程数
+select count(c_id) from Course;</p></li>
 </ul>
 
-<p>&ndash; 查询学生选择课程数为2的学生
-select s_id,count(c_id) group by s_id having count(c_id)=2;</p>
+<p>&ndash; 查询学生学号与课程数
+select s_id, count(c_id) as count_cid from Score group by s_id;</p>
 
-<p>&ndash; 查询学生姓名</p>
+<p>&ndash; 查询学生学号与学生姓名
+select s_id, s_name from Student;</p>
 
-<p>select s_id, s_name from Student;</p>
-
-<p>&ndash; 左连接2个表</p>
-
-<p>select s.s_id, s.s_name from
+<p>&ndash; 左连Student与Score表, 为什么左连接, 因为是没有学无所有课程的学生, 学生一定会有, 学生不一定有选修的课程成绩.
+select s.s_id, s.s_name from
 Student as s
 left join
 Score as sco
-on s.s_id=sco.s_id
-group by s.s_id having count(c_id)=2;</p>
+on sco.s_id=s.s_id
+group by s.s_id
+having count(c_id)&lt;(select count(c_id) from Course);</p>
 
 <pre><code>
-* 查询课程编号为03且课程成绩在80分以上的学生的学号和姓名
-#### 学生选修课程与成绩在Score表中, 学生姓名在表Student中
+* 查询出只选修了两门课程的全部学生的学号和姓名
+#### 学生选修课程数在Score表中, 学生姓名在表Student中
 ```sql
--- 查询课程03,&gt;80的学生成绩
-select s_id, s_score, c_id from Score where c_id=&quot;03&quot; and s_score&gt;80;
+
+-- 查询学生选择课程数为2的学生
+select s_id,count(c_id) group by s_id having count(c_id)=2;
 
 -- 查询学生姓名
 
 select s_id, s_name from Student;
 
--- 内连接2个表, 注意不是左右连接,有对应成绩的才检索,否则不检索
+-- 左连接2个表
+
 select s.s_id, s.s_name from 
 Student as s 
-join 
+left join 
 Score as sco 
 on s.s_id=sco.s_id
-and sco.s_score&gt;80 and sco.c_id=&quot;03&quot;;
+group by s.s_id having count(c_id)=2;
 
--- 其他写法
-
-select s_id, s_name from Student where s_id in (select s_id from Score where s_score&gt;80 and c_id=03);
 </code></pre>
 
 <ul>
-<li><p>查询课程编号为“01”的课程比“02”的课程成绩高的所有学生的学号
-内连接 s1同学.s_id=s2同学.s_id, s1.c_id=&ldquo;01&rdquo;, s2.c_id=&ldquo;02&rdquo;, s1.s_score&gt;s2.s_score, 最后去重</p>
+<li><p>查询课程编号为03且课程成绩在80分以上的学生的学号和姓名</p>
 
-<pre><code class="language-sql">select s1.s_id from Score s1,Score s2 where s1.s_id=s2.s_id and s1.c_id=&quot;01&quot; and s2.c_id=&quot;02&quot; and s1.s_score&gt;s2.s_score group by s1.s_id;
-</code></pre></li>
+<h4 id="学生选修课程与成绩在score表中-学生姓名在表student中">学生选修课程与成绩在Score表中, 学生姓名在表Student中</h4>
 
+<p>```sql
+&ndash; 查询课程03,&gt;80的学生成绩
+select s_id, s_score, c_id from Score where c_id=&ldquo;03&rdquo; and s_score&gt;80;</p></li>
+</ul>
+
+<p>&ndash; 查询学生姓名</p>
+
+<p>select s_id, s_name from Student;</p>
+
+<p>&ndash; 内连接2个表, 注意不是左右连接,有对应成绩的才检索,否则不检索
+select s.s_id, s.s_name from
+Student as s
+join
+Score as sco
+on s.s_id=sco.s_id
+and sco.s_score&gt;80 and sco.c_id=&ldquo;03&rdquo;;</p>
+
+<p>&ndash; 其他写法</p>
+
+<p>select s_id, s_name from Student where s_id in (select s_id from Score where s_score&gt;80 and c_id=03);</p>
+
+<pre><code>
+* 查询课程编号为“01”的课程比“02”的课程成绩高的所有学生的学号
+内连接 s1同学.s_id=s2同学.s_id, s1.c_id=&quot;01&quot;, s2.c_id=&quot;02&quot;, s1.s_score&gt;s2.s_score, 最后去重
+```sql
+select s1.s_id from Score s1,Score s2 where s1.s_id=s2.s_id and s1.c_id=&quot;01&quot; and s2.c_id=&quot;02&quot; and s1.s_score&gt;s2.s_score group by s1.s_id;
+</code></pre>
+
+<ul>
 <li><p>按平均成绩从高到低，按如下形式显示: 学生ID, 有效课程数, 有效平均分</p>
 
 <pre><code class="language-sql">select s_id '学生ID', count(c_id) '有效课程数', avg(s_score) '有效平均分' from Score group by s_id;
-</code></pre></li>
+</code></pre>
 
-<li><p>使用分段[100-85],[85-70],[70-60],[&lt;60]来统计各科成绩，分别统计各分数段人数: 课程ID和课程名称</p></li>
+<ul>
+<li>使用分段[100-85],[85-70],[70-60],[&lt;60]来统计各科成绩，分别统计各分数段人数: 课程ID和课程名称</li>
 </ul>
 
 <pre><code class="language-sql">select c.c_id, c.c_name, sum(case when sco.s_score&gt;=85 and sco.s_score&lt;=100 then 1 else 0 end) as '[100-85]',
@@ -402,26 +419,27 @@ sum(case when sco.s_score&gt;=70 and sco.s_score&lt;85 then 1 else 0 end) as '[8
 sum(case when sco.s_score&gt;=60 and sco.s_score&lt;70 then 1 else 0 end) as '[70-60]',
 sum(case when sco.s_score&lt;60 then 1 else 0 end) as '[&lt;60]'
 from Course c  join  Score sco on sco.c_id=c.c_id group by c.c_id;
-</code></pre>
+</code></pre></li>
 
-<ul>
 <li><p>查询出每门课程的及格人数和不及格人数</p>
 
 <pre><code class="language-sql">select c_id,
 sum(case when s_score&gt;=60 then 1 else 0 end) as '及格人数',
 sum(case when s_score&lt;60 then 1 else 0 end) as '不及格人数' 
 from Score group by c_id;
-</code></pre></li>
+</code></pre>
 
-<li><p>查询出每门课程的及格百分数</p>
-
-<pre><code class="language-sql">select c_id, sco.及格人数/(sco.及格人数+sco.不及格人数)*100 as '及格百分比' from (
+<ul>
+<li>查询出每门课程的及格百分数
+<code>sql
+select c_id, sco.及格人数/(sco.及格人数+sco.不及格人数)*100 as '及格百分比' from (
 select c_id, 
 sum(case when s_score&gt;=60 then 1 else 0 end) as '及格人数',
 sum(case when s_score&lt;60 then 1 else 0 end) as '不及格人数' 
 from Score group by c_id
 ) as sco;
-</code></pre></li>
+</code></li>
+</ul></li>
 
 <li><p>查询至少有一门课与学号为“01”的学生所学课程相同的学生的学号和姓名</p>
 
@@ -520,13 +538,15 @@ join
 Score as sco
 on c.c_id=sco.c_id group by sco.c_id
 order by avg(s_score) DESC;
-</code></pre></li>
+</code></pre>
 
-<li><p>查询学生平均成绩及其名次</p>
-
-<pre><code class="language-sql">select s_id,avg(s_score),@curRank:=@curRank + 1
+<ul>
+<li>查询学生平均成绩及其名次
+<code>sql
+select s_id,avg(s_score),@curRank:=@curRank + 1
 from Score s1,(select @curRank:=0) q group by s_id;
-</code></pre></li>
+</code></li>
+</ul></li>
 
 <li><p>查询各科成绩前三名的记录（不考虑成绩并列情况）</p>
 
@@ -542,18 +562,20 @@ left join
 Score as sco
 on s.s_id=sco.s_id
 group by s_id;
-</code></pre></li>
+</code></pre>
 
-<li><p>查询平均成绩大于85的所有学生的学号、姓名和平均成绩</p>
-
-<pre><code class="language-sql">-- 学号,姓名在Student表中, 平均成绩,选课数在Score表中, 左连接起来
+<ul>
+<li>查询平均成绩大于85的所有学生的学号、姓名和平均成绩
+<code>sql
+-- 学号,姓名在Student表中, 平均成绩,选课数在Score表中, 左连接起来
 select s.s_id, s.s_name,avg(s_score) from Student as s
 left join
 Score as sco
 on s.s_id=sco.s_id
 group by s_id
 having avg(s_score)&gt;85;
-</code></pre></li>
+</code></li>
+</ul></li>
 
 <li><p>查询有2门不同课程成绩相同的学生的学号、课程号、学生成绩</p>
 
@@ -562,14 +584,16 @@ where s1.s_id=s2.s_id
 and s1.s_score=s2.s_score
 and s1.c_id&lt;&gt;s2.c_id
 group by s1.s_id,s1.c_id;
-</code></pre></li>
+</code></pre>
 
-<li><p>查询选修了全部课程的学生信息
-```sql
-select * from Student where s_id in (select s_id from Score group by s_id having count(c_id)=(select count(c_id) from Course));</p></li>
+<ul>
+<li>查询选修了全部课程的学生信息
+<code>sql
+select * from Student where s_id in (select s_id from Score group by s_id having count(c_id)=(select count(c_id) from Course));
+
+</code></li>
+</ul></li>
 </ul>
-
-<p>```</p>
 </div>
   <footer class="post-footer">
     
@@ -584,7 +608,9 @@ select * from Student where s_id in (select s_id from Score group by s_id having
 <footer class="footer">
   <span>&copy; 2019 小新实验室</span>
   <span>&middot;</span>
-  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Powered by Hugo️️</a>️</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
 </footer>
 <script src="https://charles-one.github.io/xiaoxinLab/js/instantclick.min.js" data-no-instant></script>
 <script data-no-instant>InstantClick.init();</script>

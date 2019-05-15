@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>docker-compose简单使用 - 小新实验室</title>
+    
+    <meta name="description" content="目录 1. docker-compose简介 2. docker-compose.yml简单配置说明 3. docker-compose运行 1. docker-compose简介与安装  简介 &gt;docker-compose是编排docker容器的, 就是管理这一批容器, 进行批量配置, 起动, 暂停, 删除容器等. 如果有多个容器, 使用docker一个个启动慢, 如果容器间有依赖, 还需要手动指定, 还有环境变量, 可以 一起设置.
+ 使用下面命令安装docker-compose和docker. 或使用[脚本一键安装]()
+yum remove docker \ docker-common \ docker-selinux \ docker-engine yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo yum -y install docker-ce systemctl enable docker systemctl start docker curl -L &quot;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose chmod &#43;x /usr/local/bin/docker-compose   2.">
+    <meta name="author" content="">
+    
+    <link href="https://charles-one.github.io/xiaoxinLab/css/github-gist.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/xiaoxinLab/css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/xiaoxinLab/img/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/xiaoxinLab/img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.5" />
+    
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/xiaoxinLab/index.xml" title="小新实验室">
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="https://charles-one.github.io/xiaoxinLab/">小新实验室 </a></p>
+        
+        <button class="menu-toggle" type="button"></button>
+      </div>
+    </header>
+    <nav class="nav">
+    <ul class="menu">
+      
+      
+    </ul>
+    </nav>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">docker-compose简单使用</h1>
+    <div class="post-meta">2019.5.15</div>
+  </header>
+  <div class="post-content">
+
+<h2 id="目录">目录</h2>
+
+<h3 id="a-href-first-1-docker-compose简介-a"><a href="#first">1. docker-compose简介</a></h3>
+
+<h3 id="a-href-two-2-docker-compose-yml简单配置说明-a"><a href="#two">2. docker-compose.yml简单配置说明</a></h3>
+
+<h3 id="a-href-three-3-docker-compose运行-a"><a href="#three">3. docker-compose运行</a></h3>
+
+<h3 id="a-id-first-1-docker-compose简介与安装-a"><a id="first">1. docker-compose简介与安装</a></h3>
+
+<ol>
+<li><p>简介
+&gt;docker-compose是编排docker容器的, 就是管理这一批容器, 进行批量配置, 起动, 暂停, 删除容器等.
+如果有多个容器, 使用docker一个个启动慢, 如果容器间有依赖, 还需要手动指定, 还有环境变量, 可以
+一起设置.</p></li>
+
+<li><p>使用下面命令安装docker-compose和docker. 或使用[脚本一键安装]()</p>
+
+<pre><code>yum remove docker \
+          docker-common \
+          docker-selinux \
+          docker-engine
+
+
+yum install -y yum-utils \
+device-mapper-persistent-data \
+lvm2
+
+
+yum-config-manager \
+--add-repo \
+https://download.docker.com/linux/centos/docker-ce.repo
+
+yum -y install docker-ce
+
+systemctl enable docker
+systemctl start docker
+
+curl -L &quot;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose
+
+chmod +x /usr/local/bin/docker-compose
+
+</code></pre></li>
+</ol>
+
+<h3 id="a-id-two-2-docker-compose-yml简单配置-a"><a id="two">2. docker-compose.yml简单配置</a></h3>
+
+<h3 id="这里以wordpress-nginx-mariadb为例">这里以wordpress-nginx-mariadb为例</h3>
+
+<h4 id="参数说明">参数说明</h4>
+
+<pre><code># 设置docker-compose 版本
+version: &quot;3&quot;
+
+# 容器服务
+services:
+
+# 服务名称
+  mariadb:
+# 拉取镜像和镜像版本, 本地没有, 自动会拉取
+    image: mariadb:10.2
+    # 容器名称
+    container_name: mariadb_v1
+    # 容器环境, 设置mysql root密码, 用户名, 用户密码, 库
+    environment:
+      MYSQL_ROOT_PASSWORD: password_QUI356_ccf
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordone
+      MYSQL_PASSWORD: wordpress_weiki_JKL_sdf1
+    # 挂载外部磁盘目录, 相当于容器和数据分开存放, 删除容器, 外部磁盘数据仍在
+    volumes:
+      - ./lib/mariadb:/var/lib/mysql
+      - ./var/log/mysql:/var/log/mysql
+    # 暴露服务器端口, 格式是 外部端口:内部容器端口
+    ports:
+      - 3306:3306
+  nginx:
+    image: nginx:1.14.2
+    container_name: nginx_v1
+    volumes:
+      - ./etc/nginx/conf:/etc/nginx
+      - ./var/log/nginx:/var/log/nginx
+      - ./wordpress:/usr/share/nginx/html
+    ports:
+      - 80:80
+    links:
+      - wordpress
+  wordpress:
+    depends_on:
+      - mariadb
+    links:
+      - mariadb
+    image: wordpress:php7.1-fpm
+    container_name: wordpress_v1
+    volumes:
+      - ./wordpress:/var/www/html
+    # 其他容器环境中, 以链接mariadb服务
+    environment:
+      WORDPRESS_DB_HOST: mariadb
+      WORDPRESS_DB_USER: wordone
+      WORDPRESS_DB_PASSWORD: wordpress_weiki_JKL_sdf1
+      WORDPRESS_DB_NAME: wordpress
+
+</code></pre>
+
+<h3 id="a-id-three-3-docker-compose运行-直接拉取已经设置的配置-a"><a id="three">3. docker-compose运行, 直接拉取已经设置的配置</a></h3>
+
+<ol>
+<li><p>使用git克隆docker-compose库, 并存放在当前用户目录中(即cd ~/ 所在地方)</p>
+
+<pre><code>
+git clone https://github.com/Charles-one/docker-compose.git ~/docker-compose
+
+</code></pre></li>
+
+<li><p>复制一份执行文件到用户目录中</p>
+
+<pre><code>
+cp -r ~/docker-compose/wordpress-nginx-mariadb ~/wordpress-nginx-mariadb
+
+</code></pre></li>
+
+<li><p>进行文件夹中, 使用docker-compose 下载镜像, 构建镜像</p>
+
+<pre><code>
+# 进行需要运行的docker-compose库中
+cd ~/wordpress-nginx-mariadb
+
+# up 表示构建, -d后台运行
+# 运行后需要下载镜像, 时间比较长.
+docker-compose up -d
+
+</code></pre></li>
+
+<li><p>查看wordpress服务</p></li>
+</ol>
+
+<p>访问地址:</p>
+
+<blockquote>
+<p>http://你的服务器ip</p>
+</blockquote>
+
+<p>设置用户密码即可使用</p>
+
+<ol>
+<li><p>其它docker-compose命令</p>
+
+<pre><code># pull 拉取服务镜像
+docker-compose pull
+
+# up 运行服务并输出, 可使用control + c结束容器
+docker-compose up
+
+# start 启动一个已经存在的服务容器
+docker-compose start
+
+# stop 停止已经运行的容器, 不会删除, 可用start再启动
+docker-compose stop
+
+# rm 删除已经停止的容器
+docker-compose rm
+
+# ps 列出所有容器
+docker-compose ps
+
+# run 在服务上执行一个命令
+docker-compose
+
+# logs 查看服务输出
+docker-compose logs
+docker-compose logs -f
+
+</code></pre></li>
+</ol>
+</div>
+  <footer class="post-footer">
+    
+  </footer>
+  
+  
+  
+  
+</article>
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 小新实验室</span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="https://charles-one.github.io/xiaoxinLab/js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="https://charles-one.github.io/xiaoxinLab/js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  hljs.initHighlightingOnLoad();
+  setMenuListener();
+
+  InstantClick.on('change', function() {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuListener();
+  });
+
+  function setMenuListener() {
+    var menuToggle = document.querySelector('.menu-toggle');
+    var body = document.querySelector('body');
+    menuToggle.addEventListener('click', function() {
+      body.classList.toggle('no-scroll');
+    }, false);
+  }
+</script>
+</body>
+</html>
+

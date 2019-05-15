@@ -11,19 +11,22 @@
  linux下源码安装
    下载并编译
 mkdir ~/src cd ~/src git clone https://github.com/gohugoio/hugo.git cd hugo go install  添加环境变量
-  # 当前用户~/go文件绝对路径是GOPATH,Go编译后的文件在~/go/bin中 # 如现在当前用户是jenkins vim /etc/profile 添加 export export GOPATH=/var/lib/jenkins/go export PATH=${PATH}:$GOPATH/bin  重新生效/etc/profile文件
+# 当前用户~/go文件绝对路径是GOPATH,Go编译后的文件在~/go/bin中 # 如现在当前用户是jenkins vim /etc/profile 添加 export export GOPATH=/var/lib/jenkins/go export PATH=${PATH}:$GOPATH/bin   重新生效/etc/profile文件
 source /etc/profile
 再次hugo vimersion
 就会显示hugo版本, 表示可用
-2. 使用Hugo创建个人网站  创建静态网站文件夹  cd ~ hugo new site xiaoxinLab   写第一篇markdown文章, markdown语法参考  cd ~/xiaoxinLab 在目录~/xiaoxinLab下执行hugo new about.">
+2. 使用Hugo创建个人网站  创建静态网站文件夹
+cd ~ hugo new site xiaoxinLab  写第一篇markdown文章, markdown语法参考
+  cd ~/xiaoxinLab 在目录~/xiaoxinLab下执行hugo new about.">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/xiaoxinLab/css/github-gist.min.css" rel="stylesheet">
     <link href="https://charles-one.github.io/xiaoxinLab/css/style.css" rel="stylesheet">
     
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/xiaoxinLab/img/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/xiaoxinLab/img/favicon.ico">
     
-    <meta name="generator" content="Hugo 0.55.3" />
+    <meta name="generator" content="Hugo 0.55.5" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/xiaoxinLab/index.xml" title="小新实验室">
     
@@ -80,15 +83,15 @@ cd hugo
 go install
 </code></pre></li>
 
-<li><p>添加环境变量</p></li>
-</ol>
+<li><p>添加环境变量</p>
 
 <pre><code># 当前用户~/go文件绝对路径是GOPATH,Go编译后的文件在~/go/bin中
 # 如现在当前用户是jenkins
 vim /etc/profile 添加
 export export GOPATH=/var/lib/jenkins/go
 export PATH=${PATH}:$GOPATH/bin
-</code></pre>
+</code></pre></li>
+</ol>
 
 <p>重新生效/etc/profile文件</p>
 
@@ -101,16 +104,14 @@ export PATH=${PATH}:$GOPATH/bin
 <h3 id="2-使用hugo创建个人网站">2. 使用Hugo创建个人网站</h3>
 
 <ul>
-<li>创建静态网站文件夹</li>
-</ul>
+<li><p>创建静态网站文件夹</p>
 
 <pre><code>cd ~
 
 hugo new site xiaoxinLab
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>写第一篇markdown文章, <a href="http://xianbai.me/learn-md/article/about/readme.html">markdown语法参考</a></li>
+<li><p>写第一篇markdown文章, <a href="http://xianbai.me/learn-md/article/about/readme.html">markdown语法参考</a></p></li>
 </ul>
 
 <p>cd ~/xiaoxinLab
@@ -125,16 +126,13 @@ hugo new site xiaoxinLab
 <p>更改draft: true 为 draft:false</p>
 
 <ul>
-<li>Centos7.6.1810需要添加防火墙端口(仅虚拟机需要增加防火墙端口)</li>
-</ul>
+<li><p>Centos7.6.1810需要添加防火墙端口(仅虚拟机需要增加防火墙端口)</p>
 
 <pre><code>firewall-cmd --add-port=1313/tcp --permanent
 firewall-cmd --reload
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>使用主题生成本地服务, 查看博客效果, <a href="https://themes.gohugo.io/">更多主题下载hugo themes官网</a></li>
-</ul>
+<li><p>使用主题生成本地服务, 查看博客效果, <a href="https://themes.gohugo.io/">更多主题下载hugo themes官网</a></p>
 
 <pre><code>cd ~/xiaoxinLab/themes
 
@@ -145,7 +143,8 @@ cd ~/xiaoxinLab
 # -\-bind=&quot;10.211.55.9&quot;绑定ip , 使用本机则不需要绑定.
 hugo server -\-theme=hugo-paper -\-bind=&quot;10.211.55.9即是你的ip(不指定则默认只能本地访问)&quot;  -\-baseUrl=&quot;http://10.211.55.9&quot; -\-port=1313
 
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>浏览器输入http://你的ip:1313.如未指定,则是<a href="http://localhost:1313">http://localhost:1313</a></p>
 
@@ -247,7 +246,9 @@ git push -u github master:master
 <footer class="footer">
   <span>&copy; 2019 小新实验室</span>
   <span>&middot;</span>
-  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Powered by Hugo️️</a>️</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
 </footer>
 <script src="https://charles-one.github.io/xiaoxinLab/js/instantclick.min.js" data-no-instant></script>
 <script data-no-instant>InstantClick.init();</script>

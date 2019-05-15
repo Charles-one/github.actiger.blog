@@ -9,7 +9,9 @@
     
     <meta name="description" content="0. 准备工作  搭建静态博客Hugo, 建立Hugo服务作为测试接口 服务端centOS7.6.1810, 服务端ServerAgent 本机安装Java8, 并设置环境变量 本机jmeter, jmeter插件管理, Servers Performance Monitoring插件  1.服务端CentOS7 搭建Hugo, 并建立Hugo服务, 创建接口.  搭建Huog  请参考这个搭建Hugo文章
 参考到这条语句下就可以了,这条语句下面的内容不用看了
-hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&quot; --port=1313   创建接口  hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&quot; --port=1313   检测服务端接口  在浏览器中访问 http://你的ip:1313.如未指定,则是http://localhost:1313
+hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&quot; --port=1313   创建接口
+hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&quot; --port=1313  检测服务端接口
+  在浏览器中访问 http://你的ip:1313.如未指定,则是http://localhost:1313
 能正常访问显示文章就完成了
 2. 本机下载jmeter, jmeter插件管理, Servers Performance Monitoring插件  下载地址Jmeter, 安装插件  Jmeter下载地址
 下载并解压
@@ -24,9 +26,10 @@ Jmeter插件管理
     <link href="https://charles-one.github.io/xiaoxinLab/css/github-gist.min.css" rel="stylesheet">
     <link href="https://charles-one.github.io/xiaoxinLab/css/style.css" rel="stylesheet">
     
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/xiaoxinLab/img/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/xiaoxinLab/img/favicon.ico">
     
-    <meta name="generator" content="Hugo 0.55.3" />
+    <meta name="generator" content="Hugo 0.55.5" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/xiaoxinLab/index.xml" title="小新实验室">
     
@@ -80,14 +83,12 @@ Jmeter插件管理
 </code></pre>
 
 <ul>
-<li>创建接口</li>
-</ul>
+<li><p>创建接口</p>
 
 <pre><code>hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&quot; --port=1313
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>检测服务端接口</li>
+<li><p>检测服务端接口</p></li>
 </ul>
 
 <p>在浏览器中访问 <strong>http://你的ip:1313.如未指定,则是<a href="http://localhost:1313">http://localhost:1313</a></strong></p>
@@ -119,8 +120,7 @@ Jmeter插件管理
 <ul>
 <li><p><a href="https://github.com/undera/perfmon-agent/archive/2.2.3.tar.gz">下载PerfMon Server Agent</a></p></li>
 
-<li><p>添加防火墙接口4444, 因为PerfMon Server Agent使用的是这个端口, 解压运行</p></li>
-</ul>
+<li><p>添加防火墙接口4444, 因为PerfMon Server Agent使用的是这个端口, 解压运行</p>
 
 <pre><code>
 firewall-cmd --add-port=4444/tcp --permanent
@@ -133,7 +133,8 @@ unzip -d ServerAgent-2.2.1 ServerAgent-2.2.1.zip  (如果缺少unzip, yum instal
 cd ServerAgent-2.2.1
 ./startAgent.sh
 
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h3 id="4-本机启动jmeter-并获取服务端cpu-内存使用">4. 本机启动Jmeter, 并获取服务端cpu,内存使用</h3>
 
@@ -177,11 +178,11 @@ cd ServerAgent-2.2.1
 <li><p>在图像Jmeter上运行</p></li>
 
 <li><p>后台运行
-在apache-jmeter-5.1/bin下 (linxu mac下启动, windows是jmeter.bat)</p></li>
-</ol>
+在apache-jmeter-5.1/bin下 (linxu mac下启动, windows是jmeter.bat)</p>
 
 <pre><code>./jmeter -n -t test_file/my_hugo_test.jmx -l result_report_4.jtl -e -o Report_4
-</code></pre>
+</code></pre></li>
+</ol>
 
 <p>报告放在Report_4中, 用浏览器打开index.html即可</p>
 
@@ -200,7 +201,9 @@ cd ServerAgent-2.2.1
 <footer class="footer">
   <span>&copy; 2019 小新实验室</span>
   <span>&middot;</span>
-  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Powered by Hugo️️</a>️</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
 </footer>
 <script src="https://charles-one.github.io/xiaoxinLab/js/instantclick.min.js" data-no-instant></script>
 <script data-no-instant>InstantClick.init();</script>
