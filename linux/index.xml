@@ -6,10 +6,20 @@
     <description>Recent content in Linuxes on 小新实验室</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 17 May 2019 01:10:10 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 17 May 2019 01:49:37 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/xiaoxinLab/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>使用docker搭建nextcloud</title>
+      <link>https://charles-one.github.io/xiaoxinLab/linux/%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAnextcloud/</link>
+      <pubDate>Fri, 17 May 2019 01:49:37 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/xiaoxinLab/linux/%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAnextcloud/</guid>
+      <description> 1. nextcloud 个人私有云, 可以像网盘一样同步个人文件, 远程访问下载等. 2. 使用docker-compose搭建 使用docker-compose-repository搭建  git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository cp -r ~/docker-compose-repository/nextcloud ~/nextcloud cd ~/nextcloud # 自动下载并启动容器 dc up -d  访问地址 http://服务ip地址
+# 用户名和密码自己设置 # # 页面上选择数据库mariadb # 页面上填写就是你上面mariadb内容 # 用户名: nextcloud # 数据库: nextcloud # 密码: nextcloud_weiki_JKL_sdf # 地址(不是默认的localhost): mariadb  </description>
+    </item>
     
     <item>
       <title>Tmux插件tmuxinator配置</title>
