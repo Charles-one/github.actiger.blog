@@ -6,10 +6,26 @@
     <description>Recent content in Linuxes on 小新实验室</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 May 2019 02:02:51 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 16 May 2019 23:11:46 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/xiaoxinLab/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Centos7更新内核翻车之旅</title>
+      <link>https://charles-one.github.io/xiaoxinLab/linux/centos7%E6%9B%B4%E6%96%B0%E5%86%85%E6%A0%B8%E7%BF%BB%E8%BD%A6%E4%B9%8B%E6%97%85/</link>
+      <pubDate>Thu, 16 May 2019 23:11:46 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/xiaoxinLab/linux/centos7%E6%9B%B4%E6%96%B0%E5%86%85%E6%A0%B8%E7%BF%BB%E8%BD%A6%E4%B9%8B%E6%97%85/</guid>
+      <description>1. Centos7 更新内核失败的原因 安装内核后, 设置默认启动的内核错误, 就是设置为rescue模式 2. 事情经过  我操作的内容:
+rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm yum --enablerepo=elrepo-kernel -y install kernel-ml awk -F\&#39; &#39;$1==&amp;quot;menuentry &amp;quot; {print i++ &amp;quot; : &amp;quot; $2}&#39; /etc/grub2.cfg   这时候会显示默认启动内核列表:
+ 0 : CentOS Linux (0-rescue-00a62363617944e08db8db894ba6145e) 7 (Core)
+1 : CentOS Linux (5.1.1-1.el7.elrepo.x86_64) 7 (Core)
+2 : CentOS Linux (3.10.0-693.11.6.el7.x86_64) 7 (Core)
+3 : CentOS Linux (3.10.0-693.el7.x86_64) 7 (Core)
+ 接下来就是选择错误的地方
+# 错误选择默认的0 grub2-set-default 0  接着就会重启不了, 因为是VPS原因, 无法操作, 手动选择启动的内核, 所以就翻车了.</description>
+    </item>
     
     <item>
       <title>docker-compose简单使用</title>
