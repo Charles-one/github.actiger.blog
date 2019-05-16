@@ -54,6 +54,21 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>Mosh简介,安装与使用</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. Mosh简介, 及为什么要使用Mosh 1. Mosh全称Mobile Shell, 移动远程终端应用程序. 与ssh类似, 却有很多新功能, 可以漫游, 支持间歇性连接, 这对网络延迟高或者移动使用更换IP非常友好, 2. 我的服务器是VPS, 在使用SSH过程中, 经常会中断, 频繁重新连接, 还要kill掉之前的终端. Mosh的用法与SSH一致, 无缝切换. 2. Mosh 安装. 需要服务器端和客户端都安装软件. 服务端安装脚本 1. 服务器端安装mosh, 并开启防火墙udp端口 yum -y install epel-release yum -y install mosh firewall-cmd --zone=public --permanent --add-port=60000-61000/udp firewall-cmd --reload  2. 本地安装 Mac:
+brew install mosh  Windows: 参考https://mosh.org/
+3. Mosh使用. 使用规则与ssh一致. # 帮助 mosh -h # 连接 mosh root@192.168.0.1 # 使用ssh config配置连接 mosh locale_centos7  ssh config配置可以参考这里http://blog....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.5.17</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/xiaoxinLab/linux/mosh%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%BD%BF%E7%94%A8/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
     <h2>Centos7更新内核翻车之旅</h2>
   </header>
   <section class="entry-content">
@@ -213,26 +228,6 @@ source /etc/profile  ...</p>
     <time>2019.3.13</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/xiaoxinLab/linux/linux%E5%AE%89%E8%A3%85go%E5%B9%B6%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>安装jenkins和插件</h2>
-  </header>
-  <section class="entry-content">
-   <p>0.安装Jenkins, 需要提前安装JDK 1.8 安装JDK参考
-1.安装Jnekins  尽量翻墙执行,否则容易报443错误
-sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key yum search jenkins sudo yum install jenkins   2. 启动服务与添加防火墙端口  启动jenkins  systemctl start jenkins 如果这里有报错信息,并且提示 “systemctl status jenkins.service” and “journalctl -xe” for details 查看详情
-journalctl -xe可以看到原因/usr/bin/java: 没有那个文件或目录
-需要更改vim /etc/init.d/jenkins
-candidates=&#34; /etc/alternatives/java /usr/lib/jvm/java-1.8.0/bin/java /usr/lib/jvm/jre-1.8.0/bin/java /usr/lib/jvm/java-1.7.0/bin/java /usr/lib/jvm/jre-1.7.0/bin/java /usr/java/jdk1.8.0_152/bin/java 这个是修改后的jdk路径（修改前是/usr/bin/java） &#34;  systemctl daemon-reload (重新加载工具)
-systemctl start jenkins (再次启动jenkins)
- 检查是否能访问成功  jenkins 使用的8080端口...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.3.13</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/xiaoxinLab/linux/%E5%AE%89%E8%A3%85jenkins%E5%92%8C%E6%8F%92%E4%BB%B6/"></a>
 </article>
 
 

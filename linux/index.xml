@@ -6,10 +6,21 @@
     <description>Recent content in Linuxes on 小新实验室</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 16 May 2019 23:11:46 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 17 May 2019 00:20:12 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/xiaoxinLab/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mosh简介,安装与使用</title>
+      <link>https://charles-one.github.io/xiaoxinLab/linux/mosh%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Fri, 17 May 2019 00:20:12 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/xiaoxinLab/linux/mosh%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%BD%BF%E7%94%A8/</guid>
+      <description>1. Mosh简介, 及为什么要使用Mosh 1. Mosh全称Mobile Shell, 移动远程终端应用程序. 与ssh类似, 却有很多新功能, 可以漫游, 支持间歇性连接, 这对网络延迟高或者移动使用更换IP非常友好, 2. 我的服务器是VPS, 在使用SSH过程中, 经常会中断, 频繁重新连接, 还要kill掉之前的终端. Mosh的用法与SSH一致, 无缝切换. 2. Mosh 安装. 需要服务器端和客户端都安装软件. 服务端安装脚本 1. 服务器端安装mosh, 并开启防火墙udp端口 yum -y install epel-release yum -y install mosh firewall-cmd --zone=public --permanent --add-port=60000-61000/udp firewall-cmd --reload  2. 本地安装 Mac:
+brew install mosh  Windows: 参考https://mosh.org/
+3. Mosh使用. 使用规则与ssh一致. # 帮助 mosh -h # 连接 mosh root@192.168.0.1 # 使用ssh config配置连接 mosh locale_centos7  ssh config配置可以参考这里http://blog.</description>
+    </item>
     
     <item>
       <title>Centos7更新内核翻车之旅</title>
