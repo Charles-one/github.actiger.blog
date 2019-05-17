@@ -6,10 +6,23 @@
     <description>Recent content in Linuxes on 小新实验室</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 18 May 2019 00:37:15 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 18 May 2019 02:42:49 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/xiaoxinLab/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Crontab定时任务</title>
+      <link>https://charles-one.github.io/xiaoxinLab/linux/crontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</link>
+      <pubDate>Sat, 18 May 2019 02:42:49 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/xiaoxinLab/linux/crontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</guid>
+      <description> 1. 创建Crontab的原因. 每次更新博客都要登录服务器(ssh延迟容易中断)手动去拉取代码, 不方便. 故设置成自动获取最新代码. 2. 选择crontab定时 查看下资源, 觉得crontab简单可行, 直接来用就好了. 3. 定时任务需需要做事情.  特定目录执行git pul的shell脚本  vim git_pull.sh
+ #!/bin/bash # 进入目录中 cd ~/nginx-hugoBlog/blog.actiger.com/ # 拉取github中的代码 git pull   添加crontab任务文件  vim git_pull.cron
+# 设置5分钟拉取一次代码 */5* * * * csx /bin/bash ~/git_pull_blog.actiger.com.sh   把定时任务文件内容加到crontab中
+# 添加root账户中 crontab -uroot git_pull.cron # 查询当前任务 crontab -uroot -l # 删除任务 crontab -ruoot -rm  测试, 执行上面的内容后, 等待执行完毕.
+  </description>
+    </item>
     
     <item>
       <title>Centos7使用ssh Key拉取github项目失败</title>
