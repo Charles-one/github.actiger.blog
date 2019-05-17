@@ -140,8 +140,8 @@ git clone https://github.com/nanxiaobei/hugo-paper.git
 
 cd ~/xiaoxinLab
 
-# -\-bind=&quot;10.211.55.9&quot;绑定ip , 使用本机则不需要绑定.
-hugo server -\-theme=hugo-paper -\-bind=&quot;10.211.55.9即是你的ip(不指定则默认只能本地访问)&quot;  -\-baseUrl=&quot;http://10.211.55.9&quot; -\-port=1313
+# --bind=&quot;10.211.55.9&quot;绑定ip , 使用本机则不需要绑定.
+hugo server --theme=hugo-paper --bind=&quot;10.211.55.9即是你的ip(不指定则默认只能本地访问)&quot;  --baseUrl=&quot;http://10.211.55.9/&quot; --port=1313
 
 </code></pre></li>
 </ul>
@@ -169,7 +169,7 @@ hugo server -\-theme=hugo-paper -\-bind=&quot;10.211.55.9即是你的ip(不指�
 
 <p><strong>xiaoxinLab注意大小写</strong></p>
 
-<pre><code>hugo -\-theme=hugo-paper -\-baseUrl=&quot;https://charles-one.github.io/xiaoxinLab/&quot;
+<pre><code>hugo --theme=hugo-paper --baseUrl=&quot;https://charles-one.github.io/xiaoxinLab/&quot;
 </code></pre>
 
 <p>这里会生成public文件夹</p>
@@ -214,7 +214,7 @@ git push -u github master:master
 <pre><code># 将自己的图片存放到如下位置
 ~/xiaoxinLab/static/img/cat.JPG
 
-# 执行hugo -\-theme=hugo-paper -\-baseUrl=&quot;https://charles-one.github.io/xiaoxinLab/&quot;
+# 执行hugo --theme=hugo-paper --baseUrl=&quot;https://charles-one.github.io/xiaoxinLab/&quot;
 # 会把cat.JPG存放到, ~/xiaoxinLab/public/img/cat.JPG
 # 文章的存放的位置 ~/xiaoxinLab/public/about/index.html
 
