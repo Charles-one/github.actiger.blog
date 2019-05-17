@@ -6,10 +6,19 @@
     <description>Recent content on 小新实验室</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 17 May 2019 01:49:37 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 18 May 2019 00:37:15 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/xiaoxinLab/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Centos7使用ssh Key拉取github项目失败</title>
+      <link>https://charles-one.github.io/xiaoxinLab/linux/centos7%E4%BD%BF%E7%94%A8ssh-key%E6%8B%89%E5%8F%96github%E9%A1%B9%E7%9B%AE%E5%A4%B1%E8%B4%A5/</link>
+      <pubDate>Sat, 18 May 2019 00:37:15 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/xiaoxinLab/linux/centos7%E4%BD%BF%E7%94%A8ssh-key%E6%8B%89%E5%8F%96github%E9%A1%B9%E7%9B%AE%E5%A4%B1%E8%B4%A5/</guid>
+      <description>1. centos7上错误信息, 与配置信息. # 测试最否能连接到github上, 使用-v打印连接日志 [root@cc]/etc/ssh# ssh -vT git@github.com OpenSSH_7.4p1, OpenSSL 1.0.2k-fips 26 Jan 2017 debug1: Reading configuration data /root/.ssh/config debug1: /root/.ssh/config line 3: Applying options for github.com debug1: Reading configuration data /etc/ssh/ssh_config debug1: /etc/ssh/ssh_config line 60: Applying options for * debug1: Connecting to github.com [192.30.255.112] port 12340. debug1: Connection established. debug1: permanently_set_uid: 0/0 debug1: key_load_public: No such file or directory debug1: identity file /root/.ssh/git_cron type -1 debug1: key_load_public: No such file or directory debug1: identity file /root/.</description>
+    </item>
     
     <item>
       <title>使用docker搭建nextcloud</title>
