@@ -54,6 +54,25 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>Mac使用sshpass和alias管理ssh账号密码</h2>
+  </header>
+  <section class="entry-content">
+   <p>0.内容.  使用brew安装sshpass软件 在.bashrc或者.zshrc中写入连接服务器别名alias, 并测试连接.  1.使用brew安装sshpass软件 因为sshpass对新手来手使用不安全(某方面密码可以history中看到), 所以仅推荐连接本机虚拟机中. 正是因为担心会滥用所以brew并没有直接提供sshpass的安装. 项目地址 https://github.com/hudochenkov/homebrew-sshpass 强制推荐使用SSH密钥  直接使用brew安装
+brew install hudochenkov/sshpass/sshpass   2.在.bashrc或者.zshrc中写入连接服务器别名alias  sshpass使用
+# sshpass -p后接密码, ssh 后的-p是指定端口 # 分成2部分内容一是sshpass -p, 二是ssh root@10.211.55.9 -p 22 # 使用密码password连接10.211.55.9中22端口的root用户 sshpass -p&#39;password&#39; ssh root@10.211.55.9 -p 22  建立别名并生效, 这样就避免在history中直接看到密码.
+alias tolocal=&#34;sshpass -p&#39;password&#39; ssh root@10.211.55.9 -p 12340&#34;   将上面内容放到.bashrc(bash用户)或者.zshrc(zsh用户)中
+再次生成配置
+source ~/.bashrc # 或者 source ~/.zshrc   测试  在终端中输入并回车
+tolocal  即可连接本地虚拟机中....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.4.10</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/xiaoxinLab/linux/mac%E4%BD%BF%E7%94%A8sshpass%E5%92%8Calias%E7%AE%A1%E7%90%86ssh%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
     <h2>SSH密钥生成配置和登陆服务器与github使用钥匙</h2>
   </header>
   <section class="entry-content">
@@ -216,26 +235,6 @@ java -version   预期会弹出java的版本...</p>
     <time>2019.3.12</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/xiaoxinLab/linux/%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85jdk%E5%92%8C%E8%AE%BE%E7%BD%AEjdk%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>更改linux用户名</h2>
-  </header>
-  <section class="entry-content">
-   <p> 0.前提条件  root用户及密码 原用户ccc  1. 更改用户ccc 使用root用户编辑更改
-/etc/passwd
-/etc/group
-/etc/shadow
-/etc/gshadow
-中”原用户名”为”新用户名”即可
-同时
-mv /home/olderuser /home/newuser  ...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.3.12</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/xiaoxinLab/linux/%E6%9B%B4%E6%94%B9linux%E7%94%A8%E6%88%B7%E5%90%8D/"></a>
 </article>
 
 

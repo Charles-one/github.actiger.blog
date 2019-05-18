@@ -54,6 +54,19 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>LetsEncrypt申请与nginx配置SSL</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. letsencrypt 证书申请. 官方指引 1. 申请证书需要安装Cerbto. 脚本 yum -y install epel-release yum -y install yum-utils yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional yum install certbot python2-certbot-nginx  2. 手动去申请证, 我这里申请全部所有子域名的. 需要在域名供应商添加dns txt的. 1. 开始安装, 有下面提示信息. 这里需要暂停, 去添加DNS TXT即第2步. 执行到下面提示信息后, 需要暂停. - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #Please deploy a DNS TXT record under the name #_acme-challenge....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.5.19</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/xiaoxinLab/linux/letsencrypt%E7%94%B3%E8%AF%B7%E4%B8%8Enginx%E9%85%8D%E7%BD%AEssl/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
     <h2>使用docker和hugo创建自己的博客</h2>
   </header>
   <section class="entry-content">
@@ -187,25 +200,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  新建~/.tmux
     <time>2019.4.11</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/xiaoxinLab/linux/tmux%E4%BF%9D%E5%AD%98%E4%BC%9A%E8%AF%9D%E5%92%8C%E5%89%AA%E8%B4%B4%E6%9D%BF%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>Mac使用sshpass和alias管理ssh账号密码</h2>
-  </header>
-  <section class="entry-content">
-   <p>0.内容.  使用brew安装sshpass软件 在.bashrc或者.zshrc中写入连接服务器别名alias, 并测试连接.  1.使用brew安装sshpass软件 因为sshpass对新手来手使用不安全(某方面密码可以history中看到), 所以仅推荐连接本机虚拟机中. 正是因为担心会滥用所以brew并没有直接提供sshpass的安装. 项目地址 https://github.com/hudochenkov/homebrew-sshpass 强制推荐使用SSH密钥  直接使用brew安装
-brew install hudochenkov/sshpass/sshpass   2.在.bashrc或者.zshrc中写入连接服务器别名alias  sshpass使用
-# sshpass -p后接密码, ssh 后的-p是指定端口 # 分成2部分内容一是sshpass -p, 二是ssh root@10.211.55.9 -p 22 # 使用密码password连接10.211.55.9中22端口的root用户 sshpass -p&#39;password&#39; ssh root@10.211.55.9 -p 22  建立别名并生效, 这样就避免在history中直接看到密码.
-alias tolocal=&#34;sshpass -p&#39;password&#39; ssh root@10.211.55.9 -p 12340&#34;   将上面内容放到.bashrc(bash用户)或者.zshrc(zsh用户)中
-再次生成配置
-source ~/.bashrc # 或者 source ~/.zshrc   测试  在终端中输入并回车
-tolocal  即可连接本地虚拟机中....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.4.10</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/xiaoxinLab/linux/mac%E4%BD%BF%E7%94%A8sshpass%E5%92%8Calias%E7%AE%A1%E7%90%86ssh%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/"></a>
 </article>
 
 
