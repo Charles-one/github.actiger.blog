@@ -54,6 +54,21 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>SSH密钥生成配置和登陆服务器与github使用钥匙</h2>
+  </header>
+  <section class="entry-content">
+   <p>1.生成SSH公钥私钥  进入文件夹中(注:所有”#“表示说明)
+cd ~/.ssh/ # 其中-t rsa是指定rsa加密算法, -C &#34;asus&#34;是添加描述asus ssh-keygen -t rsa -C &#34;asus&#34;  # 说明: 默认是保存在/Users/你的用户名/.ssh/下, 如果你指定了名字则保存在当前路径下. # 指定的必须是文件且是绝对路径 # 在这里我已经在 ~/.ssh/中, 默认会保存在这里 Enter file in which to save the key (/Users/username(你的用户名)/.ssh/id_rsa): asus_rsa # 这里提示输入密码, 直接Enter表示不要密码 Enter passphrase (empty for no passphrase): # 与上面输入的密码保持一致, 如果上面没输入,这里也不要输入 Enter same passphrase again:  提示这些信息就表示生成成功
+Your identification has been saved in /Users/username/.ssh/asus_rsa. Your public key has been saved in /Users/username/.ssh/asus_rsa.pub. The key fingerprint is: SHA256:WNwJoo/Rr0TvpnQIdA4YisZrF&#43;7ZM8lKNB4JLpJXALA asus The key&#39;s randomart image is: &#43;---[RSA 2048]----&#43; |&#43;....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.3.30</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/xiaoxinLab/linux/ssh%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90%E9%85%8D%E7%BD%AE%E5%92%8C%E7%99%BB%E9%99%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8Egithub%E4%BD%BF%E7%94%A8%E9%92%A5%E5%8C%99/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
     <h2>华硕ASUS路由器AC5300莫名重启记录和排查</h2>
   </header>
   <section class="entry-content">
@@ -223,29 +238,6 @@ mv /home/olderuser /home/newuser  ...</p>
   <a class="entry-link" href="https://charles-one.github.io/xiaoxinLab/linux/%E6%9B%B4%E6%94%B9linux%E7%94%A8%E6%88%B7%E5%90%8D/"></a>
 </article>
 
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>更改ssh端口与禁止root登录增强服务器安全</h2>
-  </header>
-  <section class="entry-content">
-   <p>0.前提条件 1.安装软件Centos7, 版本7.6.1810 CentOS-7-x86_64-Minimal-1810.iso 2.root用户及密码, 已联网  如未联网,请打开网卡, 并重启 设置/etc/sysconfig/network-scripts/ifcfg-eth0 中ONBOOT =yes  重启电脑
-reboot  1.登录root  需要查询当前Centos7的主机ip
-ifconfig  提示无此命令
-  yum -y install net-tools
-再次 ifconfig查询ip
- 使用ssh软件登录root用户, 默认使用22端口, 不用指定
-ssh root@ip  输入密码
-  2.更改ssh服务端口, 防火墙端口, SELINUX端口  更改sshd.service端口, 端口可选择&gt;10000避免与其他软件冲突.  vim /etc/ssh/sshd_config更改Port 12340
-systemctl restart sshd   添加防火墙端口
-firewall-cmd --zone=public --add-port=12340/tcp --permanent (永久生效必须用--permanent) firewall-cmd --reload  更改SELINUX端口, 因为SELINUX的原因, ssh被设定到22端口上了, 必须更改
-  借助软件来更改 安装 yum -y install policycoreutils-python semanage port -a -t ssh_port_t -p tcp 12340...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.3.12</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/xiaoxinLab/linux/%E6%9B%B4%E6%94%B9ssh%E7%AB%AF%E5%8F%A3%E4%B8%8E%E7%A6%81%E6%AD%A2root%E7%99%BB%E5%BD%95%E5%A2%9E%E5%BC%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8/"></a>
-</article>
-
 
 
 
@@ -254,6 +246,8 @@ firewall-cmd --zone=public --add-port=12340/tcp --permanent (永久生效必须�
     
     <a class="prev" href="/xiaoxinLab/linux/">← Prev Page</a>
     
+    
+    <a class="next" href="/xiaoxinLab/linux/page/3/">Next Page →</a>
     
   </nav>
 </footer>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>使用docker和hugo创建自己的博客 - 小新实验室</title>
+    
+    <meta name="description" content="1. 方案选择, 需要内容结构. 1. 练习的话, 可以这种方案. 虚拟机&#43;本地hosts, 免费, 只能内网访问. 2. 最难的方案, 国内域名(备案时间可能会很长,外地备案条件苛刻)&#43;国内云. 2. 在服务器上拉取docker-compose仓库. # 拉取仓库, 并存放在用户目录中 git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository # 复制这用到了docker-compose文件夹, 并存放在用户目录中 cp -r ~/docker-compose-repository/nginx-hugoBlog ~/nginx-hugoBlog  3. 使用hugo生成正确的博客目录 1. hugo生成网站目录 # 指定主题, 我使用了hugo-paper, 网站地址baseUrl, 目标目录, 我会上传多个平台, 所以指定下. # 注意 --bashUrl后的/是必须要有的. hugo --theme=hugo-paper --baseUrl=&quot;http://blog.actiger.com/&quot; --destination=&quot;blog.actiger.com&quot;  2. 上传步骤1生成的博客目录到github.com. 参考这里的步骤3和4 3. 在服务器上拉取上传的博客目录 # 进行docker-compose文件夹中 cd ~/nginx-hugoBlog # 拉取的docker-compose 默认配置是 ./blog.actiger.com:/usr/share/nginx/html . # docker-compose配置文件里的配置的目录, 与当前目录一致的. # 克隆代码时需要, 重命名与docker-compose配置挂载目录名一致. git clone https://github.">
+    <meta name="author" content="">
+    
+    <link href="https://charles-one.github.io/xiaoxinLab/css/github-gist.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/xiaoxinLab/css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/xiaoxinLab/img/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/xiaoxinLab/img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.5" />
+    
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/xiaoxinLab/index.xml" title="小新实验室">
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="https://charles-one.github.io/xiaoxinLab/">小新实验室 </a></p>
+        
+        <button class="menu-toggle" type="button"></button>
+      </div>
+    </header>
+    <nav class="nav">
+    <ul class="menu">
+      
+      
+    </ul>
+    </nav>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">使用docker和hugo创建自己的博客</h1>
+    <div class="post-meta">2019.5.19</div>
+  </header>
+  <div class="post-content">
+
+<h3 id="1-方案选择-需要内容结构">1. 方案选择, 需要内容结构.</h3>
+
+<p><img src="../../img/docker-compose-nginx.png" alt="img" /></p>
+
+<h4 id="1-练习的话-可以这种方案-虚拟机-本地hosts-免费-只能内网访问">1. 练习的话, 可以这种方案. 虚拟机+本地hosts, 免费, 只能内网访问.</h4>
+
+<h4 id="2-最难的方案-国内域名-备案时间可能会很长-外地备案条件苛刻-国内云">2. 最难的方案, 国内域名(备案时间可能会很长,外地备案条件苛刻)+国内云.</h4>
+
+<h3 id="2-在服务器上拉取docker-compose仓库">2. 在服务器上拉取docker-compose仓库.</h3>
+
+<pre><code># 拉取仓库, 并存放在用户目录中
+git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository
+
+# 复制这用到了docker-compose文件夹, 并存放在用户目录中
+
+cp -r ~/docker-compose-repository/nginx-hugoBlog ~/nginx-hugoBlog
+
+</code></pre>
+
+<h3 id="3-使用hugo生成正确的博客目录">3. 使用hugo生成正确的博客目录</h3>
+
+<h4 id="1-hugo生成网站目录">1. hugo生成网站目录</h4>
+
+<pre><code># 指定主题, 我使用了hugo-paper, 网站地址baseUrl, 目标目录, 我会上传多个平台, 所以指定下.
+
+# 注意 --bashUrl后的/是必须要有的.
+
+hugo --theme=hugo-paper --baseUrl=&quot;http://blog.actiger.com/&quot; --destination=&quot;blog.actiger.com&quot;
+
+</code></pre>
+
+<h4 id="2-上传步骤1生成的博客目录到github-com-参考这里的步骤3和4-https-charles-one-github-io-xiaoxinlab-linux-使用hugo和github-pages搭建静态网站">2. 上传步骤1生成的博客目录到github.com. <a href="https://charles-one.github.io/xiaoxinLab/linux/使用hugo和github-pages搭建静态网站/">参考这里的步骤3和4</a></h4>
+
+<h4 id="3-在服务器上拉取上传的博客目录">3. 在服务器上拉取上传的博客目录</h4>
+
+<pre><code># 进行docker-compose文件夹中
+
+cd ~/nginx-hugoBlog
+
+# 拉取的docker-compose 默认配置是 ./blog.actiger.com:/usr/share/nginx/html .
+# docker-compose配置文件里的配置的目录, 与当前目录一致的.
+# 克隆代码时需要, 重命名与docker-compose配置挂载目录名一致.
+
+git clone https://github.com/Charles-one/blog.actiger.com blog.actiger.com
+
+</code></pre>
+
+<h3 id="4-运行docker-compose文件">4. 运行docker-compose文件.</h3>
+
+<pre><code># 进行执行目录中
+cd ~cd ~/nginx-hugoBlog
+
+# 执行
+docker-compose up -d
+
+</code></pre>
+
+<h4 id="验证是否正确-访问-http-blog-actiger-com-http-blog-actiger-com">验证是否正确, 访问<a href="http://blog.actiger.com">http://blog.actiger.com</a></h4>
+</div>
+  <footer class="post-footer">
+    
+  </footer>
+  
+  
+  
+  
+</article>
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 小新实验室</span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="https://charles-one.github.io/xiaoxinLab/js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="https://charles-one.github.io/xiaoxinLab/js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  hljs.initHighlightingOnLoad();
+  setMenuListener();
+
+  InstantClick.on('change', function() {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuListener();
+  });
+
+  function setMenuListener() {
+    var menuToggle = document.querySelector('.menu-toggle');
+    var body = document.querySelector('body');
+    menuToggle.addEventListener('click', function() {
+      body.classList.toggle('no-scroll');
+    }, false);
+  }
+</script>
+</body>
+</html>
+

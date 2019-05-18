@@ -6,10 +6,19 @@
     <description>Recent content on 小新实验室</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 18 May 2019 02:42:49 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 19 May 2019 02:50:28 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/xiaoxinLab/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>使用docker和hugo创建自己的博客</title>
+      <link>https://charles-one.github.io/xiaoxinLab/linux/%E4%BD%BF%E7%94%A8docker%E5%92%8Chugo%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Sun, 19 May 2019 02:50:28 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/xiaoxinLab/linux/%E4%BD%BF%E7%94%A8docker%E5%92%8Chugo%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
+      <description>1. 方案选择, 需要内容结构. 1. 练习的话, 可以这种方案. 虚拟机+本地hosts, 免费, 只能内网访问. 2. 最难的方案, 国内域名(备案时间可能会很长,外地备案条件苛刻)+国内云. 2. 在服务器上拉取docker-compose仓库. # 拉取仓库, 并存放在用户目录中 git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository # 复制这用到了docker-compose文件夹, 并存放在用户目录中 cp -r ~/docker-compose-repository/nginx-hugoBlog ~/nginx-hugoBlog  3. 使用hugo生成正确的博客目录 1. hugo生成网站目录 # 指定主题, 我使用了hugo-paper, 网站地址baseUrl, 目标目录, 我会上传多个平台, 所以指定下. # 注意 --bashUrl后的/是必须要有的. hugo --theme=hugo-paper --baseUrl=&amp;quot;http://blog.actiger.com/&amp;quot; --destination=&amp;quot;blog.actiger.com&amp;quot;  2. 上传步骤1生成的博客目录到github.com. 参考这里的步骤3和4 3. 在服务器上拉取上传的博客目录 # 进行docker-compose文件夹中 cd ~/nginx-hugoBlog # 拉取的docker-compose 默认配置是 ./blog.actiger.com:/usr/share/nginx/html . # docker-compose配置文件里的配置的目录, 与当前目录一致的. # 克隆代码时需要, 重命名与docker-compose配置挂载目录名一致. git clone https://github.</description>
+    </item>
     
     <item>
       <title>Crontab定时任务</title>
