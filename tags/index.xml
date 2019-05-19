@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Actiger跳跳虎</title>
-    <link>https://charles-one.github.io/xiaoxinLab/tags/</link>
+    <link>https://charles-one.github.io/actiger/tags/</link>
     <description>Recent content in Tags on Actiger跳跳虎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://charles-one.github.io/xiaoxinLab/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://charles-one.github.io/actiger/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

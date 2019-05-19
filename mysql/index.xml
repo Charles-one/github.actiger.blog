@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mysqls on Actiger跳跳虎</title>
-    <link>https://charles-one.github.io/xiaoxinLab/mysql/</link>
+    <link>https://charles-one.github.io/actiger/mysql/</link>
     <description>Recent content in Mysqls on Actiger跳跳虎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 12 Mar 2019 17:31:56 +0800</lastBuildDate>
     
-	<atom:link href="https://charles-one.github.io/xiaoxinLab/mysql/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://charles-one.github.io/actiger/mysql/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>基本SQL语句用法</title>
-      <link>https://charles-one.github.io/xiaoxinLab/mysql/%E5%9F%BA%E6%9C%ACsql%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95/</link>
+      <link>https://charles-one.github.io/actiger/mysql/%E5%9F%BA%E6%9C%ACsql%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95/</link>
       <pubDate>Tue, 12 Mar 2019 17:31:56 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/mysql/%E5%9F%BA%E6%9C%ACsql%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95/</guid>
+      <guid>https://charles-one.github.io/actiger/mysql/%E5%9F%BA%E6%9C%ACsql%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95/</guid>
       <description>建立表 4个表关系 1.学生表
 Student(s_id,s_name,s_birth,s_sex) –学生编号,学生姓名, 出生年月,学生性别
 2.课程表

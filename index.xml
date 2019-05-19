@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Actiger跳跳虎</title>
-    <link>https://charles-one.github.io/xiaoxinLab/</link>
+    <link>https://charles-one.github.io/actiger/</link>
     <description>Recent content on Actiger跳跳虎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 19 May 2019 04:04:30 +0800</lastBuildDate>
     
-	<atom:link href="https://charles-one.github.io/xiaoxinLab/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://charles-one.github.io/actiger/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>LetsEncrypt申请与nginx配置SSL</title>
-      <link>https://charles-one.github.io/xiaoxinLab/linux/letsencrypt%E7%94%B3%E8%AF%B7%E4%B8%8Enginx%E9%85%8D%E7%BD%AEssl/</link>
+      <link>https://charles-one.github.io/actiger/linux/letsencrypt%E7%94%B3%E8%AF%B7%E4%B8%8Enginx%E9%85%8D%E7%BD%AEssl/</link>
       <pubDate>Sun, 19 May 2019 04:04:30 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/linux/letsencrypt%E7%94%B3%E8%AF%B7%E4%B8%8Enginx%E9%85%8D%E7%BD%AEssl/</guid>
+      <guid>https://charles-one.github.io/actiger/linux/letsencrypt%E7%94%B3%E8%AF%B7%E4%B8%8Enginx%E9%85%8D%E7%BD%AEssl/</guid>
       <description>1. letsencrypt 证书申请. 官方指引 1. 申请证书需要安装Cerbto. 脚本 yum -y install epel-release yum -y install yum-utils yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional yum install certbot python2-certbot-nginx  2. 手动去申请证, 我这里申请全部子域名的. 验证身份的方式需要在域名供应商添加dns txt的. 1. 开始安装, 有下面提示信息. 这里需要暂停, 去添加DNS TXT即第2步. 执行到下面提示信息后, 需要暂停. - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #Please deploy a DNS TXT record under the name #_acme-challenge.</description>
     </item>
     
     <item>
       <title>使用docker和hugo搭建自己的博客</title>
-      <link>https://charles-one.github.io/xiaoxinLab/linux/%E4%BD%BF%E7%94%A8docker%E5%92%8Chugo%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</link>
+      <link>https://charles-one.github.io/actiger/linux/%E4%BD%BF%E7%94%A8docker%E5%92%8Chugo%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Sun, 19 May 2019 02:50:28 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/linux/%E4%BD%BF%E7%94%A8docker%E5%92%8Chugo%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>https://charles-one.github.io/actiger/linux/%E4%BD%BF%E7%94%A8docker%E5%92%8Chugo%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
       <description>1. 方案选择, 需要内容结构. 1. 练习的话, 可以这种方案. 虚拟机+本地hosts, 免费, 只能内网访问. 2. 最难的方案, 国内域名(备案时间可能会很长,外地备案条件苛刻)+国内云. 2. 在服务器上拉取docker-compose仓库. # 拉取仓库, 并存放在用户目录中 git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository # 复制这用到了docker-compose文件夹, 并存放在用户目录中 cp -r ~/docker-compose-repository/nginx-hugoBlog ~/nginx-hugoBlog  3. 使用hugo生成正确的博客目录 1. hugo生成网站目录 # 指定主题, 我使用了hugo-paper, 网站地址baseUrl, 目标目录, 我会上传多个平台, 所以指定下. # 注意 --bashUrl后的/是必须要有的. hugo --theme=hugo-paper --baseUrl=&amp;quot;http://blog.actiger.com/&amp;quot; --destination=&amp;quot;blog.actiger.com&amp;quot;  2. 上传步骤1生成的博客目录到github.com. 参考这里的步骤3和4 3. 在服务器上拉取上传的博客目录 # 进行docker-compose文件夹中 cd ~/nginx-hugoBlog # 拉取的docker-compose 默认配置是 ./blog.actiger.com:/usr/share/nginx/html . # docker-compose配置文件里的配置的目录, 与当前目录一致的. # 克隆代码时需要, 重命名与docker-compose配置挂载目录名一致. git clone https://github.</description>
     </item>
     
     <item>
       <title>Crontab定时任务</title>
-      <link>https://charles-one.github.io/xiaoxinLab/linux/crontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</link>
+      <link>https://charles-one.github.io/actiger/linux/crontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</link>
       <pubDate>Sat, 18 May 2019 02:42:49 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/linux/crontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</guid>
+      <guid>https://charles-one.github.io/actiger/linux/crontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</guid>
       <description>1. 使用Crontab的原因. 每次更新博客都要登录服务器(ssh延迟容易中断)手动去拉取代码, 不方便. 故设置成自动获取最新代码. 2. 选择crontab定时 查看下资源, 觉得crontab简单可行, 直接来用就好了. 3. 定时任务需需要做事情.  特定目录执行git pul的shell脚本. 这里我使用了ssh key可以参考这里的  vim git_pull.sh
  #!/bin/bash # 进入目录中 cd ~/nginx-hugoBlog/blog.actiger.com/ # 拉取github中的代码 git pull   添加crontab任务文件  vim git_pull.cron
 # 设置5分钟拉取一次代码 */5 * * * * cd /root &amp;amp;&amp;amp; ./git_pull_blog.actiger.com.sh   把定时任务文件内容加到crontab中
@@ -43,39 +43,39 @@
     
     <item>
       <title>Centos7使用ssh Key拉取github项目失败</title>
-      <link>https://charles-one.github.io/xiaoxinLab/linux/centos7%E4%BD%BF%E7%94%A8ssh-key%E6%8B%89%E5%8F%96github%E9%A1%B9%E7%9B%AE%E5%A4%B1%E8%B4%A5/</link>
+      <link>https://charles-one.github.io/actiger/linux/centos7%E4%BD%BF%E7%94%A8ssh-key%E6%8B%89%E5%8F%96github%E9%A1%B9%E7%9B%AE%E5%A4%B1%E8%B4%A5/</link>
       <pubDate>Sat, 18 May 2019 00:37:15 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/linux/centos7%E4%BD%BF%E7%94%A8ssh-key%E6%8B%89%E5%8F%96github%E9%A1%B9%E7%9B%AE%E5%A4%B1%E8%B4%A5/</guid>
+      <guid>https://charles-one.github.io/actiger/linux/centos7%E4%BD%BF%E7%94%A8ssh-key%E6%8B%89%E5%8F%96github%E9%A1%B9%E7%9B%AE%E5%A4%B1%E8%B4%A5/</guid>
       <description>1. centos7上错误信息, 与配置信息. # 测试最否能连接到github上, 使用-v打印连接日志 [root@cc]/etc/ssh# ssh -vT git@github.com OpenSSH_7.4p1, OpenSSL 1.0.2k-fips 26 Jan 2017 debug1: Reading configuration data /root/.ssh/config debug1: /root/.ssh/config line 3: Applying options for github.com debug1: Reading configuration data /etc/ssh/ssh_config debug1: /etc/ssh/ssh_config line 60: Applying options for * debug1: Connecting to github.com [192.30.255.112] port 12340. debug1: Connection established. debug1: permanently_set_uid: 0/0 debug1: key_load_public: No such file or directory debug1: identity file /root/.ssh/git_cron type -1 debug1: key_load_public: No such file or directory debug1: identity file /root/.</description>
     </item>
     
     <item>
       <title>使用docker搭建nextcloud</title>
-      <link>https://charles-one.github.io/xiaoxinLab/linux/%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAnextcloud/</link>
+      <link>https://charles-one.github.io/actiger/linux/%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAnextcloud/</link>
       <pubDate>Fri, 17 May 2019 01:49:37 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/linux/%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAnextcloud/</guid>
+      <guid>https://charles-one.github.io/actiger/linux/%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAnextcloud/</guid>
       <description> 1. nextcloud 个人私有云, 可以像网盘一样同步个人文件, 远程访问下载等. 2. 使用docker-compose搭建 使用docker-compose-repository搭建  git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository cp -r ~/docker-compose-repository/nextcloud ~/nextcloud cd ~/nextcloud # 自动下载并启动容器 dc up -d  访问地址 http://服务ip地址
 # 用户名和密码自己设置 # # 页面上选择数据库mariadb # 页面上填写就是你上面mariadb内容 # 用户名: nextcloud # 数据库: nextcloud # 密码: nextcloud_weiki_JKL_sdf # 地址(不是默认的localhost): mariadb  </description>
     </item>
     
     <item>
       <title>Tmux插件tmuxinator配置</title>
-      <link>https://charles-one.github.io/xiaoxinLab/linux/tmux%E6%8F%92%E4%BB%B6tmuxinator%E9%85%8D%E7%BD%AE/</link>
+      <link>https://charles-one.github.io/actiger/linux/tmux%E6%8F%92%E4%BB%B6tmuxinator%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Fri, 17 May 2019 01:10:10 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/linux/tmux%E6%8F%92%E4%BB%B6tmuxinator%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://charles-one.github.io/actiger/linux/tmux%E6%8F%92%E4%BB%B6tmuxinator%E9%85%8D%E7%BD%AE/</guid>
       <description>1. 安装tmux的tmuxinator插件 Mac下安装:
 # 使用gem安装tmuxinator gem install tmuxinator # 查询环境, 获取gem安装程序执行目录, 目的是添加环境变量 gem env # 安装程序的执行目录 /usr/local/lib/ruby/gems/2.6.0/bin # 在.zshrc或者.bashrc中添加环境变量 export PATH=&amp;quot;$PATH:/usr/local/lib/ruby/gems/2.6.0/bin&amp;quot;  2. Tmuxinator配置 # 会自动创建文件在~/.tmuxinator中 tmuxinator edit hugo # 名称 name: hugo # 目录, 我存放hugo的目录 root: ~/Documents/xiaoxinLab # 2个窗口, 1, 2是窗口名称 # layout: even-horizontal, 横着分割 # panes 不需要名称, hugo server --theme=paper 是执行命令hugo服务 windows: - 1: layout: even-horizontal panes: - hugo server --theme=paper - - 2:  3. tmuxinator使用  # tmux &amp;amp; tumxinator , 可写.</description>
     </item>
     
     <item>
       <title>Mosh简介,安装与使用</title>
-      <link>https://charles-one.github.io/xiaoxinLab/linux/mosh%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%BD%BF%E7%94%A8/</link>
+      <link>https://charles-one.github.io/actiger/linux/mosh%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Fri, 17 May 2019 00:20:12 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/linux/mosh%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://charles-one.github.io/actiger/linux/mosh%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%BD%BF%E7%94%A8/</guid>
       <description>1. Mosh简介, 及为什么要使用Mosh 1. Mosh全称Mobile Shell, 移动远程终端应用程序. 与ssh类似, 却有很多新功能, 可以漫游, 支持间歇性连接, 这对网络延迟高或者移动使用更换IP非常友好, 2. 我的服务器是VPS, 在使用SSH过程中, 经常会中断, 频繁重新连接, 还要kill掉之前的终端. Mosh的用法与SSH一致, 无缝切换. 2. Mosh 安装. 需要服务器端和客户端都安装软件. 服务端安装脚本 1. 服务器端安装mosh, 并开启防火墙udp端口 yum -y install epel-release yum -y install mosh firewall-cmd --zone=public --permanent --add-port=60000-61000/udp firewall-cmd --reload  2. 本地安装 Mac:
 brew install mosh  Windows: 参考https://mosh.org/
 3. Mosh使用. 使用规则与ssh一致. # 帮助 mosh -h # 连接 mosh root@192.168.0.1 # 使用ssh config配置连接 mosh locale_centos7  ssh config配置可以参考这里http://blog.</description>
@@ -83,10 +83,10 @@ brew install mosh  Windows: 参考https://mosh.org/
     
     <item>
       <title>Centos7更新内核翻车之旅</title>
-      <link>https://charles-one.github.io/xiaoxinLab/linux/centos7%E6%9B%B4%E6%96%B0%E5%86%85%E6%A0%B8%E7%BF%BB%E8%BD%A6%E4%B9%8B%E6%97%85/</link>
+      <link>https://charles-one.github.io/actiger/linux/centos7%E6%9B%B4%E6%96%B0%E5%86%85%E6%A0%B8%E7%BF%BB%E8%BD%A6%E4%B9%8B%E6%97%85/</link>
       <pubDate>Thu, 16 May 2019 23:11:46 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/linux/centos7%E6%9B%B4%E6%96%B0%E5%86%85%E6%A0%B8%E7%BF%BB%E8%BD%A6%E4%B9%8B%E6%97%85/</guid>
+      <guid>https://charles-one.github.io/actiger/linux/centos7%E6%9B%B4%E6%96%B0%E5%86%85%E6%A0%B8%E7%BF%BB%E8%BD%A6%E4%B9%8B%E6%97%85/</guid>
       <description>1. Centos7 更新内核失败的原因 安装内核后, 设置默认启动的内核错误, 就是设置为rescue模式 2. 事情经过  我操作的内容:
 rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm yum --enablerepo=elrepo-kernel -y install kernel-ml awk -F\&#39; &#39;$1==&amp;quot;menuentry &amp;quot; {print i++ &amp;quot; : &amp;quot; $2}&#39; /etc/grub2.cfg   这时候会显示默认启动内核列表:
  0 : CentOS Linux (0-rescue-00a62363617944e08db8db894ba6145e) 7 (Core)
@@ -99,10 +99,10 @@ rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org rpm -Uvh http://www.e
     
     <item>
       <title>docker-compose简单使用</title>
-      <link>https://charles-one.github.io/xiaoxinLab/linux/docker-compose%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <link>https://charles-one.github.io/actiger/linux/docker-compose%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Wed, 15 May 2019 02:02:51 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/linux/docker-compose%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://charles-one.github.io/actiger/linux/docker-compose%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
       <description>目录 1. docker-compose简介 2. docker-compose.yml简单配置说明 3. docker-compose运行 1. docker-compose简介与安装  简介 &amp;gt;docker-compose是编排docker容器的, 就是管理这一批容器, 进行批量配置, 起动, 暂停, 删除容器等. 如果有多个容器, 使用docker一个个启动慢, 如果容器间有依赖, 还需要手动指定, 还有环境变量, 可以 一起设置.
  使用下面命令安装docker-compose和docker. 或使用[脚本一键安装]()
 yum remove docker \ docker-common \ docker-selinux \ docker-engine yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo yum -y install docker-ce systemctl enable docker systemctl start docker curl -L &amp;quot;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)&amp;quot; -o /usr/local/bin/docker-compose chmod +x /usr/local/bin/docker-compose   2.</description>
@@ -110,19 +110,19 @@ yum remove docker \ docker-common \ docker-selinux \ docker-engine yum install -
     
     <item>
       <title>创建hugo主题失败的思考</title>
-      <link>https://charles-one.github.io/xiaoxinLab/thought/%E5%88%9B%E5%BB%BAhugo%E4%B8%BB%E9%A2%98%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%80%9D%E8%80%83/</link>
+      <link>https://charles-one.github.io/actiger/thought/%E5%88%9B%E5%BB%BAhugo%E4%B8%BB%E9%A2%98%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%80%9D%E8%80%83/</link>
       <pubDate>Sun, 14 Apr 2019 19:59:54 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/thought/%E5%88%9B%E5%BB%BAhugo%E4%B8%BB%E9%A2%98%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%80%9D%E8%80%83/</guid>
+      <guid>https://charles-one.github.io/actiger/thought/%E5%88%9B%E5%BB%BAhugo%E4%B8%BB%E9%A2%98%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%80%9D%E8%80%83/</guid>
       <description>0.事情经过  每次拉取Hugo Paper的主题的时候都会把作者的个人图标拉过来, 显示在我的Github Pages上, 很难受. 需要手动更改位置. 所以就想自己更改出来一个hugo theme. 错误估计自己的能力, 什么也没弄懂, 什么也没有做出来. 很生气, 没有计划就来做这件事, 浪费太多时间, 没有睡好. 然后思考下这次浪费时间的原因, 就有了这篇文章.  1.分析下失败原因 1.不了解Hugo使用theme的生成规则  不清楚theme目录里, 具体存放什么, 有什么作用. 对生成网页了解甚少, 规则就明白header是生成一个页面的上半部分, footer.html是生成页面下半部分. 高估自己css和html能力了, 虽然有学过, 距离很久, 记不清了, 一只半解, 例如a标签样式的下划线, 肯定有其他的优先级造成直接定义a text-decoration: none失败. theme参数的运用也不清楚.  2.没有目标和计划.  在不了解hugo规则和html知识的情况下, 盲目开始, 没有考虑出现问题, 该怎么处理, 是放弃还是暂时挂起. 从12点到5点完成在乱看, 没有搞清楚你要做什么地步. 最初的目标是, 去掉作者放的ico图标, 这个很简单的事情, 切分支然后替换内容.(还有就是在xiaoxinLab/static/img里存放ico图片, 后来才知道会覆盖作者的), 对就是 这么一简单的需求, 还有一个简单的需求是把代码的背景色替换成灰色的(这个更新主题作者已经解决了).  3.没有寻求解决问题的最优解.  对于自己的2个目标, 完成可以5分钟解决, 自己却偏不, 想练习下自己的HTML, 结果没有锻炼, 还打击了积极性. 出现困难没有及时停下来想想, 目标, 时间成功.  3.</description>
     </item>
     
     <item>
       <title>tmux保存会话和剪贴板插件安装及使用</title>
-      <link>https://charles-one.github.io/xiaoxinLab/linux/tmux%E4%BF%9D%E5%AD%98%E4%BC%9A%E8%AF%9D%E5%92%8C%E5%89%AA%E8%B4%B4%E6%9D%BF%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>
+      <link>https://charles-one.github.io/actiger/linux/tmux%E4%BF%9D%E5%AD%98%E4%BC%9A%E8%AF%9D%E5%92%8C%E5%89%AA%E8%B4%B4%E6%9D%BF%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Thu, 11 Apr 2019 00:45:56 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/linux/tmux%E4%BF%9D%E5%AD%98%E4%BC%9A%E8%AF%9D%E5%92%8C%E5%89%AA%E8%B4%B4%E6%9D%BF%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://charles-one.github.io/actiger/linux/tmux%E4%BF%9D%E5%AD%98%E4%BC%9A%E8%AF%9D%E5%92%8C%E5%89%AA%E8%B4%B4%E6%9D%BF%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/</guid>
       <description>0.内容  安装tmux 安装tmux插件管理 安装保存会话和剪贴板插件  1.安装tmux 为什么要使用tmux, 可以永久保存会话, 就不用每次都要切换到对应工作目录中.  Mac下
 brew install tmux  linux, 参考Github地址
 git clone https://github.com/tmux/tmux.git cd tmux sh autogen.sh ./configure &amp;amp;&amp;amp; make   2.安装tmux插件管理  参考地址
@@ -132,10 +132,10 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  新建~/.tmux
     
     <item>
       <title>Mac使用sshpass和alias管理ssh账号密码</title>
-      <link>https://charles-one.github.io/xiaoxinLab/linux/mac%E4%BD%BF%E7%94%A8sshpass%E5%92%8Calias%E7%AE%A1%E7%90%86ssh%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/</link>
+      <link>https://charles-one.github.io/actiger/linux/mac%E4%BD%BF%E7%94%A8sshpass%E5%92%8Calias%E7%AE%A1%E7%90%86ssh%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/</link>
       <pubDate>Wed, 10 Apr 2019 23:31:03 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/linux/mac%E4%BD%BF%E7%94%A8sshpass%E5%92%8Calias%E7%AE%A1%E7%90%86ssh%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/</guid>
+      <guid>https://charles-one.github.io/actiger/linux/mac%E4%BD%BF%E7%94%A8sshpass%E5%92%8Calias%E7%AE%A1%E7%90%86ssh%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/</guid>
       <description>0.内容.  使用brew安装sshpass软件 在.bashrc或者.zshrc中写入连接服务器别名alias, 并测试连接.  1.使用brew安装sshpass软件 因为sshpass对新手来手使用不安全(某方面密码可以history中看到), 所以仅推荐连接本机虚拟机中. 正是因为担心会滥用所以brew并没有直接提供sshpass的安装. 项目地址 https://github.com/hudochenkov/homebrew-sshpass 强制推荐使用SSH密钥  直接使用brew安装
 brew install hudochenkov/sshpass/sshpass   2.在.bashrc或者.zshrc中写入连接服务器别名alias  sshpass使用
 # sshpass -p后接密码, ssh 后的-p是指定端口 # 分成2部分内容一是sshpass -p, 二是ssh root@10.211.55.9 -p 22 # 使用密码password连接10.211.55.9中22端口的root用户 sshpass -p&#39;password&#39; ssh root@10.211.55.9 -p 22  建立别名并生效, 这样就避免在history中直接看到密码.
@@ -147,10 +147,10 @@ tolocal  即可连接本地虚拟机中.</description>
     
     <item>
       <title>SSH密钥生成配置和登陆服务器与github使用钥匙</title>
-      <link>https://charles-one.github.io/xiaoxinLab/linux/ssh%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90%E9%85%8D%E7%BD%AE%E5%92%8C%E7%99%BB%E9%99%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8Egithub%E4%BD%BF%E7%94%A8%E9%92%A5%E5%8C%99/</link>
+      <link>https://charles-one.github.io/actiger/linux/ssh%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90%E9%85%8D%E7%BD%AE%E5%92%8C%E7%99%BB%E9%99%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8Egithub%E4%BD%BF%E7%94%A8%E9%92%A5%E5%8C%99/</link>
       <pubDate>Sat, 30 Mar 2019 23:32:03 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/linux/ssh%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90%E9%85%8D%E7%BD%AE%E5%92%8C%E7%99%BB%E9%99%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8Egithub%E4%BD%BF%E7%94%A8%E9%92%A5%E5%8C%99/</guid>
+      <guid>https://charles-one.github.io/actiger/linux/ssh%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90%E9%85%8D%E7%BD%AE%E5%92%8C%E7%99%BB%E9%99%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8Egithub%E4%BD%BF%E7%94%A8%E9%92%A5%E5%8C%99/</guid>
       <description>1.生成SSH公钥私钥  进入文件夹中(注:所有&amp;rdquo;#&amp;ldquo;表示说明)
 cd ~/.ssh/ # 其中-t rsa是指定rsa加密算法, -C &amp;quot;asus&amp;quot;是添加描述asus ssh-keygen -t rsa -C &amp;quot;asus&amp;quot;  # 说明: 默认是保存在/Users/你的用户名/.ssh/下, 如果你指定了名字则保存在当前路径下. # 指定的必须是文件且是绝对路径 # 在这里我已经在 ~/.ssh/中, 默认会保存在这里 Enter file in which to save the key (/Users/username(你的用户名)/.ssh/id_rsa): asus_rsa # 这里提示输入密码, 直接Enter表示不要密码 Enter passphrase (empty for no passphrase): # 与上面输入的密码保持一致, 如果上面没输入,这里也不要输入 Enter same passphrase again:  提示这些信息就表示生成成功
 Your identification has been saved in /Users/username/.ssh/asus_rsa. Your public key has been saved in /Users/username/.ssh/asus_rsa.pub. The key fingerprint is: SHA256:WNwJoo/Rr0TvpnQIdA4YisZrF+7ZM8lKNB4JLpJXALA asus The key&#39;s randomart image is: +---[RSA 2048]----+ |+.</description>
@@ -158,19 +158,19 @@ Your identification has been saved in /Users/username/.ssh/asus_rsa. Your public
     
     <item>
       <title>华硕ASUS路由器AC5300莫名重启记录和排查</title>
-      <link>https://charles-one.github.io/xiaoxinLab/linux/%E5%8D%8E%E7%A1%95asus%E8%B7%AF%E7%94%B1%E5%99%A8ac5300%E8%8E%AB%E5%90%8D%E9%87%8D%E5%90%AF%E5%92%8C%E6%8E%92%E6%9F%A5/</link>
+      <link>https://charles-one.github.io/actiger/linux/%E5%8D%8E%E7%A1%95asus%E8%B7%AF%E7%94%B1%E5%99%A8ac5300%E8%8E%AB%E5%90%8D%E9%87%8D%E5%90%AF%E5%92%8C%E6%8E%92%E6%9F%A5/</link>
       <pubDate>Sat, 30 Mar 2019 01:19:45 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/linux/%E5%8D%8E%E7%A1%95asus%E8%B7%AF%E7%94%B1%E5%99%A8ac5300%E8%8E%AB%E5%90%8D%E9%87%8D%E5%90%AF%E5%92%8C%E6%8E%92%E6%9F%A5/</guid>
+      <guid>https://charles-one.github.io/actiger/linux/%E5%8D%8E%E7%A1%95asus%E8%B7%AF%E7%94%B1%E5%99%A8ac5300%E8%8E%AB%E5%90%8D%E9%87%8D%E5%90%AF%E5%92%8C%E6%8E%92%E6%9F%A5/</guid>
       <description>问题我的华硕路由器有时莫名奇妙的重启 出问题设备和版本 ASUS AC5300 3.0.0.4.384.45149 首先查看系统日志 May 5 13:05:25 weini: [软件中心]: httpdb进程准备就绪！ May 5 13:05:25 WAN Connection: WAN was restored. May 5 13:05:25 WLCEVENTD: eth8: Assoc D4:90:9C:E7:D2:03 May 5 13:05:26 kernel: UBIFS (ubi1:0): UBIFS: mounted UBI device 1, volume 0, name &amp;quot;nvram&amp;quot;, R/O mode May 5 13:05:26 kernel: UBIFS (ubi1:0): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes May 5 13:05:26 kernel: UBIFS (ubi1:0): FS size: 5840896 bytes (5 MiB, 46 LEBs), journal size 1015809 bytes (0 MiB, 6 LEBs) May 5 13:05:26 kernel: UBIFS (ubi1:0): reserved for root: 275879 bytes (269 KiB) May 5 13:05:26 kernel: UBIFS (ubi1:0): media format: w4/r0 (latest is w4/r0), UUID ABA6F10C-0F1C-4B89-AD25-4B74DEC12700, small LPT model May 5 13:05:26 kernel: UBIFS (ubi1:0): un-mount UBI device 1 May 5 13:05:26 kernel: ubi1: detaching mtd9 May 5 13:05:26 kernel: ubi1: mtd9 is detached May 5 13:05:26 ntp: start NTP update Mar 30 00:32:50 rc_service: ntp 1229:notify_rc restart_diskmon Mar 30 00:32:50 rc_service: waitting &amp;quot;start_firewall&amp;quot; via udhcpc .</description>
     </item>
     
     <item>
       <title>Jmeter性能测试并添加服务器cpu内存使用率</title>
-      <link>https://charles-one.github.io/xiaoxinLab/test/jmeter%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B9%B6%E6%B7%BB%E5%8A%A0%E6%9C%8D%E5%8A%A1%E5%99%A8cpu%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E7%8E%87/</link>
+      <link>https://charles-one.github.io/actiger/test/jmeter%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B9%B6%E6%B7%BB%E5%8A%A0%E6%9C%8D%E5%8A%A1%E5%99%A8cpu%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E7%8E%87/</link>
       <pubDate>Thu, 14 Mar 2019 23:31:20 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/test/jmeter%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B9%B6%E6%B7%BB%E5%8A%A0%E6%9C%8D%E5%8A%A1%E5%99%A8cpu%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E7%8E%87/</guid>
+      <guid>https://charles-one.github.io/actiger/test/jmeter%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B9%B6%E6%B7%BB%E5%8A%A0%E6%9C%8D%E5%8A%A1%E5%99%A8cpu%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E7%8E%87/</guid>
       <description>0. 准备工作  搭建静态博客Hugo, 建立Hugo服务作为测试接口 服务端centOS7.6.1810, 服务端ServerAgent 本机安装Java8, 并设置环境变量 本机jmeter, jmeter插件管理, Servers Performance Monitoring插件  1.服务端CentOS7 搭建Hugo, 并建立Hugo服务, 创建接口.  搭建Huog  请参考这个搭建Hugo文章
 参考到这条语句下就可以了,这条语句下面的内容不用看了
 hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&amp;quot; --port=1313   创建接口
@@ -189,10 +189,10 @@ Jmeter插件管理
     
     <item>
       <title>使用Hugo和GitHub Pages搭建静态网站</title>
-      <link>https://charles-one.github.io/xiaoxinLab/linux/%E4%BD%BF%E7%94%A8hugo%E5%92%8Cgithub-pages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/</link>
+      <link>https://charles-one.github.io/actiger/linux/%E4%BD%BF%E7%94%A8hugo%E5%92%8Cgithub-pages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/</link>
       <pubDate>Wed, 13 Mar 2019 21:35:23 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/linux/%E4%BD%BF%E7%94%A8hugo%E5%92%8Cgithub-pages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/</guid>
+      <guid>https://charles-one.github.io/actiger/linux/%E4%BD%BF%E7%94%A8hugo%E5%92%8Cgithub-pages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/</guid>
       <description>0. 前提条件  电脑安装git(Mac linux都需要安装) 安装go并设置环境变量(仅linux下需要) 虚拟机Centos7.6.1810(测试用, 不需要安装)  1. 安装hugo  mac直接使用brew install hugo就可以了
  linux下源码安装
    下载并编译
@@ -208,10 +208,10 @@ cd ~ hugo new site xiaoxinLab  写第一篇markdown文章, markdown语法参考
     
     <item>
       <title>使用jenkins构建指定版本的Github项目Hugo</title>
-      <link>https://charles-one.github.io/xiaoxinLab/linux/%E4%BD%BF%E7%94%A8jenkins%E6%9E%84%E5%BB%BA%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC%E7%9A%84github%E9%A1%B9%E7%9B%AEhugo/</link>
+      <link>https://charles-one.github.io/actiger/linux/%E4%BD%BF%E7%94%A8jenkins%E6%9E%84%E5%BB%BA%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC%E7%9A%84github%E9%A1%B9%E7%9B%AEhugo/</link>
       <pubDate>Wed, 13 Mar 2019 17:02:19 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/linux/%E4%BD%BF%E7%94%A8jenkins%E6%9E%84%E5%BB%BA%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC%E7%9A%84github%E9%A1%B9%E7%9B%AEhugo/</guid>
+      <guid>https://charles-one.github.io/actiger/linux/%E4%BD%BF%E7%94%A8jenkins%E6%9E%84%E5%BB%BA%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC%E7%9A%84github%E9%A1%B9%E7%9B%AEhugo/</guid>
       <description>0. 前提条件, 会使用到jenkins, go语言编译hugo  安装jenkinx&amp;lt;/&amp;gt;
  Linux安装go并设置环境变量
   1. 创建一个jenkins任务  创建一个Jenkins任务   输入Enter an item name, 这里名字是basic_hugo
@@ -228,10 +228,10 @@ Source Code Management-&amp;gt;Git-&amp;gt;Branches to build</description>
     
     <item>
       <title>Linux安装go并设置环境变量</title>
-      <link>https://charles-one.github.io/xiaoxinLab/linux/linux%E5%AE%89%E8%A3%85go%E5%B9%B6%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</link>
+      <link>https://charles-one.github.io/actiger/linux/linux%E5%AE%89%E8%A3%85go%E5%B9%B6%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</link>
       <pubDate>Wed, 13 Mar 2019 16:36:41 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/linux/linux%E5%AE%89%E8%A3%85go%E5%B9%B6%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</guid>
+      <guid>https://charles-one.github.io/actiger/linux/linux%E5%AE%89%E8%A3%85go%E5%B9%B6%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</guid>
       <description> Mac用户直接使用brew install go即可 Linux用户 wget https://dl.google.com/go/go1.12.linux-amd64.tar.gz
 tar -C /usr/local -xzf go1.12.linux-amd64.tar.gz
 root用户去编辑vim /etc/profile中添加如下信息
@@ -241,10 +241,10 @@ source /etc/profile  </description>
     
     <item>
       <title>安装jenkins和插件</title>
-      <link>https://charles-one.github.io/xiaoxinLab/linux/%E5%AE%89%E8%A3%85jenkins%E5%92%8C%E6%8F%92%E4%BB%B6/</link>
+      <link>https://charles-one.github.io/actiger/linux/%E5%AE%89%E8%A3%85jenkins%E5%92%8C%E6%8F%92%E4%BB%B6/</link>
       <pubDate>Wed, 13 Mar 2019 15:47:35 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/linux/%E5%AE%89%E8%A3%85jenkins%E5%92%8C%E6%8F%92%E4%BB%B6/</guid>
+      <guid>https://charles-one.github.io/actiger/linux/%E5%AE%89%E8%A3%85jenkins%E5%92%8C%E6%8F%92%E4%BB%B6/</guid>
       <description>0.安装Jenkins, 需要提前安装JDK 1.8 安装JDK参考
 1.安装Jnekins  尽量翻墙执行,否则容易报443错误
 sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key yum search jenkins sudo yum install jenkins   2. 启动服务与添加防火墙端口  启动jenkins  systemctl start jenkins 如果这里有报错信息,并且提示 &amp;ldquo;systemctl status jenkins.service&amp;rdquo; and &amp;ldquo;journalctl -xe&amp;rdquo; for details 查看详情
@@ -257,10 +257,10 @@ systemctl start jenkins (再次启动jenkins)
     
     <item>
       <title>安装docker Ce和使用docker安装nginx</title>
-      <link>https://charles-one.github.io/xiaoxinLab/linux/%E5%AE%89%E8%A3%85docker-ce%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <link>https://charles-one.github.io/actiger/linux/%E5%AE%89%E8%A3%85docker-ce%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Tue, 12 Mar 2019 23:59:11 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/linux/%E5%AE%89%E8%A3%85docker-ce%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://charles-one.github.io/actiger/linux/%E5%AE%89%E8%A3%85docker-ce%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
       <description>0. 目录  安装Docker Docker简单使用  1.安装docker  卸载版本Docker
 sudo yum remove docker \ docker-common \ docker-selinux \ docker-engine  设置仓库
 sudo yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 sudo yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo  安装docker-ce
@@ -272,19 +272,19 @@ docker pull nginx:1.</description>
     
     <item>
       <title>设置用户可sudo命令</title>
-      <link>https://charles-one.github.io/xiaoxinLab/linux/%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%8F%AFsudo%E5%91%BD%E4%BB%A4/</link>
+      <link>https://charles-one.github.io/actiger/linux/%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%8F%AFsudo%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Tue, 12 Mar 2019 22:16:35 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/linux/%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%8F%AFsudo%E5%91%BD%E4%BB%A4/</guid>
+      <guid>https://charles-one.github.io/actiger/linux/%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%8F%AFsudo%E5%91%BD%E4%BB%A4/</guid>
       <description>vi /etc/sudoers # new cc ALL=/bin/yum # cc用户名就可使用sudo yum  在cc用户下 sudo yum install vim 输入密码后再就可安装vim了</description>
     </item>
     
     <item>
       <title>基本SQL语句用法</title>
-      <link>https://charles-one.github.io/xiaoxinLab/mysql/%E5%9F%BA%E6%9C%ACsql%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95/</link>
+      <link>https://charles-one.github.io/actiger/mysql/%E5%9F%BA%E6%9C%ACsql%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95/</link>
       <pubDate>Tue, 12 Mar 2019 17:31:56 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/mysql/%E5%9F%BA%E6%9C%ACsql%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95/</guid>
+      <guid>https://charles-one.github.io/actiger/mysql/%E5%9F%BA%E6%9C%ACsql%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95/</guid>
       <description>建立表 4个表关系 1.学生表
 Student(s_id,s_name,s_birth,s_sex) –学生编号,学生姓名, 出生年月,学生性别
 2.课程表
@@ -298,10 +298,10 @@ Score(s_id,c_id,s_s_score) –学生编号,课程编号,分数
     
     <item>
       <title>下载安装JDK和设置JDK环境变量</title>
-      <link>https://charles-one.github.io/xiaoxinLab/linux/%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85jdk%E5%92%8C%E8%AE%BE%E7%BD%AEjdk%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</link>
+      <link>https://charles-one.github.io/actiger/linux/%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85jdk%E5%92%8C%E8%AE%BE%E7%BD%AEjdk%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</link>
       <pubDate>Tue, 12 Mar 2019 16:20:56 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/linux/%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85jdk%E5%92%8C%E8%AE%BE%E7%BD%AEjdk%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</guid>
+      <guid>https://charles-one.github.io/actiger/linux/%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85jdk%E5%92%8C%E8%AE%BE%E7%BD%AEjdk%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</guid>
       <description>0. 准备工作  root用户及密码  1. 卸载原有JDK rpm -qa | grep &amp;quot;java&amp;quot;  yum remove 上面筛选内容
 2. 下载JDK, 解压 进入https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html 右键选择linux x64 jdk-8u201-linux-i586.tar.gz的下载地址 使用wget下载
 wget --no-check-certificate --no-cookies --header &amp;quot;Cookie: oraclelicense=accept-securebackup-cookie&amp;quot; https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz  解压
@@ -316,10 +316,10 @@ java -version   预期会弹出java的版本</description>
     
     <item>
       <title>更改linux用户名</title>
-      <link>https://charles-one.github.io/xiaoxinLab/linux/%E6%9B%B4%E6%94%B9linux%E7%94%A8%E6%88%B7%E5%90%8D/</link>
+      <link>https://charles-one.github.io/actiger/linux/%E6%9B%B4%E6%94%B9linux%E7%94%A8%E6%88%B7%E5%90%8D/</link>
       <pubDate>Tue, 12 Mar 2019 15:27:58 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/linux/%E6%9B%B4%E6%94%B9linux%E7%94%A8%E6%88%B7%E5%90%8D/</guid>
+      <guid>https://charles-one.github.io/actiger/linux/%E6%9B%B4%E6%94%B9linux%E7%94%A8%E6%88%B7%E5%90%8D/</guid>
       <description> 0.前提条件  root用户及密码 原用户ccc  1. 更改用户ccc 使用root用户编辑更改
 /etc/passwd
 /etc/group
@@ -332,10 +332,10 @@ mv /home/olderuser /home/newuser  </description>
     
     <item>
       <title>更改ssh端口与禁止root登录增强服务器安全</title>
-      <link>https://charles-one.github.io/xiaoxinLab/linux/%E6%9B%B4%E6%94%B9ssh%E7%AB%AF%E5%8F%A3%E4%B8%8E%E7%A6%81%E6%AD%A2root%E7%99%BB%E5%BD%95%E5%A2%9E%E5%BC%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8/</link>
+      <link>https://charles-one.github.io/actiger/linux/%E6%9B%B4%E6%94%B9ssh%E7%AB%AF%E5%8F%A3%E4%B8%8E%E7%A6%81%E6%AD%A2root%E7%99%BB%E5%BD%95%E5%A2%9E%E5%BC%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8/</link>
       <pubDate>Tue, 12 Mar 2019 14:39:09 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/linux/%E6%9B%B4%E6%94%B9ssh%E7%AB%AF%E5%8F%A3%E4%B8%8E%E7%A6%81%E6%AD%A2root%E7%99%BB%E5%BD%95%E5%A2%9E%E5%BC%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8/</guid>
+      <guid>https://charles-one.github.io/actiger/linux/%E6%9B%B4%E6%94%B9ssh%E7%AB%AF%E5%8F%A3%E4%B8%8E%E7%A6%81%E6%AD%A2root%E7%99%BB%E5%BD%95%E5%A2%9E%E5%BC%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8/</guid>
       <description>0.前提条件 1.安装软件Centos7, 版本7.6.1810 CentOS-7-x86_64-Minimal-1810.iso 2.root用户及密码, 已联网  如未联网,请打开网卡, 并重启 设置/etc/sysconfig/network-scripts/ifcfg-eth0 中ONBOOT =yes  重启电脑
 reboot  1.登录root  需要查询当前Centos7的主机ip
 ifconfig  提示无此命令
@@ -351,10 +351,10 @@ firewall-cmd --zone=public --add-port=12340/tcp --permanent (永久生效必须�
     
     <item>
       <title>About</title>
-      <link>https://charles-one.github.io/xiaoxinLab/about/</link>
+      <link>https://charles-one.github.io/actiger/about/</link>
       <pubDate>Sat, 09 Mar 2019 23:25:37 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/xiaoxinLab/about/</guid>
+      <guid>https://charles-one.github.io/actiger/about/</guid>
       <description> 靡不有初 鲜克有终 </description>
     </item>
     
