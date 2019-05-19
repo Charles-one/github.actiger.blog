@@ -16,8 +16,8 @@ source /etc/profile
 再次hugo vimersion
 就会显示hugo版本, 表示可用
 2. 使用Hugo创建个人网站  创建静态网站文件夹
-cd ~ hugo new site xiaoxinLab  写第一篇markdown文章, markdown语法参考
-  cd ~/xiaoxinLab 在目录~/xiaoxinLab下执行hugo new about.">
+cd ~ hugo new site actiger  写第一篇markdown文章, markdown语法参考
+  cd ~/actiger 在目录~/actiger下执行hugo new about.">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/css/github-gist.min.css" rel="stylesheet">
@@ -108,18 +108,18 @@ export PATH=${PATH}:$GOPATH/bin
 
 <pre><code>cd ~
 
-hugo new site xiaoxinLab
+hugo new site actiger
 </code></pre></li>
 
 <li><p>写第一篇markdown文章, <a href="http://xianbai.me/learn-md/article/about/readme.html">markdown语法参考</a></p></li>
 </ul>
 
-<p>cd ~/xiaoxinLab
-在目录~/xiaoxinLab下执行hugo new about.md</p>
+<p>cd ~/actiger
+在目录~/actiger下执行hugo new about.md</p>
 
-<p>在这里会在~/xiaoxinLab/content下创建一个文件about.md</p>
+<p>在这里会在~/actiger/content下创建一个文件about.md</p>
 
-<p>ls ~/xiaoxinLab/content # 可以查看到</p>
+<p>ls ~/actiger/content # 可以查看到</p>
 
 <p>添加内容&rdquo;我写的第1篇文章&rdquo;</p>
 
@@ -134,11 +134,11 @@ firewall-cmd --reload
 
 <li><p>使用主题生成本地服务, 查看博客效果, <a href="https://themes.gohugo.io/">更多主题下载hugo themes官网</a></p>
 
-<pre><code>cd ~/xiaoxinLab/themes
+<pre><code>cd ~/actiger/themes
 
 git clone https://github.com/nanxiaobei/hugo-paper.git
 
-cd ~/xiaoxinLab
+cd ~/actiger
 
 # --bind=&quot;10.211.55.9&quot;绑定ip , 使用本机则不需要绑定.
 hugo server --theme=hugo-paper --bind=&quot;10.211.55.9即是你的ip(不指定则默认只能本地访问)&quot;  --baseUrl=&quot;http://10.211.55.9/&quot; --port=1313
@@ -153,12 +153,12 @@ hugo server --theme=hugo-paper --bind=&quot;10.211.55.9即是你的ip(不指定�
 <h3 id="3-创建github项目">3. 创建GitHub项目</h3>
 
 <ul>
-<li>在GitHub中创建xiaoxinLab的public公共类型(私人需要付费)项目, 创建完后<a href="https://github.com/Charles-one/xiaoxinLab">https://github.com/Charles-one/xiaoxinLab</a></li>
+<li>在GitHub中创建actiger的public公共类型(私人需要付费)项目, 创建完后<a href="https://github.com/Charles-one/actiger">https://github.com/Charles-one/actiger</a></li>
 </ul>
 
 <h3 id="4-生成本地静态网站">4. 生成本地静态网站</h3>
 
-<pre><code>cd ~/xiaoxinLab
+<pre><code>cd ~/actiger
 </code></pre>
 
 <h4 id="生成静态网页">生成静态网页</h4>
@@ -167,18 +167,18 @@ hugo server --theme=hugo-paper --bind=&quot;10.211.55.9即是你的ip(不指定�
 
 <p><strong>baseUrl的结束有/</strong></p>
 
-<p><strong>xiaoxinLab注意大小写</strong></p>
+<p><strong>actiger注意大小写</strong></p>
 
 <pre><code>hugo --theme=hugo-paper --baseUrl=&quot;https://charles-one.github.io/actiger/&quot;
 </code></pre>
 
 <p>这里会生成public文件夹</p>
 
-<pre><code>cd ~/xiaoxinLab/public
+<pre><code>cd ~/actiger/public
 
 git init
 
-git remote add github git@github.com:Charles-one/xiaoxinLab.git
+git remote add github git@github.com:Charles-one/actiger.git
 
 git config user.email &quot;你的邮箱&quot;
 
@@ -194,7 +194,7 @@ git push -u github master:master
 <h3 id="5-github中选择github-pages的分支">5. Github中选择GitHub Pages的分支</h3>
 
 <p>进入,以我的项目setting设置里
-<a href="https://github.com/Charles-one/xiaoxinLab/settings">https://github.com/Charles-one/xiaoxinLab/settings</a></p>
+<a href="https://github.com/Charles-one/actiger/settings">https://github.com/Charles-one/actiger/settings</a></p>
 
 <p>设置-&gt;Github Pages</p>
 
@@ -202,7 +202,7 @@ git push -u github master:master
 
 <h3 id="6-查看github-pages">6. 查看GitHub Pages</h3>
 
-<p>刷新进入<a href="https://github.com/Charles-one/xiaoxinLab/settings">https://github.com/Charles-one/xiaoxinLab/settings</a></p>
+<p>刷新进入<a href="https://github.com/Charles-one/actiger/settings">https://github.com/Charles-one/actiger/settings</a></p>
 
 <p>设置-&gt;Github Pages下, 看到你的网站地址是
 <strong><a href="https://charles-one.github.io/actiger/">https://charles-one.github.io/actiger/</a></strong></p>
@@ -212,11 +212,11 @@ git push -u github master:master
 <h3 id="7-补充下如何添加图片-mac压缩图片工具imageoptim">7. 补充下如何添加图片.(Mac压缩图片工具ImageOptim)</h3>
 
 <pre><code># 将自己的图片存放到如下位置
-~/xiaoxinLab/static/img/cat.JPG
+~/actiger/static/img/cat.JPG
 
 # 执行hugo --theme=hugo-paper --baseUrl=&quot;https://charles-one.github.io/actiger/&quot;
-# 会把cat.JPG存放到, ~/xiaoxinLab/public/img/cat.JPG
-# 文章的存放的位置 ~/xiaoxinLab/public/about/index.html
+# 会把cat.JPG存放到, ~/actiger/public/img/cat.JPG
+# 文章的存放的位置 ~/actiger/public/about/index.html
 
 # 使用相对路径添加图片, 以about文章存放位置index.html为参考系.
 # 在Markdown中添加
@@ -225,7 +225,7 @@ git push -u github master:master
 
 ![猫](../img/cat.JPG)
 
-# 本文的路径是 xiaoxinLab/public/linux/使用hugo和github-pages搭建静态网站/index.html
+# 本文的路径是 actiger/public/linux/使用hugo和github-pages搭建静态网站/index.html
 # 所以添加图片的相对路径是
 
 ![cat](../../img/cat.JPG)

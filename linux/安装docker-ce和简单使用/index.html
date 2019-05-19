@@ -137,14 +137,14 @@ docker start mginx
 <li><p>挂载外部文件夹和配置信息</p>
 
 <pre><code># -v 后接主机文件夹:容器内文件夹
-docker run -p 80:80 --name m-vnginx -v /home/主机名/xiaoxinLab/:/usr/share/nginx/html nginx:1.14.2
+docker run -p 80:80 --name m-vnginx -v /home/主机名/actiger/:/usr/share/nginx/html nginx:1.14.2
 
 # exec 进入容器内, 在容器内exit就退出了.
 docker exec -it m-vnginx /bin/bash
 
 # 挂载内容 配置 日志
 
-docker run -d -p 80:80 --name v2nginx -v /home/主机名/xiaoxinLab/:/usr/share/nginx/html -v /home/主机名/nginx/conf/:/etc/nginx -v /home/主机名/nginx/log/:/var/log/nginx nginx:1.14.2
+docker run -d -p 80:80 --name v2nginx -v /home/主机名/actiger/:/usr/share/nginx/html -v /home/主机名/nginx/conf/:/etc/nginx -v /home/主机名/nginx/log/:/var/log/nginx nginx:1.14.2
 
 # 将容器内/etc/nginx下nginx.conf mime.types conf.d/default.conf复制到 /home/主机名/nginx中
 # 重新启动容器
