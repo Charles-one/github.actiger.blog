@@ -54,6 +54,21 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>docker-compose简单使用</h2>
+  </header>
+  <section class="entry-content">
+   <p>目录 1. docker-compose简介 2. docker-compose.yml简单配置说明 3. docker-compose运行 1. docker-compose简介与安装  简介 &gt;docker-compose是编排docker容器的, 就是管理这一批容器, 进行批量配置, 起动, 暂停, 删除容器等. 如果有多个容器, 使用docker一个个启动慢, 如果容器间有依赖, 还需要手动指定, 还有环境变量, 可以 一起设置.
+ 使用下面命令安装docker-compose和docker. 或使用[脚本一键安装]()
+yum remove docker \ docker-common \ docker-selinux \ docker-engine yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo yum -y install docker-ce systemctl enable docker systemctl start docker curl -L &#34;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)&#34; -o /usr/local/bin/docker-compose chmod &#43;x /usr/local/bin/docker-compose   2....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.5.15</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/docker-compose%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
     <h2>tmux保存会话和剪贴板插件安装及使用</h2>
   </header>
   <section class="entry-content">
@@ -217,19 +232,6 @@ docker pull nginx:1....</p>
     <time>2019.3.12</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E5%AE%89%E8%A3%85docker-ce%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>设置用户可sudo命令</h2>
-  </header>
-  <section class="entry-content">
-   <p>vi /etc/sudoers # new cc ALL=/bin/yum # cc用户名就可使用sudo yum  在cc用户下 sudo yum install vim 输入密码后再就可安装vim了...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.3.12</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%8F%AFsudo%E5%91%BD%E4%BB%A4/"></a>
 </article>
 
 

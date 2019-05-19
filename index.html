@@ -48,6 +48,19 @@
 
 <article class="first-entry">
   <header class="entry-header">
+    <h2>Linux三宝剑ag Fasd Fzf</h2>
+  </header>
+  <section class="entry-content">
+   <p>1.简介与安装 1. 简介ag是比grep更好的搜索软件, 提供高亮显示. Fasd时空机, 去过的地址都直接跳过去, 再也不用cd来cd去了. Fzf更强大的搜索文件. 2. 安装ag, Fasd Fzf # mac brew install the_silver_searcher fzf fasd # 还需要把 eval &#34;$(fasd --init auto)&#34; 放到.bashrc或者.zshrc中 # 重新生效source .bashrc或者source .zshrc  2. 使用. 1. 最有命令说明, 需要配置2中配置才可以使用.(bat是与cat类似,有语法高亮) # tab键补全, 最近打开最多带有a名字的匹配文件, 在任何目录中你都可以直接编辑你的相要的文件 v a # 在任意目录下都可以这样使用, cat与ag联用, 匹配a文件, 并搜索aaa caf a | ag &#34;aaa&#34; # 跳转, 配置最近最多a文件夹名, tab补全所有匹配的a的文件 j a # 预览当前目录下的文件 ffp  2. 全部配置信息. alias jan=&#39;fasd -a&#39; # any alias js=&#39;fasd -si&#39; # show / search / select alias jd=&#39;fasd -d&#39; # directory alias jf=&#39;fasd -f&#39; # file alias jsd=&#39;fasd -sid&#39; # interactive directory selection alias jsf=&#39;fasd -sif&#39; # interactive file selection alias j=&#39;fasd_cd -d&#39; # cd, same functionality as j in autojump alias jz=&#39;fasd_cd -d -i&#39; # cd with interactive selection alias jdd=&#39;fasd -D&#39; # 删除一个路径 # ja foo 列出最近操作的路径匹配&#39;foo&#39;的文件与目录 # jf foo 列出最近操作的路径匹配&#39;foo&#39;的文件 # jd foo 列出最近操作的路径匹配&#39;foo&#39;的目录 # js foo 列出最近操作的路径匹配&#39;foo&#39;的文件与目录，并可以通过序号选择 # jsf foo 列出最近操作的路径匹配&#39;foo&#39;的文件，并可以通过序号选择 # jsd foo 列出最近操作的路径匹配&#39;foo&#39;的目录，并可以通过序号选择 # j foo cd到最近操作的匹配&#39;foo&#39;并且得分最高的目录 # jz foo 列出最近操作的路径匹配&#39;foo&#39;的目录，通过序号选择，然后cd进目录 # jdd 删除一个路径 alias v=&#39;jf -e vim&#39; alias baf=&#39;jf -e bat&#39; alias batf=&#39;jf -e bat&#39; alias caf=&#39;jf -e cat&#39; alias catf=&#39;jf -e cat&#39; alias py3f=&#34;jf -e python3&#34; alias lsf=&#34;jd -e ls&#34; alias pbcopyf=&#39;jf -e pbcopy&#39; alias pbpastef=&#39;jf -e pbpaste&#39; alias scpf=&#39;jf -e scp&#39; alias mvf=&#39;jd -e mv&#39; alias ffall=&#34;find / -type f | fzf | pbcopy&#34; alias ffm=&#34;find ~/ -type f | fzf | pbcopy&#34; alias ff=&#34;find ....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.5.19</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/linux%E4%B8%89%E5%AE%9D%E5%89%91ag-fasd-fzf/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
     <h2>介绍spf13插件使用和我的vim配置</h2>
   </header>
   <section class="entry-content">
@@ -177,21 +190,6 @@ rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org rpm -Uvh http://www.e
     <time>2019.5.16</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/centos7%E6%9B%B4%E6%96%B0%E5%86%85%E6%A0%B8%E7%BF%BB%E8%BD%A6%E4%B9%8B%E6%97%85/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>docker-compose简单使用</h2>
-  </header>
-  <section class="entry-content">
-   <p>目录 1. docker-compose简介 2. docker-compose.yml简单配置说明 3. docker-compose运行 1. docker-compose简介与安装  简介 &gt;docker-compose是编排docker容器的, 就是管理这一批容器, 进行批量配置, 起动, 暂停, 删除容器等. 如果有多个容器, 使用docker一个个启动慢, 如果容器间有依赖, 还需要手动指定, 还有环境变量, 可以 一起设置.
- 使用下面命令安装docker-compose和docker. 或使用[脚本一键安装]()
-yum remove docker \ docker-common \ docker-selinux \ docker-engine yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo yum -y install docker-ce systemctl enable docker systemctl start docker curl -L &#34;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)&#34; -o /usr/local/bin/docker-compose chmod &#43;x /usr/local/bin/docker-compose   2....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.5.15</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/docker-compose%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"></a>
 </article>
 
 
