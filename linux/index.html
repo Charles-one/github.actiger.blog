@@ -54,6 +54,21 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>介绍spf13插件使用和我的vim配置</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. spf13简介 Steve Francia使用的vim配置, vim插件插件集合. http://vim.spf13.com/ 2. spf13常用插件简单使用, 中文.  Surronund 编辑字符周围的符号的.
+# *号表示当前光标停留位置, 所有的操作在vim的nomal模式 Old text Command New text ~ &#34;Hello *world!&#34; ds&#34; Hello world! [123&#43;4*56]/2 cs]) (123&#43;456)/2 &#34;Look ma, I&#39;m *HTML!&#34; cs&#34;&lt;q&gt; &lt;q&gt;Look ma, I&#39;m HTML!&lt;/q&gt; if *x&gt;3 { ysW( if ( x&gt;3 ) { my $str = *whee!; vllllS&#39; my $str = &#39;whee!&#39;;  EasyMotion 跳到任何地方
+# 再打对应的字符就可直接跳到单词的首字符位置 ,,w # 再打对应的字符就可直接跳到单词的尾字符位置 ,,e  Fugitive Git的插件, 可以vim中批量提交git文件, 查看git diff等....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.5.19</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E4%BB%8B%E7%BB%8Dspf13%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%92%8C%E6%88%91%E7%9A%84vim%E9%85%8D%E7%BD%AE/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
     <h2>LetsEncrypt申请与nginx配置SSL</h2>
   </header>
   <section class="entry-content">
@@ -183,23 +198,6 @@ yum remove docker \ docker-common \ docker-selinux \ docker-engine yum install -
     <time>2019.5.15</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/docker-compose%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>tmux保存会话和剪贴板插件安装及使用</h2>
-  </header>
-  <section class="entry-content">
-   <p>0.内容  安装tmux 安装tmux插件管理 安装保存会话和剪贴板插件  1.安装tmux 为什么要使用tmux, 可以永久保存会话, 就不用每次都要切换到对应工作目录中.  Mac下
-brew install tmux  linux, 参考Github地址
-git clone https://github.com/tmux/tmux.git cd tmux sh autogen.sh ./configure &amp;&amp; make   2.安装tmux插件管理  参考地址
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  新建~/.tmux.conf, 复制下面内容到这个文件下.
-# List of plugins set -g @plugin &#39;tmux-plugins/tpm&#39; set -g @plugin &#39;tmux-plugins/tmux-sensible&#39; # Other examples: # set -g @plugin &#39;github_username/plugin_name&#39; # set -g @plugin &#39;git@github.com/user/plugin&#39; # set -g @plugin &#39;git@bitbucket....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.4.11</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/tmux%E4%BF%9D%E5%AD%98%E4%BC%9A%E8%AF%9D%E5%92%8C%E5%89%AA%E8%B4%B4%E6%9D%BF%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/"></a>
 </article>
 
 
