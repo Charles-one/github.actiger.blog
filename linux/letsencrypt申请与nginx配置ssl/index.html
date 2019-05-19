@@ -82,7 +82,7 @@ certbot certonly  -d &quot;*.actiger.com&quot; --manual --preferred-challenges d
 
 </code></pre>
 
-<h5 id="2-添加dns-txt">2. 添加DNS TXT</h5>
+<h5 id="3-添加dns-txt">3. 添加DNS TXT</h5>
 
 <h5 id="1-在域名服务商中-添加dns-txt">1. 在域名服务商中, 添加DNS TXT</h5>
 
@@ -108,7 +108,7 @@ dig TXT _acme-challenge.actiger.com
 
 <h4 id="2-拉取运行-hugo文件也拉取到nginx-https-hugoblog文件夹中">2. 拉取运行, hugo文件也拉取到nginx-https-hugoBlog文件夹中.</h4>
 
-<pre><code># 拉取
+<pre><code># 拉取docker-compose文件
 
 git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository
 
@@ -118,11 +118,20 @@ cp -r  ~/docker-compose-repository/nginx-https-hugoBlog ~/nginx-https-hugoBlog
 
 cd ~/nginx-https-hugoBlog
 
+# 在目录中获取自己的hugo博客
+# https方式
+git clone https://github.com/Charles-one/blog.actiger.com.git
+# 使用ssh的方式git clone git@github.com:Charles-one/blog.actiger.com.git
+
 # 运行
 
 docker-compose run -d
 
 </code></pre>
+
+<h5 id="目录结构">目录结构</h5>
+
+<p><img src="../../img/folder_path.png" alt="img" /></p>
 
 <h4 id="截取nginx配置">截取nginx配置</h4>
 
