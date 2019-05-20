@@ -7,7 +7,7 @@
     
     <title>自动生成博客和提交到Github - Actiger跳跳虎</title>
     
-    <meta name="description" content="使用Hugo过程中, 我只关心博客的内容, 至于生成博客完全不需要记录每次提交的内容. 只需要content建立一个git项目就可以了. 注意已经生成的博客, 更改文件号, 是需要手动删除, 博客目录中的文件.  time=$(date &quot;&#43;%Y-%m-%d-%H:%M:%S&quot;) echo &quot;-------------------------------------------------------------------------------------&quot; echo &quot;开始自动生成blog.actiger.com博客, git自动添加标签, 推送到github上&quot; cd ~/Documents/actiger/ # 生成blog.actiger.com博客目录文件 hugo --theme=paper --baseUrl=&quot;https://blog.actiger.com/&quot; --destination=&quot;blog.actiger.com&quot; cd ~/Documents/actiger/blog.actiger.com/ git stage . git commit -m &quot;自动标签${date}&quot; git push github master echo &quot;blog.actiger.com内容已经推送到github.com上&quot; echo &quot;-------------------------------------------------------------------------------------&quot; echo &quot;-------------------------------------------------------------------------------------&quot; echo &quot;开始自动生成https://charles-one.github.io/actiger/博客, git自动添加标签, 推送到github上&quot; cd ~/Documents/actiger/ # 生成默认github博客目录文件 hugo --theme=paper --baseUrl=&quot;https://charles-one.github.io/actiger/&quot; cd ~/Documents/actiger/public git stage . git commit -m &quot;自动标签${time}&quot; git push github master echo &quot;已经推送到https://charles-one.">
+    <meta name="description" content="使用Hugo过程中, 我只关心博客的内容, 至于生成博客完全不需要记录每次提交的内容. 只需要content建立一个git项目就可以了. 注意已经生成的博客, 更改文件号, 是需要手动删除, 博客目录中的文件. 1. 创建hugoAll.sh, 用其他编辑器也可. vim hugoAll.sh  2. 更改文件权限, 变成可执行文件 chmod &#43;x hugoAll.sh  3. 添加下面内容到脚本中, 装blog.actiger.com文件更改成自己的文件就可以了.  time=$(date &quot;&#43;%H:%M:%S %A %Y-%m-%d&quot;) echo &quot;-------------------------------------------------------------------------------------&quot; echo &quot;开始自动生成blog.actiger.com博客, git自动添加标签, 推送到github上&quot; cd ~/Documents/actiger/ # 生成blog.actiger.com博客目录文件 hugo --theme=paper --baseUrl=&quot;https://blog.actiger.com/&quot; --destination=&quot;blog.actiger.com&quot; cd ~/Documents/actiger/blog.actiger.com/ git stage . git commit -m &quot;自动标签${date}&quot; git push github master echo &quot;blog.actiger.com内容已经推送到github.com上&quot; echo &quot;-------------------------------------------------------------------------------------&quot; echo &quot;-------------------------------------------------------------------------------------&quot; echo &quot;开始自动生成https://charles-one.github.io/actiger/博客, git自动添加标签, 推送到github上&quot; cd ~/Documents/actiger/ # 生成默认github博客目录文件 hugo --theme=paper --baseUrl=&quot;https://charles-one.">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/css/github-gist.min.css" rel="stylesheet">
@@ -51,8 +51,21 @@
 
 <h3 id="注意已经生成的博客-更改文件号-是需要手动删除-博客目录中的文件">注意已经生成的博客, 更改文件号, 是需要手动删除, 博客目录中的文件.</h3>
 
+<h4 id="1-创建hugoall-sh-用其他编辑器也可">1. 创建hugoAll.sh, 用其他编辑器也可.</h4>
+
+<pre><code>vim hugoAll.sh
+
+</code></pre>
+
+<h4 id="2-更改文件权限-变成可执行文件">2. 更改文件权限, 变成可执行文件</h4>
+
+<pre><code>chmod +x hugoAll.sh
+</code></pre>
+
+<h4 id="3-添加下面内容到脚本中-装blog-actiger-com文件更改成自己的文件就可以了">3. 添加下面内容到脚本中, 装blog.actiger.com文件更改成自己的文件就可以了.</h4>
+
 <pre><code>
-time=$(date &quot;+%Y-%m-%d-%H:%M:%S&quot;)
+time=$(date &quot;+%H:%M:%S %A %Y-%m-%d&quot;)
 
 echo &quot;-------------------------------------------------------------------------------------&quot;
 echo &quot;开始自动生成blog.actiger.com博客, git自动添加标签, 推送到github上&quot;
@@ -94,6 +107,15 @@ git push github master
 echo &quot;已经推送到https://charles-one.github.io/actiger/&quot;
 
 echo &quot;-------------------------------------------------------------------------------------&quot;
+
+</code></pre>
+
+<h4 id="4-执行即可">4. 执行即可.</h4>
+
+<pre><code>./hugoAll.sh
+
+# 或者
+sh hugoAll.sh
 
 </code></pre>
 </div>
