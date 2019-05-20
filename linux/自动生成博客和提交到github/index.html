@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>自动生成博客和提交到Github - Actiger跳跳虎</title>
+    
+    <meta name="description" content="使用Hugo过程中, 我只关心博客的内容, 至于生成博客完全不需要记录每次提交的内容. 只需要content建立一个git项目就可以了. 注意已经生成的博客, 更改文件号, 是需要手动删除, 博客目录中的文件.  time=$(date &quot;&#43;%Y-%m-%d-%H:%M:%S&quot;) echo &quot;-------------------------------------------------------------------------------------&quot; echo &quot;开始自动生成blog.actiger.com博客, git自动添加标签, 推送到github上&quot; cd ~/Documents/actiger/ # 生成blog.actiger.com博客目录文件 hugo --theme=paper --baseUrl=&quot;https://blog.actiger.com/&quot; --destination=&quot;blog.actiger.com&quot; cd ~/Documents/actiger/blog.actiger.com/ git stage . git commit -m &quot;自动标签${date}&quot; git push github master echo &quot;blog.actiger.com内容已经推送到github.com上&quot; echo &quot;-------------------------------------------------------------------------------------&quot; echo &quot;-------------------------------------------------------------------------------------&quot; echo &quot;开始自动生成https://charles-one.github.io/actiger/博客, git自动添加标签, 推送到github上&quot; cd ~/Documents/actiger/ # 生成默认github博客目录文件 hugo --theme=paper --baseUrl=&quot;https://charles-one.github.io/actiger/&quot; cd ~/Documents/actiger/public git stage . git commit -m &quot;自动标签${time}&quot; git push github master echo &quot;已经推送到https://charles-one.">
+    <meta name="author" content="">
+    
+    <link href="https://charles-one.github.io/actiger/css/github-gist.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/img/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/actiger/img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.5" />
+    
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎 </a></p>
+        
+        <button class="menu-toggle" type="button"></button>
+      </div>
+    </header>
+    <nav class="nav">
+    <ul class="menu">
+      
+      
+    </ul>
+    </nav>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">自动生成博客和提交到Github</h1>
+    <div class="post-meta">2019.5.20</div>
+  </header>
+  <div class="post-content">
+
+<h3 id="使用hugo过程中-我只关心博客的内容-至于生成博客完全不需要记录每次提交的内容-只需要content建立一个git项目就可以了">使用Hugo过程中, 我只关心博客的内容, 至于生成博客完全不需要记录每次提交的内容. 只需要content建立一个git项目就可以了.</h3>
+
+<h3 id="注意已经生成的博客-更改文件号-是需要手动删除-博客目录中的文件">注意已经生成的博客, 更改文件号, 是需要手动删除, 博客目录中的文件.</h3>
+
+<pre><code>
+time=$(date &quot;+%Y-%m-%d-%H:%M:%S&quot;)
+
+echo &quot;-------------------------------------------------------------------------------------&quot;
+echo &quot;开始自动生成blog.actiger.com博客, git自动添加标签, 推送到github上&quot;
+
+cd ~/Documents/actiger/
+
+# 生成blog.actiger.com博客目录文件
+hugo --theme=paper --baseUrl=&quot;https://blog.actiger.com/&quot; --destination=&quot;blog.actiger.com&quot;
+
+cd ~/Documents/actiger/blog.actiger.com/
+
+git stage .
+git commit -m &quot;自动标签${date}&quot;
+
+git push github master
+
+
+echo &quot;blog.actiger.com内容已经推送到github.com上&quot;
+
+echo &quot;-------------------------------------------------------------------------------------&quot;
+
+
+
+echo &quot;-------------------------------------------------------------------------------------&quot;
+echo &quot;开始自动生成https://charles-one.github.io/actiger/博客, git自动添加标签, 推送到github上&quot;
+
+cd ~/Documents/actiger/
+# 生成默认github博客目录文件
+hugo --theme=paper --baseUrl=&quot;https://charles-one.github.io/actiger/&quot;
+
+cd ~/Documents/actiger/public
+
+git stage .
+git commit -m &quot;自动标签${time}&quot;
+
+git push github master
+
+
+echo &quot;已经推送到https://charles-one.github.io/actiger/&quot;
+
+echo &quot;-------------------------------------------------------------------------------------&quot;
+
+</code></pre>
+</div>
+  <footer class="post-footer">
+    
+  </footer>
+  
+  
+  
+  
+</article>
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 Actiger跳跳虎</span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="https://charles-one.github.io/actiger/js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="https://charles-one.github.io/actiger/js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  hljs.initHighlightingOnLoad();
+  setMenuListener();
+
+  InstantClick.on('change', function() {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuListener();
+  });
+
+  function setMenuListener() {
+    var menuToggle = document.querySelector('.menu-toggle');
+    var body = document.querySelector('body');
+    menuToggle.addEventListener('click', function() {
+      body.classList.toggle('no-scroll');
+    }, false);
+  }
+</script>
+</body>
+</html>
+

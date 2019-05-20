@@ -54,6 +54,25 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>安装docker Ce和使用docker安装nginx</h2>
+  </header>
+  <section class="entry-content">
+   <p>0. 目录  安装Docker Docker简单使用  1.安装docker  卸载版本Docker
+sudo yum remove docker \ docker-common \ docker-selinux \ docker-engine  设置仓库
+sudo yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 sudo yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo  安装docker-ce
+sudo yum install docker-ce  卸载docker-ce
+sudo yum remove docker-ce sudo rm -rf /var/lib/docker  更换国内源
+vim vim /etc/docker/daemon.json { &#34;registry-mirrors&#34;: [ &#34;http://hub-mirror.c.163.com&#34;] }   2.docker简单使用  下载镜像
+docker pull nginx:1....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.3.12</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E5%AE%89%E8%A3%85docker-ce%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
     <h2>设置用户可sudo命令</h2>
   </header>
   <section class="entry-content">
