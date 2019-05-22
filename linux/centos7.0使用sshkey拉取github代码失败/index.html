@@ -7,7 +7,7 @@
     
     <title>Centos7.0使用SSHKEY拉取github代码失败 - Actiger跳跳虎</title>
     
-    <meta name="description" content="1. 报错信息与正确信息对比. 今天使用SSH key拉取github代码又上失败了. 上次 贴出报错信息  # 出错主机日志 ssh -vT git@github.com OpenSSH_6.5 Server accepts key: pkalg ssh-rsa blen 279 debug1: key_parse_private_pem: PEM_read_PrivateKey failed debug1: read PEM private key done: type &lt;unknown&gt; Enter passphrase for key &#39;/root/.ssh/git_cron&#39;:  本机正确的日志 ssh -vT git@github.com OpenSSH_7.9p1, LibreSSL 2.7.3 debug1: Reading configuration data /Users/csx/.ssh/config debug1: /Users/csx/.ssh/config line 4: Applying options for githu debug1: Authentications that can continue: publickey debug1: Next authentication method: publickey debug1: Offering public key: /Users/csx/.">
+    <meta name="description" content="1. 报错信息与正确信息对比. 今天使用SSH key拉取github代码又上失败了. 上次端口错误 贴出报错信息  # 出错主机日志 ssh -vT git@github.com OpenSSH_6.5 Server accepts key: pkalg ssh-rsa blen 279 debug1: key_parse_private_pem: PEM_read_PrivateKey failed debug1: read PEM private key done: type &lt;unknown&gt; Enter passphrase for key &#39;/root/.ssh/git_cron&#39;:  本机正确的日志 ssh -vT git@github.com OpenSSH_7.9p1, LibreSSL 2.7.3 debug1: Reading configuration data /Users/csx/.ssh/config debug1: /Users/csx/.ssh/config line 4: Applying options for githu debug1: Authentications that can continue: publickey debug1: Next authentication method: publickey debug1: Offering public key: /Users/csx/.">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/css/github-gist.min.css" rel="stylesheet">
@@ -47,7 +47,7 @@
   </header>
   <div class="post-content">
 
-<h3 id="1-报错信息与正确信息对比-今天使用ssh-key拉取github代码又上失败了-上次-https-blog-actiger-com-linux-centos7使用ssh-key拉取github项目失败">1. 报错信息与正确信息对比. 今天使用SSH key拉取github代码又上失败了. <a href="https://blog.actiger.com/linux/centos7使用ssh-key拉取github项目失败/">上次</a></h3>
+<h3 id="1-报错信息与正确信息对比-今天使用ssh-key拉取github代码又上失败了-上次端口错误-https-blog-actiger-com-linux-centos7使用ssh-key拉取github项目失败">1. 报错信息与正确信息对比. 今天使用SSH key拉取github代码又上失败了. <a href="https://blog.actiger.com/linux/centos7使用ssh-key拉取github项目失败/">上次端口错误</a></h3>
 
 <h3 id="贴出报错信息">贴出报错信息</h3>
 
