@@ -6,10 +6,19 @@
     <description>Recent content on Actiger跳跳虎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 May 2019 22:37:07 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 23 May 2019 01:17:49 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/actiger/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Centos7.0使用SSHKEY拉取github代码失败</title>
+      <link>https://charles-one.github.io/actiger/linux/centos7.0%E4%BD%BF%E7%94%A8sshkey%E6%8B%89%E5%8F%96github%E4%BB%A3%E7%A0%81%E5%A4%B1%E8%B4%A5/</link>
+      <pubDate>Thu, 23 May 2019 01:17:49 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/actiger/linux/centos7.0%E4%BD%BF%E7%94%A8sshkey%E6%8B%89%E5%8F%96github%E4%BB%A3%E7%A0%81%E5%A4%B1%E8%B4%A5/</guid>
+      <description>1. 报错信息与正确信息对比. 今天使用SSH key拉取github代码又上失败了. 上次 贴出报错信息  # 出错主机日志 ssh -vT git@github.com OpenSSH_6.5 Server accepts key: pkalg ssh-rsa blen 279 debug1: key_parse_private_pem: PEM_read_PrivateKey failed debug1: read PEM private key done: type &amp;lt;unknown&amp;gt; Enter passphrase for key &#39;/root/.ssh/git_cron&#39;:  本机正确的日志 ssh -vT git@github.com OpenSSH_7.9p1, LibreSSL 2.7.3 debug1: Reading configuration data /Users/csx/.ssh/config debug1: /Users/csx/.ssh/config line 4: Applying options for githu debug1: Authentications that can continue: publickey debug1: Next authentication method: publickey debug1: Offering public key: /Users/csx/.</description>
+    </item>
     
     <item>
       <title>自动生成博客和提交到Github</title>
