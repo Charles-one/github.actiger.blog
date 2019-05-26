@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dockers on Actiger跳跳虎</title>
+    <link>https://charles-one.github.io/actiger/docker/</link>
+    <description>Recent content in Dockers on Actiger跳跳虎</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 27 May 2019 00:59:47 +0800</lastBuildDate>
+    
+	<atom:link href="https://charles-one.github.io/actiger/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Kubernetes太难了</title>
+      <link>https://charles-one.github.io/actiger/docker/kubernetes%E5%A4%AA%E9%9A%BE%E4%BA%86/</link>
+      <pubDate>Mon, 27 May 2019 00:59:47 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/actiger/docker/kubernetes%E5%A4%AA%E9%9A%BE%E4%BA%86/</guid>
+      <description> 配置Kubernets东西太多, 很容易出错 出错信息不好找kubectl describe pod nginxllllll, 不好用 Kubernets这种复杂的配置是和docker是对立, 就不能把配置写成docker, 很多工作可以交给docker来做 很烦 更是惊了, 不能用缓存, 什么玩意, 有了缓存程序kubelete不能起动 </description>
+    </item>
+    
+  </channel>
+</rss>
