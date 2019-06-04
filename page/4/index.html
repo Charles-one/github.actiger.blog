@@ -48,6 +48,29 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>更改ssh端口与禁止root登录增强服务器安全</h2>
+  </header>
+  <section class="entry-content">
+   <p>0.前提条件 1.安装软件Centos7, 版本7.6.1810 CentOS-7-x86_64-Minimal-1810.iso 2.root用户及密码, 已联网  如未联网,请打开网卡, 并重启 设置/etc/sysconfig/network-scripts/ifcfg-eth0 中ONBOOT =yes  重启电脑
+reboot  1.登录root  需要查询当前Centos7的主机ip
+ifconfig  提示无此命令
+  yum -y install net-tools
+再次 ifconfig查询ip
+ 使用ssh软件登录root用户, 默认使用22端口, 不用指定
+ssh root@ip  输入密码
+  2.更改ssh服务端口, 防火墙端口, SELINUX端口  更改sshd.service端口, 端口可选择&gt;10000避免与其他软件冲突.  vim /etc/ssh/sshd_config更改Port 12340
+systemctl restart sshd   添加防火墙端口
+firewall-cmd --zone=public --add-port=12340/tcp --permanent (永久生效必须用--permanent) firewall-cmd --reload  更改SELINUX端口, 因为SELINUX的原因, ssh被设定到22端口上了, 必须更改
+  借助软件来更改 安装 yum -y install policycoreutils-python semanage port -a -t ssh_port_t -p tcp 12340...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.3.12</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E6%9B%B4%E6%94%B9ssh%E7%AB%AF%E5%8F%A3%E4%B8%8E%E7%A6%81%E6%AD%A2root%E7%99%BB%E5%BD%95%E5%A2%9E%E5%BC%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
     <h2>About</h2>
   </header>
   <section class="entry-content">

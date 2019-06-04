@@ -48,6 +48,20 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>使用docker搭建nextcloud</h2>
+  </header>
+  <section class="entry-content">
+   <p> 1. nextcloud 个人私有云, 可以像网盘一样同步个人文件, 远程访问下载等. 2. 使用docker-compose搭建 使用docker-compose-repository搭建  git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository cp -r ~/docker-compose-repository/nextcloud ~/nextcloud cd ~/nextcloud # 自动下载并启动容器 dc up -d  访问地址 http://服务ip地址
+# 用户名和密码自己设置 # # 页面上选择数据库mariadb # 页面上填写就是你上面mariadb内容 # 用户名: nextcloud # 数据库: nextcloud # 密码: nextcloud_weiki_JKL_sdf # 地址(不是默认的localhost): mariadb  ...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.5.17</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAnextcloud/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
     <h2>Tmux插件tmuxinator配置</h2>
   </header>
   <section class="entry-content">
@@ -185,32 +199,6 @@ Your identification has been saved in /Users/username/.ssh/asus_rsa. Your public
     <time>2019.3.30</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E5%8D%8E%E7%A1%95asus%E8%B7%AF%E7%94%B1%E5%99%A8ac5300%E8%8E%AB%E5%90%8D%E9%87%8D%E5%90%AF%E5%92%8C%E6%8E%92%E6%9F%A5/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>Jmeter性能测试并添加服务器cpu内存使用率</h2>
-  </header>
-  <section class="entry-content">
-   <p>0. 准备工作  搭建静态博客Hugo, 建立Hugo服务作为测试接口 服务端centOS7.6.1810, 服务端ServerAgent 本机安装Java8, 并设置环境变量 本机jmeter, jmeter插件管理, Servers Performance Monitoring插件  1.服务端CentOS7 搭建Hugo, 并建立Hugo服务, 创建接口.  搭建Huog  请参考这个搭建Hugo文章
-参考到这条语句下就可以了,这条语句下面的内容不用看了
-hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&#34; --port=1313   创建接口
-hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&#34; --port=1313  检测服务端接口
-  在浏览器中访问 http://你的ip:1313.如未指定,则是http://localhost:1313
-能正常访问显示文章就完成了
-2. 本机下载jmeter, jmeter插件管理, Servers Performance Monitoring插件  下载地址Jmeter, 安装插件  Jmeter下载地址
-下载并解压
-Jmeter插件管理
-下载并解压出对应jar文件, 并放在apache-jmeter-5.1/lib/ext中
-关闭Jmeter, 再重新打开Jmeter
-进入选项(Options)-&gt;插件管理(Plugins Manager)中
-搜索perfmon并安装
-3. 服务端下载PerfMon Server Agent运行, 添加防火墙端口4444  下载PerfMon Server Agent...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.3.14</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/test/jmeter%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B9%B6%E6%B7%BB%E5%8A%A0%E6%9C%8D%E5%8A%A1%E5%99%A8cpu%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E7%8E%87/"></a>
 </article>
 
 
