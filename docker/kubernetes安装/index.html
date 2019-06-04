@@ -7,7 +7,7 @@
     
     <title>Kubernetes安装 - Actiger跳跳虎</title>
     
-    <meta name="description" content="1. PD或VM安装2个Centos7.6 1816虚拟机(例如主机名cc和主机名cc2), 或2台云主机.请勿使用克隆, 克隆的虚拟与原虚拟机product_uuid一致. 安装或启动过程中容易碰到问题, 日志排查图放在前面.官方安装地址 2. 安装前检查  hostname必须不一致
+    <meta name="description" content="1. PD安装2个Centos7.6 1816虚拟机(例如主机名cc和主机名cc2), 或2台云主机, 或VM安装虚拟机(建议使用主机同一网络).请勿使用克隆, 克隆的虚拟与原虚拟机product_uuid一致. 安装或启动过程中容易碰到问题, 日志排查图放在前面.官方安装地址 2. 安装前检查  hostname必须不一致
 hostname  网络互通, 互ping
  mac ip地址不一致
 ifconfig  product_uuid不一致
@@ -56,7 +56,7 @@ sed -i &#39;s/^SELINUX=enforcing$/SELINUX=permissive/&#39; /etc/selinux/config r
   </header>
   <div class="post-content">
 
-<h3 id="1-pd或vm安装2个centos7-6-1816虚拟机-例如主机名cc和主机名cc2-或2台云主机-请勿使用克隆-克隆的虚拟与原虚拟机product-uuid一致">1. PD或VM安装2个Centos7.6 1816虚拟机(例如主机名cc和主机名cc2), 或2台云主机.请勿使用克隆, 克隆的虚拟与原虚拟机product_uuid一致.</h3>
+<h3 id="1-pd安装2个centos7-6-1816虚拟机-例如主机名cc和主机名cc2-或2台云主机-或vm安装虚拟机-建议使用主机同一网络-请勿使用克隆-克隆的虚拟与原虚拟机product-uuid一致">1. PD安装2个Centos7.6 1816虚拟机(例如主机名cc和主机名cc2), 或2台云主机, 或VM安装虚拟机(建议使用主机同一网络).请勿使用克隆, 克隆的虚拟与原虚拟机product_uuid一致.</h3>
 
 <h3 id="安装或启动过程中容易碰到问题-日志排查图放在前面-官方安装地址-https-kubernetes-io-zh-docs-setup-independent-install-kubeadm-check-required-ports">安装或启动过程中容易碰到问题, 日志排查图放在前面.<a href="https://kubernetes.io/zh/docs/setup/independent/install-kubeadm/#check-required-ports">官方安装地址</a></h3>
 

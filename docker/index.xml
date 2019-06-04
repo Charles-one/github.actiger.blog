@@ -6,10 +6,21 @@
     <description>Recent content in Dockers on Actiger跳跳虎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Jun 2019 21:14:43 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 04 Jun 2019 23:17:06 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/actiger/docker/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kubernetes Ingress Nginx</title>
+      <link>https://charles-one.github.io/actiger/docker/kubernetes-nginx-ingress/</link>
+      <pubDate>Tue, 04 Jun 2019 23:17:06 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/actiger/docker/kubernetes-nginx-ingress/</guid>
+      <description>1. 为了理解Nginx Ingress Controller, 先看下上海长宁来福士的人脸识别电梯, 正好在这上班😃. 把外部进入内部人脸识别闸机类比为NGINX Ingress Controller, 匹配域名, 把人或请求分配到内部service. 把人脸识别分配电梯类比为service, service控制着一组电梯, 将人或请求分配service下的pod中. 把电梯类比为pod, 在service下, 把人或请求运送目的地. 2. 下面是配置文件, 角色与service绑定的, 使用到pv和pvc, 使用secret, 我的命名空间是nginx-space  创建name-space
+kubectl create namespace nginx-space  设置默认返回内容 default-backend.yaml
+apiVersion: extensions/v1beta1 kind: Deployment metadata: name: default-http-backend labels: k8s-app: default-http-backend namespace: nginx-space spec: replicas: 1 template: metadata: labels: k8s-app: default-http-backend spec: terminationGracePeriodSeconds: 60 containers: - name: default-http-backend # Any image is permissable as long as: # 1. It serves a 404 page at / # 2.</description>
+    </item>
     
     <item>
       <title>Kubernetes安装</title>
@@ -17,7 +28,7 @@
       <pubDate>Tue, 04 Jun 2019 21:14:43 +0800</pubDate>
       
       <guid>https://charles-one.github.io/actiger/docker/kubernetes%E5%AE%89%E8%A3%85/</guid>
-      <description>1. PD或VM安装2个Centos7.6 1816虚拟机(例如主机名cc和主机名cc2), 或2台云主机.请勿使用克隆, 克隆的虚拟与原虚拟机product_uuid一致. 安装或启动过程中容易碰到问题, 日志排查图放在前面.官方安装地址 2. 安装前检查  hostname必须不一致
+      <description>1. PD安装2个Centos7.6 1816虚拟机(例如主机名cc和主机名cc2), 或2台云主机, 或VM安装虚拟机(建议使用主机同一网络).请勿使用克隆, 克隆的虚拟与原虚拟机product_uuid一致. 安装或启动过程中容易碰到问题, 日志排查图放在前面.官方安装地址 2. 安装前检查  hostname必须不一致
 hostname  网络互通, 互ping
  mac ip地址不一致
 ifconfig  product_uuid不一致
