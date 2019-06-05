@@ -51,7 +51,7 @@
     <h2>Kubernetes Mariadb Mysql</h2>
   </header>
   <section class="entry-content">
-   <p>1. 创建一个对外可使用的数据库, 外部访问使用NodePort. pod使用到PV,PVC, Secret. 2. 使用PV和PVC创建硬盘, PersistentVolume持久卷, 持久卷申请.  创建持久卷 pv-maria.yaml, 这里在node节点上申请hostPath申请空间
+   <p>1. 创建一个对外可使用的数据库, 外部网络访问使用NodePort. pod使用到PV,PVC, Secret. 2. 使用PV和PVC创建硬盘, PersistentVolume持久卷, 持久卷申请.  创建持久卷 pv-maria.yaml, 这里在node节点上申请hostPath申请空间
 apiVersion: v1 kind: PersistentVolume metadata: name: pv-hostpath spec: capacity: storage: 300Mi accessModes: - ReadWriteOnce hostPath: path: &#34;/root/mariadb&#34;  创建持久卷申请pvc-maria.yaml, 申请容量与PV一致才会绑定成功.
 apiVersion: v1 kind: PersistentVolumeClaim metadata: name: pvc-hostpath spec: accessModes: - ReadWriteOnce storageClassName: &#34;&#34; resources: requests: storage: 200Mi   3. 为数据库root密码创建Secret文件mariapass.yml. root密码需要base64转换. apiVersion: v1 kind: Secret metadata: name: mariapass type: Opaque data: password: &lt;base64加密你的root密码&gt; username: cm9vdA==  4....</p>
   </section>
