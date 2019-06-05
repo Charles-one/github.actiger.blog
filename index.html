@@ -48,6 +48,21 @@
 
 <article class="first-entry">
   <header class="entry-header">
+    <h2>Kubernetes Mariadb Mysql</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. 创建一个对外可使用的数据库, 外部访问使用NodePort. pod使用到PV,PVC, Secret. 2. 使用PV和PVC创建硬盘, PersistentVolume持久卷, 持久卷申请.  创建持久卷 pv-maria.yaml, 这里在node节点上申请hostPath申请空间
+apiVersion: v1 kind: PersistentVolume metadata: name: pv-hostpath spec: capacity: storage: 300Mi accessModes: - ReadWriteOnce hostPath: path: &#34;/root/mariadb&#34;  创建持久卷申请pvc-maria.yaml, 申请容量与PV一致才会绑定成功.
+apiVersion: v1 kind: PersistentVolumeClaim metadata: name: pvc-hostpath spec: accessModes: - ReadWriteOnce storageClassName: &#34;&#34; resources: requests: storage: 200Mi   3. 为数据库root密码创建Secret文件mariapass.yml. root密码需要base64转换. apiVersion: v1 kind: Secret metadata: name: mariapass type: Opaque data: password: &lt;base64加密你的root密码&gt; username: cm9vdA==  4....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.6.5</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/docker/kubernetes-mariadb-mysql/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
     <h2>Kubernetes Ingress Nginx</h2>
   </header>
   <section class="entry-content">
@@ -174,22 +189,6 @@ sed -i &#39;s/^SELINUX=enforcing$/SELINUX=permissive/&#39; /etc/selinux/config r
     <time>2019.5.19</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E4%BD%BF%E7%94%A8docker%E5%92%8Chugo%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>Crontab定时任务</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. 使用Crontab的原因. 每次更新博客都要登录服务器(ssh延迟容易中断)手动去拉取代码, 不方便. 故设置成自动获取最新代码. 2. 选择crontab定时 查看下资源, 觉得crontab简单可行, 直接来用就好了. 3. 定时任务需需要做事情.  特定目录执行git pul的shell脚本. 这里我使用了ssh key可以参考这里的  vim git_pull.sh
- #!/bin/bash # 进入目录中 cd ~/nginx-hugoBlog/blog.actiger.com/ # 拉取github中的代码 git pull   添加crontab任务文件  vim git_pull.cron
-# 设置5分钟拉取一次代码 */5 * * * * cd /root &amp;&amp; ./git_pull_blog.actiger.com.sh   把定时任务文件内容加到crontab中
-# 添加root账户中 crontab -uroot git_pull.cron # 查询当前任务, root是账户, 添加的定时任务会放到这个目录中 crontab -uroot -l cat /var/spool/cron/root # 删除root用户的定时任务 crontab -uroot -r   日志的地址, 相当重要....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.5.18</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/crontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"></a>
 </article>
 
 

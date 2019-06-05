@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Kubernetes Mariadb Mysql - Actiger跳跳虎</title>
+    
+    <meta name="description" content="1. 创建一个对外可使用的数据库, 外部访问使用NodePort. pod使用到PV,PVC, Secret. 2. 使用PV和PVC创建硬盘, PersistentVolume持久卷, 持久卷申请.  创建持久卷 pv-maria.yaml, 这里在node节点上申请hostPath申请空间
+apiVersion: v1 kind: PersistentVolume metadata: name: pv-hostpath spec: capacity: storage: 300Mi accessModes: - ReadWriteOnce hostPath: path: &quot;/root/mariadb&quot;  创建持久卷申请pvc-maria.yaml, 申请容量与PV一致才会绑定成功.
+apiVersion: v1 kind: PersistentVolumeClaim metadata: name: pvc-hostpath spec: accessModes: - ReadWriteOnce storageClassName: &quot;&quot; resources: requests: storage: 200Mi   3. 为数据库root密码创建Secret文件mariapass.yml. root密码需要base64转换. apiVersion: v1 kind: Secret metadata: name: mariapass type: Opaque data: password: &lt;base64加密你的root密码&gt; username: cm9vdA==  4.">
+    <meta name="author" content="">
+    
+    <link href="https://charles-one.github.io/actiger/css/github-gist.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/img/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/actiger/img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.5" />
+    
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎 </a></p>
+        
+        <button class="menu-toggle" type="button"></button>
+      </div>
+    </header>
+    <nav class="nav">
+    <ul class="menu">
+      
+      
+    </ul>
+    </nav>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Kubernetes Mariadb Mysql</h1>
+    <div class="post-meta">2019.6.5</div>
+  </header>
+  <div class="post-content">
+
+<h3 id="1-创建一个对外可使用的数据库-外部访问使用nodeport-pod使用到pv-pvc-secret">1. 创建一个对外可使用的数据库, 外部访问使用NodePort. pod使用到PV,PVC, Secret.</h3>
+
+<h3 id="2-使用pv和pvc创建硬盘-persistentvolume持久卷-持久卷申请">2. 使用PV和PVC创建硬盘, PersistentVolume持久卷, 持久卷申请.</h3>
+
+<ol>
+<li><p>创建持久卷 pv-maria.yaml, 这里在node节点上申请hostPath申请空间</p>
+
+<pre><code>apiVersion: v1
+kind: PersistentVolume
+metadata:
+name: pv-hostpath
+spec:
+capacity:
+storage: 300Mi
+accessModes:
+- ReadWriteOnce
+hostPath:
+path: &quot;/root/mariadb&quot;
+
+</code></pre></li>
+
+<li><p>创建持久卷申请pvc-maria.yaml, 申请容量与PV一致才会绑定成功.</p>
+
+<pre><code>apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+name: pvc-hostpath
+spec:
+accessModes:
+- ReadWriteOnce
+storageClassName: &quot;&quot;
+resources:
+requests:
+  storage: 200Mi
+</code></pre></li>
+</ol>
+
+<h3 id="3-为数据库root密码创建secret文件mariapass-yml-root密码需要base64转换">3. 为数据库root密码创建Secret文件mariapass.yml. root密码需要base64转换.</h3>
+
+<pre><code>apiVersion: v1
+kind: Secret
+metadata:
+  name: mariapass
+type: Opaque
+data:
+  password: &lt;base64加密你的root密码&gt;
+  username: cm9vdA==
+</code></pre>
+
+<h3 id="4-创建数据库pod-使用mariapass-yml中密码和pvc-创建文件mariadb-yaml">4. 创建数据库pod, 使用mariapass.yml中密码和PVC. 创建文件mariadb.yaml</h3>
+
+<h4 id="在env中使用密码-在volumes使用pvc">在env中使用密码, 在volumes使用PVC</h4>
+
+<pre><code>apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+spec:
+  type: NodePort
+  ports:
+  - port: 3306
+    targetPort: 3306
+    nodePort: 30006
+  selector:
+    app: mysql
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mysql
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: mariadb:10.2
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mariapass
+              key: password
+        ports:
+        - name: mysql
+          containerPort: 3306
+        volumeMounts:
+        - name: mysql-persistent-storage
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: pvc-hostpath
+</code></pre>
+
+<h4 id="开始创建">开始创建</h4>
+
+<pre><code>kubectl apply -f mariadb.yaml,mariapass.yml,pv-maria.yaml,pvc-maria.yaml
+
+# 查看创建的pv pvc pod
+
+kubectl get pv
+
+kubectl get pvc
+
+kubectl get pods
+</code></pre>
+</div>
+  <footer class="post-footer">
+    
+  </footer>
+  
+  
+  
+  
+</article>
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 Actiger跳跳虎</span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="https://charles-one.github.io/actiger/js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="https://charles-one.github.io/actiger/js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  hljs.initHighlightingOnLoad();
+  setMenuListener();
+
+  InstantClick.on('change', function() {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuListener();
+  });
+
+  function setMenuListener() {
+    var menuToggle = document.querySelector('.menu-toggle');
+    var body = document.querySelector('body');
+    menuToggle.addEventListener('click', function() {
+      body.classList.toggle('no-scroll');
+    }, false);
+  }
+</script>
+</body>
+</html>
+

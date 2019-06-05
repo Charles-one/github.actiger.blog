@@ -6,10 +6,21 @@
     <description>Recent content on Actiger跳跳虎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Jun 2019 23:17:06 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 05 Jun 2019 20:46:48 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/actiger/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kubernetes Mariadb Mysql</title>
+      <link>https://charles-one.github.io/actiger/docker/kubernetes-mariadb-mysql/</link>
+      <pubDate>Wed, 05 Jun 2019 20:46:48 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/actiger/docker/kubernetes-mariadb-mysql/</guid>
+      <description>1. 创建一个对外可使用的数据库, 外部访问使用NodePort. pod使用到PV,PVC, Secret. 2. 使用PV和PVC创建硬盘, PersistentVolume持久卷, 持久卷申请.  创建持久卷 pv-maria.yaml, 这里在node节点上申请hostPath申请空间
+apiVersion: v1 kind: PersistentVolume metadata: name: pv-hostpath spec: capacity: storage: 300Mi accessModes: - ReadWriteOnce hostPath: path: &amp;quot;/root/mariadb&amp;quot;  创建持久卷申请pvc-maria.yaml, 申请容量与PV一致才会绑定成功.
+apiVersion: v1 kind: PersistentVolumeClaim metadata: name: pvc-hostpath spec: accessModes: - ReadWriteOnce storageClassName: &amp;quot;&amp;quot; resources: requests: storage: 200Mi   3. 为数据库root密码创建Secret文件mariapass.yml. root密码需要base64转换. apiVersion: v1 kind: Secret metadata: name: mariapass type: Opaque data: password: &amp;lt;base64加密你的root密码&amp;gt; username: cm9vdA==  4.</description>
+    </item>
     
     <item>
       <title>Kubernetes Ingress Nginx</title>
