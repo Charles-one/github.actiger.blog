@@ -7,7 +7,7 @@
     
     <title>Kubernetes Ingress Nginx - Actiger跳跳虎</title>
     
-    <meta name="description" content="1. 为了理解Nginx Ingress Controller, 先看下上海长宁来福士的人脸识别电梯, 正好在这上班😃. 把外部进入内部人脸识别闸机类比为NGINX Ingress Controller, 匹配域名, 把人或请求分配到内部service. 把人脸识别分配电梯类比为service, service控制着一组电梯, 将人或请求分配service下的电梯中. 把电梯类比为pod, 在service下, 把人或请求运送目的地. 2. 下面是配置文件, 角色与service绑定的, 使用到pv和pvc, 使用secret, 我的命名空间是nginx-space  创建name-space
+    <meta name="description" content="1. 为了理解Nginx Ingress Controller, 先看下上海长宁来福士的人脸识别电梯, 正好在这上班😃. 把外部进入内部人脸识别闸机类比为NGINX Ingress Controller, 匹配域名, 把人或请求分配到内部service. 把人脸识别分配电梯类比为service, service控制着一组电梯, 将人或请求分配service下的电梯中. 把电梯类比为pod, 在service下, 处理人或请求. 2. 下面是配置文件, 角色与service绑定的, 使用到pv和pvc, 使用secret, 我的命名空间是nginx-space  创建name-space
 kubectl create namespace nginx-space  设置默认返回内容 default-backend.yaml
 apiVersion: extensions/v1beta1 kind: Deployment metadata: name: default-http-backend labels: k8s-app: default-http-backend namespace: nginx-space spec: replicas: 1 template: metadata: labels: k8s-app: default-http-backend spec: terminationGracePeriodSeconds: 60 containers: - name: default-http-backend # Any image is permissable as long as: # 1. It serves a 404 page at / # 2.">
     <meta name="author" content="">
@@ -57,7 +57,7 @@ apiVersion: extensions/v1beta1 kind: Deployment metadata: name: default-http-bac
 
 <h4 id="把人脸识别分配电梯类比为service-service控制着一组电梯-将人或请求分配service下的电梯中">把人脸识别分配电梯类比为service, service控制着一组电梯, 将人或请求分配service下的电梯中.</h4>
 
-<h4 id="把电梯类比为pod-在service下-把人或请求运送目的地">把电梯类比为pod, 在service下, 把人或请求运送目的地.</h4>
+<h4 id="把电梯类比为pod-在service下-处理人或请求">把电梯类比为pod, 在service下, 处理人或请求.</h4>
 
 <h3 id="2-下面是配置文件-角色与service绑定的-使用到pv和pvc-使用secret-我的命名空间是nginx-space">2. 下面是配置文件, 角色与service绑定的, 使用到pv和pvc, 使用secret, 我的命名空间是nginx-space</h3>
 
