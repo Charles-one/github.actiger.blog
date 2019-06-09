@@ -111,7 +111,7 @@ spec:
   ports:
   - port: 3306
     targetPort: 3306
-    nodePort: 30011
+    nodePort: 30016
   selector:
     app: mysql
 ---
@@ -164,7 +164,7 @@ kubectl get pods
 
 <h4 id="测试">测试</h4>
 
-<pre><code>mysql -uroot -h&lt;你的IP&gt; -P30006 -p
+<pre><code>mysql -uroot -h&lt;你的IP&gt; -P30016 -p
 </code></pre>
 </div>
   <footer class="post-footer">
