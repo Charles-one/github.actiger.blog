@@ -6,10 +6,19 @@
     <description>Recent content on Actiger跳跳虎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 12 Jun 2019 11:12:12 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2019 23:07:19 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/actiger/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>TestNG异常测试</title>
+      <link>https://charles-one.github.io/actiger/test/testng%E5%BC%82%E5%B8%B8%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Wed, 12 Jun 2019 23:07:19 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/actiger/test/testng%E5%BC%82%E5%B8%B8%E6%B5%8B%E8%AF%95/</guid>
+      <description> TestNG异常测试 1. expectedException方法预期RuntimeException异常 2. expectedSuccess方法预期RuntimeException异常 3. expectedException用例结果是失败的, expectedSuccess执行用例成功(预期与结果一致) package com.actiger.test.expectedException; import org.testng.annotations.Test; public class ExpectedExcepiton { @Test(expectedExceptions = RuntimeException.class) public void expectedException(){ System.out.println(&amp;quot;期望运行异常的结果!&amp;quot;); } @Test(expectedExceptions = RuntimeException.class) public void expectedSuccess(){ System.out.println(&amp;quot;期望运行异常的结果&amp;quot;); throw new RuntimeException(); } }  </description>
+    </item>
     
     <item>
       <title>TestNG中注解Before After执行顺序</title>
