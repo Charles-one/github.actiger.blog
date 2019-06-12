@@ -120,6 +120,63 @@ echo &quot;---------------------------------------------------------------------
 sh hugoAll.sh
 
 </code></pre>
+
+<h4 id="5-添加改进版本-路径-地址都做了参数">5. 添加改进版本, 路径,地址都做了参数.</h4>
+
+<pre><code>
+
+TIME=$(date &quot;+%H:%M:%S %A %Y-%m-%d&quot;)
+
+ROOTPATH=&quot;${HOME}/Documents/actiger/&quot;
+
+BLOGPATH=&quot;${HOME}/Documents/actiger/blog.actiger.com/&quot;
+BLOGURL=&quot;https://blog.actiger.com/&quot;
+BLOGDEST=&quot;blog.actiger.com&quot;
+
+GITPATH=&quot;${HOME}/Documents/actiger/public/&quot;
+GITPAGES=&quot;https://charles-one.github.io/actiger/&quot;
+
+echo &quot;-------------------------------------------------------------------------------------&quot;
+echo &quot;开始自动生成${BLOGURL}博客, git自动添加标签, 推送到github上&quot;
+
+#cd ~/Documents/actiger/
+cd ${ROOT}
+
+# 生成blog.actiger.com博客目录文件
+hugo --theme=paper --baseUrl=&quot;${BLOGURL}&quot; --destination=&quot;${BLOGDEST}&quot;
+
+cd ${BLOGPATH}
+
+git stage .
+git commit -m &quot;自动标签${TIME}&quot;
+
+git push github master
+
+
+
+echo &quot;-------------------------------------------------------------------------------------&quot;
+
+
+
+echo &quot;-------------------------------------------------------------------------------------&quot;
+echo &quot;开始自动生成${GITPAGES}博客, git自动添加标签, 推送到github上&quot;
+
+cd ${ROOT}
+# 生成默认github博客目录文件
+hugo --theme=paper --baseUrl=&quot;${GITPAGES}&quot;
+
+cd ${GITPATH}
+
+git stage .
+git commit -m &quot;自动标签${TIME}&quot;
+
+git push github master
+
+
+echo &quot;-------------------------------------------------------------------------------------&quot;
+
+
+</code></pre>
 </div>
   <footer class="post-footer">
     
