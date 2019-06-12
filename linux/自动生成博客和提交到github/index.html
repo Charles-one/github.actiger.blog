@@ -121,10 +121,9 @@ sh hugoAll.sh
 
 </code></pre>
 
-<h4 id="5-添加改进版本-路径-地址都做了参数">5. 添加改进版本, 路径,地址都做了参数.</h4>
+<h4 id="5-添加改进版本-路径-地址都做了参数-home-是当前用户的根目录地址">5. 添加改进版本, 路径,地址都做了参数.${HOME}是当前用户的根目录地址.</h4>
 
 <pre><code>
-
 TIME=$(date &quot;+%H:%M:%S %A %Y-%m-%d&quot;)
 
 ROOTPATH=&quot;${HOME}/Documents/actiger/&quot;
@@ -140,7 +139,7 @@ echo &quot;---------------------------------------------------------------------
 echo &quot;开始自动生成${BLOGURL}博客, git自动添加标签, 推送到github上&quot;
 
 #cd ~/Documents/actiger/
-cd ${ROOT}
+cd ${ROOTPATH}
 
 # 生成blog.actiger.com博客目录文件
 hugo --theme=paper --baseUrl=&quot;${BLOGURL}&quot; --destination=&quot;${BLOGDEST}&quot;
@@ -161,7 +160,7 @@ echo &quot;---------------------------------------------------------------------
 echo &quot;-------------------------------------------------------------------------------------&quot;
 echo &quot;开始自动生成${GITPAGES}博客, git自动添加标签, 推送到github上&quot;
 
-cd ${ROOT}
+cd ${ROOTPATH}
 # 生成默认github博客目录文件
 hugo --theme=paper --baseUrl=&quot;${GITPAGES}&quot;
 
@@ -174,7 +173,6 @@ git push github master
 
 
 echo &quot;-------------------------------------------------------------------------------------&quot;
-
 
 </code></pre>
 </div>
