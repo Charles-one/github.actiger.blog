@@ -12,12 +12,12 @@
     
     
     <item>
-      <title>TestNG依赖测试</title>
-      <link>https://charles-one.github.io/actiger/test/testng%E4%BE%9D%E8%B5%96%E6%B5%8B%E8%AF%95/</link>
+      <title>TestNG依赖测试和xml文件参数化</title>
+      <link>https://charles-one.github.io/actiger/test/testng%E4%BE%9D%E8%B5%96%E6%B5%8B%E8%AF%95%E5%92%8Cxml%E6%96%87%E4%BB%B6%E5%8F%82%E6%95%B0%E5%8C%96/</link>
       <pubDate>Thu, 13 Jun 2019 23:19:11 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/test/testng%E4%BE%9D%E8%B5%96%E6%B5%8B%E8%AF%95/</guid>
-      <description> TestNG中, 1个用例依赖其他的测试方法, 怎么表示这种关系呢, 在注解后加标签dependsOnMethods 例如, 方法2就依赖于方法1, 如果方法1执行失败了, 方法2就无法执行了.  package com.actiger.test.all; import org.testng.annotations.Test; public class Dependon{ @Test public void dependon1(){ System.out.println(&amp;quot;dependon 1111111&amp;quot;); throw new RuntimeException(); } @Test(dependsOnMethods = {&amp;quot;dependon1&amp;quot;}) public void dependon2(){ System.out.println(&amp;quot;dependon 2222222&amp;quot;); } }  </description>
+      <guid>https://charles-one.github.io/actiger/test/testng%E4%BE%9D%E8%B5%96%E6%B5%8B%E8%AF%95%E5%92%8Cxml%E6%96%87%E4%BB%B6%E5%8F%82%E6%95%B0%E5%8C%96/</guid>
+      <description>1. TestNG依赖测试, 1个用例依赖其他的测试方法, 怎么表示这种关系呢, 在注解后加标签dependsOnMethods 例如, 方法2就依赖于方法1, 如果方法1执行失败了, 方法2就无法执行了.  package com.actiger.test.all; import org.testng.annotations.Test; public class Dependon{ @Test public void dependon1(){ System.out.println(&amp;quot;dependon 1111111&amp;quot;); throw new RuntimeException(); } @Test(dependsOnMethods = {&amp;quot;dependon1&amp;quot;}) public void dependon2(){ System.out.println(&amp;quot;dependon 2222222&amp;quot;); } }  2. TestNG的xml文件参数化 1.创建方法 package com.actiger.test.paramter; import org.testng.annotations.Parameters; import org.testng.annotations.Test; public class ParamterTest { @Test @Parameters({&amp;quot;name&amp;quot;, &amp;quot;age&amp;quot;}) public void paramTest1(String name, int age){ System.out.println(&amp;quot;Name:&amp;quot;+ name + &amp;quot;, &amp;quot; + &amp;quot;Age:&amp;quot; + age); } }  2.</description>
     </item>
     
     <item>

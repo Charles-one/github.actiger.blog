@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>TestNG依赖测试和xml文件参数化 - Actiger跳跳虎</title>
+    
+    <meta name="description" content="1. TestNG依赖测试, 1个用例依赖其他的测试方法, 怎么表示这种关系呢, 在注解后加标签dependsOnMethods 例如, 方法2就依赖于方法1, 如果方法1执行失败了, 方法2就无法执行了.  package com.actiger.test.all; import org.testng.annotations.Test; public class Dependon{ @Test public void dependon1(){ System.out.println(&quot;dependon 1111111&quot;); throw new RuntimeException(); } @Test(dependsOnMethods = {&quot;dependon1&quot;}) public void dependon2(){ System.out.println(&quot;dependon 2222222&quot;); } }  2. TestNG的xml文件参数化 1.创建方法 package com.actiger.test.paramter; import org.testng.annotations.Parameters; import org.testng.annotations.Test; public class ParamterTest { @Test @Parameters({&quot;name&quot;, &quot;age&quot;}) public void paramTest1(String name, int age){ System.out.println(&quot;Name:&quot;&#43; name &#43; &quot;, &quot; &#43; &quot;Age:&quot; &#43; age); } }  2.">
+    <meta name="author" content="">
+    
+    <link href="https://charles-one.github.io/actiger/css/github-gist.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/img/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/actiger/img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+    
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎 </a></p>
+        
+        <button class="menu-toggle" type="button"></button>
+      </div>
+    </header>
+    <nav class="nav">
+    <ul class="menu">
+      
+      
+    </ul>
+    </nav>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">TestNG依赖测试和xml文件参数化</h1>
+    <div class="post-meta">2019.6.13</div>
+  </header>
+  <div class="post-content">
+
+<h3 id="1-testng依赖测试-1个用例依赖其他的测试方法-怎么表示这种关系呢-在注解后加标签dependsonmethods">1. TestNG依赖测试, 1个用例依赖其他的测试方法, 怎么表示这种关系呢, 在注解后加标签dependsOnMethods</h3>
+
+<h3 id="例如-方法2就依赖于方法1-如果方法1执行失败了-方法2就无法执行了">例如, 方法2就依赖于方法1, 如果方法1执行失败了, 方法2就无法执行了.</h3>
+
+<pre><code>
+package com.actiger.test.all;
+
+import org.testng.annotations.Test;
+
+public class Dependon{
+    @Test
+    public void dependon1(){
+        System.out.println(&quot;dependon 1111111&quot;);
+        throw new RuntimeException();
+    }
+
+
+    @Test(dependsOnMethods = {&quot;dependon1&quot;})
+    public void dependon2(){
+        System.out.println(&quot;dependon 2222222&quot;);
+    }
+
+}
+</code></pre>
+
+<h3 id="2-testng的xml文件参数化">2. TestNG的xml文件参数化</h3>
+
+<h4 id="1-创建方法">1.创建方法</h4>
+
+<pre><code>package com.actiger.test.paramter;
+
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+public class ParamterTest {
+    @Test
+    @Parameters({&quot;name&quot;, &quot;age&quot;})
+    public void paramTest1(String name, int age){
+        System.out.println(&quot;Name:&quot;+ name + &quot;, &quot; + &quot;Age:&quot; + age);
+    }
+}
+</code></pre>
+
+<h4 id="2-配置执行的xml文件和参数">2. 配置执行的xml文件和参数</h4>
+
+<h4 id="resoureces中parameter必须在class标签后">resoureces中parameter必须在class标签后</h4>
+
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot; &gt;
+&lt;suite name=&quot;parater&quot;&gt;
+    &lt;test name=&quot;para&quot;&gt;
+        &lt;classes&gt;
+            &lt;class name=&quot;com.actiger.test.paramter.ParamterTest&quot;&gt;&lt;/class&gt;
+            &lt;parameter name=&quot;name&quot; value=&quot;xiaoMing&quot;&gt;&lt;/parameter&gt;
+            &lt;parameter name=&quot;age&quot; value=&quot;18&quot;&gt;&lt;/parameter&gt;
+        &lt;/classes&gt;
+    &lt;/test&gt;
+&lt;/suite&gt;
+</code></pre>
+</div>
+  <footer class="post-footer">
+    
+  </footer>
+  
+  
+  
+  
+</article>
+
+</main>
+<footer class="footer">
+    <span><a href="https://charles-one.github.io/actiger/">&copy; 2019 Actiger跳跳虎</a></span>
+  <span>&middot;</span>
+  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span><a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Theme Paper</a></span>
+</footer>
+<script src="https://charles-one.github.io/actiger/js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="https://charles-one.github.io/actiger/js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  hljs.initHighlightingOnLoad();
+  setMenuListener();
+
+  InstantClick.on('change', function() {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuListener();
+  });
+
+  function setMenuListener() {
+    var menuToggle = document.querySelector('.menu-toggle');
+    var body = document.querySelector('body');
+    menuToggle.addEventListener('click', function() {
+      body.classList.toggle('no-scroll');
+    }, false);
+  }
+</script>
+</body>
+</html>
+
