@@ -6,10 +6,19 @@
     <description>Recent content on Actiger跳跳虎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 12 Jun 2019 23:07:19 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 13 Jun 2019 23:19:11 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/actiger/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>TestNG依赖测试</title>
+      <link>https://charles-one.github.io/actiger/test/testng%E4%BE%9D%E8%B5%96%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Thu, 13 Jun 2019 23:19:11 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/actiger/test/testng%E4%BE%9D%E8%B5%96%E6%B5%8B%E8%AF%95/</guid>
+      <description> TestNG中, 1个用例依赖其他的测试方法, 怎么表示这种关系呢, 在注解后加标签dependsOnMethods 例如, 方法2就依赖于方法1, 如果方法1执行失败了, 方法2就无法执行了.  package com.actiger.test.all; import org.testng.annotations.Test; public class Dependon{ @Test public void dependon1(){ System.out.println(&amp;quot;dependon 1111111&amp;quot;); throw new RuntimeException(); } @Test(dependsOnMethods = {&amp;quot;dependon1&amp;quot;}) public void dependon2(){ System.out.println(&amp;quot;dependon 2222222&amp;quot;); } }  </description>
+    </item>
     
     <item>
       <title>TestNG异常测试</title>
