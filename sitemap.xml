@@ -4,19 +4,24 @@
   
   <url>
     <loc>https://charles-one.github.io/actiger/</loc>
-    <lastmod>2019-06-15T17:35:15+08:00</lastmod>
+    <lastmod>2019-06-16T00:46:00+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://charles-one.github.io/actiger/test/testng%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2019-06-16T00:46:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charles-one.github.io/actiger/test/</loc>
+    <lastmod>2019-06-16T00:46:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://charles-one.github.io/actiger/test/testng%E5%8F%82%E6%95%B0%E5%8C%96%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2019-06-15T17:35:15+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://charles-one.github.io/actiger/test/</loc>
-    <lastmod>2019-06-15T17:35:15+08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

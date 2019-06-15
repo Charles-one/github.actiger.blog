@@ -6,10 +6,19 @@
     <description>Recent content in Tests on Actiger跳跳虎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Jun 2019 17:35:15 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 16 Jun 2019 00:46:00 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/actiger/test/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>TestNG多线程配置</title>
+      <link>https://charles-one.github.io/actiger/test/testng%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sun, 16 Jun 2019 00:46:00 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/actiger/test/testng%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%85%8D%E7%BD%AE/</guid>
+      <description>1. 在方法注释中配置多线程, 配置线程池  package com.actiger.test.thread; import org.testng.annotations.Test; public class MultiThread { @Test(invocationCount = 10, threadPoolSize = 3) public void test(){ System.out.println(&amp;quot;1&amp;quot;); System.out.println(&amp;quot;Thread ID:%s%n&amp;quot; + Thread.currentThread().getId()); } }  2. 在xml中配置多线程, 不可配置为线程池. package com.actiger.test.thread; import org.testng.annotations.Test; public class MultiThreadOnXml { @Test public void test1(){ System.out.println(&amp;quot;Thread ID: &amp;quot; + Thread.currentThread().getId()); } @Test public void test2(){ System.out.println(&amp;quot;Thread ID: &amp;quot; + Thread.currentThread().getId()); } @Test public void test3(){ System.out.println(&amp;quot;Thread ID: &amp;quot; + Thread.currentThread().getId()); } }  multiThread.</description>
+    </item>
     
     <item>
       <title>TestNG参数化测试</title>
