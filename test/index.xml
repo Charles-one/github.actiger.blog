@@ -6,10 +6,19 @@
     <description>Recent content in Tests on Actiger跳跳虎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Jun 2019 14:00:18 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 16 Jun 2019 20:44:52 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/actiger/test/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>TestNG生成测试报告</title>
+      <link>https://charles-one.github.io/actiger/test/testng%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/</link>
+      <pubDate>Sun, 16 Jun 2019 20:44:52 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/actiger/test/testng%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/</guid>
+      <description>1. 使用的extentreports生成的测试报告, 报告中使用的css文件需要上强(墙) &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.aventstack&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;extentreports&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.0.9&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt;  测试方法 package com.actiger.reports; import org.testng.Assert; import org.testng.Reporter; import org.testng.annotations.Test; public class TestReport { @Test public void test1(){ Assert.assertEquals(1,2); } @Test public void test2(){ Assert.assertEquals(1,1); } @Test public void test3(){ Assert.assertEquals(3,3); } @Test public void log1(){ Reporter.log(&amp;quot;这是日志&amp;quot;); throw new RuntimeException(&amp;quot;这是一个异常&amp;quot;); } }  配置的xml &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; ?&amp;gt; &amp;lt;suite name=&amp;quot;mytest&amp;quot;&amp;gt; &amp;lt;test name=&amp;quot;test&amp;quot;&amp;gt; &amp;lt;classes&amp;gt; &amp;lt;class name=&amp;quot;com.actiger.reports.TestReport&amp;quot;&amp;gt; &amp;lt;method&amp;gt; &amp;lt;include name=&amp;quot;test1&amp;quot;&amp;gt;&amp;lt;/include&amp;gt; &amp;lt;include name=&amp;quot;test2&amp;quot;&amp;gt;&amp;lt;/include&amp;gt; &amp;lt;include name=&amp;quot;test3&amp;quot;&amp;gt;&amp;lt;/include&amp;gt; &amp;lt;include name=&amp;quot;log1&amp;quot;&amp;gt;&amp;lt;/include&amp;gt; &amp;lt;/method&amp;gt; &amp;lt;/class&amp;gt; &amp;lt;/classes&amp;gt; &amp;lt;/test&amp;gt; &amp;lt;listeners&amp;gt; &amp;lt;listener class-name=&amp;quot;com.</description>
+    </item>
     
     <item>
       <title>TestNG超时测试</title>
