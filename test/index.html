@@ -54,6 +54,19 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>TestNG超时测试</h2>
+  </header>
+  <section class="entry-content">
+   <p> TestNG超时测试 超出预期时间则用例失败 package com.actiger.test.timeout; import org.testng.annotations.Test; public class TimeOut { @Test(timeOut = 3000) public void testSuccess() throws InterruptedException{ Thread.sleep(2000); } @Test(timeOut = 2000) public void testFail() throws InterruptedException{ Thread.sleep(3000); } }  ...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.6.16</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/test/testng%E8%B6%85%E6%97%B6%E6%B5%8B%E8%AF%95/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
     <h2>TestNG多线程配置</h2>
   </header>
   <section class="entry-content">
