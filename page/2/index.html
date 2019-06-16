@@ -48,6 +48,28 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>Kubernetes安装</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. PD安装2个Centos7.6 1816虚拟机(例如主机名cc和主机名cc2), 或2台云主机, 或VM安装虚拟机(建议使用主机同一网络).请勿使用克隆, 克隆的虚拟与原虚拟机product_uuid一致. 安装或启动过程中容易碰到问题, 日志排查图放在前面.官方安装地址 2. 安装前检查  hostname必须不一致
+hostname  网络互通, 互ping
+ mac ip地址不一致
+ifconfig  product_uuid不一致
+cat /sys/class/dmi/id/product_uuid  禁用Swap交换分区, 保证kubelet正确运行, 必须永久禁用. 在安装设置中有对应的设置.
+  3. 安装前2台虚拟机都需要的设置  关闭防火墙, 不关闭集群间有些pod可能无法通信.
+systemctl stop firewalld # 禁止开机启动 systemctl disable firewalld  永久禁用交换分区swap.
+# vi /etc/fstab 注释最后一行的swap # 重启 reboot  装SELinux设置permissive模式
+sed -i &#39;s/^SELINUX=enforcing$/SELINUX=permissive/&#39; /etc/selinux/config reboot  安装源
+ # 国内 cat &lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo [kubernetes] name=Kubernetes baseurl=https://mirrors....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.6.4</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/docker/kubernetes%E5%AE%89%E8%A3%85/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
     <h2>Kubernetes太难了</h2>
   </header>
   <section class="entry-content">
@@ -166,20 +188,6 @@
     <time>2019.5.18</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/centos7%E4%BD%BF%E7%94%A8ssh-key%E6%8B%89%E5%8F%96github%E9%A1%B9%E7%9B%AE%E5%A4%B1%E8%B4%A5/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>使用docker搭建nextcloud</h2>
-  </header>
-  <section class="entry-content">
-   <p> 1. nextcloud 个人私有云, 可以像网盘一样同步个人文件, 远程访问下载等. 2. 使用docker-compose搭建 使用docker-compose-repository搭建  git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository cp -r ~/docker-compose-repository/nextcloud ~/nextcloud cd ~/nextcloud # 自动下载并启动容器 dc up -d  访问地址 http://服务ip地址
-# 用户名和密码自己设置 # # 页面上选择数据库mariadb # 页面上填写就是你上面mariadb内容 # 用户名: nextcloud # 数据库: nextcloud # 密码: nextcloud_weiki_JKL_sdf # 地址(不是默认的localhost): mariadb  ...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.5.17</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAnextcloud/"></a>
 </article>
 
 
