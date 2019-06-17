@@ -17,7 +17,7 @@
       <pubDate>Sun, 16 Jun 2019 23:59:47 +0800</pubDate>
       
       <guid>https://charles-one.github.io/actiger/test/moco%E7%A4%BA%E4%BE%8B/</guid>
-      <description> 1. Moco是什么? 简单的模拟服务器的程序库/工具, 有请求给出响应.下载 2. 使用示例 1. 创建test.json [ { &amp;quot;description&amp;quot;: &amp;quot;First test&amp;quot;, &amp;quot;request&amp;quot;: { &amp;quot;uri&amp;quot;: &amp;quot;/demo&amp;quot; }, &amp;quot;response&amp;quot;: { &amp;quot;text&amp;quot;: &amp;quot;First Response&amp;quot; } } ]  2. 命令行启动服务, moco-runner-0.12.0-standalone.jar与test.json在相同目录下.  java -jar ./moco-runner-0.12.0-standalone.jar http -p 8888 -c test.json  3. 验证 访问http://localhost:8888/demo </description>
+      <description> 1. Moco是什么? 简单的模拟服务器的程序库/工具, 有请求给出响应.下载中moco-runner-0.12.0-standalone.jar. 2. 使用示例 1. 创建test.json [ { &amp;quot;description&amp;quot;: &amp;quot;First test&amp;quot;, &amp;quot;request&amp;quot;: { &amp;quot;uri&amp;quot;: &amp;quot;/demo&amp;quot; }, &amp;quot;response&amp;quot;: { &amp;quot;text&amp;quot;: &amp;quot;First Response&amp;quot; } } ]  2. 命令行启动服务, moco-runner-0.12.0-standalone.jar与test.json在相同目录下.  java -jar ./moco-runner-0.12.0-standalone.jar http -p 8888 -c test.json  3. 验证 访问http://localhost:8888/demo </description>
     </item>
     
     <item>
