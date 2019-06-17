@@ -101,6 +101,62 @@ java -jar ./moco-runner-0.12.0-standalone.jar http -p 8888 -c test.json
 java -jar ./moco-runner-0.12.0-standalone.jar http -p 8888 -c para.json
 
 </code></pre>
+
+<h3 id="3-模拟post请求">3. 模拟post请求</h3>
+
+<pre><code>[
+  {
+    &quot;description&quot;: &quot;post请求&quot;,
+    &quot;request&quot;: {
+      &quot;uri&quot;: &quot;/post&quot;,
+      &quot;method&quot;:&quot;post&quot;
+      },
+    &quot;response&quot;: {
+      &quot;text&quot;: &quot;First moco post request&quot;
+    }
+  }
+]
+</code></pre>
+
+<h3 id="4-带参的post请求">4. 带参的post请求</h3>
+
+<pre><code>[
+  {
+    &quot;description&quot;: &quot;post请求&quot;,
+    &quot;request&quot;: {
+      &quot;uri&quot;: &quot;/postpara&quot;,
+      &quot;method&quot;:&quot;post&quot;,
+      &quot;forms&quot;: {
+        &quot;name&quot;: &quot;xiaoming&quot;
+      }
+    },
+    &quot;response&quot;: {
+      &quot;text&quot;: &quot;有参数&quot;
+    }
+  }
+]
+</code></pre>
+
+<h3 id="5-带cookie信息">5. 带cookie信息</h3>
+
+<pre><code>[
+  {
+    &quot;description&quot;: &quot;cookie&quot;,
+    &quot;request&quot;: {
+      &quot;uri&quot;: &quot;/cookie&quot;,
+      &quot;method&quot;: &quot;get&quot;,
+      &quot;cookies&quot;: {
+        &quot;login&quot;: &quot;true&quot;
+      }
+    },
+    &quot;response&quot;: {
+      &quot;text&quot;: &quot;hello&quot;
+    }
+  }
+]
+</code></pre>
+
+<h4 id="使用jmeter添加cookie是必须要有的值login-true-localhost-域-路径-必不可少">使用Jmeter添加cookie是必须要有的值login true localhost(域) /(路径)必不可少.</h4>
 </div>
   <footer class="post-footer">
     
