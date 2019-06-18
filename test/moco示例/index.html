@@ -157,6 +157,90 @@ java -jar ./moco-runner-0.12.0-standalone.jar http -p 8888 -c para.json
 </code></pre>
 
 <h4 id="使用jmeter添加cookie是必须要有的值login-true-localhost-域-路径-必不可少">使用Jmeter添加cookie是必须要有的值login true localhost(域) /(路径)必不可少.</h4>
+
+<h3 id="6-post-json格式的">6. post json格式的</h3>
+
+<pre><code>[
+  {
+    &quot;description&quot;: &quot;带cookie的post请求&quot;,
+    &quot;request&quot;: {
+      &quot;uri&quot;: &quot;/postcookie&quot;,
+      &quot;method&quot;: &quot;post&quot;,
+      &quot;cookies&quot;: {
+        &quot;login&quot;: &quot;true&quot;
+      },
+      &quot;json&quot;: {
+        &quot;name&quot;: &quot;xiaoming&quot;,
+        &quot;age&quot;: &quot;18&quot;
+      }
+    },
+    &quot;response&quot;: {
+      &quot;json&quot;: {
+        &quot;hell&quot;: &quot;你长了&quot;
+      }
+    }
+  }
+]
+</code></pre>
+
+<h3 id="7-headers请求">7. headers请求</h3>
+
+<pre><code>[
+  {
+    &quot;description&quot;: &quot;带header的请求&quot;,
+    &quot;request&quot;: {
+      &quot;uri&quot;: &quot;/headers&quot;,
+      &quot;method&quot;: &quot;post&quot;,
+      &quot;headers&quot;: {
+        &quot;content-type&quot;: &quot;application/json&quot;
+      },
+      &quot;json&quot;: {
+        &quot;name&quot;: &quot;xiaohong&quot;,
+        &quot;age&quot;: &quot;17&quot;
+      }
+    },
+    &quot;response&quot;: {
+      &quot;json&quot;: {
+        &quot;hello&quot;: &quot;pretty&quot;,
+        &quot;status&quot;: &quot;200&quot;
+      }
+    }
+  }
+]
+</code></pre>
+
+<h3 id="8-重定向地址-重定向请求">8. 重定向地址, 重定向请求.</h3>
+
+<pre><code>[
+  {
+    &quot;description&quot;: &quot;重定向网页&quot;,
+    &quot;request&quot;: {
+      &quot;uri&quot;: &quot;/redirect&quot;,
+      &quot;method&quot;: &quot;get&quot;
+    },
+    &quot;redirectTo&quot;: &quot;http://huya.com&quot;
+  },
+  {
+    &quot;description&quot;: &quot;重定向请求&quot;,
+    &quot;request&quot;: {
+      &quot;uri&quot;: &quot;/redirect/to&quot;,
+      &quot;method&quot;: &quot;get&quot;
+    },
+    &quot;redirectTo&quot;: &quot;/new/redirect&quot;
+  },
+  {
+    &quot;description&quot;: &quot;指定的请求&quot;,
+    &quot;request&quot;: {
+      &quot;uri&quot;: &quot;/new/redirect&quot;,
+      &quot;method&quot;: &quot;get&quot;
+    },
+    &quot;response&quot;: {
+      &quot;text&quot;: &quot;请求成功了&quot;
+    }
+
+  }
+]
+</code></pre>
 </div>
   <footer class="post-footer">
     
