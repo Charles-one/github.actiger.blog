@@ -7,7 +7,7 @@
     
     <title>LetsEncrypt申请与nginx配置SSL - Actiger跳跳虎</title>
     
-    <meta name="description" content="1. letsencrypt 证书申请. 官方指引 1. 申请证书需要安装Cerbto. 脚本 yum -y install epel-release yum -y install yum-utils yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional yum install certbot python2-certbot-nginx  2. 手动去申请证, 我这里申请全部子域名的. 验证身份的方式需要在域名供应商添加dns txt的. 1. 开始安装, 有下面提示信息. 这里需要暂停, 去添加DNS TXT即第2步. 执行到下面提示信息后, 需要暂停. - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #Please deploy a DNS TXT record under the name #_acme-challenge.">
+    <meta name="description" content="1. letsencrypt 证书申请. 官方指引 1. 申请证书需要安装Cerbto. 脚本 yum -y install epel-release yum -y install yum-utils yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional yum install certbot python2-certbot-nginx  2. 手动去申请证, 我这里申请全部子域名的. 验证身份的方式需要在域名供应商添加dns txt的. 1. 开始安装, 有下面提示信息. 这里需要暂停, 去添加DNS TXT即第2步. # 执行 certbot certonly -d &quot;*.actiger.com&quot; --manual --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory  执行到下面提示信息后, 需要暂停. - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #Please deploy a DNS TXT record under the name #_acme-challenge.">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/css/github-gist.min.css" rel="stylesheet">
@@ -65,6 +65,11 @@ yum install certbot python2-certbot-nginx
 
 <h5 id="1-开始安装-有下面提示信息-这里需要暂停-去添加dns-txt即第2步">1. 开始安装, 有下面提示信息. 这里需要暂停, 去添加DNS TXT即第2步.</h5>
 
+<pre><code># 执行
+certbot certonly  -d &quot;*.actiger.com&quot; --manual --preferred-challenges dns-01  --server https://acme-v02.api.letsencrypt.org/directory
+
+</code></pre>
+
 <h4 id="执行到下面提示信息后-需要暂停">执行到下面提示信息后, 需要暂停.</h4>
 
 <pre><code>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -75,11 +80,6 @@ yum install certbot python2-certbot-nginx
 #
 #Before continuing, verify the record is deployed.
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-</code></pre>
-
-<pre><code># 执行
-certbot certonly  -d &quot;*.actiger.com&quot; --manual --preferred-challenges dns-01  --server https://acme-v02.api.letsencrypt.org/directory
-
 </code></pre>
 
 <h5 id="3-添加dns-txt">3. 添加DNS TXT</h5>

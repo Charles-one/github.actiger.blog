@@ -140,7 +140,7 @@ sed -i &#39;s/^SELINUX=enforcing$/SELINUX=permissive/&#39; /etc/selinux/config r
     <h2>LetsEncrypt申请与nginx配置SSL</h2>
   </header>
   <section class="entry-content">
-   <p>1. letsencrypt 证书申请. 官方指引 1. 申请证书需要安装Cerbto. 脚本 yum -y install epel-release yum -y install yum-utils yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional yum install certbot python2-certbot-nginx  2. 手动去申请证, 我这里申请全部子域名的. 验证身份的方式需要在域名供应商添加dns txt的. 1. 开始安装, 有下面提示信息. 这里需要暂停, 去添加DNS TXT即第2步. 执行到下面提示信息后, 需要暂停. - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #Please deploy a DNS TXT record under the name #_acme-challenge....</p>
+   <p>1. letsencrypt 证书申请. 官方指引 1. 申请证书需要安装Cerbto. 脚本 yum -y install epel-release yum -y install yum-utils yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional yum install certbot python2-certbot-nginx  2. 手动去申请证, 我这里申请全部子域名的. 验证身份的方式需要在域名供应商添加dns txt的. 1. 开始安装, 有下面提示信息. 这里需要暂停, 去添加DNS TXT即第2步. # 执行 certbot certonly -d &#34;*.actiger.com&#34; --manual --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory  执行到下面提示信息后, 需要暂停. - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #Please deploy a DNS TXT record under the name #_acme-challenge....</p>
   </section>
   <footer class="entry-footer">
     <time>2019.5.19</time>
