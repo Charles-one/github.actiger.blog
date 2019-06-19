@@ -6,10 +6,19 @@
     <description>Recent content in Dockers on Actiger跳跳虎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Jun 2019 20:46:48 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 20 Jun 2019 00:29:39 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/actiger/docker/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ingress Ningx多个证书SSL配置</title>
+      <link>https://charles-one.github.io/actiger/docker/ingress-ningx%E5%A4%9A%E4%B8%AA%E8%AF%81%E4%B9%A6ssl%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Thu, 20 Jun 2019 00:29:39 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/actiger/docker/ingress-ningx%E5%A4%9A%E4%B8%AA%E8%AF%81%E4%B9%A6ssl%E9%85%8D%E7%BD%AE/</guid>
+      <description>1. 起因 我删除域名服务商对顶级域名(即一级域名)的默认的重定向, 直接指向的我服务地址 使用的通配的二级域名证书 访问顶级域名像actiger.com, 浏览器弹出安全提示了. 发现, 通配的二级域名证书不能用在actiger.com上 2. 申请顶级域名的证书. 申请过程参照这里 3. Ingress Nginx的配置my-nginx.yml  apiVersion: extensions/v1beta1 kind: Ingress metadata: namespace: nginx-space name: my-nginx spec: tls: - hosts: - weini.actiger.com - www.actiger.com secretName: ingress-secret - hosts: - actiger.com secretName: ingress-top-secret rules: - host: weini.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: www.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: test.</description>
+    </item>
     
     <item>
       <title>Kubernetes Mariadb Mysql</title>
