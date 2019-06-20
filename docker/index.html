@@ -54,7 +54,7 @@
 
 <article class="post-entry">
   <header class="entry-header">
-    <h2>Ingress Ningx多个证书SSL配置</h2>
+    <h2>Ingress-Ningx配置多个SSL证书</h2>
   </header>
   <section class="entry-content">
    <p>1. 起因 我删除域名服务商对顶级域名(即一级域名)的默认的重定向, 直接指向的我服务地址 使用的通配的二级域名证书 访问顶级域名像actiger.com, 浏览器弹出安全提示了. 发现, 通配的二级域名证书不能用在actiger.com上 2. 申请顶级域名的证书. 申请过程参照这里 3. Ingress Nginx的配置my-nginx.yml  apiVersion: extensions/v1beta1 kind: Ingress metadata: namespace: nginx-space name: my-nginx spec: tls: - hosts: - weini.actiger.com - www.actiger.com secretName: ingress-secret - hosts: - actiger.com secretName: ingress-top-secret rules: - host: weini.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: www.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: test....</p>

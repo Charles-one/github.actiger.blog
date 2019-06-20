@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <title>Ingress Ningx多个证书SSL配置 - Actiger跳跳虎</title>
+    <title>Ingress-Ningx配置多个SSL证书 - Actiger跳跳虎</title>
     
     <meta name="description" content="1. 起因 我删除域名服务商对顶级域名(即一级域名)的默认的重定向, 直接指向的我服务地址 使用的通配的二级域名证书 访问顶级域名像actiger.com, 浏览器弹出安全提示了. 发现, 通配的二级域名证书不能用在actiger.com上 2. 申请顶级域名的证书. 申请过程参照这里 3. Ingress Nginx的配置my-nginx.yml  apiVersion: extensions/v1beta1 kind: Ingress metadata: namespace: nginx-space name: my-nginx spec: tls: - hosts: - weini.actiger.com - www.actiger.com secretName: ingress-secret - hosts: - actiger.com secretName: ingress-top-secret rules: - host: weini.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: www.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: test.">
     <meta name="author" content="">
@@ -42,7 +42,7 @@
 
 <article class="post-single">
   <header class="post-header">
-    <h1 class="post-title">Ingress Ningx多个证书SSL配置</h1>
+    <h1 class="post-title">Ingress-Ningx配置多个SSL证书</h1>
     <div class="post-meta">2019.6.20</div>
   </header>
   <div class="post-content">
