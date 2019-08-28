@@ -6,10 +6,19 @@
     <description>Recent content on Actiger跳跳虎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 20 Jun 2019 00:29:39 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 27 Aug 2019 10:30:00 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/actiger/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>申请单个域名方式</title>
+      <link>https://charles-one.github.io/actiger/linux/%E7%94%B3%E8%AF%B7%E5%8D%95%E4%B8%AA%E5%9F%9F%E5%90%8D%E6%96%B9%E5%BC%8F/</link>
+      <pubDate>Tue, 27 Aug 2019 10:30:00 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/actiger/linux/%E7%94%B3%E8%AF%B7%E5%8D%95%E4%B8%AA%E5%9F%9F%E5%90%8D%E6%96%B9%E5%BC%8F/</guid>
+      <description> 1. 起因 一级域名和二级域名都使用dns-01验证方式申请证书, 申请一级域名的时候更改了_acme-challenge.actiger.com, 续期的时候发现二级配置的_acme-challenge.actiger.com验证失败, 续期失败 2. 解决方式, 使用不同方式申请证书, 续期不会有冲突 一级域名Actiger.com使用http文件申请证书 二级通用*.actiger.com用例dns-01的方式申请证书 3. 申请单个域名 certbot certonly --manual --preferred-challenges http --email example@icloud.com --domains actiger.com  提示在actiger.com/.well-known/acme-challenge/ 创建一个文件 假如你设置actiger.com跳转到www.actiger.com, 而www.actiger.com又跳转到blog.actiger.com, 可以把创建的文件放在blog.actiger.com/.well-known/acme-challenge/下 在服务器对应目录创建文件 创建文件成功后, 继续申请证书 申请证书成功后, 存放在/etc/letsencrypt下 </description>
+    </item>
     
     <item>
       <title>Ingress-Ningx配置多个SSL证书</title>

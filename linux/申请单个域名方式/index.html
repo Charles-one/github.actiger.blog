@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>申请单个域名方式 - Actiger跳跳虎</title>
+    
+    <meta name="description" content=" 1. 起因 一级域名和二级域名都使用dns-01验证方式申请证书, 申请一级域名的时候更改了_acme-challenge.actiger.com, 续期的时候发现二级配置的_acme-challenge.actiger.com验证失败, 续期失败 2. 解决方式, 使用不同方式申请证书, 续期不会有冲突 一级域名Actiger.com使用http文件申请证书 二级通用*.actiger.com用例dns-01的方式申请证书 3. 申请单个域名 certbot certonly --manual --preferred-challenges http --email example@icloud.com --domains actiger.com  提示在actiger.com/.well-known/acme-challenge/ 创建一个文件 假如你设置actiger.com跳转到www.actiger.com, 而www.actiger.com又跳转到blog.actiger.com, 可以把创建的文件放在blog.actiger.com/.well-known/acme-challenge/下 在服务器对应目录创建文件 创建文件成功后, 继续申请证书 申请证书成功后, 存放在/etc/letsencrypt下 ">
+    <meta name="author" content="">
+    
+    <link href="https://charles-one.github.io/actiger/css/github-gist.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/img/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/actiger/img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.57.2" />
+    
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎 </a></p>
+        
+        <button class="menu-toggle" type="button"></button>
+      </div>
+    </header>
+    <nav class="nav">
+    <ul class="menu">
+      
+      
+    </ul>
+    </nav>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">申请单个域名方式</h1>
+    <div class="post-meta">2019.8.27</div>
+  </header>
+  <div class="post-content">
+
+<h2 id="1-起因">1. 起因</h2>
+
+<h4 id="一级域名和二级域名都使用dns-01验证方式申请证书-申请一级域名的时候更改了-acme-challenge-actiger-com">一级域名和二级域名都使用dns-01验证方式申请证书, 申请一级域名的时候更改了<code>_acme-challenge.actiger.com</code>,</h4>
+
+<h4 id="续期的时候发现二级配置的-acme-challenge-actiger-com-验证失败-续期失败">续期的时候发现二级配置的<code>_acme-challenge.actiger.com</code>验证失败, 续期失败</h4>
+
+<h2 id="2-解决方式-使用不同方式申请证书-续期不会有冲突">2. 解决方式, 使用不同方式申请证书, 续期不会有冲突</h2>
+
+<h4 id="一级域名actiger-com使用http文件申请证书">一级域名Actiger.com使用http文件申请证书</h4>
+
+<h4 id="二级通用-actiger-com-用例dns-01的方式申请证书">二级通用<code>*.actiger.com</code>用例dns-01的方式申请证书</h4>
+
+<h2 id="3-申请单个域名">3. 申请单个域名</h2>
+
+<pre><code>certbot certonly --manual --preferred-challenges http --email example@icloud.com --domains actiger.com
+</code></pre>
+
+<h4 id="提示在-actiger-com-well-known-acme-challenge-创建一个文件">提示在<code>actiger.com/.well-known/acme-challenge/</code> 创建一个文件</h4>
+
+<h4 id="假如你设置actiger-com跳转到www-actiger-com-而www-actiger-com又跳转到blog-actiger-com-可以把创建的文件放在-blog-actiger-com-well-known-acme-challenge-下">假如你设置actiger.com跳转到www.actiger.com, 而www.actiger.com又跳转到blog.actiger.com, 可以把创建的文件放在<code>blog.actiger.com/.well-known/acme-challenge/</code>下</h4>
+
+<h4 id="在服务器对应目录创建文件">在服务器对应目录创建文件</h4>
+
+<h4 id="创建文件成功后-继续申请证书">创建文件成功后, 继续申请证书</h4>
+
+<h4 id="申请证书成功后-存放在-etc-letsencrypt下">申请证书成功后, 存放在/etc/letsencrypt下</h4>
+</div>
+  <footer class="post-footer">
+    
+  </footer>
+  
+  
+  
+  
+</article>
+
+</main>
+<footer class="footer">
+    <span><a href="https://charles-one.github.io/actiger/">&copy; 2019 Actiger跳跳虎</a></span>
+  <span>&middot;</span>
+  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span><a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Theme Paper</a></span>
+</footer>
+<script src="https://charles-one.github.io/actiger/js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="https://charles-one.github.io/actiger/js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  hljs.initHighlightingOnLoad();
+  setMenuListener();
+
+  InstantClick.on('change', function() {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuListener();
+  });
+
+  function setMenuListener() {
+    var menuToggle = document.querySelector('.menu-toggle');
+    var body = document.querySelector('body');
+    menuToggle.addEventListener('click', function() {
+      body.classList.toggle('no-scroll');
+    }, false);
+  }
+</script>
+</body>
+</html>
+

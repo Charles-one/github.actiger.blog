@@ -16,7 +16,7 @@
     <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/img/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/actiger/img/favicon.ico">
     
-    <meta name="generator" content="Hugo 0.55.6" />
+    <meta name="generator" content="Hugo 0.57.2" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -45,6 +45,28 @@
 
 
 
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>下载安装JDK和设置JDK环境变量</h2>
+  </header>
+  <section class="entry-content">
+   <p>0. 准备工作  root用户及密码  1. 卸载原有JDK rpm -qa | grep &#34;java&#34;  yum remove 上面筛选内容
+2. 下载JDK, 解压 进入https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html 右键选择linux x64 jdk-8u201-linux-i586.tar.gz的下载地址 使用wget下载
+wget --no-check-certificate --no-cookies --header &#34;Cookie: oraclelicense=accept-securebackup-cookie&#34; https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz  解压
+tar -zxvf jdk-8u201-linux-x64.tar.gz
+3. root移动文件, 并设置JAVA_HOME环境变量  移动文件夹
+mv jdk1.8.0_201 /usr/local  设置JAVA_HOME环境变量
+  vim /etc/profile 可以对所有用户生效 添加下列信息
+export JAVA_HOME=/usr/local/jdk1.8.0_201 export JRE_HOME=${JAVA_HOME}/jre export CLASSPATH=.:${JAVA_HOME}/lib/dt.JAVA_HOME/lib/tools.jar:${JRE_HOME}/lib export PATH=${JAVA_HOME}/bin:${PATH}   重新生效/etc/profile
+source /etc/profile  检测
+java -version   预期会弹出java的版本...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.3.12</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85jdk%E5%92%8C%E8%AE%BE%E7%BD%AEjdk%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"></a>
+</article>
 
 <article class="post-entry">
   <header class="entry-header">

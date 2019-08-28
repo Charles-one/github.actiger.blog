@@ -16,7 +16,7 @@
     <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/img/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/actiger/img/favicon.ico">
     
-    <meta name="generator" content="Hugo 0.55.6" />
+    <meta name="generator" content="Hugo 0.57.2" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -45,6 +45,22 @@
 
 
 
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Crontab定时任务</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. 使用Crontab的原因. 每次更新博客都要登录服务器(ssh延迟容易中断)手动去拉取代码, 不方便. 故设置成自动获取最新代码. 2. 选择crontab定时 查看下资源, 觉得crontab简单可行, 直接来用就好了. 3. 定时任务需需要做事情.  特定目录执行git pul的shell脚本. 这里我使用了ssh key可以参考这里的  vim git_pull.sh
+ #!/bin/bash # 进入目录中 cd ~/nginx-hugoBlog/blog.actiger.com/ # 拉取github中的代码 git pull   添加crontab任务文件  vim git_pull.cron
+# 设置5分钟拉取一次代码 */5 * * * * cd /root &amp;&amp; ./git_pull_blog.actiger.com.sh   把定时任务文件内容加到crontab中
+# 添加root账户中 crontab -uroot git_pull.cron # 查询当前任务, root是账户, 添加的定时任务会放到这个目录中 crontab -uroot -l cat /var/spool/cron/root # 删除root用户的定时任务 crontab -uroot -r   日志的地址, 相当重要....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.5.18</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/crontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"></a>
+</article>
 
 <article class="post-entry">
   <header class="entry-header">
@@ -184,21 +200,6 @@ tolocal  即可连接本地虚拟机中....</p>
     <time>2019.4.10</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/mac%E4%BD%BF%E7%94%A8sshpass%E5%92%8Calias%E7%AE%A1%E7%90%86ssh%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>SSH密钥生成配置和登陆服务器与github使用钥匙</h2>
-  </header>
-  <section class="entry-content">
-   <p>1.生成SSH公钥私钥  进入文件夹中(注:所有”#“表示说明)
-cd ~/.ssh/ # 其中-t rsa是指定rsa加密算法, -C &#34;asus&#34;是添加描述asus ssh-keygen -t rsa -C &#34;asus&#34;  # 说明: 默认是保存在/Users/你的用户名/.ssh/下, 如果你指定了名字则保存在当前路径下. # 指定的必须是文件且是绝对路径 # 在这里我已经在 ~/.ssh/中, 默认会保存在这里 Enter file in which to save the key (/Users/username(你的用户名)/.ssh/id_rsa): asus_rsa # 这里提示输入密码, 直接Enter表示不要密码 Enter passphrase (empty for no passphrase): # 与上面输入的密码保持一致, 如果上面没输入,这里也不要输入 Enter same passphrase again:  提示这些信息就表示生成成功
-Your identification has been saved in /Users/username/.ssh/asus_rsa. Your public key has been saved in /Users/username/.ssh/asus_rsa.pub. The key fingerprint is: SHA256:WNwJoo/Rr0TvpnQIdA4YisZrF&#43;7ZM8lKNB4JLpJXALA asus The key&#39;s randomart image is: &#43;---[RSA 2048]----&#43; |&#43;....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.3.30</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/ssh%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90%E9%85%8D%E7%BD%AE%E5%92%8C%E7%99%BB%E9%99%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8Egithub%E4%BD%BF%E7%94%A8%E9%92%A5%E5%8C%99/"></a>
 </article>
 
 

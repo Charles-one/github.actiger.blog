@@ -16,7 +16,7 @@
     <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/img/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/actiger/img/favicon.ico">
     
-    <meta name="generator" content="Hugo 0.55.6" />
+    <meta name="generator" content="Hugo 0.57.2" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -51,6 +51,19 @@
 
 
 
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>申请单个域名方式</h2>
+  </header>
+  <section class="entry-content">
+   <p> 1. 起因 一级域名和二级域名都使用dns-01验证方式申请证书, 申请一级域名的时候更改了_acme-challenge.actiger.com, 续期的时候发现二级配置的_acme-challenge.actiger.com验证失败, 续期失败 2. 解决方式, 使用不同方式申请证书, 续期不会有冲突 一级域名Actiger.com使用http文件申请证书 二级通用*.actiger.com用例dns-01的方式申请证书 3. 申请单个域名 certbot certonly --manual --preferred-challenges http --email example@icloud.com --domains actiger.com  提示在actiger.com/.well-known/acme-challenge/ 创建一个文件 假如你设置actiger.com跳转到www.actiger.com, 而www.actiger.com又跳转到blog.actiger.com, 可以把创建的文件放在blog.actiger.com/.well-known/acme-challenge/下 在服务器对应目录创建文件 创建文件成功后, 继续申请证书 申请证书成功后, 存放在/etc/letsencrypt下 ...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.8.27</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E7%94%B3%E8%AF%B7%E5%8D%95%E4%B8%AA%E5%9F%9F%E5%90%8D%E6%96%B9%E5%BC%8F/"></a>
+</article>
 
 <article class="post-entry">
   <header class="entry-header">
@@ -173,20 +186,6 @@
     <time>2019.5.17</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAnextcloud/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>Tmux插件tmuxinator配置</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. 安装tmux的tmuxinator插件 Mac下安装:
-# 使用gem安装tmuxinator gem install tmuxinator # 查询环境, 获取gem安装程序执行目录, 目的是添加环境变量 gem env # 安装程序的执行目录 /usr/local/lib/ruby/gems/2.6.0/bin # 在.zshrc或者.bashrc中添加环境变量 export PATH=&#34;$PATH:/usr/local/lib/ruby/gems/2.6.0/bin&#34;  2. Tmuxinator配置 # 会自动创建文件在~/.tmuxinator中 tmuxinator edit hugo # 名称 name: hugo # 目录, 我存放hugo的目录 root: ~/Documents/actiger # 2个窗口, 1, 2是窗口名称 # layout: even-horizontal, 横着分割 # panes 不需要名称, hugo server --theme=paper 是执行命令hugo服务 windows: - 1: layout: even-horizontal panes: - hugo server --theme=paper - - 2:  3. tmuxinator使用  # tmux &amp; tumxinator , 可写....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.5.17</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/tmux%E6%8F%92%E4%BB%B6tmuxinator%E9%85%8D%E7%BD%AE/"></a>
 </article>
 
 
