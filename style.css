@@ -12,7 +12,7 @@
   --gap: 24px;
   --content-gap: 40px;
   --nav-width: 1024px;
-  --main-width: 640px;
+  --main-width: 620px;
   --header-height: 60px;
   --footer-height: 60px;
 
@@ -311,7 +311,7 @@ img {
   font-size: 22px;
 }
 .post-content h5 {
-  font-size: 14px;
+  font-size: 19px;
 }
 .post-content h6 {
   font-size: 12px;
