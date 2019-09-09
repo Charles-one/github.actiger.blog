@@ -20,11 +20,11 @@ firewall-cmd --zone=public --add-port=12340/tcp --permanent (永久生效必须�
   借助软件来更改 安装 yum -y install policycoreutils-python semanage port -a -t ssh_port_t -p tcp 12340">
     <meta name="author" content="">
     
-    <link href="https://charles-one.github.io/actiger/css/github-gist.min.css" rel="stylesheet">
-    <link href="https://charles-one.github.io/actiger/css/style.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/style.css" rel="stylesheet">
     
-    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/img/apple-touch-icon.png">
-    <link rel="icon" href="https://charles-one.github.io/actiger/img/favicon.ico">
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
     
     <meta name="generator" content="Hugo 0.58.1" />
     
@@ -34,26 +34,20 @@ firewall-cmd --zone=public --add-port=12340/tcp --permanent (永久生效必须�
   </head>
   <body class="single">
     <header class="header">
-      <div class="wrap">
+      <nav class="nav">
         
-        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎 </a></p>
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></p>
         
-        <button class="menu-toggle" type="button"></button>
-      </div>
+        
+      </nav>
     </header>
-    <nav class="nav">
-    <ul class="menu">
-      
-      
-    </ul>
-    </nav>
     <main class="main">
 
 
 <article class="post-single">
   <header class="post-header">
     <h1 class="post-title">更改ssh端口与禁止root登录增强服务器安全</h1>
-    <div class="post-meta">2019.3.12</div>
+    <div class="post-meta">March 12, 2019</div>
   </header>
   <div class="post-content">
 
@@ -169,9 +163,7 @@ systemctl restart sshd</p>
 
 <p><strong>需要2个用户密码才更改服务器设置,是不是安全了很多</strong></p>
 </div>
-  <footer class="post-footer">
-    
-  </footer>
+  
   
   
   
@@ -180,34 +172,14 @@ systemctl restart sshd</p>
 
 </main>
 <footer class="footer">
-    <span><a href="https://charles-one.github.io/actiger/">&copy; 2019 Actiger跳跳虎</a></span>
+  <span>&copy; 2019 <a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></span>
   <span>&middot;</span>
-  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
   <span>&middot;</span>
-  <span><a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Theme Paper</a></span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
 </footer>
-<script src="https://charles-one.github.io/actiger/js/instantclick.min.js" data-no-instant></script>
-<script data-no-instant>InstantClick.init();</script>
-<script src="https://charles-one.github.io/actiger/js/highlight.min.js" data-no-instant></script>
-<script data-no-instant>
-  hljs.initHighlightingOnLoad();
-  setMenuListener();
-
-  InstantClick.on('change', function() {
-    document.querySelectorAll('pre code').forEach((block) => {
-      hljs.highlightBlock(block);
-    });
-    setMenuListener();
-  });
-
-  function setMenuListener() {
-    var menuToggle = document.querySelector('.menu-toggle');
-    var body = document.querySelector('body');
-    menuToggle.addEventListener('click', function() {
-      body.classList.toggle('no-scroll');
-    }, false);
-  }
-</script>
+<script src="https://charles-one.github.io/actiger/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>
 

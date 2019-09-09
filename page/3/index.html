@@ -10,13 +10,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <link href="https://charles-one.github.io/actiger/css/github-gist.min.css" rel="stylesheet">
-    <link href="https://charles-one.github.io/actiger/css/style.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/style.css" rel="stylesheet">
     
-    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/img/apple-touch-icon.png">
-    <link rel="icon" href="https://charles-one.github.io/actiger/img/favicon.ico">
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
     
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.58.1" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -24,19 +24,13 @@
   </head>
   <body class="list home">
     <header class="header">
-      <div class="wrap">
+      <nav class="nav">
         
-        <h1 class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎 </a></h1>
+        <h1 class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></h1>
         
-        <button class="menu-toggle" type="button"></button>
-      </div>
+        
+      </nav>
     </header>
-    <nav class="nav">
-    <ul class="menu">
-      
-      
-    </ul>
-    </nav>
     <main class="main">
 
 
@@ -46,154 +40,142 @@
 
 
 
+
+
+
+
 <article class="post-entry">
   <header class="entry-header">
-    <h2>使用docker和hugo搭建自己的博客</h2>
+    <h2>Linux安装go并设置环境变量</h2>
   </header>
   <section class="entry-content">
-   <p>1. 方案选择, 需要内容结构. 1. 练习的话, 可以这种方案. 虚拟机&#43;本地hosts, 免费, 只能内网访问. 2. 最难的方案, 国内域名(备案时间可能会很长,外地备案条件苛刻)&#43;国内云. 2. 在服务器上拉取docker-compose仓库. # 拉取仓库, 并存放在用户目录中 git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository # 复制这用到了docker-compose文件夹, 并存放在用户目录中 cp -r ~/docker-compose-repository/nginx-hugoBlog ~/nginx-hugoBlog  3. 使用hugo生成正确的博客目录 1. hugo生成网站目录 # 指定主题, 我使用了hugo-paper, 网站地址baseUrl, 目标目录, 我会上传多个平台, 所以指定下. # 注意 --bashUrl后的/是必须要有的. hugo --theme=hugo-paper --baseUrl=&#34;http://blog.actiger.com/&#34; --destination=&#34;blog.actiger.com&#34;  2. 上传步骤1生成的博客目录到github.com. 参考这里的步骤3和4 3. 在服务器上拉取上传的博客目录 # 进行docker-compose文件夹中 cd ~/nginx-hugoBlog # 拉取的docker-compose 默认配置是 ./blog.actiger.com:/usr/share/nginx/html . # docker-compose配置文件里的配置的目录, 与当前目录一致的. # 克隆代码时需要, 重命名与docker-compose配置挂载目录名一致. git clone https://github....</p>
+   <p> Mac用户直接使用brew install go即可 Linux用户 wget https://dl.google.com/go/go1.12.linux-amd64.tar.gz
+tar -C /usr/local -xzf go1.12.linux-amd64.tar.gz
+root用户去编辑vim /etc/profile中添加如下信息
+export PATH=$PATH:/usr/local/go/bin  用户使用go需要 重新生效这个文件
+source /etc/profile  ...</p>
   </section>
   <footer class="entry-footer">
-    <time>2019.5.19</time>
+    <time>March 13, 2019</time>
   </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E4%BD%BF%E7%94%A8docker%E5%92%8Chugo%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/"></a>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/linux%E5%AE%89%E8%A3%85go%E5%B9%B6%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"></a>
 </article>
 
 <article class="post-entry">
   <header class="entry-header">
-    <h2>Crontab定时任务</h2>
+    <h2>安装jenkins和插件</h2>
   </header>
   <section class="entry-content">
-   <p>1. 使用Crontab的原因. 每次更新博客都要登录服务器(ssh延迟容易中断)手动去拉取代码, 不方便. 故设置成自动获取最新代码. 2. 选择crontab定时 查看下资源, 觉得crontab简单可行, 直接来用就好了. 3. 定时任务需需要做事情.  特定目录执行git pul的shell脚本. 这里我使用了ssh key可以参考这里的  vim git_pull.sh
- #!/bin/bash # 进入目录中 cd ~/nginx-hugoBlog/blog.actiger.com/ # 拉取github中的代码 git pull   添加crontab任务文件  vim git_pull.cron
-# 设置5分钟拉取一次代码 */5 * * * * cd /root &amp;&amp; ./git_pull_blog.actiger.com.sh   把定时任务文件内容加到crontab中
-# 添加root账户中 crontab -uroot git_pull.cron # 查询当前任务, root是账户, 添加的定时任务会放到这个目录中 crontab -uroot -l cat /var/spool/cron/root # 删除root用户的定时任务 crontab -uroot -r   日志的地址, 相当重要....</p>
+   <p>0.安装Jenkins, 需要提前安装JDK 1.8 安装JDK参考
+1.安装Jnekins  尽量翻墙执行,否则容易报443错误
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key yum search jenkins sudo yum install jenkins   2. 启动服务与添加防火墙端口  启动jenkins  systemctl start jenkins 如果这里有报错信息,并且提示 “systemctl status jenkins.service” and “journalctl -xe” for details 查看详情
+journalctl -xe可以看到原因/usr/bin/java: 没有那个文件或目录
+需要更改vim /etc/init.d/jenkins
+candidates=&#34; /etc/alternatives/java /usr/lib/jvm/java-1.8.0/bin/java /usr/lib/jvm/jre-1.8.0/bin/java /usr/lib/jvm/java-1.7.0/bin/java /usr/lib/jvm/jre-1.7.0/bin/java /usr/java/jdk1.8.0_152/bin/java 这个是修改后的jdk路径（修改前是/usr/bin/java） &#34;  systemctl daemon-reload (重新加载工具)
+systemctl start jenkins (再次启动jenkins)
+ 检查是否能访问成功  jenkins 使用的8080端口...</p>
   </section>
   <footer class="entry-footer">
-    <time>2019.5.18</time>
+    <time>March 13, 2019</time>
   </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/crontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"></a>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E5%AE%89%E8%A3%85jenkins%E5%92%8C%E6%8F%92%E4%BB%B6/"></a>
 </article>
 
 <article class="post-entry">
   <header class="entry-header">
-    <h2>Centos7使用ssh Key拉取github项目失败</h2>
+    <h2>安装docker Ce和使用docker安装nginx</h2>
   </header>
   <section class="entry-content">
-   <p>1. centos7上错误信息, 与配置信息. # 测试最否能连接到github上, 使用-v打印连接日志 [root@cc]/etc/ssh# ssh -vT git@github.com OpenSSH_7.4p1, OpenSSL 1.0.2k-fips 26 Jan 2017 debug1: Reading configuration data /root/.ssh/config debug1: /root/.ssh/config line 3: Applying options for github.com debug1: Reading configuration data /etc/ssh/ssh_config debug1: /etc/ssh/ssh_config line 60: Applying options for * debug1: Connecting to github.com [192.30.255.112] port 12340. debug1: Connection established. debug1: permanently_set_uid: 0/0 debug1: key_load_public: No such file or directory debug1: identity file /root/.ssh/git_cron type -1 debug1: key_load_public: No such file or directory debug1: identity file /root/....</p>
+   <p>0. 目录  安装Docker Docker简单使用  1.安装docker  卸载版本Docker
+sudo yum remove docker \ docker-common \ docker-selinux \ docker-engine  设置仓库
+sudo yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 sudo yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo  安装docker-ce
+sudo yum install docker-ce  卸载docker-ce
+sudo yum remove docker-ce sudo rm -rf /var/lib/docker  更换国内源
+vim vim /etc/docker/daemon.json { &#34;registry-mirrors&#34;: [ &#34;http://hub-mirror.c.163.com&#34;] }   2.docker简单使用  下载镜像
+docker pull nginx:1....</p>
   </section>
   <footer class="entry-footer">
-    <time>2019.5.18</time>
+    <time>March 12, 2019</time>
   </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/centos7%E4%BD%BF%E7%94%A8ssh-key%E6%8B%89%E5%8F%96github%E9%A1%B9%E7%9B%AE%E5%A4%B1%E8%B4%A5/"></a>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E5%AE%89%E8%A3%85docker-ce%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"></a>
 </article>
 
 <article class="post-entry">
   <header class="entry-header">
-    <h2>使用docker搭建nextcloud</h2>
+    <h2>设置用户可sudo命令</h2>
   </header>
   <section class="entry-content">
-   <p> 1. nextcloud 个人私有云, 可以像网盘一样同步个人文件, 远程访问下载等. 2. 使用docker-compose搭建 使用docker-compose-repository搭建  git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository cp -r ~/docker-compose-repository/nextcloud ~/nextcloud cd ~/nextcloud # 自动下载并启动容器 dc up -d  访问地址 http://服务ip地址
-# 用户名和密码自己设置 # # 页面上选择数据库mariadb # 页面上填写就是你上面mariadb内容 # 用户名: nextcloud # 数据库: nextcloud # 密码: nextcloud_weiki_JKL_sdf # 地址(不是默认的localhost): mariadb  ...</p>
+   <p>vi /etc/sudoers # new cc ALL=/bin/yum # cc用户名就可使用sudo yum  在cc用户下 sudo yum install vim 输入密码后再就可安装vim了...</p>
   </section>
   <footer class="entry-footer">
-    <time>2019.5.17</time>
+    <time>March 12, 2019</time>
   </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAnextcloud/"></a>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%8F%AFsudo%E5%91%BD%E4%BB%A4/"></a>
 </article>
 
 <article class="post-entry">
   <header class="entry-header">
-    <h2>Tmux插件tmuxinator配置</h2>
+    <h2>下载安装JDK和设置JDK环境变量</h2>
   </header>
   <section class="entry-content">
-   <p>1. 安装tmux的tmuxinator插件 Mac下安装:
-# 使用gem安装tmuxinator gem install tmuxinator # 查询环境, 获取gem安装程序执行目录, 目的是添加环境变量 gem env # 安装程序的执行目录 /usr/local/lib/ruby/gems/2.6.0/bin # 在.zshrc或者.bashrc中添加环境变量 export PATH=&#34;$PATH:/usr/local/lib/ruby/gems/2.6.0/bin&#34;  2. Tmuxinator配置 # 会自动创建文件在~/.tmuxinator中 tmuxinator edit hugo # 名称 name: hugo # 目录, 我存放hugo的目录 root: ~/Documents/actiger # 2个窗口, 1, 2是窗口名称 # layout: even-horizontal, 横着分割 # panes 不需要名称, hugo server --theme=paper 是执行命令hugo服务 windows: - 1: layout: even-horizontal panes: - hugo server --theme=paper - - 2:  3. tmuxinator使用  # tmux &amp; tumxinator , 可写....</p>
+   <p>0. 准备工作  root用户及密码  1. 卸载原有JDK rpm -qa | grep &#34;java&#34;  yum remove 上面筛选内容
+2. 下载JDK, 解压 进入https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html 右键选择linux x64 jdk-8u201-linux-i586.tar.gz的下载地址 使用wget下载
+wget --no-check-certificate --no-cookies --header &#34;Cookie: oraclelicense=accept-securebackup-cookie&#34; https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz  解压
+tar -zxvf jdk-8u201-linux-x64.tar.gz
+3. root移动文件, 并设置JAVA_HOME环境变量  移动文件夹
+mv jdk1.8.0_201 /usr/local  设置JAVA_HOME环境变量
+  vim /etc/profile 可以对所有用户生效 添加下列信息
+export JAVA_HOME=/usr/local/jdk1.8.0_201 export JRE_HOME=${JAVA_HOME}/jre export CLASSPATH=.:${JAVA_HOME}/lib/dt.JAVA_HOME/lib/tools.jar:${JRE_HOME}/lib export PATH=${JAVA_HOME}/bin:${PATH}   重新生效/etc/profile
+source /etc/profile  检测
+java -version   预期会弹出java的版本...</p>
   </section>
   <footer class="entry-footer">
-    <time>2019.5.17</time>
+    <time>March 12, 2019</time>
   </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/tmux%E6%8F%92%E4%BB%B6tmuxinator%E9%85%8D%E7%BD%AE/"></a>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85jdk%E5%92%8C%E8%AE%BE%E7%BD%AEjdk%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"></a>
 </article>
 
 <article class="post-entry">
   <header class="entry-header">
-    <h2>Mosh简介,安装与使用</h2>
+    <h2>更改linux用户名</h2>
   </header>
   <section class="entry-content">
-   <p>1. Mosh简介, 及为什么要使用Mosh 1. Mosh全称Mobile Shell, 移动远程终端应用程序. 与ssh类似, 却有很多新功能, 可以漫游, 支持间歇性连接, 这对网络延迟高或者移动使用更换IP非常友好, 2. 我的服务器是VPS, 在使用SSH过程中, 经常会中断, 频繁重新连接, 还要kill掉之前的终端. Mosh的用法与SSH一致, 无缝切换. 2. Mosh 安装. 需要服务器端和客户端都安装软件. 服务端安装脚本 1. 服务器端安装mosh, 并开启防火墙udp端口 yum -y install epel-release yum -y install mosh firewall-cmd --zone=public --permanent --add-port=60000-61000/udp firewall-cmd --reload  2. 本地安装 Mac:
-brew install mosh  Windows: 参考https://mosh.org/
-3. Mosh使用. 使用规则与ssh一致. # 帮助 mosh -h # 连接 mosh root@192.168.0.1 # 使用ssh config配置连接 mosh locale_centos7  ssh config配置可以参考这里http://blog....</p>
+   <p> 0.前提条件  root用户及密码 原用户ccc  1. 更改用户ccc 使用root用户编辑更改
+/etc/passwd
+/etc/group
+/etc/shadow
+/etc/gshadow
+中”原用户名”为”新用户名”即可
+同时
+mv /home/olderuser /home/newuser  ...</p>
   </section>
   <footer class="entry-footer">
-    <time>2019.5.17</time>
+    <time>March 12, 2019</time>
   </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/mosh%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%BD%BF%E7%94%A8/"></a>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E6%9B%B4%E6%94%B9linux%E7%94%A8%E6%88%B7%E5%90%8D/"></a>
 </article>
 
 <article class="post-entry">
   <header class="entry-header">
-    <h2>Centos7更新内核翻车之旅</h2>
+    <h2>更改ssh端口与禁止root登录增强服务器安全</h2>
   </header>
   <section class="entry-content">
-   <p>1. Centos7 更新内核失败的原因 安装内核后, 设置默认启动的内核错误, 就是设置为rescue模式 2. 事情经过  我操作的内容:
-rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm yum --enablerepo=elrepo-kernel -y install kernel-ml awk -F\&#39; &#39;$1==&#34;menuentry &#34; {print i&#43;&#43; &#34; : &#34; $2}&#39; /etc/grub2.cfg   这时候会显示默认启动内核列表:
- 0 : CentOS Linux (0-rescue-00a62363617944e08db8db894ba6145e) 7 (Core)
-1 : CentOS Linux (5.1.1-1.el7.elrepo.x86_64) 7 (Core)
-2 : CentOS Linux (3.10.0-693.11.6.el7.x86_64) 7 (Core)
-3 : CentOS Linux (3.10.0-693.el7.x86_64) 7 (Core)
- 接下来就是选择错误的地方
-# 错误选择默认的0 grub2-set-default 0  接着就会重启不了, 因为是VPS原因, 无法操作, 手动选择启动的内核, 所以就翻车了....</p>
+   <p>0.前提条件 1.安装软件Centos7, 版本7.6.1810 CentOS-7-x86_64-Minimal-1810.iso 2.root用户及密码, 已联网  如未联网,请打开网卡, 并重启 设置/etc/sysconfig/network-scripts/ifcfg-eth0 中ONBOOT =yes  重启电脑
+reboot  1.登录root  需要查询当前Centos7的主机ip
+ifconfig  提示无此命令
+  yum -y install net-tools
+再次 ifconfig查询ip
+ 使用ssh软件登录root用户, 默认使用22端口, 不用指定
+ssh root@ip  输入密码
+  2.更改ssh服务端口, 防火墙端口, SELINUX端口  更改sshd.service端口, 端口可选择&gt;10000避免与其他软件冲突.  vim /etc/ssh/sshd_config更改Port 12340
+systemctl restart sshd   添加防火墙端口
+firewall-cmd --zone=public --add-port=12340/tcp --permanent (永久生效必须用--permanent) firewall-cmd --reload  更改SELINUX端口, 因为SELINUX的原因, ssh被设定到22端口上了, 必须更改
+  借助软件来更改 安装 yum -y install policycoreutils-python semanage port -a -t ssh_port_t -p tcp 12340...</p>
   </section>
   <footer class="entry-footer">
-    <time>2019.5.16</time>
+    <time>March 12, 2019</time>
   </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/centos7%E6%9B%B4%E6%96%B0%E5%86%85%E6%A0%B8%E7%BF%BB%E8%BD%A6%E4%B9%8B%E6%97%85/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>docker-compose简单使用</h2>
-  </header>
-  <section class="entry-content">
-   <p>目录 1. docker-compose简介 2. docker-compose.yml简单配置说明 3. docker-compose运行 1. docker-compose简介与安装  简介 &gt;docker-compose是编排docker容器的, 就是管理这一批容器, 进行批量配置, 起动, 暂停, 删除容器等. 如果有多个容器, 使用docker一个个启动慢, 如果容器间有依赖, 还需要手动指定, 还有环境变量, 可以 一起设置.
- 使用下面命令安装docker-compose和docker. 或使用[脚本一键安装]()
-yum remove docker \ docker-common \ docker-selinux \ docker-engine yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo yum -y install docker-ce systemctl enable docker systemctl start docker curl -L &#34;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)&#34; -o /usr/local/bin/docker-compose chmod &#43;x /usr/local/bin/docker-compose   2....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.5.15</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/docker-compose%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>创建hugo主题失败的思考</h2>
-  </header>
-  <section class="entry-content">
-   <p>0.事情经过  每次拉取Hugo Paper的主题的时候都会把作者的个人图标拉过来, 显示在我的Github Pages上, 很难受. 需要手动更改位置. 所以就想自己更改出来一个hugo theme. 错误估计自己的能力, 什么也没弄懂, 什么也没有做出来. 很生气, 没有计划就来做这件事, 浪费太多时间, 没有睡好. 然后思考下这次浪费时间的原因, 就有了这篇文章.  1.分析下失败原因 1.不了解Hugo使用theme的生成规则  不清楚theme目录里, 具体存放什么, 有什么作用. 对生成网页了解甚少, 规则就明白header是生成一个页面的上半部分, footer.html是生成页面下半部分. 高估自己css和html能力了, 虽然有学过, 距离很久, 记不清了, 一只半解, 例如a标签样式的下划线, 肯定有其他的优先级造成直接定义a text-decoration: none失败. theme参数的运用也不清楚.  2.没有目标和计划.  在不了解hugo规则和html知识的情况下, 盲目开始, 没有考虑出现问题, 该怎么处理, 是放弃还是暂时挂起. 从12点到5点完成在乱看, 没有搞清楚你要做什么地步. 最初的目标是, 去掉作者放的ico图标, 这个很简单的事情, 切分支然后替换内容.(还有就是在actiger/static/img里存放ico图片, 后来才知道会覆盖作者的), 对就是 这么一简单的需求, 还有一个简单的需求是把代码的背景色替换成灰色的(这个更新主题作者已经解决了).  3.没有寻求解决问题的最优解.  对于自己的2个目标, 完成可以5分钟解决, 自己却偏不, 想练习下自己的HTML, 结果没有锻炼, 还打击了积极性. 出现困难没有及时停下来想想, 目标, 时间成功.  3....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.4.14</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/thought/%E5%88%9B%E5%BB%BAhugo%E4%B8%BB%E9%A2%98%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%80%9D%E8%80%83/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>tmux保存会话和剪贴板插件安装及使用</h2>
-  </header>
-  <section class="entry-content">
-   <p>0.内容  安装tmux 安装tmux插件管理 安装保存会话和剪贴板插件  1.安装tmux 为什么要使用tmux, 可以永久保存会话, 就不用每次都要切换到对应工作目录中.  Mac下
-brew install tmux  linux, 参考Github地址
-git clone https://github.com/tmux/tmux.git cd tmux sh autogen.sh ./configure &amp;&amp; make   2.安装tmux插件管理  参考地址
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  新建~/.tmux.conf, 复制下面内容到这个文件下.
-# List of plugins set -g @plugin &#39;tmux-plugins/tpm&#39; set -g @plugin &#39;tmux-plugins/tmux-sensible&#39; # Other examples: # set -g @plugin &#39;github_username/plugin_name&#39; # set -g @plugin &#39;git@github.com/user/plugin&#39; # set -g @plugin &#39;git@bitbucket....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.4.11</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/tmux%E4%BF%9D%E5%AD%98%E4%BC%9A%E8%AF%9D%E5%92%8C%E5%89%AA%E8%B4%B4%E6%9D%BF%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/"></a>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E6%9B%B4%E6%94%B9ssh%E7%AB%AF%E5%8F%A3%E4%B8%8E%E7%A6%81%E6%AD%A2root%E7%99%BB%E5%BD%95%E5%A2%9E%E5%BC%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8/"></a>
 </article>
 
 
@@ -205,42 +187,20 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  新建~/.tmux
     <a class="prev" href="/actiger/page/2/">← Prev Page</a>
     
     
-    <a class="next" href="/actiger/page/4/">Next Page →</a>
-    
   </nav>
 </footer>
 
 
 </main>
 <footer class="footer">
-    <span><a href="https://charles-one.github.io/actiger/">&copy; 2019 Actiger跳跳虎</a></span>
+  <span>&copy; 2019 <a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></span>
   <span>&middot;</span>
-  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
   <span>&middot;</span>
-  <span><a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Theme Paper</a></span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
 </footer>
-<script src="https://charles-one.github.io/actiger/js/instantclick.min.js" data-no-instant></script>
-<script data-no-instant>InstantClick.init();</script>
-<script src="https://charles-one.github.io/actiger/js/highlight.min.js" data-no-instant></script>
-<script data-no-instant>
-  hljs.initHighlightingOnLoad();
-  setMenuListener();
-
-  InstantClick.on('change', function() {
-    document.querySelectorAll('pre code').forEach((block) => {
-      hljs.highlightBlock(block);
-    });
-    setMenuListener();
-  });
-
-  function setMenuListener() {
-    var menuToggle = document.querySelector('.menu-toggle');
-    var body = document.querySelector('body');
-    menuToggle.addEventListener('click', function() {
-      body.classList.toggle('no-scroll');
-    }, false);
-  }
-</script>
+<script src="https://charles-one.github.io/actiger/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>
 

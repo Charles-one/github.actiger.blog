@@ -10,11 +10,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <link href="https://charles-one.github.io/actiger/css/github-gist.min.css" rel="stylesheet">
-    <link href="https://charles-one.github.io/actiger/css/style.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/style.css" rel="stylesheet">
     
-    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/img/apple-touch-icon.png">
-    <link rel="icon" href="https://charles-one.github.io/actiger/img/favicon.ico">
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
     
     <meta name="generator" content="Hugo 0.58.1" />
     
@@ -24,27 +24,21 @@
   </head>
   <body class="list">
     <header class="header">
-      <div class="wrap">
+      <nav class="nav">
         
-        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎 </a></p>
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></p>
         
-        <button class="menu-toggle" type="button"></button>
-      </div>
+        
+      </nav>
     </header>
-    <nav class="nav">
-    <ul class="menu">
-      
-      
-    </ul>
-    </nav>
     <main class="main">
 
 
 
+
+
 <header class="page-header">
-  <h1>
-  Posts
-  </h1>
+  <h1>Posts</h1>
 </header>
 
 
@@ -52,170 +46,18 @@
 
 
 
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>Moco示例</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. Moco是什么? 简单的模拟服务器的程序库/工具, 有请求给出响应.在地址中下载moco-runner-0.12.0-standalone.jar. 2. 使用示例 1. 创建test.json [ { &#34;description&#34;: &#34;First test&#34;, &#34;request&#34;: { &#34;uri&#34;: &#34;/demo&#34; }, &#34;response&#34;: { &#34;text&#34;: &#34;First Response&#34; } } ]  2. 命令行启动服务, moco-runner-0.12.0-standalone.jar与test.json在相同目录下.  java -jar ./moco-runner-0.12.0-standalone.jar http -p 8888 -c test.json  3. 验证 访问http://localhost:8888/demo 2. 模拟一个带参数的请求, para.json [ { &#34;description&#34;: &#34;模拟一个有参数的Get请求&#34;, &#34;request&#34;: { &#34;uri&#34;: &#34;/getpara&#34;, &#34;method&#34;: &#34;get&#34;, &#34;queries&#34;: { &#34;name&#34;: &#34;xiaoming&#34;, &#34;age&#34;: &#34;20&#34; } }, &#34;response&#34;: { &#34;text&#34;: &#34;I am on the way....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.6.16</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/test/moco%E7%A4%BA%E4%BE%8B/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>TestNG生成测试报告</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. 使用的extentreports生成的测试报告, 报告中使用的css文件需要上强(墙) &lt;dependency&gt; &lt;groupId&gt;com.aventstack&lt;/groupId&gt; &lt;artifactId&gt;extentreports&lt;/artifactId&gt; &lt;version&gt;4.0.9&lt;/version&gt; &lt;/dependency&gt;  测试方法 package com.actiger.reports; import org.testng.Assert; import org.testng.Reporter; import org.testng.annotations.Test; public class TestReport { @Test public void test1(){ Assert.assertEquals(1,2); } @Test public void test2(){ Assert.assertEquals(1,1); } @Test public void test3(){ Assert.assertEquals(3,3); } @Test public void log1(){ Reporter.log(&#34;这是日志&#34;); throw new RuntimeException(&#34;这是一个异常&#34;); } }  配置的xml &lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt; &lt;suite name=&#34;mytest&#34;&gt; &lt;test name=&#34;test&#34;&gt; &lt;classes&gt; &lt;class name=&#34;com.actiger.reports.TestReport&#34;&gt; &lt;method&gt; &lt;include name=&#34;test1&#34;&gt;&lt;/include&gt; &lt;include name=&#34;test2&#34;&gt;&lt;/include&gt; &lt;include name=&#34;test3&#34;&gt;&lt;/include&gt; &lt;include name=&#34;log1&#34;&gt;&lt;/include&gt; &lt;/method&gt; &lt;/class&gt; &lt;/classes&gt; &lt;/test&gt; &lt;listeners&gt; &lt;listener class-name=&#34;com....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.6.16</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/test/testng%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>TestNG超时测试</h2>
-  </header>
-  <section class="entry-content">
-   <p> TestNG超时测试 超出预期时间则用例失败 package com.actiger.test.timeout; import org.testng.annotations.Test; public class TimeOut { @Test(timeOut = 3000) public void testSuccess() throws InterruptedException{ Thread.sleep(2000); } @Test(timeOut = 2000) public void testFail() throws InterruptedException{ Thread.sleep(3000); } }  ...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.6.16</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/test/testng%E8%B6%85%E6%97%B6%E6%B5%8B%E8%AF%95/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>TestNG多线程配置</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. 在方法注释中配置多线程, 配置线程池  package com.actiger.test.thread; import org.testng.annotations.Test; public class MultiThread { @Test(invocationCount = 10, threadPoolSize = 3) public void test(){ System.out.println(&#34;1&#34;); System.out.println(&#34;Thread ID:%s%n&#34; &#43; Thread.currentThread().getId()); } }  2. 在xml中配置多线程, 不可配置为线程池. package com.actiger.test.thread; import org.testng.annotations.Test; public class MultiThreadOnXml { @Test public void test1(){ System.out.println(&#34;Thread ID: &#34; &#43; Thread.currentThread().getId()); } @Test public void test2(){ System.out.println(&#34;Thread ID: &#34; &#43; Thread.currentThread().getId()); } @Test public void test3(){ System.out.println(&#34;Thread ID: &#34; &#43; Thread.currentThread().getId()); } }  multiThread....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.6.16</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/test/testng%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%85%8D%E7%BD%AE/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>TestNG参数化测试</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. 参数化测试, 使用DataProvider来参数化. @Test中dataProvider的名字与@DataProvider名称一致  @Test(dataProvider = &#34;data&#34;) public void dataProvider(String name, int age){ System.out.println(&#34;Name:&#34; &#43; name &#43; &#34;, &#34; &#43; &#34;Age:&#34; &#43; age); } @DataProvider(name = &#34;data&#34;) public Object[][] data(){ Object[][] oo = new Object[][]{ {&#34;zhangsan&#34;, 18}, {&#34;lisi&#34;, 20}, {&#34;wangwu&#34;, 30} }; return oo; }  2. 针对不方法识别, 使用不同参数  @Test(dataProvider = &#34;testMethod&#34;) public void method1(String name, int age){ System.out.println(&#34;Name:&#34; &#43; name &#43; &#34;, &#34; &#43; &#34;Age:&#34; &#43; age &#43; &#34;1111&#34;); } @Test(dataProvider = &#34;testMethod&#34;) public void method2(String name, int age){ System....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.6.15</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/test/testng%E5%8F%82%E6%95%B0%E5%8C%96%E6%B5%8B%E8%AF%95/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>TestNG依赖测试和xml文件参数化</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. TestNG依赖测试, 1个用例依赖其他的测试方法, 怎么表示这种关系呢, 在注解后加标签dependsOnMethods 例如, 方法2就依赖于方法1, 如果方法1执行失败了, 方法2就无法执行了.  package com.actiger.test.all; import org.testng.annotations.Test; public class Dependon{ @Test public void dependon1(){ System.out.println(&#34;dependon 1111111&#34;); throw new RuntimeException(); } @Test(dependsOnMethods = {&#34;dependon1&#34;}) public void dependon2(){ System.out.println(&#34;dependon 2222222&#34;); } }  2. TestNG的xml文件参数化 1.创建方法 package com.actiger.test.paramter; import org.testng.annotations.Parameters; import org.testng.annotations.Test; public class ParamterTest { @Test @Parameters({&#34;name&#34;, &#34;age&#34;}) public void paramTest1(String name, int age){ System.out.println(&#34;Name:&#34;&#43; name &#43; &#34;, &#34; &#43; &#34;Age:&#34; &#43; age); } }  2....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.6.13</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/test/testng%E4%BE%9D%E8%B5%96%E6%B5%8B%E8%AF%95%E5%92%8Cxml%E6%96%87%E4%BB%B6%E5%8F%82%E6%95%B0%E5%8C%96/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>TestNG异常测试</h2>
-  </header>
-  <section class="entry-content">
-   <p> TestNG异常测试 1. expectedException方法预期RuntimeException异常 2. expectedSuccess方法预期RuntimeException异常 3. expectedException用例结果是失败的, expectedSuccess执行用例成功(预期与结果一致) package com.actiger.test.expectedException; import org.testng.annotations.Test; public class ExpectedExcepiton { @Test(expectedExceptions = RuntimeException.class) public void expectedException(){ System.out.println(&#34;期望运行异常的结果!&#34;); } @Test(expectedExceptions = RuntimeException.class) public void expectedSuccess(){ System.out.println(&#34;期望运行异常的结果&#34;); throw new RuntimeException(); } }  ...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.6.12</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/test/testng%E5%BC%82%E5%B8%B8%E6%B5%8B%E8%AF%95/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>TestNG中注解Before After执行顺序</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. TestNG是什么 TestNG一种开源自动测试框架, 相当灵活的注解和配置, 自由测试. 2. Before After执行顺序    注解 描述     @BeforeSuite 套件, 在所有测试开始时运行1次   @BeforeTest 在所有类Classes前, BeforeSuite后运行1次,注解的方法将在testNG.xml文件test标签内的所有类方法运行前执行   @BeforeClass 在单个class类前执行1次   @BeforeGroups 在所有配置方法组前运行1次   @BeforeMethod 在单个配置方法前运行   @AfterMethod 在单个配置方法后运行   @AfterGroups 在所有配置方法组后运行1次   @AfterClass 在单个class类后执行1次   @AfterTest 在所有类Classes后, AfterSuite前运行1次, 注解的方法将在testNG.xml文件test标签内的所有类方法运行后执行。   @AfterSuite 套件, 在所有测试结束时运行1次    package com.actiger.test.suite; import org.testng.annotations.*; public class LoginTest { @Test(groups = {&#34;group&#34;}) public void loginTest(){ System....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.6.12</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/test/testng%E4%B8%AD%E6%B3%A8%E8%A7%A3before-after%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>Jmeter性能测试并添加服务器cpu内存使用率</h2>
-  </header>
-  <section class="entry-content">
-   <p>0. 准备工作  搭建静态博客Hugo, 建立Hugo服务作为测试接口 服务端centOS7.6.1810, 服务端ServerAgent 本机安装Java8, 并设置环境变量 本机jmeter, jmeter插件管理, Servers Performance Monitoring插件  1.服务端CentOS7 搭建Hugo, 并建立Hugo服务, 创建接口.  搭建Huog  请参考这个搭建Hugo文章
-参考到这条语句下就可以了,这条语句下面的内容不用看了
-hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&#34; --port=1313   创建接口
-hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&#34; --port=1313  检测服务端接口
-  在浏览器中访问 http://你的ip:1313.如未指定,则是http://localhost:1313
-能正常访问显示文章就完成了
-2. 本机下载jmeter, jmeter插件管理, Servers Performance Monitoring插件  下载地址Jmeter, 安装插件  Jmeter下载地址
-下载并解压
-Jmeter插件管理
-下载并解压出对应jar文件, 并放在apache-jmeter-5.1/lib/ext中
-关闭Jmeter, 再重新打开Jmeter
-进入选项(Options)-&gt;插件管理(Plugins Manager)中
-搜索perfmon并安装
-3. 服务端下载PerfMon Server Agent运行, 添加防火墙端口4444  下载PerfMon Server Agent...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.3.14</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/test/jmeter%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B9%B6%E6%B7%BB%E5%8A%A0%E6%9C%8D%E5%8A%A1%E5%99%A8cpu%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E7%8E%87/"></a>
-</article>
-
-
-
 
 
 </main>
 <footer class="footer">
-    <span><a href="https://charles-one.github.io/actiger/">&copy; 2019 Actiger跳跳虎</a></span>
+  <span>&copy; 2019 <a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></span>
   <span>&middot;</span>
-  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
   <span>&middot;</span>
-  <span><a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Theme Paper</a></span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
 </footer>
-<script src="https://charles-one.github.io/actiger/js/instantclick.min.js" data-no-instant></script>
-<script data-no-instant>InstantClick.init();</script>
-<script src="https://charles-one.github.io/actiger/js/highlight.min.js" data-no-instant></script>
-<script data-no-instant>
-  hljs.initHighlightingOnLoad();
-  setMenuListener();
-
-  InstantClick.on('change', function() {
-    document.querySelectorAll('pre code').forEach((block) => {
-      hljs.highlightBlock(block);
-    });
-    setMenuListener();
-  });
-
-  function setMenuListener() {
-    var menuToggle = document.querySelector('.menu-toggle');
-    var body = document.querySelector('body');
-    menuToggle.addEventListener('click', function() {
-      body.classList.toggle('no-scroll');
-    }, false);
-  }
-</script>
+<script src="https://charles-one.github.io/actiger/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>
 
