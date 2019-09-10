@@ -216,7 +216,8 @@ img {
   color: #fff;
   font-size: 13px;
   line-height: 34px;
-  background: rgba(0, 0, 0, 0.9);
+  /*background: rgba(0, 0, 0, 0.9);*/
+  background: rgba(69, 130, 236, 0.9);
   border-radius: 34px;
 }
 .pagination .prev {
