@@ -10,13 +10,13 @@
     <meta name="description" content="1. centos7上错误信息, 与配置信息. # 测试最否能连接到github上, 使用-v打印连接日志 [root@cc]/etc/ssh# ssh -vT git@github.com OpenSSH_7.4p1, OpenSSL 1.0.2k-fips 26 Jan 2017 debug1: Reading configuration data /root/.ssh/config debug1: /root/.ssh/config line 3: Applying options for github.com debug1: Reading configuration data /etc/ssh/ssh_config debug1: /etc/ssh/ssh_config line 60: Applying options for * debug1: Connecting to github.com [192.30.255.112] port 12340. debug1: Connection established. debug1: permanently_set_uid: 0/0 debug1: key_load_public: No such file or directory debug1: identity file /root/.ssh/git_cron type -1 debug1: key_load_public: No such file or directory debug1: identity file /root/.">
     <meta name="author" content="">
     
-    <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
-    <link href="https://charles-one.github.io/actiger/style.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/css/github-gist.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/css/style.css" rel="stylesheet">
     
-    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
-    <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/img/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/actiger/img/favicon.ico">
     
-    <meta name="generator" content="Hugo 0.58.1" />
+    <meta name="generator" content="Hugo 0.57.2" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -24,20 +24,26 @@
   </head>
   <body class="single">
     <header class="header">
-      <nav class="nav">
+      <div class="wrap">
         
-        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></p>
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎 </a></p>
         
-        
-      </nav>
+        <button class="menu-toggle" type="button"></button>
+      </div>
     </header>
+    <nav class="nav">
+    <ul class="menu">
+      
+      
+    </ul>
+    </nav>
     <main class="main">
 
 
 <article class="post-single">
   <header class="post-header">
     <h1 class="post-title">Centos7使用ssh Key拉取github项目失败</h1>
-    <div class="post-meta">May 18, 2019</div>
+    <div class="post-meta">2019.5.18</div>
   </header>
   <div class="post-content">
 
@@ -187,7 +193,9 @@ Port 12340
 
 <h4 id="阿布-我再也不乱改了">阿布, 我再也不乱改了.😭</h4>
 </div>
-  
+  <footer class="post-footer">
+    
+  </footer>
   
   
   
@@ -196,14 +204,34 @@ Port 12340
 
 </main>
 <footer class="footer">
-  <span>&copy; 2019 <a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></span>
+    <span><a href="https://charles-one.github.io/actiger/">&copy; 2019 Actiger跳跳虎</a></span>
   <span>&middot;</span>
-  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
   <span>&middot;</span>
-  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+  <span><a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Theme Paper</a></span>
 </footer>
-<script src="https://charles-one.github.io/actiger/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://charles-one.github.io/actiger/js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="https://charles-one.github.io/actiger/js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  hljs.initHighlightingOnLoad();
+  setMenuListener();
+
+  InstantClick.on('change', function() {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuListener();
+  });
+
+  function setMenuListener() {
+    var menuToggle = document.querySelector('.menu-toggle');
+    var body = document.querySelector('body');
+    menuToggle.addEventListener('click', function() {
+      body.classList.toggle('no-scroll');
+    }, false);
+  }
+</script>
 </body>
 </html>
 

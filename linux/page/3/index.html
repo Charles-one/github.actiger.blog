@@ -10,13 +10,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
-    <link href="https://charles-one.github.io/actiger/style.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/css/github-gist.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/css/style.css" rel="stylesheet">
     
-    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
-    <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/img/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/actiger/img/favicon.ico">
     
-    <meta name="generator" content="Hugo 0.58.1" />
+    <meta name="generator" content="Hugo 0.57.2" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -24,21 +24,27 @@
   </head>
   <body class="list">
     <header class="header">
-      <nav class="nav">
+      <div class="wrap">
         
-        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></p>
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎 </a></p>
         
-        
-      </nav>
+        <button class="menu-toggle" type="button"></button>
+      </div>
     </header>
+    <nav class="nav">
+    <ul class="menu">
+      
+      
+    </ul>
+    </nav>
     <main class="main">
 
 
 
-
-
 <header class="page-header">
-  <h1>Posts</h1>
+  <h1>
+  Posts
+  </h1>
 </header>
 
 
@@ -58,7 +64,7 @@ export PATH=$PATH:/usr/local/go/bin  用户使用go需要 重新生效这个文�
 source /etc/profile  ...</p>
   </section>
   <footer class="entry-footer">
-    <time>March 13, 2019</time>
+    <time>2019.3.13</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/linux%E5%AE%89%E8%A3%85go%E5%B9%B6%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"></a>
 </article>
@@ -78,7 +84,7 @@ systemctl start jenkins (再次启动jenkins)
  检查是否能访问成功  jenkins 使用的8080端口...</p>
   </section>
   <footer class="entry-footer">
-    <time>March 13, 2019</time>
+    <time>2019.3.13</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E5%AE%89%E8%A3%85jenkins%E5%92%8C%E6%8F%92%E4%BB%B6/"></a>
 </article>
@@ -97,7 +103,7 @@ vim vim /etc/docker/daemon.json { &#34;registry-mirrors&#34;: [ &#34;http://hub-
 docker pull nginx:1....</p>
   </section>
   <footer class="entry-footer">
-    <time>March 12, 2019</time>
+    <time>2019.3.12</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E5%AE%89%E8%A3%85docker-ce%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"></a>
 </article>
@@ -110,7 +116,7 @@ docker pull nginx:1....</p>
    <p>vi /etc/sudoers # new cc ALL=/bin/yum # cc用户名就可使用sudo yum  在cc用户下 sudo yum install vim 输入密码后再就可安装vim了...</p>
   </section>
   <footer class="entry-footer">
-    <time>March 12, 2019</time>
+    <time>2019.3.12</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%8F%AFsudo%E5%91%BD%E4%BB%A4/"></a>
 </article>
@@ -132,7 +138,7 @@ source /etc/profile  检测
 java -version   预期会弹出java的版本...</p>
   </section>
   <footer class="entry-footer">
-    <time>March 12, 2019</time>
+    <time>2019.3.12</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85jdk%E5%92%8C%E8%AE%BE%E7%BD%AEjdk%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"></a>
 </article>
@@ -152,7 +158,7 @@ java -version   预期会弹出java的版本...</p>
 mv /home/olderuser /home/newuser  ...</p>
   </section>
   <footer class="entry-footer">
-    <time>March 12, 2019</time>
+    <time>2019.3.12</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E6%9B%B4%E6%94%B9linux%E7%94%A8%E6%88%B7%E5%90%8D/"></a>
 </article>
@@ -175,7 +181,7 @@ firewall-cmd --zone=public --add-port=12340/tcp --permanent (永久生效必须�
   借助软件来更改 安装 yum -y install policycoreutils-python semanage port -a -t ssh_port_t -p tcp 12340...</p>
   </section>
   <footer class="entry-footer">
-    <time>March 12, 2019</time>
+    <time>2019.3.12</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E6%9B%B4%E6%94%B9ssh%E7%AB%AF%E5%8F%A3%E4%B8%8E%E7%A6%81%E6%AD%A2root%E7%99%BB%E5%BD%95%E5%A2%9E%E5%BC%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8/"></a>
 </article>
@@ -195,14 +201,34 @@ firewall-cmd --zone=public --add-port=12340/tcp --permanent (永久生效必须�
 
 </main>
 <footer class="footer">
-  <span>&copy; 2019 <a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></span>
+    <span><a href="https://charles-one.github.io/actiger/">&copy; 2019 Actiger跳跳虎</a></span>
   <span>&middot;</span>
-  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
   <span>&middot;</span>
-  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+  <span><a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Theme Paper</a></span>
 </footer>
-<script src="https://charles-one.github.io/actiger/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://charles-one.github.io/actiger/js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="https://charles-one.github.io/actiger/js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  hljs.initHighlightingOnLoad();
+  setMenuListener();
+
+  InstantClick.on('change', function() {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuListener();
+  });
+
+  function setMenuListener() {
+    var menuToggle = document.querySelector('.menu-toggle');
+    var body = document.querySelector('body');
+    menuToggle.addEventListener('click', function() {
+      body.classList.toggle('no-scroll');
+    }, false);
+  }
+</script>
 </body>
 </html>
 
