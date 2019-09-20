@@ -54,6 +54,29 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>基本SQL语句用法二</h2>
+  </header>
+  <section class="entry-content">
+   <p>1.创建表 create table if not exists usrinfo( id INT(11), number INT(11), name VARCHAR(255), birthday DATE );
+2.查询表结构 show full columns from usrinfo;
+desc usrinfo;
+describe usrinfo;
+3.查询创建表的语句 show create table usrinfo;
+4.插入数据 插入单选数据 insert into usrinfo values (12123123,“hello”,“1990-02-15”);
+插入多行数据 insert into usrinfo values (12123123,“hello”,“1990-02-15”), (12123123,“cc”,“1991-03-01”);
+插入某些列 insert into usrinfo(number,name) values (121234123,“eefef”);
+插入某些列多行 insert into usrinfo(number,name) values (121234123,“eefef”), (121234123,“eefef”);
+5.查询某一列不重复的值 select distinct number from usrinfo;
+6.增加新的列 增加新列 alter table usrinfo add id int(11);...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.9.20</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/mysql/%E5%9F%BA%E6%9C%ACsql%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95%E4%BA%8C/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
     <h2>基本SQL语句用法</h2>
   </header>
   <section class="entry-content">

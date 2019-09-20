@@ -6,10 +6,29 @@
     <description>Recent content in Mysqls on Actiger跳跳虎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 12 Mar 2019 17:31:56 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 20 Sep 2019 15:56:15 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/actiger/mysql/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>基本SQL语句用法二</title>
+      <link>https://charles-one.github.io/actiger/mysql/%E5%9F%BA%E6%9C%ACsql%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95%E4%BA%8C/</link>
+      <pubDate>Fri, 20 Sep 2019 15:56:15 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/actiger/mysql/%E5%9F%BA%E6%9C%ACsql%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95%E4%BA%8C/</guid>
+      <description>1.创建表 create table if not exists usrinfo( id INT(11), number INT(11), name VARCHAR(255), birthday DATE );
+2.查询表结构 show full columns from usrinfo;
+desc usrinfo;
+describe usrinfo;
+3.查询创建表的语句 show create table usrinfo;
+4.插入数据 插入单选数据 insert into usrinfo values (12123123,&amp;ldquo;hello&amp;rdquo;,&amp;ldquo;1990-02-15&amp;rdquo;);
+插入多行数据 insert into usrinfo values (12123123,&amp;ldquo;hello&amp;rdquo;,&amp;ldquo;1990-02-15&amp;rdquo;), (12123123,&amp;ldquo;cc&amp;rdquo;,&amp;ldquo;1991-03-01&amp;rdquo;);
+插入某些列 insert into usrinfo(number,name) values (121234123,&amp;ldquo;eefef&amp;rdquo;);
+插入某些列多行 insert into usrinfo(number,name) values (121234123,&amp;ldquo;eefef&amp;rdquo;), (121234123,&amp;ldquo;eefef&amp;rdquo;);
+5.查询某一列不重复的值 select distinct number from usrinfo;
+6.增加新的列 增加新列 alter table usrinfo add id int(11);</description>
+    </item>
     
     <item>
       <title>基本SQL语句用法</title>
