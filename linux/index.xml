@@ -6,10 +6,23 @@
     <description>Recent content in Linuxes on Actiger跳跳虎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 27 Aug 2019 10:30:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 05 Nov 2019 23:46:51 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/actiger/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Centos8网络设置</title>
+      <link>https://charles-one.github.io/actiger/linux/centos8%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE/</link>
+      <pubDate>Tue, 05 Nov 2019 23:46:51 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/actiger/linux/centos8%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE/</guid>
+      <description>1. 安装Centos8时, 设置网络发现network.service不能使用, 搜索得知服务已更改为nmcli管理, 那就学习下 2. 有2种方式设置静态IP 2.1 方法一. 更改网络配置文件, 重启网络.  更改配置文件
+vim /etc/sysconfig/network-scripts/ifcfg-enp0s5 添加内容 BOOTPROTO=&#39;static&#39; GATEWAY=192.168.50.1 NETMASK=255.255.255.255 IPADDR=192.168.50.200 PREFIX=32  重启网络, 重点, 相比CentOS 7有变化, CentOS 8已删除network.service. 使用nmcli来管理.
+# 显示连接 nmcli c show # 生效连接 nmcli connect up enp0s5 可简写为 nmcli c up enp0s5  如SSH连接, 应该会断线, 重新连接需要主机执行下面操作.
+删除本机~/.ssh/know_hosts中ip 重启虚拟机 reboot   2.2 方法二, 通过nmcli直接更改网卡信息, 重启网络.  创建一个名字是cc的连接connection, 其中ifname后的enp0s5必须是nmcli d中的device, ipv4.method manual表示静态ip, type ethernet指定以太网.
+nmcli c add type ethernet con-name cc ifname enp0s5 ipv4.</description>
+    </item>
     
     <item>
       <title>申请单个域名方式</title>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Centos8网络设置 - Actiger跳跳虎</title>
+    
+    <meta name="description" content="1. 安装Centos8时, 设置网络发现network.service不能使用, 搜索得知服务已更改为nmcli管理, 那就学习下 2. 有2种方式设置静态IP 2.1 方法一. 更改网络配置文件, 重启网络.  更改配置文件
+vim /etc/sysconfig/network-scripts/ifcfg-enp0s5 添加内容 BOOTPROTO=&#39;static&#39; GATEWAY=192.168.50.1 NETMASK=255.255.255.255 IPADDR=192.168.50.200 PREFIX=32  重启网络, 重点, 相比CentOS 7有变化, CentOS 8已删除network.service. 使用nmcli来管理.
+# 显示连接 nmcli c show # 生效连接 nmcli connect up enp0s5 可简写为 nmcli c up enp0s5  如SSH连接, 应该会断线, 重新连接需要主机执行下面操作.
+删除本机~/.ssh/know_hosts中ip 重启虚拟机 reboot   2.2 方法二, 通过nmcli直接更改网卡信息, 重启网络.  创建一个名字是cc的连接connection, 其中ifname后的enp0s5必须是nmcli d中的device, ipv4.method manual表示静态ip, type ethernet指定以太网.
+nmcli c add type ethernet con-name cc ifname enp0s5 ipv4.">
+    <meta name="author" content="">
+    
+    <link href="https://charles-one.github.io/actiger/css/github-gist.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/img/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/actiger/img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.57.2" />
+    
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎 </a></p>
+        
+        <button class="menu-toggle" type="button"></button>
+      </div>
+    </header>
+    <nav class="nav">
+    <ul class="menu">
+      
+      
+    </ul>
+    </nav>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Centos8网络设置</h1>
+    <div class="post-meta">2019.11.5</div>
+  </header>
+  <div class="post-content">
+
+<h3 id="1-安装centos8时-设置网络发现network-service不能使用-搜索得知服务已更改为nmcli管理-那就学习下">1. 安装Centos8时, 设置网络发现network.service不能使用, 搜索得知服务已更改为nmcli管理, 那就学习下</h3>
+
+<h3 id="2-有2种方式设置静态ip">2. 有2种方式设置静态IP</h3>
+
+<h4 id="2-1-方法一-更改网络配置文件-重启网络">2.1 方法一. 更改网络配置文件, 重启网络.</h4>
+
+<ol>
+<li><p>更改配置文件</p>
+
+<pre><code>vim /etc/sysconfig/network-scripts/ifcfg-enp0s5
+
+添加内容
+
+BOOTPROTO='static'
+GATEWAY=192.168.50.1
+NETMASK=255.255.255.255
+IPADDR=192.168.50.200
+
+PREFIX=32
+
+</code></pre></li>
+
+<li><p>重启网络, 重点, 相比CentOS 7有变化, CentOS 8已删除network.service. 使用nmcli来管理.</p>
+
+<pre><code># 显示连接
+nmcli c show
+
+# 生效连接
+nmcli connect up enp0s5
+可简写为 nmcli c up enp0s5
+
+</code></pre></li>
+
+<li><p>如SSH连接, 应该会断线, 重新连接需要主机执行下面操作.</p>
+
+<pre><code>删除本机~/.ssh/know_hosts中ip
+
+重启虚拟机
+
+reboot
+</code></pre></li>
+</ol>
+
+<h4 id="2-2-方法二-通过nmcli直接更改网卡信息-重启网络">2.2 方法二, 通过nmcli直接更改网卡信息, 重启网络.</h4>
+
+<ol>
+<li><p>创建一个名字是cc的连接connection, 其中ifname后的enp0s5必须是nmcli d中的device, ipv4.method manual表示静态ip, type ethernet指定以太网.</p>
+
+<pre><code>nmcli c add type ethernet con-name cc ifname enp0s5 ipv4.addr 192.168.50.200/24 ipv4.gateway 192.168.50.1 ipv4.method manual
+</code></pre></li>
+
+<li><p>启用名字为cc的connect连接.</p>
+
+<pre><code>nmcli c up cc
+</code></pre></li>
+
+<li><p>查看当前ip地址</p>
+
+<pre><code>ifconfig
+</code></pre></li>
+</ol>
+
+<h3 id="3-补充命令">3. 补充命令</h3>
+
+<pre><code># 更改名字cc的connect连接的静态ip. 其他属性也可一并修改
+nmcli c modify cc ipv4.addr 192.168.50.100/24
+
+# 停止connect
+nmcli c down
+
+# 删除 connect
+nmcli c delete cc
+
+# 查看connect详细信息
+nmcli c show cc
+
+# 查看device列表
+nmcli d
+
+# 查看devcie详细信息
+nmcli d show
+
+# 查看指定device详细信息
+nmcli d show enp0s5
+
+# 设置不连接
+nmcli d disconnect enp0s5
+
+# 关闭无线网络（NM默认启用无线网络）
+nmcli r all off
+
+# 查看NM本身状态
+nmcli
+
+# 检测NM是否在线可用
+nm-online
+
+
+</code></pre>
+
+<h3 id="4-暂时没看到设置默认的connect-开机自动连接nmcli-c排列在第1个的连接connect">4. 暂时没看到设置默认的connect, 开机自动连接nmcli c排列在第1个的连接connect.</h3>
+</div>
+  <footer class="post-footer">
+    
+  </footer>
+  
+  
+  
+  
+</article>
+
+</main>
+<footer class="footer">
+    <span><a href="https://charles-one.github.io/actiger/">&copy; 2019 Actiger跳跳虎</a></span>
+  <span>&middot;</span>
+  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span><a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Theme Paper</a></span>
+</footer>
+<script src="https://charles-one.github.io/actiger/js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="https://charles-one.github.io/actiger/js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  hljs.initHighlightingOnLoad();
+  setMenuListener();
+
+  InstantClick.on('change', function() {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuListener();
+  });
+
+  function setMenuListener() {
+    var menuToggle = document.querySelector('.menu-toggle');
+    var body = document.querySelector('body');
+    menuToggle.addEventListener('click', function() {
+      body.classList.toggle('no-scroll');
+    }, false);
+  }
+</script>
+</body>
+</html>
+
