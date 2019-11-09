@@ -125,11 +125,8 @@ hostname  网络互通, 互ping
  mac ip地址不一致
 ifconfig  product_uuid不一致
 cat /sys/class/dmi/id/product_uuid  禁用Swap交换分区, 保证kubelet正确运行, 必须永久禁用. 在安装设置中有对应的设置.
-  3. 安装前2台虚拟机都需要的设置  关闭防火墙, 不关闭集群间有些pod可能无法通信.
-systemctl stop firewalld # 禁止开机启动 systemctl disable firewalld  永久禁用交换分区swap.
-# vi /etc/fstab 注释最后一行的swap # 重启 reboot  装SELinux设置permissive模式
-sed -i &#39;s/^SELINUX=enforcing$/SELINUX=permissive/&#39; /etc/selinux/config reboot  安装源
- # 国内 cat &lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo [kubernetes] name=Kubernetes baseurl=https://mirrors....</p>
+  3. 安装前2台虚拟机都需要的设置  安装指定版本的docker.
+ # 移除旧版本docker yum remove docker \ docker-common \ docker-selinux \ docker-engine # 安装工具 yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 # 安装指定版本containerd.io yum install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm # 下载设置源 yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo # 查看全部版本的docker....</p>
   </section>
   <footer class="entry-footer">
     <time>2019.6.4</time>
