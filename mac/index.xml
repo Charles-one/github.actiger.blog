@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Macs on Actiger跳跳虎</title>
+    <link>https://charles-one.github.io/actiger/mac/</link>
+    <description>Recent content in Macs on Actiger跳跳虎</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 28 Nov 2019 11:33:43 +0800</lastBuildDate>
+    
+	<atom:link href="https://charles-one.github.io/actiger/mac/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>解决文件损坏不能打开问题</title>
+      <link>https://charles-one.github.io/actiger/mac/%E8%A7%A3%E5%86%B3%E6%96%87%E4%BB%B6%E6%8D%9F%E5%9D%8F%E4%B8%8D%E8%83%BD%E6%89%93%E5%BC%80%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Thu, 28 Nov 2019 11:33:43 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/actiger/mac/%E8%A7%A3%E5%86%B3%E6%96%87%E4%BB%B6%E6%8D%9F%E5%9D%8F%E4%B8%8D%E8%83%BD%E6%89%93%E5%BC%80%E9%97%AE%E9%A2%98/</guid>
+      <description> 1. 下载后安装的文件提示文件损坏, 需要换到垃圾桶中. 2. 解决方法, 打开终端terminal # 切换到管理员, su后输入管理员密码 su # xxx就是你安装的程序 xattr -d com.apple.quarantine /Applications/xxxx.app # 退出管理员 exit  3. 重新去打开安装的程序 </description>
+    </item>
+    
+  </channel>
+</rss>
