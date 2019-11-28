@@ -7,7 +7,7 @@
     
     <title>解决mac文件损坏不能打开问题 - Actiger跳跳虎</title>
     
-    <meta name="description" content=" 1. mac下载后安装的文件提示文件损坏, 需要换到垃圾桶中. 2. 解决方法, 打开终端terminal # 切换到管理员, su后输入管理员密码 su # xxx就是你安装的程序 xattr -d com.apple.quarantine /Applications/xxxx.app # 退出管理员 exit  3. 重新去打开安装的程序 ">
+    <meta name="description" content=" 1. mac下载后安装的文件提示文件损坏, 需要换到垃圾桶中. 2. 解决方法, 打开终端terminal # 切换到管理员, su后输入管理员root密码 su # xxx就是你安装的程序 xattr -d com.apple.quarantine /Applications/xxxx.app # 退出管理员root exit  3. 重新去打开安装的程序 ">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/css/github-gist.min.css" rel="stylesheet">
@@ -51,13 +51,13 @@
 
 <h3 id="2-解决方法-打开终端terminal">2. 解决方法, 打开终端terminal</h3>
 
-<pre><code># 切换到管理员, su后输入管理员密码
+<pre><code># 切换到管理员, su后输入管理员root密码
 su
 
 # xxx就是你安装的程序
 xattr -d com.apple.quarantine /Applications/xxxx.app
 
-# 退出管理员
+# 退出管理员root
 
 exit
 </code></pre>

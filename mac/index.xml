@@ -17,7 +17,7 @@
       <pubDate>Thu, 28 Nov 2019 11:33:43 +0800</pubDate>
       
       <guid>https://charles-one.github.io/actiger/mac/%E8%A7%A3%E5%86%B3mac%E6%96%87%E4%BB%B6%E6%8D%9F%E5%9D%8F%E4%B8%8D%E8%83%BD%E6%89%93%E5%BC%80%E9%97%AE%E9%A2%98/</guid>
-      <description> 1. mac下载后安装的文件提示文件损坏, 需要换到垃圾桶中. 2. 解决方法, 打开终端terminal # 切换到管理员, su后输入管理员密码 su # xxx就是你安装的程序 xattr -d com.apple.quarantine /Applications/xxxx.app # 退出管理员 exit  3. 重新去打开安装的程序 </description>
+      <description> 1. mac下载后安装的文件提示文件损坏, 需要换到垃圾桶中. 2. 解决方法, 打开终端terminal # 切换到管理员, su后输入管理员root密码 su # xxx就是你安装的程序 xattr -d com.apple.quarantine /Applications/xxxx.app # 退出管理员root exit  3. 重新去打开安装的程序 </description>
     </item>
     
   </channel>
