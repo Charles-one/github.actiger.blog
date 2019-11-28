@@ -406,6 +406,19 @@ kubectl apply -f &quot;https://cloud.weave.works/k8s/net?k8s-version=$(kubectl v
 
 <pre><code>echo '1' &gt; /proc/sys/net/bridge/bridge-nf-call-iptables
 </code></pre>
+
+<h3 id="13-重置节点">13. 重置节点</h3>
+
+<pre><code>kubeadm reset
+
+rm -rf $HOME/.kube/
+rm -rf /var/lib/cni/
+rm -rf /var/lib/kubelet/*
+rm -rf /etc/cni/
+ip link delete cni0
+ip link delete flannel.1
+systemctl restart docker
+</code></pre>
 </div>
   <footer class="post-footer">
     
