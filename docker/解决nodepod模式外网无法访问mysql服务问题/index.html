@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>解决NodePod模式外网无法访问mysql服务问题 - Actiger跳跳虎</title>
+    
+    <meta name="description" content=" 1. 创建NodePod的mysql或MariaDB服务, 请参考Kubernetes Mariadb Mysql安装. 2. 安装完成使用ip:30016 用户 密码连接失败, 使用over ssh方式却可以连接成功. 排查问题  查看防火墙端口打开30016端口
+ firewall-cmd --list-ports # 没有则添加 firewall-cmd --zone=public --add-port=30016/tcp --permanent firewall-cmd --reload  关闭防火墙, 为啥关闭以后再开一篇解释
+systemctl stop firewalld  查询iptables规则
+iptables -L -n # 临时生效 iptables -P FORWARD ACCEPT  永久生效
+vim /usr/lib/systemd/system/docker.service # 在[Service]下增加一条规则 ............ ExecStartPost=/sbin/iptables -I FORWARD -s 0.0.0.0/0 -j ACCEPT # 重启docker生效 systemctl daemon-reload systemctl restart docker  重新使用刚才mysql或mariadb连接测试.
+  ">
+    <meta name="author" content="">
+    
+    <link href="https://charles-one.github.io/actiger/css/github-gist.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/img/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/actiger/img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.57.2" />
+    
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎 </a></p>
+        
+        <button class="menu-toggle" type="button"></button>
+      </div>
+    </header>
+    <nav class="nav">
+    <ul class="menu">
+      
+      
+    </ul>
+    </nav>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">解决NodePod模式外网无法访问mysql服务问题</h1>
+    <div class="post-meta">2019.11.28</div>
+  </header>
+  <div class="post-content">
+
+<h2 id="1-创建nodepod的mysql或mariadb服务-请参考-a-href-https-blog-actiger-com-docker-kubernetes-mariadb-mysql-target-blank-kubernetes-mariadb-mysql-kubernetes-mariadb-mysql安装-a">1. 创建NodePod的mysql或MariaDB服务, 请参考<a href="https://blog.actiger.com/docker/kubernetes-mariadb-mysql/" target="_blank"Kubernetes Mariadb Mysql>Kubernetes Mariadb Mysql安装</a>.</h2>
+
+<h2 id="2-安装完成使用ip-30016-用户-密码连接失败-使用over-ssh方式却可以连接成功">2. 安装完成使用ip:30016 用户 密码连接失败, 使用over ssh方式却可以连接成功.</h2>
+
+<h3 id="排查问题">排查问题</h3>
+
+<ol>
+<li><p>查看防火墙端口打开30016端口</p>
+
+<pre><code>
+firewall-cmd --list-ports
+
+# 没有则添加
+firewall-cmd --zone=public --add-port=30016/tcp --permanent
+firewall-cmd --reload
+</code></pre></li>
+
+<li><p>关闭防火墙, 为啥关闭以后再开一篇解释</p>
+
+<pre><code>systemctl stop firewalld
+</code></pre></li>
+
+<li><p>查询iptables规则</p>
+
+<pre><code>iptables -L -n
+
+# 临时生效
+iptables -P FORWARD ACCEPT
+</code></pre></li>
+
+<li><p>永久生效</p>
+
+<pre><code>vim /usr/lib/systemd/system/docker.service
+
+
+# 在[Service]下增加一条规则
+............
+ExecStartPost=/sbin/iptables -I FORWARD -s 0.0.0.0/0 -j ACCEPT
+
+# 重启docker生效
+
+systemctl daemon-reload
+systemctl restart docker
+</code></pre></li>
+
+<li><p>重新使用刚才mysql或mariadb连接测试.</p></li>
+</ol>
+</div>
+  <footer class="post-footer">
+    
+  </footer>
+  
+  
+  
+  
+</article>
+
+</main>
+<footer class="footer">
+    <span><a href="https://charles-one.github.io/actiger/">&copy; 2019 Actiger跳跳虎</a></span>
+  <span>&middot;</span>
+  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span><a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Theme Paper</a></span>
+</footer>
+<script src="https://charles-one.github.io/actiger/js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="https://charles-one.github.io/actiger/js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  hljs.initHighlightingOnLoad();
+  setMenuListener();
+
+  InstantClick.on('change', function() {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuListener();
+  });
+
+  function setMenuListener() {
+    var menuToggle = document.querySelector('.menu-toggle');
+    var body = document.querySelector('body');
+    menuToggle.addEventListener('click', function() {
+      body.classList.toggle('no-scroll');
+    }, false);
+  }
+</script>
+</body>
+</html>
+

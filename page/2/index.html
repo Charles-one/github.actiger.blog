@@ -48,6 +48,19 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>TestNG参数化测试</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. 参数化测试, 使用DataProvider来参数化. @Test中dataProvider的名字与@DataProvider名称一致  @Test(dataProvider = &#34;data&#34;) public void dataProvider(String name, int age){ System.out.println(&#34;Name:&#34; &#43; name &#43; &#34;, &#34; &#43; &#34;Age:&#34; &#43; age); } @DataProvider(name = &#34;data&#34;) public Object[][] data(){ Object[][] oo = new Object[][]{ {&#34;zhangsan&#34;, 18}, {&#34;lisi&#34;, 20}, {&#34;wangwu&#34;, 30} }; return oo; }  2. 针对不方法识别, 使用不同参数  @Test(dataProvider = &#34;testMethod&#34;) public void method1(String name, int age){ System.out.println(&#34;Name:&#34; &#43; name &#43; &#34;, &#34; &#43; &#34;Age:&#34; &#43; age &#43; &#34;1111&#34;); } @Test(dataProvider = &#34;testMethod&#34;) public void method2(String name, int age){ System....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.6.15</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/test/testng%E5%8F%82%E6%95%B0%E5%8C%96%E6%B5%8B%E8%AF%95/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
     <h2>TestNG依赖测试和xml文件参数化</h2>
   </header>
   <section class="entry-content">
@@ -171,19 +184,6 @@ cat /sys/class/dmi/id/product_uuid  禁用Swap交换分区, 保证kubelet正确�
     <time>2019.5.20</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E5%92%8C%E6%8F%90%E4%BA%A4%E5%88%B0github/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>Linux.Mac三宝剑ag fasd fzf</h2>
-  </header>
-  <section class="entry-content">
-   <p>1.简介与安装 1. 简介ag是比grep更好的搜索软件, 提供高亮显示. Fasd时空机, 去过的地址都直接跳过去, 再也不用cd来cd去了. Fzf更强大的搜索文件. 2. 安装ag, Fasd Fzf # mac brew install the_silver_searcher fzf fasd # 还需要把 eval &#34;$(fasd --init auto)&#34; 放到.bashrc或者.zshrc中 # 重新生效source .bashrc或者source .zshrc # linux git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf ~/.fzf/install yum install the_silver_searcher yum install fasd  2. 使用. 1. 最有命令说明, 需要配置2中配置才可以使用.(bat是与cat类似,有语法高亮) # tab键补全, 最近打开最多带有a名字的匹配文件, 在任何目录中你都可以直接编辑你的相要的文件 v a # 在任意目录下都可以这样使用, cat与ag联用, 匹配a文件, 并搜索aaa caf a | ag &#34;aaa&#34; # 跳转, 配置最近最多a文件夹名, tab补全所有匹配的a的文件 j a # 预览当前目录下的文件 ffp  2....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.5.19</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/linux.mac%E4%B8%89%E5%AE%9D%E5%89%91ag-fasd-fzf/"></a>
 </article>
 
 

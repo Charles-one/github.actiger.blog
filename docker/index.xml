@@ -6,10 +6,24 @@
     <description>Recent content in Dockers on Actiger跳跳虎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 20 Jun 2019 00:29:39 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 28 Nov 2019 10:56:24 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/actiger/docker/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>解决NodePod模式外网无法访问mysql服务问题</title>
+      <link>https://charles-one.github.io/actiger/docker/%E8%A7%A3%E5%86%B3nodepod%E6%A8%A1%E5%BC%8F%E5%A4%96%E7%BD%91%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AEmysql%E6%9C%8D%E5%8A%A1%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Thu, 28 Nov 2019 10:56:24 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/actiger/docker/%E8%A7%A3%E5%86%B3nodepod%E6%A8%A1%E5%BC%8F%E5%A4%96%E7%BD%91%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AEmysql%E6%9C%8D%E5%8A%A1%E9%97%AE%E9%A2%98/</guid>
+      <description> 1. 创建NodePod的mysql或MariaDB服务, 请参考Kubernetes Mariadb Mysql安装. 2. 安装完成使用ip:30016 用户 密码连接失败, 使用over ssh方式却可以连接成功. 排查问题  查看防火墙端口打开30016端口
+ firewall-cmd --list-ports # 没有则添加 firewall-cmd --zone=public --add-port=30016/tcp --permanent firewall-cmd --reload  关闭防火墙, 为啥关闭以后再开一篇解释
+systemctl stop firewalld  查询iptables规则
+iptables -L -n # 临时生效 iptables -P FORWARD ACCEPT  永久生效
+vim /usr/lib/systemd/system/docker.service # 在[Service]下增加一条规则 ............ ExecStartPost=/sbin/iptables -I FORWARD -s 0.0.0.0/0 -j ACCEPT # 重启docker生效 systemctl daemon-reload systemctl restart docker  重新使用刚才mysql或mariadb连接测试.
+  </description>
+    </item>
     
     <item>
       <title>Ingress-Ningx配置多个SSL证书</title>

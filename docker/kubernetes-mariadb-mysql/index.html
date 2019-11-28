@@ -149,6 +149,17 @@ spec:
           claimName: pvc-hostpath
 </code></pre>
 
+<h3 id="5-设置网络接收规则">5. 设置网络接收规则</h3>
+
+<pre><code>iptables -P FORWARD ACCEPT
+
+firewall-cmd --zone=public --add-port=30015/tcp --permanent
+
+firewall-cmd --reload
+
+systemctl stop firewalld
+</code></pre>
+
 <h4 id="开始创建">开始创建</h4>
 
 <pre><code>kubectl apply -f mariadb.yaml,mariapass.yml,pv-maria.yaml,pvc-maria.yaml
@@ -162,7 +173,7 @@ kubectl get pvc
 kubectl get pods
 </code></pre>
 
-<h4 id="测试">测试</h4>
+<h4 id="测试连接">测试连接</h4>
 
 <pre><code>mysql -uroot -h&lt;你的IP&gt; -P30016 -p
 </code></pre>

@@ -398,11 +398,14 @@ kubectl apply -f &quot;https://cloud.weave.works/k8s/net?k8s-version=$(kubectl v
 
 <h3 id="12-补充错误">12. 补充错误</h3>
 
-<blockquote>
-<p>The connection to the server localhost:8080 was refused - did you specify the right host or port?</p>
-</blockquote>
+<h5 id="the-connection-to-the-server-localhost-8080-was-refused-did-you-specify-the-right-host-or-port">The connection to the server localhost:8080 was refused - did you specify the right host or port?</h5>
 
 <p>则需要执行<a href="#7">第7条内容.</a></p>
+
+<h5 id="解决-proc-sys-net-bridge-bridge-nf-call-iptables-contents-are-not-set-to-1">解决 /proc/sys/net/bridge/bridge-nf-call-iptables contents are not set to 1</h5>
+
+<pre><code>echo '1' &gt; /proc/sys/net/bridge/bridge-nf-call-iptables
+</code></pre>
 </div>
   <footer class="post-footer">
     
