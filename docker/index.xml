@@ -6,10 +6,19 @@
     <description>Recent content in Dockers on Actiger跳跳虎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 Nov 2019 10:56:24 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 28 Nov 2019 16:31:20 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/actiger/docker/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>解决腾讯云PVC网络指定公网ip安装kubernetes master节点失败问题</title>
+      <link>https://charles-one.github.io/actiger/docker/%E8%A7%A3%E5%86%B3%E8%85%BE%E8%AE%AF%E4%BA%91pvc%E7%BD%91%E7%BB%9C%E6%8C%87%E5%AE%9A%E5%85%AC%E7%BD%91ip%E5%AE%89%E8%A3%85kubernetes-master%E8%8A%82%E7%82%B9%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Thu, 28 Nov 2019 16:31:20 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/actiger/docker/%E8%A7%A3%E5%86%B3%E8%85%BE%E8%AE%AF%E4%BA%91pvc%E7%BD%91%E7%BB%9C%E6%8C%87%E5%AE%9A%E5%85%AC%E7%BD%91ip%E5%AE%89%E8%A3%85kubernetes-master%E8%8A%82%E7%82%B9%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/</guid>
+      <description>1. 问题描述, 使用腾讯云VPC(Virtual Private Cloud)即专有网络, 初始化kubernetes init指定公网ip, 初始化失败 kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=&amp;lt;公网ip&amp;gt; --ignore-preflight-errors=NumCPU  截取提示错误信息 Nov 23 20:09:16 mm.com kubelet[22940]: E1123 20:09:16.997560 22940 kubelet.go:2252] node &amp;quot;mm.com&amp;quot; not found Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.053858 22940 controller.go:125] failed to ensure node lease exists, will retry in 7s, error: Get https://118.89.82.5:6443/apis/coordination.k8s.io/v1beta1 Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.097695 22940 kubelet.go:2252] node &amp;quot;mm.com&amp;quot; not found Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.</description>
+    </item>
     
     <item>
       <title>解决NodePod模式外网无法访问mysql服务问题</title>
