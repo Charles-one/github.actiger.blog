@@ -6,10 +6,19 @@
     <description>Recent content in Dockers on Actiger跳跳虎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 Nov 2019 16:31:20 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 30 Nov 2019 16:37:47 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/actiger/docker/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kubernetes扩容增加node节点</title>
+      <link>https://charles-one.github.io/actiger/docker/kubernetes%E6%89%A9%E5%AE%B9%E5%A2%9E%E5%8A%A0node%E8%8A%82%E7%82%B9/</link>
+      <pubDate>Sat, 30 Nov 2019 16:37:47 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/actiger/docker/kubernetes%E6%89%A9%E5%AE%B9%E5%A2%9E%E5%8A%A0node%E8%8A%82%E7%82%B9/</guid>
+      <description> 1. Kubernetes扩容增加node节点 创建token  kubeadm token create  查看kubernetes认证的SHA256加密字符串是多少  openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2&amp;gt;/dev/null | openssl dgst -sha256 -hex | sed &#39;s/^.* //&#39;  加入master节点  kubeadm join &amp;lt;主master ip&amp;gt;:6443 --token &amp;lt;刚刚创建的token&amp;gt; --discovery-token-ca-cert-hash sha256:&amp;lt;上面的加密字符串&amp;gt;  操作这些时先更新下系统. </description>
+    </item>
     
     <item>
       <title>解决腾讯云PVC网络指定公网ip安装kubernetes master节点失败问题</title>
