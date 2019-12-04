@@ -106,73 +106,43 @@ Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.101372 22940 reflector.go:
 </tbody>
 </table>
 
-<h3 id="3-解决">3. 解决</h3>
+<h3 id="3-解决-进行腾讯eip直通-网卡可见公网ip-参考地址-a-href-https-cloud-tencent-com-document-product-213-12540-target-blank-eip直通-a">3. 解决, 进行腾讯EIP直通, 网卡可见公网ip. 参考地址<a href="https://cloud.tencent.com/document/product/213/12540" target="blank">EIP直通</a></h3>
 
-<h4 id="1-腾讯云切换到eip网络-并绑定到实例上">1. 腾讯云切换到EIP网络, 并绑定到实例上</h4>
+<h4 id="1-工单申请eip">1. 工单申请EIP</h4>
 
-<h4 id="2-修改内网网卡">2. 修改内网网卡</h4>
+<h4 id="2-运行脚本确认ifcfg-eth0原文件未修改-如有更改请恢复">2. 运行脚本确认ifcfg-eth0原文件未修改, 如有更改请恢复.</h4>
 
-<h4 id="vim-etc-sysconfig-network-scripts-ifcfg-eth0">vim /etc/sysconfig/network-scripts/ifcfg-eth0</h4>
-
-<h4 id="bootproto更改为none">BOOTPROTO更改为none,</h4>
-
-<pre><code># Created by cloud-init on instance boot automatically, do not edit.
-#
-BOOTPROTO=none
-DEVICE=eth0
-HWADDR=52:54:00:18:e9:b8
-NM_CONTROLLED=no
-ONBOOT=yes
-PERSISTENT_DHCLIENT=yes
-TYPE=Ethernet
-USERCTL=no
-
-IPADDR=172.17.0.5
-NETMASK=255.255.240.0
-BROADCAST=172.17.15.255
-GATWAY=172.17.0.1
-
-</code></pre>
-
-<h4 id="3-增加公网网卡">3. 增加公网网卡</h4>
-
-<h4 id="vim-etc-sysconfig-network-scripts-ifcfg-eth1">vim /etc/sysconfig/network-scripts/ifcfg-eth1</h4>
-
-<h4 id="其中ipaddr是公网ip-netmask请参考-a-href-https-cloud-tencent-com-document-product-576-18535-e9-99-84-e5-bd-95-a">其中IPADDR是公网IP, NETMASK请参考<a href=""><a href="https://cloud.tencent.com/document/product/576/18535#.E9.99.84.E5.BD.95">https://cloud.tencent.com/document/product/576/18535#.E9.99.84.E5.BD.95</a></a></h4>
-
-<pre><code># Created by cloud-init on instance boot automatically, do not edit.
-#
-BOOTPROTO=none
-DEVICE=eth1
-HWADDR=20:90:6f:85:f2:b3
-NM_CONTROLLED=yes
-ONBOOT=yes
-PERSISTENT_DHCLIENT=yes
-TYPE=Ethernet
-USERCTL=no
-
-NETMASK=255.255.240.0
-BROADCAST=180.229.31.255
-
-IPADDR=180.229.17.228
-</code></pre>
-
-<h4 id="4-重启网络">4. 重启网络</h4>
-
-<pre><code>systemctl restart network
-</code></pre>
-
-<h4 id="5-检查网络">5. 检查网络</h4>
-
-<pre><code>ifconfig
-</code></pre>
-
-<p>配置已经生效</p>
-
-<h4 id="6-重新指定公网ip初始化kubernetes">6. 重新指定公网IP初始化kubernetes</h4>
+<h4 id="3-下载脚本-解压-运行脚本">3. 下载脚本, 解压, 运行脚本.</h4>
 
 <pre><code>
-kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=&lt;公网ip&gt; --ignore-preflight-errors=NumCPU
+wget https://main.qcloudimg.com/raw/7d07d336030fb1324f3d55c891434612/eip_direct.zip
+
+unzip eip_direct.zip 
+
+chmod +x eip_direct.sh  
+
+./eip_direct.sh install &lt;公网ip&gt;
+
+</code></pre>
+
+<h4 id="4-查看是否成功-在内网ip下有还有个公网ip">4. 查看是否成功, 在内网ip下有还有个公网ip.</h4>
+
+<pre><code>ip a
+</code></pre>
+
+<h4 id="5-登录腾讯云-a-href-https-console-cloud-tencent-com-cvm-eip-rid-4-target-blank-控制台-a-在更多中选择直通并确定">5. 登录腾讯云<a href="https://console.cloud.tencent.com/cvm/eip?rid=4" target="blank">控制台</a>, 在更多中选择直通并确定.</h4>
+
+<h4 id="6-可能碰到的问题">6. 可能碰到的问题</h4>
+
+<h5 id="如果你之前开了直通-且重装了系统-这时候在系统内无法上网的-因为之前的ip是直通的">如果你之前开了直通, 且重装了系统, 这时候在系统内无法上网的, 因为之前的IP是直通的.</h5>
+
+<h5 id="需要你解绑删除刚刚的直通ip-重新申请一个ip-重复2-5步骤">需要你解绑删除刚刚的直通ip, 重新申请一个IP, 重复2-5步骤.</h5>
+
+<h5 id="检查ip-a-不是ifconfig">检查ip a, 不是ifconfig.</h5>
+
+<h4 id="7-重新指定公网ip初始化kubernetes">7. 重新指定公网IP初始化kubernetes</h4>
+
+<pre><code>kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=&lt;公网ip&gt; --ignore-preflight-errors=NumCPU
 </code></pre>
 </div>
   <footer class="post-footer">
