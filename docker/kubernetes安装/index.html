@@ -430,6 +430,9 @@ kubectl taint node mm.com node-role.kubernetes.io/master-
 # 恢复Master Only状态
 
 kubectl taint node &lt;主机节点名称&gt; node-role.kubernetes.io/master=&quot;&quot;
+
+# 立即删除一个pod
+kubectl delete pods &lt;pod&gt; --grace-period=0 --force
 </code></pre>
 </div>
   <footer class="post-footer">
