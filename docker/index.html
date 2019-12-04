@@ -54,6 +54,19 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>腾讯云安装docker碰到的问题</h2>
+  </header>
+  <section class="entry-content">
+   <p> 1. CentOS 7.6版本 docker版本yum install -y docker-ce-18.09.9-3.el7 docker-ce-cli-18.09.9-3.el7 2. 解决docker启动失败问题 Error starting daemon: error initializing graphdriver: \&#34;/var/lib/docker\&#34; contains several valid graphdrivers: devicemapper, overlay; Please cleanup or explicitly choose storage driver (-s &lt;DRIVER&gt;)  删除/var/lib/docker中的devicemapper即可  Error starting daemon: Error initializing network controller: list bridge addresses failed: no available network  缺少桥接,添加一个 ip link add name docker0 type bridge ip addr add dev docker0 172.17.0.1/16  重启docker systemctl restart docker  ...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.12.4</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/docker/%E8%85%BE%E8%AE%AF%E4%BA%91%E5%AE%89%E8%A3%85docker%E7%A2%B0%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
     <h2>Kubernetes扩容增加node节点</h2>
   </header>
   <section class="entry-content">
