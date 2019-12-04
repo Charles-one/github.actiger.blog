@@ -419,6 +419,18 @@ ip link delete cni0
 ip link delete flannel.1
 systemctl restart docker
 </code></pre>
+
+<h3 id="14-kubernetes命令">14. kubernetes命令</h3>
+
+<pre><code># kubernetes将pod调度到master节点
+
+kubectl taint node &lt;主机节点名称&gt; node-role.kubernetes.io/master-
+kubectl taint node mm.com node-role.kubernetes.io/master-
+
+# 恢复Master Only状态
+
+kubectl taint node &lt;主机节点名称&gt; node-role.kubernetes.io/master=&quot;&quot;
+</code></pre>
 </div>
   <footer class="post-footer">
     
