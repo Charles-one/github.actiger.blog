@@ -6,10 +6,20 @@
     <description>Recent content on Actiger跳跳虎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 04 Dec 2019 23:55:11 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 12 Dec 2019 16:04:14 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/actiger/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Maria连接的2种错误</title>
+      <link>https://charles-one.github.io/actiger/mysql/maria%E8%BF%9E%E6%8E%A5%E7%9A%842%E7%A7%8D%E9%94%99%E8%AF%AF/</link>
+      <pubDate>Thu, 12 Dec 2019 16:04:14 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/actiger/mysql/maria%E8%BF%9E%E6%8E%A5%E7%9A%842%E7%A7%8D%E9%94%99%E8%AF%AF/</guid>
+      <description> 1. 常见Mysql Mariadb连接的2种错误 错误一 ERROR 1045 (28000): Access denied for user &#39;usera&#39;@&#39;localhost&#39; (using password:YES)  错误二 ERROR 1045 (28000): Access denied for user &#39;usera&#39;@&#39;localhost&#39; (using password:NO).  2. 错误一 常见错误是密码错误 重置密码即可 3. 错误二 输入账号密码时没有输入密码. 1. 命令行中没有-p进行无密码登录 2. 如果是IDE中的yaml文件确定password的缩进正确 cat application.yaml
+spring: datasource: driver-class-name: org.mariadb.jdbc.Driver url: jdbc:mariadb://localhost:3306/admin username: admin password: 123456  上面的password缩进错误, 就会提示(using password:No) 正确的是 spring: datasource: driver-class-name: org.mariadb.jdbc.Driver url: jdbc:mariadb://localhost:3306/admin username: admin password: 123456  </description>
+    </item>
     
     <item>
       <title>腾讯云安装docker碰到的问题</title>

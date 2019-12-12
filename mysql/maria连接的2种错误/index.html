@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Maria连接的2种错误 - Actiger跳跳虎</title>
+    
+    <meta name="description" content=" 1. 常见Mysql Mariadb连接的2种错误 错误一 ERROR 1045 (28000): Access denied for user &#39;usera&#39;@&#39;localhost&#39; (using password:YES)  错误二 ERROR 1045 (28000): Access denied for user &#39;usera&#39;@&#39;localhost&#39; (using password:NO).  2. 错误一 常见错误是密码错误 重置密码即可 3. 错误二 输入账号密码时没有输入密码. 1. 命令行中没有-p进行无密码登录 2. 如果是IDE中的yaml文件确定password的缩进正确 cat application.yaml
+spring: datasource: driver-class-name: org.mariadb.jdbc.Driver url: jdbc:mariadb://localhost:3306/admin username: admin password: 123456  上面的password缩进错误, 就会提示(using password:No) 正确的是 spring: datasource: driver-class-name: org.mariadb.jdbc.Driver url: jdbc:mariadb://localhost:3306/admin username: admin password: 123456  ">
+    <meta name="author" content="">
+    
+    <link href="https://charles-one.github.io/actiger/css/github-gist.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/img/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/actiger/img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.57.2" />
+    
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <div class="wrap">
+        
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎 </a></p>
+        
+        <button class="menu-toggle" type="button"></button>
+      </div>
+    </header>
+    <nav class="nav">
+    <ul class="menu">
+      
+      
+    </ul>
+    </nav>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Maria连接的2种错误</h1>
+    <div class="post-meta">2019.12.12</div>
+  </header>
+  <div class="post-content">
+
+<h3 id="1-常见mysql-mariadb连接的2种错误">1. 常见Mysql Mariadb连接的2种错误</h3>
+
+<h3 id="错误一">错误一</h3>
+
+<pre><code>ERROR 1045 (28000): Access denied
+for user 'usera'@'localhost' (using password:YES)
+</code></pre>
+
+<h3 id="错误二">错误二</h3>
+
+<pre><code>ERROR 1045 (28000): Access denied
+for user 'usera'@'localhost' (using password:NO).
+</code></pre>
+
+<h3 id="2-错误一-常见错误是密码错误">2. 错误一 常见错误是密码错误</h3>
+
+<h4 id="重置密码即可">重置密码即可</h4>
+
+<h3 id="3-错误二-输入账号密码时没有输入密码">3. 错误二 输入账号密码时没有输入密码.</h3>
+
+<h4 id="1-命令行中没有-p进行无密码登录">1. 命令行中没有-p进行无密码登录</h4>
+
+<h4 id="2-如果是ide中的yaml文件确定password的缩进正确">2. 如果是IDE中的yaml文件确定password的缩进正确</h4>
+
+<p>cat application.yaml</p>
+
+<pre><code>spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/admin
+    username: admin
+password: 123456
+
+</code></pre>
+
+<h4 id="上面的password缩进错误-就会提示-using-password-no">上面的password缩进错误, 就会提示(using password:No)</h4>
+
+<h4 id="正确的是">正确的是</h4>
+
+<pre><code>spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/admin
+    username: admin
+    password: 123456
+
+</code></pre>
+</div>
+  <footer class="post-footer">
+    
+  </footer>
+  
+  
+  
+  
+</article>
+
+</main>
+<footer class="footer">
+    <span><a href="https://charles-one.github.io/actiger/">&copy; 2019 Actiger跳跳虎</a></span>
+  <span>&middot;</span>
+  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span><a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Theme Paper</a></span>
+</footer>
+<script src="https://charles-one.github.io/actiger/js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="https://charles-one.github.io/actiger/js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  hljs.initHighlightingOnLoad();
+  setMenuListener();
+
+  InstantClick.on('change', function() {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuListener();
+  });
+
+  function setMenuListener() {
+    var menuToggle = document.querySelector('.menu-toggle');
+    var body = document.querySelector('body');
+    menuToggle.addEventListener('click', function() {
+      body.classList.toggle('no-scroll');
+    }, false);
+  }
+</script>
+</body>
+</html>
+
