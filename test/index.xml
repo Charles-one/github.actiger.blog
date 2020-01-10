@@ -6,10 +6,27 @@
     <description>Recent content in Tests on Actiger跳跳虎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Jun 2019 23:59:47 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 10 Jan 2020 11:01:12 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/actiger/test/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Jira中问题Bug的工作流</title>
+      <link>https://charles-one.github.io/actiger/test/jira%E4%B8%AD%E9%97%AE%E9%A2%98bug%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81/</link>
+      <pubDate>Fri, 10 Jan 2020 11:01:12 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/actiger/test/jira%E4%B8%AD%E9%97%AE%E9%A2%98bug%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81/</guid>
+      <description>新的项目需要设置问题Bug的工作流, 故整理下. 1. 先看整理好的工作流图片, 点击下载Jira问题工作流. 2. 问题(Bug)可能的状态, 依据项目来定, 以我的项目为例, 共有9个状态.  待办(new) 处理中 已解决 测试中 验证通过(closed) 线上验证中 线上验证通过 重新打开(reopened) 已取消(canceled)  3. 开发与测试能够更改的状态. 3.1 开发能够更改的状态 待办-&amp;gt;处理中
+处理中-&amp;gt;已解决
+重新打开-&amp;gt;处理中
+3.2 测试能够更改的状态 已解决-&amp;gt;测试中-&amp;gt;验证通过-&amp;gt;线上验证中-&amp;gt;线上验证通过
+测试中-&amp;gt;重新打开
+验证通过(closed)-&amp;gt;重新打开
+线上验证中-&amp;gt;重新打开
+线上验证通过-&amp;gt;重新打开
+全部状态-&amp;gt;已取消</description>
+    </item>
     
     <item>
       <title>Moco示例</title>
