@@ -54,6 +54,19 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>Centos7使用ssh Key拉取github项目失败</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. centos7上错误信息, 与配置信息. # 测试最否能连接到github上, 使用-v打印连接日志 [root@cc]/etc/ssh# ssh -vT git@github.com OpenSSH_7.4p1, OpenSSL 1.0.2k-fips 26 Jan 2017 debug1: Reading configuration data /root/.ssh/config debug1: /root/.ssh/config line 3: Applying options for github.com debug1: Reading configuration data /etc/ssh/ssh_config debug1: /etc/ssh/ssh_config line 60: Applying options for * debug1: Connecting to github.com [192.30.255.112] port 12340. debug1: Connection established. debug1: permanently_set_uid: 0/0 debug1: key_load_public: No such file or directory debug1: identity file /root/.ssh/git_cron type -1 debug1: key_load_public: No such file or directory debug1: identity file /root/....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.5.18</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/centos7%E4%BD%BF%E7%94%A8ssh-key%E6%8B%89%E5%8F%96github%E9%A1%B9%E7%9B%AE%E5%A4%B1%E8%B4%A5/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
     <h2>使用docker搭建nextcloud</h2>
   </header>
   <section class="entry-content">
@@ -192,29 +205,6 @@ Your identification has been saved in /Users/username/.ssh/asus_rsa. Your public
     <time>2019.3.30</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E5%8D%8E%E7%A1%95asus%E8%B7%AF%E7%94%B1%E5%99%A8ac5300%E8%8E%AB%E5%90%8D%E9%87%8D%E5%90%AF%E5%92%8C%E6%8E%92%E6%9F%A5/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>使用Hugo和GitHub Pages搭建静态网站</h2>
-  </header>
-  <section class="entry-content">
-   <p>0. 前提条件  电脑安装git(Mac linux都需要安装) 安装go并设置环境变量(仅linux下需要) 虚拟机Centos7.6.1810(测试用, 不需要安装)  1. 安装hugo  mac直接使用brew install hugo就可以了
- linux下源码安装
-   下载并编译
-mkdir ~/src cd ~/src git clone https://github.com/gohugoio/hugo.git cd hugo go install  添加环境变量
-# 当前用户~/go文件绝对路径是GOPATH,Go编译后的文件在~/go/bin中 # 如现在当前用户是jenkins vim /etc/profile 添加 export export GOPATH=/var/lib/jenkins/go export PATH=${PATH}:$GOPATH/bin   重新生效/etc/profile文件
-source /etc/profile
-再次hugo vimersion
-就会显示hugo版本, 表示可用
-2. 使用Hugo创建个人网站  创建静态网站文件夹
-cd ~ hugo new site actiger  写第一篇markdown文章, markdown语法参考
-  cd ~/actiger 在目录~/actiger下执行hugo new about....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.3.13</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E4%BD%BF%E7%94%A8hugo%E5%92%8Cgithub-pages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/"></a>
 </article>
 
 

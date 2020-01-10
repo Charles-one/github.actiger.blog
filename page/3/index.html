@@ -48,6 +48,19 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>TestNG中注解Before After执行顺序</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. TestNG是什么 TestNG一种开源自动测试框架, 相当灵活的注解和配置, 自由测试. 2. Before After执行顺序    注解 描述     @BeforeSuite 套件, 在所有测试开始时运行1次   @BeforeTest 在所有类Classes前, BeforeSuite后运行1次,注解的方法将在testNG.xml文件test标签内的所有类方法运行前执行   @BeforeClass 在单个class类前执行1次   @BeforeGroups 在所有配置方法组前运行1次   @BeforeMethod 在单个配置方法前运行   @AfterMethod 在单个配置方法后运行   @AfterGroups 在所有配置方法组后运行1次   @AfterClass 在单个class类后执行1次   @AfterTest 在所有类Classes后, AfterSuite前运行1次, 注解的方法将在testNG.xml文件test标签内的所有类方法运行后执行。   @AfterSuite 套件, 在所有测试结束时运行1次    package com.actiger.test.suite; import org.testng.annotations.*; public class LoginTest { @Test(groups = {&#34;group&#34;}) public void loginTest(){ System....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.6.12</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/test/testng%E4%B8%AD%E6%B3%A8%E8%A7%A3before-after%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
     <h2>Kubernetes Mariadb Mysql</h2>
   </header>
   <section class="entry-content">
@@ -173,19 +186,6 @@ cat /sys/class/dmi/id/product_uuid  禁用Swap交换分区, 保证kubelet正确�
     <time>2019.5.19</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/letsencrypt%E7%94%B3%E8%AF%B7%E4%B8%8Enginx%E9%85%8D%E7%BD%AEssl/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>使用docker和hugo搭建自己的博客</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. 方案选择, 需要内容结构. 1. 练习的话, 可以这种方案. 虚拟机&#43;本地hosts, 免费, 只能内网访问. 2. 最难的方案, 国内域名(备案时间可能会很长,外地备案条件苛刻)&#43;国内云. 2. 在服务器上拉取docker-compose仓库. # 拉取仓库, 并存放在用户目录中 git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository # 复制这用到了docker-compose文件夹, 并存放在用户目录中 cp -r ~/docker-compose-repository/nginx-hugoBlog ~/nginx-hugoBlog  3. 使用hugo生成正确的博客目录 1. hugo生成网站目录 # 指定主题, 我使用了hugo-paper, 网站地址baseUrl, 目标目录, 我会上传多个平台, 所以指定下. # 注意 --bashUrl后的/是必须要有的. hugo --theme=hugo-paper --baseUrl=&#34;http://blog.actiger.com/&#34; --destination=&#34;blog.actiger.com&#34;  2. 上传步骤1生成的博客目录到github.com. 参考这里的步骤3和4 3. 在服务器上拉取上传的博客目录 # 进行docker-compose文件夹中 cd ~/nginx-hugoBlog # 拉取的docker-compose 默认配置是 ./blog.actiger.com:/usr/share/nginx/html . # docker-compose配置文件里的配置的目录, 与当前目录一致的. # 克隆代码时需要, 重命名与docker-compose配置挂载目录名一致. git clone https://github....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.5.19</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E4%BD%BF%E7%94%A8docker%E5%92%8Chugo%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/"></a>
 </article>
 
 
