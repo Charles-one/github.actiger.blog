@@ -144,14 +144,14 @@ cd /root/kubernetes/pro-blog-cc6/ &amp;&amp; kubectl apply -f ingress-secret.yml
 
 <h3 id="4-添加到定时任务中-每月1号和15号尝试更新证书-可参考-crontab用法-https-blog-actiger-com-linux-crontab定时任务">4. 添加到定时任务中, 每月1号和15号尝试更新证书, 可参考<a href="https://blog.actiger.com/linux/crontab定时任务/">crontab用法</a>.</h3>
 
-<h4 id="vim-root-root-cron">vim /root/root.cron</h4>
+<h4 id="4-1-vim-root-root-cron">4.1 vim /root/root.cron</h4>
 
 <pre><code>#进入脚本目录, 并执行更新证书脚本.
 
 * * 1,15 * *  cd /root/ &amp;&amp; ./autoupdatecert.sh
 </code></pre>
 
-<h4 id="添加上面定时任务">添加上面定时任务</h4>
+<h4 id="4-2-添加上面定时任务">4.2 添加上面定时任务</h4>
 
 <pre><code>crontab -uroot /root/root.cron
 </code></pre>
