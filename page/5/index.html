@@ -48,6 +48,23 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>tmux保存会话和剪贴板插件安装及使用</h2>
+  </header>
+  <section class="entry-content">
+   <p>0.内容  安装tmux 安装tmux插件管理 安装保存会话和剪贴板插件  1.安装tmux 为什么要使用tmux, 可以永久保存会话, 就不用每次都要切换到对应工作目录中.  Mac下
+brew install tmux  linux, 参考Github地址
+git clone https://github.com/tmux/tmux.git cd tmux sh autogen.sh ./configure &amp;&amp; make   2.安装tmux插件管理  参考地址
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  新建~/.tmux.conf, 复制下面内容到这个文件下.
+# List of plugins set -g @plugin &#39;tmux-plugins/tpm&#39; set -g @plugin &#39;tmux-plugins/tmux-sensible&#39; # Other examples: # set -g @plugin &#39;github_username/plugin_name&#39; # set -g @plugin &#39;git@github.com/user/plugin&#39; # set -g @plugin &#39;git@bitbucket....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.4.11</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/tmux%E4%BF%9D%E5%AD%98%E4%BC%9A%E8%AF%9D%E5%92%8C%E5%89%AA%E8%B4%B4%E6%9D%BF%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
     <h2>Mac使用sshpass和alias管理ssh账号密码</h2>
   </header>
   <section class="entry-content">
@@ -220,19 +237,6 @@ docker pull nginx:1....</p>
     <time>2019.3.12</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E5%AE%89%E8%A3%85docker-ce%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>设置用户可sudo命令</h2>
-  </header>
-  <section class="entry-content">
-   <p>vi /etc/sudoers # new cc ALL=/bin/yum # cc用户名就可使用sudo yum  在cc用户下 sudo yum install vim 输入密码后再就可安装vim了...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.3.12</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%8F%AFsudo%E5%91%BD%E4%BB%A4/"></a>
 </article>
 
 

@@ -48,6 +48,19 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>TestNG异常测试</h2>
+  </header>
+  <section class="entry-content">
+   <p> TestNG异常测试 1. expectedException方法预期RuntimeException异常 2. expectedSuccess方法预期RuntimeException异常 3. expectedException用例结果是失败的, expectedSuccess执行用例成功(预期与结果一致) package com.actiger.test.expectedException; import org.testng.annotations.Test; public class ExpectedExcepiton { @Test(expectedExceptions = RuntimeException.class) public void expectedException(){ System.out.println(&#34;期望运行异常的结果!&#34;); } @Test(expectedExceptions = RuntimeException.class) public void expectedSuccess(){ System.out.println(&#34;期望运行异常的结果&#34;); throw new RuntimeException(); } }  ...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.6.12</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/test/testng%E5%BC%82%E5%B8%B8%E6%B5%8B%E8%AF%95/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
     <h2>TestNG中注解Before After执行顺序</h2>
   </header>
   <section class="entry-content">
@@ -173,19 +186,6 @@ cat /sys/class/dmi/id/product_uuid  禁用Swap交换分区, 保证kubelet正确�
     <time>2019.5.19</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E4%BB%8B%E7%BB%8Dspf13%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%92%8C%E6%88%91%E7%9A%84vim%E9%85%8D%E7%BD%AE/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>LetsEncrypt申请与nginx配置SSL</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. letsencrypt 证书申请. 官方指引 1. 申请证书需要安装Cerbto. 脚本 yum -y install epel-release yum -y install yum-utils yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional yum install certbot python2-certbot-nginx  2. 手动去申请证, 我这里申请全部子域名的. 验证身份的方式需要在域名供应商添加dns txt的. 1. 开始安装, 有下面提示信息. 这里需要暂停, 去添加DNS TXT即第2步. # 执行 certbot certonly -d &#34;*.actiger.com&#34; --manual --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory  执行到下面提示信息后, 需要暂停. - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #Please deploy a DNS TXT record under the name #_acme-challenge....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.5.19</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/letsencrypt%E7%94%B3%E8%AF%B7%E4%B8%8Enginx%E9%85%8D%E7%BD%AEssl/"></a>
 </article>
 
 

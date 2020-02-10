@@ -48,6 +48,21 @@
 
 <article class="first-entry">
   <header class="entry-header">
+    <h2>acme.sh获取域名并自动更新到kubernetes中</h2>
+  </header>
+  <section class="entry-content">
+   <p>0. 原因letsencrypt获取的证书只有3个月有效期, 每次手动更新易出错也会忘记, 所以使用crontab定时acme.sh定时更新最好不过了. 放下文章结构 1. 安装acme.sh, acme.sh官网中文链接. # 推荐使用root用户, 后续也以root用户操作的. curl https://get.acme.sh | sh  2. 使用acme.sh的dns方式, 这里服务商以cloudflare为例.  域名使用cloudflare解析(注册cloudflare官方教程更换域名), 拿到Global API Key和邮箱.
+ 参照官方教程中cloudflare部分.
+# Global API Key和邮箱 export CF_Key=&#34;cloudflare设置中的Global API Key&#34; export CF_Email=&#34;cloudflare注册邮箱&#34; # 首次生成域名证书(\*号需要转译) /root/.acme.sh/acme.sh --issue --dns dns_cf -d \*.actiger.com TLSCRT=$(cat /root/.acme.sh/\*.actiger.com/\*.actiger.com.cer) TLSKEY=$(cat /root/.acme.sh/\*.actiger.com/\*.actiger.com.key) # base64转换 ACTIGER_TLSCRT=$(echo &#34;${TLSCRT}&#34;|base64 -w 10000) ACTIGER_TLSKEY=$(echo &#34;${TLSKEY}&#34;|base64 -w 10000) # 生成新的secret. FILE_ACTIGER=&#34;/root/kubernetes/pro-blog-cc6/ingress-secret.yml&#34; cat &lt;&lt; EOF | tee ${FILE_ACTIGER} apiVersion: v1 data: tls....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2020.2.10</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/acmesh%E8%8E%B7%E5%8F%96%E5%9F%9F%E5%90%8D%E5%B9%B6%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E5%88%B0kubernetes%E4%B8%AD/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
     <h2>重现sudo漏洞</h2>
   </header>
   <section class="entry-content">
@@ -178,29 +193,6 @@ nmcli c add type ethernet con-name cc ifname enp0s5 ipv4....</p>
     <time>2019.11.5</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/centos8%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>基本SQL语句用法二</h2>
-  </header>
-  <section class="entry-content">
-   <p>1.创建表 create table if not exists usrinfo( id INT(11), number INT(11), name VARCHAR(255), birthday DATE );
-2.查询表结构 show full columns from usrinfo;
-desc usrinfo;
-describe usrinfo;
-3.查询创建表的语句 show create table usrinfo;
-4.插入数据 插入单选数据 insert into usrinfo values (12123123,“hello”,“1990-02-15”);
-插入多行数据 insert into usrinfo values (12123123,“hello”,“1990-02-15”), (12123123,“cc”,“1991-03-01”);
-插入某些列 insert into usrinfo(number,name) values (121234123,“eefef”);
-插入某些列多行 insert into usrinfo(number,name) values (121234123,“eefef”), (121234123,“eefef”);
-5.查询某一列不重复的值 select distinct number from usrinfo;
-6.增加新的列 增加新列 alter table usrinfo add id int(11);...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.9.20</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/mysql/%E5%9F%BA%E6%9C%ACsql%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95%E4%BA%8C/"></a>
 </article>
 
 
