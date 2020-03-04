@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cs on Actiger跳跳虎</title>
+    <link>https://charles-one.github.io/actiger/c/</link>
+    <description>Recent content in Cs on Actiger跳跳虎</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 03 Mar 2020 11:57:04 +0800</lastBuildDate>
+    
+	<atom:link href="https://charles-one.github.io/actiger/c/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>不准确的01-浮点数</title>
+      <link>https://charles-one.github.io/actiger/c/%E4%B8%8D%E5%87%86%E7%A1%AE%E7%9A%8401-%E6%B5%AE%E7%82%B9%E6%95%B0/</link>
+      <pubDate>Tue, 03 Mar 2020 11:57:04 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/actiger/c/%E4%B8%8D%E5%87%86%E7%A1%AE%E7%9A%8401-%E6%B5%AE%E7%82%B9%E6%95%B0/</guid>
+      <description>1. 整数时, 二进制与十进制可准确转换, 小数时与二进制转换起来情况就复杂了, 二进制不能准确表示某些十进制的小数. 2. 整数, 二进制与十进制转换. 整数转换规则: 除2, 得商和余数, 商除2得商和余数, 直到商为0. 以125为例, 十进制转换为二进制.    数 商 余数     125&amp;frasl;2 62 1   62&amp;frasl;2 31 0   31&amp;frasl;2 15 1   15&amp;frasl;2 7 1   7&amp;frasl;2 3 1   3&amp;frasl;2 1 1   1&amp;frasl;2 0 1    由个位数向前除得最高位数. 125=1x2^0 + 0x2^1 + 1x2^2 + 1x2^3 + 1x2^4 + 1x2^5 + 1x2^6得到二进制数1111101 3.</description>
+    </item>
+    
+  </channel>
+</rss>

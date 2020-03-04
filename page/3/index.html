@@ -48,6 +48,19 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>TestNG依赖测试和xml文件参数化</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. TestNG依赖测试, 1个用例依赖其他的测试方法, 怎么表示这种关系呢, 在注解后加标签dependsOnMethods 例如, 方法2就依赖于方法1, 如果方法1执行失败了, 方法2就无法执行了.  package com.actiger.test.all; import org.testng.annotations.Test; public class Dependon{ @Test public void dependon1(){ System.out.println(&#34;dependon 1111111&#34;); throw new RuntimeException(); } @Test(dependsOnMethods = {&#34;dependon1&#34;}) public void dependon2(){ System.out.println(&#34;dependon 2222222&#34;); } }  2. TestNG的xml文件参数化 1.创建方法 package com.actiger.test.paramter; import org.testng.annotations.Parameters; import org.testng.annotations.Test; public class ParamterTest { @Test @Parameters({&#34;name&#34;, &#34;age&#34;}) public void paramTest1(String name, int age){ System.out.println(&#34;Name:&#34;&#43; name &#43; &#34;, &#34; &#43; &#34;Age:&#34; &#43; age); } }  2....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.6.13</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/test/testng%E4%BE%9D%E8%B5%96%E6%B5%8B%E8%AF%95%E5%92%8Cxml%E6%96%87%E4%BB%B6%E5%8F%82%E6%95%B0%E5%8C%96/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
     <h2>TestNG异常测试</h2>
   </header>
   <section class="entry-content">
@@ -171,21 +184,6 @@ cat /sys/class/dmi/id/product_uuid  禁用Swap交换分区, 保证kubelet正确�
     <time>2019.5.19</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/linux.mac%E4%B8%89%E5%AE%9D%E5%89%91ag-fasd-fzf/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>介绍spf13插件使用和我的vim配置</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. spf13简介 Steve Francia使用的vim配置, vim插件插件集合. http://vim.spf13.com/ 2. spf13常用插件简单使用, 中文.  Surronund 编辑字符周围的符号的.
-# *号表示当前光标停留位置, 所有的操作在vim的nomal模式 Old text Command New text ~ &#34;Hello *world!&#34; ds&#34; Hello world! [123&#43;4*56]/2 cs]) (123&#43;456)/2 &#34;Look ma, I&#39;m *HTML!&#34; cs&#34;&lt;q&gt; &lt;q&gt;Look ma, I&#39;m HTML!&lt;/q&gt; if *x&gt;3 { ysW( if ( x&gt;3 ) { my $str = *whee!; vllllS&#39; my $str = &#39;whee!&#39;;  EasyMotion 跳到任何地方
-# 再打对应的字符就可直接跳到单词的首字符位置 ,,w # 再打对应的字符就可直接跳到单词的尾字符位置 ,,e  Fugitive Git的插件, 可以vim中批量提交git文件, 查看git diff等....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.5.19</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E4%BB%8B%E7%BB%8Dspf13%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%92%8C%E6%88%91%E7%9A%84vim%E9%85%8D%E7%BD%AE/"></a>
 </article>
 
 
