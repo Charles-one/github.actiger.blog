@@ -48,6 +48,19 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>TestNG生成测试报告</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. 使用的extentreports生成的测试报告, 报告中使用的css文件需要上强(墙) &lt;dependency&gt; &lt;groupId&gt;com.aventstack&lt;/groupId&gt; &lt;artifactId&gt;extentreports&lt;/artifactId&gt; &lt;version&gt;4.0.9&lt;/version&gt; &lt;/dependency&gt;  测试方法 package com.actiger.reports; import org.testng.Assert; import org.testng.Reporter; import org.testng.annotations.Test; public class TestReport { @Test public void test1(){ Assert.assertEquals(1,2); } @Test public void test2(){ Assert.assertEquals(1,1); } @Test public void test3(){ Assert.assertEquals(3,3); } @Test public void log1(){ Reporter.log(&#34;这是日志&#34;); throw new RuntimeException(&#34;这是一个异常&#34;); } }  配置的xml &lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt; &lt;suite name=&#34;mytest&#34;&gt; &lt;test name=&#34;test&#34;&gt; &lt;classes&gt; &lt;class name=&#34;com.actiger.reports.TestReport&#34;&gt; &lt;method&gt; &lt;include name=&#34;test1&#34;&gt;&lt;/include&gt; &lt;include name=&#34;test2&#34;&gt;&lt;/include&gt; &lt;include name=&#34;test3&#34;&gt;&lt;/include&gt; &lt;include name=&#34;log1&#34;&gt;&lt;/include&gt; &lt;/method&gt; &lt;/class&gt; &lt;/classes&gt; &lt;/test&gt; &lt;listeners&gt; &lt;listener class-name=&#34;com....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.6.16</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/test/testng%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
     <h2>TestNG超时测试</h2>
   </header>
   <section class="entry-content">
@@ -171,19 +184,6 @@ cat /sys/class/dmi/id/product_uuid  禁用Swap交换分区, 保证kubelet正确�
     <time>2019.6.4</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/docker/kubernetes%E5%AE%89%E8%A3%85/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>Kubernetes太难了</h2>
-  </header>
-  <section class="entry-content">
-   <p> 配置Kubernets东西太多, 很容易出错 出错信息不好找kubectl describe pod nginxllllll, 不好用 Kubernets这种复杂的配置是和docker是对立, 就不能把配置写成docker, 很多工作可以交给docker来做 很烦 更是惊了, 不能用缓存, 什么玩意, 有了缓存kubelet不能起动 ...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.5.27</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/docker/kubernetes%E5%A4%AA%E9%9A%BE%E4%BA%86/"></a>
 </article>
 
 

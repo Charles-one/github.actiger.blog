@@ -48,6 +48,19 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>Kubernetes扩容增加node节点</h2>
+  </header>
+  <section class="entry-content">
+   <p> 1. Kubernetes扩容增加node节点 创建token  kubeadm token create  查看kubernetes认证的SHA256加密字符串是多少  openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2&gt;/dev/null | openssl dgst -sha256 -hex | sed &#39;s/^.* //&#39;  加入master节点  kubeadm join &lt;主master ip&gt;:6443 --token &lt;刚刚创建的token&gt; --discovery-token-ca-cert-hash sha256:&lt;上面的加密字符串&gt;  操作这些时先更新下系统. ...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.11.30</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/docker/kubernetes%E6%89%A9%E5%AE%B9%E5%A2%9E%E5%8A%A0node%E8%8A%82%E7%82%B9/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
     <h2>解决腾讯云PVC网络指定公网ip安装kubernetes master节点失败问题</h2>
   </header>
   <section class="entry-content">
@@ -187,19 +200,6 @@ describe usrinfo;
     <time>2019.6.16</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/test/moco%E7%A4%BA%E4%BE%8B/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>TestNG生成测试报告</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. 使用的extentreports生成的测试报告, 报告中使用的css文件需要上强(墙) &lt;dependency&gt; &lt;groupId&gt;com.aventstack&lt;/groupId&gt; &lt;artifactId&gt;extentreports&lt;/artifactId&gt; &lt;version&gt;4.0.9&lt;/version&gt; &lt;/dependency&gt;  测试方法 package com.actiger.reports; import org.testng.Assert; import org.testng.Reporter; import org.testng.annotations.Test; public class TestReport { @Test public void test1(){ Assert.assertEquals(1,2); } @Test public void test2(){ Assert.assertEquals(1,1); } @Test public void test3(){ Assert.assertEquals(3,3); } @Test public void log1(){ Reporter.log(&#34;这是日志&#34;); throw new RuntimeException(&#34;这是一个异常&#34;); } }  配置的xml &lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt; &lt;suite name=&#34;mytest&#34;&gt; &lt;test name=&#34;test&#34;&gt; &lt;classes&gt; &lt;class name=&#34;com.actiger.reports.TestReport&#34;&gt; &lt;method&gt; &lt;include name=&#34;test1&#34;&gt;&lt;/include&gt; &lt;include name=&#34;test2&#34;&gt;&lt;/include&gt; &lt;include name=&#34;test3&#34;&gt;&lt;/include&gt; &lt;include name=&#34;log1&#34;&gt;&lt;/include&gt; &lt;/method&gt; &lt;/class&gt; &lt;/classes&gt; &lt;/test&gt; &lt;listeners&gt; &lt;listener class-name=&#34;com....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.6.16</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/test/testng%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/"></a>
 </article>
 
 
