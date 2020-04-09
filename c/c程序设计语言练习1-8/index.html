@@ -7,7 +7,7 @@
     
     <title>C程序设计语言练习1 8 - Actiger跳跳虎</title>
     
-    <meta name="description" content=" 1. 要求: 编写一个统计空格 制表符与换行符个数的程序 2. 分析. 1. 使用getchar()获取输入的字符 2. 判断输入的符. 查询ASCII对照表, 空格ASCII值32(也可使用&rsquo; &lsquo;). 制表符&rsquo;\t&rsquo;, 换行&rsquo;\n&rsquo;. 3. 代码 1. 想输入EOF, linux是按Ctrl &#43; D组合键2次, windows Ctrl &#43; Z,  #include&lt;stdio.h&gt; int main(){ int sumspace = 0; int sumt = 0; int sumn = 0; int c ; while( (c = getchar()) != EOF ){ if( c == 32){ sumspace&#43;&#43;; } else if(c == &#39;\t&#39;){ sumt&#43;&#43;; } else if(c == &#39;\n&#39;){ sumn&#43;&#43;; } } printf(&quot;空格数%d 制表符数%d 换行符数%d\n&quot;, sumspace, sumt, sumn); return 0; }  ">
+    <meta name="description" content=" 1. 要求: 编写一个统计空格 制表符与换行符个数的程序 2. 分析. 1. 使用getchar()获取输入的字符 2. 判断输入的符. 查询ASCII对照表, 空格ASCII值32(也可使用&rsquo; &lsquo;). 制表符&rsquo;\t&rsquo;, 换行&rsquo;\n&rsquo;. 3. 代码 1. 想输入EOF, linux是按Ctrl &#43; D组合键2次, windows Ctrl &#43; Z, 2. else if的条件成立就进行下一次循环, 如果3个if条件程序判断3次, 没有效率.  #include&lt;stdio.h&gt; int main(){ int sumspace = 0; int sumt = 0; int sumn = 0; int c ; while( (c = getchar()) != EOF ){ if( c == 32){ sumspace&#43;&#43;; } else if(c == &#39;\t&#39;){ sumt&#43;&#43;; } else if(c == &#39;\n&#39;){ sumn&#43;&#43;; } } printf(&quot;空格数%d 制表符数%d 换行符数%d\n&quot;, sumspace, sumt, sumn); return 0; }  ">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/css/github-gist.min.css" rel="stylesheet">
@@ -58,6 +58,8 @@
 <h2 id="3-代码">3. 代码</h2>
 
 <h4 id="1-想输入eof-linux是按ctrl-d组合键2次-windows-ctrl-z">1. 想输入EOF, linux是按Ctrl + D组合键2次, windows Ctrl + Z,</h4>
+
+<h4 id="2-else-if的条件成立就进行下一次循环-如果3个if条件程序判断3次-没有效率">2. else if的条件成立就进行下一次循环, 如果3个if条件程序判断3次, 没有效率.</h4>
 
 <pre><code>
 #include&lt;stdio.h&gt;
