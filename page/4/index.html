@@ -48,6 +48,32 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>自动生成博客和提交到Github</h2>
+  </header>
+  <section class="entry-content">
+   <p>使用Hugo过程中, 我只关心博客的内容, 至于生成博客完全不需要记录每次提交的内容. 而且现在需要提交到2个地址上, 同一个改动要提交2次. 只需要在content建立一个git项目进行内行管理即可. 注意已经生成的博客, 更改文件名, 是需要手动删除, 已经生成的博客目录中的文件. 1. 创建hugoAll.sh, 用其他编辑器也可. vim hugoAll.sh  2. 更改文件权限, 变成可执行文件 chmod &#43;x hugoAll.sh  3. 添加下面内容到脚本中, actiger更改成你的hugo目录, 把blog.actiger.com文件夹更改成自己的文件夹就可以了.  time=$(date &#34;&#43;%H:%M:%S %A %Y-%m-%d&#34;) echo &#34;-------------------------------------------------------------------------------------&#34; echo &#34;开始自动生成blog.actiger.com博客, git自动添加标签, 推送到github上&#34; cd ~/Documents/actiger/ # 生成blog.actiger.com博客目录文件 hugo --theme=paper --baseUrl=&#34;https://blog.actiger.com/&#34; --destination=&#34;blog.actiger.com&#34; cd ~/Documents/actiger/blog.actiger.com/ git stage . git commit -m &#34;自动标签${time}&#34; git push github master echo &#34;blog.actiger.com内容已经推送到github.com上&#34; echo &#34;-------------------------------------------------------------------------------------&#34; echo &#34;-------------------------------------------------------------------------------------&#34; echo &#34;开始自动生成https://charles-one.github.io/actiger/博客, git自动添加标签, 推送到github上&#34; cd ~/Documents/actiger/ # 生成默认github博客目录文件 hugo --theme=paper --baseUrl=&#34;https://charles-one....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.5.20</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E5%92%8C%E6%8F%90%E4%BA%A4%E5%88%B0github/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Linux.Mac三宝剑ag fasd fzf</h2>
+  </header>
+  <section class="entry-content">
+   <p>1.简介与安装 1. 简介ag是比grep更好的搜索软件, 提供高亮显示. Fasd时空机, 去过的地址都直接跳过去, 再也不用cd来cd去了. Fzf更强大的搜索文件. 2. 安装ag, Fasd Fzf # mac brew install the_silver_searcher fzf fasd # 还需要把 eval &#34;$(fasd --init auto)&#34; 放到.bashrc或者.zshrc中 # 重新生效source .bashrc或者source .zshrc # linux git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf ~/.fzf/install yum install the_silver_searcher yum install fasd  2. 使用. 1. 最有命令说明, 需要配置2中配置才可以使用.(bat是与cat类似,有语法高亮) # tab键补全, 最近打开最多带有a名字的匹配文件, 在任何目录中你都可以直接编辑你的相要的文件 v a # 在任意目录下都可以这样使用, cat与ag联用, 匹配a文件, 并搜索aaa caf a | ag &#34;aaa&#34; # 跳转, 配置最近最多a文件夹名, tab补全所有匹配的a的文件 j a # 预览当前目录下的文件 ffp  2....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2019.5.19</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/linux.mac%E4%B8%89%E5%AE%9D%E5%89%91ag-fasd-fzf/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
     <h2>介绍spf13插件使用和我的vim配置</h2>
   </header>
   <section class="entry-content">
@@ -157,41 +183,6 @@ brew install mosh  Windows: 参考https://mosh.org/
     <time>2019.5.17</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/mosh%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%BD%BF%E7%94%A8/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>Centos7更新内核翻车之旅</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. Centos7 更新内核失败的原因 安装内核后, 设置默认启动的内核错误, 就是设置为rescue模式 2. 事情经过  我操作的内容:
-rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm yum --enablerepo=elrepo-kernel -y install kernel-ml awk -F\&#39; &#39;$1==&#34;menuentry &#34; {print i&#43;&#43; &#34; : &#34; $2}&#39; /etc/grub2.cfg   这时候会显示默认启动内核列表:
- 0 : CentOS Linux (0-rescue-00a62363617944e08db8db894ba6145e) 7 (Core)
-1 : CentOS Linux (5.1.1-1.el7.elrepo.x86_64) 7 (Core)
-2 : CentOS Linux (3.10.0-693.11.6.el7.x86_64) 7 (Core)
-3 : CentOS Linux (3.10.0-693.el7.x86_64) 7 (Core)
- 接下来就是选择错误的地方
-# 错误选择默认的0 grub2-set-default 0  接着就会重启不了, 因为是VPS原因, 无法操作, 手动选择启动的内核, 所以就翻车了....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.5.16</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/centos7%E6%9B%B4%E6%96%B0%E5%86%85%E6%A0%B8%E7%BF%BB%E8%BD%A6%E4%B9%8B%E6%97%85/"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>docker-compose简单使用</h2>
-  </header>
-  <section class="entry-content">
-   <p>目录 1. docker-compose简介 2. docker-compose.yml简单配置说明 3. docker-compose运行 1. docker-compose简介与安装  简介 &gt;docker-compose是编排docker容器的, 就是管理这一批容器, 进行批量配置, 起动, 暂停, 删除容器等. 如果有多个容器, 使用docker一个个启动慢, 如果容器间有依赖, 还需要手动指定, 还有环境变量, 可以 一起设置.
- 使用下面命令安装docker-compose和docker. 或使用[脚本一键安装]()
-yum remove docker \ docker-common \ docker-selinux \ docker-engine yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo yum -y install docker-ce systemctl enable docker systemctl start docker curl -L &#34;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)&#34; -o /usr/local/bin/docker-compose chmod &#43;x /usr/local/bin/docker-compose   2....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.5.15</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/docker-compose%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"></a>
 </article>
 
 
