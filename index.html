@@ -51,7 +51,7 @@
     <h2>C程序设计语言练习1-9</h2>
   </header>
   <section class="entry-content">
-   <p> 1. 要求: 编写一个输入复制到输出的程序, 将其中多个空格用一个空格代替. 2. 分析. 1. 比较前一个字符和当前字符如果同为空(’ ‘), 则不打印, 否则打印. 3. 代码. #include&lt;stdio.h&gt; int main(){ int a, alast; alast=0; while((a=getchar()) !=EOF){ if(a==&#39; &#39; &amp;&amp; alast ==&#39; &#39;){ continue; } else{ putchar(a); } alast = a; } }  ...</p>
+   <p> 1. 要求: 编写一个输入复制到输出的程序, 将其中多个空格用一个空格代替. 2. 分析. 1. 比较前一个字符和当前字符如果同为空格(’ ‘), 则不打印, 否则打印. 3. 代码. 1. a的上一个字符可设一个非空格字符. #include&lt;stdio.h&gt; int main(){ int a, alast; alast=0; while((a=getchar()) !=EOF){ if(a==&#39; &#39; &amp;&amp; alast ==&#39; &#39;){ continue; } else{ putchar(a); } alast = a; } }  ...</p>
   </section>
   <footer class="entry-footer">
     <time>2020.4.10</time>
