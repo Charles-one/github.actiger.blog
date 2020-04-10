@@ -445,7 +445,8 @@ img {
   margin-right: 0;
   padding: var(--gap);
   color: rgba(255, 255, 255, 0.8);
-  background: transparent;
+  /*background: transparent;*/
+  background: rgba(45, 45, 45, 1);
   border-radius: 0;
 }
 .post-content blockquote {
