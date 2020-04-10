@@ -7,7 +7,7 @@
     
     <title>C程序设计语言练习1-9 - Actiger跳跳虎</title>
     
-    <meta name="description" content=" 1. 要求: 编写一个输入复制到输出的程序, 将其中多个空格用一个空格代替. 2. 分析. 1. 比较前一个字符和当前字符如果同为空格(&rsquo; &lsquo;), 则不打印, 否则打印. 3. 代码. 1. a的上一个字符可设一个非空格字符. #include&lt;stdio.h&gt; int main(){ int a, alast; alast=0; while((a=getchar()) !=EOF){ if(a==&#39; &#39; &amp;&amp; alast ==&#39; &#39;){ continue; } else{ putchar(a); } alast = a; } }  ">
+    <meta name="description" content=" 1. 要求: 编写一个输入复制到输出的程序, 将其中多个空格用一个空格代替. 2. 分析. 1. 比较前一个字符和当前字符如果同为空格(&rsquo; &lsquo;), 则不打印, 否则打印. 3. 代码. 1. a的上一个字符可设默认一个非空格字符, 方便判断. #include&lt;stdio.h&gt; int main(){ int a, alast; alast=0; while((a=getchar()) !=EOF){ if(a==&#39; &#39; &amp;&amp; alast ==&#39; &#39;){ continue; } else{ putchar(a); } alast = a; } }  ">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -90,7 +90,7 @@
 
 <h2 id="3-代码">3. 代码.</h2>
 
-<h4 id="1-a的上一个字符可设一个非空格字符">1. a的上一个字符可设一个非空格字符.</h4>
+<h4 id="1-a的上一个字符可设默认一个非空格字符-方便判断">1. a的上一个字符可设默认一个非空格字符, 方便判断.</h4>
 
 <pre><code>#include&lt;stdio.h&gt;
 int main(){

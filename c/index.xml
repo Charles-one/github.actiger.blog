@@ -17,7 +17,7 @@
       <pubDate>Fri, 10 Apr 2020 12:28:11 +0800</pubDate>
       
       <guid>https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-9/</guid>
-      <description> 1. 要求: 编写一个输入复制到输出的程序, 将其中多个空格用一个空格代替. 2. 分析. 1. 比较前一个字符和当前字符如果同为空格(&amp;rsquo; &amp;lsquo;), 则不打印, 否则打印. 3. 代码. 1. a的上一个字符可设一个非空格字符. #include&amp;lt;stdio.h&amp;gt; int main(){ int a, alast; alast=0; while((a=getchar()) !=EOF){ if(a==&#39; &#39; &amp;amp;&amp;amp; alast ==&#39; &#39;){ continue; } else{ putchar(a); } alast = a; } }  </description>
+      <description> 1. 要求: 编写一个输入复制到输出的程序, 将其中多个空格用一个空格代替. 2. 分析. 1. 比较前一个字符和当前字符如果同为空格(&amp;rsquo; &amp;lsquo;), 则不打印, 否则打印. 3. 代码. 1. a的上一个字符可设默认一个非空格字符, 方便判断. #include&amp;lt;stdio.h&amp;gt; int main(){ int a, alast; alast=0; while((a=getchar()) !=EOF){ if(a==&#39; &#39; &amp;amp;&amp;amp; alast ==&#39; &#39;){ continue; } else{ putchar(a); } alast = a; } }  </description>
     </item>
     
     <item>
