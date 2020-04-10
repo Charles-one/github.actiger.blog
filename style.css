@@ -3,28 +3,45 @@
  * A simple, clean, flexible Hugo theme
  * https://github.com/nanxiaobei/hugo-paper
  * Designed by MR.LEE (https://mrlee.me/)
- * Updated in 2019.8.23
+ * Updated in 2019.10.17
  */
 
-/* Variables
+/* Theme
 -------------------------------------------------- */
 :root {
   --gap: 24px;
   --content-gap: 40px;
   --nav-width: 1024px;
-  --main-width: 620px;
+  --main-width: 640px;
   --header-height: 60px;
   --footer-height: 60px;
-
   --radius: 8px;
 
-  --primary:  rgba(69, 130, 236, 0.9);
+  --theme: #fff;
+  --primary: rgba(0, 0, 0, 0.88);
   --secondary: rgba(0, 0, 0, 0.56);
   --tertiary: rgba(0, 0, 0, 0.16);
 
-  --hljs-bg: rgb(79,79,79);
+  --hljs-bg: #1c1d21;
   --code-bg: #f5f5f5;
   --border: #eee;
+}
+.dark {
+  --theme: #3c3c3c;
+  --primary: rgba(255, 255, 255, 0.88);
+  --secondary: rgba(255, 255, 255, 0.56);
+  --tertiary: rgba(255, 255, 255, 0.16);
+
+  --hljs-bg: #2a2a2a;
+  --code-bg: #4f4f4f;
+  --border: #5f5f5f;
+}
+.list {
+  /*background: linear-gradient(135deg, #ddd, #f5f5f5, #d5d5d5);*/
+    background: rgba(255, 255, 255, 0.88);
+}
+.dark.list {
+  background: linear-gradient(135deg, #1c1c1c, #2a2a2a, #000);
 }
 /* Reset
 -------------------------------------------------- */
@@ -38,12 +55,13 @@ html {
 }
 body {
   margin: 0;
-  color:  rgb(0,0,0);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: var(--primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+    'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 18px;
   line-height: 1.8;
   word-break: break-word;
+  background: var(--theme);
 }
 article,
 aside,
@@ -101,8 +119,8 @@ textarea {
   -webkit-appearance: none;
 }
 button,
-input[type="button"],
-input[type="submit"] {
+input[type='button'],
+input[type='submit'] {
   cursor: pointer;
 }
 input,
@@ -113,7 +131,7 @@ textarea {
 }
 input:-webkit-autofill,
 textarea:-webkit-autofill {
-  box-shadow: 0 0 0 50px #fff inset;
+  box-shadow: 0 0 0 50px var(--theme) inset;
 }
 img {
   display: block;
@@ -137,11 +155,11 @@ img {
 .menu {
   margin-left: var(--gap);
   margin-right: var(--gap);
-  color: rgba(69, 130, 236, 0.9);
 }
 .logo a {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 700;
+  color: rgba(69, 130, 236, 0.9);
 }
 .menu {
   display: flex;
@@ -154,20 +172,6 @@ img {
 }
 .menu a {
   font-size: 16px;
-}
-/* Body
--------------------------------------------------- */
-.list {
-  background: linear-gradient(135deg, #e2e2e2, #f8f8f8, #ddd);
-}
-.list::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
 }
 /* Main
 -------------------------------------------------- */
@@ -189,10 +193,11 @@ img {
   display: flex;
 }
 .pagination a {
-  color: #fff;
+  color: var(--theme);
   font-size: 13px;
   line-height: 36px;
-  background: var(--primary);
+  /*background: var(--primary);*/
+  background:   rgba(69, 130, 236, 0.9);
   border-radius: calc(36px / 2);
 }
 .pagination .prev {
@@ -236,12 +241,17 @@ img {
   position: relative;
   margin-bottom: var(--gap);
   padding: var(--gap);
-  background: #fff;
+  /*background: var(--theme);*/
+  background: rgba(240, 240, 240, 0.9);
   border-radius: var(--radius);
   transition: transform 0.1s;
 }
 .post-entry:active {
   transform: scale(0.96);
+}
+.tag-entry .entry-content,
+.tag-entry .entry-footer {
+  display: none;
 }
 .entry-header h2 {
   font-size: 24px;
@@ -308,10 +318,10 @@ img {
   font-size: 24px;
 }
 .post-content h4 {
-  font-size: 22px;
+  font-size: 16px;
 }
 .post-content h5 {
-  font-size: 19px;
+  font-size: 14px;
 }
 .post-content h6 {
   font-size: 12px;
@@ -327,8 +337,7 @@ img {
 }
 .post-content del {
   text-decoration: none;
-  background: linear-gradient(to right, var(--primary) 100%, transparent 0) 0
-    50% / 1px 1px repeat-x;
+  background: linear-gradient(to right, var(--primary) 100%, transparent 0) 0 50% / 1px 1px repeat-x;
 }
 .post-content p,
 .post-content ul,
@@ -384,11 +393,14 @@ img {
 }
 .post-content .highlight,
 .post-content pre {
-  margin-left: calc(var(--gap) * -1);
-  margin-right: calc(var(--gap) * -1);
+  /*margin-left: calc(var(--gap) * -1);*/
+  /*margin-right: calc(var(--gap) * -1);*/
   margin-bottom: 32px;
   background: var(--hljs-bg) !important;
   border-radius: var(--radius);
+}
+.post-content ul pre {
+  margin-left: calc(var(--gap) * -2);
 }
 .post-content .highlight pre {
   margin-left: 0;
@@ -421,8 +433,8 @@ img {
   margin-left: 4px;
   margin-right: 4px;
   padding: 4px 6px;
-  font-family: Menlo, Monaco, "Courier New", Courier, monospace;
-  font-size: 0.9em;
+  font-family: Menlo, Monaco, 'Courier New', Courier, monospace;
+  font-size: 0.78em;
   line-height: 1.5;
   background: var(--code-bg);
   border-radius: 2px;

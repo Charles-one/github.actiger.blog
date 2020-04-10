@@ -10,40 +10,75 @@
     <meta name="description" content=" TestNG异常测试 1. expectedException方法预期RuntimeException异常 2. expectedSuccess方法预期RuntimeException异常 3. expectedException用例结果是失败的, expectedSuccess执行用例成功(预期与结果一致) package com.actiger.test.expectedException; import org.testng.annotations.Test; public class ExpectedExcepiton { @Test(expectedExceptions = RuntimeException.class) public void expectedException(){ System.out.println(&quot;期望运行异常的结果!&quot;); } @Test(expectedExceptions = RuntimeException.class) public void expectedSuccess(){ System.out.println(&quot;期望运行异常的结果&quot;); throw new RuntimeException(); } }  ">
     <meta name="author" content="">
     
-    <link href="https://charles-one.github.io/actiger/css/github-gist.min.css" rel="stylesheet">
-    <link href="https://charles-one.github.io/actiger/css/style.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/style.css" rel="stylesheet">
     
-    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/img/apple-touch-icon.png">
-    <link rel="icon" href="https://charles-one.github.io/actiger/img/favicon.ico">
-    
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
     <meta name="generator" content="Hugo 0.57.2" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
     
+    <script>
+      function setTheme() {
+        const time = new Date();
+
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then(res => res.json())
+            .then(data => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
+      }
+    </script>
   </head>
   <body class="single">
+    <script>
+      setTheme();
+    </script>
     <header class="header">
-      <div class="wrap">
-        
-        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎 </a></p>
-        
-        <button class="menu-toggle" type="button"></button>
-      </div>
+      <nav class="nav">
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></p>
+      </nav>
     </header>
-    <nav class="nav">
-    <ul class="menu">
-      
-      
-    </ul>
-    </nav>
     <main class="main">
 
 
 <article class="post-single">
   <header class="post-header">
     <h1 class="post-title">TestNG异常测试</h1>
-    <div class="post-meta">2019.6.12</div>
+    <div class="post-meta">June 12, 2019</div>
   </header>
   <div class="post-content">
 
@@ -73,44 +108,18 @@ public class ExpectedExcepiton {
 }
 </code></pre>
 </div>
-  <footer class="post-footer">
-    
-  </footer>
   
-  
-  
-  
-</article>
-
-</main>
+</article></main>
 <footer class="footer">
-    <span><a href="https://charles-one.github.io/actiger/">&copy; 2020 Actiger跳跳虎</a></span>
+  <span>&copy; 2020 <a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></span>
   <span>&middot;</span>
-  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Powered by Hugo️️</a>️</span>
   <span>&middot;</span>
-  <span><a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Theme Paper</a></span>
+  <span><a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Theme️ Paper</a></span>
 </footer>
-<script src="https://charles-one.github.io/actiger/js/instantclick.min.js" data-no-instant></script>
-<script data-no-instant>InstantClick.init();</script>
-<script src="https://charles-one.github.io/actiger/js/highlight.min.js" data-no-instant></script>
-<script data-no-instant>
+<script src="https://charles-one.github.io/actiger/highlight.min.js"></script>
+<script>
   hljs.initHighlightingOnLoad();
-  setMenuListener();
-
-  InstantClick.on('change', function() {
-    document.querySelectorAll('pre code').forEach((block) => {
-      hljs.highlightBlock(block);
-    });
-    setMenuListener();
-  });
-
-  function setMenuListener() {
-    var menuToggle = document.querySelector('.menu-toggle');
-    var body = document.querySelector('body');
-    menuToggle.addEventListener('click', function() {
-      body.classList.toggle('no-scroll');
-    }, false);
-  }
 </script>
 </body>
 </html>

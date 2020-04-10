@@ -5,53 +5,78 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <title>Posts - Actiger跳跳虎</title>
+    <title>Tags - Actiger跳跳虎</title>
     
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <link href="https://charles-one.github.io/actiger/css/github-gist.min.css" rel="stylesheet">
-    <link href="https://charles-one.github.io/actiger/css/style.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/style.css" rel="stylesheet">
     
-    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/img/apple-touch-icon.png">
-    <link rel="icon" href="https://charles-one.github.io/actiger/img/favicon.ico">
-    
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
     <meta name="generator" content="Hugo 0.57.2" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
     
+    <script>
+      function setTheme() {
+        const time = new Date();
+
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then(res => res.json())
+            .then(data => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
+      }
+    </script>
   </head>
   <body class="list">
+    <script>
+      setTheme();
+    </script>
     <header class="header">
-      <div class="wrap">
-        
-        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎 </a></p>
-        
-        <button class="menu-toggle" type="button"></button>
-      </div>
+      <nav class="nav">
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></p>
+      </nav>
     </header>
-    <nav class="nav">
-    <ul class="menu">
-      
-      
-    </ul>
-    </nav>
     <main class="main">
 
-
-
 <header class="page-header">
-  <h1>
-  Posts
-  </h1>
+  <h1>Tags</h1>
 </header>
-
-
-
-
-
-
 <article class="post-entry">
   <header class="entry-header">
     <h2>C程序设计语言练习1-9</h2>
@@ -60,11 +85,10 @@
    <p> 1. 要求: 编写一个输入复制到输出的程序, 将其中多个空格用一个空格代替. 2. 分析. 1. 比较前一个字符和当前字符如果同为空格(’ ‘), 则不打印, 否则打印. 3. 代码. 1. a的上一个字符可设一个非空格字符. #include&lt;stdio.h&gt; int main(){ int a, alast; alast=0; while((a=getchar()) !=EOF){ if(a==&#39; &#39; &amp;&amp; alast ==&#39; &#39;){ continue; } else{ putchar(a); } alast = a; } }  ...</p>
   </section>
   <footer class="entry-footer">
-    <time>2020.4.10</time>
+    <time>April 10, 2020</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-9/"></a>
 </article>
-
 <article class="post-entry">
   <header class="entry-header">
     <h2>C程序设计语言练习1-8</h2>
@@ -73,11 +97,10 @@
    <p> 1. 要求: 编写一个统计空格 制表符与换行符个数的程序 2. 分析. 1. 使用getchar()获取输入的字符 2. 判断输入的符. 查询ASCII对照表, 空格ASCII值32(也可使用’ ‘). 制表符’\t’, 换行’\n’. 3. 代码 1. 想输入EOF, linux是按Ctrl &#43; D组合键2次, windows Ctrl &#43; Z, 2. else if的条件成立就进行下一次循环, 如果3个if条件程序判断3次, 没有效率.  #include&lt;stdio.h&gt; int main(){ int sumspace = 0; int sumt = 0; int sumn = 0; int c ; while( (c = getchar()) != EOF ){ if( c == 32){ sumspace&#43;&#43;; } else if(c == &#39;\t&#39;){ sumt&#43;&#43;; } else if(c == &#39;\n&#39;){ sumn&#43;&#43;; } } printf(&#34;空格数%d 制表符数%d 换行符数%d\n&#34;, sumspace, sumt, sumn); return 0; }  ...</p>
   </section>
   <footer class="entry-footer">
-    <time>2020.4.9</time>
+    <time>April 9, 2020</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-8/"></a>
 </article>
-
 <article class="post-entry">
   <header class="entry-header">
     <h2>C程序设计语言练习1-7</h2>
@@ -86,11 +109,10 @@
    <p> 1. 要求: 编写一个打印EOF值的程序 2. 分析 1. 查询得到EOF的值是-1, 帮用%d即可打印出来 3. 代码 #include&lt;stdio.h&gt; int main(){ printf(&#34;EOF is %d\n&#34;, EOF); return 0; }  ...</p>
   </section>
   <footer class="entry-footer">
-    <time>2020.4.9</time>
+    <time>April 9, 2020</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-7/"></a>
 </article>
-
 <article class="post-entry">
   <header class="entry-header">
     <h2>C程序设计语言练习1-6</h2>
@@ -99,11 +121,10 @@
    <p> 1. 要求: 验证表达式getchar() != EOF的值是0还是1 2. 分析. 1. getchar()是获取一个输入字符, 判断是否为输入结尾, 结尾特定EOF(End of File) 2. Linux中，在新的一行的开头，按下Ctrl-D，就代表EOF（如果在一行的中间按下Ctrl-D，则表示输出”标准输入”的缓存区，所以这时必须按两次Ctrl-D）；Windows中，Ctrl-Z表示EOF。（顺便提一句，Linux中按下Ctrl-Z，表示将该进程中断，在后台挂起，用fg命令可以重新切回到前台；按下Ctrl-C表示终止该进程。） 3. 代码 1. 注意a = getchare() != EOF与a = (getchar() != EOF)等价, 原因是=是赋值, !=比=的优先级高, 就像四则运算/号的优先级比&#43;号高一样. 2. while的判断到EOF时会中止执行, 里面语句不会执行, 故需要在外部打印getchar() != EOF的值.  #include&lt;stdio.h&gt; int main(){ int a ; while(a = (getchar() != EOF)){ printf(&#34;%d\n&#34;, a); } printf(&#34;%d\n&#34;, a); return 0; }  ...</p>
   </section>
   <footer class="entry-footer">
-    <time>2020.4.9</time>
+    <time>April 9, 2020</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-6/"></a>
 </article>
-
 <article class="post-entry">
   <header class="entry-header">
     <h2>C程序设计语言练习1-4</h2>
@@ -112,11 +133,10 @@
    <p> 1. 要求: 编写一个程序打印摄氏温度转换为相应华氏温度的转换表. 2. 分析. 1. 由C = (5⁄9)(F-32)得到F = C(9⁄5)&#43;32 2. C摄氏和F华氏温度都有小数, 可使用float 3. 代码 注意事项: %6.1f表示6个数字宽右对齐且保留1位小数 #include&lt;stdio.h&gt; int main(){ float f; float c; int step = 20; int minc = -20; int maxc = 300; c = minc; printf(&#34;摄氏温度转换华氏度\n&#34;); while( c &lt;= maxc ){ f = c * 9.0 / 5.0 &#43; 32; printf(&#34;%3.0f %6.1f\n&#34;, c, f); c = c &#43; step; } return 0; }  ...</p>
   </section>
   <footer class="entry-footer">
-    <time>2020.4.9</time>
+    <time>April 9, 2020</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-4/"></a>
 </article>
-
 <article class="post-entry">
   <header class="entry-header">
     <h2>不准确的01-浮点数</h2>
@@ -125,44 +145,20 @@
    <p>1. 整数时, 二进制与十进制可准确转换, 小数时与二进制转换起来情况就复杂了, 二进制不能准确表示某些十进制的小数. 2. 整数, 二进制与十进制转换. 整数转换规则: 除2, 得商和余数, 商除2得商和余数, 直到商为0. 以125为例, 十进制转换为二进制.    数 商 余数     125⁄2 62 1   62⁄2 31 0   31⁄2 15 1   15⁄2 7 1   7⁄2 3 1   3⁄2 1 1   1⁄2 0 1    由个位数向前除得最高位数. 125=1x2^0 &#43; 0x2^1 &#43; 1x2^2 &#43; 1x2^3 &#43; 1x2^4 &#43; 1x2^5 &#43; 1x2^6得到二进制数1111101 3....</p>
   </section>
   <footer class="entry-footer">
-    <time>2020.3.3</time>
+    <time>March 3, 2020</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/c/%E4%B8%8D%E5%87%86%E7%A1%AE%E7%9A%8401-%E6%B5%AE%E7%82%B9%E6%95%B0/"></a>
-</article>
-
-
-
-
-
-</main>
+</article></main>
 <footer class="footer">
-    <span><a href="https://charles-one.github.io/actiger/">&copy; 2020 Actiger跳跳虎</a></span>
+  <span>&copy; 2020 <a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></span>
   <span>&middot;</span>
-  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Powered by Hugo️️</a>️</span>
   <span>&middot;</span>
-  <span><a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Theme Paper</a></span>
+  <span><a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Theme️ Paper</a></span>
 </footer>
-<script src="https://charles-one.github.io/actiger/js/instantclick.min.js" data-no-instant></script>
-<script data-no-instant>InstantClick.init();</script>
-<script src="https://charles-one.github.io/actiger/js/highlight.min.js" data-no-instant></script>
-<script data-no-instant>
+<script src="https://charles-one.github.io/actiger/highlight.min.js"></script>
+<script>
   hljs.initHighlightingOnLoad();
-  setMenuListener();
-
-  InstantClick.on('change', function() {
-    document.querySelectorAll('pre code').forEach((block) => {
-      hljs.highlightBlock(block);
-    });
-    setMenuListener();
-  });
-
-  function setMenuListener() {
-    var menuToggle = document.querySelector('.menu-toggle');
-    var body = document.querySelector('body');
-    menuToggle.addEventListener('click', function() {
-      body.classList.toggle('no-scroll');
-    }, false);
-  }
 </script>
 </body>
 </html>

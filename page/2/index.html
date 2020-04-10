@@ -10,41 +10,69 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <link href="https://charles-one.github.io/actiger/css/github-gist.min.css" rel="stylesheet">
-    <link href="https://charles-one.github.io/actiger/css/style.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/style.css" rel="stylesheet">
     
-    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/img/apple-touch-icon.png">
-    <link rel="icon" href="https://charles-one.github.io/actiger/img/favicon.ico">
-    
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
     <meta name="generator" content="Hugo 0.57.2" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
     
+    <script>
+      function setTheme() {
+        const time = new Date();
+
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then(res => res.json())
+            .then(data => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
+      }
+    </script>
   </head>
   <body class="list home">
+    <script>
+      setTheme();
+    </script>
     <header class="header">
-      <div class="wrap">
-        
-        <h1 class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎 </a></h1>
-        
-        <button class="menu-toggle" type="button"></button>
-      </div>
+      <nav class="nav">
+        <h1 class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></h1>
+      </nav>
     </header>
-    <nav class="nav">
-    <ul class="menu">
-      
-      
-    </ul>
-    </nav>
     <main class="main">
-
-
-
-
-
-
-
 
 <article class="post-entry">
   <header class="entry-header">
@@ -54,11 +82,10 @@
    <p> 1. CentOS 7.6版本 docker版本yum install -y docker-ce-18.09.9-3.el7 docker-ce-cli-18.09.9-3.el7 2. 解决docker启动失败问题 Error starting daemon: error initializing graphdriver: \&#34;/var/lib/docker\&#34; contains several valid graphdrivers: devicemapper, overlay; Please cleanup or explicitly choose storage driver (-s &lt;DRIVER&gt;)  删除/var/lib/docker中的devicemapper即可  Error starting daemon: Error initializing network controller: list bridge addresses failed: no available network  缺少桥接,添加一个 ip link add name docker0 type bridge ip addr add dev docker0 172.17.0.1/16  重启docker systemctl restart docker  ...</p>
   </section>
   <footer class="entry-footer">
-    <time>2019.12.4</time>
+    <time>December 4, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/docker/%E8%85%BE%E8%AE%AF%E4%BA%91%E5%AE%89%E8%A3%85docker%E7%A2%B0%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"></a>
 </article>
-
 <article class="post-entry">
   <header class="entry-header">
     <h2>Kubernetes扩容增加node节点</h2>
@@ -67,11 +94,10 @@
    <p> 1. Kubernetes扩容增加node节点 创建token  kubeadm token create  查看kubernetes认证的SHA256加密字符串是多少  openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2&gt;/dev/null | openssl dgst -sha256 -hex | sed &#39;s/^.* //&#39;  加入master节点  kubeadm join &lt;主master ip&gt;:6443 --token &lt;刚刚创建的token&gt; --discovery-token-ca-cert-hash sha256:&lt;上面的加密字符串&gt;  操作这些时先更新下系统. ...</p>
   </section>
   <footer class="entry-footer">
-    <time>2019.11.30</time>
+    <time>November 30, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/docker/kubernetes%E6%89%A9%E5%AE%B9%E5%A2%9E%E5%8A%A0node%E8%8A%82%E7%82%B9/"></a>
 </article>
-
 <article class="post-entry">
   <header class="entry-header">
     <h2>解决腾讯云PVC网络指定公网ip安装kubernetes master节点失败问题</h2>
@@ -80,11 +106,10 @@
    <p>1. 问题描述, 使用腾讯云VPC(Virtual Private Cloud)即专有网络, 初始化kubernetes init指定公网ip, 初始化失败 kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=&lt;公网ip&gt; --ignore-preflight-errors=NumCPU  截取提示错误信息 Nov 23 20:09:16 mm.com kubelet[22940]: E1123 20:09:16.997560 22940 kubelet.go:2252] node &#34;mm.com&#34; not found Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.053858 22940 controller.go:125] failed to ensure node lease exists, will retry in 7s, error: Get https://118.89.82.5:6443/apis/coordination.k8s.io/v1beta1 Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.097695 22940 kubelet.go:2252] node &#34;mm.com&#34; not found Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17....</p>
   </section>
   <footer class="entry-footer">
-    <time>2019.11.28</time>
+    <time>November 28, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/docker/%E8%A7%A3%E5%86%B3%E8%85%BE%E8%AE%AF%E4%BA%91pvc%E7%BD%91%E7%BB%9C%E6%8C%87%E5%AE%9A%E5%85%AC%E7%BD%91ip%E5%AE%89%E8%A3%85kubernetes-master%E8%8A%82%E7%82%B9%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/"></a>
 </article>
-
 <article class="post-entry">
   <header class="entry-header">
     <h2>解决mac文件损坏不能打开问题</h2>
@@ -93,11 +118,10 @@
    <p> 1. mac下载后安装的文件提示文件损坏, 需要换到垃圾桶中. 2. 解决方法, 打开终端terminal # 切换到管理员, su后输入管理员root密码 su # xxx就是你安装的程序 xattr -d com.apple.quarantine /Applications/xxxx.app # 退出管理员root exit  3. 重新去打开安装的程序 ...</p>
   </section>
   <footer class="entry-footer">
-    <time>2019.11.28</time>
+    <time>November 28, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/mac/%E8%A7%A3%E5%86%B3mac%E6%96%87%E4%BB%B6%E6%8D%9F%E5%9D%8F%E4%B8%8D%E8%83%BD%E6%89%93%E5%BC%80%E9%97%AE%E9%A2%98/"></a>
 </article>
-
 <article class="post-entry">
   <header class="entry-header">
     <h2>解决NodePod模式外网无法访问mysql服务问题</h2>
@@ -110,11 +134,10 @@ iptables -L -n # iptables 被kubernetes接管后的规则比较多，仔细看�
 vim /usr/lib/systemd/system/docker.service # 在[Service]下增加一条规则 ............ ExecStartPost=/sbin/iptables -I FORWARD -s 0.0.0.0/0 -j ACCEPT # 重启docker生效 systemctl daemon-reload systemctl restart docker  重新使用刚才mysql或mariadb连接测试....</p>
   </section>
   <footer class="entry-footer">
-    <time>2019.11.28</time>
+    <time>November 28, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/docker/%E8%A7%A3%E5%86%B3nodepod%E6%A8%A1%E5%BC%8F%E5%A4%96%E7%BD%91%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AEmysql%E6%9C%8D%E5%8A%A1%E9%97%AE%E9%A2%98/"></a>
 </article>
-
 <article class="post-entry">
   <header class="entry-header">
     <h2>Centos8网络设置</h2>
@@ -127,11 +150,10 @@ vim /etc/sysconfig/network-scripts/ifcfg-enp0s5 添加内容 BOOTPROTO=&#39;stat
 nmcli c add type ethernet con-name cc ifname enp0s5 ipv4....</p>
   </section>
   <footer class="entry-footer">
-    <time>2019.11.5</time>
+    <time>November 5, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/centos8%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE/"></a>
 </article>
-
 <article class="post-entry">
   <header class="entry-header">
     <h2>基本SQL语句用法二</h2>
@@ -150,11 +172,10 @@ describe usrinfo;
 6.增加新的列 增加新列 alter table usrinfo add id int(11);...</p>
   </section>
   <footer class="entry-footer">
-    <time>2019.9.20</time>
+    <time>September 20, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/mysql/%E5%9F%BA%E6%9C%ACsql%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95%E4%BA%8C/"></a>
 </article>
-
 <article class="post-entry">
   <header class="entry-header">
     <h2>垃圾与垃圾篓</h2>
@@ -171,11 +192,10 @@ describe usrinfo;
 就像今天, 你用什么填满, 今天就是什么样的...</p>
   </section>
   <footer class="entry-footer">
-    <time>2019.8.28</time>
+    <time>August 28, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/thought/%E5%9E%83%E5%9C%BE%E4%B8%8E%E5%9E%83%E5%9C%BE%E7%AF%93/"></a>
 </article>
-
 <article class="post-entry">
   <header class="entry-header">
     <h2>申请单个域名方式</h2>
@@ -184,11 +204,10 @@ describe usrinfo;
    <p> 1. 起因 一级域名和二级域名都使用dns-01验证方式申请证书, 申请一级域名的时候更改了_acme-challenge.actiger.com, 续期的时候发现二级域名申请证书时的配置_acme-challenge.actiger.com验证失败, 续期失败 2. 解决方式, 使用不同方式申请证书, 续期不会有冲突 一级域名Actiger.com使用http文件申请证书 二级通用*.actiger.com用例dns-01的方式申请证书 3. 申请单个域名 certbot certonly --manual --preferred-challenges http --email example@icloud.com --domains actiger.com  提示在actiger.com/.well-known/acme-challenge/ 创建一个文件 假如你设置actiger.com跳转到www.actiger.com, 而www.actiger.com又跳转到blog.actiger.com, 可以把创建的文件放在blog.actiger.com/.well-known/acme-challenge/下 在服务器对应目录创建文件 创建文件成功后, 继续申请证书 申请证书成功后, 存放在/etc/letsencrypt下 ...</p>
   </section>
   <footer class="entry-footer">
-    <time>2019.8.27</time>
+    <time>August 27, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E7%94%B3%E8%AF%B7%E5%8D%95%E4%B8%AA%E5%9F%9F%E5%90%8D%E6%96%B9%E5%BC%8F/"></a>
 </article>
-
 <article class="post-entry">
   <header class="entry-header">
     <h2>Ingress-Ningx配置多个SSL证书</h2>
@@ -197,55 +216,26 @@ describe usrinfo;
    <p>1. 起因 我删除域名服务商对顶级域名(即一级域名)的默认的重定向, 直接指向的我服务地址 使用的通配的二级域名证书 访问顶级域名像actiger.com, 浏览器弹出安全提示了. 发现, 通配的二级域名证书不能用在actiger.com上 2. 申请顶级域名actiger.com的证书. 申请过程参照这里 3. Ingress Nginx的配置my-nginx.yml  apiVersion: extensions/v1beta1 kind: Ingress metadata: namespace: nginx-space name: my-nginx spec: tls: - hosts: - weini.actiger.com - www.actiger.com secretName: ingress-secret - hosts: - actiger.com secretName: ingress-top-secret rules: - host: weini.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: www.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: test....</p>
   </section>
   <footer class="entry-footer">
-    <time>2019.6.20</time>
+    <time>June 20, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/docker/ingress-ningx%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAssl%E8%AF%81%E4%B9%A6/"></a>
 </article>
-
-
-
-
 <footer class="page-footer">
   <nav class="pagination">
-    
     <a class="prev" href="/actiger/">← Prev Page</a>
-    
-    
     <a class="next" href="/actiger/page/3/">Next Page →</a>
-    
   </nav>
-</footer>
-
-
-</main>
+</footer></main>
 <footer class="footer">
-    <span><a href="https://charles-one.github.io/actiger/">&copy; 2020 Actiger跳跳虎</a></span>
+  <span>&copy; 2020 <a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></span>
   <span>&middot;</span>
-  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Powered by Hugo️️</a>️</span>
   <span>&middot;</span>
-  <span><a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Theme Paper</a></span>
+  <span><a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Theme️ Paper</a></span>
 </footer>
-<script src="https://charles-one.github.io/actiger/js/instantclick.min.js" data-no-instant></script>
-<script data-no-instant>InstantClick.init();</script>
-<script src="https://charles-one.github.io/actiger/js/highlight.min.js" data-no-instant></script>
-<script data-no-instant>
+<script src="https://charles-one.github.io/actiger/highlight.min.js"></script>
+<script>
   hljs.initHighlightingOnLoad();
-  setMenuListener();
-
-  InstantClick.on('change', function() {
-    document.querySelectorAll('pre code').forEach((block) => {
-      hljs.highlightBlock(block);
-    });
-    setMenuListener();
-  });
-
-  function setMenuListener() {
-    var menuToggle = document.querySelector('.menu-toggle');
-    var body = document.querySelector('body');
-    menuToggle.addEventListener('click', function() {
-      body.classList.toggle('no-scroll');
-    }, false);
-  }
 </script>
 </body>
 </html>
