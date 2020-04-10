@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <title>Actiger跳跳虎</title>
+    <title>C程序设计语言练习1-9 - Actiger跳跳虎</title>
     
-    <meta name="description" content="">
+    <meta name="description" content=" 1. 要求: 编写一个输入复制到输出的程序, 将其中多个空格用一个空格代替. 2. 分析. 1. 比较前一个字符和当前字符如果同为空(&rsquo; &lsquo;), 则不打印, 否则打印. 3. 代码. #include&lt;stdio.h&gt; int main(){ int a, alast; alast=0; while((a=getchar()) !=EOF){ if(a==&#39; &#39; &amp;&amp; alast ==&#39; &#39;){ continue; } else{ putchar(a); } alast = a; } }  ">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/css/github-gist.min.css" rel="stylesheet">
@@ -22,11 +22,11 @@
     
     
   </head>
-  <body class="list home">
+  <body class="single">
     <header class="header">
       <div class="wrap">
         
-        <h1 class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎 </a></h1>
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎 </a></p>
         
         <button class="menu-toggle" type="button"></button>
       </div>
@@ -40,60 +40,46 @@
     <main class="main">
 
 
-
-
-
-
-
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>更改ssh端口与禁止root登录增强服务器安全</h2>
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">C程序设计语言练习1-9</h1>
+    <div class="post-meta">2020.4.10</div>
   </header>
-  <section class="entry-content">
-   <p>0.前提条件 1.安装软件Centos7, 版本7.6.1810 CentOS-7-x86_64-Minimal-1810.iso 2.root用户及密码, 已联网  如未联网,请打开网卡, 并重启 设置/etc/sysconfig/network-scripts/ifcfg-eth0 中ONBOOT =yes  重启电脑
-reboot  1.登录root  需要查询当前Centos7的主机ip
-ifconfig  提示无此命令
-  yum -y install net-tools
-再次 ifconfig查询ip
- 使用ssh软件登录root用户, 默认使用22端口, 不用指定
-ssh root@ip  输入密码
-  2.更改ssh服务端口, 防火墙端口, SELINUX端口  更改sshd.service端口, 端口可选择&gt;10000避免与其他软件冲突.  vim /etc/ssh/sshd_config更改Port 12340
-systemctl restart sshd   添加防火墙端口
-firewall-cmd --zone=public --add-port=12340/tcp --permanent (永久生效必须用--permanent) firewall-cmd --reload  更改SELINUX端口, 因为SELINUX的原因, ssh被设定到22端口上了, 必须更改
-  借助软件来更改 安装 yum -y install policycoreutils-python semanage port -a -t ssh_port_t -p tcp 12340...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.3.12</time>
+  <div class="post-content">
+
+<h2 id="1-要求-编写一个输入复制到输出的程序-将其中多个空格用一个空格代替">1. 要求: 编写一个输入复制到输出的程序, 将其中多个空格用一个空格代替.</h2>
+
+<h2 id="2-分析">2. 分析.</h2>
+
+<h4 id="1-比较前一个字符和当前字符如果同为空-则不打印-否则打印">1. 比较前一个字符和当前字符如果同为空(&rsquo; &lsquo;), 则不打印, 否则打印.</h4>
+
+<h2 id="3-代码">3. 代码.</h2>
+
+<pre><code>#include&lt;stdio.h&gt;
+int main(){
+    int a, alast;
+    alast=0;
+    while((a=getchar()) !=EOF){
+        if(a==' ' &amp;&amp; alast ==' '){
+            continue;
+        }
+        else{
+            putchar(a);
+        }
+        alast = a;
+    }
+}
+
+</code></pre>
+</div>
+  <footer class="post-footer">
+    
   </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E6%9B%B4%E6%94%B9ssh%E7%AB%AF%E5%8F%A3%E4%B8%8E%E7%A6%81%E6%AD%A2root%E7%99%BB%E5%BD%95%E5%A2%9E%E5%BC%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8/"></a>
+  
+  
+  
+  
 </article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>About</h2>
-  </header>
-  <section class="entry-content">
-   <p> 靡不有初 鲜克有终 ...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>2019.3.9</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/about/"></a>
-</article>
-
-
-
-
-<footer class="page-footer">
-  <nav class="pagination">
-    
-    <a class="prev" href="/actiger/page/6/">← Prev Page</a>
-    
-    
-  </nav>
-</footer>
-
 
 </main>
 <footer class="footer">
