@@ -79,7 +79,7 @@
     <h2>C程序设计语言练习1-10</h2>
   </header>
   <section class="entry-content">
-   <p>1. 要求: 编写一个将输入复制到全输出的程序, 并将其中的制表符替换为\t, 将回退符替换为\b, 将反斜杠替换为\. 这样可以将制表符和回退符以可见的方式显示出来 2. 分析: 1. 制表符是\t, 输出是\t, 反斜杠的输入\输出2个, 那就是\\. 3. 代码.  #include&lt;stdio.h&gt; int main(){ int input; while((input=getchar()) != EOF){ if(input == &#39;\\&#39;){ printf(&#34;\\\\&#34;); }else if(input == &#39;\t&#39;){ printf(&#34;\\t&#34;); }else if(input == &#39;\b&#39;){ printf(&#34;\\b&#34;); }else{ putchar(input); } } return 0; } ...</p>
+   <p>1. 要求: 编写一个将输入复制到全输出的程序, 并将其中的制表符替换为\t, 将回退符替换为\b, 将反斜杠替换为\. 这样可以将制表符和回退符以可见的方式显示出来 2. 分析: 1. 制表符是\t, 输出是\t, 反斜杠的输入\输出2个\, 那输出是\\\\. 3. 代码.  #include&lt;stdio.h&gt; int main(){ int input; while((input=getchar()) != EOF){ if(input == &#39;\\&#39;){ printf(&#34;\\\\&#34;); }else if(input == &#39;\t&#39;){ printf(&#34;\\t&#34;); }else if(input == &#39;\b&#39;){ printf(&#34;\\b&#34;); }else{ putchar(input); } } return 0; } ...</p>
   </section>
   <footer class="entry-footer">
     <time>April 11, 2020</time>
