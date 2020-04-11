@@ -15,7 +15,7 @@
     
     <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.69.0" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -76,10 +76,23 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>MariaDB MySQL连接的2种错误</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. 常见MySQL Mariadb连接的2种错误 错误一 ERROR 1045 (28000): Access denied for user &#39;usera&#39;@&#39;localhost&#39; (using password:YES) 错误二 ERROR 1045 (28000): Access denied for user &#39;usera&#39;@&#39;localhost&#39; (using password:NO). 2. 错误一 常见错误是密码错误 重置密码即可 3. 错误二 输入账号密码时没有输入密码. 1. 命令行中没有-p进行无密码登录 2. 如果是IDE中的yaml文件确定password的缩进正确 cat application.yaml
+spring: datasource: driver-class-name: org.mariadb.jdbc.Driver url: jdbc:mariadb://localhost:3306/admin username: admin password: 123456 上面的password缩进错误, 就会提示(using password:No) 正确的是 spring: datasource: driver-class-name: org.mariadb.jdbc.Driver url: jdbc:mariadb://localhost:3306/admin username: admin password: 123456 ...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>December 12, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/mysql/mariadb-mysql%E8%BF%9E%E6%8E%A5%E7%9A%842%E7%A7%8D%E9%94%99%E8%AF%AF/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>腾讯云安装docker碰到的问题</h2>
   </header>
   <section class="entry-content">
-   <p> 1. CentOS 7.6版本 docker版本yum install -y docker-ce-18.09.9-3.el7 docker-ce-cli-18.09.9-3.el7 2. 解决docker启动失败问题 Error starting daemon: error initializing graphdriver: \&#34;/var/lib/docker\&#34; contains several valid graphdrivers: devicemapper, overlay; Please cleanup or explicitly choose storage driver (-s &lt;DRIVER&gt;)  删除/var/lib/docker中的devicemapper即可  Error starting daemon: Error initializing network controller: list bridge addresses failed: no available network  缺少桥接,添加一个 ip link add name docker0 type bridge ip addr add dev docker0 172.17.0.1/16  重启docker systemctl restart docker  ...</p>
+   <p>1. CentOS 7.6版本 docker版本yum install -y docker-ce-18.09.9-3.el7 docker-ce-cli-18.09.9-3.el7 2. 解决docker启动失败问题 Error starting daemon: error initializing graphdriver: \&#34;/var/lib/docker\&#34; contains several valid graphdrivers: devicemapper, overlay; Please cleanup or explicitly choose storage driver (-s &lt;DRIVER&gt;) 删除/var/lib/docker中的devicemapper即可  Error starting daemon: Error initializing network controller: list bridge addresses failed: no available network 缺少桥接,添加一个 ip link add name docker0 type bridge ip addr add dev docker0 172.17.0.1/16 重启docker systemctl restart docker ...</p>
   </section>
   <footer class="entry-footer">
     <time>December 4, 2019</time>
@@ -91,7 +104,7 @@
     <h2>Kubernetes扩容增加node节点</h2>
   </header>
   <section class="entry-content">
-   <p> 1. Kubernetes扩容增加node节点 创建token  kubeadm token create  查看kubernetes认证的SHA256加密字符串是多少  openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2&gt;/dev/null | openssl dgst -sha256 -hex | sed &#39;s/^.* //&#39;  加入master节点  kubeadm join &lt;主master ip&gt;:6443 --token &lt;刚刚创建的token&gt; --discovery-token-ca-cert-hash sha256:&lt;上面的加密字符串&gt;  操作这些时先更新下系统. ...</p>
+   <p>1. Kubernetes扩容增加node节点 创建token  kubeadm token create 查看kubernetes认证的SHA256加密字符串是多少  openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2&gt;/dev/null | openssl dgst -sha256 -hex | sed &#39;s/^.* //&#39; 加入master节点  kubeadm join &lt;主master ip&gt;:6443 --token &lt;刚刚创建的token&gt; --discovery-token-ca-cert-hash sha256:&lt;上面的加密字符串&gt; 操作这些时先更新下系统. ...</p>
   </section>
   <footer class="entry-footer">
     <time>November 30, 2019</time>
@@ -103,7 +116,7 @@
     <h2>解决腾讯云PVC网络指定公网ip安装kubernetes master节点失败问题</h2>
   </header>
   <section class="entry-content">
-   <p>1. 问题描述, 使用腾讯云VPC(Virtual Private Cloud)即专有网络, 初始化kubernetes init指定公网ip, 初始化失败 kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=&lt;公网ip&gt; --ignore-preflight-errors=NumCPU  截取提示错误信息 Nov 23 20:09:16 mm.com kubelet[22940]: E1123 20:09:16.997560 22940 kubelet.go:2252] node &#34;mm.com&#34; not found Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.053858 22940 controller.go:125] failed to ensure node lease exists, will retry in 7s, error: Get https://118.89.82.5:6443/apis/coordination.k8s.io/v1beta1 Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.097695 22940 kubelet.go:2252] node &#34;mm.com&#34; not found Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17....</p>
+   <p>1. 问题描述, 使用腾讯云VPC(Virtual Private Cloud)即专有网络, 初始化kubernetes init指定公网ip, 初始化失败 kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=&lt;公网ip&gt; --ignore-preflight-errors=NumCPU 截取提示错误信息 Nov 23 20:09:16 mm.com kubelet[22940]: E1123 20:09:16.997560 22940 kubelet.go:2252] node &#34;mm.com&#34; not found Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.053858 22940 controller.go:125] failed to ensure node lease exists, will retry in 7s, error: Get https://118.89.82.5:6443/apis/coordination.k8s.io/v1beta1 Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.097695 22940 kubelet.go:2252] node &#34;mm.com&#34; not found Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.101372 22940 reflector....</p>
   </section>
   <footer class="entry-footer">
     <time>November 28, 2019</time>
@@ -115,7 +128,7 @@
     <h2>解决mac文件损坏不能打开问题</h2>
   </header>
   <section class="entry-content">
-   <p> 1. mac下载后安装的文件提示文件损坏, 需要换到垃圾桶中. 2. 解决方法, 打开终端terminal # 切换到管理员, su后输入管理员root密码 su # xxx就是你安装的程序 xattr -d com.apple.quarantine /Applications/xxxx.app # 退出管理员root exit  3. 重新去打开安装的程序 ...</p>
+   <p>1. mac下载后安装的文件提示文件损坏, 需要换到垃圾桶中. 2. 解决方法, 打开终端terminal # 切换到管理员, su后输入管理员root密码 su # xxx就是你安装的程序 xattr -d com.apple.quarantine /Applications/xxxx.app # 退出管理员root exit 3. 重新去打开安装的程序 ...</p>
   </section>
   <footer class="entry-footer">
     <time>November 28, 2019</time>
@@ -127,11 +140,7 @@
     <h2>解决NodePod模式外网无法访问mysql服务问题</h2>
   </header>
   <section class="entry-content">
-   <p>1. 创建NodePod的mysql或MariaDB服务, 请参考Kubernetes Mariadb Mysql安装. 2. 安装完成使用ip:30016 用户 密码连接失败, 使用over ssh方式却可以连接成功. 排查问题  查看防火墙端口打开30016端口
- firewall-cmd --list-ports # 没有则添加 firewall-cmd --zone=public --add-port=30016/tcp --permanent firewall-cmd --reload  关闭防火墙, 为啥关闭以后再开一篇解释
-systemctl stop firewalld  查询iptables规则,
-iptables -L -n # iptables 被kubernetes接管后的规则比较多，仔细看下FORWARD规则发现， # policy DROP状态， # 这就导致了我们直接访问node节点的IP加上端口会无法访问容器. # 临时生效 iptables -P FORWARD ACCEPT  永久生效
-vim /usr/lib/systemd/system/docker.service # 在[Service]下增加一条规则 ............ ExecStartPost=/sbin/iptables -I FORWARD -s 0.0.0.0/0 -j ACCEPT # 重启docker生效 systemctl daemon-reload systemctl restart docker  重新使用刚才mysql或mariadb连接测试....</p>
+   <p>1. 创建NodePod的mysql或MariaDB服务, 请参考&lt;a href=&#34;https://blog.actiger.com/docker/kubernetes-mariadb-mysql/” target=”_blank&#34;Kubernetes Mariadb Mysql&gt;Kubernetes Mariadb Mysql安装. 2. 安装完成使用ip:30016 用户 密码连接失败, 使用over ssh方式却可以连接成功. 排查问题  查看防火墙端口打开30016端口   firewall-cmd --list-ports # 没有则添加 firewall-cmd --zone=public --add-port=30016/tcp --permanent firewall-cmd --reload 关闭防火墙, 为啥关闭以后再开一篇解释  systemctl stop firewalld 查询iptables规则,  iptables -L -n # iptables 被kubernetes接管后的规则比较多，仔细看下FORWARD规则发现， # policy DROP状态， # 这就导致了我们直接访问node节点的IP加上端口会无法访问容器. # 临时生效 iptables -P FORWARD ACCEPT 永久生效  vim /usr/lib/systemd/system/docker.service # 在[Service]下增加一条规则 ............ ExecStartPost=/sbin/iptables -I FORWARD -s 0.0.0.0/0 -j ACCEPT # 重启docker生效 systemctl daemon-reload systemctl restart docker 重新使用刚才mysql或mariadb连接测试....</p>
   </section>
   <footer class="entry-footer">
     <time>November 28, 2019</time>
@@ -143,11 +152,7 @@ vim /usr/lib/systemd/system/docker.service # 在[Service]下增加一条规则 .
     <h2>Centos8网络设置</h2>
   </header>
   <section class="entry-content">
-   <p>1. 安装Centos8时, 设置网络发现network.service不能使用, 搜索得知服务已更改为nmcli管理, 那就学习下 2. 有2种方式设置静态IP 2.1 方法一. 更改网络配置文件, 重启网络.  更改配置文件
-vim /etc/sysconfig/network-scripts/ifcfg-enp0s5 添加内容 BOOTPROTO=&#39;static&#39; GATEWAY=192.168.50.1 NETMASK=255.255.255.255 IPADDR=192.168.50.200 PREFIX=32  重启网络, 重点, 相比CentOS 7有变化, CentOS 8已删除network.service. 使用nmcli来管理.
-# 显示连接 nmcli c show # 生效连接 nmcli connect up enp0s5 可简写为 nmcli c up enp0s5  如SSH连接, 应该会断线, 重新连接需要主机执行下面操作.
-删除本机~/.ssh/know_hosts中ip 重启虚拟机 reboot   2.2 方法二, 通过nmcli直接更改网卡信息, 重启网络.  创建一个名字是cc的连接connection, 其中ifname后的enp0s5必须是nmcli d中的device, ipv4.method manual表示静态ip, type ethernet指定以太网.
-nmcli c add type ethernet con-name cc ifname enp0s5 ipv4....</p>
+   <p>1. 安装Centos8时, 设置网络发现network.service不能使用, 搜索得知服务已更改为nmcli管理, 那就学习下 2. 有2种方式设置静态IP 2.1 方法一. 更改网络配置文件, 重启网络.  更改配置文件  vim /etc/sysconfig/network-scripts/ifcfg-enp0s5 添加内容 BOOTPROTO=&#39;static&#39; GATEWAY=192.168.50.1 NETMASK=255.255.255.255 IPADDR=192.168.50.200 PREFIX=32 重启网络, 重点, 相比CentOS 7有变化, CentOS 8已删除network.service. 使用nmcli来管理.  # 显示连接 nmcli c show # 生效连接 nmcli connect up enp0s5 可简写为 nmcli c up enp0s5 如SSH连接, 应该会断线, 重新连接需要主机执行下面操作.  删除本机~/.ssh/know_hosts中ip 重启虚拟机 reboot 2.2 方法二, 通过nmcli直接更改网卡信息, 重启网络.  创建一个名字是cc的连接connection, 其中ifname后的enp0s5必须是nmcli d中的device, ipv4.method manual表示静态ip, type ethernet指定以太网.  nmcli c add type ethernet con-name cc ifname enp0s5 ipv4....</p>
   </section>
   <footer class="entry-footer">
     <time>November 5, 2019</time>
@@ -201,24 +206,12 @@ describe usrinfo;
     <h2>申请单个域名方式</h2>
   </header>
   <section class="entry-content">
-   <p> 1. 起因 一级域名和二级域名都使用dns-01验证方式申请证书, 申请一级域名的时候更改了_acme-challenge.actiger.com, 续期的时候发现二级域名申请证书时的配置_acme-challenge.actiger.com验证失败, 续期失败 2. 解决方式, 使用不同方式申请证书, 续期不会有冲突 一级域名Actiger.com使用http文件申请证书 二级通用*.actiger.com用例dns-01的方式申请证书 3. 申请单个域名 certbot certonly --manual --preferred-challenges http --email example@icloud.com --domains actiger.com  提示在actiger.com/.well-known/acme-challenge/ 创建一个文件 假如你设置actiger.com跳转到www.actiger.com, 而www.actiger.com又跳转到blog.actiger.com, 可以把创建的文件放在blog.actiger.com/.well-known/acme-challenge/下 在服务器对应目录创建文件 创建文件成功后, 继续申请证书 申请证书成功后, 存放在/etc/letsencrypt下 ...</p>
+   <p>1. 起因 一级域名和二级域名都使用dns-01验证方式申请证书, 申请一级域名的时候更改了_acme-challenge.actiger.com, 续期的时候发现二级域名申请证书时的配置_acme-challenge.actiger.com验证失败, 续期失败 2. 解决方式, 使用不同方式申请证书, 续期不会有冲突 一级域名Actiger.com使用http文件申请证书 二级通用*.actiger.com用例dns-01的方式申请证书 3. 申请单个域名 certbot certonly --manual --preferred-challenges http --email example@icloud.com --domains actiger.com 提示在actiger.com/.well-known/acme-challenge/ 创建一个文件 假如你设置actiger.com跳转到www.actiger.com, 而www.actiger.com又跳转到blog.actiger.com, 可以把创建的文件放在blog.actiger.com/.well-known/acme-challenge/下 在服务器对应目录创建文件 创建文件成功后, 继续申请证书 申请证书成功后, 存放在/etc/letsencrypt下 ...</p>
   </section>
   <footer class="entry-footer">
     <time>August 27, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E7%94%B3%E8%AF%B7%E5%8D%95%E4%B8%AA%E5%9F%9F%E5%90%8D%E6%96%B9%E5%BC%8F/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>Ingress-Ningx配置多个SSL证书</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. 起因 我删除域名服务商对顶级域名(即一级域名)的默认的重定向, 直接指向的我服务地址 使用的通配的二级域名证书 访问顶级域名像actiger.com, 浏览器弹出安全提示了. 发现, 通配的二级域名证书不能用在actiger.com上 2. 申请顶级域名actiger.com的证书. 申请过程参照这里 3. Ingress Nginx的配置my-nginx.yml  apiVersion: extensions/v1beta1 kind: Ingress metadata: namespace: nginx-space name: my-nginx spec: tls: - hosts: - weini.actiger.com - www.actiger.com secretName: ingress-secret - hosts: - actiger.com secretName: ingress-top-secret rules: - host: weini.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: www.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: test....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>June 20, 2019</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/docker/ingress-ningx%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAssl%E8%AF%81%E4%B9%A6/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

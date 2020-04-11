@@ -15,7 +15,7 @@
     
     <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.69.0" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -80,24 +80,14 @@
     <h1 class="post-title">Ingress-Ningx配置多个SSL证书</h1>
     <div class="post-meta">June 20, 2019</div>
   </header>
-  <div class="post-content">
-
-<h3 id="1-起因">1. 起因</h3>
-
-<h4 id="我删除域名服务商对顶级域名-即一级域名-的默认的重定向-直接指向的我服务地址">我删除域名服务商对顶级域名(即一级域名)的默认的重定向, 直接指向的我服务地址</h4>
-
+  <div class="post-content"><h3 id="1-起因">1. 起因</h3>
+<h4 id="我删除域名服务商对顶级域名即一级域名的默认的重定向-直接指向的我服务地址">我删除域名服务商对顶级域名(即一级域名)的默认的重定向, 直接指向的我服务地址</h4>
 <h4 id="使用的通配的二级域名证书">使用的通配的二级域名证书</h4>
-
-<h4 id="访问顶级域名像-actiger-com-https-actiger-com-浏览器弹出安全提示了">访问顶级域名像<a href="https://actiger.com">actiger.com</a>, 浏览器弹出安全提示了.</h4>
-
-<h4 id="发现-通配的二级域名证书不能用在actiger-com上">发现, 通配的二级域名证书不能用在actiger.com上</h4>
-
-<h3 id="2-申请顶级域名-actiger-com-http-actiger-com-的证书">2. 申请顶级域名<a href="http://actiger.com">actiger.com</a>的证书.</h3>
-
-<h4 id="申请过程-参照这里-https-blog-actiger-com-linux-letsencrypt申请与nginx配置ssl">申请过程<a href="https://blog.actiger.com/linux/letsencrypt申请与nginx配置ssl/">参照这里</a></h4>
-
-<h3 id="3-ingress-nginx的配置my-nginx-yml">3. Ingress Nginx的配置my-nginx.yml</h3>
-
+<h4 id="访问顶级域名像actigercomhttpsactigercom-浏览器弹出安全提示了">访问顶级域名像<a href="https://actiger.com">actiger.com</a>, 浏览器弹出安全提示了.</h4>
+<h4 id="发现-通配的二级域名证书不能用在actigercom上">发现, 通配的二级域名证书不能用在actiger.com上</h4>
+<h3 id="2-申请顶级域名actigercomhttpactigercom的证书">2. 申请顶级域名<a href="http://actiger.com">actiger.com</a>的证书.</h3>
+<h4 id="申请过程参照这里httpsblogactigercomlinuxletsencrypt申请与nginx配置ssl">申请过程<a href="https://blog.actiger.com/linux/letsencrypt%E7%94%B3%E8%AF%B7%E4%B8%8Enginx%E9%85%8D%E7%BD%AEssl/">参照这里</a></h4>
+<h3 id="3-ingress-nginx的配置my-nginxyml">3. Ingress Nginx的配置my-nginx.yml</h3>
 <pre><code>
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -139,10 +129,7 @@ spec:
           serviceName: my-nginx
           servicePort: 80
 
-</code></pre>
-
-<h3 id="4-配置域名解析到服务ip-测试https有没有生效">4. 配置域名解析到服务IP, 测试https有没有生效</h3>
-
+</code></pre><h3 id="4-配置域名解析到服务ip-测试https有没有生效">4. 配置域名解析到服务IP, 测试https有没有生效</h3>
 <pre><code>
 curl -vL actiger.com
 
@@ -164,8 +151,7 @@ curl -vL actiger.com
 &gt; User-Agent: curl/7.63.0
 &gt; Accept: */*
 
-</code></pre>
-</div>
+</code></pre></div>
   
 </article></main>
 <footer class="footer">

@@ -15,7 +15,7 @@
     
     <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.69.0" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -76,10 +76,22 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>Ingress-Ningx配置多个SSL证书</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. 起因 我删除域名服务商对顶级域名(即一级域名)的默认的重定向, 直接指向的我服务地址 使用的通配的二级域名证书 访问顶级域名像actiger.com, 浏览器弹出安全提示了. 发现, 通配的二级域名证书不能用在actiger.com上 2. 申请顶级域名actiger.com的证书. 申请过程参照这里 3. Ingress Nginx的配置my-nginx.yml  apiVersion: extensions/v1beta1 kind: Ingress metadata: namespace: nginx-space name: my-nginx spec: tls: - hosts: - weini.actiger.com - www.actiger.com secretName: ingress-secret - hosts: - actiger.com secretName: ingress-top-secret rules: - host: weini.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: www.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: test....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>June 20, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/docker/ingress-ningx%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAssl%E8%AF%81%E4%B9%A6/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>Moco示例</h2>
   </header>
   <section class="entry-content">
-   <p>1. Moco是什么? 简单的模拟服务器的程序库/工具, 有请求给出响应.在地址中下载moco-runner-0.12.0-standalone.jar. 2. 使用示例 1. 创建test.json [ { &#34;description&#34;: &#34;First test&#34;, &#34;request&#34;: { &#34;uri&#34;: &#34;/demo&#34; }, &#34;response&#34;: { &#34;text&#34;: &#34;First Response&#34; } } ]  2. 命令行启动服务, moco-runner-0.12.0-standalone.jar与test.json在相同目录下.  java -jar ./moco-runner-0.12.0-standalone.jar http -p 8888 -c test.json  3. 验证 访问http://localhost:8888/demo 2. 模拟一个带参数的请求, para.json [ { &#34;description&#34;: &#34;模拟一个有参数的Get请求&#34;, &#34;request&#34;: { &#34;uri&#34;: &#34;/getpara&#34;, &#34;method&#34;: &#34;get&#34;, &#34;queries&#34;: { &#34;name&#34;: &#34;xiaoming&#34;, &#34;age&#34;: &#34;20&#34; } }, &#34;response&#34;: { &#34;text&#34;: &#34;I am on the way....</p>
+   <p>1. Moco是什么? 简单的模拟服务器的程序库/工具, 有请求给出响应.在地址中下载moco-runner-0.12.0-standalone.jar. 2. 使用示例 1. 创建test.json [ { &#34;description&#34;: &#34;First test&#34;, &#34;request&#34;: { &#34;uri&#34;: &#34;/demo&#34; }, &#34;response&#34;: { &#34;text&#34;: &#34;First Response&#34; } } ] 2. 命令行启动服务, moco-runner-0.12.0-standalone.jar与test.json在相同目录下.  java -jar ./moco-runner-0.12.0-standalone.jar http -p 8888 -c test.json 3. 验证 访问http://localhost:8888/demo 2. 模拟一个带参数的请求, para.json [ { &#34;description&#34;: &#34;模拟一个有参数的Get请求&#34;, &#34;request&#34;: { &#34;uri&#34;: &#34;/getpara&#34;, &#34;method&#34;: &#34;get&#34;, &#34;queries&#34;: { &#34;name&#34;: &#34;xiaoming&#34;, &#34;age&#34;: &#34;20&#34; } }, &#34;response&#34;: { &#34;text&#34;: &#34;I am on the way.&#34; } } ]  java -jar ....</p>
   </section>
   <footer class="entry-footer">
     <time>June 16, 2019</time>
@@ -91,7 +103,7 @@
     <h2>TestNG生成测试报告</h2>
   </header>
   <section class="entry-content">
-   <p>1. 使用的extentreports生成的测试报告, 报告中使用的css文件需要上强(墙) &lt;dependency&gt; &lt;groupId&gt;com.aventstack&lt;/groupId&gt; &lt;artifactId&gt;extentreports&lt;/artifactId&gt; &lt;version&gt;4.0.9&lt;/version&gt; &lt;/dependency&gt;  测试方法 package com.actiger.reports; import org.testng.Assert; import org.testng.Reporter; import org.testng.annotations.Test; public class TestReport { @Test public void test1(){ Assert.assertEquals(1,2); } @Test public void test2(){ Assert.assertEquals(1,1); } @Test public void test3(){ Assert.assertEquals(3,3); } @Test public void log1(){ Reporter.log(&#34;这是日志&#34;); throw new RuntimeException(&#34;这是一个异常&#34;); } }  配置的xml &lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt; &lt;suite name=&#34;mytest&#34;&gt; &lt;test name=&#34;test&#34;&gt; &lt;classes&gt; &lt;class name=&#34;com.actiger.reports.TestReport&#34;&gt; &lt;method&gt; &lt;include name=&#34;test1&#34;&gt;&lt;/include&gt; &lt;include name=&#34;test2&#34;&gt;&lt;/include&gt; &lt;include name=&#34;test3&#34;&gt;&lt;/include&gt; &lt;include name=&#34;log1&#34;&gt;&lt;/include&gt; &lt;/method&gt; &lt;/class&gt; &lt;/classes&gt; &lt;/test&gt; &lt;listeners&gt; &lt;listener class-name=&#34;com....</p>
+   <p>1. 使用的extentreports生成的测试报告, 报告中使用的css文件需要上强(墙) &lt;dependency&gt; &lt;groupId&gt;com.aventstack&lt;/groupId&gt; &lt;artifactId&gt;extentreports&lt;/artifactId&gt; &lt;version&gt;4.0.9&lt;/version&gt; &lt;/dependency&gt; 测试方法 package com.actiger.reports; import org.testng.Assert; import org.testng.Reporter; import org.testng.annotations.Test; public class TestReport { @Test public void test1(){ Assert.assertEquals(1,2); } @Test public void test2(){ Assert.assertEquals(1,1); } @Test public void test3(){ Assert.assertEquals(3,3); } @Test public void log1(){ Reporter.log(&#34;这是日志&#34;); throw new RuntimeException(&#34;这是一个异常&#34;); } } 配置的xml &lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt; &lt;suite name=&#34;mytest&#34;&gt; &lt;test name=&#34;test&#34;&gt; &lt;classes&gt; &lt;class name=&#34;com.actiger.reports.TestReport&#34;&gt; &lt;method&gt; &lt;include name=&#34;test1&#34;&gt;&lt;/include&gt; &lt;include name=&#34;test2&#34;&gt;&lt;/include&gt; &lt;include name=&#34;test3&#34;&gt;&lt;/include&gt; &lt;include name=&#34;log1&#34;&gt;&lt;/include&gt; &lt;/method&gt; &lt;/class&gt; &lt;/classes&gt; &lt;/test&gt; &lt;listeners&gt; &lt;listener class-name=&#34;com....</p>
   </section>
   <footer class="entry-footer">
     <time>June 16, 2019</time>
@@ -103,7 +115,7 @@
     <h2>TestNG超时测试</h2>
   </header>
   <section class="entry-content">
-   <p> TestNG超时测试 超出预期时间则用例失败 package com.actiger.test.timeout; import org.testng.annotations.Test; public class TimeOut { @Test(timeOut = 3000) public void testSuccess() throws InterruptedException{ Thread.sleep(2000); } @Test(timeOut = 2000) public void testFail() throws InterruptedException{ Thread.sleep(3000); } }  ...</p>
+   <p>TestNG超时测试 超出预期时间则用例失败 package com.actiger.test.timeout; import org.testng.annotations.Test; public class TimeOut { @Test(timeOut = 3000) public void testSuccess() throws InterruptedException{ Thread.sleep(2000); } @Test(timeOut = 2000) public void testFail() throws InterruptedException{ Thread.sleep(3000); } } ...</p>
   </section>
   <footer class="entry-footer">
     <time>June 16, 2019</time>
@@ -115,7 +127,7 @@
     <h2>TestNG多线程配置</h2>
   </header>
   <section class="entry-content">
-   <p>1. 在方法注释中配置多线程, 配置线程池  package com.actiger.test.thread; import org.testng.annotations.Test; public class MultiThread { @Test(invocationCount = 10, threadPoolSize = 3) public void test(){ System.out.println(&#34;1&#34;); System.out.println(&#34;Thread ID:%s%n&#34; &#43; Thread.currentThread().getId()); } }  2. 在xml中配置多线程, 不可配置为线程池. package com.actiger.test.thread; import org.testng.annotations.Test; public class MultiThreadOnXml { @Test public void test1(){ System.out.println(&#34;Thread ID: &#34; &#43; Thread.currentThread().getId()); } @Test public void test2(){ System.out.println(&#34;Thread ID: &#34; &#43; Thread.currentThread().getId()); } @Test public void test3(){ System.out.println(&#34;Thread ID: &#34; &#43; Thread.currentThread().getId()); } }  multiThread....</p>
+   <p>1. 在方法注释中配置多线程, 配置线程池  package com.actiger.test.thread; import org.testng.annotations.Test; public class MultiThread { @Test(invocationCount = 10, threadPoolSize = 3) public void test(){ System.out.println(&#34;1&#34;); System.out.println(&#34;Thread ID:%s%n&#34; &#43; Thread.currentThread().getId()); } } 2. 在xml中配置多线程, 不可配置为线程池. package com.actiger.test.thread; import org.testng.annotations.Test; public class MultiThreadOnXml { @Test public void test1(){ System.out.println(&#34;Thread ID: &#34; &#43; Thread.currentThread().getId()); } @Test public void test2(){ System.out.println(&#34;Thread ID: &#34; &#43; Thread.currentThread().getId()); } @Test public void test3(){ System.out.println(&#34;Thread ID: &#34; &#43; Thread.currentThread().getId()); } } multiThread....</p>
   </section>
   <footer class="entry-footer">
     <time>June 16, 2019</time>
@@ -127,7 +139,7 @@
     <h2>TestNG参数化测试</h2>
   </header>
   <section class="entry-content">
-   <p>1. 参数化测试, 使用DataProvider来参数化. @Test中dataProvider的名字与@DataProvider名称一致  @Test(dataProvider = &#34;data&#34;) public void dataProvider(String name, int age){ System.out.println(&#34;Name:&#34; &#43; name &#43; &#34;, &#34; &#43; &#34;Age:&#34; &#43; age); } @DataProvider(name = &#34;data&#34;) public Object[][] data(){ Object[][] oo = new Object[][]{ {&#34;zhangsan&#34;, 18}, {&#34;lisi&#34;, 20}, {&#34;wangwu&#34;, 30} }; return oo; }  2. 针对不方法识别, 使用不同参数  @Test(dataProvider = &#34;testMethod&#34;) public void method1(String name, int age){ System.out.println(&#34;Name:&#34; &#43; name &#43; &#34;, &#34; &#43; &#34;Age:&#34; &#43; age &#43; &#34;1111&#34;); } @Test(dataProvider = &#34;testMethod&#34;) public void method2(String name, int age){ System....</p>
+   <p>1. 参数化测试, 使用DataProvider来参数化. @Test中dataProvider的名字与@DataProvider名称一致  @Test(dataProvider = &#34;data&#34;) public void dataProvider(String name, int age){ System.out.println(&#34;Name:&#34; &#43; name &#43; &#34;, &#34; &#43; &#34;Age:&#34; &#43; age); } @DataProvider(name = &#34;data&#34;) public Object[][] data(){ Object[][] oo = new Object[][]{ {&#34;zhangsan&#34;, 18}, {&#34;lisi&#34;, 20}, {&#34;wangwu&#34;, 30} }; return oo; } 2. 针对不方法识别, 使用不同参数  @Test(dataProvider = &#34;testMethod&#34;) public void method1(String name, int age){ System.out.println(&#34;Name:&#34; &#43; name &#43; &#34;, &#34; &#43; &#34;Age:&#34; &#43; age &#43; &#34;1111&#34;); } @Test(dataProvider = &#34;testMethod&#34;) public void method2(String name, int age){ System....</p>
   </section>
   <footer class="entry-footer">
     <time>June 15, 2019</time>
@@ -139,7 +151,7 @@
     <h2>TestNG依赖测试和xml文件参数化</h2>
   </header>
   <section class="entry-content">
-   <p>1. TestNG依赖测试, 1个用例依赖其他的测试方法, 怎么表示这种关系呢, 在注解后加标签dependsOnMethods 例如, 方法2就依赖于方法1, 如果方法1执行失败了, 方法2就无法执行了.  package com.actiger.test.all; import org.testng.annotations.Test; public class Dependon{ @Test public void dependon1(){ System.out.println(&#34;dependon 1111111&#34;); throw new RuntimeException(); } @Test(dependsOnMethods = {&#34;dependon1&#34;}) public void dependon2(){ System.out.println(&#34;dependon 2222222&#34;); } }  2. TestNG的xml文件参数化 1.创建方法 package com.actiger.test.paramter; import org.testng.annotations.Parameters; import org.testng.annotations.Test; public class ParamterTest { @Test @Parameters({&#34;name&#34;, &#34;age&#34;}) public void paramTest1(String name, int age){ System.out.println(&#34;Name:&#34;&#43; name &#43; &#34;, &#34; &#43; &#34;Age:&#34; &#43; age); } }  2....</p>
+   <p>1. TestNG依赖测试, 1个用例依赖其他的测试方法, 怎么表示这种关系呢, 在注解后加标签dependsOnMethods 例如, 方法2就依赖于方法1, 如果方法1执行失败了, 方法2就无法执行了.  package com.actiger.test.all; import org.testng.annotations.Test; public class Dependon{ @Test public void dependon1(){ System.out.println(&#34;dependon 1111111&#34;); throw new RuntimeException(); } @Test(dependsOnMethods = {&#34;dependon1&#34;}) public void dependon2(){ System.out.println(&#34;dependon 2222222&#34;); } } 2. TestNG的xml文件参数化 1.创建方法 package com.actiger.test.paramter; import org.testng.annotations.Parameters; import org.testng.annotations.Test; public class ParamterTest { @Test @Parameters({&#34;name&#34;, &#34;age&#34;}) public void paramTest1(String name, int age){ System.out.println(&#34;Name:&#34;&#43; name &#43; &#34;, &#34; &#43; &#34;Age:&#34; &#43; age); } } 2....</p>
   </section>
   <footer class="entry-footer">
     <time>June 13, 2019</time>
@@ -151,7 +163,7 @@
     <h2>TestNG异常测试</h2>
   </header>
   <section class="entry-content">
-   <p> TestNG异常测试 1. expectedException方法预期RuntimeException异常 2. expectedSuccess方法预期RuntimeException异常 3. expectedException用例结果是失败的, expectedSuccess执行用例成功(预期与结果一致) package com.actiger.test.expectedException; import org.testng.annotations.Test; public class ExpectedExcepiton { @Test(expectedExceptions = RuntimeException.class) public void expectedException(){ System.out.println(&#34;期望运行异常的结果!&#34;); } @Test(expectedExceptions = RuntimeException.class) public void expectedSuccess(){ System.out.println(&#34;期望运行异常的结果&#34;); throw new RuntimeException(); } }  ...</p>
+   <p>TestNG异常测试 1. expectedException方法预期RuntimeException异常 2. expectedSuccess方法预期RuntimeException异常 3. expectedException用例结果是失败的, expectedSuccess执行用例成功(预期与结果一致) package com.actiger.test.expectedException; import org.testng.annotations.Test; public class ExpectedExcepiton { @Test(expectedExceptions = RuntimeException.class) public void expectedException(){ System.out.println(&#34;期望运行异常的结果!&#34;); } @Test(expectedExceptions = RuntimeException.class) public void expectedSuccess(){ System.out.println(&#34;期望运行异常的结果&#34;); throw new RuntimeException(); } } ...</p>
   </section>
   <footer class="entry-footer">
     <time>June 12, 2019</time>
@@ -175,28 +187,12 @@
     <h2>Kubernetes Mariadb Mysql</h2>
   </header>
   <section class="entry-content">
-   <p>1. 创建一个对外可使用的数据库, 外部网络访问使用NodePort. pod使用到PV,PVC, Secret. 2. 使用PV和PVC创建硬盘, PersistentVolume持久卷, 持久卷申请.  创建持久卷 pv-maria.yaml, 这里在node节点上申请hostPath申请空间
-apiVersion: v1 kind: PersistentVolume metadata: name: pv-hostpath spec: capacity: storage: 300Mi accessModes: - ReadWriteOnce hostPath: path: &#34;/root/mariadb&#34;  创建持久卷申请pvc-maria.yaml, 申请容量与PV一致才会绑定成功.
-apiVersion: v1 kind: PersistentVolumeClaim metadata: name: pvc-hostpath spec: accessModes: - ReadWriteOnce storageClassName: &#34;&#34; resources: requests: storage: 200Mi   3. 为数据库root密码创建Secret文件mariapass.yml. root密码需要base64转换. apiVersion: v1 kind: Secret metadata: name: mariapass type: Opaque data: password: &lt;base64加密你的root密码&gt; username: cm9vdA==  4....</p>
+   <p>1. 创建一个对外可使用的数据库, 外部网络访问使用NodePort. pod使用到PV,PVC, Secret. 2. 使用PV和PVC创建硬盘, PersistentVolume持久卷, 持久卷申请.  创建持久卷 pv-maria.yaml, 这里在node节点上申请hostPath申请空间  apiVersion: v1 kind: PersistentVolume metadata: name: pv-hostpath spec: capacity: storage: 300Mi accessModes: - ReadWriteOnce hostPath: path: &#34;/root/mariadb&#34; 创建持久卷申请pvc-maria.yaml, 申请容量与PV一致才会绑定成功.  apiVersion: v1 kind: PersistentVolumeClaim metadata: name: pvc-hostpath spec: accessModes: - ReadWriteOnce storageClassName: &#34;&#34; resources: requests: storage: 200Mi 3. 为数据库root密码创建Secret文件mariapass.yml. root密码需要base64转换. apiVersion: v1 kind: Secret metadata: name: mariapass type: Opaque data: password: &lt;base64加密你的root密码&gt; username: cm9vdA== 4. 创建数据库pod, 使用mariapass....</p>
   </section>
   <footer class="entry-footer">
     <time>June 5, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/docker/kubernetes-mariadb-mysql/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>Kubernetes Ingress Nginx</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. 为了理解Nginx Ingress Controller, 先看下上海长宁来福士的人脸识别电梯, 正好在这上班😃. 把外部进入内部人脸识别闸机类比为NGINX Ingress Controller, 匹配域名, 把人或请求分配到内部service. 把人脸识别分配电梯类比为service, service控制着一组电梯, 将人或请求分配service下的电梯中. 把电梯类比为pod, 在service下, 处理人或请求. 2. 下面是配置文件, 角色与service绑定的, 使用到pv和pvc, 使用secret, 我的命名空间是nginx-space  创建name-space
-kubectl create namespace nginx-space  设置默认返回内容 default-backend.yaml
-apiVersion: extensions/v1beta1 kind: Deployment metadata: name: default-http-backend labels: k8s-app: default-http-backend namespace: nginx-space spec: replicas: 1 template: metadata: labels: k8s-app: default-http-backend spec: terminationGracePeriodSeconds: 60 containers: - name: default-http-backend # Any image is permissable as long as: # 1. It serves a 404 page at / # 2....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>June 4, 2019</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/docker/kubernetes-nginx-ingress/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

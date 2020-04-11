@@ -7,7 +7,7 @@
     
     <title>自动生成博客和提交到Github - Actiger跳跳虎</title>
     
-    <meta name="description" content="使用Hugo过程中, 我只关心博客的内容, 至于生成博客完全不需要记录每次提交的内容. 而且现在需要提交到2个地址上, 同一个改动要提交2次. 只需要在content建立一个git项目进行内行管理即可. 注意已经生成的博客, 更改文件名, 是需要手动删除, 已经生成的博客目录中的文件. 1. 创建hugoAll.sh, 用其他编辑器也可. vim hugoAll.sh  2. 更改文件权限, 变成可执行文件 chmod &#43;x hugoAll.sh  3. 添加下面内容到脚本中, actiger更改成你的hugo目录, 把blog.actiger.com文件夹更改成自己的文件夹就可以了.  time=$(date &quot;&#43;%H:%M:%S %A %Y-%m-%d&quot;) echo &quot;-------------------------------------------------------------------------------------&quot; echo &quot;开始自动生成blog.actiger.com博客, git自动添加标签, 推送到github上&quot; cd ~/Documents/actiger/ # 生成blog.actiger.com博客目录文件 hugo --theme=paper --baseUrl=&quot;https://blog.actiger.com/&quot; --destination=&quot;blog.actiger.com&quot; cd ~/Documents/actiger/blog.actiger.com/ git stage . git commit -m &quot;自动标签${time}&quot; git push github master echo &quot;blog.actiger.com内容已经推送到github.com上&quot; echo &quot;-------------------------------------------------------------------------------------&quot; echo &quot;-------------------------------------------------------------------------------------&quot; echo &quot;开始自动生成https://charles-one.github.io/actiger/博客, git自动添加标签, 推送到github上&quot; cd ~/Documents/actiger/ # 生成默认github博客目录文件 hugo --theme=paper --baseUrl=&quot;https://charles-one.">
+    <meta name="description" content="使用Hugo过程中, 我只关心博客的内容, 至于生成博客完全不需要记录每次提交的内容. 而且现在需要提交到2个地址上, 同一个改动要提交2次. 只需要在content建立一个git项目进行内行管理即可. 注意已经生成的博客, 更改文件名, 是需要手动删除, 已经生成的博客目录中的文件. 1. 创建hugoAll.sh, 用其他编辑器也可. vim hugoAll.sh 2. 更改文件权限, 变成可执行文件 chmod &#43;x hugoAll.sh 3. 添加下面内容到脚本中, actiger更改成你的hugo目录, 把blog.actiger.com文件夹更改成自己的文件夹就可以了.  time=$(date &quot;&#43;%H:%M:%S %A %Y-%m-%d&quot;) echo &quot;-------------------------------------------------------------------------------------&quot; echo &quot;开始自动生成blog.actiger.com博客, git自动添加标签, 推送到github上&quot; cd ~/Documents/actiger/ # 生成blog.actiger.com博客目录文件 hugo --theme=paper --baseUrl=&quot;https://blog.actiger.com/&quot; --destination=&quot;blog.actiger.com&quot; cd ~/Documents/actiger/blog.actiger.com/ git stage . git commit -m &quot;自动标签${time}&quot; git push github master echo &quot;blog.actiger.com内容已经推送到github.com上&quot; echo &quot;-------------------------------------------------------------------------------------&quot; echo &quot;-------------------------------------------------------------------------------------&quot; echo &quot;开始自动生成https://charles-one.github.io/actiger/博客, git自动添加标签, 推送到github上&quot; cd ~/Documents/actiger/ # 生成默认github博客目录文件 hugo --theme=paper --baseUrl=&quot;https://charles-one.">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -15,7 +15,7 @@
     
     <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.69.0" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -80,27 +80,15 @@
     <h1 class="post-title">自动生成博客和提交到Github</h1>
     <div class="post-meta">May 20, 2019</div>
   </header>
-  <div class="post-content">
-
-<h3 id="使用hugo过程中-我只关心博客的内容-至于生成博客完全不需要记录每次提交的内容-而且现在需要提交到2个地址上-同一个改动要提交2次">使用Hugo过程中, 我只关心博客的内容, 至于生成博客完全不需要记录每次提交的内容. 而且现在需要提交到2个地址上, 同一个改动要提交2次.</h3>
-
+  <div class="post-content"><h3 id="使用hugo过程中-我只关心博客的内容-至于生成博客完全不需要记录每次提交的内容-而且现在需要提交到2个地址上-同一个改动要提交2次">使用Hugo过程中, 我只关心博客的内容, 至于生成博客完全不需要记录每次提交的内容. 而且现在需要提交到2个地址上, 同一个改动要提交2次.</h3>
 <h3 id="只需要在content建立一个git项目进行内行管理即可">只需要在content建立一个git项目进行内行管理即可.</h3>
-
 <h4 id="注意已经生成的博客-更改文件名-是需要手动删除-已经生成的博客目录中的文件">注意已经生成的博客, 更改文件名, 是需要手动删除, 已经生成的博客目录中的文件.</h4>
-
-<h4 id="1-创建hugoall-sh-用其他编辑器也可">1. 创建hugoAll.sh, 用其他编辑器也可.</h4>
-
+<h4 id="1-创建hugoallsh-用其他编辑器也可">1. 创建hugoAll.sh, 用其他编辑器也可.</h4>
 <pre><code>vim hugoAll.sh
 
-</code></pre>
-
-<h4 id="2-更改文件权限-变成可执行文件">2. 更改文件权限, 变成可执行文件</h4>
-
+</code></pre><h4 id="2-更改文件权限-变成可执行文件">2. 更改文件权限, 变成可执行文件</h4>
 <pre><code>chmod +x hugoAll.sh
-</code></pre>
-
-<h4 id="3-添加下面内容到脚本中-actiger更改成你的hugo目录-把blog-actiger-com文件夹更改成自己的文件夹就可以了">3. 添加下面内容到脚本中, actiger更改成你的hugo目录, 把blog.actiger.com文件夹更改成自己的文件夹就可以了.</h4>
-
+</code></pre><h4 id="3-添加下面内容到脚本中-actiger更改成你的hugo目录-把blogactigercom文件夹更改成自己的文件夹就可以了">3. 添加下面内容到脚本中, actiger更改成你的hugo目录, 把blog.actiger.com文件夹更改成自己的文件夹就可以了.</h4>
 <pre><code>
 time=$(date &quot;+%H:%M:%S %A %Y-%m-%d&quot;)
 
@@ -145,19 +133,13 @@ echo &quot;已经推送到https://charles-one.github.io/actiger/&quot;
 
 echo &quot;-------------------------------------------------------------------------------------&quot;
 
-</code></pre>
-
-<h4 id="4-执行即可">4. 执行即可.</h4>
-
+</code></pre><h4 id="4-执行即可">4. 执行即可.</h4>
 <pre><code>./hugoAll.sh
 
 # 或者
 sh hugoAll.sh
 
-</code></pre>
-
-<h4 id="5-添加改进版本-路径-地址都做了参数-home-是当前用户的根目录地址">5. 添加改进版本, 路径,地址都做了参数.${HOME}是当前用户的根目录地址.</h4>
-
+</code></pre><h4 id="5-添加改进版本-路径地址都做了参数home是当前用户的根目录地址">5. 添加改进版本, 路径,地址都做了参数.${HOME}是当前用户的根目录地址.</h4>
 <pre><code>
 TIME=$(date &quot;+%H:%M:%S %A %Y-%m-%d&quot;)
 
@@ -209,8 +191,7 @@ git push github master
 
 echo &quot;-------------------------------------------------------------------------------------&quot;
 
-</code></pre>
-</div>
+</code></pre></div>
   
 </article></main>
 <footer class="footer">

@@ -7,7 +7,7 @@
     
     <title>申请单个域名方式 - Actiger跳跳虎</title>
     
-    <meta name="description" content=" 1. 起因 一级域名和二级域名都使用dns-01验证方式申请证书, 申请一级域名的时候更改了_acme-challenge.actiger.com, 续期的时候发现二级域名申请证书时的配置_acme-challenge.actiger.com验证失败, 续期失败 2. 解决方式, 使用不同方式申请证书, 续期不会有冲突 一级域名Actiger.com使用http文件申请证书 二级通用*.actiger.com用例dns-01的方式申请证书 3. 申请单个域名 certbot certonly --manual --preferred-challenges http --email example@icloud.com --domains actiger.com  提示在actiger.com/.well-known/acme-challenge/ 创建一个文件 假如你设置actiger.com跳转到www.actiger.com, 而www.actiger.com又跳转到blog.actiger.com, 可以把创建的文件放在blog.actiger.com/.well-known/acme-challenge/下 在服务器对应目录创建文件 创建文件成功后, 继续申请证书 申请证书成功后, 存放在/etc/letsencrypt下 ">
+    <meta name="description" content="1. 起因 一级域名和二级域名都使用dns-01验证方式申请证书, 申请一级域名的时候更改了_acme-challenge.actiger.com, 续期的时候发现二级域名申请证书时的配置_acme-challenge.actiger.com验证失败, 续期失败 2. 解决方式, 使用不同方式申请证书, 续期不会有冲突 一级域名Actiger.com使用http文件申请证书 二级通用*.actiger.com用例dns-01的方式申请证书 3. 申请单个域名 certbot certonly --manual --preferred-challenges http --email example@icloud.com --domains actiger.com 提示在actiger.com/.well-known/acme-challenge/ 创建一个文件 假如你设置actiger.com跳转到www.actiger.com, 而www.actiger.com又跳转到blog.actiger.com, 可以把创建的文件放在blog.actiger.com/.well-known/acme-challenge/下 在服务器对应目录创建文件 创建文件成功后, 继续申请证书 申请证书成功后, 存放在/etc/letsencrypt下 ">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -15,7 +15,7 @@
     
     <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.69.0" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -80,34 +80,19 @@
     <h1 class="post-title">申请单个域名方式</h1>
     <div class="post-meta">August 27, 2019</div>
   </header>
-  <div class="post-content">
-
-<h2 id="1-起因">1. 起因</h2>
-
-<h4 id="一级域名和二级域名都使用dns-01验证方式申请证书-申请一级域名的时候更改了-acme-challenge-actiger-com">一级域名和二级域名都使用dns-01验证方式申请证书, 申请一级域名的时候更改了<code>_acme-challenge.actiger.com</code>,</h4>
-
-<h4 id="续期的时候发现二级域名申请证书时的配置-acme-challenge-actiger-com-验证失败-续期失败">续期的时候发现二级域名申请证书时的配置<code>_acme-challenge.actiger.com</code>验证失败, 续期失败</h4>
-
+  <div class="post-content"><h2 id="1-起因">1. 起因</h2>
+<h4 id="一级域名和二级域名都使用dns-01验证方式申请证书-申请一级域名的时候更改了_acme-challengeactigercom">一级域名和二级域名都使用dns-01验证方式申请证书, 申请一级域名的时候更改了<code>_acme-challenge.actiger.com</code>,</h4>
+<h4 id="续期的时候发现二级域名申请证书时的配置_acme-challengeactigercom验证失败-续期失败">续期的时候发现二级域名申请证书时的配置<code>_acme-challenge.actiger.com</code>验证失败, 续期失败</h4>
 <h2 id="2-解决方式-使用不同方式申请证书-续期不会有冲突">2. 解决方式, 使用不同方式申请证书, 续期不会有冲突</h2>
-
-<h4 id="一级域名actiger-com使用http文件申请证书">一级域名Actiger.com使用http文件申请证书</h4>
-
-<h4 id="二级通用-actiger-com-用例dns-01的方式申请证书">二级通用<code>*.actiger.com</code>用例dns-01的方式申请证书</h4>
-
+<h4 id="一级域名actigercom使用http文件申请证书">一级域名Actiger.com使用http文件申请证书</h4>
+<h4 id="二级通用actigercom用例dns-01的方式申请证书">二级通用<code>*.actiger.com</code>用例dns-01的方式申请证书</h4>
 <h2 id="3-申请单个域名">3. 申请单个域名</h2>
-
 <pre><code>certbot certonly --manual --preferred-challenges http --email example@icloud.com --domains actiger.com
-</code></pre>
-
-<h4 id="提示在actiger-com-well-known-acme-challenge-创建一个文件">提示在actiger.com/.well-known/acme-challenge/ 创建一个文件</h4>
-
-<h4 id="假如你设置actiger-com跳转到www-actiger-com-而www-actiger-com又跳转到blog-actiger-com-可以把创建的文件放在-blog-actiger-com-well-known-acme-challenge-下">假如你设置actiger.com跳转到www.actiger.com, 而www.actiger.com又跳转到blog.actiger.com, 可以把创建的文件放在<code>blog.actiger.com/.well-known/acme-challenge/</code>下</h4>
-
+</code></pre><h4 id="提示在actigercomwell-knownacme-challenge-创建一个文件">提示在actiger.com/.well-known/acme-challenge/ 创建一个文件</h4>
+<h4 id="假如你设置actigercom跳转到wwwactigercom-而wwwactigercom又跳转到blogactigercom-可以把创建的文件放在blogactigercomwell-knownacme-challenge下">假如你设置actiger.com跳转到www.actiger.com, 而www.actiger.com又跳转到blog.actiger.com, 可以把创建的文件放在<code>blog.actiger.com/.well-known/acme-challenge/</code>下</h4>
 <h4 id="在服务器对应目录创建文件">在服务器对应目录创建文件</h4>
-
 <h4 id="创建文件成功后-继续申请证书">创建文件成功后, 继续申请证书</h4>
-
-<h4 id="申请证书成功后-存放在-etc-letsencrypt下">申请证书成功后, 存放在/etc/letsencrypt下</h4>
+<h4 id="申请证书成功后-存放在etcletsencrypt下">申请证书成功后, 存放在/etc/letsencrypt下</h4>
 </div>
   
 </article></main>

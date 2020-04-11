@@ -15,7 +15,7 @@
     
     <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.69.0" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -76,23 +76,30 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>华硕ASUS路由器AC5300莫名重启记录和排查</h2>
+  </header>
+  <section class="entry-content">
+   <p>问题我的华硕路由器有时莫名奇妙的重启 出问题设备和版本 ASUS AC5300 3.0.0.4.384.45149 首先查看系统日志 May 5 13:05:25 weini: [软件中心]: httpdb进程准备就绪！ May 5 13:05:25 WAN Connection: WAN was restored. May 5 13:05:25 WLCEVENTD: eth8: Assoc D4:90:9C:E7:D2:03 May 5 13:05:26 kernel: UBIFS (ubi1:0): UBIFS: mounted UBI device 1, volume 0, name &#34;nvram&#34;, R/O mode May 5 13:05:26 kernel: UBIFS (ubi1:0): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes May 5 13:05:26 kernel: UBIFS (ubi1:0): FS size: 5840896 bytes (5 MiB, 46 LEBs), journal size 1015809 bytes (0 MiB, 6 LEBs) May 5 13:05:26 kernel: UBIFS (ubi1:0): reserved for root: 275879 bytes (269 KiB) May 5 13:05:26 kernel: UBIFS (ubi1:0): media format: w4/r0 (latest is w4/r0), UUID ABA6F10C-0F1C-4B89-AD25-4B74DEC12700, small LPT model May 5 13:05:26 kernel: UBIFS (ubi1:0): un-mount UBI device 1 May 5 13:05:26 kernel: ubi1: detaching mtd9 May 5 13:05:26 kernel: ubi1: mtd9 is detached May 5 13:05:26 ntp: start NTP update Mar 30 00:32:50 rc_service: ntp 1229:notify_rc restart_diskmon Mar 30 00:32:50 rc_service: waitting &#34;start_firewall&#34; via udhcpc ....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>March 30, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E5%8D%8E%E7%A1%95asus%E8%B7%AF%E7%94%B1%E5%99%A8ac5300%E8%8E%AB%E5%90%8D%E9%87%8D%E5%90%AF%E5%92%8C%E6%8E%92%E6%9F%A5/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>Jmeter性能测试并添加服务器cpu内存使用率</h2>
   </header>
   <section class="entry-content">
-   <p>0. 准备工作  搭建静态博客Hugo, 建立Hugo服务作为测试接口 服务端centOS7.6.1810, 服务端ServerAgent 本机安装Java8, 并设置环境变量 本机jmeter, jmeter插件管理, Servers Performance Monitoring插件  1.服务端CentOS7 搭建Hugo, 并建立Hugo服务, 创建接口.  搭建Huog  请参考这个搭建Hugo文章
-参考到这条语句下就可以了,这条语句下面的内容不用看了
-hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&#34; --port=1313   创建接口
-hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&#34; --port=1313  检测服务端接口
-  在浏览器中访问 http://你的ip:1313.如未指定,则是http://localhost:1313
+   <p>0. 准备工作  搭建静态博客Hugo, 建立Hugo服务作为测试接口 服务端centOS7.6.1810, 服务端ServerAgent 本机安装Java8, 并设置环境变量 本机jmeter, jmeter插件管理, Servers Performance Monitoring插件  1.服务端CentOS7 搭建Hugo, 并建立Hugo服务, 创建接口.  搭建Huog  请参考这个搭建Hugo文章参考到这条语句下就可以了,这条语句下面的内容不用看了
+hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&#34; --port=1313  创建接口  hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&#34; --port=1313  检测服务端接口  在浏览器中访问 http://你的ip:1313.如未指定,则是http://localhost:1313
 能正常访问显示文章就完成了
-2. 本机下载jmeter, jmeter插件管理, Servers Performance Monitoring插件  下载地址Jmeter, 安装插件  Jmeter下载地址
-下载并解压
-Jmeter插件管理
-下载并解压出对应jar文件, 并放在apache-jmeter-5.1/lib/ext中
+2. 本机下载jmeter, jmeter插件管理, Servers Performance Monitoring插件  下载地址Jmeter, 安装插件  Jmeter下载地址下载并解压
+Jmeter插件管理下载并解压出对应jar文件, 并放在apache-jmeter-5.1/lib/ext中
 关闭Jmeter, 再重新打开Jmeter
 进入选项(Options)-&gt;插件管理(Plugins Manager)中
 搜索perfmon并安装
-3. 服务端下载PerfMon Server Agent运行, 添加防火墙端口4444  下载PerfMon Server Agent...</p>
+3. 服务端下载PerfMon Server Agent运行, 添加防火墙端口4444   下载PerfMon Server Agent  添加防火墙接口4444, 因为PerfMon Server Agent使用的是这个端口, 解压运行...</p>
   </section>
   <footer class="entry-footer">
     <time>March 14, 2019</time>
@@ -104,17 +111,13 @@ Jmeter插件管理
     <h2>使用Hugo和GitHub Pages搭建静态网站</h2>
   </header>
   <section class="entry-content">
-   <p>0. 前提条件  电脑安装git(Mac linux都需要安装) 安装go并设置环境变量(仅linux下需要) 虚拟机Centos7.6.1810(测试用, 不需要安装)  1. 安装hugo  mac直接使用brew install hugo就可以了
- linux下源码安装
-   下载并编译
-mkdir ~/src cd ~/src git clone https://github.com/gohugoio/hugo.git cd hugo go install  添加环境变量
-# 当前用户~/go文件绝对路径是GOPATH,Go编译后的文件在~/go/bin中 # 如现在当前用户是jenkins vim /etc/profile 添加 export export GOPATH=/var/lib/jenkins/go export PATH=${PATH}:$GOPATH/bin   重新生效/etc/profile文件
+   <p>0. 前提条件  电脑安装git(Mac linux都需要安装) 安装go并设置环境变量(仅linux下需要) 虚拟机Centos7.6.1810(测试用, 不需要安装)  1. 安装hugo   mac直接使用brew install hugo就可以了
+  linux下源码安装
+   下载并编译  mkdir ~/src cd ~/src git clone https://github.com/gohugoio/hugo.git cd hugo go install 添加环境变量  # 当前用户~/go文件绝对路径是GOPATH,Go编译后的文件在~/go/bin中 # 如现在当前用户是jenkins vim /etc/profile 添加 export export GOPATH=/var/lib/jenkins/go export PATH=${PATH}:$GOPATH/bin 重新生效/etc/profile文件
 source /etc/profile
 再次hugo vimersion
 就会显示hugo版本, 表示可用
-2. 使用Hugo创建个人网站  创建静态网站文件夹
-cd ~ hugo new site actiger  写第一篇markdown文章, markdown语法参考
-  cd ~/actiger 在目录~/actiger下执行hugo new about....</p>
+2. 使用Hugo创建个人网站  创建静态网站文件夹  cd ~ hugo new site actiger  写第一篇markdown文章, markdown语法参考  cd ~/actiger 在目录~/actiger下执行hugo new about....</p>
   </section>
   <footer class="entry-footer">
     <time>March 13, 2019</time>
@@ -126,18 +129,15 @@ cd ~ hugo new site actiger  写第一篇markdown文章, markdown语法参考
     <h2>使用jenkins构建指定版本的Github项目Hugo</h2>
   </header>
   <section class="entry-content">
-   <p>0. 前提条件, 会使用到jenkins, go语言编译hugo  安装jenkinx&lt;/&gt;
- Linux安装go并设置环境变量
-  1. 创建一个jenkins任务  创建一个Jenkins任务   输入Enter an item name, 这里名字是basic_hugo
- 选择Github组织
- 再选择最左下”OK”按钮, 创建
-  2. 编辑已创建的basic_hugo任务  进入basic_hugo任务编辑页面   进入http://&lt;服务器ip&gt;:8080/me/my-views/view/all/, 在名称下basicd_hugo鼠标悬停上去, 多选, 选择Configure (或者使用Blue Ocean插件http://&lt;服务器ip&gt;:8080/blue/organizations/jenkins/basic_hugo/activity, 选择项目名称旁边的设置齿轮)
- 进入编辑页, http://10.211.55.9:8080/job/basic_hugo/configure
+   <p>0. 前提条件, 会使用到jenkins, go语言编译hugo   安装jenkinx&lt;/&gt;
+  Linux安装go并设置环境变量  1. 创建一个jenkins任务  创建一个Jenkins任务    输入Enter an item name, 这里名字是basic_hugo
+  选择Github组织
+  再选择最左下&#34;OK&#34;按钮, 创建
+  2. 编辑已创建的basic_hugo任务  进入basic_hugo任务编辑页面    进入http://&lt;服务器ip&gt;:8080/me/my-views/view/all/, 在名称下basicd_hugo鼠标悬停上去, 多选, 选择Configure (或者使用Blue Ocean插件http://&lt;服务器ip&gt;:8080/blue/organizations/jenkins/basic_hugo/activity, 选择项目名称旁边的设置齿轮)
+  进入编辑页, http://10.211.55.9:8080/job/basic_hugo/configure
    在编辑页中设置github中hugo地址, 参数化分支名称  GitHub项目-&gt;项目URL 填写 https://github.com/gohugoio/hugo.git/
-参数化构建过程-&gt;字符参数 Name: BARNCH Default Value: master Description 分支名称
-Source Code Management-&gt;Git-&gt;Repositories
-Repository URL: https://github.com/gohugoio/hugo.git
-Source Code Management-&gt;Git-&gt;Branches to build...</p>
+参数化构建过程-&gt;字符参数 Name: BARNCH Default Value: master Description	分支名称
+Source Code Management-&gt;Git-&gt;Repositories...</p>
   </section>
   <footer class="entry-footer">
     <time>March 13, 2019</time>
@@ -149,11 +149,11 @@ Source Code Management-&gt;Git-&gt;Branches to build...</p>
     <h2>Linux安装go并设置环境变量</h2>
   </header>
   <section class="entry-content">
-   <p> Mac用户直接使用brew install go即可 Linux用户 wget https://dl.google.com/go/go1.12.linux-amd64.tar.gz
+   <p>Mac用户直接使用brew install go即可 Linux用户 wget https://dl.google.com/go/go1.12.linux-amd64.tar.gz
 tar -C /usr/local -xzf go1.12.linux-amd64.tar.gz
 root用户去编辑vim /etc/profile中添加如下信息
-export PATH=$PATH:/usr/local/go/bin  用户使用go需要 重新生效这个文件
-source /etc/profile  ...</p>
+export PATH=$PATH:/usr/local/go/bin 用户使用go需要 重新生效这个文件
+source /etc/profile ...</p>
   </section>
   <footer class="entry-footer">
     <time>March 13, 2019</time>
@@ -165,14 +165,14 @@ source /etc/profile  ...</p>
     <h2>安装jenkins和插件</h2>
   </header>
   <section class="entry-content">
-   <p>0.安装Jenkins, 需要提前安装JDK 1.8 安装JDK参考
-1.安装Jnekins  尽量翻墙执行,否则容易报443错误
-sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key yum search jenkins sudo yum install jenkins   2. 启动服务与添加防火墙端口  启动jenkins  systemctl start jenkins 如果这里有报错信息,并且提示 “systemctl status jenkins.service” and “journalctl -xe” for details 查看详情
+   <p>0.安装Jenkins, 需要提前安装JDK 1.8 安装JDK参考1.安装Jnekins  尽量翻墙执行,否则容易报443错误  sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key yum search jenkins sudo yum install jenkins 2. 启动服务与添加防火墙端口  启动jenkins  systemctl start jenkins 如果这里有报错信息,并且提示 “systemctl status jenkins.service” and “journalctl -xe” for details 查看详情
 journalctl -xe可以看到原因/usr/bin/java: 没有那个文件或目录
 需要更改vim /etc/init.d/jenkins
-candidates=&#34; /etc/alternatives/java /usr/lib/jvm/java-1.8.0/bin/java /usr/lib/jvm/jre-1.8.0/bin/java /usr/lib/jvm/java-1.7.0/bin/java /usr/lib/jvm/jre-1.7.0/bin/java /usr/java/jdk1.8.0_152/bin/java 这个是修改后的jdk路径（修改前是/usr/bin/java） &#34;  systemctl daemon-reload (重新加载工具)
+candidates=&#34; /etc/alternatives/java /usr/lib/jvm/java-1.8.0/bin/java /usr/lib/jvm/jre-1.8.0/bin/java /usr/lib/jvm/java-1.7.0/bin/java /usr/lib/jvm/jre-1.7.0/bin/java /usr/java/jdk1.8.0_152/bin/java 这个是修改后的jdk路径（修改前是/usr/bin/java） &#34; systemctl daemon-reload (重新加载工具)
 systemctl start jenkins (再次启动jenkins)
- 检查是否能访问成功  jenkins 使用的8080端口...</p>
+ 检查是否能访问成功  jenkins 使用的8080端口
+访问http://&lt;服务器ip&gt;/8080
+访问失败, 检查端口是否存在...</p>
   </section>
   <footer class="entry-footer">
     <time>March 13, 2019</time>
@@ -184,13 +184,7 @@ systemctl start jenkins (再次启动jenkins)
     <h2>安装docker Ce和使用docker安装nginx</h2>
   </header>
   <section class="entry-content">
-   <p>0. 目录  安装Docker Docker简单使用  1.安装docker  卸载版本Docker
-sudo yum remove docker \ docker-common \ docker-selinux \ docker-engine  设置仓库
-sudo yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 sudo yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo  安装docker-ce
-sudo yum install docker-ce  卸载docker-ce
-sudo yum remove docker-ce sudo rm -rf /var/lib/docker  更换国内源
-vim vim /etc/docker/daemon.json { &#34;registry-mirrors&#34;: [ &#34;http://hub-mirror.c.163.com&#34;] }   2.docker简单使用  下载镜像
-docker pull nginx:1....</p>
+   <p>0. 目录  安装Docker Docker简单使用  1.安装docker  卸载版本Docker  sudo yum remove docker \ docker-common \ docker-selinux \ docker-engine  设置仓库  sudo yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 sudo yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo  安装docker-ce  sudo yum install docker-ce  卸载docker-ce  sudo yum remove docker-ce sudo rm -rf /var/lib/docker  更换国内源  vim vim /etc/docker/daemon.json { &#34;registry-mirrors&#34;: [ &#34;http://hub-mirror.c.163.com&#34;] } 2.docker简单使用  下载镜像  docker pull nginx:1....</p>
   </section>
   <footer class="entry-footer">
     <time>March 12, 2019</time>
@@ -202,7 +196,7 @@ docker pull nginx:1....</p>
     <h2>设置用户可sudo命令</h2>
   </header>
   <section class="entry-content">
-   <p>vi /etc/sudoers # new cc ALL=/bin/yum # cc用户名就可使用sudo yum  在cc用户下 sudo yum install vim 输入密码后再就可安装vim了...</p>
+   <p>vi /etc/sudoers # new cc ALL=/bin/yum # cc用户名就可使用sudo yum 在cc用户下 sudo yum install vim 输入密码后再就可安装vim了...</p>
   </section>
   <footer class="entry-footer">
     <time>March 12, 2019</time>
@@ -222,7 +216,7 @@ Course(c_id,c_name,t_id) – –课程编号, 课程名称, 教师编号
 Teacher(t_id,t_name) –教师编号,教师姓名
 4.成绩表
 Score(s_id,c_id,s_s_score) –学生编号,课程编号,分数
--- 学生表 CREATE TABLE Student( s_id VARCHAR(20), s_name VARCHAR(20) NOT NULL DEFAULT &#39;&#39;, s_birth VARCHAR(20) NOT NULL DEFAULT &#39;&#39;, s_sex VARCHAR(10) NOT NULL DEFAULT &#39;&#39;, PRIMARY KEY(s_id) ); -- 课程表 CREATE TABLE Course( c_id VARCHAR(20), c_name VARCHAR(20) NOT NULL DEFAULT &#39;&#39;, t_id VARCHAR(20) NOT NULL, PRIMARY KEY(c_id) ); -- 教师表 CREATE TABLE Teacher( t_id VARCHAR(20), t_name VARCHAR(20) NOT NULL DEFAULT &#39;&#39;, PRIMARY KEY(t_id) ); -- 成绩表 CREATE TABLE `Score`( s_id VARCHAR(20), c_id VARCHAR(20), s_score INT(3), PRIMARY KEY(s_id,c_id) );  插入对应的数据 -- 插入学生表测试数据 insert into Student values(&#39;01&#39; , &#39;赵雷&#39; , &#39;1990-01-01&#39; , &#39;男&#39;); insert into Student values(&#39;02&#39; , &#39;钱电&#39; , &#39;1990-12-21&#39; , &#39;男&#39;); insert into Student values(&#39;03&#39; , &#39;孙风&#39; , &#39;1990-05-20&#39; , &#39;男&#39;); insert into Student values(&#39;04&#39; , &#39;李云&#39; , &#39;1990-08-06&#39; , &#39;男&#39;); insert into Student values(&#39;05&#39; , &#39;周梅&#39; , &#39;1991-12-01&#39; , &#39;女&#39;); insert into Student values(&#39;06&#39; , &#39;吴兰&#39; , &#39;1992-03-01&#39; , &#39;女&#39;); insert into Student values(&#39;07&#39; , &#39;郑竹&#39; , &#39;1989-07-01&#39; , &#39;女&#39;); insert into Student values(&#39;08&#39; , &#39;王菊&#39; , &#39;1990-01-20&#39; , &#39;女&#39;); insert into Student values(&#39;09&#39; , &#39;如花&#39; , &#39;1991-02-15&#39; , &#39;女&#39;); -- 课程表测试数据 insert into Course values(&#39;01&#39; , &#39;语文&#39; , &#39;02&#39;); insert into Course values(&#39;02&#39; , &#39;数学&#39; , &#39;01&#39;); insert into Course values(&#39;03&#39; , &#39;英语&#39; , &#39;03&#39;); insert into Course values(&#39;04&#39; , &#39;体育&#39; , &#39;01&#39;); -- 教师表测试数据 insert into Teacher values(&#39;01&#39; , &#39;张三&#39;); insert into Teacher values(&#39;02&#39; , &#39;李四&#39;); insert into Teacher values(&#39;03&#39; , &#39;王五&#39;); -- 成绩表测试数据 insert into Score values(&#39;01&#39; , &#39;01&#39; , 80); insert into Score values(&#39;01&#39; , &#39;02&#39; , 90); insert into Score values(&#39;01&#39; , &#39;03&#39; , 99); insert into Score values(&#39;02&#39; , &#39;01&#39; , 70); insert into Score values(&#39;02&#39; , &#39;02&#39; , 60); insert into Score values(&#39;02&#39; , &#39;03&#39; , 80); insert into Score values(&#39;03&#39; , &#39;01&#39; , 80); insert into Score values(&#39;03&#39; , &#39;02&#39; , 80); insert into Score values(&#39;03&#39; , &#39;03&#39; , 80); insert into Score values(&#39;04&#39; , &#39;01&#39; , 50); insert into Score values(&#39;04&#39; , &#39;02&#39; , 30); insert into Score values(&#39;04&#39; , &#39;03&#39; , 20); insert into Score values(&#39;05&#39; , &#39;01&#39; , 76); insert into Score values(&#39;05&#39; , &#39;02&#39; , 87); insert into Score values(&#39;06&#39; , &#39;01&#39; , 31); insert into Score values(&#39;06&#39; , &#39;03&#39; , 34); insert into Score values(&#39;07&#39; , &#39;02&#39; , 89); insert into Score values(&#39;07&#39; , &#39;03&#39; , 98); insert into Score values(&#39;09&#39;, &#39;01&#39;, 50); insert into Score values(&#39;09&#39;, &#39;02&#39;, 40); insert into Score values(&#39;09&#39;, &#39;03&#39;, 90); insert into Score values(&#39;09&#39;, &#39;04&#39;, 99);  SQL练习  查询姓”张”老师的个数...</p>
+-- 学生表 CREATE TABLE Student( s_id VARCHAR(20), s_name VARCHAR(20) NOT NULL DEFAULT &#39;&#39;, s_birth VARCHAR(20) NOT NULL DEFAULT &#39;&#39;, s_sex VARCHAR(10) NOT NULL DEFAULT &#39;&#39;, PRIMARY KEY(s_id) ); -- 课程表 CREATE TABLE Course( c_id VARCHAR(20), c_name VARCHAR(20) NOT NULL DEFAULT &#39;&#39;, t_id VARCHAR(20) NOT NULL, PRIMARY KEY(c_id) ); -- 教师表 CREATE TABLE Teacher( t_id VARCHAR(20), t_name VARCHAR(20) NOT NULL DEFAULT &#39;&#39;, PRIMARY KEY(t_id) ); -- 成绩表 CREATE TABLE `Score`( s_id VARCHAR(20), c_id VARCHAR(20), s_score INT(3), PRIMARY KEY(s_id,c_id) ); 插入对应的数据 -- 插入学生表测试数据 insert into Student values(&#39;01&#39; , &#39;赵雷&#39; , &#39;1990-01-01&#39; , &#39;男&#39;); insert into Student values(&#39;02&#39; , &#39;钱电&#39; , &#39;1990-12-21&#39; , &#39;男&#39;); insert into Student values(&#39;03&#39; , &#39;孙风&#39; , &#39;1990-05-20&#39; , &#39;男&#39;); insert into Student values(&#39;04&#39; , &#39;李云&#39; , &#39;1990-08-06&#39; , &#39;男&#39;); insert into Student values(&#39;05&#39; , &#39;周梅&#39; , &#39;1991-12-01&#39; , &#39;女&#39;); insert into Student values(&#39;06&#39; , &#39;吴兰&#39; , &#39;1992-03-01&#39; , &#39;女&#39;); insert into Student values(&#39;07&#39; , &#39;郑竹&#39; , &#39;1989-07-01&#39; , &#39;女&#39;); insert into Student values(&#39;08&#39; , &#39;王菊&#39; , &#39;1990-01-20&#39; , &#39;女&#39;); insert into Student values(&#39;09&#39; , &#39;如花&#39; , &#39;1991-02-15&#39; , &#39;女&#39;); -- 课程表测试数据 insert into Course values(&#39;01&#39; , &#39;语文&#39; , &#39;02&#39;); insert into Course values(&#39;02&#39; , &#39;数学&#39; , &#39;01&#39;); insert into Course values(&#39;03&#39; , &#39;英语&#39; , &#39;03&#39;); insert into Course values(&#39;04&#39; , &#39;体育&#39; , &#39;01&#39;); -- 教师表测试数据 insert into Teacher values(&#39;01&#39; , &#39;张三&#39;); insert into Teacher values(&#39;02&#39; , &#39;李四&#39;); insert into Teacher values(&#39;03&#39; , &#39;王五&#39;); -- 成绩表测试数据 insert into Score values(&#39;01&#39; , &#39;01&#39; , 80); insert into Score values(&#39;01&#39; , &#39;02&#39; , 90); insert into Score values(&#39;01&#39; , &#39;03&#39; , 99); insert into Score values(&#39;02&#39; , &#39;01&#39; , 70); insert into Score values(&#39;02&#39; , &#39;02&#39; , 60); insert into Score values(&#39;02&#39; , &#39;03&#39; , 80); insert into Score values(&#39;03&#39; , &#39;01&#39; , 80); insert into Score values(&#39;03&#39; , &#39;02&#39; , 80); insert into Score values(&#39;03&#39; , &#39;03&#39; , 80); insert into Score values(&#39;04&#39; , &#39;01&#39; , 50); insert into Score values(&#39;04&#39; , &#39;02&#39; , 30); insert into Score values(&#39;04&#39; , &#39;03&#39; , 20); insert into Score values(&#39;05&#39; , &#39;01&#39; , 76); insert into Score values(&#39;05&#39; , &#39;02&#39; , 87); insert into Score values(&#39;06&#39; , &#39;01&#39; , 31); insert into Score values(&#39;06&#39; , &#39;03&#39; , 34); insert into Score values(&#39;07&#39; , &#39;02&#39; , 89); insert into Score values(&#39;07&#39; , &#39;03&#39; , 98); insert into Score values(&#39;09&#39;, &#39;01&#39;, 50); insert into Score values(&#39;09&#39;, &#39;02&#39;, 40); insert into Score values(&#39;09&#39;, &#39;03&#39;, 90); insert into Score values(&#39;09&#39;, &#39;04&#39;, 99); SQL练习  查询姓&#34;张&#34;老师的个数  select count(t_id) from Teacher where t_name like &#34;张%&#34;;  查询1990年出生的学生名单  select s_id, s_name from Student where year(s_birth)=1990;  查询课程编号为&#34;02&#34;的总成绩  select c_id,sum(s_score) as &#39;总成绩&#39; from Score where c_id=02;  查询选了课程的学生人数 思路学生唯一, 然后再计算总数  select count(distinct s_id) as &#34;选课人数&#34; from Score;  查询各科成绩最高和最低的分: 以如下的形式显示: 课程ID, 最高分, 最低分  select c_id as 课程ID, max(s_score) as 最高分, min(s_score) as 最低分 from Score group by c_id;  查询每门课程被选修的学生数  select c_id, count(s_id) from Score group by c_id;  查询男生,女生人数  select s_sex as 性别, count(s_id) as 人数 from Student group by s_sex;  查询平均成绩大于60分的学生的学号和平均成绩  学号与平均成绩都在Score表中可以获取到...</p>
   </section>
   <footer class="entry-footer">
     <time>March 12, 2019</time>
@@ -234,40 +228,17 @@ Score(s_id,c_id,s_s_score) –学生编号,课程编号,分数
     <h2>下载安装JDK和设置JDK环境变量</h2>
   </header>
   <section class="entry-content">
-   <p>0. 准备工作  root用户及密码  1. 卸载原有JDK rpm -qa | grep &#34;java&#34;  yum remove 上面筛选内容
+   <p>0. 准备工作  root用户及密码  1. 卸载原有JDK rpm -qa | grep &#34;java&#34; yum remove 上面筛选内容
 2. 下载JDK, 解压 进入https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html 右键选择linux x64 jdk-8u201-linux-i586.tar.gz的下载地址 使用wget下载
-wget --no-check-certificate --no-cookies --header &#34;Cookie: oraclelicense=accept-securebackup-cookie&#34; https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz  解压
+wget --no-check-certificate --no-cookies --header &#34;Cookie: oraclelicense=accept-securebackup-cookie&#34; https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz 解压
 tar -zxvf jdk-8u201-linux-x64.tar.gz
-3. root移动文件, 并设置JAVA_HOME环境变量  移动文件夹
-mv jdk1.8.0_201 /usr/local  设置JAVA_HOME环境变量
-  vim /etc/profile 可以对所有用户生效 添加下列信息
-export JAVA_HOME=/usr/local/jdk1.8.0_201 export JRE_HOME=${JAVA_HOME}/jre export CLASSPATH=.:${JAVA_HOME}/lib/dt.JAVA_HOME/lib/tools.jar:${JRE_HOME}/lib export PATH=${JAVA_HOME}/bin:${PATH}   重新生效/etc/profile
-source /etc/profile  检测
-java -version   预期会弹出java的版本...</p>
+3. root移动文件, 并设置JAVA_HOME环境变量  移动文件夹  mv jdk1.8.0_201 /usr/local  设置JAVA_HOME环境变量  vim /etc/profile 可以对所有用户生效 添加下列信息
+export JAVA_HOME=/usr/local/jdk1.8.0_201 export JRE_HOME=${JAVA_HOME}/jre export CLASSPATH=.:${JAVA_HOME}/lib/dt.JAVA_HOME/lib/tools.jar:${JRE_HOME}/lib export PATH=${JAVA_HOME}/bin:${PATH}  重新生效/etc/profile  source /etc/profile  检测  java -version 预期会弹出java的版本...</p>
   </section>
   <footer class="entry-footer">
     <time>March 12, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85jdk%E5%92%8C%E8%AE%BE%E7%BD%AEjdk%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>更改linux用户名</h2>
-  </header>
-  <section class="entry-content">
-   <p> 0.前提条件  root用户及密码 原用户ccc  1. 更改用户ccc 使用root用户编辑更改
-/etc/passwd
-/etc/group
-/etc/shadow
-/etc/gshadow
-中”原用户名”为”新用户名”即可
-同时
-mv /home/olderuser /home/newuser  ...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>March 12, 2019</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E6%9B%B4%E6%94%B9linux%E7%94%A8%E6%88%B7%E5%90%8D/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

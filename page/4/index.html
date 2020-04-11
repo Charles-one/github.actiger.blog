@@ -15,7 +15,7 @@
     
     <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.69.0" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -76,16 +76,24 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>Kubernetes Ingress Nginx</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. 为了理解Nginx Ingress Controller, 先看下上海长宁来福士的人脸识别电梯, 正好在这上班😃. 把外部进入内部人脸识别闸机类比为NGINX Ingress Controller, 匹配域名, 把人或请求分配到内部service. 把人脸识别分配电梯类比为service, service控制着一组电梯, 将人或请求分配service下的电梯中. 把电梯类比为pod, 在service下, 处理人或请求. 2. 下面是配置文件, 角色与service绑定的, 使用到pv和pvc, 使用secret, 我的命名空间是nginx-space  创建name-space  kubectl create namespace nginx-space 设置默认返回内容 default-backend.yaml  apiVersion: extensions/v1beta1 kind: Deployment metadata: name: default-http-backend labels: k8s-app: default-http-backend namespace: nginx-space spec: replicas: 1 template: metadata: labels: k8s-app: default-http-backend spec: terminationGracePeriodSeconds: 60 containers: - name: default-http-backend # Any image is permissable as long as: # 1. It serves a 404 page at / # 2....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>June 4, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/docker/kubernetes-nginx-ingress/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>Kubernetes安装</h2>
   </header>
   <section class="entry-content">
-   <p>1. PD安装2个Centos7.6 1816虚拟机(例如主机名cc和主机名cc2), 或2台云主机, 或VM安装虚拟机(建议使用主机同一网络).请勿使用克隆, 克隆的虚拟与原虚拟机product_uuid一致. 安装或启动过程中容易碰到问题, 日志排查图放在前面.官方安装地址 2. 安装前检查  hostname必须不一致
-hostname  网络互通, 互ping
- mac ip地址不一致
-ifconfig  product_uuid不一致
-cat /sys/class/dmi/id/product_uuid  禁用Swap交换分区, 保证kubelet正确运行, 必须永久禁用. 在安装设置中有对应的设置.
-  3. 安装前2台虚拟机都需要的设置  安装指定版本的docker.
- # 移除旧版本docker yum remove docker \ docker-common \ docker-selinux \ docker-engine # 安装工具 yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 # 安装指定版本containerd.io yum install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm # 下载设置源 yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo # 查看全部版本的docker....</p>
+   <p>1. PD安装2个Centos7.6 1816虚拟机(例如主机名cc和主机名cc2), 或2台云主机, 或VM安装虚拟机(建议使用主机同一网络).请勿使用克隆, 克隆的虚拟与原虚拟机product_uuid一致. 安装或启动过程中容易碰到问题, 日志排查图放在前面.官方安装地址 2. 安装前检查  hostname必须不一致  hostname  网络互通, 互ping
+  mac ip地址不一致
+  ifconfig product_uuid不一致  cat /sys/class/dmi/id/product_uuid 禁用Swap交换分区, 保证kubelet正确运行, 必须永久禁用. 在安装设置中有对应的设置.  3. 安装前2台虚拟机都需要的设置 安装指定版本的docker.   # 移除旧版本docker yum remove docker \ docker-common \ docker-selinux \ docker-engine # 安装工具 yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 # 安装指定版本containerd.io yum install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm # 下载设置源 yum-config-manager \ --add-repo \ https://download....</p>
   </section>
   <footer class="entry-footer">
     <time>June 4, 2019</time>
@@ -97,7 +105,7 @@ cat /sys/class/dmi/id/product_uuid  禁用Swap交换分区, 保证kubelet正确�
     <h2>Kubernetes太难了</h2>
   </header>
   <section class="entry-content">
-   <p> 配置Kubernets东西太多, 很容易出错 出错信息不好找kubectl describe pod nginxllllll, 不好用 Kubernets这种复杂的配置是和docker是对立, 就不能把配置写成docker, 很多工作可以交给docker来做 很烦 更是惊了, 不能用缓存, 什么玩意, 有了缓存kubelet不能起动 ...</p>
+   <p>配置Kubernets东西太多, 很容易出错 出错信息不好找kubectl describe pod nginxllllll, 不好用 Kubernets这种复杂的配置是和docker是对立, 就不能把配置写成docker, 很多工作可以交给docker来做 很烦 更是惊了, 不能用缓存, 什么玩意, 有了缓存kubelet不能起动 ...</p>
   </section>
   <footer class="entry-footer">
     <time>May 27, 2019</time>
@@ -109,7 +117,7 @@ cat /sys/class/dmi/id/product_uuid  禁用Swap交换分区, 保证kubelet正确�
     <h2>Centos7.0使用SSHKEY拉取github代码失败</h2>
   </header>
   <section class="entry-content">
-   <p>1. 报错信息与正确信息对比. 今天使用SSH key拉取github代码又失败了, 为什么是又😂. 上次端口错误 贴出报错信息  # 出错主机日志 ssh -vT git@github.com OpenSSH_6.5 Server accepts key: pkalg ssh-rsa blen 279 debug1: key_parse_private_pem: PEM_read_PrivateKey failed debug1: read PEM private key done: type &lt;unknown&gt; Enter passphrase for key &#39;/root/.ssh/git_cron&#39;:  本机正确的日志 ssh -vT git@github.com OpenSSH_7.9p1, LibreSSL 2.7.3 debug1: Reading configuration data /Users/csx/.ssh/config debug1: /Users/csx/.ssh/config line 4: Applying options for githu debug1: Authentications that can continue: publickey debug1: Next authentication method: publickey debug1: Offering public key: /Users/csx/....</p>
+   <p>1. 报错信息与正确信息对比. 今天使用SSH key拉取github代码又失败了, 为什么是又😂. 上次端口错误 贴出报错信息  # 出错主机日志 ssh -vT git@github.com OpenSSH_6.5 Server accepts key: pkalg ssh-rsa blen 279 debug1: key_parse_private_pem: PEM_read_PrivateKey failed debug1: read PEM private key done: type &lt;unknown&gt; Enter passphrase for key &#39;/root/.ssh/git_cron&#39;: 本机正确的日志 ssh -vT git@github.com OpenSSH_7.9p1, LibreSSL 2.7.3 debug1: Reading configuration data /Users/csx/.ssh/config debug1: /Users/csx/.ssh/config line 4: Applying options for githu debug1: Authentications that can continue: publickey debug1: Next authentication method: publickey debug1: Offering public key: /Users/csx/....</p>
   </section>
   <footer class="entry-footer">
     <time>May 23, 2019</time>
@@ -121,7 +129,7 @@ cat /sys/class/dmi/id/product_uuid  禁用Swap交换分区, 保证kubelet正确�
     <h2>自动生成博客和提交到Github</h2>
   </header>
   <section class="entry-content">
-   <p>使用Hugo过程中, 我只关心博客的内容, 至于生成博客完全不需要记录每次提交的内容. 而且现在需要提交到2个地址上, 同一个改动要提交2次. 只需要在content建立一个git项目进行内行管理即可. 注意已经生成的博客, 更改文件名, 是需要手动删除, 已经生成的博客目录中的文件. 1. 创建hugoAll.sh, 用其他编辑器也可. vim hugoAll.sh  2. 更改文件权限, 变成可执行文件 chmod &#43;x hugoAll.sh  3. 添加下面内容到脚本中, actiger更改成你的hugo目录, 把blog.actiger.com文件夹更改成自己的文件夹就可以了.  time=$(date &#34;&#43;%H:%M:%S %A %Y-%m-%d&#34;) echo &#34;-------------------------------------------------------------------------------------&#34; echo &#34;开始自动生成blog.actiger.com博客, git自动添加标签, 推送到github上&#34; cd ~/Documents/actiger/ # 生成blog.actiger.com博客目录文件 hugo --theme=paper --baseUrl=&#34;https://blog.actiger.com/&#34; --destination=&#34;blog.actiger.com&#34; cd ~/Documents/actiger/blog.actiger.com/ git stage . git commit -m &#34;自动标签${time}&#34; git push github master echo &#34;blog.actiger.com内容已经推送到github.com上&#34; echo &#34;-------------------------------------------------------------------------------------&#34; echo &#34;-------------------------------------------------------------------------------------&#34; echo &#34;开始自动生成https://charles-one.github.io/actiger/博客, git自动添加标签, 推送到github上&#34; cd ~/Documents/actiger/ # 生成默认github博客目录文件 hugo --theme=paper --baseUrl=&#34;https://charles-one....</p>
+   <p>使用Hugo过程中, 我只关心博客的内容, 至于生成博客完全不需要记录每次提交的内容. 而且现在需要提交到2个地址上, 同一个改动要提交2次. 只需要在content建立一个git项目进行内行管理即可. 注意已经生成的博客, 更改文件名, 是需要手动删除, 已经生成的博客目录中的文件. 1. 创建hugoAll.sh, 用其他编辑器也可. vim hugoAll.sh 2. 更改文件权限, 变成可执行文件 chmod &#43;x hugoAll.sh 3. 添加下面内容到脚本中, actiger更改成你的hugo目录, 把blog.actiger.com文件夹更改成自己的文件夹就可以了.  time=$(date &#34;&#43;%H:%M:%S %A %Y-%m-%d&#34;) echo &#34;-------------------------------------------------------------------------------------&#34; echo &#34;开始自动生成blog.actiger.com博客, git自动添加标签, 推送到github上&#34; cd ~/Documents/actiger/ # 生成blog.actiger.com博客目录文件 hugo --theme=paper --baseUrl=&#34;https://blog.actiger.com/&#34; --destination=&#34;blog.actiger.com&#34; cd ~/Documents/actiger/blog.actiger.com/ git stage . git commit -m &#34;自动标签${time}&#34; git push github master echo &#34;blog.actiger.com内容已经推送到github.com上&#34; echo &#34;-------------------------------------------------------------------------------------&#34; echo &#34;-------------------------------------------------------------------------------------&#34; echo &#34;开始自动生成https://charles-one.github.io/actiger/博客, git自动添加标签, 推送到github上&#34; cd ~/Documents/actiger/ # 生成默认github博客目录文件 hugo --theme=paper --baseUrl=&#34;https://charles-one....</p>
   </section>
   <footer class="entry-footer">
     <time>May 20, 2019</time>
@@ -133,7 +141,7 @@ cat /sys/class/dmi/id/product_uuid  禁用Swap交换分区, 保证kubelet正确�
     <h2>Linux.Mac三宝剑ag fasd fzf</h2>
   </header>
   <section class="entry-content">
-   <p>1.简介与安装 1. 简介ag是比grep更好的搜索软件, 提供高亮显示. Fasd时空机, 去过的地址都直接跳过去, 再也不用cd来cd去了. Fzf更强大的搜索文件. 2. 安装ag, Fasd Fzf # mac brew install the_silver_searcher fzf fasd # 还需要把 eval &#34;$(fasd --init auto)&#34; 放到.bashrc或者.zshrc中 # 重新生效source .bashrc或者source .zshrc # linux git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf ~/.fzf/install yum install the_silver_searcher yum install fasd  2. 使用. 1. 最有命令说明, 需要配置2中配置才可以使用.(bat是与cat类似,有语法高亮) # tab键补全, 最近打开最多带有a名字的匹配文件, 在任何目录中你都可以直接编辑你的相要的文件 v a # 在任意目录下都可以这样使用, cat与ag联用, 匹配a文件, 并搜索aaa caf a | ag &#34;aaa&#34; # 跳转, 配置最近最多a文件夹名, tab补全所有匹配的a的文件 j a # 预览当前目录下的文件 ffp  2....</p>
+   <p>1.简介与安装 1. 简介ag是比grep更好的搜索软件, 提供高亮显示. Fasd时空机, 去过的地址都直接跳过去, 再也不用cd来cd去了. Fzf更强大的搜索文件. 2. 安装ag, Fasd Fzf # mac brew install the_silver_searcher fzf fasd # 还需要把 eval &#34;$(fasd --init auto)&#34; 放到.bashrc或者.zshrc中 # 重新生效source .bashrc或者source .zshrc # linux git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf ~/.fzf/install yum install the_silver_searcher yum install fasd 2. 使用. 1. 最有命令说明, 需要配置2中配置才可以使用.(bat是与cat类似,有语法高亮) # tab键补全, 最近打开最多带有a名字的匹配文件, 在任何目录中你都可以直接编辑你的相要的文件 v a # 在任意目录下都可以这样使用, cat与ag联用, 匹配a文件, 并搜索aaa caf a | ag &#34;aaa&#34; # 跳转, 配置最近最多a文件夹名, tab补全所有匹配的a的文件 j a # 预览当前目录下的文件 ffp 2....</p>
   </section>
   <footer class="entry-footer">
     <time>May 19, 2019</time>
@@ -145,9 +153,7 @@ cat /sys/class/dmi/id/product_uuid  禁用Swap交换分区, 保证kubelet正确�
     <h2>介绍spf13插件使用和我的vim配置</h2>
   </header>
   <section class="entry-content">
-   <p>1. spf13简介 Steve Francia使用的vim配置, vim插件插件集合. http://vim.spf13.com/ 2. spf13常用插件简单使用, 中文.  Surronund 编辑字符周围的符号的.
-# *号表示当前光标停留位置, 所有的操作在vim的nomal模式 Old text Command New text ~ &#34;Hello *world!&#34; ds&#34; Hello world! [123&#43;4*56]/2 cs]) (123&#43;456)/2 &#34;Look ma, I&#39;m *HTML!&#34; cs&#34;&lt;q&gt; &lt;q&gt;Look ma, I&#39;m HTML!&lt;/q&gt; if *x&gt;3 { ysW( if ( x&gt;3 ) { my $str = *whee!; vllllS&#39; my $str = &#39;whee!&#39;;  EasyMotion 跳到任何地方
-# 再打对应的字符就可直接跳到单词的首字符位置 ,,w # 再打对应的字符就可直接跳到单词的尾字符位置 ,,e  Fugitive Git的插件, 可以vim中批量提交git文件, 查看git diff等....</p>
+   <p>1. spf13简介 Steve Francia使用的vim配置, vim插件插件集合. http://vim.spf13.com/ 2. spf13常用插件简单使用, 中文.  Surronund 编辑字符周围的符号的.  # *号表示当前光标停留位置, 所有的操作在vim的nomal模式 Old text Command New text ~ &#34;Hello *world!&#34; ds&#34; Hello world! [123&#43;4*56]/2 cs]) (123&#43;456)/2 &#34;Look ma, I&#39;m *HTML!&#34; cs&#34;&lt;q&gt; &lt;q&gt;Look ma, I&#39;m HTML!&lt;/q&gt; if *x&gt;3 { ysW( if ( x&gt;3 ) { my $str = *whee!; vllllS&#39; my $str = &#39;whee!&#39;;  EasyMotion 跳到任何地方  # 再打对应的字符就可直接跳到单词的首字符位置 ,,w # 再打对应的字符就可直接跳到单词的尾字符位置 ,,e  Fugitive Git的插件, 可以vim中批量提交git文件, 查看git diff等....</p>
   </section>
   <footer class="entry-footer">
     <time>May 19, 2019</time>
@@ -159,7 +165,7 @@ cat /sys/class/dmi/id/product_uuid  禁用Swap交换分区, 保证kubelet正确�
     <h2>LetsEncrypt申请与nginx配置SSL</h2>
   </header>
   <section class="entry-content">
-   <p>1. letsencrypt 证书申请. 官方指引 1. 申请证书需要安装Cerbto. 脚本 yum -y install epel-release yum -y install yum-utils yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional yum install certbot python2-certbot-nginx  2. 手动去申请证, 我这里申请全部子域名的. 验证身份的方式需要在域名供应商添加dns txt的. 1. 开始安装, 有下面提示信息. 这里需要暂停, 去添加DNS TXT即第2步. # 执行 certbot certonly -d &#34;*.actiger.com&#34; --manual --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory  执行到下面提示信息后, 需要暂停. - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #Please deploy a DNS TXT record under the name #_acme-challenge....</p>
+   <p>1. letsencrypt 证书申请. 官方指引 1. 申请证书需要安装Cerbto. 脚本 yum -y install epel-release yum -y install yum-utils yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional yum install certbot python2-certbot-nginx 2. 手动去申请证, 我这里申请全部子域名的. 验证身份的方式需要在域名供应商添加dns txt的. 1. 开始安装, 有下面提示信息. 这里需要暂停, 去添加DNS TXT即第2步. # 执行 certbot certonly -d &#34;*.actiger.com&#34; --manual --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory 执行到下面提示信息后, 需要暂停. - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #Please deploy a DNS TXT record under the name #_acme-challenge....</p>
   </section>
   <footer class="entry-footer">
     <time>May 19, 2019</time>
@@ -171,7 +177,7 @@ cat /sys/class/dmi/id/product_uuid  禁用Swap交换分区, 保证kubelet正确�
     <h2>使用docker和hugo搭建自己的博客</h2>
   </header>
   <section class="entry-content">
-   <p>1. 方案选择, 需要内容结构. 1. 练习的话, 可以这种方案. 虚拟机&#43;本地hosts, 免费, 只能内网访问. 2. 最难的方案, 国内域名(备案时间可能会很长,外地备案条件苛刻)&#43;国内云. 2. 在服务器上拉取docker-compose仓库. # 拉取仓库, 并存放在用户目录中 git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository # 复制这用到了docker-compose文件夹, 并存放在用户目录中 cp -r ~/docker-compose-repository/nginx-hugoBlog ~/nginx-hugoBlog  3. 使用hugo生成正确的博客目录 1. hugo生成网站目录 # 指定主题, 我使用了hugo-paper, 网站地址baseUrl, 目标目录, 我会上传多个平台, 所以指定下. # 注意 --bashUrl后的/是必须要有的. hugo --theme=hugo-paper --baseUrl=&#34;http://blog.actiger.com/&#34; --destination=&#34;blog.actiger.com&#34;  2. 上传步骤1生成的博客目录到github.com. 参考这里的步骤3和4 3. 在服务器上拉取上传的博客目录 # 进行docker-compose文件夹中 cd ~/nginx-hugoBlog # 拉取的docker-compose 默认配置是 ./blog.actiger.com:/usr/share/nginx/html . # docker-compose配置文件里的配置的目录, 与当前目录一致的. # 克隆代码时需要, 重命名与docker-compose配置挂载目录名一致. git clone https://github....</p>
+   <p>1. 方案选择, 需要内容结构. 1. 练习的话, 可以这种方案. 虚拟机&#43;本地hosts, 免费, 只能内网访问. 2. 最难的方案, 国内域名(备案时间可能会很长,外地备案条件苛刻)&#43;国内云. 2. 在服务器上拉取docker-compose仓库. # 拉取仓库, 并存放在用户目录中 git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository # 复制这用到了docker-compose文件夹, 并存放在用户目录中 cp -r ~/docker-compose-repository/nginx-hugoBlog ~/nginx-hugoBlog 3. 使用hugo生成正确的博客目录 1. hugo生成网站目录 # 指定主题, 我使用了hugo-paper, 网站地址baseUrl, 目标目录, 我会上传多个平台, 所以指定下. # 注意 --bashUrl后的/是必须要有的. hugo --theme=hugo-paper --baseUrl=&#34;http://blog.actiger.com/&#34; --destination=&#34;blog.actiger.com&#34; 2. 上传步骤1生成的博客目录到github.com. 参考这里的步骤3和4 3. 在服务器上拉取上传的博客目录 # 进行docker-compose文件夹中 cd ~/nginx-hugoBlog # 拉取的docker-compose 默认配置是 ./blog.actiger.com:/usr/share/nginx/html . # docker-compose配置文件里的配置的目录, 与当前目录一致的. # 克隆代码时需要, 重命名与docker-compose配置挂载目录名一致. git clone https://github.com/Charles-one/blog.actiger.com blog.actiger.com 4....</p>
   </section>
   <footer class="entry-footer">
     <time>May 19, 2019</time>
@@ -184,26 +190,13 @@ cat /sys/class/dmi/id/product_uuid  禁用Swap交换分区, 保证kubelet正确�
   </header>
   <section class="entry-content">
    <p>1. 使用Crontab的原因. 每次更新博客都要登录服务器(ssh延迟容易中断)手动去拉取代码, 不方便. 故设置成自动获取最新代码. 2. 选择crontab定时 查看下资源, 觉得crontab简单可行, 直接来用就好了. 3. 定时任务需需要做事情.  特定目录执行git pul的shell脚本. 这里我使用了ssh key可以参考这里的  vim git_pull.sh
- #!/bin/bash # 进入目录中 cd ~/nginx-hugoBlog/blog.actiger.com/ # 拉取github中的代码 git pull   添加crontab任务文件  vim git_pull.cron
-# 设置5分钟拉取一次代码 */5 * * * * cd /root &amp;&amp; ./git_pull_blog.actiger.com.sh   把定时任务文件内容加到crontab中
-# 添加root账户中 crontab -uroot git_pull.cron # 查询当前任务, root是账户, 添加的定时任务会放到这个目录中 crontab -uroot -l cat /var/spool/cron/root # 删除root用户的定时任务 crontab -uroot -r   日志的地址, 相当重要....</p>
+ #!/bin/bash # 进入目录中 cd ~/nginx-hugoBlog/blog.actiger.com/ # 拉取github中的代码 git pull 添加crontab任务文件  vim git_pull.cron
+# 设置5分钟拉取一次代码 */5 * * * * cd /root &amp;&amp; ./git_pull_blog.actiger.com.sh 把定时任务文件内容加到crontab中  # 添加root账户中 crontab -uroot git_pull.cron # 查询当前任务, root是账户, 添加的定时任务会放到这个目录中 crontab -uroot -l cat /var/spool/cron/root # 删除root用户的定时任务 crontab -uroot -r 日志的地址, 相当重要. # 日志文件 /var/spool/mail/root # 查看日志 # 可以把时间设置1分钟, 可以很快看到执行情况, 方便调试....</p>
   </section>
   <footer class="entry-footer">
     <time>May 18, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/crontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>Centos7使用ssh Key拉取github项目失败</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. centos7上错误信息, 与配置信息. # 测试最否能连接到github上, 使用-v打印连接日志 [root@cc]/etc/ssh# ssh -vT git@github.com OpenSSH_7.4p1, OpenSSL 1.0.2k-fips 26 Jan 2017 debug1: Reading configuration data /root/.ssh/config debug1: /root/.ssh/config line 3: Applying options for github.com debug1: Reading configuration data /etc/ssh/ssh_config debug1: /etc/ssh/ssh_config line 60: Applying options for * debug1: Connecting to github.com [192.30.255.112] port 12340. debug1: Connection established. debug1: permanently_set_uid: 0/0 debug1: key_load_public: No such file or directory debug1: identity file /root/.ssh/git_cron type -1 debug1: key_load_public: No such file or directory debug1: identity file /root/....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>May 18, 2019</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/centos7%E4%BD%BF%E7%94%A8ssh-key%E6%8B%89%E5%8F%96github%E9%A1%B9%E7%9B%AE%E5%A4%B1%E8%B4%A5/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

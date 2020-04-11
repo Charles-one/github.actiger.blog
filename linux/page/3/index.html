@@ -15,7 +15,7 @@
     
     <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.69.0" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -94,17 +94,13 @@
     <h2>使用Hugo和GitHub Pages搭建静态网站</h2>
   </header>
   <section class="entry-content">
-   <p>0. 前提条件  电脑安装git(Mac linux都需要安装) 安装go并设置环境变量(仅linux下需要) 虚拟机Centos7.6.1810(测试用, 不需要安装)  1. 安装hugo  mac直接使用brew install hugo就可以了
- linux下源码安装
-   下载并编译
-mkdir ~/src cd ~/src git clone https://github.com/gohugoio/hugo.git cd hugo go install  添加环境变量
-# 当前用户~/go文件绝对路径是GOPATH,Go编译后的文件在~/go/bin中 # 如现在当前用户是jenkins vim /etc/profile 添加 export export GOPATH=/var/lib/jenkins/go export PATH=${PATH}:$GOPATH/bin   重新生效/etc/profile文件
+   <p>0. 前提条件  电脑安装git(Mac linux都需要安装) 安装go并设置环境变量(仅linux下需要) 虚拟机Centos7.6.1810(测试用, 不需要安装)  1. 安装hugo   mac直接使用brew install hugo就可以了
+  linux下源码安装
+   下载并编译  mkdir ~/src cd ~/src git clone https://github.com/gohugoio/hugo.git cd hugo go install 添加环境变量  # 当前用户~/go文件绝对路径是GOPATH,Go编译后的文件在~/go/bin中 # 如现在当前用户是jenkins vim /etc/profile 添加 export export GOPATH=/var/lib/jenkins/go export PATH=${PATH}:$GOPATH/bin 重新生效/etc/profile文件
 source /etc/profile
 再次hugo vimersion
 就会显示hugo版本, 表示可用
-2. 使用Hugo创建个人网站  创建静态网站文件夹
-cd ~ hugo new site actiger  写第一篇markdown文章, markdown语法参考
-  cd ~/actiger 在目录~/actiger下执行hugo new about....</p>
+2. 使用Hugo创建个人网站  创建静态网站文件夹  cd ~ hugo new site actiger  写第一篇markdown文章, markdown语法参考  cd ~/actiger 在目录~/actiger下执行hugo new about....</p>
   </section>
   <footer class="entry-footer">
     <time>March 13, 2019</time>
@@ -116,18 +112,15 @@ cd ~ hugo new site actiger  写第一篇markdown文章, markdown语法参考
     <h2>使用jenkins构建指定版本的Github项目Hugo</h2>
   </header>
   <section class="entry-content">
-   <p>0. 前提条件, 会使用到jenkins, go语言编译hugo  安装jenkinx&lt;/&gt;
- Linux安装go并设置环境变量
-  1. 创建一个jenkins任务  创建一个Jenkins任务   输入Enter an item name, 这里名字是basic_hugo
- 选择Github组织
- 再选择最左下”OK”按钮, 创建
-  2. 编辑已创建的basic_hugo任务  进入basic_hugo任务编辑页面   进入http://&lt;服务器ip&gt;:8080/me/my-views/view/all/, 在名称下basicd_hugo鼠标悬停上去, 多选, 选择Configure (或者使用Blue Ocean插件http://&lt;服务器ip&gt;:8080/blue/organizations/jenkins/basic_hugo/activity, 选择项目名称旁边的设置齿轮)
- 进入编辑页, http://10.211.55.9:8080/job/basic_hugo/configure
+   <p>0. 前提条件, 会使用到jenkins, go语言编译hugo   安装jenkinx&lt;/&gt;
+  Linux安装go并设置环境变量  1. 创建一个jenkins任务  创建一个Jenkins任务    输入Enter an item name, 这里名字是basic_hugo
+  选择Github组织
+  再选择最左下&#34;OK&#34;按钮, 创建
+  2. 编辑已创建的basic_hugo任务  进入basic_hugo任务编辑页面    进入http://&lt;服务器ip&gt;:8080/me/my-views/view/all/, 在名称下basicd_hugo鼠标悬停上去, 多选, 选择Configure (或者使用Blue Ocean插件http://&lt;服务器ip&gt;:8080/blue/organizations/jenkins/basic_hugo/activity, 选择项目名称旁边的设置齿轮)
+  进入编辑页, http://10.211.55.9:8080/job/basic_hugo/configure
    在编辑页中设置github中hugo地址, 参数化分支名称  GitHub项目-&gt;项目URL 填写 https://github.com/gohugoio/hugo.git/
-参数化构建过程-&gt;字符参数 Name: BARNCH Default Value: master Description 分支名称
-Source Code Management-&gt;Git-&gt;Repositories
-Repository URL: https://github.com/gohugoio/hugo.git
-Source Code Management-&gt;Git-&gt;Branches to build...</p>
+参数化构建过程-&gt;字符参数 Name: BARNCH Default Value: master Description	分支名称
+Source Code Management-&gt;Git-&gt;Repositories...</p>
   </section>
   <footer class="entry-footer">
     <time>March 13, 2019</time>
@@ -139,11 +132,11 @@ Source Code Management-&gt;Git-&gt;Branches to build...</p>
     <h2>Linux安装go并设置环境变量</h2>
   </header>
   <section class="entry-content">
-   <p> Mac用户直接使用brew install go即可 Linux用户 wget https://dl.google.com/go/go1.12.linux-amd64.tar.gz
+   <p>Mac用户直接使用brew install go即可 Linux用户 wget https://dl.google.com/go/go1.12.linux-amd64.tar.gz
 tar -C /usr/local -xzf go1.12.linux-amd64.tar.gz
 root用户去编辑vim /etc/profile中添加如下信息
-export PATH=$PATH:/usr/local/go/bin  用户使用go需要 重新生效这个文件
-source /etc/profile  ...</p>
+export PATH=$PATH:/usr/local/go/bin 用户使用go需要 重新生效这个文件
+source /etc/profile ...</p>
   </section>
   <footer class="entry-footer">
     <time>March 13, 2019</time>
@@ -155,14 +148,14 @@ source /etc/profile  ...</p>
     <h2>安装jenkins和插件</h2>
   </header>
   <section class="entry-content">
-   <p>0.安装Jenkins, 需要提前安装JDK 1.8 安装JDK参考
-1.安装Jnekins  尽量翻墙执行,否则容易报443错误
-sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key yum search jenkins sudo yum install jenkins   2. 启动服务与添加防火墙端口  启动jenkins  systemctl start jenkins 如果这里有报错信息,并且提示 “systemctl status jenkins.service” and “journalctl -xe” for details 查看详情
+   <p>0.安装Jenkins, 需要提前安装JDK 1.8 安装JDK参考1.安装Jnekins  尽量翻墙执行,否则容易报443错误  sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key yum search jenkins sudo yum install jenkins 2. 启动服务与添加防火墙端口  启动jenkins  systemctl start jenkins 如果这里有报错信息,并且提示 “systemctl status jenkins.service” and “journalctl -xe” for details 查看详情
 journalctl -xe可以看到原因/usr/bin/java: 没有那个文件或目录
 需要更改vim /etc/init.d/jenkins
-candidates=&#34; /etc/alternatives/java /usr/lib/jvm/java-1.8.0/bin/java /usr/lib/jvm/jre-1.8.0/bin/java /usr/lib/jvm/java-1.7.0/bin/java /usr/lib/jvm/jre-1.7.0/bin/java /usr/java/jdk1.8.0_152/bin/java 这个是修改后的jdk路径（修改前是/usr/bin/java） &#34;  systemctl daemon-reload (重新加载工具)
+candidates=&#34; /etc/alternatives/java /usr/lib/jvm/java-1.8.0/bin/java /usr/lib/jvm/jre-1.8.0/bin/java /usr/lib/jvm/java-1.7.0/bin/java /usr/lib/jvm/jre-1.7.0/bin/java /usr/java/jdk1.8.0_152/bin/java 这个是修改后的jdk路径（修改前是/usr/bin/java） &#34; systemctl daemon-reload (重新加载工具)
 systemctl start jenkins (再次启动jenkins)
- 检查是否能访问成功  jenkins 使用的8080端口...</p>
+ 检查是否能访问成功  jenkins 使用的8080端口
+访问http://&lt;服务器ip&gt;/8080
+访问失败, 检查端口是否存在...</p>
   </section>
   <footer class="entry-footer">
     <time>March 13, 2019</time>
@@ -174,13 +167,7 @@ systemctl start jenkins (再次启动jenkins)
     <h2>安装docker Ce和使用docker安装nginx</h2>
   </header>
   <section class="entry-content">
-   <p>0. 目录  安装Docker Docker简单使用  1.安装docker  卸载版本Docker
-sudo yum remove docker \ docker-common \ docker-selinux \ docker-engine  设置仓库
-sudo yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 sudo yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo  安装docker-ce
-sudo yum install docker-ce  卸载docker-ce
-sudo yum remove docker-ce sudo rm -rf /var/lib/docker  更换国内源
-vim vim /etc/docker/daemon.json { &#34;registry-mirrors&#34;: [ &#34;http://hub-mirror.c.163.com&#34;] }   2.docker简单使用  下载镜像
-docker pull nginx:1....</p>
+   <p>0. 目录  安装Docker Docker简单使用  1.安装docker  卸载版本Docker  sudo yum remove docker \ docker-common \ docker-selinux \ docker-engine  设置仓库  sudo yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 sudo yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo  安装docker-ce  sudo yum install docker-ce  卸载docker-ce  sudo yum remove docker-ce sudo rm -rf /var/lib/docker  更换国内源  vim vim /etc/docker/daemon.json { &#34;registry-mirrors&#34;: [ &#34;http://hub-mirror.c.163.com&#34;] } 2.docker简单使用  下载镜像  docker pull nginx:1....</p>
   </section>
   <footer class="entry-footer">
     <time>March 12, 2019</time>
@@ -192,7 +179,7 @@ docker pull nginx:1....</p>
     <h2>设置用户可sudo命令</h2>
   </header>
   <section class="entry-content">
-   <p>vi /etc/sudoers # new cc ALL=/bin/yum # cc用户名就可使用sudo yum  在cc用户下 sudo yum install vim 输入密码后再就可安装vim了...</p>
+   <p>vi /etc/sudoers # new cc ALL=/bin/yum # cc用户名就可使用sudo yum 在cc用户下 sudo yum install vim 输入密码后再就可安装vim了...</p>
   </section>
   <footer class="entry-footer">
     <time>March 12, 2019</time>
@@ -204,16 +191,12 @@ docker pull nginx:1....</p>
     <h2>下载安装JDK和设置JDK环境变量</h2>
   </header>
   <section class="entry-content">
-   <p>0. 准备工作  root用户及密码  1. 卸载原有JDK rpm -qa | grep &#34;java&#34;  yum remove 上面筛选内容
+   <p>0. 准备工作  root用户及密码  1. 卸载原有JDK rpm -qa | grep &#34;java&#34; yum remove 上面筛选内容
 2. 下载JDK, 解压 进入https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html 右键选择linux x64 jdk-8u201-linux-i586.tar.gz的下载地址 使用wget下载
-wget --no-check-certificate --no-cookies --header &#34;Cookie: oraclelicense=accept-securebackup-cookie&#34; https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz  解压
+wget --no-check-certificate --no-cookies --header &#34;Cookie: oraclelicense=accept-securebackup-cookie&#34; https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz 解压
 tar -zxvf jdk-8u201-linux-x64.tar.gz
-3. root移动文件, 并设置JAVA_HOME环境变量  移动文件夹
-mv jdk1.8.0_201 /usr/local  设置JAVA_HOME环境变量
-  vim /etc/profile 可以对所有用户生效 添加下列信息
-export JAVA_HOME=/usr/local/jdk1.8.0_201 export JRE_HOME=${JAVA_HOME}/jre export CLASSPATH=.:${JAVA_HOME}/lib/dt.JAVA_HOME/lib/tools.jar:${JRE_HOME}/lib export PATH=${JAVA_HOME}/bin:${PATH}   重新生效/etc/profile
-source /etc/profile  检测
-java -version   预期会弹出java的版本...</p>
+3. root移动文件, 并设置JAVA_HOME环境变量  移动文件夹  mv jdk1.8.0_201 /usr/local  设置JAVA_HOME环境变量  vim /etc/profile 可以对所有用户生效 添加下列信息
+export JAVA_HOME=/usr/local/jdk1.8.0_201 export JRE_HOME=${JAVA_HOME}/jre export CLASSPATH=.:${JAVA_HOME}/lib/dt.JAVA_HOME/lib/tools.jar:${JRE_HOME}/lib export PATH=${JAVA_HOME}/bin:${PATH}  重新生效/etc/profile  source /etc/profile  检测  java -version 预期会弹出java的版本...</p>
   </section>
   <footer class="entry-footer">
     <time>March 12, 2019</time>
@@ -225,14 +208,14 @@ java -version   预期会弹出java的版本...</p>
     <h2>更改linux用户名</h2>
   </header>
   <section class="entry-content">
-   <p> 0.前提条件  root用户及密码 原用户ccc  1. 更改用户ccc 使用root用户编辑更改
+   <p>0.前提条件  root用户及密码 原用户ccc  1. 更改用户ccc 使用root用户编辑更改
 /etc/passwd
 /etc/group
 /etc/shadow
 /etc/gshadow
-中”原用户名”为”新用户名”即可
+中&#34;原用户名&#34;为&#34;新用户名&#34;即可
 同时
-mv /home/olderuser /home/newuser  ...</p>
+mv /home/olderuser /home/newuser ...</p>
   </section>
   <footer class="entry-footer">
     <time>March 12, 2019</time>
@@ -245,16 +228,12 @@ mv /home/olderuser /home/newuser  ...</p>
   </header>
   <section class="entry-content">
    <p>0.前提条件 1.安装软件Centos7, 版本7.6.1810 CentOS-7-x86_64-Minimal-1810.iso 2.root用户及密码, 已联网  如未联网,请打开网卡, 并重启 设置/etc/sysconfig/network-scripts/ifcfg-eth0 中ONBOOT =yes  重启电脑
-reboot  1.登录root  需要查询当前Centos7的主机ip
-ifconfig  提示无此命令
-  yum -y install net-tools
+reboot 1.登录root  需要查询当前Centos7的主机ip  ifconfig 提示无此命令
+yum -y install net-tools
 再次 ifconfig查询ip
- 使用ssh软件登录root用户, 默认使用22端口, 不用指定
-ssh root@ip  输入密码
-  2.更改ssh服务端口, 防火墙端口, SELINUX端口  更改sshd.service端口, 端口可选择&gt;10000避免与其他软件冲突.  vim /etc/ssh/sshd_config更改Port 12340
-systemctl restart sshd   添加防火墙端口
-firewall-cmd --zone=public --add-port=12340/tcp --permanent (永久生效必须用--permanent) firewall-cmd --reload  更改SELINUX端口, 因为SELINUX的原因, ssh被设定到22端口上了, 必须更改
-  借助软件来更改 安装 yum -y install policycoreutils-python semanage port -a -t ssh_port_t -p tcp 12340...</p>
+使用ssh软件登录root用户, 默认使用22端口, 不用指定  ssh root@ip 输入密码
+2.更改ssh服务端口, 防火墙端口, SELINUX端口  更改sshd.service端口, 端口可选择&gt;10000避免与其他软件冲突.  vim /etc/ssh/sshd_config更改Port 12340
+systemctl restart sshd 添加防火墙端口  firewall-cmd --zone=public --add-port=12340/tcp --permanent (永久生效必须用--permanent) firewall-cmd --reload 更改SELINUX端口, 因为SELINUX的原因, ssh被设定到22端口上了, 必须更改  借助软件来更改 安装 yum -y install policycoreutils-python semanage port -a -t ssh_port_t -p tcp 12340...</p>
   </section>
   <footer class="entry-footer">
     <time>March 12, 2019</time>

@@ -7,7 +7,7 @@
     
     <title>解决腾讯云PVC网络指定公网ip安装kubernetes master节点失败问题 - Actiger跳跳虎</title>
     
-    <meta name="description" content="1. 问题描述, 使用腾讯云VPC(Virtual Private Cloud)即专有网络, 初始化kubernetes init指定公网ip, 初始化失败 kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=&lt;公网ip&gt; --ignore-preflight-errors=NumCPU  截取提示错误信息 Nov 23 20:09:16 mm.com kubelet[22940]: E1123 20:09:16.997560 22940 kubelet.go:2252] node &quot;mm.com&quot; not found Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.053858 22940 controller.go:125] failed to ensure node lease exists, will retry in 7s, error: Get https://118.89.82.5:6443/apis/coordination.k8s.io/v1beta1 Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.097695 22940 kubelet.go:2252] node &quot;mm.com&quot; not found Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.">
+    <meta name="description" content="1. 问题描述, 使用腾讯云VPC(Virtual Private Cloud)即专有网络, 初始化kubernetes init指定公网ip, 初始化失败 kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=&lt;公网ip&gt; --ignore-preflight-errors=NumCPU 截取提示错误信息 Nov 23 20:09:16 mm.com kubelet[22940]: E1123 20:09:16.997560 22940 kubelet.go:2252] node &quot;mm.com&quot; not found Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.053858 22940 controller.go:125] failed to ensure node lease exists, will retry in 7s, error: Get https://118.89.82.5:6443/apis/coordination.k8s.io/v1beta1 Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.097695 22940 kubelet.go:2252] node &quot;mm.com&quot; not found Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.101372 22940 reflector.">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -15,7 +15,7 @@
     
     <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.69.0" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -80,31 +80,18 @@
     <h1 class="post-title">解决腾讯云PVC网络指定公网ip安装kubernetes master节点失败问题</h1>
     <div class="post-meta">November 28, 2019</div>
   </header>
-  <div class="post-content">
-
-<h3 id="1-问题描述-使用腾讯云vpc-virtual-private-cloud-即专有网络-初始化kubernetes-init指定公网ip-初始化失败">1. 问题描述, 使用腾讯云VPC(Virtual Private Cloud)即专有网络, 初始化kubernetes init指定公网ip, 初始化失败</h3>
-
+  <div class="post-content"><h3 id="1-问题描述-使用腾讯云vpcvirtual-private-cloud即专有网络-初始化kubernetes-init指定公网ip-初始化失败">1. 问题描述, 使用腾讯云VPC(Virtual Private Cloud)即专有网络, 初始化kubernetes init指定公网ip, 初始化失败</h3>
 <pre><code>kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=&lt;公网ip&gt; --ignore-preflight-errors=NumCPU
-</code></pre>
-
-<h4 id="截取提示错误信息">截取提示错误信息</h4>
-
+</code></pre><h4 id="截取提示错误信息">截取提示错误信息</h4>
 <pre><code>Nov 23 20:09:16 mm.com kubelet[22940]: E1123 20:09:16.997560 22940 kubelet.go:2252] node &quot;mm.com&quot; not found
 Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.053858 22940 controller.go:125] failed to ensure node lease exists, will retry in 7s, error: Get https://118.89.82.5:6443/apis/coordination.k8s.io/v1beta1
 Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.097695 22940 kubelet.go:2252] node &quot;mm.com&quot; not found
 Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.101372 22940 reflector.go:125] k8s.io/kubernetes/pkg/kubelet/config/apiserver.go:47: Failed to list *v1.Pod: Get
-</code></pre>
-
-<h3 id="2-查找原因">2. 查找原因</h3>
-
+</code></pre><h3 id="2-查找原因">2. 查找原因</h3>
 <h4 id="1-确认安全组开启">1. 确认安全组开启</h4>
-
 <h4 id="2-确认防火墙端口全部开启">2. 确认防火墙端口全部开启</h4>
-
 <h4 id="3-对比之前使用kvm-vps的网络ifconfig-发现vpc专有网络只有内网ip-使用内网ip是可初始化成功的-确认原因在网卡这里">3. 对比之前使用KVM VPS的网络ifconfig, 发现VPC专有网络只有内网IP, 使用内网IP是可初始化成功的, 确认原因在网卡这里.</h4>
-
 <h4 id="4-对比vpc与弹性公网ip与ecs公网ip区别-vpc看不实例网卡-帮指定公网ip初化时失败">4. 对比VPC与弹性公网IP与ECS公网IP区别, VPC看不实例网卡, 帮指定公网ip初化时失败.</h4>
-
 <table>
 <thead>
 <tr>
@@ -113,26 +100,22 @@ Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.101372 22940 reflector.go:
 <th>EIP</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>支持的网络环境</td>
 <td>专有网络</td>
 <td>专有银山乡与经典网络</td>
 </tr>
-
 <tr>
 <td>是否能够单独持有</td>
 <td>支持</td>
 <td>不支持</td>
 </tr>
-
 <tr>
 <td>是否支持在ECS上的弹性插拔</td>
 <td>支持</td>
 <td>不支持</td>
 </tr>
-
 <tr>
 <td>ECS实例网卡上是否能看到该IP</td>
 <td>EIP网卡可见模式和多EIP网卡可见模式下可见</td>
@@ -140,15 +123,10 @@ Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.101372 22940 reflector.go:
 </tr>
 </tbody>
 </table>
-
-<h3 id="3-解决-进行腾讯eip直通-网卡可见公网ip-参考地址-a-href-https-cloud-tencent-com-document-product-213-12540-target-blank-eip直通-a">3. 解决, 进行腾讯EIP直通, 网卡可见公网ip. 参考地址<a href="https://cloud.tencent.com/document/product/213/12540" target="blank">EIP直通</a></h3>
-
+<h3 id="3-解决-进行腾讯eip直通-网卡可见公网ip-参考地址a-hrefhttpscloudtencentcomdocumentproduct21312540-targetblankeip直通a">3. 解决, 进行腾讯EIP直通, 网卡可见公网ip. 参考地址<!-- raw HTML omitted -->EIP直通<!-- raw HTML omitted --></h3>
 <h4 id="1-工单申请eip">1. 工单申请EIP</h4>
-
 <h4 id="2-运行脚本前确认ifcfg-eth0原文件未修改-如有更改请恢复">2. 运行脚本前确认ifcfg-eth0原文件未修改, 如有更改请恢复.</h4>
-
 <h4 id="3-下载脚本-解压-运行脚本">3. 下载脚本, 解压, 运行脚本.</h4>
-
 <pre><code>
 wget https://main.qcloudimg.com/raw/7d07d336030fb1324f3d55c891434612/eip_direct.zip
 
@@ -158,28 +136,16 @@ chmod +x eip_direct.sh  
 
 ./eip_direct.sh install &lt;公网ip&gt;
 
-</code></pre>
-
-<h4 id="4-查看是否成功-在内网ip下有还有个公网ip">4. 查看是否成功, 在内网ip下有还有个公网ip.</h4>
-
+</code></pre><h4 id="4-查看是否成功-在内网ip下有还有个公网ip">4. 查看是否成功, 在内网ip下有还有个公网ip.</h4>
 <pre><code>ip a
-</code></pre>
-
-<h4 id="5-登录腾讯云-a-href-https-console-cloud-tencent-com-cvm-eip-rid-4-target-blank-控制台-a-在更多中选择直通并确定">5. 登录腾讯云<a href="https://console.cloud.tencent.com/cvm/eip?rid=4" target="blank">控制台</a>, 在更多中选择直通并确定.</h4>
-
+</code></pre><h4 id="5-登录腾讯云a-hrefhttpsconsolecloudtencentcomcvmeiprid4-targetblank控制台a-在更多中选择直通并确定">5. 登录腾讯云<!-- raw HTML omitted -->控制台<!-- raw HTML omitted -->, 在更多中选择直通并确定.</h4>
 <h4 id="6-可能碰到的问题">6. 可能碰到的问题</h4>
-
 <h5 id="如果你之前开了直通-且重装了系统-这时候在系统内无法上网的-因为之前的ip是直通的">如果你之前开了直通, 且重装了系统, 这时候在系统内无法上网的, 因为之前的IP是直通的.</h5>
-
 <h5 id="需要你解绑删除刚刚的直通ip-重新申请一个ip-重复2-5步骤">需要你解绑删除刚刚的直通ip, 重新申请一个IP, 重复2-5步骤.</h5>
-
 <h5 id="检查ip-a-不是ifconfig">检查ip a, 不是ifconfig.</h5>
-
 <h4 id="7-重新指定公网ip初始化kubernetes">7. 重新指定公网IP初始化kubernetes</h4>
-
 <pre><code>kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=&lt;公网ip&gt; --ignore-preflight-errors=NumCPU
-</code></pre>
-</div>
+</code></pre></div>
   
 </article></main>
 <footer class="footer">

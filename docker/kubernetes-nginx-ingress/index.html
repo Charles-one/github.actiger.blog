@@ -7,9 +7,7 @@
     
     <title>Kubernetes Ingress Nginx - Actiger跳跳虎</title>
     
-    <meta name="description" content="1. 为了理解Nginx Ingress Controller, 先看下上海长宁来福士的人脸识别电梯, 正好在这上班😃. 把外部进入内部人脸识别闸机类比为NGINX Ingress Controller, 匹配域名, 把人或请求分配到内部service. 把人脸识别分配电梯类比为service, service控制着一组电梯, 将人或请求分配service下的电梯中. 把电梯类比为pod, 在service下, 处理人或请求. 2. 下面是配置文件, 角色与service绑定的, 使用到pv和pvc, 使用secret, 我的命名空间是nginx-space  创建name-space
-kubectl create namespace nginx-space  设置默认返回内容 default-backend.yaml
-apiVersion: extensions/v1beta1 kind: Deployment metadata: name: default-http-backend labels: k8s-app: default-http-backend namespace: nginx-space spec: replicas: 1 template: metadata: labels: k8s-app: default-http-backend spec: terminationGracePeriodSeconds: 60 containers: - name: default-http-backend # Any image is permissable as long as: # 1. It serves a 404 page at / # 2.">
+    <meta name="description" content="1. 为了理解Nginx Ingress Controller, 先看下上海长宁来福士的人脸识别电梯, 正好在这上班😃. 把外部进入内部人脸识别闸机类比为NGINX Ingress Controller, 匹配域名, 把人或请求分配到内部service. 把人脸识别分配电梯类比为service, service控制着一组电梯, 将人或请求分配service下的电梯中. 把电梯类比为pod, 在service下, 处理人或请求. 2. 下面是配置文件, 角色与service绑定的, 使用到pv和pvc, 使用secret, 我的命名空间是nginx-space  创建name-space  kubectl create namespace nginx-space 设置默认返回内容 default-backend.yaml  apiVersion: extensions/v1beta1 kind: Deployment metadata: name: default-http-backend labels: k8s-app: default-http-backend namespace: nginx-space spec: replicas: 1 template: metadata: labels: k8s-app: default-http-backend spec: terminationGracePeriodSeconds: 60 containers: - name: default-http-backend # Any image is permissable as long as: # 1. It serves a 404 page at / # 2.">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -17,7 +15,7 @@ apiVersion: extensions/v1beta1 kind: Deployment metadata: name: default-http-bac
     
     <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.69.0" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -82,85 +80,75 @@ apiVersion: extensions/v1beta1 kind: Deployment metadata: name: default-http-bac
     <h1 class="post-title">Kubernetes Ingress Nginx</h1>
     <div class="post-meta">June 4, 2019</div>
   </header>
-  <div class="post-content">
-
-<h3 id="1-为了理解nginx-ingress-controller-先看下上海长宁来福士的人脸识别电梯-正好在这上班">1. 为了理解Nginx Ingress Controller, 先看下上海长宁来福士的人脸识别电梯, 正好在这上班😃.</h3>
-
-<p><img src="../../img/kubernetes-ingress-nginx.png" alt="长宁来福士" /></p>
-
+  <div class="post-content"><h3 id="1-为了理解nginx-ingress-controller-先看下上海长宁来福士的人脸识别电梯-正好在这上班">1. 为了理解Nginx Ingress Controller, 先看下上海长宁来福士的人脸识别电梯, 正好在这上班😃.</h3>
+<p><img src="../../img/kubernetes-ingress-nginx.png" alt="长宁来福士"></p>
 <h4 id="把外部进入内部人脸识别闸机类比为nginx-ingress-controller-匹配域名-把人或请求分配到内部service">把外部进入内部人脸识别闸机类比为NGINX Ingress Controller, 匹配域名, 把人或请求分配到内部service.</h4>
-
 <h4 id="把人脸识别分配电梯类比为service-service控制着一组电梯-将人或请求分配service下的电梯中">把人脸识别分配电梯类比为service, service控制着一组电梯, 将人或请求分配service下的电梯中.</h4>
-
 <h4 id="把电梯类比为pod-在service下-处理人或请求">把电梯类比为pod, 在service下, 处理人或请求.</h4>
-
 <h3 id="2-下面是配置文件-角色与service绑定的-使用到pv和pvc-使用secret-我的命名空间是nginx-space">2. 下面是配置文件, 角色与service绑定的, 使用到pv和pvc, 使用secret, 我的命名空间是nginx-space</h3>
-
 <ol>
-<li><p>创建name-space</p>
-
+<li>创建name-space</li>
+</ol>
 <pre><code>kubectl create namespace nginx-space
-</code></pre></li>
-
-<li><p>设置默认返回内容 default-backend.yaml</p>
-
+</code></pre><ol start="2">
+<li>设置默认返回内容 default-backend.yaml</li>
+</ol>
 <pre><code>apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-name: default-http-backend
-labels:
-k8s-app: default-http-backend
-namespace: nginx-space
-spec:
-replicas: 1
-template:
-metadata:
+  name: default-http-backend
   labels:
     k8s-app: default-http-backend
+  namespace: nginx-space
 spec:
-  terminationGracePeriodSeconds: 60
-  containers:
-  - name: default-http-backend
-    # Any image is permissable as long as:
-    # 1. It serves a 404 page at /
-    # 2. It serves 200 on a /healthz endpoint
-    image: gcr.io/google_containers/defaultbackend:1.4
-    livenessProbe:
-      httpGet:
-        path: /healthz
-        port: 8080
-        scheme: HTTP
-      initialDelaySeconds: 30
-      timeoutSeconds: 5
-    ports:
-    - containerPort: 8080
-    resources:
-      limits:
-        cpu: 10m
-        memory: 20Mi
-      requests:
-        cpu: 10m
-        memory: 20Mi
-  nodeSelector:
-    kubernetes.io/hostname: cc2
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        k8s-app: default-http-backend
+    spec:
+      terminationGracePeriodSeconds: 60
+      containers:
+      - name: default-http-backend
+        # Any image is permissable as long as:
+        # 1. It serves a 404 page at /
+        # 2. It serves 200 on a /healthz endpoint
+        image: gcr.io/google_containers/defaultbackend:1.4
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: 10m
+            memory: 20Mi
+          requests:
+            cpu: 10m
+            memory: 20Mi
+      nodeSelector:
+        kubernetes.io/hostname: cc2
 ---
 apiVersion: v1
 kind: Service
 metadata:
-name: default-http-backend
-namespace: nginx-space
-labels:
-k8s-app: default-http-backend
+  name: default-http-backend
+  namespace: nginx-space
+  labels:
+    k8s-app: default-http-backend
 spec:
-ports:
-- port: 80
-targetPort: 8080
-selector:
-k8s-app: default-http-backend
-</code></pre></li>
-
-<li><p>设置角色, 角色绑定nginx-ingress-controller-rbac.yml</p>
-
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    k8s-app: default-http-backend
+</code></pre><ol start="3">
+<li>设置角色, 角色绑定nginx-ingress-controller-rbac.yml</li>
+</ol>
 <pre><code>#apiVersion: v1
 #kind: Namespace
 #metadata:
@@ -169,265 +157,259 @@ k8s-app: default-http-backend
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-name: nginx-ingress-serviceaccount
-namespace: nginx-space
+  name: nginx-ingress-serviceaccount
+  namespace: nginx-space
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRole
 metadata:
-name: nginx-ingress-clusterrole
+  name: nginx-ingress-clusterrole
 rules:
-- apiGroups:
-  - &quot;&quot;
-resources:
-  - configmaps
-  - endpoints
-  - nodes
-  - pods
-  - secrets
-verbs:
-  - list
-  - watch
-- apiGroups:
-  - &quot;&quot;
-resources:
-  - nodes
-verbs:
-  - get
-- apiGroups:
-  - &quot;&quot;
-resources:
-  - services
-verbs:
-  - get
-  - list
-  - watch
-- apiGroups:
-  - &quot;extensions&quot;
-resources:
-  - ingresses
-verbs:
-  - get
-  - list
-  - watch
-- apiGroups:
-  - &quot;&quot;
-resources:
-    - events
-verbs:
-    - create
-    - patch
-- apiGroups:
-  - &quot;extensions&quot;
-resources:
-  - ingresses/status
-verbs:
-  - update
+  - apiGroups:
+      - &quot;&quot;
+    resources:
+      - configmaps
+      - endpoints
+      - nodes
+      - pods
+      - secrets
+    verbs:
+      - list
+      - watch
+  - apiGroups:
+      - &quot;&quot;
+    resources:
+      - nodes
+    verbs:
+      - get
+  - apiGroups:
+      - &quot;&quot;
+    resources:
+      - services
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - &quot;extensions&quot;
+    resources:
+      - ingresses
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - &quot;&quot;
+    resources:
+        - events
+    verbs:
+        - create
+        - patch
+  - apiGroups:
+      - &quot;extensions&quot;
+    resources:
+      - ingresses/status
+    verbs:
+      - update
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: Role
 metadata:
-name: nginx-ingress-role
-namespace: nginx-space
+  name: nginx-ingress-role
+  namespace: nginx-space
 rules:
-- apiGroups:
-  - &quot;&quot;
-resources:
-  - configmaps
-  - pods
-  - secrets
-  - namespaces
-verbs:
-  - get
-- apiGroups:
-  - &quot;&quot;
-resources:
-  - configmaps
-resourceNames:
-  # Defaults to &quot;&lt;election-id&gt;-&lt;ingress-class&gt;&quot;
-  # Here: &quot;&lt;ingress-controller-leader&gt;-&lt;nginx&gt;&quot;
-  # This has to be adapted if you change either parameter
-  # when launching the nginx-ingress-controller.
-  - &quot;ingress-controller-leader-nginx&quot;
-verbs:
-  - get
-  - update
-- apiGroups:
-  - &quot;&quot;
-resources:
-  - configmaps
-verbs:
-  - create
-- apiGroups:
-  - &quot;&quot;
-resources:
-  - endpoints
-verbs:
-  - get
-  - create
-  - update
+  - apiGroups:
+      - &quot;&quot;
+    resources:
+      - configmaps
+      - pods
+      - secrets
+      - namespaces
+    verbs:
+      - get
+  - apiGroups:
+      - &quot;&quot;
+    resources:
+      - configmaps
+    resourceNames:
+      # Defaults to &quot;&lt;election-id&gt;-&lt;ingress-class&gt;&quot;
+      # Here: &quot;&lt;ingress-controller-leader&gt;-&lt;nginx&gt;&quot;
+      # This has to be adapted if you change either parameter
+      # when launching the nginx-ingress-controller.
+      - &quot;ingress-controller-leader-nginx&quot;
+    verbs:
+      - get
+      - update
+  - apiGroups:
+      - &quot;&quot;
+    resources:
+      - configmaps
+    verbs:
+      - create
+  - apiGroups:
+      - &quot;&quot;
+    resources:
+      - endpoints
+    verbs:
+      - get
+      - create
+      - update
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: RoleBinding
 metadata:
-name: nginx-ingress-role-nisa-binding
-namespace: nginx-space
+  name: nginx-ingress-role-nisa-binding
+  namespace: nginx-space
 roleRef:
-apiGroup: rbac.authorization.k8s.io
-kind: Role
-name: nginx-ingress-role
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: nginx-ingress-role
 subjects:
-- kind: ServiceAccount
-name: nginx-ingress-serviceaccount
-namespace: nginx-space
+  - kind: ServiceAccount
+    name: nginx-ingress-serviceaccount
+    namespace: nginx-space
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
 metadata:
-name: nginx-ingress-clusterrole-nisa-binding
+  name: nginx-ingress-clusterrole-nisa-binding
 roleRef:
-apiGroup: rbac.authorization.k8s.io
-kind: ClusterRole
-name: nginx-ingress-clusterrole
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: nginx-ingress-clusterrole
 subjects:
-- kind: ServiceAccount
-name: nginx-ingress-serviceaccount
-namespace: nginx-space
-</code></pre></li>
-
-<li><p>设置nginx ingress controller配置, nginx-ingress-controller.yaml</p>
-
+  - kind: ServiceAccount
+    name: nginx-ingress-serviceaccount
+    namespace: nginx-space
+</code></pre><ol start="4">
+<li>设置nginx ingress controller配置, nginx-ingress-controller.yaml</li>
+</ol>
 <pre><code>apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-name: nginx-ingress-controller
-labels:
-k8s-app: nginx-ingress-controller
-namespace: nginx-space
-# for now change default
-spec:
-replicas: 1
-template:
-metadata:
-  namespace: nginx-space
+  name: nginx-ingress-controller
   labels:
     k8s-app: nginx-ingress-controller
+  namespace: nginx-space
+# for now change default
 spec:
-  # hostNetwork makes it possible to use ipv6 and to preserve the source IP correctly regardless of docker configuration
-  # however, it is not a hard dependency of the nginx-ingress-controller itself and it may cause issues if port 10254 already is taken on the host
-  # that said, since hostPort is broken on CNI (https://github.com/kubernetes/kubernetes/issues/31307) we have to use hostNetwork where CNI is used
-  # like with kubeadm
-  # hostNetwork: true
-  terminationGracePeriodSeconds: 60
-  hostNetwork: true
-  serviceAccountName: nginx-ingress-serviceaccount
-  containers:
-  - image: bitnami/nginx-ingress-controller
-    name: nginx-ingress-controller
-    readinessProbe:
-      httpGet:
-        path: /healthz
-        port: 10254
-        scheme: HTTP
-    livenessProbe:
-      httpGet:
-        path: /healthz
-        port: 10254
-        scheme: HTTP
-      initialDelaySeconds: 10
-      timeoutSeconds: 1
-    ports:
-    - containerPort: 80
-      hostPort: 80
-    - containerPort: 443
-      hostPort: 443
-    env:
-      - name: POD_NAME
-        valueFrom:
-          fieldRef:
-            fieldPath: metadata.name
-      - name: POD_NAMESPACE
-        valueFrom:
-          fieldRef:
-            fieldPath: metadata.namespace
-    args:
-    - /nginx-ingress-controller
-    - --default-backend-service=$(POD_NAMESPACE)/default-http-backend
+  replicas: 1
+  template:
+    metadata:
+      namespace: nginx-space
+      labels:
+        k8s-app: nginx-ingress-controller
+    spec:
+      # hostNetwork makes it possible to use ipv6 and to preserve the source IP correctly regardless of docker configuration
+      # however, it is not a hard dependency of the nginx-ingress-controller itself and it may cause issues if port 10254 already is taken on the host
+      # that said, since hostPort is broken on CNI (https://github.com/kubernetes/kubernetes/issues/31307) we have to use hostNetwork where CNI is used
+      # like with kubeadm
+      # hostNetwork: true
+      terminationGracePeriodSeconds: 60
+      hostNetwork: true
+      serviceAccountName: nginx-ingress-serviceaccount
+      containers:
+      - image: bitnami/nginx-ingress-controller
+        name: nginx-ingress-controller
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 10254
+            scheme: HTTP
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 10254
+            scheme: HTTP
+          initialDelaySeconds: 10
+          timeoutSeconds: 1
+        ports:
+        - containerPort: 80
+          hostPort: 80
+        - containerPort: 443
+          hostPort: 443
+        env:
+          - name: POD_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: POD_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+        args:
+        - /nginx-ingress-controller
+        - --default-backend-service=$(POD_NAMESPACE)/default-http-backend
 #        - --default-ssl-certificate=$(POD_NAMESPACE)/ingress-secret
-  nodeSelector:
-    kubernetes.io/hostname: cc2
-</code></pre></li>
-
-<li><p>设置ingress, my-nginx.yml</p>
-
+      nodeSelector:
+        kubernetes.io/hostname: cc2
+</code></pre><ol start="4">
+<li>设置ingress, my-nginx.yml</li>
+</ol>
 <pre><code>apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-namespace: nginx-space
-name: my-nginx
+  namespace: nginx-space
+  name: my-nginx
 spec:
-tls:
-- hosts:
-- blog.actiger.com
-secretName: ingress-secret
-rules:
-- host: blog.actiger.com
-http:
-  paths:
-  - backend:
-      serviceName: my-nginx
-      servicePort: 80
-</code></pre></li>
-
-<li><p>创建nginx deleployment, nginx-deployment.yaml, 创建Nginx Service</p>
-
+  tls:
+  - hosts:
+    - blog.actiger.com
+    secretName: ingress-secret
+  rules:
+  - host: blog.actiger.com
+    http:
+      paths:
+      - backend:
+          serviceName: my-nginx
+          servicePort: 80
+</code></pre><ol start="5">
+<li>创建nginx deleployment, nginx-deployment.yaml, 创建Nginx Service</li>
+</ol>
 <pre><code>apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-name: my-nginx
-namespace: nginx-space
-spec:
-replicas: 1
-template:
-metadata:
+  name: my-nginx
   namespace: nginx-space
-  labels:
-    app: my-nginx
 spec:
-  containers:
-  - name: my-nginx
-    image: nginx:1.16.0
-    ports:
-    - containerPort: 80
-    volumeMounts:
-    - mountPath: /usr/share/nginx/html
-      name: blog-actiger-com
-  volumes:
-  - name: blog-actiger-com
-    persistentVolumeClaim:
-      claimName: pvc-blog
+  replicas: 1
+  template:
+    metadata:
+      namespace: nginx-space
+      labels:
+        app: my-nginx
+    spec:
+      containers:
+      - name: my-nginx
+        image: nginx:1.16.0
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /usr/share/nginx/html
+          name: blog-actiger-com
+      volumes:
+      - name: blog-actiger-com
+        persistentVolumeClaim:
+          claimName: pvc-blog
 ---
 apiVersion: v1
 kind: Service
 metadata:
-name: my-nginx
-namespace: nginx-space
-labels:
-run: my-nginx
+  name: my-nginx
+  namespace: nginx-space
+  labels:
+    run: my-nginx
 spec:
-ports:
-- port: 80
-protocol: TCP
-selector:
-app: my-nginx
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    app: my-nginx
 
-</code></pre></li>
-
-<li><p>设置域名证书, 使用的letsencrypt, privkey.pem和cert.pem转成base64</p></li>
+</code></pre><ol start="6">
+<li>设置域名证书, 使用的letsencrypt, privkey.pem和cert.pem转成base64</li>
 </ol>
-
-<h4 id="如没有证书-删除my-nginx-yml中这行secretname-ingress-secret即可">如没有证书, 删除my-nginx.yml中这行secretName: ingress-secret即可.</h4>
-
+<h4 id="如没有证书-删除my-nginxyml中这行secretname-ingress-secret即可">如没有证书, 删除my-nginx.yml中这行secretName: ingress-secret即可.</h4>
 <pre><code>apiVersion: v1
 data:
   tls.crt:
@@ -438,16 +420,11 @@ metadata:
   namespace: nginx-space
 type: Opaque
 
-</code></pre>
-
-<ol>
+</code></pre><ol start="7">
 <li>创建hugo文件夹, 使用pv和pvc创建空间.</li>
 </ol>
-
-<h4 id="如不使用pv和pvc-需要在nginx-deployment-yaml外部硬盘替换为其他方式">如不使用pv和pvc, 需要在nginx-deployment.yaml外部硬盘替换为其他方式.</h4>
-
-<h4 id="创建pv-pv-blog-yaml">创建pv, pv-blog.yaml</h4>
-
+<h4 id="如不使用pv和pvc-需要在nginx-deploymentyaml外部硬盘替换为其他方式">如不使用pv和pvc, 需要在nginx-deployment.yaml外部硬盘替换为其他方式.</h4>
+<h4 id="创建pv-pv-blogyaml">创建pv, pv-blog.yaml</h4>
 <pre><code>apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -461,10 +438,7 @@ spec:
   hostPath:
     path: &quot;/root/blog.actiger.com&quot;
 
-</code></pre>
-
-<h4 id="创建pvc-pvc-blog-yaml">创建pvc, pvc-blog.yaml</h4>
-
+</code></pre><h4 id="创建pvc-pvc-blogyaml">创建pvc, pvc-blog.yaml</h4>
 <pre><code>apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -477,20 +451,14 @@ spec:
   resources:
     requests:
       storage: 300Mi
-</code></pre>
-
-<h3 id="3-创建服务">3. 创建服务</h3>
-
-<h4 id="如需更改里面内容-需要先删除kubectl-delete-f-防止生成没使用的pod-如有错误参考-通过日志排查-https-blog-actiger-com-docker-kubernetes安装">如需更改里面内容, 需要先删除kubectl delete -f * 防止生成没使用的pod. 如有错误参考<a href="https://blog.actiger.com/docker/kubernetes安装/">通过日志排查</a></h4>
-
+</code></pre><h3 id="3-创建服务">3. 创建服务</h3>
+<h4 id="如需更改里面内容-需要先删除kubectl-delete--f--防止生成没使用的pod-如有错误参考通过日志排查httpsblogactigercomdockerkubernetes安装">如需更改里面内容, 需要先删除kubectl delete -f * 防止生成没使用的pod. 如有错误参考<a href="https://blog.actiger.com/docker/kubernetes%E5%AE%89%E8%A3%85/">通过日志排查</a></h4>
 <pre><code>kubectl apply -f default-backend.yaml,ingress-secret.yml,my-nginx.yml,nginx-deployment.yaml,nginx-ingress-controller-rbac.yml,nginx-ingress-controller.yaml,pv-blog.yaml,pvc-blog.yaml
 
 # 查看pods
 kubectl get pods -n nginx-space
 
-</code></pre>
-
-<h3 id="4-访问-https-blog-actiger-com-https-blog-actiger-com-替换你的地址就可以-可以hosts指定自己的域名-虚拟机ip对应到域名上">4. 访问<a href="https://blog.actiger.com/">https://blog.actiger.com/</a>, 替换你的地址就可以(可以hosts指定自己的域名, 虚拟机ip对应到域名上).</h3>
+</code></pre><h3 id="4-访问httpsblogactigercomhttpsblogactigercom-替换你的地址就可以可以hosts指定自己的域名-虚拟机ip对应到域名上">4. 访问<a href="https://blog.actiger.com/">https://blog.actiger.com/</a>, 替换你的地址就可以(可以hosts指定自己的域名, 虚拟机ip对应到域名上).</h3>
 </div>
   
 </article></main>

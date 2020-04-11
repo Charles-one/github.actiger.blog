@@ -7,13 +7,9 @@
     
     <title>Kubernetes安装 - Actiger跳跳虎</title>
     
-    <meta name="description" content="1. PD安装2个Centos7.6 1816虚拟机(例如主机名cc和主机名cc2), 或2台云主机, 或VM安装虚拟机(建议使用主机同一网络).请勿使用克隆, 克隆的虚拟与原虚拟机product_uuid一致. 安装或启动过程中容易碰到问题, 日志排查图放在前面.官方安装地址 2. 安装前检查  hostname必须不一致
-hostname  网络互通, 互ping
- mac ip地址不一致
-ifconfig  product_uuid不一致
-cat /sys/class/dmi/id/product_uuid  禁用Swap交换分区, 保证kubelet正确运行, 必须永久禁用. 在安装设置中有对应的设置.
-  3. 安装前2台虚拟机都需要的设置  安装指定版本的docker.
- # 移除旧版本docker yum remove docker \ docker-common \ docker-selinux \ docker-engine # 安装工具 yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 # 安装指定版本containerd.io yum install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm # 下载设置源 yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo # 查看全部版本的docker.">
+    <meta name="description" content="1. PD安装2个Centos7.6 1816虚拟机(例如主机名cc和主机名cc2), 或2台云主机, 或VM安装虚拟机(建议使用主机同一网络).请勿使用克隆, 克隆的虚拟与原虚拟机product_uuid一致. 安装或启动过程中容易碰到问题, 日志排查图放在前面.官方安装地址 2. 安装前检查  hostname必须不一致  hostname  网络互通, 互ping
+  mac ip地址不一致
+  ifconfig product_uuid不一致  cat /sys/class/dmi/id/product_uuid 禁用Swap交换分区, 保证kubelet正确运行, 必须永久禁用. 在安装设置中有对应的设置.  3. 安装前2台虚拟机都需要的设置 安装指定版本的docker.   # 移除旧版本docker yum remove docker \ docker-common \ docker-selinux \ docker-engine # 安装工具 yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 # 安装指定版本containerd.io yum install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm # 下载设置源 yum-config-manager \ --add-repo \ https://download.">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -21,7 +17,7 @@ cat /sys/class/dmi/id/product_uuid  禁用Swap交换分区, 保证kubelet正确�
     
     <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.69.0" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -86,53 +82,45 @@ cat /sys/class/dmi/id/product_uuid  禁用Swap交换分区, 保证kubelet正确�
     <h1 class="post-title">Kubernetes安装</h1>
     <div class="post-meta">June 4, 2019</div>
   </header>
-  <div class="post-content">
-
-<h3 id="1-pd安装2个centos7-6-1816虚拟机-例如主机名cc和主机名cc2-或2台云主机-或vm安装虚拟机-建议使用主机同一网络-请勿使用克隆-克隆的虚拟与原虚拟机product-uuid一致">1. PD安装2个Centos7.6 1816虚拟机(例如主机名cc和主机名cc2), 或2台云主机, 或VM安装虚拟机(建议使用主机同一网络).请勿使用克隆, 克隆的虚拟与原虚拟机product_uuid一致.</h3>
-
-<h3 id="安装或启动过程中容易碰到问题-日志排查图放在前面-官方安装地址-https-kubernetes-io-zh-docs-setup-independent-install-kubeadm-check-required-ports">安装或启动过程中容易碰到问题, 日志排查图放在前面.<a href="https://kubernetes.io/zh/docs/setup/independent/install-kubeadm/#check-required-ports">官方安装地址</a></h3>
-
-<p><img src="../../img/Kubernetes.png" alt="排查" /></p>
-
+  <div class="post-content"><h3 id="1-pd安装2个centos76-1816虚拟机例如主机名cc和主机名cc2-或2台云主机-或vm安装虚拟机建议使用主机同一网络请勿使用克隆-克隆的虚拟与原虚拟机product_uuid一致">1. PD安装2个Centos7.6 1816虚拟机(例如主机名cc和主机名cc2), 或2台云主机, 或VM安装虚拟机(建议使用主机同一网络).请勿使用克隆, 克隆的虚拟与原虚拟机product_uuid一致.</h3>
+<h3 id="安装或启动过程中容易碰到问题-日志排查图放在前面官方安装地址httpskubernetesiozhdocssetupindependentinstall-kubeadmcheck-required-ports">安装或启动过程中容易碰到问题, 日志排查图放在前面.<a href="https://kubernetes.io/zh/docs/setup/independent/install-kubeadm/#check-required-ports">官方安装地址</a></h3>
+<p><img src="../../img/Kubernetes.png" alt="排查"></p>
 <h3 id="2-安装前检查">2. 安装前检查</h3>
-
 <ol>
-<li><p>hostname必须不一致</p>
-
-<pre><code>hostname
-</code></pre></li>
-
-<li><p>网络互通, 互ping</p></li>
-
-<li><p>mac ip地址不一致</p>
-
-<pre><code>ifconfig
-</code></pre></li>
-
-<li><p>product_uuid不一致</p>
-
-<pre><code>cat /sys/class/dmi/id/product_uuid
-</code></pre></li>
-
-<li><p>禁用Swap交换分区, 保证kubelet正确运行, 必须永久禁用. 在安装设置中有对应的设置.</p></li>
+<li>hostname必须不一致</li>
 </ol>
-
+<pre><code>hostname
+</code></pre><ol start="2">
+<li>
+<p>网络互通, 互ping</p>
+</li>
+<li>
+<p>mac ip地址不一致</p>
+</li>
+</ol>
+<pre><code>ifconfig
+</code></pre><ol start="4">
+<li>product_uuid不一致</li>
+</ol>
+<pre><code>cat /sys/class/dmi/id/product_uuid
+</code></pre><ol start="5">
+<li>禁用Swap交换分区, 保证kubelet正确运行, 必须永久禁用. 在安装设置中有对应的设置.</li>
+</ol>
 <h3 id="3-安装前2台虚拟机都需要的设置">3. 安装前2台虚拟机都需要的设置</h3>
-
-<ol>
-<li><p>安装指定版本的docker.</p>
-
+<ol start="0">
+<li>安装指定版本的docker.</li>
+</ol>
 <pre><code>
 # 移除旧版本docker
 yum remove docker \
-          docker-common \
-          docker-selinux \
-          docker-engine
+              docker-common \
+              docker-selinux \
+              docker-engine
 
 # 安装工具
 yum install -y yum-utils \
 device-mapper-persistent-data \
-lvm2
+  lvm2
 
 
 # 安装指定版本containerd.io
@@ -141,8 +129,8 @@ yum install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/co
 
 # 下载设置源
 yum-config-manager \
---add-repo \
-https://download.docker.com/linux/centos/docker-ce.repo
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
 
 
 # 查看全部版本的docker.
@@ -159,36 +147,32 @@ dnf install docker-ce-18.09.9-3.el7
 systemctl enable docker
 systemctl start docker
 
-</code></pre></li>
-
-<li><p>关闭防火墙, 不关闭集群间有些pod可能无法通信.</p>
-
+</code></pre><ol>
+<li>关闭防火墙, 不关闭集群间有些pod可能无法通信.</li>
+</ol>
 <pre><code>systemctl stop firewalld
 
 # 禁止开机启动
 systemctl disable firewalld
-</code></pre></li>
-
-<li><p>永久禁用交换分区swap.</p>
-
+</code></pre><ol start="2">
+<li>永久禁用交换分区swap.</li>
+</ol>
 <pre><code># vi /etc/fstab
 注释最后一行的swap
 
 # 可在操作步骤3后一起重启.
 reboot
-</code></pre></li>
-
-<li><p>装SELinux设置permissive模式</p>
-
+</code></pre><ol start="3">
+<li>装SELinux设置permissive模式</li>
+</ol>
 <pre><code>sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
 
 # 重启
 reboot
 
-</code></pre></li>
-
-<li><p>安装源</p>
-
+</code></pre><ol start="4">
+<li>安装源</li>
+</ol>
 <pre><code>
 # 国内
 cat &lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo
@@ -211,28 +195,27 @@ repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 exclude=kube*
 EOF
-</code></pre></li>
-
-<li><p>解决国内缺少镜像问题</p>
-
+</code></pre><ol start="5">
+<li>解决国内缺少镜像问题</li>
+</ol>
 <pre><code># 第一种方式, 脚本获取镜像并重命名
 vim images.sh
 
 #!/bin/bash
 images=(
-kube-apiserver:v1.15.6
-kube-controller-manager:v1.15.6
-kube-scheduler:v1.15.6
-kube-proxy:v1.15.6
-pause:3.1
-etcd:3.3.10
-coredns:1.3.1
+    kube-apiserver:v1.15.6
+    kube-controller-manager:v1.15.6
+    kube-scheduler:v1.15.6
+    kube-proxy:v1.15.6
+    pause:3.1
+    etcd:3.3.10
+    coredns:1.3.1
 
 )
 
 for imageName in ${images[@]} ; do
-docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/$imageName
-docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/$imageName k8s.gcr.io/$imageName
+    docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/$imageName
+    docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/$imageName k8s.gcr.io/$imageName
 done
 
 
@@ -268,10 +251,9 @@ docker tag mirrorgooglecontainers/pause:3.1 k8s.gcr.io/pause:3.1
 docker tag mirrorgooglecontainers/etcd:3.3.10 k8s.gcr.io/etcd:3.3.10
 docker tag coredns/coredns:1.3.1 k8s.gcr.io/coredns:1.3.1
 
-</code></pre></li>
-
-<li><p>解决网络错误</p>
-
+</code></pre><ol start="6">
+<li>解决网络错误</li>
+</ol>
 <pre><code>
 cat &lt;&lt;EOF &gt;  /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-ip6tables = 1
@@ -281,22 +263,21 @@ EOF
 sysctl --system
 modprobe br_netfilter
 
-</code></pre></li>
-
-<li><p>设置推荐的systemd driver</p>
-
+</code></pre><ol start="7">
+<li>设置推荐的systemd driver</li>
+</ol>
 <pre><code># Setup daemon.
 cat &gt; /etc/docker/daemon.json &lt;&lt;EOF
 {
-&quot;exec-opts&quot;: [&quot;native.cgroupdriver=systemd&quot;],
-&quot;log-driver&quot;: &quot;json-file&quot;,
-&quot;log-opts&quot;: {
-&quot;max-size&quot;: &quot;100m&quot;
-},
-&quot;storage-driver&quot;: &quot;overlay2&quot;,
-&quot;storage-opts&quot;: [
-&quot;overlay2.override_kernel_check=true&quot;
-]
+  &quot;exec-opts&quot;: [&quot;native.cgroupdriver=systemd&quot;],
+  &quot;log-driver&quot;: &quot;json-file&quot;,
+  &quot;log-opts&quot;: {
+    &quot;max-size&quot;: &quot;100m&quot;
+  },
+  &quot;storage-driver&quot;: &quot;overlay2&quot;,
+  &quot;storage-opts&quot;: [
+    &quot;overlay2.override_kernel_check=true&quot;
+  ]
 }
 EOF
 
@@ -306,22 +287,14 @@ mkdir -p /etc/systemd/system/docker.service.d
 systemctl daemon-reload
 systemctl restart docker
 
-</code></pre></li>
-</ol>
-
-<h3 id="4-主master和从node需要开放的端口-防火墙可以打开-执行完毕后再关闭-80-443个人补充的-官方中并没有">4. 主master和从node需要开放的端口, 防火墙可以打开, 执行完毕后再关闭. 80,443个人补充的, 官方中并没有.</h3>
-
+</code></pre><h3 id="4-主master和从node需要开放的端口-防火墙可以打开-执行完毕后再关闭-80443个人补充的-官方中并没有">4. 主master和从node需要开放的端口, 防火墙可以打开, 执行完毕后再关闭. 80,443个人补充的, 官方中并没有.</h3>
 <h4 id="1-在主节点上写入hosts内容">1. 在主节点上写入hosts内容</h4>
-
 <pre><code># 在一台机器上, 添加ip和主机名到/etc/hosts中
 
 10.211.55.5 cc
 10.211.55.6 cc2
 
-</code></pre>
-
-<h4 id="2-master节点需要开放的端口-例如cc主机中">2. Master节点需要开放的端口, 例如cc主机中</h4>
-
+</code></pre><h4 id="2-master节点需要开放的端口-例如cc主机中">2. Master节点需要开放的端口, 例如cc主机中</h4>
 <pre><code>systemctl start firewalld
 
 firewall-cmd --zone=public --add-port=6443/tcp --permanent
@@ -342,10 +315,7 @@ firewall-cmd --reload
 
 systemctl stop firewalld
 
-</code></pre>
-
-<h4 id="3-node节点需要开放的端口-如cc2主机">3. Node节点需要开放的端口, 如cc2主机.</h4>
-
+</code></pre><h4 id="3-node节点需要开放的端口-如cc2主机">3. Node节点需要开放的端口, 如cc2主机.</h4>
 <pre><code>systemctl start firewalld
 
 firewall-cmd --zone=public --add-port=10250/tcp --permanent
@@ -364,10 +334,7 @@ firewall-cmd --reload
 
 systemctl stop firewalld
 
-</code></pre>
-
-<h3 id="5-开始安装kubernetes">5. 开始安装Kubernetes</h3>
-
+</code></pre><h3 id="5-开始安装kubernetes">5. 开始安装Kubernetes</h3>
 <pre><code>
 # 查看所有可安装的k8s版本
 
@@ -379,26 +346,17 @@ yum install -y kubelet-1.15.6 kubeadm-1.15.6  kubectl-1.15.6 --disableexcludes=k
 # 设置开机启动
 systemctl enable kubelet &amp;&amp; systemctl start kubelet
 
-</code></pre>
-
-<h3 id="6-主机master上执行初始化">6. 主机master上执行初始化.</h3>
-
+</code></pre><h3 id="6-主机master上执行初始化">6. 主机master上执行初始化.</h3>
 <pre><code>
 
 kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=&lt;服务器ip&gt;
 
-</code></pre>
-
-<h3 id="a-name-7-7-对用户的设置-如果想cc或cc2中任何用户-root或者普通用户-可操作kubectl-需要装-kube文件移动到对应的用户下-a"><a name="7">7. 对用户的设置, 如果想cc或cc2中任何用户(root或者普通用户)可操作kubectl, 需要装.kube文件移动到对应的用户下.</a></h3>
-
+</code></pre><h3 id="a-name77-对用户的设置-如果想cc或cc2中任何用户root或者普通用户可操作kubectl-需要装kube文件移动到对应的用户下a"><!-- raw HTML omitted -->7. 对用户的设置, 如果想cc或cc2中任何用户(root或者普通用户)可操作kubectl, 需要装.kube文件移动到对应的用户下.<!-- raw HTML omitted --></h3>
 <pre><code>mkdir -p $HOME/.kube
 cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 chown $(id -u):$(id -g) $HOME/.kube/config
 
-</code></pre>
-
-<h3 id="8-查看是否初完成-解决coredns-pending问题">8. 查看是否初完成, 解决coredns pending问题</h3>
-
+</code></pre><h3 id="8-查看是否初完成-解决coredns-pending问题">8. 查看是否初完成, 解决coredns pending问题</h3>
 <pre><code># 检查主机是否准备完成
 
 kubectl get nodes
@@ -406,44 +364,26 @@ kubectl get nodes
 
 # 查看系统pod是否初始化完成
 kubectl get pods -n kube-system
-</code></pre>
-
-<h4 id="a-name-9-9-corednse显示pending中-解决安装网络插件-安装完毕等待几分钟即可-a"><a name="9">9. corednse显示pending中, 解决安装网络插件, 安装完毕等待几分钟即可.</a></h4>
-
+</code></pre><h4 id="a-name99-corednse显示pending中-解决安装网络插件-安装完毕等待几分钟即可a"><!-- raw HTML omitted -->9. corednse显示pending中, 解决安装网络插件, 安装完毕等待几分钟即可.<!-- raw HTML omitted --></h4>
 <pre><code>curl -O https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
 kubectl apply -f kube-flannel.yml
 
 kubectl apply -f &quot;https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')&quot;
 
-</code></pre>
-
-<h3 id="10-添加node-在node节点执行-初始化完会显示在列表中">10. 添加node, 在node节点执行, 初始化完会显示在列表中</h3>
-
-<h4 id="添加节点时确认执行-a-href-9-第9步-a-的网络插件安装">添加节点时确认执行<a href="#9">第9步</a>的网络插件安装</h4>
-
+</code></pre><h3 id="10-添加node-在node节点执行-初始化完会显示在列表中">10. 添加node, 在node节点执行, 初始化完会显示在列表中</h3>
+<h4 id="添加节点时确认执行a-href9第9步a的网络插件安装">添加节点时确认执行<!-- raw HTML omitted -->第9步<!-- raw HTML omitted -->的网络插件安装</h4>
 <pre><code>kubeadm join 10.211.55.5:6443 --token ylml1p.xhp333geob6tvtkh \
 --discovery-token-ca-cert-hash sha256:e5541130096be094
 
-</code></pre>
-
-<h3 id="11-出现错误-通过日志排查问题">11. 出现错误, 通过日志排查问题.</h3>
-
-<p><img src="../../img/Kubernetes.png" alt="排查" /></p>
-
+</code></pre><h3 id="11-出现错误-通过日志排查问题">11. 出现错误, 通过日志排查问题.</h3>
+<p><img src="../../img/Kubernetes.png" alt="排查"></p>
 <h3 id="12-补充错误">12. 补充错误</h3>
-
-<h5 id="the-connection-to-the-server-localhost-8080-was-refused-did-you-specify-the-right-host-or-port">The connection to the server localhost:8080 was refused - did you specify the right host or port?</h5>
-
-<p>则需要执行<a href="#7">第7条内容.</a></p>
-
-<h5 id="解决-proc-sys-net-bridge-bridge-nf-call-iptables-contents-are-not-set-to-1">解决 /proc/sys/net/bridge/bridge-nf-call-iptables contents are not set to 1</h5>
-
+<h5 id="the-connection-to-the-server-localhost8080-was-refused---did-you-specify-the-right-host-or-port">The connection to the server localhost:8080 was refused - did you specify the right host or port?</h5>
+<p>则需要执行<!-- raw HTML omitted -->第7条内容.<!-- raw HTML omitted --></p>
+<h5 id="解决-procsysnetbridgebridge-nf-call-iptables-contents-are-not-set-to-1">解决 /proc/sys/net/bridge/bridge-nf-call-iptables contents are not set to 1</h5>
 <pre><code>echo '1' &gt; /proc/sys/net/bridge/bridge-nf-call-iptables
-</code></pre>
-
-<h3 id="13-重置节点">13. 重置节点</h3>
-
+</code></pre><h3 id="13-重置节点">13. 重置节点</h3>
 <pre><code>kubeadm reset
 
 rm -rf $HOME/.kube/
@@ -453,10 +393,7 @@ rm -rf /etc/cni/
 ip link delete cni0
 ip link delete flannel.1
 systemctl restart docker
-</code></pre>
-
-<h3 id="14-kubernetes命令">14. kubernetes命令</h3>
-
+</code></pre><h3 id="14-kubernetes命令">14. kubernetes命令</h3>
 <pre><code># kubernetes将pod调度到master节点
 
 kubectl taint node &lt;主机节点名称&gt; node-role.kubernetes.io/master-
@@ -468,8 +405,7 @@ kubectl taint node &lt;主机节点名称&gt; node-role.kubernetes.io/master=&qu
 
 # 立即删除一个pod
 kubectl delete pods &lt;pod&gt; --grace-period=0 --force
-</code></pre>
-</div>
+</code></pre></div>
   
 </article></main>
 <footer class="footer">

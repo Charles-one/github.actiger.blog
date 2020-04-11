@@ -15,7 +15,7 @@
     
     <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.69.0" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -83,9 +83,8 @@
   </header>
   <section class="entry-content">
    <p>1. 使用Crontab的原因. 每次更新博客都要登录服务器(ssh延迟容易中断)手动去拉取代码, 不方便. 故设置成自动获取最新代码. 2. 选择crontab定时 查看下资源, 觉得crontab简单可行, 直接来用就好了. 3. 定时任务需需要做事情.  特定目录执行git pul的shell脚本. 这里我使用了ssh key可以参考这里的  vim git_pull.sh
- #!/bin/bash # 进入目录中 cd ~/nginx-hugoBlog/blog.actiger.com/ # 拉取github中的代码 git pull   添加crontab任务文件  vim git_pull.cron
-# 设置5分钟拉取一次代码 */5 * * * * cd /root &amp;&amp; ./git_pull_blog.actiger.com.sh   把定时任务文件内容加到crontab中
-# 添加root账户中 crontab -uroot git_pull.cron # 查询当前任务, root是账户, 添加的定时任务会放到这个目录中 crontab -uroot -l cat /var/spool/cron/root # 删除root用户的定时任务 crontab -uroot -r   日志的地址, 相当重要....</p>
+ #!/bin/bash # 进入目录中 cd ~/nginx-hugoBlog/blog.actiger.com/ # 拉取github中的代码 git pull 添加crontab任务文件  vim git_pull.cron
+# 设置5分钟拉取一次代码 */5 * * * * cd /root &amp;&amp; ./git_pull_blog.actiger.com.sh 把定时任务文件内容加到crontab中  # 添加root账户中 crontab -uroot git_pull.cron # 查询当前任务, root是账户, 添加的定时任务会放到这个目录中 crontab -uroot -l cat /var/spool/cron/root # 删除root用户的定时任务 crontab -uroot -r 日志的地址, 相当重要. # 日志文件 /var/spool/mail/root # 查看日志 # 可以把时间设置1分钟, 可以很快看到执行情况, 方便调试....</p>
   </section>
   <footer class="entry-footer">
     <time>May 18, 2019</time>
@@ -109,8 +108,8 @@
     <h2>使用docker搭建nextcloud</h2>
   </header>
   <section class="entry-content">
-   <p> 1. nextcloud 个人私有云, 可以像网盘一样同步个人文件, 远程访问下载等. 2. 使用docker-compose搭建 使用docker-compose-repository搭建  git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository cp -r ~/docker-compose-repository/nextcloud ~/nextcloud cd ~/nextcloud # 自动下载并启动容器 dc up -d  访问地址 http://服务ip地址
-# 用户名和密码自己设置 # # 页面上选择数据库mariadb # 页面上填写就是你上面mariadb内容 # 用户名: nextcloud # 数据库: nextcloud # 密码: nextcloud_weiki_JKL_sdf # 地址(不是默认的localhost): mariadb  ...</p>
+   <p>1. nextcloud 个人私有云, 可以像网盘一样同步个人文件, 远程访问下载等. 2. 使用docker-compose搭建 使用docker-compose-repository搭建  git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository cp -r ~/docker-compose-repository/nextcloud ~/nextcloud cd ~/nextcloud # 自动下载并启动容器 dc up -d 访问地址 http://服务ip地址
+# 用户名和密码自己设置 # # 页面上选择数据库mariadb # 页面上填写就是你上面mariadb内容 # 用户名: nextcloud # 数据库: nextcloud # 密码: nextcloud_weiki_JKL_sdf # 地址(不是默认的localhost): mariadb ...</p>
   </section>
   <footer class="entry-footer">
     <time>May 17, 2019</time>
@@ -123,7 +122,7 @@
   </header>
   <section class="entry-content">
    <p>1. 安装tmux的tmuxinator插件 Mac下安装:
-# 使用gem安装tmuxinator gem install tmuxinator # 查询环境, 获取gem安装程序执行目录, 目的是添加环境变量 gem env # 安装程序的执行目录 /usr/local/lib/ruby/gems/2.6.0/bin # 在.zshrc或者.bashrc中添加环境变量 export PATH=&#34;$PATH:/usr/local/lib/ruby/gems/2.6.0/bin&#34;  2. Tmuxinator配置 # 会自动创建文件在~/.tmuxinator中 tmuxinator edit hugo # 名称 name: hugo # 目录, 我存放hugo的目录 root: ~/Documents/actiger # 2个窗口, 1, 2是窗口名称 # layout: even-horizontal, 横着分割 # panes 不需要名称, hugo server --theme=paper 是执行命令hugo服务 windows: - 1: layout: even-horizontal panes: - hugo server --theme=paper - - 2:  3. tmuxinator使用  # tmux &amp; tumxinator , 可写....</p>
+# 使用gem安装tmuxinator gem install tmuxinator # 查询环境, 获取gem安装程序执行目录, 目的是添加环境变量 gem env # 安装程序的执行目录 /usr/local/lib/ruby/gems/2.6.0/bin # 在.zshrc或者.bashrc中添加环境变量 export PATH=&#34;$PATH:/usr/local/lib/ruby/gems/2.6.0/bin&#34; 2. Tmuxinator配置 # 会自动创建文件在~/.tmuxinator中 tmuxinator edit hugo # 名称 name: hugo # 目录, 我存放hugo的目录 root: ~/Documents/actiger # 2个窗口, 1, 2是窗口名称 # layout: even-horizontal, 横着分割 # panes 不需要名称, hugo server --theme=paper 是执行命令hugo服务 windows: - 1: layout: even-horizontal panes: - hugo server --theme=paper - - 2: 3. tmuxinator使用  # tmux &amp; tumxinator , 可写....</p>
   </section>
   <footer class="entry-footer">
     <time>May 17, 2019</time>
@@ -135,9 +134,10 @@
     <h2>Mosh简介,安装与使用</h2>
   </header>
   <section class="entry-content">
-   <p>1. Mosh简介, 及为什么要使用Mosh 1. Mosh全称Mobile Shell, 移动远程终端应用程序. 与ssh类似, 却有很多新功能, 可以漫游, 支持间歇性连接, 这对网络延迟高或者移动使用更换IP非常友好, 2. 我的服务器是VPS, 在使用SSH过程中, 经常会中断, 频繁重新连接, 还要kill掉之前的终端. Mosh的用法与SSH一致, 无缝切换. 2. Mosh 安装. 需要服务器端和客户端都安装软件. 服务端安装脚本 1. 服务器端安装mosh, 并开启防火墙udp端口 yum -y install epel-release yum -y install mosh firewall-cmd --zone=public --permanent --add-port=60000-61000/udp firewall-cmd --reload  2. 本地安装 Mac:
-brew install mosh  Windows: 参考https://mosh.org/
-3. Mosh使用. 使用规则与ssh一致. # 帮助 mosh -h # 连接 mosh root@192.168.0.1 # 使用ssh config配置连接 mosh locale_centos7  ssh config配置可以参考这里http://blog....</p>
+   <p>1. Mosh简介, 及为什么要使用Mosh 1. Mosh全称Mobile Shell, 移动远程终端应用程序. 与ssh类似, 却有很多新功能, 可以漫游, 支持间歇性连接, 这对网络延迟高或者移动使用更换IP非常友好, 2. 我的服务器是VPS, 在使用SSH过程中, 经常会中断, 频繁重新连接, 还要kill掉之前的终端. Mosh的用法与SSH一致, 无缝切换. 2. Mosh 安装. 需要服务器端和客户端都安装软件. 服务端安装脚本 1. 服务器端安装mosh, 并开启防火墙udp端口 yum -y install epel-release yum -y install mosh firewall-cmd --zone=public --permanent --add-port=60000-61000/udp firewall-cmd --reload 2. 本地安装 Mac:
+brew install mosh Windows: 参考https://mosh.org/
+3. Mosh使用. 使用规则与ssh一致. # 帮助 mosh -h # 连接 mosh root@192.168.0.1 # 使用ssh config配置连接 mosh locale_centos7 ssh config配置可以参考这里http://blog.actiger.com/linux/ssh密钥生成配置和登陆服务器与github使用钥匙/
+或者这里https://charles-one.github.io/actiger/linux/ssh密钥生成配置和登陆服务器与github使用钥匙/...</p>
   </section>
   <footer class="entry-footer">
     <time>May 17, 2019</time>
@@ -149,14 +149,12 @@ brew install mosh  Windows: 参考https://mosh.org/
     <h2>Centos7更新内核翻车之旅</h2>
   </header>
   <section class="entry-content">
-   <p>1. Centos7 更新内核失败的原因 安装内核后, 设置默认启动的内核错误, 就是设置为rescue模式 2. 事情经过  我操作的内容:
-rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm yum --enablerepo=elrepo-kernel -y install kernel-ml awk -F\&#39; &#39;$1==&#34;menuentry &#34; {print i&#43;&#43; &#34; : &#34; $2}&#39; /etc/grub2.cfg   这时候会显示默认启动内核列表:
+   <p>1. Centos7 更新内核失败的原因 安装内核后, 设置默认启动的内核错误, 就是设置为rescue模式 2. 事情经过  我操作的内容:  rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm yum --enablerepo=elrepo-kernel -y install kernel-ml awk -F\&#39; &#39;$1==&#34;menuentry &#34; {print i&#43;&#43; &#34; : &#34; $2}&#39; /etc/grub2.cfg 这时候会显示默认启动内核列表:
  0 : CentOS Linux (0-rescue-00a62363617944e08db8db894ba6145e) 7 (Core)
-1 : CentOS Linux (5.1.1-1.el7.elrepo.x86_64) 7 (Core)
-2 : CentOS Linux (3.10.0-693.11.6.el7.x86_64) 7 (Core)
-3 : CentOS Linux (3.10.0-693.el7.x86_64) 7 (Core)
- 接下来就是选择错误的地方
-# 错误选择默认的0 grub2-set-default 0  接着就会重启不了, 因为是VPS原因, 无法操作, 手动选择启动的内核, 所以就翻车了....</p>
+  1 : CentOS Linux (5.1.1-1.el7.elrepo.x86_64) 7 (Core)
+  2 : CentOS Linux (3.10.0-693.11.6.el7.x86_64) 7 (Core)
+  3 : CentOS Linux (3.10.0-693.el7.x86_64) 7 (Core)
+ 接下来就是选择错误的地方...</p>
   </section>
   <footer class="entry-footer">
     <time>May 16, 2019</time>
@@ -168,9 +166,8 @@ rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org rpm -Uvh http://www.e
     <h2>docker-compose简单使用</h2>
   </header>
   <section class="entry-content">
-   <p>目录 1. docker-compose简介 2. docker-compose.yml简单配置说明 3. docker-compose运行 1. docker-compose简介与安装  简介 &gt;docker-compose是编排docker容器的, 就是管理这一批容器, 进行批量配置, 起动, 暂停, 删除容器等. 如果有多个容器, 使用docker一个个启动慢, 如果容器间有依赖, 还需要手动指定, 还有环境变量, 可以 一起设置.
- 使用下面命令安装docker-compose和docker. 或使用[脚本一键安装]()
-yum remove docker \ docker-common \ docker-selinux \ docker-engine yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo yum -y install docker-ce systemctl enable docker systemctl start docker curl -L &#34;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)&#34; -o /usr/local/bin/docker-compose chmod &#43;x /usr/local/bin/docker-compose   2....</p>
+   <p>目录 1. docker-compose简介 2. docker-compose.yml简单配置说明 3. docker-compose运行 1. docker-compose简介与安装  简介   docker-compose是编排docker容器的, 就是管理这一批容器, 进行批量配置, 起动, 暂停, 删除容器等. 如果有多个容器, 使用docker一个个启动慢, 如果容器间有依赖, 还需要手动指定, 还有环境变量, 可以 一起设置.
+ 使用下面命令安装docker-compose和docker. 或使用脚本一键安装  yum remove docker \ docker-common \ docker-selinux \ docker-engine yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo yum -y install docker-ce systemctl enable docker systemctl start docker curl -L &#34;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)&#34; -o /usr/local/bin/docker-compose chmod &#43;x /usr/local/bin/docker-compose 2....</p>
   </section>
   <footer class="entry-footer">
     <time>May 15, 2019</time>
@@ -182,11 +179,7 @@ yum remove docker \ docker-common \ docker-selinux \ docker-engine yum install -
     <h2>tmux保存会话和剪贴板插件安装及使用</h2>
   </header>
   <section class="entry-content">
-   <p>0.内容  安装tmux 安装tmux插件管理 安装保存会话和剪贴板插件  1.安装tmux 为什么要使用tmux, 可以永久保存会话, 就不用每次都要切换到对应工作目录中.  Mac下
-brew install tmux  linux, 参考Github地址
-git clone https://github.com/tmux/tmux.git cd tmux sh autogen.sh ./configure &amp;&amp; make   2.安装tmux插件管理  参考地址
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  新建~/.tmux.conf, 复制下面内容到这个文件下.
-# List of plugins set -g @plugin &#39;tmux-plugins/tpm&#39; set -g @plugin &#39;tmux-plugins/tmux-sensible&#39; # Other examples: # set -g @plugin &#39;github_username/plugin_name&#39; # set -g @plugin &#39;git@github.com/user/plugin&#39; # set -g @plugin &#39;git@bitbucket....</p>
+   <p>0.内容  安装tmux 安装tmux插件管理 安装保存会话和剪贴板插件  1.安装tmux 为什么要使用tmux, 可以永久保存会话, 就不用每次都要切换到对应工作目录中.  Mac下  brew install tmux  linux, 参考Github地址  git clone https://github.com/tmux/tmux.git cd tmux sh autogen.sh ./configure &amp;&amp; make 2.安装tmux插件管理  参考地址  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  新建~/.tmux.conf, 复制下面内容到这个文件下.  # List of plugins set -g @plugin &#39;tmux-plugins/tpm&#39; set -g @plugin &#39;tmux-plugins/tmux-sensible&#39; # Other examples: # set -g @plugin &#39;github_username/plugin_name&#39; # set -g @plugin &#39;git@github.com/user/plugin&#39; # set -g @plugin &#39;git@bitbucket....</p>
   </section>
   <footer class="entry-footer">
     <time>April 11, 2019</time>
@@ -198,13 +191,10 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  新建~/.tmux
     <h2>Mac使用sshpass和alias管理ssh账号密码</h2>
   </header>
   <section class="entry-content">
-   <p>0.内容.  使用brew安装sshpass软件 在.bashrc或者.zshrc中写入连接服务器别名alias, 并测试连接.  1.使用brew安装sshpass软件 因为sshpass对新手来手使用不安全(某方面密码可以history中看到), 所以仅推荐连接本机虚拟机中. 正是因为担心会滥用所以brew并没有直接提供sshpass的安装. 项目地址 https://github.com/hudochenkov/homebrew-sshpass 强制推荐使用SSH密钥  直接使用brew安装
-brew install hudochenkov/sshpass/sshpass   2.在.bashrc或者.zshrc中写入连接服务器别名alias  sshpass使用
-# sshpass -p后接密码, ssh 后的-p是指定端口 # 分成2部分内容一是sshpass -p, 二是ssh root@10.211.55.9 -p 22 # 使用密码password连接10.211.55.9中22端口的root用户 sshpass -p&#39;password&#39; ssh root@10.211.55.9 -p 22  建立别名并生效, 这样就避免在history中直接看到密码.
-alias tolocal=&#34;sshpass -p&#39;password&#39; ssh root@10.211.55.9 -p 12340&#34;   将上面内容放到.bashrc(bash用户)或者.zshrc(zsh用户)中
+   <p>0.内容.  使用brew安装sshpass软件 在.bashrc或者.zshrc中写入连接服务器别名alias, 并测试连接.  1.使用brew安装sshpass软件 因为sshpass对新手来手使用不安全(某方面密码可以history中看到), 所以仅推荐连接本机虚拟机中. 正是因为担心会滥用所以brew并没有直接提供sshpass的安装. 项目地址 https://github.com/hudochenkov/homebrew-sshpass 强制推荐使用SSH密钥  直接使用brew安装  brew install hudochenkov/sshpass/sshpass 2.在.bashrc或者.zshrc中写入连接服务器别名alias  sshpass使用  # sshpass -p后接密码, ssh 后的-p是指定端口 # 分成2部分内容一是sshpass -p, 二是ssh root@10.211.55.9 -p 22 # 使用密码password连接10.211.55.9中22端口的root用户 sshpass -p&#39;password&#39; ssh root@10.211.55.9 -p 22  建立别名并生效, 这样就避免在history中直接看到密码.  alias tolocal=&#34;sshpass -p&#39;password&#39; ssh root@10.211.55.9 -p 12340&#34; 将上面内容放到.bashrc(bash用户)或者.zshrc(zsh用户)中
 再次生成配置
-source ~/.bashrc # 或者 source ~/.zshrc   测试  在终端中输入并回车
-tolocal  即可连接本地虚拟机中....</p>
+source ~/.bashrc # 或者 source ~/.zshrc  测试  在终端中输入并回车
+tolocal 即可连接本地虚拟机中....</p>
   </section>
   <footer class="entry-footer">
     <time>April 10, 2019</time>
@@ -216,9 +206,7 @@ tolocal  即可连接本地虚拟机中....</p>
     <h2>SSH密钥生成配置和登陆服务器与github使用钥匙</h2>
   </header>
   <section class="entry-content">
-   <p>1.生成SSH公钥私钥  进入文件夹中(注:所有”#“表示说明)
-cd ~/.ssh/ # 其中-t rsa是指定rsa加密算法, -C &#34;asus&#34;是添加描述asus ssh-keygen -t rsa -C &#34;asus&#34;  # 说明: 默认是保存在/Users/你的用户名/.ssh/下, 如果你指定了名字则保存在当前路径下. # 指定的必须是文件且是绝对路径 # 在这里我已经在 ~/.ssh/中, 默认会保存在这里 Enter file in which to save the key (/Users/username(你的用户名)/.ssh/id_rsa): asus_rsa # 这里提示输入密码, 直接Enter表示不要密码 Enter passphrase (empty for no passphrase): # 与上面输入的密码保持一致, 如果上面没输入,这里也不要输入 Enter same passphrase again:  提示这些信息就表示生成成功
-Your identification has been saved in /Users/username/.ssh/asus_rsa. Your public key has been saved in /Users/username/.ssh/asus_rsa.pub. The key fingerprint is: SHA256:WNwJoo/Rr0TvpnQIdA4YisZrF&#43;7ZM8lKNB4JLpJXALA asus The key&#39;s randomart image is: &#43;---[RSA 2048]----&#43; |&#43;....</p>
+   <p>1.生成SSH公钥私钥  进入文件夹中(注:所有”#“表示说明)  cd ~/.ssh/ # 其中-t rsa是指定rsa加密算法, -C &#34;asus&#34;是添加描述asus ssh-keygen -t rsa -C &#34;asus&#34; # 说明: 默认是保存在/Users/你的用户名/.ssh/下, 如果你指定了名字则保存在当前路径下. # 指定的必须是文件且是绝对路径 # 在这里我已经在 ~/.ssh/中, 默认会保存在这里 Enter file in which to save the key (/Users/username(你的用户名)/.ssh/id_rsa): asus_rsa # 这里提示输入密码, 直接Enter表示不要密码 Enter passphrase (empty for no passphrase): # 与上面输入的密码保持一致, 如果上面没输入,这里也不要输入 Enter same passphrase again:  提示这些信息就表示生成成功  Your identification has been saved in /Users/username/.ssh/asus_rsa. Your public key has been saved in /Users/username/.ssh/asus_rsa.pub. The key fingerprint is: SHA256:WNwJoo/Rr0TvpnQIdA4YisZrF&#43;7ZM8lKNB4JLpJXALA asus The key&#39;s randomart image is: &#43;---[RSA 2048]----&#43; |&#43;....</p>
   </section>
   <footer class="entry-footer">
     <time>March 30, 2019</time>

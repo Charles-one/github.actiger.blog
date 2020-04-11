@@ -7,9 +7,10 @@
     
     <title>Mosh简介,安装与使用 - Actiger跳跳虎</title>
     
-    <meta name="description" content="1. Mosh简介, 及为什么要使用Mosh 1. Mosh全称Mobile Shell, 移动远程终端应用程序. 与ssh类似, 却有很多新功能, 可以漫游, 支持间歇性连接, 这对网络延迟高或者移动使用更换IP非常友好, 2. 我的服务器是VPS, 在使用SSH过程中, 经常会中断, 频繁重新连接, 还要kill掉之前的终端. Mosh的用法与SSH一致, 无缝切换. 2. Mosh 安装. 需要服务器端和客户端都安装软件. 服务端安装脚本 1. 服务器端安装mosh, 并开启防火墙udp端口 yum -y install epel-release yum -y install mosh firewall-cmd --zone=public --permanent --add-port=60000-61000/udp firewall-cmd --reload  2. 本地安装 Mac:
-brew install mosh  Windows: 参考https://mosh.org/
-3. Mosh使用. 使用规则与ssh一致. # 帮助 mosh -h # 连接 mosh root@192.168.0.1 # 使用ssh config配置连接 mosh locale_centos7  ssh config配置可以参考这里http://blog.">
+    <meta name="description" content="1. Mosh简介, 及为什么要使用Mosh 1. Mosh全称Mobile Shell, 移动远程终端应用程序. 与ssh类似, 却有很多新功能, 可以漫游, 支持间歇性连接, 这对网络延迟高或者移动使用更换IP非常友好, 2. 我的服务器是VPS, 在使用SSH过程中, 经常会中断, 频繁重新连接, 还要kill掉之前的终端. Mosh的用法与SSH一致, 无缝切换. 2. Mosh 安装. 需要服务器端和客户端都安装软件. 服务端安装脚本 1. 服务器端安装mosh, 并开启防火墙udp端口 yum -y install epel-release yum -y install mosh firewall-cmd --zone=public --permanent --add-port=60000-61000/udp firewall-cmd --reload 2. 本地安装 Mac:
+brew install mosh Windows: 参考https://mosh.org/
+3. Mosh使用. 使用规则与ssh一致. # 帮助 mosh -h # 连接 mosh root@192.168.0.1 # 使用ssh config配置连接 mosh locale_centos7 ssh config配置可以参考这里http://blog.actiger.com/linux/ssh密钥生成配置和登陆服务器与github使用钥匙/
+或者这里https://charles-one.github.io/actiger/linux/ssh密钥生成配置和登陆服务器与github使用钥匙/">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -17,7 +18,7 @@ brew install mosh  Windows: 参考https://mosh.org/
     
     <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.69.0" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -82,43 +83,25 @@ brew install mosh  Windows: 参考https://mosh.org/
     <h1 class="post-title">Mosh简介,安装与使用</h1>
     <div class="post-meta">May 17, 2019</div>
   </header>
-  <div class="post-content">
-
-<h3 id="1-mosh简介-及为什么要使用mosh">1. Mosh简介, 及为什么要使用Mosh</h3>
-
+  <div class="post-content"><h3 id="1-mosh简介-及为什么要使用mosh">1. Mosh简介, 及为什么要使用Mosh</h3>
 <h5 id="1-mosh全称mobile-shell-移动远程终端应用程序-与ssh类似-却有很多新功能">1. Mosh全称Mobile Shell, 移动远程终端应用程序. 与ssh类似, 却有很多新功能,</h5>
-
 <h5 id="可以漫游-支持间歇性连接-这对网络延迟高或者移动使用更换ip非常友好">可以漫游, 支持间歇性连接, 这对网络延迟高或者移动使用更换IP非常友好,</h5>
-
 <h5 id="2-我的服务器是vps-在使用ssh过程中-经常会中断-频繁重新连接-还要kill掉之前的终端">2. 我的服务器是VPS, 在使用SSH过程中, 经常会中断, 频繁重新连接, 还要kill掉之前的终端.</h5>
-
 <h5 id="mosh的用法与ssh一致-无缝切换">Mosh的用法与SSH一致, 无缝切换.</h5>
-
-<h3 id="2-mosh-安装-需要服务器端和客户端都安装软件-服务端安装脚本-https-github-com-charles-one-shell-repository-blob-master-install-mosh-add-firewall-port-sh">2. Mosh 安装. 需要服务器端和客户端都安装软件. <a href="https://github.com/Charles-one/shell-repository/blob/master/install_mosh_add_firewall_port.sh">服务端安装脚本</a></h3>
-
+<h3 id="2-mosh-安装-需要服务器端和客户端都安装软件-服务端安装脚本httpsgithubcomcharles-oneshell-repositoryblobmasterinstall_mosh_add_firewall_portsh">2. Mosh 安装. 需要服务器端和客户端都安装软件. <a href="https://github.com/Charles-one/shell-repository/blob/master/install_mosh_add_firewall_port.sh">服务端安装脚本</a></h3>
 <h4 id="1-服务器端安装mosh-并开启防火墙udp端口">1. 服务器端安装mosh, 并开启防火墙udp端口</h4>
-
 <pre><code>yum -y install epel-release
 yum -y install mosh
 
 firewall-cmd --zone=public --permanent --add-port=60000-61000/udp
 
 firewall-cmd --reload
-</code></pre>
-
-<h4 id="2-本地安装">2. 本地安装</h4>
-
+</code></pre><h4 id="2-本地安装">2. 本地安装</h4>
 <p>Mac:</p>
-
 <pre><code>brew install mosh
-</code></pre>
-
-<p>Windows: 参考<a href="https://mosh.org/">https://mosh.org/</a></p>
-
+</code></pre><p>Windows: 参考<a href="https://mosh.org/">https://mosh.org/</a></p>
 <h3 id="3-mosh使用">3. Mosh使用.</h3>
-
 <h4 id="使用规则与ssh一致">使用规则与ssh一致.</h4>
-
 <pre><code># 帮助
 mosh -h
 
@@ -128,11 +111,8 @@ mosh root@192.168.0.1
 # 使用ssh config配置连接
 mosh locale_centos7
 
-</code></pre>
-
-<p>ssh config配置可以参考这里<a href="http://blog.actiger.com/linux/ssh密钥生成配置和登陆服务器与github使用钥匙/">http://blog.actiger.com/linux/ssh密钥生成配置和登陆服务器与github使用钥匙/</a></p>
-
-<p>或者这里<a href="https://charles-one.github.io/actiger/linux/ssh密钥生成配置和登陆服务器与github使用钥匙/">https://charles-one.github.io/actiger/linux/ssh密钥生成配置和登陆服务器与github使用钥匙/</a></p>
+</code></pre><p>ssh config配置可以参考这里<a href="http://blog.actiger.com/linux/ssh%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90%E9%85%8D%E7%BD%AE%E5%92%8C%E7%99%BB%E9%99%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8Egithub%E4%BD%BF%E7%94%A8%E9%92%A5%E5%8C%99/">http://blog.actiger.com/linux/ssh密钥生成配置和登陆服务器与github使用钥匙/</a></p>
+<p>或者这里<a href="https://charles-one.github.io/actiger/linux/ssh%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90%E9%85%8D%E7%BD%AE%E5%92%8C%E7%99%BB%E9%99%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8Egithub%E4%BD%BF%E7%94%A8%E9%92%A5%E5%8C%99/">https://charles-one.github.io/actiger/linux/ssh密钥生成配置和登陆服务器与github使用钥匙/</a></p>
 </div>
   
 </article></main>

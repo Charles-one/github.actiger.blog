@@ -15,7 +15,7 @@
     
     <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.69.0" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -80,14 +80,9 @@
     <h1 class="post-title">华硕ASUS路由器AC5300莫名重启记录和排查</h1>
     <div class="post-meta">March 30, 2019</div>
   </header>
-  <div class="post-content">
-
-<h3 id="问题我的华硕路由器有时莫名奇妙的重启">问题我的华硕路由器有时莫名奇妙的重启</h3>
-
-<h4 id="出问题设备和版本-asus-ac5300-3-0-0-4-384-45149">出问题设备和版本 ASUS AC5300 3.0.0.4.384.45149</h4>
-
+  <div class="post-content"><h3 id="问题我的华硕路由器有时莫名奇妙的重启">问题我的华硕路由器有时莫名奇妙的重启</h3>
+<h4 id="出问题设备和版本-asus-ac5300-300438445149">出问题设备和版本 ASUS AC5300 3.0.0.4.384.45149</h4>
 <h4 id="首先查看系统日志">首先查看系统日志</h4>
-
 <pre><code>May  5 13:05:25 weini: [软件中心]: httpdb进程准备就绪！
 May  5 13:05:25 WAN Connection: WAN was restored.
 May  5 13:05:25 WLCEVENTD: eth8: Assoc D4:90:9C:E7:D2:03
@@ -111,9 +106,7 @@ Mar 30 00:32:51 kernel: ubi1: min./max. I/O unit sizes: 2048/2048, sub-page size
 Mar 30 00:32:51 kernel: ubi1: VID header offset: 2048 (aligned 2048), data offset: 4096
 Mar 30 00:32:51 kernel: ubi1: good PEBs: 64, bad PEBs: 0, corrupted PEBs: 0
 
-</code></pre>
-
-<pre><code>Mar 30 02:31:22 kernel: klogd started: BusyBox v1.24.1 (2018-12-27 20:18:22 CST)
+</code></pre><pre><code>Mar 30 02:31:22 kernel: klogd started: BusyBox v1.24.1 (2018-12-27 20:18:22 CST)
 Mar 30 02:31:35 rss-redir[28262]: server recv: Connection reset by peer
 Mar 30 02:33:44 rss-redir[28272]: server recv: Connection reset by peer
 Mar 30 02:40:34 rss-redir[28267]: server recv: Connection reset by peer
@@ -238,25 +231,14 @@ May  5 13:05:08 kernel: 0x00000b700000-0x00000f700000 : &quot;misc2&quot;
 May  5 13:05:08 kernel: 0x00000af00000-0x00000b700000 : &quot;misc1&quot;
 May  5 13:05:08 kernel: brcmboard registered
 
-</code></pre>
-
-<h4 id="重启可以看到mar-30-00-19-38-后-may-5-13-05-08-kernel-klogd-started-busybox-v1-24-1-2018-12-27-20-18-22-cst">重启可以看到Mar 30 00:19:38 后 May  5 13:05:08 kernel: klogd started: BusyBox v1.24.1 (2018-12-27 20:18:22 CST)</h4>
-
+</code></pre><h4 id="重启可以看到mar-30-001938-后-may--5-130508-kernel-klogd-started-busybox-v1241-2018-12-27-201822-cst">重启可以看到Mar 30 00:19:38 后 May  5 13:05:08 kernel: klogd started: BusyBox v1.24.1 (2018-12-27 20:18:22 CST)</h4>
 <h4 id="前面看到apf-推荐苹果timemachine备份造成重启">前面看到APF, 推荐苹果Timemachine备份造成重启</h4>
-
 <h4 id="还有个疑问-重启时的硬件时间不对">还有个疑问, 重启时的硬件时间不对.</h4>
-
 <h4 id="在华硕路由器系统设置中开启ssh-ssh登录到华硕路由器中">在华硕路由器系统设置中开启ssh, ssh登录到华硕路由器中</h4>
-
-<h4 id="查看-etc-tz-内容是gmt-8-etc-localtime内容有cst-8-表示时区设置是正确的">查看/etc/TZ 内容是GMT-8, /etc/localtime内容有CST-8, 表示时区设置是正确的</h4>
-
+<h4 id="查看etctz-内容是gmt-8-etclocaltime内容有cst-8-表示时区设置是正确的">查看/etc/TZ 内容是GMT-8, /etc/localtime内容有CST-8, 表示时区设置是正确的</h4>
 <h4 id="还是更改了ntp的服务地址">还是更改了ntp的服务地址</h4>
-
 <pre><code>cn.ntp.org.cn
-</code></pre>
-
-<h3 id="后面再次验证-没有重启了-手动重启可以看到硬件时间仍然不对的">后面再次验证, 没有重启了. 手动重启可以看到硬件时间仍然不对的.</h3>
-
+</code></pre><h3 id="后面再次验证-没有重启了-手动重启可以看到硬件时间仍然不对的">后面再次验证, 没有重启了. 手动重启可以看到硬件时间仍然不对的.</h3>
 <pre><code>Mar 30 11:54:35 afpd[9584]: AFP statistics: 103709.69 KB read, 51241.18 KB written
 Mar 30 11:54:35 afpd[9584]: done
 Mar 30 11:55:09 afpd[10854]: AFP3.3 Login by weini
@@ -392,9 +374,7 @@ May  5 13:05:08 kernel: FPM_BPM phy_addr 0x82c30000,virt_addr 0xffffff80003fe000
 May  5 13:05:08 kernel:  RDP PKT memory = 32MB : Max Possible Bufs &lt;16384&gt; of size &lt;2048&gt;; Allocating &lt;15360&gt; bufs; RDP enum &lt;5&gt;
 May  5 13:05:08 kernel: brcmchipinfo: brcm_chipinfo_init entry
 May  5 13:05:08 kernel: NBUFF v1.0 Initialized
-</code></pre>
-
-<h3 id="反馈给华硕官方了-等待后续">反馈给华硕官方了, 等待后续</h3>
+</code></pre><h3 id="反馈给华硕官方了-等待后续">反馈给华硕官方了, 等待后续</h3>
 </div>
   
 </article></main>
