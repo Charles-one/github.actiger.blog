@@ -76,6 +76,18 @@
 
 <article class="first-entry">
   <header class="entry-header">
+    <h2>C程序设计语言练习1-12</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. 要求: 编写一个程序, 以每行一个单词的形式打印其输入. 2. 分析. 1. 在每个单词的结尾处换行, 单词结尾的判断, 即前一个字符即不是空格, 制表符, 也不是换行符,后面跟着空格或制表符或换行符. 2. 在遇到不是空格,不是制表符, 不是换行符时输出, 设置标记为1; 3. 遇到空格或制表符或换行符时, 同时判断标记  标记是1则打印换行符(\n), 重置标记位为0. 标记是0(表示上一个输入字符是空格或制表符或换行符)则不处理, 什么也不打印.  3. 代码 注意: 在执行的时候每次回车都是输入, 程序在while就开始循环判断, 同时打印数据. C程序设计语言练习1-12之前的习题则在EOF之后才打印. #include&lt;stdio.h&gt; #define IN 1 #define OUT 0 int main(){ int c, state; state = OUT; while( (c= getchar() ) !=EOF ){ if( c != &#39; &#39; &amp;&amp; c != &#39;\t&#39; &amp;&amp; c != &#39;\n&#39;){ putchar(c); state = IN; }else if( ( c == &#39; &#39; || c == &#39;\t&#39; || c !...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>April 11, 2020</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-12/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>C程序设计语言练习1-10</h2>
   </header>
   <section class="entry-content">
@@ -183,26 +195,6 @@
     <time>January 10, 2020</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E9%87%8D%E7%8E%B0sudo%E6%BC%8F%E6%B4%9E/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>Jira中问题Bug的工作流</h2>
-  </header>
-  <section class="entry-content">
-   <p>新的项目需要设置问题Bug的工作流, 故整理下. 1. 先看整理好的工作流图片, 点击下载Jira问题工作流. 2. 问题(Bug)可能的状态, 依据项目来定, 以我的项目为例, 共有9个状态.  待办(new) 处理中 已解决 测试中 验证通过(closed) 线上验证中 线上验证通过 重新打开(reopened) 已取消(canceled) 3. 开发与测试能够更改的状态. 3.1 开发能够更改的状态 待办-&gt;处理中
-处理中-&gt;已解决
-重新打开-&gt;处理中
-3.2 测试能够更改的状态 已解决-&gt;测试中-&gt;验证通过-&gt;线上验证中-&gt;线上验证通过
-测试中-&gt;重新打开
-验证通过(closed)-&gt;重新打开
-线上验证中-&gt;重新打开
-线上验证通过-&gt;重新打开
-全部状态-&gt;已取消...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>January 10, 2020</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/test/jira%E4%B8%AD%E9%97%AE%E9%A2%98bug%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

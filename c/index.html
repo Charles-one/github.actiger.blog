@@ -79,6 +79,18 @@
 </header>
 <article class="post-entry">
   <header class="entry-header">
+    <h2>C程序设计语言练习1-12</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. 要求: 编写一个程序, 以每行一个单词的形式打印其输入. 2. 分析. 1. 在每个单词的结尾处换行, 单词结尾的判断, 即前一个字符即不是空格, 制表符, 也不是换行符,后面跟着空格或制表符或换行符. 2. 在遇到不是空格,不是制表符, 不是换行符时输出, 设置标记为1; 3. 遇到空格或制表符或换行符时, 同时判断标记  标记是1则打印换行符(\n), 重置标记位为0. 标记是0(表示上一个输入字符是空格或制表符或换行符)则不处理, 什么也不打印.  3. 代码 注意: 在执行的时候每次回车都是输入, 程序在while就开始循环判断, 同时打印数据. C程序设计语言练习1-12之前的习题则在EOF之后才打印. #include&lt;stdio.h&gt; #define IN 1 #define OUT 0 int main(){ int c, state; state = OUT; while( (c= getchar() ) !=EOF ){ if( c != &#39; &#39; &amp;&amp; c != &#39;\t&#39; &amp;&amp; c != &#39;\n&#39;){ putchar(c); state = IN; }else if( ( c == &#39; &#39; || c == &#39;\t&#39; || c !...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>April 11, 2020</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-12/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>C程序设计语言练习1-10</h2>
   </header>
   <section class="entry-content">
