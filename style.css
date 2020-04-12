@@ -12,7 +12,7 @@
   --gap: 24px;
   --content-gap: 40px;
   --nav-width: 1024px;
-  --main-width: 720px;
+  --main-width: 680px;
   --header-height: 60px;
   --footer-height: 60px;
   --radius: 8px;
@@ -27,7 +27,8 @@
   --code-bg: #f5f5f5;
   --border: #eee;
 }
-.dark {
+/* disable dark module*/
+..dark {
   --theme: #3c3c3c;
   --primary: rgba(255, 255, 255, 0.88);
   --secondary: rgba(255, 255, 255, 0.56);
@@ -41,7 +42,7 @@
   /*background: linear-gradient(135deg, #ddd, #f5f5f5, #d5d5d5);*/
     background: rgba(255, 255, 255, 0.88);
 }
-.dark.list {
+..dark.list {
   /*background: linear-gradient(135deg, #1c1c1c, #2a2a2a, #000);*/
     background: #2a2a2a;
 }
