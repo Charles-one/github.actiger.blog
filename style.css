@@ -335,7 +335,6 @@ img {
   margin-left: 0;
   margin-right: 0;
   border-radius: 0;
-  word-break: nowrap;
   box-shadow: 0 -1px 0 var(--primary) inset;
 }
 .post-content del {
@@ -437,11 +436,10 @@ img {
   margin-right: 4px;
   padding: 4px 6px;
   font-family: Menlo, Monaco, 'Courier New', Courier, monospace;
-  font-size: 0.78em;
+  font-size: 0.95em;
   line-height: 1.5;
   background: var(--code-bg);
   border-radius: 2px;
-  word-break: nowrap;
 }
 .post-content pre code {
   display: block;
@@ -452,7 +450,6 @@ img {
   /*background: transparent;*/
   background: rgba(40, 44, 52, 1);
   border-radius: 0;
-  word-break: nowrap;
 }
 .post-content blockquote {
   margin: 0 0 0 calc(var(--gap) * -1);
