@@ -440,7 +440,6 @@ img {
   line-height: 1.5;
   background: var(--code-bg);
   border-radius: 2px;
-  overflow: scroll;
 }
 .post-content pre code {
   display: block;
@@ -451,7 +450,7 @@ img {
   /*background: transparent;*/
   background: rgba(40, 44, 52, 1);
   border-radius: 0;
-  overflow: scroll;
+  overflow: auto;
 }
 .post-content blockquote {
   margin: 0 0 0 calc(var(--gap) * -1);
