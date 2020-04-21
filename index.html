@@ -76,6 +76,26 @@
 
 <article class="first-entry">
   <header class="entry-header">
+    <h2>C程序设计语言练习1-13</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. 要求: 编写一个程序, 打印输入中单词长度的直方图. 水平方向的直方图学校录取容易绘制, 垂直方向的直方图则要困难些. 2. 水平直方图和垂直直方图. 1. 水平方向的直方图:   清楚直方图的定义: 又称质量分布图，是一种统计报告图，由一系列高度不等的纵向条纹或线段表示数据分布的情况。 一般用横轴表示数据类型，纵轴表示分布情况.
+  单词长度的直方图, 就是打印输入单词的长度.
+  水平方向的, 容易, 打印这个单词的长度就可以.
+  需要注意: 单词组成的字符个数不能超过MAXHIST20位, 暂时可以这么定义, 超出这20位用X表示.
+  统计单词的数量MAXWORDS最多15个, 使用数组来存储单词长度.
+  读取单词的字符长度练习1-12更改下即可得到.
+  2. 垂直直图.   使用数组来存单词长度
+  说明打印规则, 在第0行时, w1列打印空格还是*号, 取决于(HIST-w1长度) 和 当前行row比较, 大于当前行则打印空格, 小于等于则打印*号. 为何从0开始, 数组是从0开始. 下面举例HIST是4, w3单词的长度是2, 在第0行时, w1列是, 4-2 &gt;0 则打印空格.
+  考虑到有些单词长度可能超出限制,如果有则打印X, 判断逻辑(单词长度&gt;HIST) &amp;&amp; 当前不在(row-1)行打印空格, 否则打印X....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>April 15, 2020</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-13/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>C程序设计语言练习1-12</h2>
   </header>
   <section class="entry-content">
@@ -183,18 +203,6 @@
     <time>February 10, 2020</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/acmesh%E8%8E%B7%E5%8F%96%E5%9F%9F%E5%90%8D%E5%B9%B6%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E5%88%B0kubernetes%E4%B8%AD/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>重现sudo漏洞</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. 首先创建onetiger用户, 然后在/etc/sudoers中添加onetiger用户的sudo命令, 即/etc/sudoers中添加下面代码(root身份) onetiger ALL=/bin/vim 2. 登录onetiger用户 3. 以onetiger用户执行下面命令, 以用户id -1或4294967295运行后, 再0(用户id是0是root)用户运行命令成功. sudo -u#-1 vim /etc/sudoers sudo -u#0 vim /etc/sudoers 4. 解决办法. 4.1 CVE-2019-14287 漏洞影响 1.8.28 之前的 Sudo 版本, 将 sudo 软件包更新为最新版本. 4.2 禁用非root用户的sudo权限. ...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>January 10, 2020</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E9%87%8D%E7%8E%B0sudo%E6%BC%8F%E6%B4%9E/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
