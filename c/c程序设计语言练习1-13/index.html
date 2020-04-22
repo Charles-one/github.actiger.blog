@@ -124,7 +124,7 @@
 <p>考虑到有些单词长度可能超出限制,如果有则打印X, 判断逻辑(单词长度&gt;HIST) &amp;&amp; 当前不在(row-1)行打印空格, 否则打印X.</p>
 </li>
 <li>
-<p>为防止数组越界, 需要if(col&lt;MAXWORDS), 在单词数量内才进行计算字符数.</p>
+<p>为防止数组越界, 需要if(sum&lt;MAXWORDS), 在单词数组内才进行计算字符数.</p>
 </li>
 </ol>
 <pre><code>row
@@ -136,7 +136,8 @@
 </code></pre><h3 id="3-代码">3. 代码.</h3>
 <h4 id="1-随便统计了多少个单词-可计算出多少个单词未打印">1. 随便统计了多少个单词, 可计算出多少个单词未打印.</h4>
 <h4 id="2-clion-signal-sigabrt-错误-一般是数组越界">2. clion Signal: SIGABRT 错误, 一般是数组越界.</h4>
-<pre><code>#include &lt;stdio.h&gt;
+<pre><code>
+#include &lt;stdio.h&gt;
 #define MAXHIST 20
 #define MAXWORDS 15
 #define IN 1
@@ -157,9 +158,9 @@ int main()
     while( (input=getchar()) != EOF){
         if(input != ' ' &amp;&amp; input != '\n' &amp;&amp; input != '\t'){
             flag = IN;
-            if(col&lt;MAXWORDS){
-                a[col] ++;
-                if(a[col] &gt; MAXHIST){
+            if(sum&lt;MAXWORDS){
+                a[sum] ++;
+                if(a[sum] &gt; MAXHIST){
                     continue;
                 }
             }else{
@@ -168,7 +169,6 @@ int main()
         }else{
             if(flag == IN){
                 flag = OUT;
-                col++;
                 sum ++;
                 continue;
             }
