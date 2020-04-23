@@ -15,7 +15,7 @@
     
     <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="generator" content="Hugo 0.69.1" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -82,7 +82,7 @@
     <h2>C程序设计语言练习1-14</h2>
   </header>
   <section class="entry-content">
-   <p>1. 要求: 编写一个程序, 打印输入中各个字符出现频度的直方图. 2. 分析. 一.输入部分: 1. 统计什么样的字符? 这里就统计ASCII表中可显示字符, 查询ASCII表可显示字符知, 字符 32~126是可见的, 共95个. 2. 使用一维数组来计数. 3. 不在32~126中的字符, 单独统计到sum中. 4. 超出最大个数则用X打印出. 二.输出部分: 1. 水平直方图, 每行进行判断, 字符统计个数&lt;=HIST, 打印字符和字符统计个数的*, 字符统计个数&gt;HIST, 打印H. 2. 垂直直方图, 每行进行判断.  字符统计个数&lt;=HIST(能统计的最大数), HIST-字符统计个数&gt;当前行row, 打印空格, HIST-字符统计个数&lt;=当前行row, 打印*号. 字符统计个数&gt;HIST(能统计的最大数), 最后一行MAX-1(因为数组0开始数, 最后一行MAX-1)打印H, 其余打印空格.  3. 代码.  #include&lt;stdio.h&gt; #define MAX 95 #define HIST 20 int main(){ int input; int a[MAX]; int sum, row, col; sum = 0; for(row=0;row&lt;MAX;row&#43;&#43;){ a[row] = 0; } while( (input=getchar()) !...</p>
+   <p>1. 要求: 编写一个程序, 打印输入中各个字符出现频度的直方图. 2. 分析. 一.输入部分: 1. 统计什么样的字符? 这里就统计ASCII表中可显示字符, 查询ASCII表可显示字符知, 字符 32~126是可见的, 共95个. 2. 使用一维数组来计数. 3. 不在32~126中的字符, 单独统计到sum中. 4. 超出最大个数则用H打印出. 二.输出部分: 1. 水平直方图, 每行进行判断, 字符统计个数&lt;=HIST, 打印字符和字符统计个数的*, 字符统计个数&gt;HIST, 打印H. 2. 垂直直方图, 每行进行判断.  字符统计个数&lt;=HIST(能统计的最大数), HIST-字符统计个数&gt;当前行row, 打印空格, HIST-字符统计个数&lt;=当前行row, 打印*号. 字符统计个数&gt;HIST(能统计的最大数), 最后一行MAX-1(因为数组0开始数, 最后一行MAX-1)打印H, 其余打印空格.  3. 代码.  #include&lt;stdio.h&gt; #define MAX 95 #define HIST 20 int main(){ int input; int a[MAX]; int sum, row, col; sum = 0; for(row=0;row&lt;MAX;row&#43;&#43;){ a[row] = 0; } while( (input=getchar()) !...</p>
   </section>
   <footer class="entry-footer">
     <time>April 22, 2020</time>
