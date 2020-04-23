@@ -76,6 +76,18 @@
 
 <article class="first-entry">
   <header class="entry-header">
+    <h2>C程序设计语言练习1-15</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. 要求: 重新编写1.2节中的测试计划转换程序, 使用函数实现温度转换计算. 2. 分析. 1. C = (5 / 9) (F - 32) 2. 华氏温度与摄氏温度都是整数, 故输入是整数, 输出也是整数. 3. 代码. 1. 整数. #include&lt;stdio.h&gt; // 华氏温度转摄氏温度 int transfc(int f); int main(){ int i; for(i=0;i&lt;=300;i=i&#43;20){ printf(&#34;%-3d %-3d\n&#34;, i, transfc(i)); } return 0; } int transfc(int f){ return (f - 32) * 5 / 9; } 2. 补充double数. #include&lt;stdio.h&gt; // 华氏温度转摄氏温度 double transfc(double f); int main(){ double i; for(i=0;i&lt;=300;i=i&#43;20){ printf(&#34;%-3.1f %-3.1f\n&#34;, i, transfc(i)); } return 0; } double transfc(double f){ return (f - 32....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>April 23, 2020</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-15/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>C程序设计语言练习1-14</h2>
   </header>
   <section class="entry-content">
@@ -189,18 +201,6 @@
     <time>April 9, 2020</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-4/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>不准确的01-浮点数</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. 整数时, 二进制与十进制可准确转换, 小数时与二进制转换起来情况就复杂了, 二进制不能准确表示某些十进制的小数. 2. 整数, 二进制与十进制转换. 整数转换规则: 除2, 得商和余数, 商除2得商和余数, 直到商为0. 以125为例, 十进制转换为二进制.    数 商 余数     125/2 62 1   62/2 31 0   31/2 15 1   15/2 7 1   7/2 3 1   3/2 1 1   1/2 0 1    由个位数向前除得最高位数. 125=1x2^0 &#43; 0x2^1 &#43; 1x2^2 &#43; 1x2^3 &#43; 1x2^4 &#43; 1x2^5 &#43; 1x2^6得到二进制数1111101 3....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>March 3, 2020</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/c/%E4%B8%8D%E5%87%86%E7%A1%AE%E7%9A%8401-%E6%B5%AE%E7%82%B9%E6%95%B0/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

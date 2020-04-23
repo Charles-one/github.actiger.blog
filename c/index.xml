@@ -6,10 +6,19 @@
     <description>Recent content in Cs on Actiger跳跳虎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Apr 2020 22:39:05 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 23 Apr 2020 23:01:51 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/actiger/c/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>C程序设计语言练习1-15</title>
+      <link>https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-15/</link>
+      <pubDate>Thu, 23 Apr 2020 23:01:51 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-15/</guid>
+      <description>1. 要求: 重新编写1.2节中的测试计划转换程序, 使用函数实现温度转换计算. 2. 分析. 1. C = (5 / 9) (F - 32) 2. 华氏温度与摄氏温度都是整数, 故输入是整数, 输出也是整数. 3. 代码. 1. 整数. #include&amp;lt;stdio.h&amp;gt; // 华氏温度转摄氏温度 int transfc(int f); int main(){ int i; for(i=0;i&amp;lt;=300;i=i+20){ printf(&amp;quot;%-3d %-3d\n&amp;quot;, i, transfc(i)); } return 0; } int transfc(int f){ return (f - 32) * 5 / 9; } 2. 补充double数. #include&amp;lt;stdio.h&amp;gt; // 华氏温度转摄氏温度 double transfc(double f); int main(){ double i; for(i=0;i&amp;lt;=300;i=i+20){ printf(&amp;quot;%-3.1f %-3.1f\n&amp;quot;, i, transfc(i)); } return 0; } double transfc(double f){ return (f - 32.</description>
+    </item>
     
     <item>
       <title>C程序设计语言练习1-14</title>

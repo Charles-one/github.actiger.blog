@@ -76,6 +76,18 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>不准确的01-浮点数</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. 整数时, 二进制与十进制可准确转换, 小数时与二进制转换起来情况就复杂了, 二进制不能准确表示某些十进制的小数. 2. 整数, 二进制与十进制转换. 整数转换规则: 除2, 得商和余数, 商除2得商和余数, 直到商为0. 以125为例, 十进制转换为二进制.    数 商 余数     125/2 62 1   62/2 31 0   31/2 15 1   15/2 7 1   7/2 3 1   3/2 1 1   1/2 0 1    由个位数向前除得最高位数. 125=1x2^0 &#43; 0x2^1 &#43; 1x2^2 &#43; 1x2^3 &#43; 1x2^4 &#43; 1x2^5 &#43; 1x2^6得到二进制数1111101 3....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>March 3, 2020</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/c/%E4%B8%8D%E5%87%86%E7%A1%AE%E7%9A%8401-%E6%B5%AE%E7%82%B9%E6%95%B0/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>acme.sh获取域名并自动更新到kubernetes中</h2>
   </header>
   <section class="entry-content">
@@ -192,18 +204,6 @@ spring: datasource: driver-class-name: org.mariadb.jdbc.Driver url: jdbc:mariadb
     <time>November 28, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/docker/%E8%A7%A3%E5%86%B3nodepod%E6%A8%A1%E5%BC%8F%E5%A4%96%E7%BD%91%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AEmysql%E6%9C%8D%E5%8A%A1%E9%97%AE%E9%A2%98/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>Centos8网络设置</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. 安装Centos8时, 设置网络发现network.service不能使用, 搜索得知服务已更改为nmcli管理, 那就学习下 2. 有2种方式设置静态IP 2.1 方法一. 更改网络配置文件, 重启网络.  更改配置文件  vim /etc/sysconfig/network-scripts/ifcfg-enp0s5 添加内容 BOOTPROTO=&#39;static&#39; GATEWAY=192.168.50.1 NETMASK=255.255.255.255 IPADDR=192.168.50.200 PREFIX=32 重启网络, 重点, 相比CentOS 7有变化, CentOS 8已删除network.service. 使用nmcli来管理.  # 显示连接 nmcli c show # 生效连接 nmcli connect up enp0s5 可简写为 nmcli c up enp0s5 如SSH连接, 应该会断线, 重新连接需要主机执行下面操作.  删除本机~/.ssh/know_hosts中ip 重启虚拟机 reboot 2.2 方法二, 通过nmcli直接更改网卡信息, 重启网络.  创建一个名字是cc的连接connection, 其中ifname后的enp0s5必须是nmcli d中的device, ipv4.method manual表示静态ip, type ethernet指定以太网.  nmcli c add type ethernet con-name cc ifname enp0s5 ipv4....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>November 5, 2019</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/centos8%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
