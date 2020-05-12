@@ -15,7 +15,7 @@
     
     <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.69.1" />
+    <meta name="generator" content="Hugo 0.70.0" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -74,6 +74,19 @@
     </header>
     <main class="main">
 
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>docker-compose简单使用</h2>
+  </header>
+  <section class="entry-content">
+   <p>目录 1. docker-compose简介 2. docker-compose.yml简单配置说明 3. docker-compose运行 1. docker-compose简介与安装  简介   docker-compose是编排docker容器的, 就是管理这一批容器, 进行批量配置, 起动, 暂停, 删除容器等. 如果有多个容器, 使用docker一个个启动慢, 如果容器间有依赖, 还需要手动指定, 还有环境变量, 可以 一起设置.
+ 使用下面命令安装docker-compose和docker. 或使用脚本一键安装  yum remove docker \ docker-common \ docker-selinux \ docker-engine yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo yum -y install docker-ce systemctl enable docker systemctl start docker curl -L &#34;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)&#34; -o /usr/local/bin/docker-compose chmod &#43;x /usr/local/bin/docker-compose 2....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>May 15, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/docker-compose%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"></a>
+</article>
 <article class="post-entry">
   <header class="entry-header">
     <h2>创建hugo主题失败的思考</h2>
@@ -210,25 +223,6 @@ source /etc/profile ...</p>
     <time>March 13, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/linux/linux%E5%AE%89%E8%A3%85go%E5%B9%B6%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>安装jenkins和插件</h2>
-  </header>
-  <section class="entry-content">
-   <p>0.安装Jenkins, 需要提前安装JDK 1.8 安装JDK参考1.安装Jnekins  尽量翻墙执行,否则容易报443错误  sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key yum search jenkins sudo yum install jenkins 2. 启动服务与添加防火墙端口  启动jenkins  systemctl start jenkins 如果这里有报错信息,并且提示 “systemctl status jenkins.service” and “journalctl -xe” for details 查看详情
-journalctl -xe可以看到原因/usr/bin/java: 没有那个文件或目录
-需要更改vim /etc/init.d/jenkins
-candidates=&#34; /etc/alternatives/java /usr/lib/jvm/java-1.8.0/bin/java /usr/lib/jvm/jre-1.8.0/bin/java /usr/lib/jvm/java-1.7.0/bin/java /usr/lib/jvm/jre-1.7.0/bin/java /usr/java/jdk1.8.0_152/bin/java 这个是修改后的jdk路径（修改前是/usr/bin/java） &#34; systemctl daemon-reload (重新加载工具)
-systemctl start jenkins (再次启动jenkins)
- 检查是否能访问成功  jenkins 使用的8080端口
-访问http://&lt;服务器ip&gt;/8080
-访问失败, 检查端口是否存在...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>March 13, 2019</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/linux/%E5%AE%89%E8%A3%85jenkins%E5%92%8C%E6%8F%92%E4%BB%B6/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

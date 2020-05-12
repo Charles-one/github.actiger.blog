@@ -15,7 +15,7 @@
     
     <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.69.1" />
+    <meta name="generator" content="Hugo 0.70.0" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -77,6 +77,23 @@
 <header class="page-header">
   <h1>Tags</h1>
 </header>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>C程序设计语言1.9字符数组示例</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. 要求: 程序读入一组文本行, 并把最长的文本行打印出来. 2. 分析.   要做什么, 读取一行, 与最长行比较, 保存最长行, 读取完, 比较完了, 打印最长行.
+  读取一行, 碰到换行符或EOF结束符是一行, 能读取的最大长度也是一行, 记录行的长度.
+  循环内当前行长度与最大行长度比较, 当前行比最大行长, 最大行=当前行, 否则不变.
+  循环结束后, 结束行与最大行比较, 结束行长度&gt;最大行, 最大行=结束行.
+  打印最大行.
+  3. 代码. 1. 为了结束循环, 行的长度返回负数. 负数比较时需要转为正数. 2. int数组中’\0’表示结束, 这个特殊需要记下.  #include&lt;stdio.h&gt; #include&lt;stdlib.h&gt; #define MAXLINE 1000 int getLine(char line[], int maxline); void copy(char to[], char from[], int maxline); int main(){ int index; int len; int max; max = 0; char line[MAXLINE]; char maxlong[MAXLINE]; while((len=getLine(line, MAXLINE)) &gt; 0){ if(len &gt; max){ max = len; copy(maxlong, line, MAXLINE); } } if(len&lt;0){ if(abs(len) &gt; max){ copy(maxlong, line, MAXLINE); } } for(index=0;maxlong[index] !...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>May 12, 2020</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%801.9%E5%AD%97%E7%AC%A6%E6%95%B0%E7%BB%84%E7%A4%BA%E4%BE%8B/"></a>
+</article>
 <article class="post-entry">
   <header class="entry-header">
     <h2>C程序设计语言练习1-15</h2>
@@ -192,18 +209,6 @@
     <time>April 9, 2020</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-6/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>C程序设计语言练习1-4</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. 要求: 编写一个程序打印摄氏温度转换为相应华氏温度的转换表. 2. 分析. 1. 由C = (5/9)(F-32)得到F = C(9/5)&#43;32 2. C摄氏和F华氏温度都有小数, 可使用float 3. 代码 注意事项: %6.1f表示6个数字宽右对齐且保留1位小数 #include&lt;stdio.h&gt;int main(){ float f; float c; int step = 20; int minc = -20; int maxc = 300; c = minc; printf(&#34;摄氏温度转换华氏度\n&#34;); while( c &lt;= maxc ){ f = c * 9.0 / 5.0 &#43; 32; printf(&#34;%3.0f %6.1f\n&#34;, c, f); c = c &#43; step; } return 0; } ...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>April 9, 2020</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-4/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
