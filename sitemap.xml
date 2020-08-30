@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://charles-one.github.io/actiger/</loc>
+    <lastmod>2020-08-30T18:32:49+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charles-one.github.io/actiger/thought/</loc>
+    <lastmod>2020-08-30T18:32:49+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charles-one.github.io/actiger/thought/%E5%BE%80%E5%93%AA%E8%B5%B0/</loc>
+    <lastmod>2020-08-30T18:32:49+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://charles-one.github.io/actiger/c/</loc>
     <lastmod>2020-05-12T21:25:26+08:00</lastmod>
   </url>
@@ -145,11 +160,6 @@
   <url>
     <loc>https://charles-one.github.io/actiger/mysql/%E5%9F%BA%E6%9C%ACsql%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95%E4%BA%8C/</loc>
     <lastmod>2019-09-20T15:56:15+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://charles-one.github.io/actiger/thought/</loc>
-    <lastmod>2019-08-28T16:19:59+08:00</lastmod>
   </url>
   
   <url>
@@ -374,11 +384,6 @@
   
   <url>
     <loc>https://charles-one.github.io/actiger/about/</loc>
-    <lastmod>2019-03-09T23:25:37+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://charles-one.github.io/actiger/</loc>
     <lastmod>2019-03-09T23:25:37+08:00</lastmod>
   </url>
   
