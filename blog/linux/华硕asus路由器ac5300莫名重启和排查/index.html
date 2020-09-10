@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>华硕ASUS路由器AC5300莫名重启记录和排查 - Actiger跳跳虎</title>
+    
+    <meta name="description" content="问题我的华硕路由器有时莫名奇妙的重启 出问题设备和版本 ASUS AC5300 3.0.0.4.384.45149 首先查看系统日志 May 5 13:05:25 weini: [软件中心]: httpdb进程准备就绪！ May 5 13:05:25 WAN Connection: WAN was restored. May 5 13:05:25 WLCEVENTD: eth8: Assoc D4:90:9C:E7:D2:03 May 5 13:05:26 kernel: UBIFS (ubi1:0): UBIFS: mounted UBI device 1, volume 0, name &quot;nvram&quot;, R/O mode May 5 13:05:26 kernel: UBIFS (ubi1:0): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes May 5 13:05:26 kernel: UBIFS (ubi1:0): FS size: 5840896 bytes (5 MiB, 46 LEBs), journal size 1015809 bytes (0 MiB, 6 LEBs) May 5 13:05:26 kernel: UBIFS (ubi1:0): reserved for root: 275879 bytes (269 KiB) May 5 13:05:26 kernel: UBIFS (ubi1:0): media format: w4/r0 (latest is w4/r0), UUID ABA6F10C-0F1C-4B89-AD25-4B74DEC12700, small LPT model May 5 13:05:26 kernel: UBIFS (ubi1:0): un-mount UBI device 1 May 5 13:05:26 kernel: ubi1: detaching mtd9 May 5 13:05:26 kernel: ubi1: mtd9 is detached May 5 13:05:26 ntp: start NTP update Mar 30 00:32:50 rc_service: ntp 1229:notify_rc restart_diskmon Mar 30 00:32:50 rc_service: waitting &quot;start_firewall&quot; via udhcpc .">
+    <meta name="author" content="">
+    
+    <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.3" />
+    
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
+    
+    
+    <script>
+      function setTheme() {
+        const time = new Date();
+
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then(res => res.json())
+            .then(data => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></p>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">华硕ASUS路由器AC5300莫名重启记录和排查</h1>
+    <div class="post-meta">March 30, 2019</div>
+  </header>
+  <div class="post-content"><h3 id="问题我的华硕路由器有时莫名奇妙的重启">问题我的华硕路由器有时莫名奇妙的重启</h3>
+<h4 id="出问题设备和版本-asus-ac5300-300438445149">出问题设备和版本 ASUS AC5300 3.0.0.4.384.45149</h4>
+<h4 id="首先查看系统日志">首先查看系统日志</h4>
+<pre><code>May  5 13:05:25 weini: [软件中心]: httpdb进程准备就绪！
+May  5 13:05:25 WAN Connection: WAN was restored.
+May  5 13:05:25 WLCEVENTD: eth8: Assoc D4:90:9C:E7:D2:03
+May  5 13:05:26 kernel: UBIFS (ubi1:0): UBIFS: mounted UBI device 1, volume 0, name &quot;nvram&quot;, R/O mode
+May  5 13:05:26 kernel: UBIFS (ubi1:0): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes
+May  5 13:05:26 kernel: UBIFS (ubi1:0): FS size: 5840896 bytes (5 MiB, 46 LEBs), journal size 1015809 bytes (0 MiB, 6 LEBs)
+May  5 13:05:26 kernel: UBIFS (ubi1:0): reserved for root: 275879 bytes (269 KiB)
+May  5 13:05:26 kernel: UBIFS (ubi1:0): media format: w4/r0 (latest is w4/r0), UUID ABA6F10C-0F1C-4B89-AD25-4B74DEC12700, small LPT model
+May  5 13:05:26 kernel: UBIFS (ubi1:0): un-mount UBI device 1
+May  5 13:05:26 kernel: ubi1: detaching mtd9
+May  5 13:05:26 kernel: ubi1: mtd9 is detached
+May  5 13:05:26 ntp: start NTP update
+Mar 30 00:32:50 rc_service: ntp 1229:notify_rc restart_diskmon
+Mar 30 00:32:50 rc_service: waitting &quot;start_firewall&quot; via udhcpc ...
+Mar 30 00:32:50 WLCEVENTD: eth6: Assoc F0:B4:29:B0:E8:1B
+Mar 30 00:32:51 kernel: ubi1: attaching mtd9
+Mar 30 00:32:51 kernel: ubi1: scanning is finished
+Mar 30 00:32:51 kernel: ubi1: attached mtd9 (name &quot;misc1&quot;, size 8 MiB)
+Mar 30 00:32:51 kernel: ubi1: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
+Mar 30 00:32:51 kernel: ubi1: min./max. I/O unit sizes: 2048/2048, sub-page size 2048
+Mar 30 00:32:51 kernel: ubi1: VID header offset: 2048 (aligned 2048), data offset: 4096
+Mar 30 00:32:51 kernel: ubi1: good PEBs: 64, bad PEBs: 0, corrupted PEBs: 0
+
+</code></pre><pre><code>Mar 30 02:31:22 kernel: klogd started: BusyBox v1.24.1 (2018-12-27 20:18:22 CST)
+Mar 30 02:31:35 rss-redir[28262]: server recv: Connection reset by peer
+Mar 30 02:33:44 rss-redir[28272]: server recv: Connection reset by peer
+Mar 30 02:40:34 rss-redir[28267]: server recv: Connection reset by peer
+Mar 30 02:45:06 rss-redir[28257]: server recv: Connection reset by peer
+Mar 30 02:52:34 rss-redir[28262]: server recv: Connection reset by peer
+Mar 30 02:54:29 rss-redir[28262]: server recv: Connection reset by peer
+Mar 30 02:54:29 rss-redir[28257]: server recv: Connection reset by peer
+Mar 30 02:54:29 rss-redir[28267]: server recv: Connection reset by peer
+Mar 30 03:07:04 rss-redir[28257]: server recv: Connection reset by peer
+Mar 30 03:07:49 rss-redir[28267]: server recv: Connection reset by peer
+Mar 30 03:07:49 rss-redir[28267]: server recv: Connection reset by peer
+Mar 30 03:07:49 rss-redir[28257]: server recv: Connection reset by peer
+Mar 30 03:07:49 rss-redir[28257]: server recv: Connection reset by peer
+Mar 30 03:07:49 rss-redir[28262]: server recv: Connection reset by peer
+Mar 30 03:18:35 rss-redir[28267]: server recv: Connection reset by peer
+Mar 30 03:20:21 rss-redir[28267]: server recv: Connection reset by peer
+Mar 30 03:21:02 rss-redir[28267]: server recv: Connection reset by peer
+Mar 30 03:21:22 rss-redir[28262]: server recv: Connection reset by peer
+Mar 30 03:23:24 rss-redir[28272]: server recv: Connection reset by peer
+Mar 30 03:26:53 rss-redir[28272]: server recv: Connection reset by peer
+Mar 30 03:27:04 rss-redir[28257]: server recv: Connection reset by peer
+Mar 30 03:27:27 rss-redir[28272]: server recv: Connection reset by peer
+Mar 30 03:28:50 rss-redir[28257]: server recv: Connection reset by peer
+Mar 30 03:29:28 rss-redir[28262]: server recv: Connection reset by peer
+Mar 30 03:29:28 rss-redir[28262]: server recv: Connection reset by peer
+Mar 30 03:29:28 rss-redir[28257]: server recv: Connection reset by peer
+Mar 30 03:29:28 rss-redir[28272]: server recv: Connection reset by peer
+Mar 30 03:29:28 rss-redir[28272]: server recv: Connection reset by peer
+Mar 30 03:34:02 rss-redir[28257]: server recv: Connection reset by peer
+Mar 30 03:37:02 rss-redir[28257]: server recv: Connection reset by peer
+Mar 30 03:39:33 rss-redir[28272]: server recv: Connection reset by peer
+Mar 30 03:40:02 rss-redir[28262]: server recv: Connection reset by peer
+Mar 30 03:41:02 rss-redir[28272]: server recv: Connection reset by peer
+Mar 30 03:41:31 rss-redir[28262]: server recv: Connection reset by peer
+Mar 30 03:41:52 rss-redir[28272]: server recv: Connection reset by peer
+Mar 30 03:42:02 rss-redir[28257]: server recv: Connection reset by peer
+Mar 30 03:43:02 rss-redir[28267]: server recv: Connection reset by peer
+Mar 30 03:44:29 rss-redir[28272]: server recv: Connection reset by peer
+Mar 30 04:01:01 rss-redir[28257]: server recv: Connection reset by peer
+Mar 30 04:03:40 rss-redir[28262]: server recv: Connection reset by peer
+Mar 30 04:19:58 rss-redir[28267]: remote recv: Connection reset by peer
+Mar 30 04:20:17 rss-redir[28262]: remote recv: Connection reset by peer
+Mar 30 04:20:23 rss-redir[28257]: remote recv: Connection reset by peer
+Mar 30 04:20:25 rss-local[28295]: remote_recv_cb_recv: Connection reset by peer
+Mar 30 04:20:26 rss-local[28295]: remote_recv_cb_recv: Connection reset by peer
+Mar 30 04:20:28 rss-redir[28262]: remote recv: Connection reset by peer
+Mar 30 04:20:37 rss-redir[28267]: remote recv: Connection reset by peer
+Mar 30 04:20:42 rss-redir[28272]: remote recv: Connection reset by peer
+Mar 30 04:20:48 rss-redir[28262]: remote recv: Connection reset by peer
+Mar 30 04:20:55 rss-redir[28267]: remote recv: Connection reset by peer
+Mar 30 04:21:00 rss-redir[28262]: remote recv: Connection reset by peer
+Mar 30 04:21:19 rss-redir[28267]: remote recv: Connection reset by peer
+Mar 30 04:44:32 rss-redir[28267]: remote recv: Connection timed out
+Mar 30 05:20:57 afpd[9283]: AFP3.3 Login by weini
+Mar 30 05:20:57 cnid_dbd[9290]: Couldn't open extension maping file /usr/etc/extmap.conf
+Mar 30 05:20:57 cnid_dbd[9290]: Couldn't load extension -&gt; type/creator mappings file &quot;/usr/etc/extmap.conf&quot;
+Mar 30 05:20:58 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.___var.txt&quot;): not an adouble:osx file
+Mar 30 05:20:58 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__folder_list.txt&quot;): not an adouble:osx file
+Mar 30 05:20:58 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__weini_var.txt&quot;): not an adouble:osx file
+Mar 30 05:21:39 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.___var.txt&quot;): not an adouble:osx file
+Mar 30 05:21:39 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__folder_list.txt&quot;): not an adouble:osx file
+Mar 30 05:21:39 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__weini_var.txt&quot;): not an adouble:osx file
+Mar 30 05:21:39 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.___var.txt&quot;): not an adouble:osx file
+Mar 30 05:21:39 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__folder_list.txt&quot;): not an adouble:osx file
+Mar 30 05:21:39 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__weini_var.txt&quot;): not an adouble:osx file
+Mar 30 05:21:40 kernel: thfsplus: walked past end of dir
+Mar 30 05:21:40 kernel: thfsplus: walked past end of dir
+Mar 30 05:21:45 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.___var.txt&quot;): not an adouble:osx file
+Mar 30 05:21:45 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__folder_list.txt&quot;): not an adouble:osx file
+Mar 30 05:21:45 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__weini_var.txt&quot;): not an adouble:osx file
+Mar 30 05:22:56 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.___var.txt&quot;): not an adouble:osx file
+Mar 30 05:22:56 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__folder_list.txt&quot;): not an adouble:osx file
+Mar 30 05:22:56 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__weini_var.txt&quot;): not an adouble:osx file
+Mar 30 05:25:05 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.___var.txt&quot;): not an adouble:osx file
+Mar 30 05:25:05 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__folder_list.txt&quot;): not an adouble:osx file
+Mar 30 05:25:05 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__weini_var.txt&quot;): not an adouble:osx file
+Mar 30 05:35:05 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.___var.txt&quot;): not an adouble:osx file
+Mar 30 05:35:05 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__folder_list.txt&quot;): not an adouble:osx file
+Mar 30 05:35:05 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__weini_var.txt&quot;): not an adouble:osx file
+May  5 13:05:08 kernel: klogd started: BusyBox v1.24.1 (2018-12-27 20:18:22 CST)
+May  5 13:05:08 kernel: Linux version 4.1.27 (sadog@ubuntu) (gcc version 5.3.0 (Buildroot 2016.02) ) #2 SMP PREEMPT Thu Dec 27 20:40:52 CST 2018
+May  5 13:05:08 kernel: CPU: AArch64 Processor [420f1000] revision 0
+May  5 13:05:08 kernel: Kernel command line: coherent_pool=1M cpuidle_sysfs_switch
+May  5 13:05:08 kernel: Virtual kernel memory layout:
+May  5 13:05:08 kernel:     vmalloc : 0xffffff8000000000 - 0xffffffbdffff0000   (   247 GB)
+May  5 13:05:08 kernel:     vmemmap : 0xffffffbe00000000 - 0xffffffbfc0000000   (     7 GB maximum)
+May  5 13:05:08 kernel:               0xffffffbe00000000 - 0xffffffbe00e00000   (    14 MB actual)
+May  5 13:05:08 kernel:     fixed   : 0xffffffbffabfd000 - 0xffffffbffac00000   (    12 KB)
+May  5 13:05:08 kernel:     PCI I/O : 0xffffffbffae00000 - 0xffffffbffbe00000   (    16 MB)
+May  5 13:05:08 kernel:     modules : 0xffffffbffc000000 - 0xffffffc000000000   (    64 MB)
+May  5 13:05:08 kernel:     memory  : 0xffffffc000000000 - 0xffffffc040000000   (  1024 MB)
+May  5 13:05:08 kernel:       .init : 0xffffffc0006b9000 - 0xffffffc0006f3000   (   232 KB)
+May  5 13:05:08 kernel:       .text : 0xffffffc000080000 - 0xffffffc0006b8294   (  6369 KB)
+May  5 13:05:08 kernel:       .data : 0xffffffc0006f4000 - 0xffffffc00073cf00   (   292 KB)
+May  5 13:05:08 kernel: Broadcom Logger v0.1
+May  5 13:05:08 kernel: creating mapping for reserved memory phys 0x0c400000 virt 0xffffffc00c400000 size 0x00e00000 for dhd2
+May  5 13:05:08 kernel: Do not need to create mapping for reserved memory phys 0x0e000000 size 0x02000000 for buffer
+May  5 13:05:08 kernel: creating mapping for reserved memory phys 0x0d200000 virt 0xffffffc00d200000 size 0x00e00000 for flow
+May  5 13:05:08 kernel: pmc_init:PMC using DQM mode
+May  5 13:05:08 kernel: CPU1: Booted secondary processor
+May  5 13:05:08 kernel: CPU2: Booted secondary processor
+May  5 13:05:08 kernel: CPU3: Booted secondary processor
+May  5 13:05:08 kernel: skbFreeTask created successfully
+May  5 13:05:08 kernel: gbpm_do_work scheduled
+May  5 13:05:08 kernel: ^[[0;34mBLOG v3.0 Initialized^[[0m
+May  5 13:05:08 kernel: BLOG Rule v1.0 Initialized
+May  5 13:05:08 kernel: Broadcom IQoS v0.1 initialized
+May  5 13:05:08 kernel: Broadcom GBPM v0.1 initialized
+May  5 13:05:08 kernel: nand: Could not find valid ONFI parameter page; aborting
+May  5 13:05:08 kernel: &gt;&gt;&gt;&gt;&gt; For primary mtd partition rootfs, cferam/vmlinux.lz mounted as JFFS2, vmlinux fs mounted as UBIFS &lt;&lt;&lt;&lt;&lt;
+May  5 13:05:08 kernel: Secondary mtd partition rootfs_update detected as JFFS2 for cferam/vmlinux source and UBIFS for vmlinux filesystem
+May  5 13:05:08 kernel: Creating 10 MTD partitions on &quot;brcmnand.0&quot;:
+May  5 13:05:08 kernel: 0x000005c60000-0x00000af00000 : &quot;rootfs&quot;
+May  5 13:05:08 kernel: 0x000000540000-0x000005800000 : &quot;rootfs_update&quot;
+May  5 13:05:08 kernel: 0x00000f700000-0x00000ff00000 : &quot;data&quot;
+May  5 13:05:08 kernel: 0x000000000000-0x000000100000 : &quot;nvram&quot;
+May  5 13:05:08 kernel: 0x000000100000-0x000005800000 : &quot;image_update&quot;
+May  5 13:05:08 kernel: 0x000005800000-0x00000af00000 : &quot;image&quot;
+May  5 13:05:08 kernel: 0x000005800000-0x000005c60000 : &quot;bootfs&quot;
+May  5 13:05:08 kernel: 0x000000100000-0x000000540000 : &quot;bootfs_update&quot;
+May  5 13:05:08 kernel: 0x00000b700000-0x00000f700000 : &quot;misc2&quot;
+May  5 13:05:08 kernel: 0x00000af00000-0x00000b700000 : &quot;misc1&quot;
+May  5 13:05:08 kernel: brcmboard registered
+
+</code></pre><h4 id="重启可以看到mar-30-001938-后-may--5-130508-kernel-klogd-started-busybox-v1241-2018-12-27-201822-cst">重启可以看到Mar 30 00:19:38 后 May  5 13:05:08 kernel: klogd started: BusyBox v1.24.1 (2018-12-27 20:18:22 CST)</h4>
+<h4 id="前面看到apf-推荐苹果timemachine备份造成重启">前面看到APF, 推荐苹果Timemachine备份造成重启</h4>
+<h4 id="还有个疑问-重启时的硬件时间不对">还有个疑问, 重启时的硬件时间不对.</h4>
+<h4 id="在华硕路由器系统设置中开启ssh-ssh登录到华硕路由器中">在华硕路由器系统设置中开启ssh, ssh登录到华硕路由器中</h4>
+<h4 id="查看etctz-内容是gmt-8-etclocaltime内容有cst-8-表示时区设置是正确的">查看/etc/TZ 内容是GMT-8, /etc/localtime内容有CST-8, 表示时区设置是正确的</h4>
+<h4 id="还是更改了ntp的服务地址">还是更改了ntp的服务地址</h4>
+<pre><code>cn.ntp.org.cn
+</code></pre><h3 id="后面再次验证-没有重启了-手动重启可以看到硬件时间仍然不对的">后面再次验证, 没有重启了. 手动重启可以看到硬件时间仍然不对的.</h3>
+<pre><code>Mar 30 11:54:35 afpd[9584]: AFP statistics: 103709.69 KB read, 51241.18 KB written
+Mar 30 11:54:35 afpd[9584]: done
+Mar 30 11:55:09 afpd[10854]: AFP3.3 Login by weini
+Mar 30 11:55:09 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.___var.txt&quot;): not an adouble:osx file
+Mar 30 11:55:09 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__folder_list.txt&quot;): not an adouble:osx file
+Mar 30 11:55:09 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__weini_var.txt&quot;): not an adouble:osx file
+Mar 30 11:55:39 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.___var.txt&quot;): not an adouble:osx file
+Mar 30 11:55:39 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__folder_list.txt&quot;): not an adouble:osx file
+Mar 30 11:55:39 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__weini_var.txt&quot;): not an adouble:osx file
+Mar 30 11:55:39 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.___var.txt&quot;): not an adouble:osx file
+Mar 30 11:55:39 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__folder_list.txt&quot;): not an adouble:osx file
+Mar 30 11:55:39 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__weini_var.txt&quot;): not an adouble:osx file
+Mar 30 11:55:39 kernel: thfsplus: walked past end of dir
+Mar 30 11:55:39 kernel: thfsplus: walked past end of dir
+Mar 30 11:55:45 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.___var.txt&quot;): not an adouble:osx file
+Mar 30 11:55:45 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__folder_list.txt&quot;): not an adouble:osx file
+Mar 30 11:55:45 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__weini_var.txt&quot;): not an adouble:osx file
+Mar 30 11:56:47 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.___var.txt&quot;): not an adouble:osx file
+Mar 30 11:56:47 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__folder_list.txt&quot;): not an adouble:osx file
+Mar 30 11:56:47 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__weini_var.txt&quot;): not an adouble:osx file
+Mar 30 11:57:05 afpd[10854]: AFP logout by weini
+Mar 30 11:57:05 afpd[10854]: AFP statistics: 116551.07 KB read, 55467.70 KB written
+Mar 30 11:57:05 afpd[10854]: done
+Mar 30 11:58:02 rc_service: httpd 1041:notify_rc start_autodet
+Mar 30 11:58:08 rc_service: httpd 1041:notify_rc reboot
+Mar 30 11:58:08 iTunes: daemon is stoped
+Mar 30 11:58:08 FTP Server: daemon is stoped
+Mar 30 11:58:08 Samba Server: smb daemon is stopped
+Mar 30 11:58:08 Timemachine: daemon is stoped
+Mar 30 11:58:08 WEBDAV Server: daemon is stoped
+Mar 30 11:58:10 A.QoS: set_qos_off, ret=65280
+Mar 30 11:58:10 WEBDAV Server: daemon is stoped
+Mar 30 11:58:10 Mastiff: Got SIGTERM
+May  5 13:05:08 kernel: klogd started: BusyBox v1.24.1 (2018-12-27 20:18:22 CST)
+May  5 13:05:08 kernel: Linux version 4.1.27 (sadog@ubuntu) (gcc version 5.3.0 (Buildroot 2016.02) ) #2 SMP PREEMPT Thu Dec 27 20:40:52 CST 2018
+May  5 13:05:08 kernel: CPU: AArch64 Processor [420f1000] revision 0
+May  5 13:05:08 kernel: Kernel command line: coherent_pool=1M cpuidle_sysfs_switch
+May  5 13:05:08 kernel: Virtual kernel memory layout:
+May  5 13:05:08 kernel:     vmalloc : 0xffffff8000000000 - 0xffffffbdffff0000   (   247 GB)
+May  5 13:05:08 kernel:     vmemmap : 0xffffffbe00000000 - 0xffffffbfc0000000   (     7 GB maximum)
+May  5 13:05:08 kernel:               0xffffffbe00000000 - 0xffffffbe00e00000   (    14 MB actual)
+May  5 13:05:08 kernel:     fixed   : 0xffffffbffabfd000 - 0xffffffbffac00000   (    12 KB)
+May  5 13:05:08 kernel:     PCI I/O : 0xffffffbffae00000 - 0xffffffbffbe00000   (    16 MB)
+May  5 13:05:08 kernel:     modules : 0xffffffbffc000000 - 0xffffffc000000000   (    64 MB)
+May  5 13:05:08 kernel:     memory  : 0xffffffc000000000 - 0xffffffc040000000   (  1024 MB)
+May  5 13:05:08 kernel:       .init : 0xffffffc0006b9000 - 0xffffffc0006f3000   (   232 KB)
+May  5 13:05:08 kernel:       .text : 0xffffffc000080000 - 0xffffffc0006b8294   (  6369 KB)
+May  5 13:05:08 kernel:       .data : 0xffffffc0006f4000 - 0xffffffc00073cf00   (   292 KB)
+May  5 13:05:08 kernel: Broadcom Logger v0.1
+May  5 13:05:08 kernel: creating mapping for reserved memory phys 0x0c400000 virt 0xffffffc00c400000 size 0x00e00000 for dhd2
+May  5 13:05:08 kernel: Do not need to create mapping for reserved memory phys 0x0e000000 size 0x02000000 for buffer
+May  5 13:05:08 kernel: creating mapping for reserved memory phys 0x0d200000 virt 0xffffffc00d200000 size 0x00e00000 for flow
+May  5 13:05:08 kernel: pmc_init:PMC using DQM mode
+May  5 13:05:08 kernel: CPU1: Booted secondary processor
+May  5 13:05:08 kernel: CPU2: Booted secondary processor
+May  5 13:05:08 kernel: CPU3: Booted secondary processor
+May  5 13:05:08 kernel: skbFreeTask created successfully
+May  5 13:05:08 kernel: gbpm_do_work scheduled
+May  5 13:05:08 kernel: ^[[0;34mBLOG v3.0 Initialized^[[0m
+May  5 13:05:08 kernel: BLOG Rule v1.0 Initialized
+May  5 13:05:08 kernel: Broadcom IQoS v0.1 initialized
+May  5 13:05:08 kernel: Broadcom GBPM v0.1 initialized
+May  5 13:05:08 kernel: nand: Could not find valid ONFI parameter page; aborting
+May  5 13:05:08 kernel: &gt;&gt;&gt;&gt;&gt; For primary mtd partition rootfs, cferam/vmlinux.lz mounted as JFFS2, vmlinux fs mounted as UBIFS &lt;&lt;&lt;&lt;&lt;
+May  5 13:05:08 kernel: Secondary mtd partition rootfs_update detected as JFFS2 for cferam/vmlinux source and UBIFS for vmlinux filesystem
+May  5 13:05:08 kernel: Creating 10 MTD partitions on &quot;brcmnand.0&quot;:
+May  5 13:05:08 kernel: 0x000005c60000-0x00000af00000 : &quot;rootfs&quot;
+May  5 13:05:08 kernel: 0x000000540000-0x000005800000 : &quot;rootfs_update&quot;
+May  5 13:05:08 kernel: 0x00000f700000-0x00000ff00000 : &quot;data&quot;
+May  5 13:05:08 kernel: 0x000000000000-0x000000100000 : &quot;nvram&quot;
+May  5 13:05:08 kernel: 0x000000100000-0x000005800000 : &quot;image_update&quot;
+May  5 13:05:08 kernel: 0x000005800000-0x00000af00000 : &quot;image&quot;
+May  5 13:05:08 kernel: 0x000005800000-0x000005c60000 : &quot;bootfs&quot;
+May  5 13:05:08 kernel: 0x000000100000-0x000000540000 : &quot;bootfs_update&quot;
+May  5 13:05:08 kernel: 0x00000b700000-0x00000f700000 : &quot;misc2&quot;
+May  5 13:05:08 kernel: 0x00000af00000-0x00000b700000 : &quot;misc1&quot;
+May  5 13:05:08 kernel: brcmboard registered
+May  5 13:05:08 kernel: brcmboard: brcm_board_init entry
+May  5 13:05:08 kernel: print_rst_status: Last RESET due to SW reset
+May  5 13:05:08 kernel: print_rst_status: RESET reason: 0x00000000
+May  5 13:05:08 kernel: DYING GASP IRQ Initialized and Enabled
+May  5 13:05:08 kernel: map_hw_timer_interrupt,132: interrupt_id 22
+May  5 13:05:08 kernel: map_hw_timer_interrupt,132: interrupt_id 23
+May  5 13:05:08 kernel: map_hw_timer_interrupt,132: interrupt_id 24
+May  5 13:05:08 kernel: map_hw_timer_interrupt,132: interrupt_id 25
+May  5 13:05:08 kernel: Registering button 0 (ffffffc0007773e0) (bpGpio: 0000801e, bpExtIrq:00000000 (0))
+May  5 13:05:08 kernel:     extIrqIdx:0, gpioNum:30 ACTIVE LOW
+May  5 13:05:08 kernel: Registering button 1 (ffffffc0007774a0) (bpGpio: 0000801d, bpExtIrq:00000001 (1))
+May  5 13:05:08 kernel:     extIrqIdx:1, gpioNum:29 ACTIVE LOW
+May  5 13:05:08 kernel: Registering button 2 (ffffffc000777560) (bpGpio: 0000801c, bpExtIrq:00000001 (1))
+May  5 13:05:08 kernel:     extIrqIdx:1, gpioNum:28 ACTIVE LOW
+May  5 13:05:08 kernel: genirq: Flags mismatch irq 36. 00000000 (brcm_36) vs. 00000000 (brcm_36)
+May  5 13:05:08 kernel: request_irq failed for irq=36 (brcm_36) retval=-16
+May  5 13:05:08 kernel: registerBtns: Button index 3 out of range (max 3)
+May  5 13:05:08 kernel: BPM: tot_mem_size=1073741824B (1024MB), buf_mem_size &lt;15%&gt; =161061270B (153MB), num of buffers=71902, buf size=2240
+May  5 13:05:08 kernel: Broadcom BPM Module Char Driver v0.1 Registered&lt;3004&gt;^[[0m
+May  5 13:05:08 kernel: PCIe HCD (impl1)^M
+May  5 13:05:08 kernel:   bcm963xx-pcie: found core [0] Rev [ 3. 4]^M
+May  5 13:05:08 kernel: pci 0000:00:00.0: of_irq_parse_pci() failed with rc=-22
+May  5 13:05:08 kernel: pci 0000:01:00.0: of_irq_parse_pci() failed with rc=-22
+May  5 13:05:08 kernel:   bcm963xx-pcie: found core [1] Rev [ 3. 4]^M
+May  5 13:05:08 kernel: pci 0001:00:00.0: of_irq_parse_pci() failed with rc=-22
+May  5 13:05:08 kernel: pci 0001:01:00.0: of_irq_parse_pci() failed with rc=-22
+May  5 13:05:08 kernel:   bcm963xx-pcie: found core [2] Rev [ 3. 4]^M
+May  5 13:05:08 kernel: pci 0002:00:00.0: of_irq_parse_pci() failed with rc=-22
+May  5 13:05:08 kernel: pci 0002:01:00.0: of_irq_parse_pci() failed with rc=-22
+May  5 13:05:08 kernel: ubi0: attaching mtd0
+May  5 13:05:08 kernel: ubi0: scanning is finished
+May  5 13:05:08 kernel: ubi0: attached mtd0 (name &quot;rootfs&quot;, size 82 MiB)
+May  5 13:05:08 kernel: ubi0: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
+May  5 13:05:08 kernel: ubi0: min./max. I/O unit sizes: 2048/2048, sub-page size 2048
+May  5 13:05:08 kernel: ubi0: VID header offset: 2048 (aligned 2048), data offset: 4096
+May  5 13:05:08 kernel: ubi0: good PEBs: 661, bad PEBs: 0, corrupted PEBs: 0
+May  5 13:05:08 kernel: ubi0: user volume: 1, internal volumes: 1, max. volumes count: 128
+May  5 13:05:08 kernel: ubi0: max/mean erase counter: 1/0, WL threshold: 4096, image sequence number: 0
+May  5 13:05:08 kernel: ubi0: available PEBs: 0, total reserved PEBs: 661, PEBs reserved for bad PEB handling: 13
+May  5 13:05:08 kernel: ubi0: background thread &quot;ubi_bgt0d&quot; started, PID 70
+May  5 13:05:08 kernel: UBIFS (ubi0:0): UBIFS: mounted UBI device 0, volume 0, name &quot;rootfs_ubifs&quot;, R/O mode
+May  5 13:05:08 kernel: UBIFS (ubi0:0): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes
+May  5 13:05:08 kernel: UBIFS (ubi0:0): FS size: 80375808 bytes (76 MiB, 633 LEBs), journal size 9023488 bytes (8 MiB, 72 LEBs)
+May  5 13:05:08 kernel: UBIFS (ubi0:0): reserved for root: 0 bytes (0 KiB)
+May  5 13:05:08 kernel: UBIFS (ubi0:0): media format: w4/r0 (latest is w4/r0), UUID 667D54BB-C195-45B5-AA00-F807B65C3DAC, small LPT model
+May  5 13:05:08 kernel: wlcsm: module license 'Proprietary' taints kernel.
+May  5 13:05:08 kernel: Disabling lock debugging due to kernel taint
+May  5 13:05:08 kernel: bm_base_addr 0xffffffc00e000000, size 33554432, bm_base_addr_phys 0x000000000e000000
+May  5 13:05:08 kernel: fm_base_addr 0xffffffc00d200000, size 14680064, fm_base_addr_phys 0x000000000d200000
+May  5 13:05:08 kernel: Scratch pad is not initialized.
+May  5 13:05:08 kernel: RDP Physical address=0x82200000 Virtual address = 0xffffff8000780000
+May  5 13:05:08 kernel: configure_runner: NATC keysize 0x100070 key element size 16 contextsize 0x102000 context element size 64
+May  5 13:05:08 kernel: ++++Runner gso_desc_pool created successfully
+May  5 13:05:08 kernel: rdd_init_params.runner_nat_cache_key_ptr=0xffffffc00d900000
+May  5 13:05:08 kernel: FPM_BPM phy_addr 0x82c30000,virt_addr 0xffffff80003fe000
+May  5 13:05:08 kernel:  RDP PKT memory = 32MB : Max Possible Bufs &lt;16384&gt; of size &lt;2048&gt;; Allocating &lt;15360&gt; bufs; RDP enum &lt;5&gt;
+May  5 13:05:08 kernel: brcmchipinfo: brcm_chipinfo_init entry
+May  5 13:05:08 kernel: NBUFF v1.0 Initialized
+</code></pre><h3 id="反馈给华硕官方了-等待后续">反馈给华硕官方了, 等待后续</h3>
+</div>
+  
+</article></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></span>
+  <span>&middot;</span>
+  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Powered by Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span><a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Theme️ Paper</a></span>
+</footer>
+<script src="https://charles-one.github.io/actiger/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

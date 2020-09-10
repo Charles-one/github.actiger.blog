@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>使用Hugo和GitHub Pages搭建静态网站 - Actiger跳跳虎</title>
+    
+    <meta name="description" content="0. 前提条件  电脑安装git(Mac linux都需要安装) 安装go并设置环境变量(仅linux下需要) 虚拟机Centos7.6.1810(测试用, 不需要安装)  1. 安装hugo   mac直接使用brew install hugo就可以了
+  linux下源码安装
+   下载并编译  mkdir ~/src cd ~/src git clone https://github.com/gohugoio/hugo.git cd hugo go install 添加环境变量  # 当前用户~/go文件绝对路径是GOPATH,Go编译后的文件在~/go/bin中 # 如现在当前用户是jenkins vim /etc/profile 添加 export export GOPATH=/var/lib/jenkins/go export PATH=${PATH}:$GOPATH/bin 重新生效/etc/profile文件
+source /etc/profile
+再次hugo vimersion
+就会显示hugo版本, 表示可用
+2. 使用Hugo创建个人网站  创建静态网站文件夹  cd ~ hugo new site actiger  写第一篇markdown文章, markdown语法参考  cd ~/actiger 在目录~/actiger下执行hugo new about.">
+    <meta name="author" content="">
+    
+    <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.3" />
+    
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
+    
+    
+    <script>
+      function setTheme() {
+        const time = new Date();
+
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then(res => res.json())
+            .then(data => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></p>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">使用Hugo和GitHub Pages搭建静态网站</h1>
+    <div class="post-meta">March 13, 2019</div>
+  </header>
+  <div class="post-content"><h3 id="0-前提条件">0. 前提条件</h3>
+<ol>
+<li>电脑安装git(Mac linux都需要安装)</li>
+<li><!-- raw HTML omitted -->安装go并设置环境变量(仅linux下需要)<!-- raw HTML omitted --></li>
+<li>虚拟机Centos7.6.1810(测试用, 不需要安装)</li>
+</ol>
+<h3 id="1-安装hugo">1. 安装hugo</h3>
+<ul>
+<li>
+<p>mac直接使用brew install hugo就可以了</p>
+</li>
+<li>
+<p>linux下源码安装</p>
+</li>
+</ul>
+<ol>
+<li>下载并编译</li>
+</ol>
+<pre><code>mkdir ~/src
+cd ~/src
+git clone https://github.com/gohugoio/hugo.git
+cd hugo
+go install
+</code></pre><ol start="2">
+<li>添加环境变量</li>
+</ol>
+<pre><code># 当前用户~/go文件绝对路径是GOPATH,Go编译后的文件在~/go/bin中
+# 如现在当前用户是jenkins
+vim /etc/profile 添加
+export export GOPATH=/var/lib/jenkins/go
+export PATH=${PATH}:$GOPATH/bin
+</code></pre><p>重新生效/etc/profile文件</p>
+<p>source /etc/profile</p>
+<p>再次hugo vimersion</p>
+<p>就会显示hugo版本, 表示可用</p>
+<h3 id="2-使用hugo创建个人网站">2. 使用Hugo创建个人网站</h3>
+<ul>
+<li>创建静态网站文件夹</li>
+</ul>
+<pre><code>cd ~
+
+hugo new site actiger
+</code></pre><ul>
+<li>写第一篇markdown文章, <!-- raw HTML omitted -->markdown语法参考<!-- raw HTML omitted --></li>
+</ul>
+<p>cd ~/actiger
+在目录~/actiger下执行hugo new about.md</p>
+<p>在这里会在~/actiger/content下创建一个文件about.md</p>
+<p>ls ~/actiger/content # 可以查看到</p>
+<p>添加内容&quot;我写的第1篇文章&rdquo;</p>
+<p>更改draft: true 为 draft:false</p>
+<ul>
+<li>Centos7.6.1810需要添加防火墙端口(仅虚拟机需要增加防火墙端口)</li>
+</ul>
+<pre><code>firewall-cmd --add-port=1313/tcp --permanent
+firewall-cmd --reload
+</code></pre><ul>
+<li>使用主题生成本地服务, 查看博客效果, <!-- raw HTML omitted -->更多主题下载hugo themes官网<!-- raw HTML omitted --></li>
+</ul>
+<pre><code>cd ~/actiger/themes
+
+git clone https://github.com/nanxiaobei/hugo-paper.git
+
+cd ~/actiger
+
+# --bind=&quot;10.211.55.9&quot;绑定ip , 使用本机则不需要绑定.
+hugo server --theme=hugo-paper --bind=&quot;10.211.55.9即是你的ip(不指定则默认只能本地访问)&quot;  --baseUrl=&quot;http://10.211.55.9/&quot; --port=1313
+
+</code></pre><p>浏览器输入http://你的ip:1313.如未指定,则是http://localhost:1313</p>
+<p>即可查看静态博客</p>
+<h3 id="3-创建github项目">3. 创建GitHub项目</h3>
+<ul>
+<li>在GitHub中创建actiger的public公共类型(私人需要付费)项目, 创建完后https://github.com/Charles-one/actiger</li>
+</ul>
+<h3 id="4-生成本地静态网站">4. 生成本地静态网站</h3>
+<pre><code>cd ~/actiger
+</code></pre><h4 id="生成静态网页">生成静态网页</h4>
+<p><strong>注意baseUrl后的地址是HTTPS的类型, githup pages强制https类型</strong></p>
+<p><strong>baseUrl的结束有/</strong></p>
+<p><strong>actiger注意大小写</strong></p>
+<pre><code>hugo --theme=hugo-paper --baseUrl=&quot;https://charles-one.github.io/actiger/&quot;
+</code></pre><p>这里会生成public文件夹</p>
+<pre><code>cd ~/actiger/public
+
+git init
+
+git remote add github git@github.com:Charles-one/actiger.git
+
+git config user.email &quot;你的邮箱&quot;
+
+git config user.name &quot;你的名字&quot;
+
+git add .
+
+git commit -m &quot;init&quot;
+
+git push -u github master:master
+</code></pre><h3 id="5-github中选择github-pages的分支">5. Github中选择GitHub Pages的分支</h3>
+<p>进入,以我的项目setting设置里
+<a href="https://github.com/Charles-one/actiger/settings">https://github.com/Charles-one/actiger/settings</a></p>
+<p>设置-&gt;Github Pages</p>
+<p>选择Source为master即可</p>
+<h3 id="6-查看github-pages">6. 查看GitHub Pages</h3>
+<p>刷新进入https://github.com/Charles-one/actiger/settings</p>
+<p>设置-&gt;Github Pages下, 看到你的网站地址是
+<strong><a href="https://charles-one.github.io/actiger/">https://charles-one.github.io/actiger/</a></strong></p>
+<p>哈哈, 可以自由的写博客了</p>
+<h3 id="7-补充下如何添加图片mac压缩图片工具imageoptim">7. 补充下如何添加图片.(Mac压缩图片工具ImageOptim)</h3>
+<pre><code># 将自己的图片存放到如下位置
+~/actiger/static/img/cat.JPG
+
+# 执行hugo --theme=hugo-paper --baseUrl=&quot;https://charles-one.github.io/actiger/&quot;
+# 会把cat.JPG存放到, ~/actiger/public/img/cat.JPG
+# 文章的存放的位置 ~/actiger/public/about/index.html
+
+# 使用相对路径添加图片, 以about文章存放位置index.html为参考系.
+# 在Markdown中添加
+
+# 将下面内容写入about.md中
+
+![猫](../img/cat.JPG)
+
+# 本文的路径是 actiger/public/linux/使用hugo和github-pages搭建静态网站/index.html
+# 所以添加图片的相对路径是
+
+![cat](../../img/cat.JPG)
+</code></pre><p><img src="../../img/cat.JPG" alt="猫"></p>
+</div>
+  
+</article></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></span>
+  <span>&middot;</span>
+  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Powered by Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span><a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Theme️ Paper</a></span>
+</footer>
+<script src="https://charles-one.github.io/actiger/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

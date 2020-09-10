@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Centos7使用ssh Key拉取github项目失败 - Actiger跳跳虎</title>
+    
+    <meta name="description" content="1. centos7上错误信息, 与配置信息. # 测试最否能连接到github上, 使用-v打印连接日志 [root@cc]/etc/ssh# ssh -vT git@github.com OpenSSH_7.4p1, OpenSSL 1.0.2k-fips 26 Jan 2017 debug1: Reading configuration data /root/.ssh/config debug1: /root/.ssh/config line 3: Applying options for github.com debug1: Reading configuration data /etc/ssh/ssh_config debug1: /etc/ssh/ssh_config line 60: Applying options for * debug1: Connecting to github.com [192.30.255.112] port 12340. debug1: Connection established. debug1: permanently_set_uid: 0/0 debug1: key_load_public: No such file or directory debug1: identity file /root/.ssh/git_cron type -1 debug1: key_load_public: No such file or directory debug1: identity file /root/.">
+    <meta name="author" content="">
+    
+    <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.3" />
+    
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
+    
+    
+    <script>
+      function setTheme() {
+        const time = new Date();
+
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then(res => res.json())
+            .then(data => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></p>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Centos7使用ssh Key拉取github项目失败</h1>
+    <div class="post-meta">May 18, 2019</div>
+  </header>
+  <div class="post-content"><h3 id="1-centos7上错误信息-与配置信息">1. centos7上错误信息, 与配置信息.</h3>
+<pre><code># 测试最否能连接到github上, 使用-v打印连接日志
+
+[root@cc]/etc/ssh# ssh -vT git@github.com
+
+OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
+debug1: Reading configuration data /root/.ssh/config
+debug1: /root/.ssh/config line 3: Applying options for github.com
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 60: Applying options for *
+debug1: Connecting to github.com [192.30.255.112] port 12340.
+debug1: Connection established.
+debug1: permanently_set_uid: 0/0
+debug1: key_load_public: No such file or directory
+debug1: identity file /root/.ssh/git_cron type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file /root/.ssh/git_cron-cert type -1
+debug1: Enabling compatibility mode for protocol 2.0
+debug1: Local version string SSH-2.0-OpenSSH_7.4
+ssh_exchange_identification: Connection closed by remote host
+</code></pre><h4 id="ssh配置和文件目录">ssh配置和文件目录</h4>
+<pre><code>Host github.com
+ User git
+ HostName github.com
+ PreferredAuthentications publickey
+ IdentityFile ~/.ssh/git_cron
+
+#
+
+[root@cc .ssh]$ ls
+authorized_keys  config  git_cron  known_hosts
+
+</code></pre><h3 id="2-查找原因">2. 查找原因.</h3>
+<h3 id="最初以为配置信息错错误或者存放的私钥有问题-所以在本地使用同样的配置-去测试">最初以为配置信息错错误或者存放的私钥有问题, 所以在本地使用同样的配置, 去测试.</h3>
+<pre><code>ssh -vT git@github.com
+
+
+&gt;OpenSSH_7.9p1, LibreSSL 2.7.3
+debug1: Reading configuration data /Users/csx/.ssh/config
+debug1: /Users/csx/.ssh/config line 11: Applying options for github.com
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 48: Applying options for *
+debug1: Connecting to github.com port 22.
+debug1: Connection established.
+debug1: identity file /Users/csx/.ssh/git_cron type 0
+debug1: identity file /Users/csx/.ssh/git_cron-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_7.9
+debug1: Remote protocol version 2.0, remote software version babeld-80573d3e
+debug1: no match: babeld-80573d3e
+debug1: Authenticating to github.com:22 as 'git'
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug1: kex: algorithm: curve25519-sha256
+debug1: kex: host key algorithm: rsa-sha2-512
+debug1: kex: server-&gt;client cipher: chacha20-poly1305@openssh.com MAC: &lt;implicit&gt; compression: none
+debug1: kex: client-&gt;server cipher: chacha20-poly1305@openssh.com MAC: &lt;implicit&gt; compression: none
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug1: Server host key: ssh-rsa SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8
+debug1: Host 'github.com' is known and matches the RSA host key.
+debug1: Found key in /Users/csx/.ssh/known_hosts:5
+debug1: rekey after 134217728 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug1: SSH2_MSG_NEWKEYS received
+debug1: rekey after 134217728 blocks
+debug1: Will attempt key: /Users/csx/.ssh/git_cron RSA SHA256:tuJHTXOa8m+Flkopj02f8qJwUmPqI7NjPSHvQ/qxhNk explicit
+debug1: SSH2_MSG_EXT_INFO received
+debug1: kex_input_ext_info: server-sig-algs=&lt;ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-rsa,rsa-sha2-512,rsa-sha2-256,ssh-dss&gt;
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug1: Authentications that can continue: publickey
+debug1: Next authentication method: publickey
+debug1: Offering public key: /Users/csx/.ssh/git_cron RSA SHA256:tuJHTXOa8m+Flkopj02f8qJwUmPqI7NjPSHvQ/qxhNk explicit
+debug1: Server accepts key: /Users/csx/.ssh/git_cron RSA SHA256:tuJHTXOa8m+Flkopj02f8qJwUmPqI7NjPSHvQ/qxhNk explicit
+debug1: Authentication succeeded (publickey).
+Authenticated to github.com ([192.30.255.112]:22).
+debug1: channel 0: new [client-session]
+debug1: Entering interactive session.
+debug1: pledge: network
+debug1: Sending environment.
+debug1: Sending env LC_CTYPE = en_US.UTF-8
+debug1: Sending env LANG = en_US.UTF-8
+debug1: Sending env LC_COLLATE = en_US.UTF-8
+debug1: Sending env LC_MESSAGES = en_US.UTF-8
+debug1: Sending env LC_MONETARY = en_US.UTF-8
+debug1: Sending env LC_NUMERIC = en_US.UTF-8
+debug1: Sending env LC_TIME = en_US.UTF-8
+debug1: Sending env LC_ALL = en_US.UTF-8
+debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
+Hi Charles-one! You've successfully authenticated, but GitHub does not provide shell access.
+debug1: channel 0: free: client-session, nchannels 1
+Transferred: sent 3048, received 2228 bytes, in 0.4 seconds
+Bytes per second: sent 7619.6, received 5569.7
+debug1: Exit status 1
+
+</code></pre><h4 id="连接是成功的">连接是成功的.</h4>
+<h4 id="注意这里建立联接">注意这里建立联接</h4>
+<pre><code>debug1: Connecting to github.com port 22.
+</code></pre><h4 id="出错的信息里是">出错的信息里是</h4>
+<pre><code>debug1: Connecting to github.com [192.30.255.112] port 12340
+</code></pre><h4 id="猜测使用错误的端口">猜测使用错误的端口</h4>
+<h4 id="更新配置文件为-sshconfig">更新配置文件为 .ssh/config</h4>
+<pre><code>Host github.com
+ User git
+ Port 22
+ HostName github.com
+ PreferredAuthentications publickey
+ IdentityFile ~/.ssh/git_cron
+</code></pre><h4 id="重新测试-ssh--vt-gitgithubcom-连接成功了">重新测试, ssh -vT <a href="mailto:git@github.com">git@github.com</a> 连接成功了.</h4>
+<h3 id="3-现在的问题是-为什么centos7服务器默认使用的是12340-本地却使用的22">3. 现在的问题是, 为什么centos7服务器默认使用的是12340, 本地却使用的22.</h3>
+<h4 id="centos7中本地ssh配置信息">Centos7中本地ssh配置信息</h4>
+<pre><code>cat /etc/ssh/ssh_config
+
+# 这里的端口被修改成12340
+#   Port 22
+#   new
+Port 12340
+</code></pre><h4 id="这个是在更改连接ssh服务器端口时-修改ssh_config的端口-故造成本次的问题">这个是在更改连接ssh服务器端口时, 修改ssh_config的端口, 故造成本次的问题</h4>
+<h4 id="阿布-我再也不乱改了">阿布, 我再也不乱改了.😭</h4>
+</div>
+  
+</article></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></span>
+  <span>&middot;</span>
+  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Powered by Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span><a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Theme️ Paper</a></span>
+</footer>
+<script src="https://charles-one.github.io/actiger/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

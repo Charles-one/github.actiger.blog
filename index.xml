@@ -13,19 +13,19 @@
     
     <item>
       <title>往哪走</title>
-      <link>https://charles-one.github.io/actiger/thought/%E5%BE%80%E5%93%AA%E8%B5%B0/</link>
+      <link>https://charles-one.github.io/actiger/blog/thought/%E5%BE%80%E5%93%AA%E8%B5%B0/</link>
       <pubDate>Sun, 30 Aug 2020 18:32:49 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/thought/%E5%BE%80%E5%93%AA%E8%B5%B0/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/thought/%E5%BE%80%E5%93%AA%E8%B5%B0/</guid>
       <description>生活要往哪走 继续还是放弃 永远都是个问题 心里总是想着凭什么 迟早成仇人 哎&amp;hellip; </description>
     </item>
     
     <item>
       <title>C程序设计语言1.9字符数组示例</title>
-      <link>https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%801.9%E5%AD%97%E7%AC%A6%E6%95%B0%E7%BB%84%E7%A4%BA%E4%BE%8B/</link>
+      <link>https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%801.9%E5%AD%97%E7%AC%A6%E6%95%B0%E7%BB%84%E7%A4%BA%E4%BE%8B/</link>
       <pubDate>Tue, 12 May 2020 21:25:26 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%801.9%E5%AD%97%E7%AC%A6%E6%95%B0%E7%BB%84%E7%A4%BA%E4%BE%8B/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%801.9%E5%AD%97%E7%AC%A6%E6%95%B0%E7%BB%84%E7%A4%BA%E4%BE%8B/</guid>
       <description>1. 要求: 程序读入一组文本行, 并把最长的文本行打印出来. 2. 分析.   要做什么, 读取一行, 与最长行比较, 保存最长行, 读取完, 比较完了, 打印最长行.
   读取一行, 碰到换行符或EOF结束符是一行, 能读取的最大长度也是一行, 记录行的长度.
   循环内当前行长度与最大行长度比较, 当前行比最大行长, 最大行=当前行, 否则不变.
@@ -36,28 +36,28 @@
     
     <item>
       <title>C程序设计语言练习1-15</title>
-      <link>https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-15/</link>
+      <link>https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-15/</link>
       <pubDate>Thu, 23 Apr 2020 23:01:51 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-15/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-15/</guid>
       <description>1. 要求: 重新编写1.2节中的测试计划转换程序, 使用函数实现温度转换计算. 2. 分析. 1. C = (5 / 9) (F - 32) 2. 华氏温度与摄氏温度都是整数, 故输入是整数, 输出也是整数. 3. 代码. 1. 整数. #include&amp;lt;stdio.h&amp;gt; // 华氏温度转摄氏温度 int transfc(int f); int main(){ int i; for(i=0;i&amp;lt;=300;i=i+20){ printf(&amp;quot;%-3d %-3d\n&amp;quot;, i, transfc(i)); } return 0; } int transfc(int f){ return (f - 32) * 5 / 9; } 2. 补充double数. #include&amp;lt;stdio.h&amp;gt; // 华氏温度转摄氏温度 double transfc(double f); int main(){ double i; for(i=0;i&amp;lt;=300;i=i+20){ printf(&amp;quot;%-3.1f %-3.1f\n&amp;quot;, i, transfc(i)); } return 0; } double transfc(double f){ return (f - 32.</description>
     </item>
     
     <item>
       <title>C程序设计语言练习1-14</title>
-      <link>https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-14/</link>
+      <link>https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-14/</link>
       <pubDate>Wed, 22 Apr 2020 22:39:05 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-14/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-14/</guid>
       <description>1. 要求: 编写一个程序, 打印输入中各个字符出现频度的直方图. 2. 分析. 一.输入部分: 1. 统计什么样的字符? 这里就统计ASCII表中可显示字符, 查询ASCII表可显示字符知, 字符 32~126是可见的, 共95个. 2. 使用一维数组来计数. 3. 不在32~126中的字符, 单独统计到sum中. 4. 超出最大个数则用H打印出. 二.输出部分: 1. 水平直方图, 每行进行判断, 字符统计个数&amp;lt;=HIST, 打印字符和字符统计个数的*, 字符统计个数&amp;gt;HIST, 打印H. 2. 垂直直方图, 每行进行判断.  字符统计个数&amp;lt;=HIST(能统计的最大数), HIST-字符统计个数&amp;gt;当前行row, 打印空格, HIST-字符统计个数&amp;lt;=当前行row, 打印*号. 字符统计个数&amp;gt;HIST(能统计的最大数), 最后一行MAX-1(因为数组0开始数, 最后一行MAX-1)打印H, 其余打印空格.  3. 代码.  #include&amp;lt;stdio.h&amp;gt; #define MAX 95 #define HIST 20 int main(){ int input; int a[MAX]; int sum, row, col; sum = 0; for(row=0;row&amp;lt;MAX;row++){ a[row] = 0; } while( (input=getchar()) !</description>
     </item>
     
     <item>
       <title>C程序设计语言练习1-13</title>
-      <link>https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-13/</link>
+      <link>https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-13/</link>
       <pubDate>Wed, 15 Apr 2020 15:21:54 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-13/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-13/</guid>
       <description>1. 要求: 编写一个程序, 打印输入中单词长度的直方图. 水平方向的直方图学校录取容易绘制, 垂直方向的直方图则要困难些. 2. 水平直方图和垂直直方图. 1. 水平方向的直方图:   清楚直方图的定义: 又称质量分布图，是一种统计报告图，由一系列高度不等的纵向条纹或线段表示数据分布的情况。 一般用横轴表示数据类型，纵轴表示分布情况.
   单词长度的直方图, 就是打印输入单词的长度.
   水平方向的, 容易, 打印这个单词的长度就可以.
@@ -71,82 +71,82 @@
     
     <item>
       <title>C程序设计语言练习1-12</title>
-      <link>https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-12/</link>
+      <link>https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-12/</link>
       <pubDate>Sat, 11 Apr 2020 23:44:24 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-12/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-12/</guid>
       <description>1. 要求: 编写一个程序, 以每行一个单词的形式打印其输入. 2. 分析. 1. 在每个单词的结尾处换行, 单词结尾的判断, 即前一个字符即不是空格, 制表符, 也不是换行符,后面跟着空格或制表符或换行符. 2. 在遇到不是空格,不是制表符, 不是换行符时输出, 设置标记为1; 3. 遇到空格或制表符或换行符时, 同时判断标记  标记是1则打印换行符(\n), 重置标记位为0. 标记是0(表示上一个输入字符是空格或制表符或换行符)则不处理, 什么也不打印.  3. 代码 注意: 在执行的时候每次回车都是输入, 程序在while就开始循环判断, 同时打印数据. C程序设计语言练习1-12之前的习题则在EOF之后才打印. #include&amp;lt;stdio.h&amp;gt; #define IN 1 #define OUT 0 int main(){ int c, state; state = OUT; while( (c= getchar() ) !=EOF ){ if( c != &#39; &#39; &amp;amp;&amp;amp; c != &#39;\t&#39; &amp;amp;&amp;amp; c != &#39;\n&#39;){ putchar(c); state = IN; }else if( ( c == &#39; &#39; || c == &#39;\t&#39; || c !</description>
     </item>
     
     <item>
       <title>C程序设计语言练习1-10</title>
-      <link>https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-10/</link>
+      <link>https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-10/</link>
       <pubDate>Sat, 11 Apr 2020 15:06:58 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-10/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-10/</guid>
       <description>1. 要求: 编写一个将输入复制到全输出的程序, 并将其中的制表符替换为\t, 将回退符替换为\b, 将反斜杠替换为\. 这样可以将制表符和回退符以可见的方式显示出来 2. 分析: 1. 制表符是\t, 输出是\\t, 反斜杠的输入\输出2个\, 那输出是\\\\. 3. 代码.  #include&amp;lt;stdio.h&amp;gt; int main(){ int input; while((input=getchar()) != EOF){ if(input == &#39;\\&#39;){ printf(&amp;quot;\\\\&amp;quot;); }else if(input == &#39;\t&#39;){ printf(&amp;quot;\\t&amp;quot;); }else if(input == &#39;\b&#39;){ printf(&amp;quot;\\b&amp;quot;); }else{ putchar(input); } } return 0; } </description>
     </item>
     
     <item>
       <title>C程序设计语言练习1-9</title>
-      <link>https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-9/</link>
+      <link>https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-9/</link>
       <pubDate>Fri, 10 Apr 2020 12:28:11 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-9/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-9/</guid>
       <description>1. 要求: 编写一个输入复制到输出的程序, 将其中多个空格用一个空格代替. 2. 分析. 1. 比较前一个字符和当前字符如果同为空格(&amp;rsquo; &amp;lsquo;), 则不打印, 否则打印. 3. 代码. 1. a的上一个字符可设默认一个非空格字符, 方便判断. #include&amp;lt;stdio.h&amp;gt; int main(){ int a, alast; alast=0; while((a=getchar()) !=EOF){ if(a==&#39; &#39; &amp;amp;&amp;amp; alast ==&#39; &#39;){ continue; } else{ putchar(a); } alast = a; } } </description>
     </item>
     
     <item>
       <title>C程序设计语言练习1-8</title>
-      <link>https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-8/</link>
+      <link>https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-8/</link>
       <pubDate>Thu, 09 Apr 2020 23:56:23 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-8/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-8/</guid>
       <description>1. 要求: 编写一个统计空格,制表符与换行符个数的程序 2. 分析. 1. 使用getchar()获取输入的字符 2. 判断输入的符. 查询ASCII对照表, 空格ASCII值32(也可使用&amp;rsquo; &amp;lsquo;). 制表符&amp;rsquo;\t&amp;rsquo;, 换行&amp;rsquo;\n&amp;rsquo;. 3. 代码 1. 想输入EOF, linux是按Ctrl + D组合键2次, windows Ctrl + Z, 2. else if的条件成立就进行下一次循环, 如果3个if条件程序判断3次, 没有效率.  #include&amp;lt;stdio.h&amp;gt; int main(){ int sumspace = 0; int sumt = 0; int sumn = 0; int c ; while( (c = getchar()) != EOF ){ if( c == 32){ sumspace++; } else if(c == &#39;\t&#39;){ sumt++; } else if(c == &#39;\n&#39;){ sumn++; } } printf(&amp;quot;空格数%d 制表符数%d 换行符数%d\n&amp;quot;, sumspace, sumt, sumn); return 0; } </description>
     </item>
     
     <item>
       <title>C程序设计语言练习1-7</title>
-      <link>https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-7/</link>
+      <link>https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-7/</link>
       <pubDate>Thu, 09 Apr 2020 23:34:43 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-7/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-7/</guid>
       <description>1. 要求: 编写一个打印EOF值的程序 2. 分析 1. 查询得到EOF的值是-1, 帮用%d即可打印出来 3. 代码 #include&amp;lt;stdio.h&amp;gt; int main(){ printf(&amp;quot;EOF is %d\n&amp;quot;, EOF); return 0; } </description>
     </item>
     
     <item>
       <title>C程序设计语言练习1-6</title>
-      <link>https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-6/</link>
+      <link>https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-6/</link>
       <pubDate>Thu, 09 Apr 2020 23:15:05 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-6/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-6/</guid>
       <description>1. 要求: 验证表达式getchar() != EOF的值是0还是1 2. 分析. 1. getchar()是获取一个输入字符, 判断是否为输入结尾, 结尾特定EOF(End of File) 2. Linux中，在新的一行的开头，按下Ctrl-D，就代表EOF（如果在一行的中间按下Ctrl-D，则表示输出&amp;quot;标准输入&amp;quot;的缓存区，所以这时必须按两次Ctrl-D）；Windows中，Ctrl-Z表示EOF。（顺便提一句，Linux中按下Ctrl-Z，表示将该进程中断，在后台挂起，用fg命令可以重新切回到前台；按下Ctrl-C表示终止该进程。） 3. 代码 1. 注意a = getchare() != EOF与a = (getchar() != EOF)等价, 原因是=是赋值, !=比=的优先级高, 就像四则运算/号的优先级比+号高一样. 2. while的判断到EOF时会中止执行, 里面语句不会执行, 故需要在外部打印getchar() != EOF的值.  #include&amp;lt;stdio.h&amp;gt; int main(){ int a ; while(a = (getchar() != EOF)){ printf(&amp;quot;%d\n&amp;quot;, a); } printf(&amp;quot;%d\n&amp;quot;, a); return 0; } </description>
     </item>
     
     <item>
       <title>C程序设计语言练习1-4</title>
-      <link>https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-4/</link>
+      <link>https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-4/</link>
       <pubDate>Thu, 09 Apr 2020 22:51:12 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-4/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-4/</guid>
       <description>1. 要求: 编写一个程序打印摄氏温度转换为相应华氏温度的转换表. 2. 分析. 1. 由C = (5/9)(F-32)得到F = C(9/5)+32 2. C摄氏和F华氏温度都有小数, 可使用float 3. 代码 注意事项: %6.1f表示6个数字宽右对齐且保留1位小数 #include&amp;lt;stdio.h&amp;gt;int main(){ float f; float c; int step = 20; int minc = -20; int maxc = 300; c = minc; printf(&amp;#34;摄氏温度转换华氏度\n&amp;#34;); while( c &amp;lt;= maxc ){ f = c * 9.0 / 5.0 + 32; printf(&amp;#34;%3.0f %6.1f\n&amp;#34;, c, f); c = c + step; } return 0; } </description>
     </item>
     
     <item>
       <title>不准确的01-浮点数</title>
-      <link>https://charles-one.github.io/actiger/c/%E4%B8%8D%E5%87%86%E7%A1%AE%E7%9A%8401-%E6%B5%AE%E7%82%B9%E6%95%B0/</link>
+      <link>https://charles-one.github.io/actiger/blog/c/%E4%B8%8D%E5%87%86%E7%A1%AE%E7%9A%8401-%E6%B5%AE%E7%82%B9%E6%95%B0/</link>
       <pubDate>Tue, 03 Mar 2020 11:57:04 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/c/%E4%B8%8D%E5%87%86%E7%A1%AE%E7%9A%8401-%E6%B5%AE%E7%82%B9%E6%95%B0/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/c/%E4%B8%8D%E5%87%86%E7%A1%AE%E7%9A%8401-%E6%B5%AE%E7%82%B9%E6%95%B0/</guid>
       <description>1. 整数时, 二进制与十进制可准确转换, 小数时与二进制转换起来情况就复杂了, 二进制不能准确表示某些十进制的小数. 2. 整数, 二进制与十进制转换. 整数转换规则: 除2, 得商和余数, 商除2得商和余数, 直到商为0. 以125为例, 十进制转换为二进制.    数 商 余数     125/2 62 1   62/2 31 0   31/2 15 1   15/2 7 1   7/2 3 1   3/2 1 1   1/2 0 1    由个位数向前除得最高位数. 125=1x2^0 + 0x2^1 + 1x2^2 + 1x2^3 + 1x2^4 + 1x2^5 + 1x2^6得到二进制数1111101 3.</description>
     </item>
     
     <item>
       <title>acme.sh获取域名并自动更新到kubernetes中</title>
-      <link>https://charles-one.github.io/actiger/linux/acmesh%E8%8E%B7%E5%8F%96%E5%9F%9F%E5%90%8D%E5%B9%B6%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E5%88%B0kubernetes%E4%B8%AD/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/acmesh%E8%8E%B7%E5%8F%96%E5%9F%9F%E5%90%8D%E5%B9%B6%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E5%88%B0kubernetes%E4%B8%AD/</link>
       <pubDate>Mon, 10 Feb 2020 10:06:11 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/acmesh%E8%8E%B7%E5%8F%96%E5%9F%9F%E5%90%8D%E5%B9%B6%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E5%88%B0kubernetes%E4%B8%AD/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/acmesh%E8%8E%B7%E5%8F%96%E5%9F%9F%E5%90%8D%E5%B9%B6%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E5%88%B0kubernetes%E4%B8%AD/</guid>
       <description>0. 原因letsencrypt获取的证书只有3个月有效期, 每次手动更新易出错也会忘记, 所以使用crontab定时acme.sh定时更新最好不过了. 放下文章结构 1. 安装acme.sh, acme.sh官网中文链接. # 推荐使用root用户, 后续也以root用户操作的. curl https://get.acme.sh | sh 2. 使用acme.sh的dns方式, 这里服务商以cloudflare为例.   域名使用cloudflare解析(注册cloudflare官方教程更换域名), 拿到Global API Key和邮箱.
   参照官方教程中cloudflare部分.
   # Global API Key和邮箱 export CF_Key=&amp;quot;cloudflare设置中的Global API Key&amp;quot; export CF_Email=&amp;quot;cloudflare注册邮箱&amp;quot; # 首次生成域名证书(\*号需要转译) /root/.acme.sh/acme.sh --issue --dns dns_cf -d \*.actiger.com TLSCRT=$(cat /root/.acme.sh/\*.actiger.com/\*.actiger.com.cer) TLSKEY=$(cat /root/.acme.sh/\*.actiger.com/\*.actiger.com.key) # base64转换 ACTIGER_TLSCRT=$(echo &amp;quot;${TLSCRT}&amp;quot;|base64 -w 10000) ACTIGER_TLSKEY=$(echo &amp;quot;${TLSKEY}&amp;quot;|base64 -w 10000) # 生成新的secret. FILE_ACTIGER=&amp;quot;/root/kubernetes/pro-blog-cc6/ingress-secret.yml&amp;quot; cat &amp;lt;&amp;lt; EOF | tee ${FILE_ACTIGER} apiVersion: v1 data: tls.</description>
@@ -154,19 +154,19 @@
     
     <item>
       <title>重现sudo漏洞</title>
-      <link>https://charles-one.github.io/actiger/linux/%E9%87%8D%E7%8E%B0sudo%E6%BC%8F%E6%B4%9E/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/%E9%87%8D%E7%8E%B0sudo%E6%BC%8F%E6%B4%9E/</link>
       <pubDate>Fri, 10 Jan 2020 14:30:13 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/%E9%87%8D%E7%8E%B0sudo%E6%BC%8F%E6%B4%9E/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/%E9%87%8D%E7%8E%B0sudo%E6%BC%8F%E6%B4%9E/</guid>
       <description>1. 首先创建onetiger用户, 然后在/etc/sudoers中添加onetiger用户的sudo命令, 即/etc/sudoers中添加下面代码(root身份) onetiger ALL=/bin/vim 2. 登录onetiger用户 3. 以onetiger用户执行下面命令, 以用户id -1或4294967295运行后, 再0(用户id是0是root)用户运行命令成功. sudo -u#-1 vim /etc/sudoers sudo -u#0 vim /etc/sudoers 4. 解决办法. 4.1 CVE-2019-14287 漏洞影响 1.8.28 之前的 Sudo 版本, 将 sudo 软件包更新为最新版本. 4.2 禁用非root用户的sudo权限. </description>
     </item>
     
     <item>
       <title>Jira中问题Bug的工作流</title>
-      <link>https://charles-one.github.io/actiger/test/jira%E4%B8%AD%E9%97%AE%E9%A2%98bug%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81/</link>
+      <link>https://charles-one.github.io/actiger/blog/test/jira%E4%B8%AD%E9%97%AE%E9%A2%98bug%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81/</link>
       <pubDate>Fri, 10 Jan 2020 11:01:12 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/test/jira%E4%B8%AD%E9%97%AE%E9%A2%98bug%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/test/jira%E4%B8%AD%E9%97%AE%E9%A2%98bug%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81/</guid>
       <description>新的项目需要设置问题Bug的工作流, 故整理下. 1. 先看整理好的工作流图片, 点击下载Jira问题工作流. 2. 问题(Bug)可能的状态, 依据项目来定, 以我的项目为例, 共有9个状态.  待办(new) 处理中 已解决 测试中 验证通过(closed) 线上验证中 线上验证通过 重新打开(reopened) 已取消(canceled) 3. 开发与测试能够更改的状态. 3.1 开发能够更改的状态 待办-&amp;gt;处理中
 处理中-&amp;gt;已解决
 重新打开-&amp;gt;处理中
@@ -180,74 +180,74 @@
     
     <item>
       <title>MariaDB MySQL连接的2种错误</title>
-      <link>https://charles-one.github.io/actiger/mysql/mariadb-mysql%E8%BF%9E%E6%8E%A5%E7%9A%842%E7%A7%8D%E9%94%99%E8%AF%AF/</link>
+      <link>https://charles-one.github.io/actiger/blog/mysql/mariadb-mysql%E8%BF%9E%E6%8E%A5%E7%9A%842%E7%A7%8D%E9%94%99%E8%AF%AF/</link>
       <pubDate>Thu, 12 Dec 2019 16:04:14 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/mysql/mariadb-mysql%E8%BF%9E%E6%8E%A5%E7%9A%842%E7%A7%8D%E9%94%99%E8%AF%AF/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/mysql/mariadb-mysql%E8%BF%9E%E6%8E%A5%E7%9A%842%E7%A7%8D%E9%94%99%E8%AF%AF/</guid>
       <description>1. 常见MySQL Mariadb连接的2种错误 错误一 ERROR 1045 (28000): Access denied for user &#39;usera&#39;@&#39;localhost&#39; (using password:YES) 错误二 ERROR 1045 (28000): Access denied for user &#39;usera&#39;@&#39;localhost&#39; (using password:NO). 2. 错误一 常见错误是密码错误 重置密码即可 3. 错误二 输入账号密码时没有输入密码. 1. 命令行中没有-p进行无密码登录 2. 如果是IDE中的yaml文件确定password的缩进正确 cat application.yaml
 spring: datasource: driver-class-name: org.mariadb.jdbc.Driver url: jdbc:mariadb://localhost:3306/admin username: admin password: 123456 上面的password缩进错误, 就会提示(using password:No) 正确的是 spring: datasource: driver-class-name: org.mariadb.jdbc.Driver url: jdbc:mariadb://localhost:3306/admin username: admin password: 123456 </description>
     </item>
     
     <item>
       <title>腾讯云安装docker碰到的问题</title>
-      <link>https://charles-one.github.io/actiger/docker/%E8%85%BE%E8%AE%AF%E4%BA%91%E5%AE%89%E8%A3%85docker%E7%A2%B0%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <link>https://charles-one.github.io/actiger/blog/docker/%E8%85%BE%E8%AE%AF%E4%BA%91%E5%AE%89%E8%A3%85docker%E7%A2%B0%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Wed, 04 Dec 2019 23:55:11 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/docker/%E8%85%BE%E8%AE%AF%E4%BA%91%E5%AE%89%E8%A3%85docker%E7%A2%B0%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/docker/%E8%85%BE%E8%AE%AF%E4%BA%91%E5%AE%89%E8%A3%85docker%E7%A2%B0%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>1. CentOS 7.6版本 docker版本yum install -y docker-ce-18.09.9-3.el7 docker-ce-cli-18.09.9-3.el7 2. 解决docker启动失败问题 Error starting daemon: error initializing graphdriver: \&amp;quot;/var/lib/docker\&amp;quot; contains several valid graphdrivers: devicemapper, overlay; Please cleanup or explicitly choose storage driver (-s &amp;lt;DRIVER&amp;gt;) 删除/var/lib/docker中的devicemapper即可  Error starting daemon: Error initializing network controller: list bridge addresses failed: no available network 缺少桥接,添加一个 ip link add name docker0 type bridge ip addr add dev docker0 172.17.0.1/16 重启docker systemctl restart docker </description>
     </item>
     
     <item>
       <title>Kubernetes扩容增加node节点</title>
-      <link>https://charles-one.github.io/actiger/docker/kubernetes%E6%89%A9%E5%AE%B9%E5%A2%9E%E5%8A%A0node%E8%8A%82%E7%82%B9/</link>
+      <link>https://charles-one.github.io/actiger/blog/docker/kubernetes%E6%89%A9%E5%AE%B9%E5%A2%9E%E5%8A%A0node%E8%8A%82%E7%82%B9/</link>
       <pubDate>Sat, 30 Nov 2019 16:37:47 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/docker/kubernetes%E6%89%A9%E5%AE%B9%E5%A2%9E%E5%8A%A0node%E8%8A%82%E7%82%B9/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/docker/kubernetes%E6%89%A9%E5%AE%B9%E5%A2%9E%E5%8A%A0node%E8%8A%82%E7%82%B9/</guid>
       <description>1. Kubernetes扩容增加node节点 创建token  kubeadm token create 查看kubernetes认证的SHA256加密字符串是多少  openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2&amp;gt;/dev/null | openssl dgst -sha256 -hex | sed &#39;s/^.* //&#39; 加入master节点  kubeadm join &amp;lt;主master ip&amp;gt;:6443 --token &amp;lt;刚刚创建的token&amp;gt; --discovery-token-ca-cert-hash sha256:&amp;lt;上面的加密字符串&amp;gt; 操作这些时先更新下系统. </description>
     </item>
     
     <item>
       <title>解决腾讯云PVC网络指定公网ip安装kubernetes master节点失败问题</title>
-      <link>https://charles-one.github.io/actiger/docker/%E8%A7%A3%E5%86%B3%E8%85%BE%E8%AE%AF%E4%BA%91pvc%E7%BD%91%E7%BB%9C%E6%8C%87%E5%AE%9A%E5%85%AC%E7%BD%91ip%E5%AE%89%E8%A3%85kubernetes-master%E8%8A%82%E7%82%B9%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/</link>
+      <link>https://charles-one.github.io/actiger/blog/docker/%E8%A7%A3%E5%86%B3%E8%85%BE%E8%AE%AF%E4%BA%91pvc%E7%BD%91%E7%BB%9C%E6%8C%87%E5%AE%9A%E5%85%AC%E7%BD%91ip%E5%AE%89%E8%A3%85kubernetes-master%E8%8A%82%E7%82%B9%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/</link>
       <pubDate>Thu, 28 Nov 2019 16:31:20 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/docker/%E8%A7%A3%E5%86%B3%E8%85%BE%E8%AE%AF%E4%BA%91pvc%E7%BD%91%E7%BB%9C%E6%8C%87%E5%AE%9A%E5%85%AC%E7%BD%91ip%E5%AE%89%E8%A3%85kubernetes-master%E8%8A%82%E7%82%B9%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/docker/%E8%A7%A3%E5%86%B3%E8%85%BE%E8%AE%AF%E4%BA%91pvc%E7%BD%91%E7%BB%9C%E6%8C%87%E5%AE%9A%E5%85%AC%E7%BD%91ip%E5%AE%89%E8%A3%85kubernetes-master%E8%8A%82%E7%82%B9%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/</guid>
       <description>1. 问题描述, 使用腾讯云VPC(Virtual Private Cloud)即专有网络, 初始化kubernetes init指定公网ip, 初始化失败 kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=&amp;lt;公网ip&amp;gt; --ignore-preflight-errors=NumCPU 截取提示错误信息 Nov 23 20:09:16 mm.com kubelet[22940]: E1123 20:09:16.997560 22940 kubelet.go:2252] node &amp;quot;mm.com&amp;quot; not found Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.053858 22940 controller.go:125] failed to ensure node lease exists, will retry in 7s, error: Get https://118.89.82.5:6443/apis/coordination.k8s.io/v1beta1 Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.097695 22940 kubelet.go:2252] node &amp;quot;mm.com&amp;quot; not found Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.101372 22940 reflector.</description>
     </item>
     
     <item>
       <title>解决mac文件损坏不能打开问题</title>
-      <link>https://charles-one.github.io/actiger/mac/%E8%A7%A3%E5%86%B3mac%E6%96%87%E4%BB%B6%E6%8D%9F%E5%9D%8F%E4%B8%8D%E8%83%BD%E6%89%93%E5%BC%80%E9%97%AE%E9%A2%98/</link>
+      <link>https://charles-one.github.io/actiger/blog/mac/%E8%A7%A3%E5%86%B3mac%E6%96%87%E4%BB%B6%E6%8D%9F%E5%9D%8F%E4%B8%8D%E8%83%BD%E6%89%93%E5%BC%80%E9%97%AE%E9%A2%98/</link>
       <pubDate>Thu, 28 Nov 2019 11:33:43 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/mac/%E8%A7%A3%E5%86%B3mac%E6%96%87%E4%BB%B6%E6%8D%9F%E5%9D%8F%E4%B8%8D%E8%83%BD%E6%89%93%E5%BC%80%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/mac/%E8%A7%A3%E5%86%B3mac%E6%96%87%E4%BB%B6%E6%8D%9F%E5%9D%8F%E4%B8%8D%E8%83%BD%E6%89%93%E5%BC%80%E9%97%AE%E9%A2%98/</guid>
       <description>1. mac下载后安装的文件提示文件损坏, 需要换到垃圾桶中. 2. 解决方法, 打开终端terminal # 切换到管理员, su后输入管理员root密码 su # xxx就是你安装的程序 xattr -d com.apple.quarantine /Applications/xxxx.app # 退出管理员root exit 3. 重新去打开安装的程序 </description>
     </item>
     
     <item>
       <title>解决NodePod模式外网无法访问mysql服务问题</title>
-      <link>https://charles-one.github.io/actiger/docker/%E8%A7%A3%E5%86%B3nodepod%E6%A8%A1%E5%BC%8F%E5%A4%96%E7%BD%91%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AEmysql%E6%9C%8D%E5%8A%A1%E9%97%AE%E9%A2%98/</link>
+      <link>https://charles-one.github.io/actiger/blog/docker/%E8%A7%A3%E5%86%B3nodepod%E6%A8%A1%E5%BC%8F%E5%A4%96%E7%BD%91%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AEmysql%E6%9C%8D%E5%8A%A1%E9%97%AE%E9%A2%98/</link>
       <pubDate>Thu, 28 Nov 2019 10:56:24 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/docker/%E8%A7%A3%E5%86%B3nodepod%E6%A8%A1%E5%BC%8F%E5%A4%96%E7%BD%91%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AEmysql%E6%9C%8D%E5%8A%A1%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/docker/%E8%A7%A3%E5%86%B3nodepod%E6%A8%A1%E5%BC%8F%E5%A4%96%E7%BD%91%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AEmysql%E6%9C%8D%E5%8A%A1%E9%97%AE%E9%A2%98/</guid>
       <description>1. 创建NodePod的mysql或MariaDB服务, 请参考&amp;lt;a href=&amp;quot;https://blog.actiger.com/docker/kubernetes-mariadb-mysql/&amp;rdquo; target=&amp;rdquo;_blank&amp;quot;Kubernetes Mariadb Mysql&amp;gt;Kubernetes Mariadb Mysql安装. 2. 安装完成使用ip:30016 用户 密码连接失败, 使用over ssh方式却可以连接成功. 排查问题  查看防火墙端口打开30016端口   firewall-cmd --list-ports # 没有则添加 firewall-cmd --zone=public --add-port=30016/tcp --permanent firewall-cmd --reload 关闭防火墙, 为啥关闭以后再开一篇解释  systemctl stop firewalld 查询iptables规则,  iptables -L -n # iptables 被kubernetes接管后的规则比较多，仔细看下FORWARD规则发现， # policy DROP状态， # 这就导致了我们直接访问node节点的IP加上端口会无法访问容器. # 临时生效 iptables -P FORWARD ACCEPT 永久生效  vim /usr/lib/systemd/system/docker.service # 在[Service]下增加一条规则 ............ ExecStartPost=/sbin/iptables -I FORWARD -s 0.0.0.0/0 -j ACCEPT # 重启docker生效 systemctl daemon-reload systemctl restart docker 重新使用刚才mysql或mariadb连接测试.</description>
     </item>
     
     <item>
       <title>Centos8网络设置</title>
-      <link>https://charles-one.github.io/actiger/linux/centos8%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/centos8%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE/</link>
       <pubDate>Tue, 05 Nov 2019 23:46:51 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/centos8%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/centos8%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE/</guid>
       <description>1. 安装Centos8时, 设置网络发现network.service不能使用, 搜索得知服务已更改为nmcli管理, 那就学习下 2. 有2种方式设置静态IP 2.1 方法一. 更改网络配置文件, 重启网络.  更改配置文件  vim /etc/sysconfig/network-scripts/ifcfg-enp0s5 添加内容 BOOTPROTO=&#39;static&#39; GATEWAY=192.168.50.1 NETMASK=255.255.255.255 IPADDR=192.168.50.200 PREFIX=32 重启网络, 重点, 相比CentOS 7有变化, CentOS 8已删除network.service. 使用nmcli来管理.  # 显示连接 nmcli c show # 生效连接 nmcli connect up enp0s5 可简写为 nmcli c up enp0s5 如SSH连接, 应该会断线, 重新连接需要主机执行下面操作.  删除本机~/.ssh/know_hosts中ip 重启虚拟机 reboot 2.2 方法二, 通过nmcli直接更改网卡信息, 重启网络.  创建一个名字是cc的连接connection, 其中ifname后的enp0s5必须是nmcli d中的device, ipv4.method manual表示静态ip, type ethernet指定以太网.  nmcli c add type ethernet con-name cc ifname enp0s5 ipv4.</description>
     </item>
     
     <item>
       <title>基本SQL语句用法二</title>
-      <link>https://charles-one.github.io/actiger/mysql/%E5%9F%BA%E6%9C%ACsql%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95%E4%BA%8C/</link>
+      <link>https://charles-one.github.io/actiger/blog/mysql/%E5%9F%BA%E6%9C%ACsql%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95%E4%BA%8C/</link>
       <pubDate>Fri, 20 Sep 2019 15:56:15 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/mysql/%E5%9F%BA%E6%9C%ACsql%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95%E4%BA%8C/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/mysql/%E5%9F%BA%E6%9C%ACsql%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95%E4%BA%8C/</guid>
       <description>1.创建表 create table if not exists usrinfo( id INT(11), number INT(11), name VARCHAR(255), birthday DATE );
 2.查询表结构 show full columns from usrinfo;
 desc usrinfo;
@@ -263,10 +263,10 @@ describe usrinfo;
     
     <item>
       <title>垃圾与垃圾篓</title>
-      <link>https://charles-one.github.io/actiger/thought/%E5%9E%83%E5%9C%BE%E4%B8%8E%E5%9E%83%E5%9C%BE%E7%AF%93/</link>
+      <link>https://charles-one.github.io/actiger/blog/thought/%E5%9E%83%E5%9C%BE%E4%B8%8E%E5%9E%83%E5%9C%BE%E7%AF%93/</link>
       <pubDate>Wed, 28 Aug 2019 16:19:59 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/thought/%E5%9E%83%E5%9C%BE%E4%B8%8E%E5%9E%83%E5%9C%BE%E7%AF%93/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/thought/%E5%9E%83%E5%9C%BE%E4%B8%8E%E5%9E%83%E5%9C%BE%E7%AF%93/</guid>
       <description>今天准备在厨房里扔干垃圾
 厨房里两个垃圾篓
 两个干净没有扔过垃圾的篓
@@ -280,118 +280,118 @@ describe usrinfo;
     
     <item>
       <title>申请单个域名方式</title>
-      <link>https://charles-one.github.io/actiger/linux/%E7%94%B3%E8%AF%B7%E5%8D%95%E4%B8%AA%E5%9F%9F%E5%90%8D%E6%96%B9%E5%BC%8F/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/%E7%94%B3%E8%AF%B7%E5%8D%95%E4%B8%AA%E5%9F%9F%E5%90%8D%E6%96%B9%E5%BC%8F/</link>
       <pubDate>Tue, 27 Aug 2019 10:30:00 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/%E7%94%B3%E8%AF%B7%E5%8D%95%E4%B8%AA%E5%9F%9F%E5%90%8D%E6%96%B9%E5%BC%8F/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/%E7%94%B3%E8%AF%B7%E5%8D%95%E4%B8%AA%E5%9F%9F%E5%90%8D%E6%96%B9%E5%BC%8F/</guid>
       <description>1. 起因 一级域名和二级域名都使用dns-01验证方式申请证书, 申请一级域名的时候更改了_acme-challenge.actiger.com, 续期的时候发现二级域名申请证书时的配置_acme-challenge.actiger.com验证失败, 续期失败 2. 解决方式, 使用不同方式申请证书, 续期不会有冲突 一级域名Actiger.com使用http文件申请证书 二级通用*.actiger.com用例dns-01的方式申请证书 3. 申请单个域名 certbot certonly --manual --preferred-challenges http --email example@icloud.com --domains actiger.com 提示在actiger.com/.well-known/acme-challenge/ 创建一个文件 假如你设置actiger.com跳转到www.actiger.com, 而www.actiger.com又跳转到blog.actiger.com, 可以把创建的文件放在blog.actiger.com/.well-known/acme-challenge/下 在服务器对应目录创建文件 创建文件成功后, 继续申请证书 申请证书成功后, 存放在/etc/letsencrypt下 </description>
     </item>
     
     <item>
       <title>Ingress-Ningx配置多个SSL证书</title>
-      <link>https://charles-one.github.io/actiger/docker/ingress-ningx%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAssl%E8%AF%81%E4%B9%A6/</link>
+      <link>https://charles-one.github.io/actiger/blog/docker/ingress-ningx%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAssl%E8%AF%81%E4%B9%A6/</link>
       <pubDate>Thu, 20 Jun 2019 00:29:39 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/docker/ingress-ningx%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAssl%E8%AF%81%E4%B9%A6/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/docker/ingress-ningx%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAssl%E8%AF%81%E4%B9%A6/</guid>
       <description>1. 起因 我删除域名服务商对顶级域名(即一级域名)的默认的重定向, 直接指向的我服务地址 使用的通配的二级域名证书 访问顶级域名像actiger.com, 浏览器弹出安全提示了. 发现, 通配的二级域名证书不能用在actiger.com上 2. 申请顶级域名actiger.com的证书. 申请过程参照这里 3. Ingress Nginx的配置my-nginx.yml  apiVersion: extensions/v1beta1 kind: Ingress metadata: namespace: nginx-space name: my-nginx spec: tls: - hosts: - weini.actiger.com - www.actiger.com secretName: ingress-secret - hosts: - actiger.com secretName: ingress-top-secret rules: - host: weini.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: www.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: test.</description>
     </item>
     
     <item>
       <title>Moco示例</title>
-      <link>https://charles-one.github.io/actiger/test/moco%E7%A4%BA%E4%BE%8B/</link>
+      <link>https://charles-one.github.io/actiger/blog/test/moco%E7%A4%BA%E4%BE%8B/</link>
       <pubDate>Sun, 16 Jun 2019 23:59:47 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/test/moco%E7%A4%BA%E4%BE%8B/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/test/moco%E7%A4%BA%E4%BE%8B/</guid>
       <description>1. Moco是什么? 简单的模拟服务器的程序库/工具, 有请求给出响应.在地址中下载moco-runner-0.12.0-standalone.jar. 2. 使用示例 1. 创建test.json [ { &amp;quot;description&amp;quot;: &amp;quot;First test&amp;quot;, &amp;quot;request&amp;quot;: { &amp;quot;uri&amp;quot;: &amp;quot;/demo&amp;quot; }, &amp;quot;response&amp;quot;: { &amp;quot;text&amp;quot;: &amp;quot;First Response&amp;quot; } } ] 2. 命令行启动服务, moco-runner-0.12.0-standalone.jar与test.json在相同目录下.  java -jar ./moco-runner-0.12.0-standalone.jar http -p 8888 -c test.json 3. 验证 访问http://localhost:8888/demo 2. 模拟一个带参数的请求, para.json [ { &amp;quot;description&amp;quot;: &amp;quot;模拟一个有参数的Get请求&amp;quot;, &amp;quot;request&amp;quot;: { &amp;quot;uri&amp;quot;: &amp;quot;/getpara&amp;quot;, &amp;quot;method&amp;quot;: &amp;quot;get&amp;quot;, &amp;quot;queries&amp;quot;: { &amp;quot;name&amp;quot;: &amp;quot;xiaoming&amp;quot;, &amp;quot;age&amp;quot;: &amp;quot;20&amp;quot; } }, &amp;quot;response&amp;quot;: { &amp;quot;text&amp;quot;: &amp;quot;I am on the way.&amp;quot; } } ]  java -jar .</description>
     </item>
     
     <item>
       <title>TestNG生成测试报告</title>
-      <link>https://charles-one.github.io/actiger/test/testng%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/</link>
+      <link>https://charles-one.github.io/actiger/blog/test/testng%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/</link>
       <pubDate>Sun, 16 Jun 2019 20:44:52 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/test/testng%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/test/testng%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/</guid>
       <description>1. 使用的extentreports生成的测试报告, 报告中使用的css文件需要上强(墙) &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.aventstack&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;extentreports&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.0.9&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; 测试方法 package com.actiger.reports; import org.testng.Assert; import org.testng.Reporter; import org.testng.annotations.Test; public class TestReport { @Test public void test1(){ Assert.assertEquals(1,2); } @Test public void test2(){ Assert.assertEquals(1,1); } @Test public void test3(){ Assert.assertEquals(3,3); } @Test public void log1(){ Reporter.log(&amp;quot;这是日志&amp;quot;); throw new RuntimeException(&amp;quot;这是一个异常&amp;quot;); } } 配置的xml &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; ?&amp;gt; &amp;lt;suite name=&amp;quot;mytest&amp;quot;&amp;gt; &amp;lt;test name=&amp;quot;test&amp;quot;&amp;gt; &amp;lt;classes&amp;gt; &amp;lt;class name=&amp;quot;com.actiger.reports.TestReport&amp;quot;&amp;gt; &amp;lt;method&amp;gt; &amp;lt;include name=&amp;quot;test1&amp;quot;&amp;gt;&amp;lt;/include&amp;gt; &amp;lt;include name=&amp;quot;test2&amp;quot;&amp;gt;&amp;lt;/include&amp;gt; &amp;lt;include name=&amp;quot;test3&amp;quot;&amp;gt;&amp;lt;/include&amp;gt; &amp;lt;include name=&amp;quot;log1&amp;quot;&amp;gt;&amp;lt;/include&amp;gt; &amp;lt;/method&amp;gt; &amp;lt;/class&amp;gt; &amp;lt;/classes&amp;gt; &amp;lt;/test&amp;gt; &amp;lt;listeners&amp;gt; &amp;lt;listener class-name=&amp;quot;com.</description>
     </item>
     
     <item>
       <title>TestNG超时测试</title>
-      <link>https://charles-one.github.io/actiger/test/testng%E8%B6%85%E6%97%B6%E6%B5%8B%E8%AF%95/</link>
+      <link>https://charles-one.github.io/actiger/blog/test/testng%E8%B6%85%E6%97%B6%E6%B5%8B%E8%AF%95/</link>
       <pubDate>Sun, 16 Jun 2019 14:00:18 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/test/testng%E8%B6%85%E6%97%B6%E6%B5%8B%E8%AF%95/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/test/testng%E8%B6%85%E6%97%B6%E6%B5%8B%E8%AF%95/</guid>
       <description>TestNG超时测试 超出预期时间则用例失败 package com.actiger.test.timeout; import org.testng.annotations.Test; public class TimeOut { @Test(timeOut = 3000) public void testSuccess() throws InterruptedException{ Thread.sleep(2000); } @Test(timeOut = 2000) public void testFail() throws InterruptedException{ Thread.sleep(3000); } } </description>
     </item>
     
     <item>
       <title>TestNG多线程配置</title>
-      <link>https://charles-one.github.io/actiger/test/testng%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%85%8D%E7%BD%AE/</link>
+      <link>https://charles-one.github.io/actiger/blog/test/testng%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Sun, 16 Jun 2019 00:46:00 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/test/testng%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/test/testng%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%85%8D%E7%BD%AE/</guid>
       <description>1. 在方法注释中配置多线程, 配置线程池  package com.actiger.test.thread; import org.testng.annotations.Test; public class MultiThread { @Test(invocationCount = 10, threadPoolSize = 3) public void test(){ System.out.println(&amp;quot;1&amp;quot;); System.out.println(&amp;quot;Thread ID:%s%n&amp;quot; + Thread.currentThread().getId()); } } 2. 在xml中配置多线程, 不可配置为线程池. package com.actiger.test.thread; import org.testng.annotations.Test; public class MultiThreadOnXml { @Test public void test1(){ System.out.println(&amp;quot;Thread ID: &amp;quot; + Thread.currentThread().getId()); } @Test public void test2(){ System.out.println(&amp;quot;Thread ID: &amp;quot; + Thread.currentThread().getId()); } @Test public void test3(){ System.out.println(&amp;quot;Thread ID: &amp;quot; + Thread.currentThread().getId()); } } multiThread.</description>
     </item>
     
     <item>
       <title>TestNG参数化测试</title>
-      <link>https://charles-one.github.io/actiger/test/testng%E5%8F%82%E6%95%B0%E5%8C%96%E6%B5%8B%E8%AF%95/</link>
+      <link>https://charles-one.github.io/actiger/blog/test/testng%E5%8F%82%E6%95%B0%E5%8C%96%E6%B5%8B%E8%AF%95/</link>
       <pubDate>Sat, 15 Jun 2019 17:35:15 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/test/testng%E5%8F%82%E6%95%B0%E5%8C%96%E6%B5%8B%E8%AF%95/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/test/testng%E5%8F%82%E6%95%B0%E5%8C%96%E6%B5%8B%E8%AF%95/</guid>
       <description>1. 参数化测试, 使用DataProvider来参数化. @Test中dataProvider的名字与@DataProvider名称一致  @Test(dataProvider = &amp;quot;data&amp;quot;) public void dataProvider(String name, int age){ System.out.println(&amp;quot;Name:&amp;quot; + name + &amp;quot;, &amp;quot; + &amp;quot;Age:&amp;quot; + age); } @DataProvider(name = &amp;quot;data&amp;quot;) public Object[][] data(){ Object[][] oo = new Object[][]{ {&amp;quot;zhangsan&amp;quot;, 18}, {&amp;quot;lisi&amp;quot;, 20}, {&amp;quot;wangwu&amp;quot;, 30} }; return oo; } 2. 针对不方法识别, 使用不同参数  @Test(dataProvider = &amp;quot;testMethod&amp;quot;) public void method1(String name, int age){ System.out.println(&amp;quot;Name:&amp;quot; + name + &amp;quot;, &amp;quot; + &amp;quot;Age:&amp;quot; + age + &amp;quot;1111&amp;quot;); } @Test(dataProvider = &amp;quot;testMethod&amp;quot;) public void method2(String name, int age){ System.</description>
     </item>
     
     <item>
       <title>TestNG依赖测试和xml文件参数化</title>
-      <link>https://charles-one.github.io/actiger/test/testng%E4%BE%9D%E8%B5%96%E6%B5%8B%E8%AF%95%E5%92%8Cxml%E6%96%87%E4%BB%B6%E5%8F%82%E6%95%B0%E5%8C%96/</link>
+      <link>https://charles-one.github.io/actiger/blog/test/testng%E4%BE%9D%E8%B5%96%E6%B5%8B%E8%AF%95%E5%92%8Cxml%E6%96%87%E4%BB%B6%E5%8F%82%E6%95%B0%E5%8C%96/</link>
       <pubDate>Thu, 13 Jun 2019 23:19:11 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/test/testng%E4%BE%9D%E8%B5%96%E6%B5%8B%E8%AF%95%E5%92%8Cxml%E6%96%87%E4%BB%B6%E5%8F%82%E6%95%B0%E5%8C%96/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/test/testng%E4%BE%9D%E8%B5%96%E6%B5%8B%E8%AF%95%E5%92%8Cxml%E6%96%87%E4%BB%B6%E5%8F%82%E6%95%B0%E5%8C%96/</guid>
       <description>1. TestNG依赖测试, 1个用例依赖其他的测试方法, 怎么表示这种关系呢, 在注解后加标签dependsOnMethods 例如, 方法2就依赖于方法1, 如果方法1执行失败了, 方法2就无法执行了.  package com.actiger.test.all; import org.testng.annotations.Test; public class Dependon{ @Test public void dependon1(){ System.out.println(&amp;quot;dependon 1111111&amp;quot;); throw new RuntimeException(); } @Test(dependsOnMethods = {&amp;quot;dependon1&amp;quot;}) public void dependon2(){ System.out.println(&amp;quot;dependon 2222222&amp;quot;); } } 2. TestNG的xml文件参数化 1.创建方法 package com.actiger.test.paramter; import org.testng.annotations.Parameters; import org.testng.annotations.Test; public class ParamterTest { @Test @Parameters({&amp;quot;name&amp;quot;, &amp;quot;age&amp;quot;}) public void paramTest1(String name, int age){ System.out.println(&amp;quot;Name:&amp;quot;+ name + &amp;quot;, &amp;quot; + &amp;quot;Age:&amp;quot; + age); } } 2.</description>
     </item>
     
     <item>
       <title>TestNG异常测试</title>
-      <link>https://charles-one.github.io/actiger/test/testng%E5%BC%82%E5%B8%B8%E6%B5%8B%E8%AF%95/</link>
+      <link>https://charles-one.github.io/actiger/blog/test/testng%E5%BC%82%E5%B8%B8%E6%B5%8B%E8%AF%95/</link>
       <pubDate>Wed, 12 Jun 2019 23:07:19 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/test/testng%E5%BC%82%E5%B8%B8%E6%B5%8B%E8%AF%95/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/test/testng%E5%BC%82%E5%B8%B8%E6%B5%8B%E8%AF%95/</guid>
       <description>TestNG异常测试 1. expectedException方法预期RuntimeException异常 2. expectedSuccess方法预期RuntimeException异常 3. expectedException用例结果是失败的, expectedSuccess执行用例成功(预期与结果一致) package com.actiger.test.expectedException; import org.testng.annotations.Test; public class ExpectedExcepiton { @Test(expectedExceptions = RuntimeException.class) public void expectedException(){ System.out.println(&amp;quot;期望运行异常的结果!&amp;quot;); } @Test(expectedExceptions = RuntimeException.class) public void expectedSuccess(){ System.out.println(&amp;quot;期望运行异常的结果&amp;quot;); throw new RuntimeException(); } } </description>
     </item>
     
     <item>
       <title>TestNG中注解Before After执行顺序</title>
-      <link>https://charles-one.github.io/actiger/test/testng%E4%B8%AD%E6%B3%A8%E8%A7%A3before-after%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/</link>
+      <link>https://charles-one.github.io/actiger/blog/test/testng%E4%B8%AD%E6%B3%A8%E8%A7%A3before-after%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/</link>
       <pubDate>Wed, 12 Jun 2019 11:12:12 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/test/testng%E4%B8%AD%E6%B3%A8%E8%A7%A3before-after%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/test/testng%E4%B8%AD%E6%B3%A8%E8%A7%A3before-after%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/</guid>
       <description>1. TestNG是什么 TestNG一种开源自动测试框架, 相当灵活的注解和配置, 自由测试. 2. Before After执行顺序    注解 描述     @BeforeSuite 套件, 在所有测试开始时运行1次   @BeforeTest 在所有类Classes前, BeforeSuite后运行1次,注解的方法将在testNG.xml文件test标签内的所有类方法运行前执行   @BeforeClass 在单个class类前执行1次   @BeforeGroups 在所有配置方法组前运行1次   @BeforeMethod 在单个配置方法前运行   @AfterMethod 在单个配置方法后运行   @AfterGroups 在所有配置方法组后运行1次   @AfterClass 在单个class类后执行1次   @AfterTest 在所有类Classes后, AfterSuite前运行1次, 注解的方法将在testNG.xml文件test标签内的所有类方法运行后执行。   @AfterSuite 套件, 在所有测试结束时运行1次    package com.actiger.test.suite; import org.testng.annotations.*; public class LoginTest { @Test(groups = {&amp;quot;group&amp;quot;}) public void loginTest(){ System.</description>
     </item>
     
     <item>
       <title>Kubernetes Mariadb Mysql</title>
-      <link>https://charles-one.github.io/actiger/docker/kubernetes-mariadb-mysql/</link>
+      <link>https://charles-one.github.io/actiger/blog/docker/kubernetes-mariadb-mysql/</link>
       <pubDate>Wed, 05 Jun 2019 20:46:48 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/docker/kubernetes-mariadb-mysql/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/docker/kubernetes-mariadb-mysql/</guid>
       <description>1. 创建一个对外可使用的数据库, 外部网络访问使用NodePort. pod使用到PV,PVC, Secret. 2. 使用PV和PVC创建硬盘, PersistentVolume持久卷, 持久卷申请.  创建持久卷 pv-maria.yaml, 这里在node节点上申请hostPath申请空间  apiVersion: v1 kind: PersistentVolume metadata: name: pv-hostpath spec: capacity: storage: 300Mi accessModes: - ReadWriteOnce hostPath: path: &amp;quot;/root/mariadb&amp;quot; 创建持久卷申请pvc-maria.yaml, 申请容量与PV一致才会绑定成功.  apiVersion: v1 kind: PersistentVolumeClaim metadata: name: pvc-hostpath spec: accessModes: - ReadWriteOnce storageClassName: &amp;quot;&amp;quot; resources: requests: storage: 200Mi 3. 为数据库root密码创建Secret文件mariapass.yml. root密码需要base64转换. apiVersion: v1 kind: Secret metadata: name: mariapass type: Opaque data: password: &amp;lt;base64加密你的root密码&amp;gt; username: cm9vdA== 4. 创建数据库pod, 使用mariapass.</description>
     </item>
     
     <item>
       <title>Kubernetes Ingress Nginx</title>
-      <link>https://charles-one.github.io/actiger/docker/kubernetes-nginx-ingress/</link>
+      <link>https://charles-one.github.io/actiger/blog/docker/kubernetes-nginx-ingress/</link>
       <pubDate>Tue, 04 Jun 2019 23:17:06 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/docker/kubernetes-nginx-ingress/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/docker/kubernetes-nginx-ingress/</guid>
       <description>1. 为了理解Nginx Ingress Controller, 先看下上海长宁来福士的人脸识别电梯, 正好在这上班😃. 把外部进入内部人脸识别闸机类比为NGINX Ingress Controller, 匹配域名, 把人或请求分配到内部service. 把人脸识别分配电梯类比为service, service控制着一组电梯, 将人或请求分配service下的电梯中. 把电梯类比为pod, 在service下, 处理人或请求. 2. 下面是配置文件, 角色与service绑定的, 使用到pv和pvc, 使用secret, 我的命名空间是nginx-space  创建name-space  kubectl create namespace nginx-space 设置默认返回内容 default-backend.yaml  apiVersion: extensions/v1beta1 kind: Deployment metadata: name: default-http-backend labels: k8s-app: default-http-backend namespace: nginx-space spec: replicas: 1 template: metadata: labels: k8s-app: default-http-backend spec: terminationGracePeriodSeconds: 60 containers: - name: default-http-backend # Any image is permissable as long as: # 1. It serves a 404 page at / # 2.</description>
     </item>
     
     <item>
       <title>Kubernetes安装</title>
-      <link>https://charles-one.github.io/actiger/docker/kubernetes%E5%AE%89%E8%A3%85/</link>
+      <link>https://charles-one.github.io/actiger/blog/docker/kubernetes%E5%AE%89%E8%A3%85/</link>
       <pubDate>Tue, 04 Jun 2019 21:14:43 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/docker/kubernetes%E5%AE%89%E8%A3%85/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/docker/kubernetes%E5%AE%89%E8%A3%85/</guid>
       <description>1. PD安装2个Centos7.6 1816虚拟机(例如主机名cc和主机名cc2), 或2台云主机, 或VM安装虚拟机(建议使用主机同一网络).请勿使用克隆, 克隆的虚拟与原虚拟机product_uuid一致. 安装或启动过程中容易碰到问题, 日志排查图放在前面.官方安装地址 2. 安装前检查  hostname必须不一致  hostname  网络互通, 互ping
   mac ip地址不一致
   ifconfig product_uuid不一致  cat /sys/class/dmi/id/product_uuid 禁用Swap交换分区, 保证kubelet正确运行, 必须永久禁用. 在安装设置中有对应的设置.  3. 安装前2台虚拟机都需要的设置 安装指定版本的docker.   # 移除旧版本docker yum remove docker \ docker-common \ docker-selinux \ docker-engine # 安装工具 yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 # 安装指定版本containerd.io yum install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm # 下载设置源 yum-config-manager \ --add-repo \ https://download.</description>
@@ -399,73 +399,73 @@ describe usrinfo;
     
     <item>
       <title>Kubernetes太难了</title>
-      <link>https://charles-one.github.io/actiger/docker/kubernetes%E5%A4%AA%E9%9A%BE%E4%BA%86/</link>
+      <link>https://charles-one.github.io/actiger/blog/docker/kubernetes%E5%A4%AA%E9%9A%BE%E4%BA%86/</link>
       <pubDate>Mon, 27 May 2019 00:59:47 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/docker/kubernetes%E5%A4%AA%E9%9A%BE%E4%BA%86/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/docker/kubernetes%E5%A4%AA%E9%9A%BE%E4%BA%86/</guid>
       <description>配置Kubernets东西太多, 很容易出错 出错信息不好找kubectl describe pod nginxllllll, 不好用 Kubernets这种复杂的配置是和docker是对立, 就不能把配置写成docker, 很多工作可以交给docker来做 很烦 更是惊了, 不能用缓存, 什么玩意, 有了缓存kubelet不能起动 </description>
     </item>
     
     <item>
       <title>Centos7.0使用SSHKEY拉取github代码失败</title>
-      <link>https://charles-one.github.io/actiger/linux/centos7.0%E4%BD%BF%E7%94%A8sshkey%E6%8B%89%E5%8F%96github%E4%BB%A3%E7%A0%81%E5%A4%B1%E8%B4%A5/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/centos7.0%E4%BD%BF%E7%94%A8sshkey%E6%8B%89%E5%8F%96github%E4%BB%A3%E7%A0%81%E5%A4%B1%E8%B4%A5/</link>
       <pubDate>Thu, 23 May 2019 01:17:49 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/centos7.0%E4%BD%BF%E7%94%A8sshkey%E6%8B%89%E5%8F%96github%E4%BB%A3%E7%A0%81%E5%A4%B1%E8%B4%A5/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/centos7.0%E4%BD%BF%E7%94%A8sshkey%E6%8B%89%E5%8F%96github%E4%BB%A3%E7%A0%81%E5%A4%B1%E8%B4%A5/</guid>
       <description>1. 报错信息与正确信息对比. 今天使用SSH key拉取github代码又失败了, 为什么是又😂. 上次端口错误 贴出报错信息  # 出错主机日志 ssh -vT git@github.com OpenSSH_6.5 Server accepts key: pkalg ssh-rsa blen 279 debug1: key_parse_private_pem: PEM_read_PrivateKey failed debug1: read PEM private key done: type &amp;lt;unknown&amp;gt; Enter passphrase for key &#39;/root/.ssh/git_cron&#39;: 本机正确的日志 ssh -vT git@github.com OpenSSH_7.9p1, LibreSSL 2.7.3 debug1: Reading configuration data /Users/csx/.ssh/config debug1: /Users/csx/.ssh/config line 4: Applying options for githu debug1: Authentications that can continue: publickey debug1: Next authentication method: publickey debug1: Offering public key: /Users/csx/.</description>
     </item>
     
     <item>
       <title>自动生成博客和提交到Github</title>
-      <link>https://charles-one.github.io/actiger/linux/%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E5%92%8C%E6%8F%90%E4%BA%A4%E5%88%B0github/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E5%92%8C%E6%8F%90%E4%BA%A4%E5%88%B0github/</link>
       <pubDate>Mon, 20 May 2019 22:37:07 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E5%92%8C%E6%8F%90%E4%BA%A4%E5%88%B0github/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E5%92%8C%E6%8F%90%E4%BA%A4%E5%88%B0github/</guid>
       <description>使用Hugo过程中, 我只关心博客的内容, 至于生成博客完全不需要记录每次提交的内容. 而且现在需要提交到2个地址上, 同一个改动要提交2次. 只需要在content建立一个git项目进行内行管理即可. 注意已经生成的博客, 更改文件名, 是需要手动删除, 已经生成的博客目录中的文件. 1. 创建hugoAll.sh, 用其他编辑器也可. vim hugoAll.sh 2. 更改文件权限, 变成可执行文件 chmod +x hugoAll.sh 3. 添加下面内容到脚本中, actiger更改成你的hugo目录, 把blog.actiger.com文件夹更改成自己的文件夹就可以了.  time=$(date &amp;quot;+%H:%M:%S %A %Y-%m-%d&amp;quot;) echo &amp;quot;-------------------------------------------------------------------------------------&amp;quot; echo &amp;quot;开始自动生成blog.actiger.com博客, git自动添加标签, 推送到github上&amp;quot; cd ~/Documents/actiger/ # 生成blog.actiger.com博客目录文件 hugo --theme=paper --baseUrl=&amp;quot;https://blog.actiger.com/&amp;quot; --destination=&amp;quot;blog.actiger.com&amp;quot; cd ~/Documents/actiger/blog.actiger.com/ git stage . git commit -m &amp;quot;自动标签${time}&amp;quot; git push github master echo &amp;quot;blog.actiger.com内容已经推送到github.com上&amp;quot; echo &amp;quot;-------------------------------------------------------------------------------------&amp;quot; echo &amp;quot;-------------------------------------------------------------------------------------&amp;quot; echo &amp;quot;开始自动生成https://charles-one.github.io/actiger/博客, git自动添加标签, 推送到github上&amp;quot; cd ~/Documents/actiger/ # 生成默认github博客目录文件 hugo --theme=paper --baseUrl=&amp;quot;https://charles-one.</description>
     </item>
     
     <item>
       <title>Linux.Mac三宝剑ag fasd fzf</title>
-      <link>https://charles-one.github.io/actiger/linux/linux.mac%E4%B8%89%E5%AE%9D%E5%89%91ag-fasd-fzf/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/linux.mac%E4%B8%89%E5%AE%9D%E5%89%91ag-fasd-fzf/</link>
       <pubDate>Sun, 19 May 2019 18:03:22 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/linux.mac%E4%B8%89%E5%AE%9D%E5%89%91ag-fasd-fzf/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/linux.mac%E4%B8%89%E5%AE%9D%E5%89%91ag-fasd-fzf/</guid>
       <description>1.简介与安装 1. 简介ag是比grep更好的搜索软件, 提供高亮显示. Fasd时空机, 去过的地址都直接跳过去, 再也不用cd来cd去了. Fzf更强大的搜索文件. 2. 安装ag, Fasd Fzf # mac brew install the_silver_searcher fzf fasd # 还需要把 eval &amp;quot;$(fasd --init auto)&amp;quot; 放到.bashrc或者.zshrc中 # 重新生效source .bashrc或者source .zshrc # linux git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf ~/.fzf/install yum install the_silver_searcher yum install fasd 2. 使用. 1. 最有命令说明, 需要配置2中配置才可以使用.(bat是与cat类似,有语法高亮) # tab键补全, 最近打开最多带有a名字的匹配文件, 在任何目录中你都可以直接编辑你的相要的文件 v a # 在任意目录下都可以这样使用, cat与ag联用, 匹配a文件, 并搜索aaa caf a | ag &amp;quot;aaa&amp;quot; # 跳转, 配置最近最多a文件夹名, tab补全所有匹配的a的文件 j a # 预览当前目录下的文件 ffp 2.</description>
     </item>
     
     <item>
       <title>介绍spf13插件使用和我的vim配置</title>
-      <link>https://charles-one.github.io/actiger/linux/%E4%BB%8B%E7%BB%8Dspf13%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%92%8C%E6%88%91%E7%9A%84vim%E9%85%8D%E7%BD%AE/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/%E4%BB%8B%E7%BB%8Dspf13%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%92%8C%E6%88%91%E7%9A%84vim%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Sun, 19 May 2019 17:16:53 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/%E4%BB%8B%E7%BB%8Dspf13%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%92%8C%E6%88%91%E7%9A%84vim%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/%E4%BB%8B%E7%BB%8Dspf13%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%92%8C%E6%88%91%E7%9A%84vim%E9%85%8D%E7%BD%AE/</guid>
       <description>1. spf13简介 Steve Francia使用的vim配置, vim插件插件集合. http://vim.spf13.com/ 2. spf13常用插件简单使用, 中文.  Surronund 编辑字符周围的符号的.  # *号表示当前光标停留位置, 所有的操作在vim的nomal模式 Old text Command New text ~ &amp;quot;Hello *world!&amp;quot; ds&amp;quot; Hello world! [123+4*56]/2 cs]) (123+456)/2 &amp;quot;Look ma, I&#39;m *HTML!&amp;quot; cs&amp;quot;&amp;lt;q&amp;gt; &amp;lt;q&amp;gt;Look ma, I&#39;m HTML!&amp;lt;/q&amp;gt; if *x&amp;gt;3 { ysW( if ( x&amp;gt;3 ) { my $str = *whee!; vllllS&#39; my $str = &#39;whee!&#39;;  EasyMotion 跳到任何地方  # 再打对应的字符就可直接跳到单词的首字符位置 ,,w # 再打对应的字符就可直接跳到单词的尾字符位置 ,,e  Fugitive Git的插件, 可以vim中批量提交git文件, 查看git diff等.</description>
     </item>
     
     <item>
       <title>LetsEncrypt申请与nginx配置SSL</title>
-      <link>https://charles-one.github.io/actiger/linux/letsencrypt%E7%94%B3%E8%AF%B7%E4%B8%8Enginx%E9%85%8D%E7%BD%AEssl/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/letsencrypt%E7%94%B3%E8%AF%B7%E4%B8%8Enginx%E9%85%8D%E7%BD%AEssl/</link>
       <pubDate>Sun, 19 May 2019 04:04:30 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/letsencrypt%E7%94%B3%E8%AF%B7%E4%B8%8Enginx%E9%85%8D%E7%BD%AEssl/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/letsencrypt%E7%94%B3%E8%AF%B7%E4%B8%8Enginx%E9%85%8D%E7%BD%AEssl/</guid>
       <description>1. letsencrypt 证书申请. 官方指引 1. 申请证书需要安装Cerbto. 脚本 yum -y install epel-release yum -y install yum-utils yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional yum install certbot python2-certbot-nginx 2. 手动去申请证, 我这里申请全部子域名的. 验证身份的方式需要在域名供应商添加dns txt的. 1. 开始安装, 有下面提示信息. 这里需要暂停, 去添加DNS TXT即第2步. # 执行 certbot certonly -d &amp;quot;*.actiger.com&amp;quot; --manual --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory 执行到下面提示信息后, 需要暂停. - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #Please deploy a DNS TXT record under the name #_acme-challenge.</description>
     </item>
     
     <item>
       <title>使用docker和hugo搭建自己的博客</title>
-      <link>https://charles-one.github.io/actiger/linux/%E4%BD%BF%E7%94%A8docker%E5%92%8Chugo%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/%E4%BD%BF%E7%94%A8docker%E5%92%8Chugo%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Sun, 19 May 2019 02:50:28 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/%E4%BD%BF%E7%94%A8docker%E5%92%8Chugo%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/%E4%BD%BF%E7%94%A8docker%E5%92%8Chugo%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
       <description>1. 方案选择, 需要内容结构. 1. 练习的话, 可以这种方案. 虚拟机+本地hosts, 免费, 只能内网访问. 2. 最难的方案, 国内域名(备案时间可能会很长,外地备案条件苛刻)+国内云. 2. 在服务器上拉取docker-compose仓库. # 拉取仓库, 并存放在用户目录中 git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository # 复制这用到了docker-compose文件夹, 并存放在用户目录中 cp -r ~/docker-compose-repository/nginx-hugoBlog ~/nginx-hugoBlog 3. 使用hugo生成正确的博客目录 1. hugo生成网站目录 # 指定主题, 我使用了hugo-paper, 网站地址baseUrl, 目标目录, 我会上传多个平台, 所以指定下. # 注意 --bashUrl后的/是必须要有的. hugo --theme=hugo-paper --baseUrl=&amp;quot;http://blog.actiger.com/&amp;quot; --destination=&amp;quot;blog.actiger.com&amp;quot; 2. 上传步骤1生成的博客目录到github.com. 参考这里的步骤3和4 3. 在服务器上拉取上传的博客目录 # 进行docker-compose文件夹中 cd ~/nginx-hugoBlog # 拉取的docker-compose 默认配置是 ./blog.actiger.com:/usr/share/nginx/html . # docker-compose配置文件里的配置的目录, 与当前目录一致的. # 克隆代码时需要, 重命名与docker-compose配置挂载目录名一致. git clone https://github.com/Charles-one/blog.actiger.com blog.actiger.com 4.</description>
     </item>
     
     <item>
       <title>Crontab定时任务</title>
-      <link>https://charles-one.github.io/actiger/linux/crontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/crontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</link>
       <pubDate>Sat, 18 May 2019 02:42:49 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/crontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/crontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</guid>
       <description>1. 使用Crontab的原因. 每次更新博客都要登录服务器(ssh延迟容易中断)手动去拉取代码, 不方便. 故设置成自动获取最新代码. 2. 选择crontab定时 查看下资源, 觉得crontab简单可行, 直接来用就好了. 3. 定时任务需需要做事情.  特定目录执行git pul的shell脚本. 这里我使用了ssh key可以参考这里的  vim git_pull.sh
  #!/bin/bash # 进入目录中 cd ~/nginx-hugoBlog/blog.actiger.com/ # 拉取github中的代码 git pull 添加crontab任务文件  vim git_pull.cron
 # 设置5分钟拉取一次代码 */5 * * * * cd /root &amp;amp;&amp;amp; ./git_pull_blog.actiger.com.sh 把定时任务文件内容加到crontab中  # 添加root账户中 crontab -uroot git_pull.cron # 查询当前任务, root是账户, 添加的定时任务会放到这个目录中 crontab -uroot -l cat /var/spool/cron/root # 删除root用户的定时任务 crontab -uroot -r 日志的地址, 相当重要. # 日志文件 /var/spool/mail/root # 查看日志 # 可以把时间设置1分钟, 可以很快看到执行情况, 方便调试.</description>
@@ -473,39 +473,39 @@ describe usrinfo;
     
     <item>
       <title>Centos7使用ssh Key拉取github项目失败</title>
-      <link>https://charles-one.github.io/actiger/linux/centos7%E4%BD%BF%E7%94%A8ssh-key%E6%8B%89%E5%8F%96github%E9%A1%B9%E7%9B%AE%E5%A4%B1%E8%B4%A5/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/centos7%E4%BD%BF%E7%94%A8ssh-key%E6%8B%89%E5%8F%96github%E9%A1%B9%E7%9B%AE%E5%A4%B1%E8%B4%A5/</link>
       <pubDate>Sat, 18 May 2019 00:37:15 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/centos7%E4%BD%BF%E7%94%A8ssh-key%E6%8B%89%E5%8F%96github%E9%A1%B9%E7%9B%AE%E5%A4%B1%E8%B4%A5/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/centos7%E4%BD%BF%E7%94%A8ssh-key%E6%8B%89%E5%8F%96github%E9%A1%B9%E7%9B%AE%E5%A4%B1%E8%B4%A5/</guid>
       <description>1. centos7上错误信息, 与配置信息. # 测试最否能连接到github上, 使用-v打印连接日志 [root@cc]/etc/ssh# ssh -vT git@github.com OpenSSH_7.4p1, OpenSSL 1.0.2k-fips 26 Jan 2017 debug1: Reading configuration data /root/.ssh/config debug1: /root/.ssh/config line 3: Applying options for github.com debug1: Reading configuration data /etc/ssh/ssh_config debug1: /etc/ssh/ssh_config line 60: Applying options for * debug1: Connecting to github.com [192.30.255.112] port 12340. debug1: Connection established. debug1: permanently_set_uid: 0/0 debug1: key_load_public: No such file or directory debug1: identity file /root/.ssh/git_cron type -1 debug1: key_load_public: No such file or directory debug1: identity file /root/.</description>
     </item>
     
     <item>
       <title>使用docker搭建nextcloud</title>
-      <link>https://charles-one.github.io/actiger/linux/%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAnextcloud/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAnextcloud/</link>
       <pubDate>Fri, 17 May 2019 01:49:37 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAnextcloud/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAnextcloud/</guid>
       <description>1. nextcloud 个人私有云, 可以像网盘一样同步个人文件, 远程访问下载等. 2. 使用docker-compose搭建 使用docker-compose-repository搭建  git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository cp -r ~/docker-compose-repository/nextcloud ~/nextcloud cd ~/nextcloud # 自动下载并启动容器 dc up -d 访问地址 http://服务ip地址
 # 用户名和密码自己设置 # # 页面上选择数据库mariadb # 页面上填写就是你上面mariadb内容 # 用户名: nextcloud # 数据库: nextcloud # 密码: nextcloud_weiki_JKL_sdf # 地址(不是默认的localhost): mariadb </description>
     </item>
     
     <item>
       <title>Tmux插件tmuxinator配置</title>
-      <link>https://charles-one.github.io/actiger/linux/tmux%E6%8F%92%E4%BB%B6tmuxinator%E9%85%8D%E7%BD%AE/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/tmux%E6%8F%92%E4%BB%B6tmuxinator%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Fri, 17 May 2019 01:10:10 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/tmux%E6%8F%92%E4%BB%B6tmuxinator%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/tmux%E6%8F%92%E4%BB%B6tmuxinator%E9%85%8D%E7%BD%AE/</guid>
       <description>1. 安装tmux的tmuxinator插件 Mac下安装:
 # 使用gem安装tmuxinator gem install tmuxinator # 查询环境, 获取gem安装程序执行目录, 目的是添加环境变量 gem env # 安装程序的执行目录 /usr/local/lib/ruby/gems/2.6.0/bin # 在.zshrc或者.bashrc中添加环境变量 export PATH=&amp;quot;$PATH:/usr/local/lib/ruby/gems/2.6.0/bin&amp;quot; 2. Tmuxinator配置 # 会自动创建文件在~/.tmuxinator中 tmuxinator edit hugo # 名称 name: hugo # 目录, 我存放hugo的目录 root: ~/Documents/actiger # 2个窗口, 1, 2是窗口名称 # layout: even-horizontal, 横着分割 # panes 不需要名称, hugo server --theme=paper 是执行命令hugo服务 windows: - 1: layout: even-horizontal panes: - hugo server --theme=paper - - 2: 3. tmuxinator使用  # tmux &amp;amp; tumxinator , 可写.</description>
     </item>
     
     <item>
       <title>Mosh简介,安装与使用</title>
-      <link>https://charles-one.github.io/actiger/linux/mosh%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%BD%BF%E7%94%A8/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/mosh%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Fri, 17 May 2019 00:20:12 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/mosh%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/mosh%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%BD%BF%E7%94%A8/</guid>
       <description>1. Mosh简介, 及为什么要使用Mosh 1. Mosh全称Mobile Shell, 移动远程终端应用程序. 与ssh类似, 却有很多新功能, 可以漫游, 支持间歇性连接, 这对网络延迟高或者移动使用更换IP非常友好, 2. 我的服务器是VPS, 在使用SSH过程中, 经常会中断, 频繁重新连接, 还要kill掉之前的终端. Mosh的用法与SSH一致, 无缝切换. 2. Mosh 安装. 需要服务器端和客户端都安装软件. 服务端安装脚本 1. 服务器端安装mosh, 并开启防火墙udp端口 yum -y install epel-release yum -y install mosh firewall-cmd --zone=public --permanent --add-port=60000-61000/udp firewall-cmd --reload 2. 本地安装 Mac:
 brew install mosh Windows: 参考https://mosh.org/
 3. Mosh使用. 使用规则与ssh一致. # 帮助 mosh -h # 连接 mosh root@192.168.0.1 # 使用ssh config配置连接 mosh locale_centos7 ssh config配置可以参考这里http://blog.actiger.com/linux/ssh密钥生成配置和登陆服务器与github使用钥匙/
@@ -514,10 +514,10 @@ brew install mosh Windows: 参考https://mosh.org/
     
     <item>
       <title>Centos7更新内核翻车之旅</title>
-      <link>https://charles-one.github.io/actiger/linux/centos7%E6%9B%B4%E6%96%B0%E5%86%85%E6%A0%B8%E7%BF%BB%E8%BD%A6%E4%B9%8B%E6%97%85/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/centos7%E6%9B%B4%E6%96%B0%E5%86%85%E6%A0%B8%E7%BF%BB%E8%BD%A6%E4%B9%8B%E6%97%85/</link>
       <pubDate>Thu, 16 May 2019 23:11:46 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/centos7%E6%9B%B4%E6%96%B0%E5%86%85%E6%A0%B8%E7%BF%BB%E8%BD%A6%E4%B9%8B%E6%97%85/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/centos7%E6%9B%B4%E6%96%B0%E5%86%85%E6%A0%B8%E7%BF%BB%E8%BD%A6%E4%B9%8B%E6%97%85/</guid>
       <description>1. Centos7 更新内核失败的原因 安装内核后, 设置默认启动的内核错误, 就是设置为rescue模式 2. 事情经过  我操作的内容:  rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm yum --enablerepo=elrepo-kernel -y install kernel-ml awk -F\&#39; &#39;$1==&amp;quot;menuentry &amp;quot; {print i++ &amp;quot; : &amp;quot; $2}&#39; /etc/grub2.cfg 这时候会显示默认启动内核列表:
  0 : CentOS Linux (0-rescue-00a62363617944e08db8db894ba6145e) 7 (Core)
   1 : CentOS Linux (5.1.1-1.el7.elrepo.x86_64) 7 (Core)
@@ -528,38 +528,38 @@ brew install mosh Windows: 参考https://mosh.org/
     
     <item>
       <title>docker-compose简单使用</title>
-      <link>https://charles-one.github.io/actiger/linux/docker-compose%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/docker-compose%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Wed, 15 May 2019 02:02:51 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/docker-compose%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/docker-compose%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
       <description>目录 1. docker-compose简介 2. docker-compose.yml简单配置说明 3. docker-compose运行 1. docker-compose简介与安装  简介   docker-compose是编排docker容器的, 就是管理这一批容器, 进行批量配置, 起动, 暂停, 删除容器等. 如果有多个容器, 使用docker一个个启动慢, 如果容器间有依赖, 还需要手动指定, 还有环境变量, 可以 一起设置.
  使用下面命令安装docker-compose和docker. 或使用脚本一键安装  yum remove docker \ docker-common \ docker-selinux \ docker-engine yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo yum -y install docker-ce systemctl enable docker systemctl start docker curl -L &amp;quot;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)&amp;quot; -o /usr/local/bin/docker-compose chmod +x /usr/local/bin/docker-compose 2.</description>
     </item>
     
     <item>
       <title>创建hugo主题失败的思考</title>
-      <link>https://charles-one.github.io/actiger/thought/%E5%88%9B%E5%BB%BAhugo%E4%B8%BB%E9%A2%98%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%80%9D%E8%80%83/</link>
+      <link>https://charles-one.github.io/actiger/blog/thought/%E5%88%9B%E5%BB%BAhugo%E4%B8%BB%E9%A2%98%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%80%9D%E8%80%83/</link>
       <pubDate>Sun, 14 Apr 2019 19:59:54 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/thought/%E5%88%9B%E5%BB%BAhugo%E4%B8%BB%E9%A2%98%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%80%9D%E8%80%83/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/thought/%E5%88%9B%E5%BB%BAhugo%E4%B8%BB%E9%A2%98%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%80%9D%E8%80%83/</guid>
       <description>0.事情经过  每次拉取Hugo Paper的主题的时候都会把作者的个人图标拉过来, 显示在我的Github Pages上, 很难受. 需要手动更改位置. 所以就想自己更改出来一个hugo theme. 错误估计自己的能力, 什么也没弄懂, 什么也没有做出来. 很生气, 没有计划就来做这件事, 浪费太多时间, 没有睡好. 然后思考下这次浪费时间的原因, 就有了这篇文章.  1.分析下失败原因 1.不了解Hugo使用theme的生成规则  不清楚theme目录里, 具体存放什么, 有什么作用. 对生成网页了解甚少, 规则就明白header是生成一个页面的上半部分, footer.html是生成页面下半部分. 高估自己css和html能力了, 虽然有学过, 距离很久, 记不清了, 一只半解, 例如a标签样式的下划线, 肯定有其他的优先级造成直接定义a text-decoration: none失败. theme参数的运用也不清楚.  2.没有目标和计划.  在不了解hugo规则和html知识的情况下, 盲目开始, 没有考虑出现问题, 该怎么处理, 是放弃还是暂时挂起. 从12点到5点完成在乱看, 没有搞清楚你要做什么地步. 最初的目标是, 去掉作者放的ico图标, 这个很简单的事情, 切分支然后替换内容.(还有就是在actiger/static/img里存放ico图片, 后来才知道会覆盖作者的), 对就是 这么一简单的需求, 还有一个简单的需求是把代码的背景色替换成灰色的(这个更新主题作者已经解决了).  3.没有寻求解决问题的最优解.  对于自己的2个目标, 完成可以5分钟解决, 自己却偏不, 想练习下自己的HTML, 结果没有锻炼, 还打击了积极性. 出现困难没有及时停下来想想, 目标, 时间成功.  3.</description>
     </item>
     
     <item>
       <title>tmux保存会话和剪贴板插件安装及使用</title>
-      <link>https://charles-one.github.io/actiger/linux/tmux%E4%BF%9D%E5%AD%98%E4%BC%9A%E8%AF%9D%E5%92%8C%E5%89%AA%E8%B4%B4%E6%9D%BF%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/tmux%E4%BF%9D%E5%AD%98%E4%BC%9A%E8%AF%9D%E5%92%8C%E5%89%AA%E8%B4%B4%E6%9D%BF%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Thu, 11 Apr 2019 00:45:56 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/tmux%E4%BF%9D%E5%AD%98%E4%BC%9A%E8%AF%9D%E5%92%8C%E5%89%AA%E8%B4%B4%E6%9D%BF%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/tmux%E4%BF%9D%E5%AD%98%E4%BC%9A%E8%AF%9D%E5%92%8C%E5%89%AA%E8%B4%B4%E6%9D%BF%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/</guid>
       <description>0.内容  安装tmux 安装tmux插件管理 安装保存会话和剪贴板插件  1.安装tmux 为什么要使用tmux, 可以永久保存会话, 就不用每次都要切换到对应工作目录中.  Mac下  brew install tmux  linux, 参考Github地址  git clone https://github.com/tmux/tmux.git cd tmux sh autogen.sh ./configure &amp;amp;&amp;amp; make 2.安装tmux插件管理  参考地址  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  新建~/.tmux.conf, 复制下面内容到这个文件下.  # List of plugins set -g @plugin &#39;tmux-plugins/tpm&#39; set -g @plugin &#39;tmux-plugins/tmux-sensible&#39; # Other examples: # set -g @plugin &#39;github_username/plugin_name&#39; # set -g @plugin &#39;git@github.com/user/plugin&#39; # set -g @plugin &#39;git@bitbucket.</description>
     </item>
     
     <item>
       <title>Mac使用sshpass和alias管理ssh账号密码</title>
-      <link>https://charles-one.github.io/actiger/linux/mac%E4%BD%BF%E7%94%A8sshpass%E5%92%8Calias%E7%AE%A1%E7%90%86ssh%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/mac%E4%BD%BF%E7%94%A8sshpass%E5%92%8Calias%E7%AE%A1%E7%90%86ssh%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/</link>
       <pubDate>Wed, 10 Apr 2019 23:31:03 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/mac%E4%BD%BF%E7%94%A8sshpass%E5%92%8Calias%E7%AE%A1%E7%90%86ssh%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/mac%E4%BD%BF%E7%94%A8sshpass%E5%92%8Calias%E7%AE%A1%E7%90%86ssh%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/</guid>
       <description>0.内容.  使用brew安装sshpass软件 在.bashrc或者.zshrc中写入连接服务器别名alias, 并测试连接.  1.使用brew安装sshpass软件 因为sshpass对新手来手使用不安全(某方面密码可以history中看到), 所以仅推荐连接本机虚拟机中. 正是因为担心会滥用所以brew并没有直接提供sshpass的安装. 项目地址 https://github.com/hudochenkov/homebrew-sshpass 强制推荐使用SSH密钥  直接使用brew安装  brew install hudochenkov/sshpass/sshpass 2.在.bashrc或者.zshrc中写入连接服务器别名alias  sshpass使用  # sshpass -p后接密码, ssh 后的-p是指定端口 # 分成2部分内容一是sshpass -p, 二是ssh root@10.211.55.9 -p 22 # 使用密码password连接10.211.55.9中22端口的root用户 sshpass -p&#39;password&#39; ssh root@10.211.55.9 -p 22  建立别名并生效, 这样就避免在history中直接看到密码.  alias tolocal=&amp;quot;sshpass -p&#39;password&#39; ssh root@10.211.55.9 -p 12340&amp;quot; 将上面内容放到.bashrc(bash用户)或者.zshrc(zsh用户)中
 再次生成配置
 source ~/.bashrc # 或者 source ~/.zshrc  测试  在终端中输入并回车
@@ -568,28 +568,28 @@ tolocal 即可连接本地虚拟机中.</description>
     
     <item>
       <title>SSH密钥生成配置和登陆服务器与github使用钥匙</title>
-      <link>https://charles-one.github.io/actiger/linux/ssh%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90%E9%85%8D%E7%BD%AE%E5%92%8C%E7%99%BB%E9%99%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8Egithub%E4%BD%BF%E7%94%A8%E9%92%A5%E5%8C%99/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/ssh%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90%E9%85%8D%E7%BD%AE%E5%92%8C%E7%99%BB%E9%99%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8Egithub%E4%BD%BF%E7%94%A8%E9%92%A5%E5%8C%99/</link>
       <pubDate>Sat, 30 Mar 2019 23:32:03 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/ssh%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90%E9%85%8D%E7%BD%AE%E5%92%8C%E7%99%BB%E9%99%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8Egithub%E4%BD%BF%E7%94%A8%E9%92%A5%E5%8C%99/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/ssh%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90%E9%85%8D%E7%BD%AE%E5%92%8C%E7%99%BB%E9%99%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8Egithub%E4%BD%BF%E7%94%A8%E9%92%A5%E5%8C%99/</guid>
       <description>1.生成SSH公钥私钥  进入文件夹中(注:所有&amp;rdquo;#&amp;ldquo;表示说明)  cd ~/.ssh/ # 其中-t rsa是指定rsa加密算法, -C &amp;quot;asus&amp;quot;是添加描述asus ssh-keygen -t rsa -C &amp;quot;asus&amp;quot; # 说明: 默认是保存在/Users/你的用户名/.ssh/下, 如果你指定了名字则保存在当前路径下. # 指定的必须是文件且是绝对路径 # 在这里我已经在 ~/.ssh/中, 默认会保存在这里 Enter file in which to save the key (/Users/username(你的用户名)/.ssh/id_rsa): asus_rsa # 这里提示输入密码, 直接Enter表示不要密码 Enter passphrase (empty for no passphrase): # 与上面输入的密码保持一致, 如果上面没输入,这里也不要输入 Enter same passphrase again:  提示这些信息就表示生成成功  Your identification has been saved in /Users/username/.ssh/asus_rsa. Your public key has been saved in /Users/username/.ssh/asus_rsa.pub. The key fingerprint is: SHA256:WNwJoo/Rr0TvpnQIdA4YisZrF+7ZM8lKNB4JLpJXALA asus The key&#39;s randomart image is: +---[RSA 2048]----+ |+.</description>
     </item>
     
     <item>
       <title>华硕ASUS路由器AC5300莫名重启记录和排查</title>
-      <link>https://charles-one.github.io/actiger/linux/%E5%8D%8E%E7%A1%95asus%E8%B7%AF%E7%94%B1%E5%99%A8ac5300%E8%8E%AB%E5%90%8D%E9%87%8D%E5%90%AF%E5%92%8C%E6%8E%92%E6%9F%A5/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/%E5%8D%8E%E7%A1%95asus%E8%B7%AF%E7%94%B1%E5%99%A8ac5300%E8%8E%AB%E5%90%8D%E9%87%8D%E5%90%AF%E5%92%8C%E6%8E%92%E6%9F%A5/</link>
       <pubDate>Sat, 30 Mar 2019 01:19:45 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/%E5%8D%8E%E7%A1%95asus%E8%B7%AF%E7%94%B1%E5%99%A8ac5300%E8%8E%AB%E5%90%8D%E9%87%8D%E5%90%AF%E5%92%8C%E6%8E%92%E6%9F%A5/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/%E5%8D%8E%E7%A1%95asus%E8%B7%AF%E7%94%B1%E5%99%A8ac5300%E8%8E%AB%E5%90%8D%E9%87%8D%E5%90%AF%E5%92%8C%E6%8E%92%E6%9F%A5/</guid>
       <description>问题我的华硕路由器有时莫名奇妙的重启 出问题设备和版本 ASUS AC5300 3.0.0.4.384.45149 首先查看系统日志 May 5 13:05:25 weini: [软件中心]: httpdb进程准备就绪！ May 5 13:05:25 WAN Connection: WAN was restored. May 5 13:05:25 WLCEVENTD: eth8: Assoc D4:90:9C:E7:D2:03 May 5 13:05:26 kernel: UBIFS (ubi1:0): UBIFS: mounted UBI device 1, volume 0, name &amp;quot;nvram&amp;quot;, R/O mode May 5 13:05:26 kernel: UBIFS (ubi1:0): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes May 5 13:05:26 kernel: UBIFS (ubi1:0): FS size: 5840896 bytes (5 MiB, 46 LEBs), journal size 1015809 bytes (0 MiB, 6 LEBs) May 5 13:05:26 kernel: UBIFS (ubi1:0): reserved for root: 275879 bytes (269 KiB) May 5 13:05:26 kernel: UBIFS (ubi1:0): media format: w4/r0 (latest is w4/r0), UUID ABA6F10C-0F1C-4B89-AD25-4B74DEC12700, small LPT model May 5 13:05:26 kernel: UBIFS (ubi1:0): un-mount UBI device 1 May 5 13:05:26 kernel: ubi1: detaching mtd9 May 5 13:05:26 kernel: ubi1: mtd9 is detached May 5 13:05:26 ntp: start NTP update Mar 30 00:32:50 rc_service: ntp 1229:notify_rc restart_diskmon Mar 30 00:32:50 rc_service: waitting &amp;quot;start_firewall&amp;quot; via udhcpc .</description>
     </item>
     
     <item>
       <title>Jmeter性能测试并添加服务器cpu内存使用率</title>
-      <link>https://charles-one.github.io/actiger/test/jmeter%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B9%B6%E6%B7%BB%E5%8A%A0%E6%9C%8D%E5%8A%A1%E5%99%A8cpu%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E7%8E%87/</link>
+      <link>https://charles-one.github.io/actiger/blog/test/jmeter%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B9%B6%E6%B7%BB%E5%8A%A0%E6%9C%8D%E5%8A%A1%E5%99%A8cpu%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E7%8E%87/</link>
       <pubDate>Thu, 14 Mar 2019 23:31:20 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/test/jmeter%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B9%B6%E6%B7%BB%E5%8A%A0%E6%9C%8D%E5%8A%A1%E5%99%A8cpu%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E7%8E%87/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/test/jmeter%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B9%B6%E6%B7%BB%E5%8A%A0%E6%9C%8D%E5%8A%A1%E5%99%A8cpu%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E7%8E%87/</guid>
       <description>0. 准备工作  搭建静态博客Hugo, 建立Hugo服务作为测试接口 服务端centOS7.6.1810, 服务端ServerAgent 本机安装Java8, 并设置环境变量 本机jmeter, jmeter插件管理, Servers Performance Monitoring插件  1.服务端CentOS7 搭建Hugo, 并建立Hugo服务, 创建接口.  搭建Huog  请参考这个搭建Hugo文章参考到这条语句下就可以了,这条语句下面的内容不用看了
 hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&amp;quot; --port=1313  创建接口  hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&amp;quot; --port=1313  检测服务端接口  在浏览器中访问 http://你的ip:1313.如未指定,则是http://localhost:1313
 能正常访问显示文章就完成了
@@ -603,10 +603,10 @@ Jmeter插件管理下载并解压出对应jar文件, 并放在apache-jmeter-5.1/
     
     <item>
       <title>使用Hugo和GitHub Pages搭建静态网站</title>
-      <link>https://charles-one.github.io/actiger/linux/%E4%BD%BF%E7%94%A8hugo%E5%92%8Cgithub-pages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/%E4%BD%BF%E7%94%A8hugo%E5%92%8Cgithub-pages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/</link>
       <pubDate>Wed, 13 Mar 2019 21:35:23 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/%E4%BD%BF%E7%94%A8hugo%E5%92%8Cgithub-pages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/%E4%BD%BF%E7%94%A8hugo%E5%92%8Cgithub-pages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/</guid>
       <description>0. 前提条件  电脑安装git(Mac linux都需要安装) 安装go并设置环境变量(仅linux下需要) 虚拟机Centos7.6.1810(测试用, 不需要安装)  1. 安装hugo   mac直接使用brew install hugo就可以了
   linux下源码安装
    下载并编译  mkdir ~/src cd ~/src git clone https://github.com/gohugoio/hugo.git cd hugo go install 添加环境变量  # 当前用户~/go文件绝对路径是GOPATH,Go编译后的文件在~/go/bin中 # 如现在当前用户是jenkins vim /etc/profile 添加 export export GOPATH=/var/lib/jenkins/go export PATH=${PATH}:$GOPATH/bin 重新生效/etc/profile文件
@@ -618,10 +618,10 @@ source /etc/profile
     
     <item>
       <title>使用jenkins构建指定版本的Github项目Hugo</title>
-      <link>https://charles-one.github.io/actiger/linux/%E4%BD%BF%E7%94%A8jenkins%E6%9E%84%E5%BB%BA%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC%E7%9A%84github%E9%A1%B9%E7%9B%AEhugo/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/%E4%BD%BF%E7%94%A8jenkins%E6%9E%84%E5%BB%BA%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC%E7%9A%84github%E9%A1%B9%E7%9B%AEhugo/</link>
       <pubDate>Wed, 13 Mar 2019 17:02:19 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/%E4%BD%BF%E7%94%A8jenkins%E6%9E%84%E5%BB%BA%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC%E7%9A%84github%E9%A1%B9%E7%9B%AEhugo/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/%E4%BD%BF%E7%94%A8jenkins%E6%9E%84%E5%BB%BA%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC%E7%9A%84github%E9%A1%B9%E7%9B%AEhugo/</guid>
       <description>0. 前提条件, 会使用到jenkins, go语言编译hugo   安装jenkinx&amp;lt;/&amp;gt;
   Linux安装go并设置环境变量  1. 创建一个jenkins任务  创建一个Jenkins任务    输入Enter an item name, 这里名字是basic_hugo
   选择Github组织
@@ -635,10 +635,10 @@ Source Code Management-&amp;gt;Git-&amp;gt;Repositories</description>
     
     <item>
       <title>Linux安装go并设置环境变量</title>
-      <link>https://charles-one.github.io/actiger/linux/linux%E5%AE%89%E8%A3%85go%E5%B9%B6%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/linux%E5%AE%89%E8%A3%85go%E5%B9%B6%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</link>
       <pubDate>Wed, 13 Mar 2019 16:36:41 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/linux%E5%AE%89%E8%A3%85go%E5%B9%B6%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/linux%E5%AE%89%E8%A3%85go%E5%B9%B6%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</guid>
       <description>Mac用户直接使用brew install go即可 Linux用户 wget https://dl.google.com/go/go1.12.linux-amd64.tar.gz
 tar -C /usr/local -xzf go1.12.linux-amd64.tar.gz
 root用户去编辑vim /etc/profile中添加如下信息
@@ -648,10 +648,10 @@ source /etc/profile </description>
     
     <item>
       <title>安装jenkins和插件</title>
-      <link>https://charles-one.github.io/actiger/linux/%E5%AE%89%E8%A3%85jenkins%E5%92%8C%E6%8F%92%E4%BB%B6/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/%E5%AE%89%E8%A3%85jenkins%E5%92%8C%E6%8F%92%E4%BB%B6/</link>
       <pubDate>Wed, 13 Mar 2019 15:47:35 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/%E5%AE%89%E8%A3%85jenkins%E5%92%8C%E6%8F%92%E4%BB%B6/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/%E5%AE%89%E8%A3%85jenkins%E5%92%8C%E6%8F%92%E4%BB%B6/</guid>
       <description>0.安装Jenkins, 需要提前安装JDK 1.8 安装JDK参考1.安装Jnekins  尽量翻墙执行,否则容易报443错误  sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key yum search jenkins sudo yum install jenkins 2. 启动服务与添加防火墙端口  启动jenkins  systemctl start jenkins 如果这里有报错信息,并且提示 &amp;ldquo;systemctl status jenkins.service&amp;rdquo; and &amp;ldquo;journalctl -xe&amp;rdquo; for details 查看详情
 journalctl -xe可以看到原因/usr/bin/java: 没有那个文件或目录
 需要更改vim /etc/init.d/jenkins
@@ -664,28 +664,28 @@ systemctl start jenkins (再次启动jenkins)
     
     <item>
       <title>安装docker Ce和使用docker安装nginx</title>
-      <link>https://charles-one.github.io/actiger/linux/%E5%AE%89%E8%A3%85docker-ce%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/%E5%AE%89%E8%A3%85docker-ce%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Tue, 12 Mar 2019 23:59:11 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/%E5%AE%89%E8%A3%85docker-ce%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/%E5%AE%89%E8%A3%85docker-ce%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
       <description>0. 目录  安装Docker Docker简单使用  1.安装docker  卸载版本Docker  sudo yum remove docker \ docker-common \ docker-selinux \ docker-engine  设置仓库  sudo yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 sudo yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo  安装docker-ce  sudo yum install docker-ce  卸载docker-ce  sudo yum remove docker-ce sudo rm -rf /var/lib/docker  更换国内源  vim vim /etc/docker/daemon.json { &amp;quot;registry-mirrors&amp;quot;: [ &amp;quot;http://hub-mirror.c.163.com&amp;quot;] } 2.docker简单使用  下载镜像  docker pull nginx:1.</description>
     </item>
     
     <item>
       <title>设置用户可sudo命令</title>
-      <link>https://charles-one.github.io/actiger/linux/%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%8F%AFsudo%E5%91%BD%E4%BB%A4/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%8F%AFsudo%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Tue, 12 Mar 2019 22:16:35 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%8F%AFsudo%E5%91%BD%E4%BB%A4/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%8F%AFsudo%E5%91%BD%E4%BB%A4/</guid>
       <description>vi /etc/sudoers # new cc ALL=/bin/yum # cc用户名就可使用sudo yum 在cc用户下 sudo yum install vim 输入密码后再就可安装vim了</description>
     </item>
     
     <item>
       <title>基本SQL语句用法</title>
-      <link>https://charles-one.github.io/actiger/mysql/%E5%9F%BA%E6%9C%ACsql%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95/</link>
+      <link>https://charles-one.github.io/actiger/blog/mysql/%E5%9F%BA%E6%9C%ACsql%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95/</link>
       <pubDate>Tue, 12 Mar 2019 17:31:56 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/mysql/%E5%9F%BA%E6%9C%ACsql%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/mysql/%E5%9F%BA%E6%9C%ACsql%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95/</guid>
       <description>建立表 4个表关系 1.学生表
 Student(s_id,s_name,s_birth,s_sex) –学生编号,学生姓名, 出生年月,学生性别
 2.课程表
@@ -699,10 +699,10 @@ Score(s_id,c_id,s_s_score) –学生编号,课程编号,分数
     
     <item>
       <title>下载安装JDK和设置JDK环境变量</title>
-      <link>https://charles-one.github.io/actiger/linux/%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85jdk%E5%92%8C%E8%AE%BE%E7%BD%AEjdk%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85jdk%E5%92%8C%E8%AE%BE%E7%BD%AEjdk%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</link>
       <pubDate>Tue, 12 Mar 2019 16:20:56 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85jdk%E5%92%8C%E8%AE%BE%E7%BD%AEjdk%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85jdk%E5%92%8C%E8%AE%BE%E7%BD%AEjdk%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</guid>
       <description>0. 准备工作  root用户及密码  1. 卸载原有JDK rpm -qa | grep &amp;quot;java&amp;quot; yum remove 上面筛选内容
 2. 下载JDK, 解压 进入https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html 右键选择linux x64 jdk-8u201-linux-i586.tar.gz的下载地址 使用wget下载
 wget --no-check-certificate --no-cookies --header &amp;quot;Cookie: oraclelicense=accept-securebackup-cookie&amp;quot; https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz 解压
@@ -713,10 +713,10 @@ export JAVA_HOME=/usr/local/jdk1.8.0_201 export JRE_HOME=${JAVA_HOME}/jre export
     
     <item>
       <title>更改linux用户名</title>
-      <link>https://charles-one.github.io/actiger/linux/%E6%9B%B4%E6%94%B9linux%E7%94%A8%E6%88%B7%E5%90%8D/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/%E6%9B%B4%E6%94%B9linux%E7%94%A8%E6%88%B7%E5%90%8D/</link>
       <pubDate>Tue, 12 Mar 2019 15:27:58 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/%E6%9B%B4%E6%94%B9linux%E7%94%A8%E6%88%B7%E5%90%8D/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/%E6%9B%B4%E6%94%B9linux%E7%94%A8%E6%88%B7%E5%90%8D/</guid>
       <description>0.前提条件  root用户及密码 原用户ccc  1. 更改用户ccc 使用root用户编辑更改
 /etc/passwd
 /etc/group
@@ -729,10 +729,10 @@ mv /home/olderuser /home/newuser </description>
     
     <item>
       <title>更改ssh端口与禁止root登录增强服务器安全</title>
-      <link>https://charles-one.github.io/actiger/linux/%E6%9B%B4%E6%94%B9ssh%E7%AB%AF%E5%8F%A3%E4%B8%8E%E7%A6%81%E6%AD%A2root%E7%99%BB%E5%BD%95%E5%A2%9E%E5%BC%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8/</link>
+      <link>https://charles-one.github.io/actiger/blog/linux/%E6%9B%B4%E6%94%B9ssh%E7%AB%AF%E5%8F%A3%E4%B8%8E%E7%A6%81%E6%AD%A2root%E7%99%BB%E5%BD%95%E5%A2%9E%E5%BC%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8/</link>
       <pubDate>Tue, 12 Mar 2019 14:39:09 +0800</pubDate>
       
-      <guid>https://charles-one.github.io/actiger/linux/%E6%9B%B4%E6%94%B9ssh%E7%AB%AF%E5%8F%A3%E4%B8%8E%E7%A6%81%E6%AD%A2root%E7%99%BB%E5%BD%95%E5%A2%9E%E5%BC%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8/</guid>
+      <guid>https://charles-one.github.io/actiger/blog/linux/%E6%9B%B4%E6%94%B9ssh%E7%AB%AF%E5%8F%A3%E4%B8%8E%E7%A6%81%E6%AD%A2root%E7%99%BB%E5%BD%95%E5%A2%9E%E5%BC%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8/</guid>
       <description>0.前提条件 1.安装软件Centos7, 版本7.6.1810 CentOS-7-x86_64-Minimal-1810.iso 2.root用户及密码, 已联网  如未联网,请打开网卡, 并重启 设置/etc/sysconfig/network-scripts/ifcfg-eth0 中ONBOOT =yes  重启电脑
 reboot 1.登录root  需要查询当前Centos7的主机ip  ifconfig 提示无此命令
 yum -y install net-tools

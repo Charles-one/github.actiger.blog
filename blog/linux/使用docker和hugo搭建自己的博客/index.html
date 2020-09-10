@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>使用docker和hugo搭建自己的博客 - Actiger跳跳虎</title>
+    
+    <meta name="description" content="1. 方案选择, 需要内容结构. 1. 练习的话, 可以这种方案. 虚拟机&#43;本地hosts, 免费, 只能内网访问. 2. 最难的方案, 国内域名(备案时间可能会很长,外地备案条件苛刻)&#43;国内云. 2. 在服务器上拉取docker-compose仓库. # 拉取仓库, 并存放在用户目录中 git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository # 复制这用到了docker-compose文件夹, 并存放在用户目录中 cp -r ~/docker-compose-repository/nginx-hugoBlog ~/nginx-hugoBlog 3. 使用hugo生成正确的博客目录 1. hugo生成网站目录 # 指定主题, 我使用了hugo-paper, 网站地址baseUrl, 目标目录, 我会上传多个平台, 所以指定下. # 注意 --bashUrl后的/是必须要有的. hugo --theme=hugo-paper --baseUrl=&quot;http://blog.actiger.com/&quot; --destination=&quot;blog.actiger.com&quot; 2. 上传步骤1生成的博客目录到github.com. 参考这里的步骤3和4 3. 在服务器上拉取上传的博客目录 # 进行docker-compose文件夹中 cd ~/nginx-hugoBlog # 拉取的docker-compose 默认配置是 ./blog.actiger.com:/usr/share/nginx/html . # docker-compose配置文件里的配置的目录, 与当前目录一致的. # 克隆代码时需要, 重命名与docker-compose配置挂载目录名一致. git clone https://github.com/Charles-one/blog.actiger.com blog.actiger.com 4.">
+    <meta name="author" content="">
+    
+    <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.3" />
+    
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
+    
+    
+    <script>
+      function setTheme() {
+        const time = new Date();
+
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then(res => res.json())
+            .then(data => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></p>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">使用docker和hugo搭建自己的博客</h1>
+    <div class="post-meta">May 19, 2019</div>
+  </header>
+  <div class="post-content"><h3 id="1-方案选择-需要内容结构">1. 方案选择, 需要内容结构.</h3>
+<p><img src="../../img/docker-compose-nginx.png" alt="img"></p>
+<h4 id="1-练习的话-可以这种方案-虚拟机本地hosts-免费-只能内网访问">1. 练习的话, 可以这种方案. 虚拟机+本地hosts, 免费, 只能内网访问.</h4>
+<h4 id="2-最难的方案-国内域名备案时间可能会很长外地备案条件苛刻国内云">2. 最难的方案, 国内域名(备案时间可能会很长,外地备案条件苛刻)+国内云.</h4>
+<h3 id="2-在服务器上拉取docker-compose仓库">2. 在服务器上拉取docker-compose仓库.</h3>
+<pre><code># 拉取仓库, 并存放在用户目录中
+git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository
+
+# 复制这用到了docker-compose文件夹, 并存放在用户目录中
+
+cp -r ~/docker-compose-repository/nginx-hugoBlog ~/nginx-hugoBlog
+
+</code></pre><h3 id="3-使用hugo生成正确的博客目录">3. 使用hugo生成正确的博客目录</h3>
+<h4 id="1-hugo生成网站目录">1. hugo生成网站目录</h4>
+<pre><code># 指定主题, 我使用了hugo-paper, 网站地址baseUrl, 目标目录, 我会上传多个平台, 所以指定下.
+
+# 注意 --bashUrl后的/是必须要有的.
+
+hugo --theme=hugo-paper --baseUrl=&quot;http://blog.actiger.com/&quot; --destination=&quot;blog.actiger.com&quot;
+
+</code></pre><h4 id="2-上传步骤1生成的博客目录到githubcom-参考这里的步骤3和4httpscharles-onegithubioactigerlinux使用hugo和github-pages搭建静态网站">2. 上传步骤1生成的博客目录到github.com. <a href="https://charles-one.github.io/actiger/linux/%E4%BD%BF%E7%94%A8hugo%E5%92%8Cgithub-pages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/">参考这里的步骤3和4</a></h4>
+<h4 id="3-在服务器上拉取上传的博客目录">3. 在服务器上拉取上传的博客目录</h4>
+<pre><code># 进行docker-compose文件夹中
+
+cd ~/nginx-hugoBlog
+
+# 拉取的docker-compose 默认配置是 ./blog.actiger.com:/usr/share/nginx/html .
+# docker-compose配置文件里的配置的目录, 与当前目录一致的.
+# 克隆代码时需要, 重命名与docker-compose配置挂载目录名一致.
+
+git clone https://github.com/Charles-one/blog.actiger.com blog.actiger.com
+
+</code></pre><h3 id="4-运行docker-compose文件">4. 运行docker-compose文件.</h3>
+<pre><code># 进行执行目录中
+cd ~cd ~/nginx-hugoBlog
+
+# 执行
+docker-compose up -d
+
+</code></pre><h4 id="验证是否正确-访问httpblogactigercomhttpblogactigercom">验证是否正确, 访问<a href="http://blog.actiger.com">http://blog.actiger.com</a></h4>
+</div>
+  
+</article></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></span>
+  <span>&middot;</span>
+  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Powered by Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span><a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Theme️ Paper</a></span>
+</footer>
+<script src="https://charles-one.github.io/actiger/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

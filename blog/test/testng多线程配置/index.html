@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>TestNG多线程配置 - Actiger跳跳虎</title>
+    
+    <meta name="description" content="1. 在方法注释中配置多线程, 配置线程池  package com.actiger.test.thread; import org.testng.annotations.Test; public class MultiThread { @Test(invocationCount = 10, threadPoolSize = 3) public void test(){ System.out.println(&quot;1&quot;); System.out.println(&quot;Thread ID:%s%n&quot; &#43; Thread.currentThread().getId()); } } 2. 在xml中配置多线程, 不可配置为线程池. package com.actiger.test.thread; import org.testng.annotations.Test; public class MultiThreadOnXml { @Test public void test1(){ System.out.println(&quot;Thread ID: &quot; &#43; Thread.currentThread().getId()); } @Test public void test2(){ System.out.println(&quot;Thread ID: &quot; &#43; Thread.currentThread().getId()); } @Test public void test3(){ System.out.println(&quot;Thread ID: &quot; &#43; Thread.currentThread().getId()); } } multiThread.">
+    <meta name="author" content="">
+    
+    <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.3" />
+    
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
+    
+    
+    <script>
+      function setTheme() {
+        const time = new Date();
+
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then(res => res.json())
+            .then(data => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></p>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">TestNG多线程配置</h1>
+    <div class="post-meta">June 16, 2019</div>
+  </header>
+  <div class="post-content"><h3 id="1-在方法注释中配置多线程-配置线程池">1. 在方法注释中配置多线程, 配置线程池</h3>
+<pre><code>
+package com.actiger.test.thread;
+
+import org.testng.annotations.Test;
+
+public class MultiThread {
+
+    @Test(invocationCount = 10, threadPoolSize = 3)
+    public void test(){
+        System.out.println(&quot;1&quot;);
+        System.out.println(&quot;Thread ID:%s%n&quot; + Thread.currentThread().getId());
+    }
+}
+
+</code></pre><h3 id="2-在xml中配置多线程-不可配置为线程池">2. 在xml中配置多线程, 不可配置为线程池.</h3>
+<pre><code>package com.actiger.test.thread;
+
+import org.testng.annotations.Test;
+
+public class MultiThreadOnXml {
+
+    @Test
+    public void test1(){
+        System.out.println(&quot;Thread ID: &quot; + Thread.currentThread().getId());
+    }
+
+    @Test
+    public void test2(){
+        System.out.println(&quot;Thread ID: &quot; + Thread.currentThread().getId());
+    }
+
+    @Test
+    public void test3(){
+        System.out.println(&quot;Thread ID: &quot; + Thread.currentThread().getId());
+    }
+}
+
+</code></pre><h4 id="multithreadxml配置">multiThread.xml配置</h4>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot; &gt;
+&lt;suite name=&quot;thread&quot; parallel=&quot;methods&quot; thread-count=&quot;2&quot;&gt;
+    &lt;test name=&quot;test&quot;&gt;
+        &lt;classes&gt;
+            &lt;class name=&quot;com.actiger.test.thread.MultiThreadOnXml&quot;&gt;&lt;/class&gt;
+        &lt;/classes&gt;
+    &lt;/test&gt;
+&lt;/suite&gt;
+</code></pre><h3 id="3-规则说明">3. 规则说明</h3>
+<h3 id="在multithreadxml里suite标签下parallel属性配置说明methodstestsclass-thread-count代表最大并发线程数">在multiThread.xml里suite标签下parallel属性配置说明(methods,tests,class), thread-count代表最大并发线程数</h3>
+<ol>
+<li>methods所有用例都可以在不同线程执行</li>
+<li>tests级别, 相同的test tag下用例只能在一个线程, 不同的test tag才可在不同的线程执行</li>
+</ol>
+<h4 id="必须用test下name属性值区分-默认是无法区分的">必须用test下name属性值区分, 默认是无法区分的.</h4>
+<ol start="3">
+<li>class级别, 相同的class tag下用例只能在一个线程, 不同的class tag才可在不同的线程执行</li>
+</ol>
+<h4 id="必须用test下name属性值区分-默认是无法区分的-1">必须用test下name属性值区分, 默认是无法区分的.</h4>
+</div>
+  
+</article></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></span>
+  <span>&middot;</span>
+  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Powered by Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span><a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Theme️ Paper</a></span>
+</footer>
+<script src="https://charles-one.github.io/actiger/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

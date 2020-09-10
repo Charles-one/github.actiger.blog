@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Tags - Actiger跳跳虎</title>
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
+    <meta name="generator" content="Hugo 0.74.3" />
+    
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
+    
+    
+    <script>
+      function setTheme() {
+        const time = new Date();
+
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then(res => res.json())
+            .then(data => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
+      }
+    </script>
+  </head>
+  <body class="list">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></p>
+      </nav>
+    </header>
+    <main class="main">
+
+<header class="page-header">
+  <h1>Tags</h1>
+</header>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Centos7更新内核翻车之旅</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. Centos7 更新内核失败的原因 安装内核后, 设置默认启动的内核错误, 就是设置为rescue模式 2. 事情经过  我操作的内容:  rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm yum --enablerepo=elrepo-kernel -y install kernel-ml awk -F\&#39; &#39;$1==&#34;menuentry &#34; {print i&#43;&#43; &#34; : &#34; $2}&#39; /etc/grub2.cfg 这时候会显示默认启动内核列表:
+ 0 : CentOS Linux (0-rescue-00a62363617944e08db8db894ba6145e) 7 (Core)
+  1 : CentOS Linux (5.1.1-1.el7.elrepo.x86_64) 7 (Core)
+  2 : CentOS Linux (3.10.0-693.11.6.el7.x86_64) 7 (Core)
+  3 : CentOS Linux (3.10.0-693.el7.x86_64) 7 (Core)
+ 接下来就是选择错误的地方...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>May 16, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/centos7%E6%9B%B4%E6%96%B0%E5%86%85%E6%A0%B8%E7%BF%BB%E8%BD%A6%E4%B9%8B%E6%97%85/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>docker-compose简单使用</h2>
+  </header>
+  <section class="entry-content">
+   <p>目录 1. docker-compose简介 2. docker-compose.yml简单配置说明 3. docker-compose运行 1. docker-compose简介与安装  简介   docker-compose是编排docker容器的, 就是管理这一批容器, 进行批量配置, 起动, 暂停, 删除容器等. 如果有多个容器, 使用docker一个个启动慢, 如果容器间有依赖, 还需要手动指定, 还有环境变量, 可以 一起设置.
+ 使用下面命令安装docker-compose和docker. 或使用脚本一键安装  yum remove docker \ docker-common \ docker-selinux \ docker-engine yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo yum -y install docker-ce systemctl enable docker systemctl start docker curl -L &#34;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)&#34; -o /usr/local/bin/docker-compose chmod &#43;x /usr/local/bin/docker-compose 2....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>May 15, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/docker-compose%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>创建hugo主题失败的思考</h2>
+  </header>
+  <section class="entry-content">
+   <p>0.事情经过  每次拉取Hugo Paper的主题的时候都会把作者的个人图标拉过来, 显示在我的Github Pages上, 很难受. 需要手动更改位置. 所以就想自己更改出来一个hugo theme. 错误估计自己的能力, 什么也没弄懂, 什么也没有做出来. 很生气, 没有计划就来做这件事, 浪费太多时间, 没有睡好. 然后思考下这次浪费时间的原因, 就有了这篇文章.  1.分析下失败原因 1.不了解Hugo使用theme的生成规则  不清楚theme目录里, 具体存放什么, 有什么作用. 对生成网页了解甚少, 规则就明白header是生成一个页面的上半部分, footer.html是生成页面下半部分. 高估自己css和html能力了, 虽然有学过, 距离很久, 记不清了, 一只半解, 例如a标签样式的下划线, 肯定有其他的优先级造成直接定义a text-decoration: none失败. theme参数的运用也不清楚.  2.没有目标和计划.  在不了解hugo规则和html知识的情况下, 盲目开始, 没有考虑出现问题, 该怎么处理, 是放弃还是暂时挂起. 从12点到5点完成在乱看, 没有搞清楚你要做什么地步. 最初的目标是, 去掉作者放的ico图标, 这个很简单的事情, 切分支然后替换内容.(还有就是在actiger/static/img里存放ico图片, 后来才知道会覆盖作者的), 对就是 这么一简单的需求, 还有一个简单的需求是把代码的背景色替换成灰色的(这个更新主题作者已经解决了).  3.没有寻求解决问题的最优解.  对于自己的2个目标, 完成可以5分钟解决, 自己却偏不, 想练习下自己的HTML, 结果没有锻炼, 还打击了积极性. 出现困难没有及时停下来想想, 目标, 时间成功.  3....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>April 14, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/thought/%E5%88%9B%E5%BB%BAhugo%E4%B8%BB%E9%A2%98%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%80%9D%E8%80%83/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>tmux保存会话和剪贴板插件安装及使用</h2>
+  </header>
+  <section class="entry-content">
+   <p>0.内容  安装tmux 安装tmux插件管理 安装保存会话和剪贴板插件  1.安装tmux 为什么要使用tmux, 可以永久保存会话, 就不用每次都要切换到对应工作目录中.  Mac下  brew install tmux  linux, 参考Github地址  git clone https://github.com/tmux/tmux.git cd tmux sh autogen.sh ./configure &amp;&amp; make 2.安装tmux插件管理  参考地址  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  新建~/.tmux.conf, 复制下面内容到这个文件下.  # List of plugins set -g @plugin &#39;tmux-plugins/tpm&#39; set -g @plugin &#39;tmux-plugins/tmux-sensible&#39; # Other examples: # set -g @plugin &#39;github_username/plugin_name&#39; # set -g @plugin &#39;git@github.com/user/plugin&#39; # set -g @plugin &#39;git@bitbucket....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>April 11, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/tmux%E4%BF%9D%E5%AD%98%E4%BC%9A%E8%AF%9D%E5%92%8C%E5%89%AA%E8%B4%B4%E6%9D%BF%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Mac使用sshpass和alias管理ssh账号密码</h2>
+  </header>
+  <section class="entry-content">
+   <p>0.内容.  使用brew安装sshpass软件 在.bashrc或者.zshrc中写入连接服务器别名alias, 并测试连接.  1.使用brew安装sshpass软件 因为sshpass对新手来手使用不安全(某方面密码可以history中看到), 所以仅推荐连接本机虚拟机中. 正是因为担心会滥用所以brew并没有直接提供sshpass的安装. 项目地址 https://github.com/hudochenkov/homebrew-sshpass 强制推荐使用SSH密钥  直接使用brew安装  brew install hudochenkov/sshpass/sshpass 2.在.bashrc或者.zshrc中写入连接服务器别名alias  sshpass使用  # sshpass -p后接密码, ssh 后的-p是指定端口 # 分成2部分内容一是sshpass -p, 二是ssh root@10.211.55.9 -p 22 # 使用密码password连接10.211.55.9中22端口的root用户 sshpass -p&#39;password&#39; ssh root@10.211.55.9 -p 22  建立别名并生效, 这样就避免在history中直接看到密码.  alias tolocal=&#34;sshpass -p&#39;password&#39; ssh root@10.211.55.9 -p 12340&#34; 将上面内容放到.bashrc(bash用户)或者.zshrc(zsh用户)中
+再次生成配置
+source ~/.bashrc # 或者 source ~/.zshrc  测试  在终端中输入并回车
+tolocal 即可连接本地虚拟机中....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>April 10, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/mac%E4%BD%BF%E7%94%A8sshpass%E5%92%8Calias%E7%AE%A1%E7%90%86ssh%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>SSH密钥生成配置和登陆服务器与github使用钥匙</h2>
+  </header>
+  <section class="entry-content">
+   <p>1.生成SSH公钥私钥  进入文件夹中(注:所有”#“表示说明)  cd ~/.ssh/ # 其中-t rsa是指定rsa加密算法, -C &#34;asus&#34;是添加描述asus ssh-keygen -t rsa -C &#34;asus&#34; # 说明: 默认是保存在/Users/你的用户名/.ssh/下, 如果你指定了名字则保存在当前路径下. # 指定的必须是文件且是绝对路径 # 在这里我已经在 ~/.ssh/中, 默认会保存在这里 Enter file in which to save the key (/Users/username(你的用户名)/.ssh/id_rsa): asus_rsa # 这里提示输入密码, 直接Enter表示不要密码 Enter passphrase (empty for no passphrase): # 与上面输入的密码保持一致, 如果上面没输入,这里也不要输入 Enter same passphrase again:  提示这些信息就表示生成成功  Your identification has been saved in /Users/username/.ssh/asus_rsa. Your public key has been saved in /Users/username/.ssh/asus_rsa.pub. The key fingerprint is: SHA256:WNwJoo/Rr0TvpnQIdA4YisZrF&#43;7ZM8lKNB4JLpJXALA asus The key&#39;s randomart image is: &#43;---[RSA 2048]----&#43; |&#43;....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>March 30, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/ssh%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90%E9%85%8D%E7%BD%AE%E5%92%8C%E7%99%BB%E9%99%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8Egithub%E4%BD%BF%E7%94%A8%E9%92%A5%E5%8C%99/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>华硕ASUS路由器AC5300莫名重启记录和排查</h2>
+  </header>
+  <section class="entry-content">
+   <p>问题我的华硕路由器有时莫名奇妙的重启 出问题设备和版本 ASUS AC5300 3.0.0.4.384.45149 首先查看系统日志 May 5 13:05:25 weini: [软件中心]: httpdb进程准备就绪！ May 5 13:05:25 WAN Connection: WAN was restored. May 5 13:05:25 WLCEVENTD: eth8: Assoc D4:90:9C:E7:D2:03 May 5 13:05:26 kernel: UBIFS (ubi1:0): UBIFS: mounted UBI device 1, volume 0, name &#34;nvram&#34;, R/O mode May 5 13:05:26 kernel: UBIFS (ubi1:0): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes May 5 13:05:26 kernel: UBIFS (ubi1:0): FS size: 5840896 bytes (5 MiB, 46 LEBs), journal size 1015809 bytes (0 MiB, 6 LEBs) May 5 13:05:26 kernel: UBIFS (ubi1:0): reserved for root: 275879 bytes (269 KiB) May 5 13:05:26 kernel: UBIFS (ubi1:0): media format: w4/r0 (latest is w4/r0), UUID ABA6F10C-0F1C-4B89-AD25-4B74DEC12700, small LPT model May 5 13:05:26 kernel: UBIFS (ubi1:0): un-mount UBI device 1 May 5 13:05:26 kernel: ubi1: detaching mtd9 May 5 13:05:26 kernel: ubi1: mtd9 is detached May 5 13:05:26 ntp: start NTP update Mar 30 00:32:50 rc_service: ntp 1229:notify_rc restart_diskmon Mar 30 00:32:50 rc_service: waitting &#34;start_firewall&#34; via udhcpc ....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>March 30, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/%E5%8D%8E%E7%A1%95asus%E8%B7%AF%E7%94%B1%E5%99%A8ac5300%E8%8E%AB%E5%90%8D%E9%87%8D%E5%90%AF%E5%92%8C%E6%8E%92%E6%9F%A5/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Jmeter性能测试并添加服务器cpu内存使用率</h2>
+  </header>
+  <section class="entry-content">
+   <p>0. 准备工作  搭建静态博客Hugo, 建立Hugo服务作为测试接口 服务端centOS7.6.1810, 服务端ServerAgent 本机安装Java8, 并设置环境变量 本机jmeter, jmeter插件管理, Servers Performance Monitoring插件  1.服务端CentOS7 搭建Hugo, 并建立Hugo服务, 创建接口.  搭建Huog  请参考这个搭建Hugo文章参考到这条语句下就可以了,这条语句下面的内容不用看了
+hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&#34; --port=1313  创建接口  hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&#34; --port=1313  检测服务端接口  在浏览器中访问 http://你的ip:1313.如未指定,则是http://localhost:1313
+能正常访问显示文章就完成了
+2. 本机下载jmeter, jmeter插件管理, Servers Performance Monitoring插件  下载地址Jmeter, 安装插件  Jmeter下载地址下载并解压
+Jmeter插件管理下载并解压出对应jar文件, 并放在apache-jmeter-5.1/lib/ext中
+关闭Jmeter, 再重新打开Jmeter
+进入选项(Options)-&gt;插件管理(Plugins Manager)中
+搜索perfmon并安装
+3. 服务端下载PerfMon Server Agent运行, 添加防火墙端口4444   下载PerfMon Server Agent  添加防火墙接口4444, 因为PerfMon Server Agent使用的是这个端口, 解压运行...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>March 14, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/test/jmeter%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B9%B6%E6%B7%BB%E5%8A%A0%E6%9C%8D%E5%8A%A1%E5%99%A8cpu%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E7%8E%87/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>使用Hugo和GitHub Pages搭建静态网站</h2>
+  </header>
+  <section class="entry-content">
+   <p>0. 前提条件  电脑安装git(Mac linux都需要安装) 安装go并设置环境变量(仅linux下需要) 虚拟机Centos7.6.1810(测试用, 不需要安装)  1. 安装hugo   mac直接使用brew install hugo就可以了
+  linux下源码安装
+   下载并编译  mkdir ~/src cd ~/src git clone https://github.com/gohugoio/hugo.git cd hugo go install 添加环境变量  # 当前用户~/go文件绝对路径是GOPATH,Go编译后的文件在~/go/bin中 # 如现在当前用户是jenkins vim /etc/profile 添加 export export GOPATH=/var/lib/jenkins/go export PATH=${PATH}:$GOPATH/bin 重新生效/etc/profile文件
+source /etc/profile
+再次hugo vimersion
+就会显示hugo版本, 表示可用
+2. 使用Hugo创建个人网站  创建静态网站文件夹  cd ~ hugo new site actiger  写第一篇markdown文章, markdown语法参考  cd ~/actiger 在目录~/actiger下执行hugo new about....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>March 13, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/%E4%BD%BF%E7%94%A8hugo%E5%92%8Cgithub-pages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>使用jenkins构建指定版本的Github项目Hugo</h2>
+  </header>
+  <section class="entry-content">
+   <p>0. 前提条件, 会使用到jenkins, go语言编译hugo   安装jenkinx&lt;/&gt;
+  Linux安装go并设置环境变量  1. 创建一个jenkins任务  创建一个Jenkins任务    输入Enter an item name, 这里名字是basic_hugo
+  选择Github组织
+  再选择最左下&#34;OK&#34;按钮, 创建
+  2. 编辑已创建的basic_hugo任务  进入basic_hugo任务编辑页面    进入http://&lt;服务器ip&gt;:8080/me/my-views/view/all/, 在名称下basicd_hugo鼠标悬停上去, 多选, 选择Configure (或者使用Blue Ocean插件http://&lt;服务器ip&gt;:8080/blue/organizations/jenkins/basic_hugo/activity, 选择项目名称旁边的设置齿轮)
+  进入编辑页, http://10.211.55.9:8080/job/basic_hugo/configure
+   在编辑页中设置github中hugo地址, 参数化分支名称  GitHub项目-&gt;项目URL 填写 https://github.com/gohugoio/hugo.git/
+参数化构建过程-&gt;字符参数 Name: BARNCH Default Value: master Description	分支名称
+Source Code Management-&gt;Git-&gt;Repositories...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>March 13, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/%E4%BD%BF%E7%94%A8jenkins%E6%9E%84%E5%BB%BA%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC%E7%9A%84github%E9%A1%B9%E7%9B%AEhugo/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="/actiger/blog/page/5/">← Prev Page</a>
+    <a class="next" href="/actiger/blog/page/7/">Next Page →</a>
+  </nav>
+</footer></main>
+<footer class="footer">
+  <span>&copy; 2020 <a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></span>
+  <span>&middot;</span>
+  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Powered by Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span><a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Theme️ Paper</a></span>
+</footer>
+<script src="https://charles-one.github.io/actiger/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+
