@@ -82,10 +82,10 @@
     <div class="post-meta">May 15, 2019</div>
   </header>
   <div class="post-content"><h2 id="目录">目录</h2>
-<h3 id="a-hreffirst1-docker-compose简介a"><!-- raw HTML omitted -->1. docker-compose简介<!-- raw HTML omitted --></h3>
-<h3 id="a-hreftwo2-docker-composeyml简单配置说明a"><!-- raw HTML omitted -->2. docker-compose.yml简单配置说明<!-- raw HTML omitted --></h3>
-<h3 id="a-hrefthree3-docker-compose运行a"><!-- raw HTML omitted -->3. docker-compose运行<!-- raw HTML omitted --></h3>
-<h3 id="a-idfirst1-docker-compose简介与安装a"><!-- raw HTML omitted -->1. docker-compose简介与安装<!-- raw HTML omitted --></h3>
+<h3 id="a-hreffirst1-docker-compose简介a"><a href="#first">1. docker-compose简介</a></h3>
+<h3 id="a-hreftwo2-docker-composeyml简单配置说明a"><a href="#two">2. docker-compose.yml简单配置说明</a></h3>
+<h3 id="a-hrefthree3-docker-compose运行a"><a href="#three">3. docker-compose运行</a></h3>
+<h3 id="a-idfirst1-docker-compose简介与安装a"><a id="first">1. docker-compose简介与安装</a></h3>
 <ol>
 <li>简介</li>
 </ol>
@@ -121,7 +121,7 @@ curl -L &quot;https://github.com/docker/compose/releases/download/1.24.0/docker-
 
 chmod +x /usr/local/bin/docker-compose
 
-</code></pre><h3 id="a-idtwo2-docker-composeyml简单配置a"><!-- raw HTML omitted -->2. docker-compose.yml简单配置<!-- raw HTML omitted --></h3>
+</code></pre><h3 id="a-idtwo2-docker-composeyml简单配置a"><a id="two">2. docker-compose.yml简单配置</a></h3>
 <h3 id="这里以wordpress-nginx-mariadb为例">这里以wordpress-nginx-mariadb为例</h3>
 <h4 id="参数说明">参数说明</h4>
 <pre><code># 设置docker-compose 版本
@@ -176,7 +176,7 @@ services:
       WORDPRESS_DB_PASSWORD: wordpress_weiki_JKL_sdf1
       WORDPRESS_DB_NAME: wordpress
 
-</code></pre><h3 id="a-idthree3-docker-compose运行-直接拉取已经设置的配置a"><!-- raw HTML omitted -->3. docker-compose运行, 直接拉取已经设置的配置<!-- raw HTML omitted --></h3>
+</code></pre><h3 id="a-idthree3-docker-compose运行-直接拉取已经设置的配置a"><a id="three">3. docker-compose运行, 直接拉取已经设置的配置</a></h3>
 <ol>
 <li>使用git克隆docker-compose库, 并存放在当前用户目录中(即cd ~/ 所在地方)</li>
 </ol>

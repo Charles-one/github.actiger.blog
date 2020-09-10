@@ -590,15 +590,18 @@ tolocal 即可连接本地虚拟机中.</description>
       <pubDate>Thu, 14 Mar 2019 23:31:20 +0800</pubDate>
       
       <guid>https://charles-one.github.io/actiger/blog/test/jmeter%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B9%B6%E6%B7%BB%E5%8A%A0%E6%9C%8D%E5%8A%A1%E5%99%A8cpu%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E7%8E%87/</guid>
-      <description>0. 准备工作  搭建静态博客Hugo, 建立Hugo服务作为测试接口 服务端centOS7.6.1810, 服务端ServerAgent 本机安装Java8, 并设置环境变量 本机jmeter, jmeter插件管理, Servers Performance Monitoring插件  1.服务端CentOS7 搭建Hugo, 并建立Hugo服务, 创建接口.  搭建Huog  请参考这个搭建Hugo文章参考到这条语句下就可以了,这条语句下面的内容不用看了
+      <description>0. 准备工作  搭建静态博客Hugo, 建立Hugo服务作为测试接口 服务端centOS7.6.1810, 服务端ServerAgent 本机安装Java8, 并设置环境变量 本机jmeter, jmeter插件管理, Servers Performance Monitoring插件  1.服务端CentOS7 搭建Hugo, 并建立Hugo服务, 创建接口.  搭建Huog  请参考这个搭建Hugo文章
+参考到这条语句下就可以了,这条语句下面的内容不用看了
 hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&amp;quot; --port=1313  创建接口  hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&amp;quot; --port=1313  检测服务端接口  在浏览器中访问 http://你的ip:1313.如未指定,则是http://localhost:1313
 能正常访问显示文章就完成了
-2. 本机下载jmeter, jmeter插件管理, Servers Performance Monitoring插件  下载地址Jmeter, 安装插件  Jmeter下载地址下载并解压
-Jmeter插件管理下载并解压出对应jar文件, 并放在apache-jmeter-5.1/lib/ext中
+2. 本机下载jmeter, jmeter插件管理, Servers Performance Monitoring插件  下载地址Jmeter, 安装插件  Jmeter下载地址
+下载并解压
+Jmeter插件管理
+下载并解压出对应jar文件, 并放在apache-jmeter-5.1/lib/ext中
 关闭Jmeter, 再重新打开Jmeter
 进入选项(Options)-&amp;gt;插件管理(Plugins Manager)中
 搜索perfmon并安装
-3. 服务端下载PerfMon Server Agent运行, 添加防火墙端口4444   下载PerfMon Server Agent  添加防火墙接口4444, 因为PerfMon Server Agent使用的是这个端口, 解压运行</description>
+3. 服务端下载PerfMon Server Agent运行, 添加防火墙端口4444   下载PerfMon Server Agent</description>
     </item>
     
     <item>
@@ -623,7 +626,8 @@ source /etc/profile
       
       <guid>https://charles-one.github.io/actiger/blog/linux/%E4%BD%BF%E7%94%A8jenkins%E6%9E%84%E5%BB%BA%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC%E7%9A%84github%E9%A1%B9%E7%9B%AEhugo/</guid>
       <description>0. 前提条件, 会使用到jenkins, go语言编译hugo   安装jenkinx&amp;lt;/&amp;gt;
-  Linux安装go并设置环境变量  1. 创建一个jenkins任务  创建一个Jenkins任务    输入Enter an item name, 这里名字是basic_hugo
+  Linux安装go并设置环境变量
+  1. 创建一个jenkins任务  创建一个Jenkins任务    输入Enter an item name, 这里名字是basic_hugo
   选择Github组织
   再选择最左下&amp;quot;OK&amp;quot;按钮, 创建
   2. 编辑已创建的basic_hugo任务  进入basic_hugo任务编辑页面    进入http://&amp;lt;服务器ip&amp;gt;:8080/me/my-views/view/all/, 在名称下basicd_hugo鼠标悬停上去, 多选, 选择Configure (或者使用Blue Ocean插件http://&amp;lt;服务器ip&amp;gt;:8080/blue/organizations/jenkins/basic_hugo/activity, 选择项目名称旁边的设置齿轮)
@@ -652,7 +656,8 @@ source /etc/profile </description>
       <pubDate>Wed, 13 Mar 2019 15:47:35 +0800</pubDate>
       
       <guid>https://charles-one.github.io/actiger/blog/linux/%E5%AE%89%E8%A3%85jenkins%E5%92%8C%E6%8F%92%E4%BB%B6/</guid>
-      <description>0.安装Jenkins, 需要提前安装JDK 1.8 安装JDK参考1.安装Jnekins  尽量翻墙执行,否则容易报443错误  sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key yum search jenkins sudo yum install jenkins 2. 启动服务与添加防火墙端口  启动jenkins  systemctl start jenkins 如果这里有报错信息,并且提示 &amp;ldquo;systemctl status jenkins.service&amp;rdquo; and &amp;ldquo;journalctl -xe&amp;rdquo; for details 查看详情
+      <description>0.安装Jenkins, 需要提前安装JDK 1.8 安装JDK参考
+1.安装Jnekins  尽量翻墙执行,否则容易报443错误  sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key yum search jenkins sudo yum install jenkins 2. 启动服务与添加防火墙端口  启动jenkins  systemctl start jenkins 如果这里有报错信息,并且提示 &amp;ldquo;systemctl status jenkins.service&amp;rdquo; and &amp;ldquo;journalctl -xe&amp;rdquo; for details 查看详情
 journalctl -xe可以看到原因/usr/bin/java: 没有那个文件或目录
 需要更改vim /etc/init.d/jenkins
 candidates=&amp;quot; /etc/alternatives/java /usr/lib/jvm/java-1.8.0/bin/java /usr/lib/jvm/jre-1.8.0/bin/java /usr/lib/jvm/java-1.7.0/bin/java /usr/lib/jvm/jre-1.7.0/bin/java /usr/java/jdk1.8.0_152/bin/java 这个是修改后的jdk路径（修改前是/usr/bin/java） &amp;quot; systemctl daemon-reload (重新加载工具)

@@ -167,7 +167,7 @@ spec:
       - name: mysql-persistent-storage
         persistentVolumeClaim:
           claimName: pvc-hostpath
-</code></pre><h3 id="5-设置网络接收规则-a-hrefhttpsblogactigercomdocker解决nodepod模式外网无法访问mysql服务问题解决nodepod模式外网无法访问mysql服务问题a">5. 设置网络接收规则, <!-- raw HTML omitted -->解决nodepod模式外网无法访问mysql服务问题<!-- raw HTML omitted --></h3>
+</code></pre><h3 id="5-设置网络接收规则-a-hrefhttpsblogactigercomdocker解决nodepod模式外网无法访问mysql服务问题解决nodepod模式外网无法访问mysql服务问题a">5. 设置网络接收规则, <a href="https://blog.actiger.com/docker/解决nodepod模式外网无法访问mysql服务问题/">解决nodepod模式外网无法访问mysql服务问题</a></h3>
 <pre><code>iptables -P FORWARD ACCEPT
 
 firewall-cmd --zone=public --add-port=30015/tcp --permanent

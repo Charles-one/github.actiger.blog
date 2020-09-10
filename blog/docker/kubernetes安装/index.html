@@ -351,7 +351,7 @@ systemctl enable kubelet &amp;&amp; systemctl start kubelet
 
 kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=&lt;服务器ip&gt;
 
-</code></pre><h3 id="a-name77-对用户的设置-如果想cc或cc2中任何用户root或者普通用户可操作kubectl-需要装kube文件移动到对应的用户下a"><!-- raw HTML omitted -->7. 对用户的设置, 如果想cc或cc2中任何用户(root或者普通用户)可操作kubectl, 需要装.kube文件移动到对应的用户下.<!-- raw HTML omitted --></h3>
+</code></pre><h3 id="a-name77-对用户的设置-如果想cc或cc2中任何用户root或者普通用户可操作kubectl-需要装kube文件移动到对应的用户下a"><a name="7">7. 对用户的设置, 如果想cc或cc2中任何用户(root或者普通用户)可操作kubectl, 需要装.kube文件移动到对应的用户下.</a></h3>
 <pre><code>mkdir -p $HOME/.kube
 cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 chown $(id -u):$(id -g) $HOME/.kube/config
@@ -364,7 +364,7 @@ kubectl get nodes
 
 # 查看系统pod是否初始化完成
 kubectl get pods -n kube-system
-</code></pre><h4 id="a-name99-corednse显示pending中-解决安装网络插件-安装完毕等待几分钟即可a"><!-- raw HTML omitted -->9. corednse显示pending中, 解决安装网络插件, 安装完毕等待几分钟即可.<!-- raw HTML omitted --></h4>
+</code></pre><h4 id="a-name99-corednse显示pending中-解决安装网络插件-安装完毕等待几分钟即可a"><a name="9">9. corednse显示pending中, 解决安装网络插件, 安装完毕等待几分钟即可.</a></h4>
 <pre><code>curl -O https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
 kubectl apply -f kube-flannel.yml
@@ -372,7 +372,7 @@ kubectl apply -f kube-flannel.yml
 kubectl apply -f &quot;https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')&quot;
 
 </code></pre><h3 id="10-添加node-在node节点执行-初始化完会显示在列表中">10. 添加node, 在node节点执行, 初始化完会显示在列表中</h3>
-<h4 id="添加节点时确认执行a-href9第9步a的网络插件安装">添加节点时确认执行<!-- raw HTML omitted -->第9步<!-- raw HTML omitted -->的网络插件安装</h4>
+<h4 id="添加节点时确认执行a-href9第9步a的网络插件安装">添加节点时确认执行<a href="#9">第9步</a>的网络插件安装</h4>
 <pre><code>kubeadm join 10.211.55.5:6443 --token ylml1p.xhp333geob6tvtkh \
 --discovery-token-ca-cert-hash sha256:e5541130096be094
 
@@ -380,7 +380,7 @@ kubectl apply -f &quot;https://cloud.weave.works/k8s/net?k8s-version=$(kubectl v
 <p><img src="https://img.actiger.com/blog/Kubernetes.png" alt="排查"></p>
 <h3 id="12-补充错误">12. 补充错误</h3>
 <h5 id="the-connection-to-the-server-localhost8080-was-refused---did-you-specify-the-right-host-or-port">The connection to the server localhost:8080 was refused - did you specify the right host or port?</h5>
-<p>则需要执行<!-- raw HTML omitted -->第7条内容.<!-- raw HTML omitted --></p>
+<p>则需要执行<a href="#7">第7条内容.</a></p>
 <h5 id="解决-procsysnetbridgebridge-nf-call-iptables-contents-are-not-set-to-1">解决 /proc/sys/net/bridge/bridge-nf-call-iptables contents are not set to 1</h5>
 <pre><code>echo '1' &gt; /proc/sys/net/bridge/bridge-nf-call-iptables
 </code></pre><h3 id="13-重置节点">13. 重置节点</h3>

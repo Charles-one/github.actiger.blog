@@ -172,15 +172,18 @@ tolocal 即可连接本地虚拟机中....</p>
     <h2>Jmeter性能测试并添加服务器cpu内存使用率</h2>
   </header>
   <section class="entry-content">
-   <p>0. 准备工作  搭建静态博客Hugo, 建立Hugo服务作为测试接口 服务端centOS7.6.1810, 服务端ServerAgent 本机安装Java8, 并设置环境变量 本机jmeter, jmeter插件管理, Servers Performance Monitoring插件  1.服务端CentOS7 搭建Hugo, 并建立Hugo服务, 创建接口.  搭建Huog  请参考这个搭建Hugo文章参考到这条语句下就可以了,这条语句下面的内容不用看了
+   <p>0. 准备工作  搭建静态博客Hugo, 建立Hugo服务作为测试接口 服务端centOS7.6.1810, 服务端ServerAgent 本机安装Java8, 并设置环境变量 本机jmeter, jmeter插件管理, Servers Performance Monitoring插件  1.服务端CentOS7 搭建Hugo, 并建立Hugo服务, 创建接口.  搭建Huog  请参考这个搭建Hugo文章
+参考到这条语句下就可以了,这条语句下面的内容不用看了
 hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&#34; --port=1313  创建接口  hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&#34; --port=1313  检测服务端接口  在浏览器中访问 http://你的ip:1313.如未指定,则是http://localhost:1313
 能正常访问显示文章就完成了
-2. 本机下载jmeter, jmeter插件管理, Servers Performance Monitoring插件  下载地址Jmeter, 安装插件  Jmeter下载地址下载并解压
-Jmeter插件管理下载并解压出对应jar文件, 并放在apache-jmeter-5.1/lib/ext中
+2. 本机下载jmeter, jmeter插件管理, Servers Performance Monitoring插件  下载地址Jmeter, 安装插件  Jmeter下载地址
+下载并解压
+Jmeter插件管理
+下载并解压出对应jar文件, 并放在apache-jmeter-5.1/lib/ext中
 关闭Jmeter, 再重新打开Jmeter
 进入选项(Options)-&gt;插件管理(Plugins Manager)中
 搜索perfmon并安装
-3. 服务端下载PerfMon Server Agent运行, 添加防火墙端口4444   下载PerfMon Server Agent  添加防火墙接口4444, 因为PerfMon Server Agent使用的是这个端口, 解压运行...</p>
+3. 服务端下载PerfMon Server Agent运行, 添加防火墙端口4444   下载PerfMon Server Agent...</p>
   </section>
   <footer class="entry-footer">
     <time>March 14, 2019</time>
@@ -211,7 +214,8 @@ source /etc/profile
   </header>
   <section class="entry-content">
    <p>0. 前提条件, 会使用到jenkins, go语言编译hugo   安装jenkinx&lt;/&gt;
-  Linux安装go并设置环境变量  1. 创建一个jenkins任务  创建一个Jenkins任务    输入Enter an item name, 这里名字是basic_hugo
+  Linux安装go并设置环境变量
+  1. 创建一个jenkins任务  创建一个Jenkins任务    输入Enter an item name, 这里名字是basic_hugo
   选择Github组织
   再选择最左下&#34;OK&#34;按钮, 创建
   2. 编辑已创建的basic_hugo任务  进入basic_hugo任务编辑页面    进入http://&lt;服务器ip&gt;:8080/me/my-views/view/all/, 在名称下basicd_hugo鼠标悬停上去, 多选, 选择Configure (或者使用Blue Ocean插件http://&lt;服务器ip&gt;:8080/blue/organizations/jenkins/basic_hugo/activity, 选择项目名称旁边的设置齿轮)
