@@ -76,6 +76,18 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>解决腾讯云PVC网络指定公网ip安装kubernetes master节点失败问题</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. 问题描述, 使用腾讯云VPC(Virtual Private Cloud)即专有网络, 初始化kubernetes init指定公网ip, 初始化失败 kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=&lt;公网ip&gt; --ignore-preflight-errors=NumCPU 截取提示错误信息 Nov 23 20:09:16 mm.com kubelet[22940]: E1123 20:09:16.997560 22940 kubelet.go:2252] node &#34;mm.com&#34; not found Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.053858 22940 controller.go:125] failed to ensure node lease exists, will retry in 7s, error: Get https://118.89.82.5:6443/apis/coordination.k8s.io/v1beta1 Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.097695 22940 kubelet.go:2252] node &#34;mm.com&#34; not found Nov 23 20:09:17 mm.com kubelet[22940]: E1123 20:09:17.101372 22940 reflector....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 28, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/docker/%E8%A7%A3%E5%86%B3%E8%85%BE%E8%AE%AF%E4%BA%91pvc%E7%BD%91%E7%BB%9C%E6%8C%87%E5%AE%9A%E5%85%AC%E7%BD%91ip%E5%AE%89%E8%A3%85kubernetes-master%E8%8A%82%E7%82%B9%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>解决mac文件损坏不能打开问题</h2>
   </header>
   <section class="entry-content">
@@ -199,18 +211,6 @@ describe usrinfo;
     <time>June 16, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/blog/test/testng%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>TestNG超时测试</h2>
-  </header>
-  <section class="entry-content">
-   <p>TestNG超时测试 超出预期时间则用例失败 package com.actiger.test.timeout; import org.testng.annotations.Test; public class TimeOut { @Test(timeOut = 3000) public void testSuccess() throws InterruptedException{ Thread.sleep(2000); } @Test(timeOut = 2000) public void testFail() throws InterruptedException{ Thread.sleep(3000); } } ...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>June 16, 2019</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/test/testng%E8%B6%85%E6%97%B6%E6%B5%8B%E8%AF%95/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
