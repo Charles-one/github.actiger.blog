@@ -7,8 +7,8 @@
     
     <title>MariaDB MySQL连接的2种错误 - Actiger跳跳虎</title>
     
-    <meta name="description" content=" 1. 常见MySQL Mariadb连接的2种错误 错误一 ERROR 1045 (28000): Access denied for user &#39;usera&#39;@&#39;localhost&#39; (using password:YES) 错误二 ERROR 1045 (28000): Access denied for user &#39;usera&#39;@&#39;localhost&#39; (using password:NO). 2. 错误一 常见错误是密码错误 重置密码即可 3. 错误二 输入账号密码时没有输入密码. 1. 命令行中没有-p进行无密码登录 2. 如果是IDE中的yaml文件确定password的缩进正确 cat application.yaml
-spring: datasource: driver-class-name: org.mariadb.jdbc.Driver url: jdbc:mariadb://localhost:3306/admin username: admin password: 123456 上面的password缩进错误, 就会提示(using password:No) 正确的是 spring: datasource: driver-class-name: org.mariadb.jdbc.Driver url: jdbc:mariadb://localhost:3306/admin username: admin password: 123456">
+    <meta name="description" content="1. 常见MySQL Mariadb连接的2种错误 错误一 ERROR 1045 (28000): Access denied for user &#39;usera&#39;@&#39;localhost&#39; (using password:YES) 错误二 ERROR 1045 (28000): Access denied for user &#39;usera&#39;@&#39;localhost&#39; (using password:NO). 2. 错误一 常见错误是密码错误 重置密码即可 3. 错误二 输入账号密码时没有输入密码. 1. 命令行中没有-p进行无密码登录 2. 如果是IDE中的yaml文件确定password的缩进正确 cat application.yaml
+spring: datasource: driver-class-name: org.mariadb.jdbc.Driver url: jdbc:mariadb://localhost:3306/admin username: admin password: 123456 上面的password缩进错误, 就会提示(using password:No) 正确的是 spring: datasource: driver-class-name: org.mariadb.jdbc.Driver url: jdbc:mariadb://localhost:3306/admin username: admin password: 123456 ">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -81,42 +81,36 @@ spring: datasource: driver-class-name: org.mariadb.jdbc.Driver url: jdbc:mariadb
     <h1 class="post-title">MariaDB MySQL连接的2种错误</h1>
     <div class="post-meta">December 12, 2019</div>
   </header>
-  <div class="post-content">
-
-<h3 id="1-常见mysql-mariadb连接的2种错误">1. 常见MySQL Mariadb连接的2种错误</h3>
-
+  <div class="post-content"><h3 id="1-常见mysql-mariadb连接的2种错误">1. 常见MySQL Mariadb连接的2种错误</h3>
 <h3 id="错误一">错误一</h3>
 <pre><code>ERROR 1045 (28000): Access denied
-for user &#39;usera&#39;@&#39;localhost&#39; (using password:YES)</code></pre>
-<h3 id="错误二">错误二</h3>
+for user 'usera'@'localhost' (using password:YES)
+</code></pre><h3 id="错误二">错误二</h3>
 <pre><code>ERROR 1045 (28000): Access denied
-for user &#39;usera&#39;@&#39;localhost&#39; (using password:NO).</code></pre>
-<h3 id="2-错误一-常见错误是密码错误">2. 错误一 常见错误是密码错误</h3>
-
+for user 'usera'@'localhost' (using password:NO).
+</code></pre><h3 id="2-错误一-常见错误是密码错误">2. 错误一 常见错误是密码错误</h3>
 <h4 id="重置密码即可">重置密码即可</h4>
-
 <h3 id="3-错误二-输入账号密码时没有输入密码">3. 错误二 输入账号密码时没有输入密码.</h3>
-
 <h4 id="1-命令行中没有-p进行无密码登录">1. 命令行中没有-p进行无密码登录</h4>
-
 <h4 id="2-如果是ide中的yaml文件确定password的缩进正确">2. 如果是IDE中的yaml文件确定password的缩进正确</h4>
-
 <p>cat application.yaml</p>
 <pre><code>spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://localhost:3306/admin
     username: admin
-password: 123456</code></pre>
-<h4 id="上面的password缩进错误-就会提示-using-password-no">上面的password缩进错误, 就会提示(using password:No)</h4>
+password: 123456
 
+</code></pre><h4 id="上面的password缩进错误-就会提示using-passwordno">上面的password缩进错误, 就会提示(using password:No)</h4>
 <h4 id="正确的是">正确的是</h4>
 <pre><code>spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://localhost:3306/admin
     username: admin
-    password: 123456</code></pre></div>
+    password: 123456
+
+</code></pre></div>
   
 </article></main>
 <footer class="footer">

@@ -94,7 +94,7 @@
     <h2>解决mac文件损坏不能打开问题</h2>
   </header>
   <section class="entry-content">
-   <p> 1. mac下载后安装的文件提示文件损坏, 需要换到垃圾桶中. 2. 解决方法, 打开终端terminal # 切换到管理员, su后输入管理员root密码 su # xxx就是你安装的程序 xattr -d com.apple.quarantine /Applications/xxxx.app # 退出管理员root exit 3. 重新去打开安装的程序 ...</p>
+   <p>1. mac下载后安装的文件提示文件损坏, 需要换到垃圾桶中. 2. 解决方法, 打开终端terminal # 切换到管理员, su后输入管理员root密码 su # xxx就是你安装的程序 xattr -d com.apple.quarantine /Applications/xxxx.app # 退出管理员root exit 3. 重新去打开安装的程序 ...</p>
   </section>
   <footer class="entry-footer">
     <time>November 28, 2019</time>
@@ -106,12 +106,7 @@
     <h2>解决NodePod模式外网无法访问mysql服务问题</h2>
   </header>
   <section class="entry-content">
-   <p> 1. 创建NodePod的mysql或MariaDB服务, 请参考Kubernetes Mariadb Mysql安装. 2. 安装完成使用ip:30016 用户 密码连接失败, 使用over ssh方式却可以连接成功. 排查问题  查看防火墙端口打开30016端口
-firewall-cmd --list-ports # 没有则添加 firewall-cmd --zone=public --add-port=30016/tcp --permanent firewall-cmd --reload 关闭防火墙, 为啥关闭以后再开一篇解释
-systemctl stop firewalld 查询iptables规则,
-iptables -L -n # iptables 被kubernetes接管后的规则比较多，仔细看下FORWARD规则发现， # policy DROP状态， # 这就导致了我们直接访问node节点的IP加上端口会无法访问容器. # 临时生效 iptables -P FORWARD ACCEPT 永久生效
-vim /usr/lib/systemd/system/docker.service # 在[Service]下增加一条规则 ............ ExecStartPost=/sbin/iptables -I FORWARD -s 0.0.0.0/0 -j ACCEPT # 重启docker生效 systemctl daemon-reload systemctl restart docker 重新使用刚才mysql或mariadb连接测试.
-  ...</p>
+   <p>1. 创建NodePod的mysql或MariaDB服务, 请参考&lt;a href=&#34;https://blog.actiger.com/docker/kubernetes-mariadb-mysql/” target=”_blank&#34;Kubernetes Mariadb Mysql&gt;Kubernetes Mariadb Mysql安装. 2. 安装完成使用ip:30016 用户 密码连接失败, 使用over ssh方式却可以连接成功. 排查问题  查看防火墙端口打开30016端口   firewall-cmd --list-ports # 没有则添加 firewall-cmd --zone=public --add-port=30016/tcp --permanent firewall-cmd --reload 关闭防火墙, 为啥关闭以后再开一篇解释  systemctl stop firewalld 查询iptables规则,  iptables -L -n # iptables 被kubernetes接管后的规则比较多，仔细看下FORWARD规则发现， # policy DROP状态， # 这就导致了我们直接访问node节点的IP加上端口会无法访问容器. # 临时生效 iptables -P FORWARD ACCEPT 永久生效  vim /usr/lib/systemd/system/docker.service # 在[Service]下增加一条规则 ............ ExecStartPost=/sbin/iptables -I FORWARD -s 0.0.0.0/0 -j ACCEPT # 重启docker生效 systemctl daemon-reload systemctl restart docker 重新使用刚才mysql或mariadb连接测试....</p>
   </section>
   <footer class="entry-footer">
     <time>November 28, 2019</time>
@@ -123,11 +118,7 @@ vim /usr/lib/systemd/system/docker.service # 在[Service]下增加一条规则 .
     <h2>Centos8网络设置</h2>
   </header>
   <section class="entry-content">
-   <p>1. 安装Centos8时, 设置网络发现network.service不能使用, 搜索得知服务已更改为nmcli管理, 那就学习下 2. 有2种方式设置静态IP 2.1 方法一. 更改网络配置文件, 重启网络.  更改配置文件
-vim /etc/sysconfig/network-scripts/ifcfg-enp0s5 添加内容 BOOTPROTO=&#39;static&#39; GATEWAY=192.168.50.1 NETMASK=255.255.255.255 IPADDR=192.168.50.200 PREFIX=32 重启网络, 重点, 相比CentOS 7有变化, CentOS 8已删除network.service. 使用nmcli来管理.
-# 显示连接 nmcli c show # 生效连接 nmcli connect up enp0s5 可简写为 nmcli c up enp0s5 如SSH连接, 应该会断线, 重新连接需要主机执行下面操作.
-删除本机~/.ssh/know_hosts中ip 重启虚拟机 reboot  2.2 方法二, 通过nmcli直接更改网卡信息, 重启网络.  创建一个名字是cc的连接connection, 其中ifname后的enp0s5必须是nmcli d中的device, ipv4.method manual表示静态ip, type ethernet指定以太网.
-nmcli c add type ethernet con-name cc ifname enp0s5 ipv4....</p>
+   <p>1. 安装Centos8时, 设置网络发现network.service不能使用, 搜索得知服务已更改为nmcli管理, 那就学习下 2. 有2种方式设置静态IP 2.1 方法一. 更改网络配置文件, 重启网络.  更改配置文件  vim /etc/sysconfig/network-scripts/ifcfg-enp0s5 添加内容 BOOTPROTO=&#39;static&#39; GATEWAY=192.168.50.1 NETMASK=255.255.255.255 IPADDR=192.168.50.200 PREFIX=32 重启网络, 重点, 相比CentOS 7有变化, CentOS 8已删除network.service. 使用nmcli来管理.  # 显示连接 nmcli c show # 生效连接 nmcli connect up enp0s5 可简写为 nmcli c up enp0s5 如SSH连接, 应该会断线, 重新连接需要主机执行下面操作.  删除本机~/.ssh/know_hosts中ip 重启虚拟机 reboot 2.2 方法二, 通过nmcli直接更改网卡信息, 重启网络.  创建一个名字是cc的连接connection, 其中ifname后的enp0s5必须是nmcli d中的device, ipv4.method manual表示静态ip, type ethernet指定以太网.  nmcli c add type ethernet con-name cc ifname enp0s5 ipv4....</p>
   </section>
   <footer class="entry-footer">
     <time>November 5, 2019</time>
@@ -181,7 +172,7 @@ describe usrinfo;
     <h2>申请单个域名方式</h2>
   </header>
   <section class="entry-content">
-   <p> 1. 起因 一级域名和二级域名都使用dns-01验证方式申请证书, 申请一级域名的时候更改了_acme-challenge.actiger.com, 续期的时候发现二级域名申请证书时的配置_acme-challenge.actiger.com验证失败, 续期失败 2. 解决方式, 使用不同方式申请证书, 续期不会有冲突 一级域名Actiger.com使用http文件申请证书 二级通用*.actiger.com用例dns-01的方式申请证书 3. 申请单个域名 certbot certonly --manual --preferred-challenges http --email example@icloud.com --domains actiger.com 提示在actiger.com/.well-known/acme-challenge/ 创建一个文件 假如你设置actiger.com跳转到www.actiger.com, 而www.actiger.com又跳转到blog.actiger.com, 可以把创建的文件放在blog.actiger.com/.well-known/acme-challenge/下 在服务器对应目录创建文件 创建文件成功后, 继续申请证书 申请证书成功后, 存放在/etc/letsencrypt下 ...</p>
+   <p>1. 起因 一级域名和二级域名都使用dns-01验证方式申请证书, 申请一级域名的时候更改了_acme-challenge.actiger.com, 续期的时候发现二级域名申请证书时的配置_acme-challenge.actiger.com验证失败, 续期失败 2. 解决方式, 使用不同方式申请证书, 续期不会有冲突 一级域名Actiger.com使用http文件申请证书 二级通用*.actiger.com用例dns-01的方式申请证书 3. 申请单个域名 certbot certonly --manual --preferred-challenges http --email example@icloud.com --domains actiger.com 提示在actiger.com/.well-known/acme-challenge/ 创建一个文件 假如你设置actiger.com跳转到www.actiger.com, 而www.actiger.com又跳转到blog.actiger.com, 可以把创建的文件放在blog.actiger.com/.well-known/acme-challenge/下 在服务器对应目录创建文件 创建文件成功后, 继续申请证书 申请证书成功后, 存放在/etc/letsencrypt下 ...</p>
   </section>
   <footer class="entry-footer">
     <time>August 27, 2019</time>
@@ -193,7 +184,7 @@ describe usrinfo;
     <h2>Ingress-Ningx配置多个SSL证书</h2>
   </header>
   <section class="entry-content">
-   <p>1. 起因 我删除域名服务商对顶级域名(即一级域名)的默认的重定向, 直接指向的我服务地址 使用的通配的二级域名证书 访问顶级域名像actiger.com, 浏览器弹出安全提示了. 发现, 通配的二级域名证书不能用在actiger.com上 2. 申请顶级域名actiger.com的证书. 申请过程参照这里 3. Ingress Nginx的配置my-nginx.yml apiVersion: extensions/v1beta1 kind: Ingress metadata: namespace: nginx-space name: my-nginx spec: tls: - hosts: - weini.actiger.com - www.actiger.com secretName: ingress-secret - hosts: - actiger.com secretName: ingress-top-secret rules: - host: weini.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: www.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: test....</p>
+   <p>1. 起因 我删除域名服务商对顶级域名(即一级域名)的默认的重定向, 直接指向的我服务地址 使用的通配的二级域名证书 访问顶级域名像, 浏览器弹出安全提示了. 发现, 通配的二级域名证书不能用在actiger.com上 2. 申请顶级域名的证书. 申请过程 3. Ingress Nginx的配置my-nginx.yml  apiVersion: extensions/v1beta1 kind: Ingress metadata: namespace: nginx-space name: my-nginx spec: tls: - hosts: - weini.actiger.com - www.actiger.com secretName: ingress-secret - hosts: - actiger.com secretName: ingress-top-secret rules: - host: weini.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: www.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: test....</p>
   </section>
   <footer class="entry-footer">
     <time>June 20, 2019</time>
@@ -205,7 +196,7 @@ describe usrinfo;
     <h2>Moco示例</h2>
   </header>
   <section class="entry-content">
-   <p>1. Moco是什么? 简单的模拟服务器的程序库/工具, 有请求给出响应.在地址中下载moco-runner-0.12.0-standalone.jar. 2. 使用示例 1. 创建test.json [ { &#34;description&#34;: &#34;First test&#34;, &#34;request&#34;: { &#34;uri&#34;: &#34;/demo&#34; }, &#34;response&#34;: { &#34;text&#34;: &#34;First Response&#34; } } ] 2. 命令行启动服务, moco-runner-0.12.0-standalone.jar与test.json在相同目录下. java -jar ./moco-runner-0.12.0-standalone.jar http -p 8888 -c test.json 3. 验证 访问http://localhost:8888/demo 2. 模拟一个带参数的请求, para.json [ { &#34;description&#34;: &#34;模拟一个有参数的Get请求&#34;, &#34;request&#34;: { &#34;uri&#34;: &#34;/getpara&#34;, &#34;method&#34;: &#34;get&#34;, &#34;queries&#34;: { &#34;name&#34;: &#34;xiaoming&#34;, &#34;age&#34;: &#34;20&#34; } }, &#34;response&#34;: { &#34;text&#34;: &#34;I am on the way.&#34; } } ]java -jar ....</p>
+   <p>1. Moco是什么? 简单的模拟服务器的程序库/工具, 有请求给出响应.在中下载moco-runner-0.12.0-standalone.jar. 2. 使用示例 1. 创建test.json [ { &#34;description&#34;: &#34;First test&#34;, &#34;request&#34;: { &#34;uri&#34;: &#34;/demo&#34; }, &#34;response&#34;: { &#34;text&#34;: &#34;First Response&#34; } } ] 2. 命令行启动服务, moco-runner-0.12.0-standalone.jar与test.json在相同目录下.  java -jar ./moco-runner-0.12.0-standalone.jar http -p 8888 -c test.json 3. 验证 访问 2. 模拟一个带参数的请求, para.json [ { &#34;description&#34;: &#34;模拟一个有参数的Get请求&#34;, &#34;request&#34;: { &#34;uri&#34;: &#34;/getpara&#34;, &#34;method&#34;: &#34;get&#34;, &#34;queries&#34;: { &#34;name&#34;: &#34;xiaoming&#34;, &#34;age&#34;: &#34;20&#34; } }, &#34;response&#34;: { &#34;text&#34;: &#34;I am on the way.&#34; } } ]  java -jar ....</p>
   </section>
   <footer class="entry-footer">
     <time>June 16, 2019</time>

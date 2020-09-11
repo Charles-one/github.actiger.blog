@@ -7,7 +7,7 @@
     
     <title>LetsEncrypt申请与nginx配置SSL - Actiger跳跳虎</title>
     
-    <meta name="description" content="1. letsencrypt 证书申请. 官方指引 1. 申请证书需要安装Cerbto. 脚本 yum -y install epel-release yum -y install yum-utils yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional yum install certbot python2-certbot-nginx 2. 手动去申请证, 我这里申请全部子域名的. 验证身份的方式需要在域名供应商添加dns txt的. 1. 开始安装, 有下面提示信息. 这里需要暂停, 去添加DNS TXT即第2步. # 执行 certbot certonly -d &#34;*.actiger.com&#34; --manual --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory 执行到下面提示信息后, 需要暂停. - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #Please deploy a DNS TXT record under the name #_acme-challenge.">
+    <meta name="description" content="1. letsencrypt 证书申请.  1. 申请证书需要安装Cerbto.  yum -y install epel-release yum -y install yum-utils yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional yum install certbot python2-certbot-nginx 2. 手动去申请证, 我这里申请全部子域名的. 验证身份的方式需要在域名供应商添加dns txt的. 1. 开始安装, 有下面提示信息. 这里需要暂停, 去添加DNS TXT即第2步. # 执行 certbot certonly -d &quot;*.actiger.com&quot; --manual --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory 执行到下面提示信息后, 需要暂停. - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #Please deploy a DNS TXT record under the name #_acme-challenge.">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -80,24 +80,22 @@
     <h1 class="post-title">LetsEncrypt申请与nginx配置SSL</h1>
     <div class="post-meta">May 19, 2019</div>
   </header>
-  <div class="post-content">
-
-<h3 id="1-letsencrypt-证书申请-官方指引-https-letsencrypt-org-getting-started">1. letsencrypt 证书申请. <a href="https://letsencrypt.org/getting-started/" target="_blank">官方指引</a></h3>
-
-<h4 id="1-申请证书需要安装cerbto-脚本-https-github-com-charles-one-shell-repository-blob-master-install-certbot-sh">1. 申请证书需要安装Cerbto. <a href="https://github.com/Charles-one/shell-repository/blob/master/install_Certbot.sh" target="_blank">脚本</a></h4>
+  <div class="post-content"><h3 id="1-letsencrypt-证书申请-官方指引httpsletsencryptorggetting-started">1. letsencrypt 证书申请. </h3>
+<h4 id="1-申请证书需要安装cerbto-脚本httpsgithubcomcharles-oneshell-repositoryblobmasterinstall_certbotsh">1. 申请证书需要安装Cerbto. </h4>
 <pre><code>yum -y install epel-release
 
 yum -y install yum-utils
 
 yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional
 
-yum install certbot python2-certbot-nginx</code></pre>
-<h4 id="2-手动去申请证-我这里申请全部子域名的-验证身份的方式需要在域名供应商添加dns-txt的">2. 手动去申请证, 我这里申请全部子域名的. 验证身份的方式需要在域名供应商添加dns txt的.</h4>
+yum install certbot python2-certbot-nginx
 
+</code></pre><h4 id="2-手动去申请证-我这里申请全部子域名的-验证身份的方式需要在域名供应商添加dns-txt的">2. 手动去申请证, 我这里申请全部子域名的. 验证身份的方式需要在域名供应商添加dns txt的.</h4>
 <h5 id="1-开始安装-有下面提示信息-这里需要暂停-去添加dns-txt即第2步">1. 开始安装, 有下面提示信息. 这里需要暂停, 去添加DNS TXT即第2步.</h5>
 <pre><code># 执行
-certbot certonly  -d &#34;*.actiger.com&#34; --manual --preferred-challenges dns-01  --server https://acme-v02.api.letsencrypt.org/directory</code></pre>
-<h4 id="执行到下面提示信息后-需要暂停">执行到下面提示信息后, 需要暂停.</h4>
+certbot certonly  -d &quot;*.actiger.com&quot; --manual --preferred-challenges dns-01  --server https://acme-v02.api.letsencrypt.org/directory
+
+</code></pre><h4 id="执行到下面提示信息后-需要暂停">执行到下面提示信息后, 需要暂停.</h4>
 <pre><code>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #Please deploy a DNS TXT record under the name
 #_acme-challenge.actiger.com with the following value:
@@ -105,31 +103,23 @@ certbot certonly  -d &#34;*.actiger.com&#34; --manual --preferred-challenges dns
 #这里是需要添加的DNS TXT信息
 #
 #Before continuing, verify the record is deployed.
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</code></pre>
-<h5 id="3-添加dns-txt">3. 添加DNS TXT</h5>
-
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+</code></pre><h5 id="3-添加dns-txt">3. 添加DNS TXT</h5>
 <h5 id="1-在域名服务商中-添加dns-txt">1. 在域名服务商中, 添加DNS TXT</h5>
-
 <h5 id="2-测试dns-txt是否生效">2. 测试DNS TXT是否生效.</h5>
 <pre><code># Windows
 nslookup -qt=mx _acme-challenge.actiger.com
 
 # Mac linux
-dig TXT _acme-challenge.actiger.com</code></pre>
-<h4 id="看到你添加的dns-txt才可以执行确认-进行下一步">看到你添加的DNS TXT才可以执行确认, 进行下一步.</h4>
+dig TXT _acme-challenge.actiger.com
 
+</code></pre><h4 id="看到你添加的dns-txt才可以执行确认-进行下一步">看到你添加的DNS TXT才可以执行确认, 进行下一步.</h4>
 <h4 id="成功后-会告诉证书存放位置-及什么时间到期">成功后, 会告诉证书存放位置, 及什么时间到期</h4>
-
-<p><img src="https://img.actiger.com/blog/success.png" alt="img" /></p>
-
+<p><img src="https://img.actiger.com/blog/success.png" alt="img"></p>
 <h3 id="3-拉取docker-compose文件-运行">3. 拉取docker-compose文件, 运行.</h3>
-
 <h4 id="1-注意修改内容-非常重要">1. 注意修改内容, 非常重要.</h4>
-
-<h5 id="docker-compose-yml-中-blog-actiger-com需要更改为自己的">docker-compose.yml 中 blog.actiger.com需要更改为自己的.</h5>
-
-<h5 id="etc-nginx-conf-d-default-conf-中blog-actiger-com-ssl-certificate-ssl-certificate-key需要更改为自己的">etc/nginx/conf.d/default.conf 中blog.actiger.com, ssl_certificate, ssl_certificate_key需要更改为自己的.</h5>
-
+<h5 id="docker-composeyml-中-blogactigercom需要更改为自己的">docker-compose.yml 中 blog.actiger.com需要更改为自己的.</h5>
+<h5 id="etcnginxconfddefaultconf-中blogactigercom-ssl_certificate-ssl_certificate_key需要更改为自己的">etc/nginx/conf.d/default.conf 中blog.actiger.com, ssl_certificate, ssl_certificate_key需要更改为自己的.</h5>
 <h4 id="2-拉取运行-hugo文件也拉取到nginx-https-hugoblog文件夹中">2. 拉取运行, hugo文件也拉取到nginx-https-hugoBlog文件夹中.</h4>
 <pre><code># 拉取docker-compose文件
 
@@ -148,11 +138,10 @@ git clone https://github.com/Charles-one/blog.actiger.com.git
 
 # 运行
 
-docker-compose run -d</code></pre>
-<h5 id="目录结构">目录结构</h5>
+docker-compose run -d
 
-<p><img src="https://img.actiger.com/blog/folder_path.png" alt="img" /></p>
-
+</code></pre><h5 id="目录结构">目录结构</h5>
+<p><img src="https://img.actiger.com/blog/folder_path.png" alt="img"></p>
 <h4 id="截取nginx配置">截取nginx配置</h4>
 <pre><code>server {
     listen       80;
@@ -168,18 +157,17 @@ server{
     ssl_certificate_key /etc/letsencrypt/live/actiger.com/privkey.pem;
     *
     *
-    *</code></pre>
-<h3 id="4-测试访问-https-blog-actiger-com-https-blog-actiger-com">4. 测试访问<a href="https://blog.actiger.com" target="_blank">https://blog.actiger.com</a></h3>
-
+    *
+</code></pre><h3 id="4-测试访问httpsblogactigercomhttpsblogactigercom">4. 测试访问</h3>
 <h4 id="这里错乱的">这里错乱的</h4>
+<h4 id="需要hugo使用新baseurl生成博客目录-原来的httpblogactigercom更改为httpsblogactigercom">需要hugo使用新baseurl生成博客目录, 原来的http://blog.actiger.com/更改为https://blog.actiger.com/</h4>
+<pre><code>hugo --theme=hugo-paper --baseUrl=&quot;https://blog.actiger.com/&quot; --destination=&quot;blog.actiger.com&quot;
 
-<h4 id="需要hugo使用新baseurl生成博客目录-原来的http-blog-actiger-com-更改为https-blog-actiger-com">需要hugo使用新baseurl生成博客目录, 原来的<a href="http://blog.actiger.com/更改为https://blog.actiger.com/" target="_blank">http://blog.actiger.com/更改为https://blog.actiger.com/</a></h4>
-<pre><code>hugo --theme=hugo-paper --baseUrl=&#34;https://blog.actiger.com/&#34; --destination=&#34;blog.actiger.com&#34;</code></pre>
-<h4 id="上传提交博客到github上-并到在服务器上拉取代码">上传提交博客到github上, 并到在服务器上拉取代码.</h4>
+</code></pre><h4 id="上传提交博客到github上-并到在服务器上拉取代码">上传提交博客到github上, 并到在服务器上拉取代码.</h4>
 <pre><code>cd ~/nginx-https-hugoBlog/blog.actiger.com/
 
-git pull</code></pre>
-<h4 id="重新访问-https-blog-actiger-com-https-blog-actiger-com">重新访问<a href="https://blog.actiger.com" target="_blank">https://blog.actiger.com</a></h4>
+git pull
+</code></pre><h4 id="重新访问httpsblogactigercomhttpsblogactigercom">重新访问</h4>
 </div>
   
 </article></main>

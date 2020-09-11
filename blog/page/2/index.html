@@ -82,7 +82,7 @@
     <h2>C程序设计语言练习1-7</h2>
   </header>
   <section class="entry-content">
-   <p> 1. 要求: 编写一个打印EOF值的程序 2. 分析 1. 查询得到EOF的值是-1, 帮用%d即可打印出来 3. 代码 #include&lt;stdio.h&gt; int main(){ printf(&#34;EOF is %d\n&#34;, EOF); return 0; }...</p>
+   <p>1. 要求: 编写一个打印EOF值的程序 2. 分析 1. 查询得到EOF的值是-1, 帮用%d即可打印出来 3. 代码 #include&lt;stdio.h&gt; int main(){ printf(&#34;EOF is %d\n&#34;, EOF); return 0; } ...</p>
   </section>
   <footer class="entry-footer">
     <time>April 9, 2020</time>
@@ -94,7 +94,7 @@
     <h2>C程序设计语言练习1-6</h2>
   </header>
   <section class="entry-content">
-   <p> 1. 要求: 验证表达式getchar() != EOF的值是0还是1 2. 分析. 1. getchar()是获取一个输入字符, 判断是否为输入结尾, 结尾特定EOF(End of File) 2. Linux中，在新的一行的开头，按下Ctrl-D，就代表EOF（如果在一行的中间按下Ctrl-D，则表示输出”标准输入”的缓存区，所以这时必须按两次Ctrl-D）；Windows中，Ctrl-Z表示EOF。（顺便提一句，Linux中按下Ctrl-Z，表示将该进程中断，在后台挂起，用fg命令可以重新切回到前台；按下Ctrl-C表示终止该进程。） 3. 代码 1. 注意a = getchare() != EOF与a = (getchar() != EOF)等价, 原因是=是赋值, !=比=的优先级高, 就像四则运算/号的优先级比&#43;号高一样. 2. while的判断到EOF时会中止执行, 里面语句不会执行, 故需要在外部打印getchar() != EOF的值. #include&lt;stdio.h&gt; int main(){ int a ; while(a = (getchar() != EOF)){ printf(&#34;%d\n&#34;, a); } printf(&#34;%d\n&#34;, a); return 0; }...</p>
+   <p>1. 要求: 验证表达式getchar() != EOF的值是0还是1 2. 分析. 1. getchar()是获取一个输入字符, 判断是否为输入结尾, 结尾特定EOF(End of File) 2. Linux中，在新的一行的开头，按下Ctrl-D，就代表EOF（如果在一行的中间按下Ctrl-D，则表示输出&#34;标准输入&#34;的缓存区，所以这时必须按两次Ctrl-D）；Windows中，Ctrl-Z表示EOF。（顺便提一句，Linux中按下Ctrl-Z，表示将该进程中断，在后台挂起，用fg命令可以重新切回到前台；按下Ctrl-C表示终止该进程。） 3. 代码 1. 注意a = getchare() != EOF与a = (getchar() != EOF)等价, 原因是=是赋值, !=比=的优先级高, 就像四则运算/号的优先级比&#43;号高一样. 2. while的判断到EOF时会中止执行, 里面语句不会执行, 故需要在外部打印getchar() != EOF的值.  #include&lt;stdio.h&gt; int main(){ int a ; while(a = (getchar() != EOF)){ printf(&#34;%d\n&#34;, a); } printf(&#34;%d\n&#34;, a); return 0; } ...</p>
   </section>
   <footer class="entry-footer">
     <time>April 9, 2020</time>
@@ -106,7 +106,7 @@
     <h2>C程序设计语言练习1-4</h2>
   </header>
   <section class="entry-content">
-   <p> 1. 要求: 编写一个程序打印摄氏温度转换为相应华氏温度的转换表. 2. 分析. 1. 由C = (5⁄9)(F-32)得到F = C(9⁄5)&#43;32 2. C摄氏和F华氏温度都有小数, 可使用float 3. 代码 注意事项: %6.1f表示6个数字宽右对齐且保留1位小数 #include&lt;stdio.h&gt;int main(){ float f; float c; int step = 20; int minc = -20; int maxc = 300; c = minc; printf(&#34;摄氏温度转换华氏度\n&#34;); while( c &lt;= maxc ){ f = c * 9.0 / 5.0 &#43; 32; printf(&#34;%3.0f %6.1f\n&#34;, c, f); c = c &#43; step; } return 0; }...</p>
+   <p>1. 要求: 编写一个程序打印摄氏温度转换为相应华氏温度的转换表. 2. 分析. 1. 由C = (5/9)(F-32)得到F = C(9/5)&#43;32 2. C摄氏和F华氏温度都有小数, 可使用float 3. 代码 注意事项: %6.1f表示6个数字宽右对齐且保留1位小数 #include&lt;stdio.h&gt;int main(){ float f; float c; int step = 20; int minc = -20; int maxc = 300; c = minc; printf(&#34;摄氏温度转换华氏度\n&#34;); while( c &lt;= maxc ){ f = c * 9.0 / 5.0 &#43; 32; printf(&#34;%3.0f %6.1f\n&#34;, c, f); c = c &#43; step; } return 0; } ...</p>
   </section>
   <footer class="entry-footer">
     <time>April 9, 2020</time>
@@ -118,7 +118,7 @@
     <h2>不准确的01-浮点数</h2>
   </header>
   <section class="entry-content">
-   <p>1. 整数时, 二进制与十进制可准确转换, 小数时与二进制转换起来情况就复杂了, 二进制不能准确表示某些十进制的小数. 2. 整数, 二进制与十进制转换. 整数转换规则: 除2, 得商和余数, 商除2得商和余数, 直到商为0. 以125为例, 十进制转换为二进制.    数 商 余数     125⁄2 62 1   62⁄2 31 0   31⁄2 15 1   15⁄2 7 1   7⁄2 3 1   3⁄2 1 1   1⁄2 0 1    由个位数向前除得最高位数. 125=1x2^0 &#43; 0x2^1 &#43; 1x2^2 &#43; 1x2^3 &#43; 1x2^4 &#43; 1x2^5 &#43; 1x2^6得到二进制数1111101 3....</p>
+   <p>1. 整数时, 二进制与十进制可准确转换, 小数时与二进制转换起来情况就复杂了, 二进制不能准确表示某些十进制的小数. 2. 整数, 二进制与十进制转换. 整数转换规则: 除2, 得商和余数, 商除2得商和余数, 直到商为0. 以125为例, 十进制转换为二进制.    数 商 余数     125/2 62 1   62/2 31 0   31/2 15 1   15/2 7 1   7/2 3 1   3/2 1 1   1/2 0 1    由个位数向前除得最高位数. 125=1x2^0 &#43; 0x2^1 &#43; 1x2^2 &#43; 1x2^3 &#43; 1x2^4 &#43; 1x2^5 &#43; 1x2^6得到二进制数1111101 3....</p>
   </section>
   <footer class="entry-footer">
     <time>March 3, 2020</time>
@@ -130,9 +130,9 @@
     <h2>acme.sh获取域名并自动更新到kubernetes中</h2>
   </header>
   <section class="entry-content">
-   <p>0. 原因letsencrypt获取的证书只有3个月有效期, 每次手动更新易出错也会忘记, 所以使用crontab定时acme.sh定时更新最好不过了. 放下文章结构 1. 安装acme.sh, acme.sh官网中文链接. # 推荐使用root用户, 后续也以root用户操作的. curl https://get.acme.sh | sh 2. 使用acme.sh的dns方式, 这里服务商以cloudflare为例.  域名使用cloudflare解析(注册cloudflare官方教程更换域名), 拿到Global API Key和邮箱.
- 参照官方教程中cloudflare部分.
-# Global API Key和邮箱 export CF_Key=&#34;cloudflare设置中的Global API Key&#34; export CF_Email=&#34;cloudflare注册邮箱&#34; # 首次生成域名证书(\*号需要转译) /root/.acme.sh/acme.sh --issue --dns dns_cf -d \*.actiger.com TLSCRT=$(cat /root/.acme.sh/\*.actiger.com/\*.actiger.com.cer) TLSKEY=$(cat /root/.acme.sh/\*.actiger.com/\*.actiger.com.key) # base64转换 ACTIGER_TLSCRT=$(echo &#34;${TLSCRT}&#34;|base64 -w 10000) ACTIGER_TLSKEY=$(echo &#34;${TLSKEY}&#34;|base64 -w 10000) # 生成新的secret. FILE_ACTIGER=&#34;/root/kubernetes/pro-blog-cc6/ingress-secret.yml&#34; cat &lt;&lt; EOF | tee ${FILE_ACTIGER} apiVersion: v1 data: tls....</p>
+   <p>0. 原因letsencrypt获取的证书只有3个月有效期, 每次手动更新易出错也会忘记, 所以使用crontab定时acme.sh定时更新最好不过了. 放下文章结构 1. 安装acme.sh, . # 推荐使用root用户, 后续也以root用户操作的. curl https://get.acme.sh | sh 2. 使用acme.sh的dns方式, 这里服务商以cloudflare为例.   域名使用cloudflare解析(注册cloudflare官方教程更换域名), 拿到Global API Key和邮箱.
+  .
+  # Global API Key和邮箱 export CF_Key=&#34;cloudflare设置中的Global API Key&#34; export CF_Email=&#34;cloudflare注册邮箱&#34; # 首次生成域名证书(\*号需要转译) /root/.acme.sh/acme.sh --issue --dns dns_cf -d \*.actiger.com TLSCRT=$(cat /root/.acme.sh/\*.actiger.com/\*.actiger.com.cer) TLSKEY=$(cat /root/.acme.sh/\*.actiger.com/\*.actiger.com.key) # base64转换 ACTIGER_TLSCRT=$(echo &#34;${TLSCRT}&#34;|base64 -w 10000) ACTIGER_TLSKEY=$(echo &#34;${TLSKEY}&#34;|base64 -w 10000) # 生成新的secret. FILE_ACTIGER=&#34;/root/kubernetes/pro-blog-cc6/ingress-secret.yml&#34; cat &lt;&lt; EOF | tee ${FILE_ACTIGER} apiVersion: v1 data: tls....</p>
   </section>
   <footer class="entry-footer">
     <time>February 10, 2020</time>
@@ -144,7 +144,7 @@
     <h2>重现sudo漏洞</h2>
   </header>
   <section class="entry-content">
-   <p> 1. 首先创建onetiger用户, 然后在/etc/sudoers中添加onetiger用户的sudo命令, 即/etc/sudoers中添加下面代码(root身份) onetiger ALL=/bin/vim 2. 登录onetiger用户 3. 以onetiger用户执行下面命令, 以用户id -1或4294967295运行后, 再0(用户id是0是root)用户运行命令成功. sudo -u#-1 vim /etc/sudoers sudo -u#0 vim /etc/sudoers 4. 解决办法. 4.1 CVE-2019-14287 漏洞影响 1.8.28 之前的 Sudo 版本, 将 sudo 软件包更新为最新版本. 4.2 禁用非root用户的sudo权限. ...</p>
+   <p>1. 首先创建onetiger用户, 然后在/etc/sudoers中添加onetiger用户的sudo命令, 即/etc/sudoers中添加下面代码(root身份) onetiger ALL=/bin/vim 2. 登录onetiger用户 3. 以onetiger用户执行下面命令, 以用户id -1或4294967295运行后, 再0(用户id是0是root)用户运行命令成功. sudo -u#-1 vim /etc/sudoers sudo -u#0 vim /etc/sudoers 4. 解决办法. 4.1 CVE-2019-14287 漏洞影响 1.8.28 之前的 Sudo 版本, 将 sudo 软件包更新为最新版本. 4.2 禁用非root用户的sudo权限. ...</p>
   </section>
   <footer class="entry-footer">
     <time>January 10, 2020</time>
@@ -156,7 +156,7 @@
     <h2>Jira中问题Bug的工作流</h2>
   </header>
   <section class="entry-content">
-   <p>新的项目需要设置问题Bug的工作流, 故整理下. 1. 先看整理好的工作流图片, 点击下载Jira问题工作流. 2. 问题(Bug)可能的状态, 依据项目来定, 以我的项目为例, 共有9个状态. 待办(new) 处理中 已解决 测试中 验证通过(closed) 线上验证中 线上验证通过 重新打开(reopened) 已取消(canceled) 3. 开发与测试能够更改的状态. 3.1 开发能够更改的状态 待办-&gt;处理中
+   <p>新的项目需要设置问题Bug的工作流, 故整理下. 1. 先看整理好的工作流图片, 点击下载Jira问题工作流. 2. 问题(Bug)可能的状态, 依据项目来定, 以我的项目为例, 共有9个状态.  待办(new) 处理中 已解决 测试中 验证通过(closed) 线上验证中 线上验证通过 重新打开(reopened) 已取消(canceled) 3. 开发与测试能够更改的状态. 3.1 开发能够更改的状态 待办-&gt;处理中
 处理中-&gt;已解决
 重新打开-&gt;处理中
 3.2 测试能够更改的状态 已解决-&gt;测试中-&gt;验证通过-&gt;线上验证中-&gt;线上验证通过
@@ -176,8 +176,8 @@
     <h2>MariaDB MySQL连接的2种错误</h2>
   </header>
   <section class="entry-content">
-   <p> 1. 常见MySQL Mariadb连接的2种错误 错误一 ERROR 1045 (28000): Access denied for user &#39;usera&#39;@&#39;localhost&#39; (using password:YES) 错误二 ERROR 1045 (28000): Access denied for user &#39;usera&#39;@&#39;localhost&#39; (using password:NO). 2. 错误一 常见错误是密码错误 重置密码即可 3. 错误二 输入账号密码时没有输入密码. 1. 命令行中没有-p进行无密码登录 2. 如果是IDE中的yaml文件确定password的缩进正确 cat application.yaml
-spring: datasource: driver-class-name: org.mariadb.jdbc.Driver url: jdbc:mariadb://localhost:3306/admin username: admin password: 123456 上面的password缩进错误, 就会提示(using password:No) 正确的是 spring: datasource: driver-class-name: org.mariadb.jdbc.Driver url: jdbc:mariadb://localhost:3306/admin username: admin password: 123456...</p>
+   <p>1. 常见MySQL Mariadb连接的2种错误 错误一 ERROR 1045 (28000): Access denied for user &#39;usera&#39;@&#39;localhost&#39; (using password:YES) 错误二 ERROR 1045 (28000): Access denied for user &#39;usera&#39;@&#39;localhost&#39; (using password:NO). 2. 错误一 常见错误是密码错误 重置密码即可 3. 错误二 输入账号密码时没有输入密码. 1. 命令行中没有-p进行无密码登录 2. 如果是IDE中的yaml文件确定password的缩进正确 cat application.yaml
+spring: datasource: driver-class-name: org.mariadb.jdbc.Driver url: jdbc:mariadb://localhost:3306/admin username: admin password: 123456 上面的password缩进错误, 就会提示(using password:No) 正确的是 spring: datasource: driver-class-name: org.mariadb.jdbc.Driver url: jdbc:mariadb://localhost:3306/admin username: admin password: 123456 ...</p>
   </section>
   <footer class="entry-footer">
     <time>December 12, 2019</time>
@@ -189,7 +189,7 @@ spring: datasource: driver-class-name: org.mariadb.jdbc.Driver url: jdbc:mariadb
     <h2>腾讯云安装docker碰到的问题</h2>
   </header>
   <section class="entry-content">
-   <p> 1. CentOS 7.6版本 docker版本yum install -y docker-ce-18.09.9-3.el7 docker-ce-cli-18.09.9-3.el7 2. 解决docker启动失败问题 Error starting daemon: error initializing graphdriver: \&#34;/var/lib/docker\&#34; contains several valid graphdrivers: devicemapper, overlay; Please cleanup or explicitly choose storage driver (-s &lt;DRIVER&gt;) 删除/var/lib/docker中的devicemapper即可 Error starting daemon: Error initializing network controller: list bridge addresses failed: no available network 缺少桥接,添加一个 ip link add name docker0 type bridge ip addr add dev docker0 172.17.0.1/16 重启docker systemctl restart docker...</p>
+   <p>1. CentOS 7.6版本 docker版本yum install -y docker-ce-18.09.9-3.el7 docker-ce-cli-18.09.9-3.el7 2. 解决docker启动失败问题 Error starting daemon: error initializing graphdriver: \&#34;/var/lib/docker\&#34; contains several valid graphdrivers: devicemapper, overlay; Please cleanup or explicitly choose storage driver (-s &lt;DRIVER&gt;) 删除/var/lib/docker中的devicemapper即可  Error starting daemon: Error initializing network controller: list bridge addresses failed: no available network 缺少桥接,添加一个 ip link add name docker0 type bridge ip addr add dev docker0 172.17.0.1/16 重启docker systemctl restart docker ...</p>
   </section>
   <footer class="entry-footer">
     <time>December 4, 2019</time>
@@ -201,7 +201,7 @@ spring: datasource: driver-class-name: org.mariadb.jdbc.Driver url: jdbc:mariadb
     <h2>Kubernetes扩容增加node节点</h2>
   </header>
   <section class="entry-content">
-   <p> 1. Kubernetes扩容增加node节点 创建token kubeadm token create 查看kubernetes认证的SHA256加密字符串是多少 openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2&gt;/dev/null | openssl dgst -sha256 -hex | sed &#39;s/^.* //&#39; 加入master节点 kubeadm join &lt;主master ip&gt;:6443 --token &lt;刚刚创建的token&gt; --discovery-token-ca-cert-hash sha256:&lt;上面的加密字符串&gt; 操作这些时先更新下系统. ...</p>
+   <p>1. Kubernetes扩容增加node节点 创建token  kubeadm token create 查看kubernetes认证的SHA256加密字符串是多少  openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2&gt;/dev/null | openssl dgst -sha256 -hex | sed &#39;s/^.* //&#39; 加入master节点  kubeadm join &lt;主master ip&gt;:6443 --token &lt;刚刚创建的token&gt; --discovery-token-ca-cert-hash sha256:&lt;上面的加密字符串&gt; 操作这些时先更新下系统. ...</p>
   </section>
   <footer class="entry-footer">
     <time>November 30, 2019</time>

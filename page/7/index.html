@@ -79,18 +79,16 @@
     <h2>使用jenkins构建指定版本的Github项目Hugo</h2>
   </header>
   <section class="entry-content">
-   <p>0. 前提条件, 会使用到jenkins, go语言编译hugo  安装jenkinx&lt;/&gt;
- Linux安装go并设置环境变量
-  1. 创建一个jenkins任务  创建一个Jenkins任务   输入Enter an item name, 这里名字是basic_hugo
- 选择Github组织
- 再选择最左下”OK”按钮, 创建
-  2. 编辑已创建的basic_hugo任务  进入basic_hugo任务编辑页面   进入http://&lt;服务器ip&gt;:8080/me/my-views/view/all/, 在名称下basicd_hugo鼠标悬停上去, 多选, 选择Configure (或者使用Blue Ocean插件http://&lt;服务器ip&gt;:8080/blue/organizations/jenkins/basic_hugo/activity, 选择项目名称旁边的设置齿轮)
- 进入编辑页, http://10.211.55.9:8080/job/basic_hugo/configure
+   <p>0. 前提条件, 会使用到jenkins, go语言编译hugo   安装jenkinx&lt;/&gt;
+  Linux安装go并设置环境变量
+  1. 创建一个jenkins任务  创建一个Jenkins任务    输入Enter an item name, 这里名字是basic_hugo
+  选择Github组织
+  再选择最左下&#34;OK&#34;按钮, 创建
+  2. 编辑已创建的basic_hugo任务  进入basic_hugo任务编辑页面    进入http://&lt;服务器ip&gt;:8080/me/my-views/view/all/, 在名称下basicd_hugo鼠标悬停上去, 多选, 选择Configure (或者使用Blue Ocean插件http://&lt;服务器ip&gt;:8080/blue/organizations/jenkins/basic_hugo/activity, 选择项目名称旁边的设置齿轮)
+  进入编辑页, http://10.211.55.9:8080/job/basic_hugo/configure
    在编辑页中设置github中hugo地址, 参数化分支名称  GitHub项目-&gt;项目URL 填写 https://github.com/gohugoio/hugo.git/
-参数化构建过程-&gt;字符参数 Name: BARNCH Default Value: master Description 分支名称
-Source Code Management-&gt;Git-&gt;Repositories
-Repository URL: https://github.com/gohugoio/hugo.git
-Source Code Management-&gt;Git-&gt;Branches to build...</p>
+参数化构建过程-&gt;字符参数 Name: BARNCH Default Value: master Description	分支名称
+Source Code Management-&gt;Git-&gt;Repositories...</p>
   </section>
   <footer class="entry-footer">
     <time>March 13, 2019</time>
@@ -102,11 +100,11 @@ Source Code Management-&gt;Git-&gt;Branches to build...</p>
     <h2>Linux安装go并设置环境变量</h2>
   </header>
   <section class="entry-content">
-   <p> Mac用户直接使用brew install go即可 Linux用户 wget https://dl.google.com/go/go1.12.linux-amd64.tar.gz
+   <p>Mac用户直接使用brew install go即可 Linux用户 wget https://dl.google.com/go/go1.12.linux-amd64.tar.gz
 tar -C /usr/local -xzf go1.12.linux-amd64.tar.gz
 root用户去编辑vim /etc/profile中添加如下信息
 export PATH=$PATH:/usr/local/go/bin 用户使用go需要 重新生效这个文件
-source /etc/profile...</p>
+source /etc/profile ...</p>
   </section>
   <footer class="entry-footer">
     <time>March 13, 2019</time>
@@ -119,14 +117,14 @@ source /etc/profile...</p>
   </header>
   <section class="entry-content">
    <p>0.安装Jenkins, 需要提前安装JDK 1.8 安装JDK参考
-1.安装Jnekins  尽量翻墙执行,否则容易报443错误
-sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key yum search jenkins sudo yum install jenkins  2. 启动服务与添加防火墙端口  启动jenkins  systemctl start jenkins 如果这里有报错信息,并且提示 “systemctl status jenkins.service” and “journalctl -xe” for details 查看详情
+1.安装Jnekins  尽量翻墙执行,否则容易报443错误  sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key yum search jenkins sudo yum install jenkins 2. 启动服务与添加防火墙端口  启动jenkins  systemctl start jenkins 如果这里有报错信息,并且提示 “systemctl status jenkins.service” and “journalctl -xe” for details 查看详情
 journalctl -xe可以看到原因/usr/bin/java: 没有那个文件或目录
 需要更改vim /etc/init.d/jenkins
 candidates=&#34; /etc/alternatives/java /usr/lib/jvm/java-1.8.0/bin/java /usr/lib/jvm/jre-1.8.0/bin/java /usr/lib/jvm/java-1.7.0/bin/java /usr/lib/jvm/jre-1.7.0/bin/java /usr/java/jdk1.8.0_152/bin/java 这个是修改后的jdk路径（修改前是/usr/bin/java） &#34; systemctl daemon-reload (重新加载工具)
 systemctl start jenkins (再次启动jenkins)
  检查是否能访问成功  jenkins 使用的8080端口
-访问http://&lt;服务器ip&gt;/8080...</p>
+访问http://&lt;服务器ip&gt;/8080
+访问失败, 检查端口是否存在...</p>
   </section>
   <footer class="entry-footer">
     <time>March 13, 2019</time>
@@ -138,13 +136,7 @@ systemctl start jenkins (再次启动jenkins)
     <h2>安装docker Ce和使用docker安装nginx</h2>
   </header>
   <section class="entry-content">
-   <p>0. 目录  安装Docker Docker简单使用  1.安装docker  卸载版本Docker
-sudo yum remove docker \ docker-common \ docker-selinux \ docker-engine 设置仓库
-sudo yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 sudo yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo 安装docker-ce
-sudo yum install docker-ce 卸载docker-ce
-sudo yum remove docker-ce sudo rm -rf /var/lib/docker 更换国内源
-vim vim /etc/docker/daemon.json { &#34;registry-mirrors&#34;: [ &#34;http://hub-mirror.c.163.com&#34;] }  2.docker简单使用  下载镜像
-docker pull nginx:1.14.2# 生成容器 # -d是后台 --name重全名 80:80 外部端口:内部容器端口 docker container run -d -p 80:80 --name mnginx nginx:1....</p>
+   <p>0. 目录  安装Docker Docker简单使用  1.安装docker  卸载版本Docker  sudo yum remove docker \ docker-common \ docker-selinux \ docker-engine  设置仓库  sudo yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 sudo yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo  安装docker-ce  sudo yum install docker-ce  卸载docker-ce  sudo yum remove docker-ce sudo rm -rf /var/lib/docker  更换国内源  vim vim /etc/docker/daemon.json { &#34;registry-mirrors&#34;: [ &#34;http://hub-mirror.c.163.com&#34;] } 2.docker简单使用  下载镜像  docker pull nginx:1....</p>
   </section>
   <footer class="entry-footer">
     <time>March 12, 2019</time>
@@ -176,7 +168,7 @@ Course(c_id,c_name,t_id) – –课程编号, 课程名称, 教师编号
 Teacher(t_id,t_name) –教师编号,教师姓名
 4.成绩表
 Score(s_id,c_id,s_s_score) –学生编号,课程编号,分数
--- 学生表 CREATE TABLE Student( s_id VARCHAR(20), s_name VARCHAR(20) NOT NULL DEFAULT &#39;&#39;, s_birth VARCHAR(20) NOT NULL DEFAULT &#39;&#39;, s_sex VARCHAR(10) NOT NULL DEFAULT &#39;&#39;, PRIMARY KEY(s_id) ); -- 课程表 CREATE TABLE Course( c_id VARCHAR(20), c_name VARCHAR(20) NOT NULL DEFAULT &#39;&#39;, t_id VARCHAR(20) NOT NULL, PRIMARY KEY(c_id) ); -- 教师表 CREATE TABLE Teacher( t_id VARCHAR(20), t_name VARCHAR(20) NOT NULL DEFAULT &#39;&#39;, PRIMARY KEY(t_id) ); -- 成绩表 CREATE TABLE `Score`( s_id VARCHAR(20), c_id VARCHAR(20), s_score INT(3), PRIMARY KEY(s_id,c_id) ); 插入对应的数据 -- 插入学生表测试数据 insert into Student values(&#39;01&#39; , &#39;赵雷&#39; , &#39;1990-01-01&#39; , &#39;男&#39;); insert into Student values(&#39;02&#39; , &#39;钱电&#39; , &#39;1990-12-21&#39; , &#39;男&#39;); insert into Student values(&#39;03&#39; , &#39;孙风&#39; , &#39;1990-05-20&#39; , &#39;男&#39;); insert into Student values(&#39;04&#39; , &#39;李云&#39; , &#39;1990-08-06&#39; , &#39;男&#39;); insert into Student values(&#39;05&#39; , &#39;周梅&#39; , &#39;1991-12-01&#39; , &#39;女&#39;); insert into Student values(&#39;06&#39; , &#39;吴兰&#39; , &#39;1992-03-01&#39; , &#39;女&#39;); insert into Student values(&#39;07&#39; , &#39;郑竹&#39; , &#39;1989-07-01&#39; , &#39;女&#39;); insert into Student values(&#39;08&#39; , &#39;王菊&#39; , &#39;1990-01-20&#39; , &#39;女&#39;); insert into Student values(&#39;09&#39; , &#39;如花&#39; , &#39;1991-02-15&#39; , &#39;女&#39;); -- 课程表测试数据 insert into Course values(&#39;01&#39; , &#39;语文&#39; , &#39;02&#39;); insert into Course values(&#39;02&#39; , &#39;数学&#39; , &#39;01&#39;); insert into Course values(&#39;03&#39; , &#39;英语&#39; , &#39;03&#39;); insert into Course values(&#39;04&#39; , &#39;体育&#39; , &#39;01&#39;); -- 教师表测试数据 insert into Teacher values(&#39;01&#39; , &#39;张三&#39;); insert into Teacher values(&#39;02&#39; , &#39;李四&#39;); insert into Teacher values(&#39;03&#39; , &#39;王五&#39;); -- 成绩表测试数据 insert into Score values(&#39;01&#39; , &#39;01&#39; , 80); insert into Score values(&#39;01&#39; , &#39;02&#39; , 90); insert into Score values(&#39;01&#39; , &#39;03&#39; , 99); insert into Score values(&#39;02&#39; , &#39;01&#39; , 70); insert into Score values(&#39;02&#39; , &#39;02&#39; , 60); insert into Score values(&#39;02&#39; , &#39;03&#39; , 80); insert into Score values(&#39;03&#39; , &#39;01&#39; , 80); insert into Score values(&#39;03&#39; , &#39;02&#39; , 80); insert into Score values(&#39;03&#39; , &#39;03&#39; , 80); insert into Score values(&#39;04&#39; , &#39;01&#39; , 50); insert into Score values(&#39;04&#39; , &#39;02&#39; , 30); insert into Score values(&#39;04&#39; , &#39;03&#39; , 20); insert into Score values(&#39;05&#39; , &#39;01&#39; , 76); insert into Score values(&#39;05&#39; , &#39;02&#39; , 87); insert into Score values(&#39;06&#39; , &#39;01&#39; , 31); insert into Score values(&#39;06&#39; , &#39;03&#39; , 34); insert into Score values(&#39;07&#39; , &#39;02&#39; , 89); insert into Score values(&#39;07&#39; , &#39;03&#39; , 98); insert into Score values(&#39;09&#39;, &#39;01&#39;, 50); insert into Score values(&#39;09&#39;, &#39;02&#39;, 40); insert into Score values(&#39;09&#39;, &#39;03&#39;, 90); insert into Score values(&#39;09&#39;, &#39;04&#39;, 99); SQL练习  查询姓”张”老师的个数...</p>
+-- 学生表 CREATE TABLE Student( s_id VARCHAR(20), s_name VARCHAR(20) NOT NULL DEFAULT &#39;&#39;, s_birth VARCHAR(20) NOT NULL DEFAULT &#39;&#39;, s_sex VARCHAR(10) NOT NULL DEFAULT &#39;&#39;, PRIMARY KEY(s_id) ); -- 课程表 CREATE TABLE Course( c_id VARCHAR(20), c_name VARCHAR(20) NOT NULL DEFAULT &#39;&#39;, t_id VARCHAR(20) NOT NULL, PRIMARY KEY(c_id) ); -- 教师表 CREATE TABLE Teacher( t_id VARCHAR(20), t_name VARCHAR(20) NOT NULL DEFAULT &#39;&#39;, PRIMARY KEY(t_id) ); -- 成绩表 CREATE TABLE `Score`( s_id VARCHAR(20), c_id VARCHAR(20), s_score INT(3), PRIMARY KEY(s_id,c_id) ); 插入对应的数据 -- 插入学生表测试数据 insert into Student values(&#39;01&#39; , &#39;赵雷&#39; , &#39;1990-01-01&#39; , &#39;男&#39;); insert into Student values(&#39;02&#39; , &#39;钱电&#39; , &#39;1990-12-21&#39; , &#39;男&#39;); insert into Student values(&#39;03&#39; , &#39;孙风&#39; , &#39;1990-05-20&#39; , &#39;男&#39;); insert into Student values(&#39;04&#39; , &#39;李云&#39; , &#39;1990-08-06&#39; , &#39;男&#39;); insert into Student values(&#39;05&#39; , &#39;周梅&#39; , &#39;1991-12-01&#39; , &#39;女&#39;); insert into Student values(&#39;06&#39; , &#39;吴兰&#39; , &#39;1992-03-01&#39; , &#39;女&#39;); insert into Student values(&#39;07&#39; , &#39;郑竹&#39; , &#39;1989-07-01&#39; , &#39;女&#39;); insert into Student values(&#39;08&#39; , &#39;王菊&#39; , &#39;1990-01-20&#39; , &#39;女&#39;); insert into Student values(&#39;09&#39; , &#39;如花&#39; , &#39;1991-02-15&#39; , &#39;女&#39;); -- 课程表测试数据 insert into Course values(&#39;01&#39; , &#39;语文&#39; , &#39;02&#39;); insert into Course values(&#39;02&#39; , &#39;数学&#39; , &#39;01&#39;); insert into Course values(&#39;03&#39; , &#39;英语&#39; , &#39;03&#39;); insert into Course values(&#39;04&#39; , &#39;体育&#39; , &#39;01&#39;); -- 教师表测试数据 insert into Teacher values(&#39;01&#39; , &#39;张三&#39;); insert into Teacher values(&#39;02&#39; , &#39;李四&#39;); insert into Teacher values(&#39;03&#39; , &#39;王五&#39;); -- 成绩表测试数据 insert into Score values(&#39;01&#39; , &#39;01&#39; , 80); insert into Score values(&#39;01&#39; , &#39;02&#39; , 90); insert into Score values(&#39;01&#39; , &#39;03&#39; , 99); insert into Score values(&#39;02&#39; , &#39;01&#39; , 70); insert into Score values(&#39;02&#39; , &#39;02&#39; , 60); insert into Score values(&#39;02&#39; , &#39;03&#39; , 80); insert into Score values(&#39;03&#39; , &#39;01&#39; , 80); insert into Score values(&#39;03&#39; , &#39;02&#39; , 80); insert into Score values(&#39;03&#39; , &#39;03&#39; , 80); insert into Score values(&#39;04&#39; , &#39;01&#39; , 50); insert into Score values(&#39;04&#39; , &#39;02&#39; , 30); insert into Score values(&#39;04&#39; , &#39;03&#39; , 20); insert into Score values(&#39;05&#39; , &#39;01&#39; , 76); insert into Score values(&#39;05&#39; , &#39;02&#39; , 87); insert into Score values(&#39;06&#39; , &#39;01&#39; , 31); insert into Score values(&#39;06&#39; , &#39;03&#39; , 34); insert into Score values(&#39;07&#39; , &#39;02&#39; , 89); insert into Score values(&#39;07&#39; , &#39;03&#39; , 98); insert into Score values(&#39;09&#39;, &#39;01&#39;, 50); insert into Score values(&#39;09&#39;, &#39;02&#39;, 40); insert into Score values(&#39;09&#39;, &#39;03&#39;, 90); insert into Score values(&#39;09&#39;, &#39;04&#39;, 99); SQL练习  查询姓&#34;张&#34;老师的个数  select count(t_id) from Teacher where t_name like &#34;张%&#34;;  查询1990年出生的学生名单  select s_id, s_name from Student where year(s_birth)=1990;  查询课程编号为&#34;02&#34;的总成绩  select c_id,sum(s_score) as &#39;总成绩&#39; from Score where c_id=02;  查询选了课程的学生人数 思路学生唯一, 然后再计算总数  select count(distinct s_id) as &#34;选课人数&#34; from Score;  查询各科成绩最高和最低的分: 以如下的形式显示: 课程ID, 最高分, 最低分  select c_id as 课程ID, max(s_score) as 最高分, min(s_score) as 最低分 from Score group by c_id;  查询每门课程被选修的学生数  select c_id, count(s_id) from Score group by c_id;  查询男生,女生人数  select s_sex as 性别, count(s_id) as 人数 from Student group by s_sex;  查询平均成绩大于60分的学生的学号和平均成绩  学号与平均成绩都在Score表中可以获取到...</p>
   </section>
   <footer class="entry-footer">
     <time>March 12, 2019</time>
@@ -192,12 +184,8 @@ Score(s_id,c_id,s_s_score) –学生编号,课程编号,分数
 2. 下载JDK, 解压 进入https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html 右键选择linux x64 jdk-8u201-linux-i586.tar.gz的下载地址 使用wget下载
 wget --no-check-certificate --no-cookies --header &#34;Cookie: oraclelicense=accept-securebackup-cookie&#34; https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz 解压
 tar -zxvf jdk-8u201-linux-x64.tar.gz
-3. root移动文件, 并设置JAVA_HOME环境变量  移动文件夹
-mv jdk1.8.0_201 /usr/local 设置JAVA_HOME环境变量
-  vim /etc/profile 可以对所有用户生效 添加下列信息
-export JAVA_HOME=/usr/local/jdk1.8.0_201 export JRE_HOME=${JAVA_HOME}/jre export CLASSPATH=.:${JAVA_HOME}/lib/dt.JAVA_HOME/lib/tools.jar:${JRE_HOME}/lib export PATH=${JAVA_HOME}/bin:${PATH}  重新生效/etc/profile
-source /etc/profile 检测
-java -version  预期会弹出java的版本...</p>
+3. root移动文件, 并设置JAVA_HOME环境变量  移动文件夹  mv jdk1.8.0_201 /usr/local  设置JAVA_HOME环境变量  vim /etc/profile 可以对所有用户生效 添加下列信息
+export JAVA_HOME=/usr/local/jdk1.8.0_201 export JRE_HOME=${JAVA_HOME}/jre export CLASSPATH=.:${JAVA_HOME}/lib/dt.JAVA_HOME/lib/tools.jar:${JRE_HOME}/lib export PATH=${JAVA_HOME}/bin:${PATH}  重新生效/etc/profile  source /etc/profile  检测  java -version 预期会弹出java的版本...</p>
   </section>
   <footer class="entry-footer">
     <time>March 12, 2019</time>
@@ -209,14 +197,14 @@ java -version  预期会弹出java的版本...</p>
     <h2>更改linux用户名</h2>
   </header>
   <section class="entry-content">
-   <p> 0.前提条件  root用户及密码 原用户ccc  1. 更改用户ccc 使用root用户编辑更改
+   <p>0.前提条件  root用户及密码 原用户ccc  1. 更改用户ccc 使用root用户编辑更改
 /etc/passwd
 /etc/group
 /etc/shadow
 /etc/gshadow
-中”原用户名”为”新用户名”即可
+中&#34;原用户名&#34;为&#34;新用户名&#34;即可
 同时
-mv /home/olderuser /home/newuser...</p>
+mv /home/olderuser /home/newuser ...</p>
   </section>
   <footer class="entry-footer">
     <time>March 12, 2019</time>
@@ -229,16 +217,12 @@ mv /home/olderuser /home/newuser...</p>
   </header>
   <section class="entry-content">
    <p>0.前提条件 1.安装软件Centos7, 版本7.6.1810 CentOS-7-x86_64-Minimal-1810.iso 2.root用户及密码, 已联网  如未联网,请打开网卡, 并重启 设置/etc/sysconfig/network-scripts/ifcfg-eth0 中ONBOOT =yes  重启电脑
-reboot 1.登录root  需要查询当前Centos7的主机ip
-ifconfig 提示无此命令
-  yum -y install net-tools
+reboot 1.登录root  需要查询当前Centos7的主机ip  ifconfig 提示无此命令
+yum -y install net-tools
 再次 ifconfig查询ip
- 使用ssh软件登录root用户, 默认使用22端口, 不用指定
-ssh root@ip 输入密码
-  2.更改ssh服务端口, 防火墙端口, SELINUX端口  更改sshd.service端口, 端口可选择&gt;10000避免与其他软件冲突.  vim /etc/ssh/sshd_config更改Port 12340
-systemctl restart sshd  添加防火墙端口
-firewall-cmd --zone=public --add-port=12340/tcp --permanent (永久生效必须用--permanent) firewall-cmd --reload 更改SELINUX端口, 因为SELINUX的原因, ssh被设定到22端口上了, 必须更改
-  借助软件来更改 安装 yum -y install policycoreutils-python semanage port -a -t ssh_port_t -p tcp 12340...</p>
+使用ssh软件登录root用户, 默认使用22端口, 不用指定  ssh root@ip 输入密码
+2.更改ssh服务端口, 防火墙端口, SELINUX端口  更改sshd.service端口, 端口可选择&gt;10000避免与其他软件冲突.  vim /etc/ssh/sshd_config更改Port 12340
+systemctl restart sshd 添加防火墙端口  firewall-cmd --zone=public --add-port=12340/tcp --permanent (永久生效必须用--permanent) firewall-cmd --reload 更改SELINUX端口, 因为SELINUX的原因, ssh被设定到22端口上了, 必须更改  借助软件来更改 安装 yum -y install policycoreutils-python semanage port -a -t ssh_port_t -p tcp 12340...</p>
   </section>
   <footer class="entry-footer">
     <time>March 12, 2019</time>
@@ -250,7 +234,7 @@ firewall-cmd --zone=public --add-port=12340/tcp --permanent (永久生效必须�
     <h2>About</h2>
   </header>
   <section class="entry-content">
-   <p> 靡不有初 鲜克有终 ...</p>
+   <p>靡不有初 鲜克有终 ...</p>
   </section>
   <footer class="entry-footer">
     <time>March 9, 2019</time>

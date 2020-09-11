@@ -7,7 +7,7 @@
     
     <title>使用docker和hugo搭建自己的博客 - Actiger跳跳虎</title>
     
-    <meta name="description" content="1. 方案选择, 需要内容结构. 1. 练习的话, 可以这种方案. 虚拟机&#43;本地hosts, 免费, 只能内网访问. 2. 最难的方案, 国内域名(备案时间可能会很长,外地备案条件苛刻)&#43;国内云. 2. 在服务器上拉取docker-compose仓库. # 拉取仓库, 并存放在用户目录中 git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository # 复制这用到了docker-compose文件夹, 并存放在用户目录中 cp -r ~/docker-compose-repository/nginx-hugoBlog ~/nginx-hugoBlog 3. 使用hugo生成正确的博客目录 1. hugo生成网站目录 # 指定主题, 我使用了hugo-paper, 网站地址baseUrl, 目标目录, 我会上传多个平台, 所以指定下. # 注意 --bashUrl后的/是必须要有的. hugo --theme=hugo-paper --baseUrl=&#34;http://blog.actiger.com/&#34; --destination=&#34;blog.actiger.com&#34; 2. 上传步骤1生成的博客目录到github.com. 参考这里的步骤3和4 3. 在服务器上拉取上传的博客目录 # 进行docker-compose文件夹中 cd ~/nginx-hugoBlog # 拉取的docker-compose 默认配置是 ./blog.actiger.com:/usr/share/nginx/html . # docker-compose配置文件里的配置的目录, 与当前目录一致的. # 克隆代码时需要, 重命名与docker-compose配置挂载目录名一致. git clone https://github.com/Charles-one/blog.actiger.com blog.">
+    <meta name="description" content="1. 方案选择, 需要内容结构. 1. 练习的话, 可以这种方案. 虚拟机&#43;本地hosts, 免费, 只能内网访问. 2. 最难的方案, 国内域名(备案时间可能会很长,外地备案条件苛刻)&#43;国内云. 2. 在服务器上拉取docker-compose仓库. # 拉取仓库, 并存放在用户目录中 git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository # 复制这用到了docker-compose文件夹, 并存放在用户目录中 cp -r ~/docker-compose-repository/nginx-hugoBlog ~/nginx-hugoBlog 3. 使用hugo生成正确的博客目录 1. hugo生成网站目录 # 指定主题, 我使用了hugo-paper, 网站地址baseUrl, 目标目录, 我会上传多个平台, 所以指定下. # 注意 --bashUrl后的/是必须要有的. hugo --theme=hugo-paper --baseUrl=&quot;http://blog.actiger.com/&quot; --destination=&quot;blog.actiger.com&quot; 2. 上传步骤1生成的博客目录到github.com.  3. 在服务器上拉取上传的博客目录 # 进行docker-compose文件夹中 cd ~/nginx-hugoBlog # 拉取的docker-compose 默认配置是 ./blog.actiger.com:/usr/share/nginx/html . # docker-compose配置文件里的配置的目录, 与当前目录一致的. # 克隆代码时需要, 重命名与docker-compose配置挂载目录名一致. git clone https://github.com/Charles-one/blog.actiger.com blog.actiger.com 4.">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -80,33 +80,27 @@
     <h1 class="post-title">使用docker和hugo搭建自己的博客</h1>
     <div class="post-meta">May 19, 2019</div>
   </header>
-  <div class="post-content">
-
-<h3 id="1-方案选择-需要内容结构">1. 方案选择, 需要内容结构.</h3>
-
-<p><img src="https://img.actiger.com/blog/kubernetes-ingress-nginx.png" alt="img" /></p>
-
-<h4 id="1-练习的话-可以这种方案-虚拟机-本地hosts-免费-只能内网访问">1. 练习的话, 可以这种方案. 虚拟机+本地hosts, 免费, 只能内网访问.</h4>
-
-<h4 id="2-最难的方案-国内域名-备案时间可能会很长-外地备案条件苛刻-国内云">2. 最难的方案, 国内域名(备案时间可能会很长,外地备案条件苛刻)+国内云.</h4>
-
+  <div class="post-content"><h3 id="1-方案选择-需要内容结构">1. 方案选择, 需要内容结构.</h3>
+<p><img src="https://img.actiger.com/blog/kubernetes-ingress-nginx.png" alt="img"></p>
+<h4 id="1-练习的话-可以这种方案-虚拟机本地hosts-免费-只能内网访问">1. 练习的话, 可以这种方案. 虚拟机+本地hosts, 免费, 只能内网访问.</h4>
+<h4 id="2-最难的方案-国内域名备案时间可能会很长外地备案条件苛刻国内云">2. 最难的方案, 国内域名(备案时间可能会很长,外地备案条件苛刻)+国内云.</h4>
 <h3 id="2-在服务器上拉取docker-compose仓库">2. 在服务器上拉取docker-compose仓库.</h3>
 <pre><code># 拉取仓库, 并存放在用户目录中
 git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository
 
 # 复制这用到了docker-compose文件夹, 并存放在用户目录中
 
-cp -r ~/docker-compose-repository/nginx-hugoBlog ~/nginx-hugoBlog</code></pre>
-<h3 id="3-使用hugo生成正确的博客目录">3. 使用hugo生成正确的博客目录</h3>
+cp -r ~/docker-compose-repository/nginx-hugoBlog ~/nginx-hugoBlog
 
+</code></pre><h3 id="3-使用hugo生成正确的博客目录">3. 使用hugo生成正确的博客目录</h3>
 <h4 id="1-hugo生成网站目录">1. hugo生成网站目录</h4>
 <pre><code># 指定主题, 我使用了hugo-paper, 网站地址baseUrl, 目标目录, 我会上传多个平台, 所以指定下.
 
 # 注意 --bashUrl后的/是必须要有的.
 
-hugo --theme=hugo-paper --baseUrl=&#34;http://blog.actiger.com/&#34; --destination=&#34;blog.actiger.com&#34;</code></pre>
-<h4 id="2-上传步骤1生成的博客目录到github-com-参考这里的步骤3和4-https-charles-one-github-io-actiger-linux-使用hugo和github-pages搭建静态网站">2. 上传步骤1生成的博客目录到github.com. <a href="https://charles-one.github.io/actiger/linux/使用hugo和github-pages搭建静态网站/" target="_blank">参考这里的步骤3和4</a></h4>
+hugo --theme=hugo-paper --baseUrl=&quot;http://blog.actiger.com/&quot; --destination=&quot;blog.actiger.com&quot;
 
+</code></pre><h4 id="2-上传步骤1生成的博客目录到githubcom-参考这里的步骤3和4httpscharles-onegithubioactigerlinux使用hugo和github-pages搭建静态网站">2. 上传步骤1生成的博客目录到github.com. </h4>
 <h4 id="3-在服务器上拉取上传的博客目录">3. 在服务器上拉取上传的博客目录</h4>
 <pre><code># 进行docker-compose文件夹中
 
@@ -116,14 +110,16 @@ cd ~/nginx-hugoBlog
 # docker-compose配置文件里的配置的目录, 与当前目录一致的.
 # 克隆代码时需要, 重命名与docker-compose配置挂载目录名一致.
 
-git clone https://github.com/Charles-one/blog.actiger.com blog.actiger.com</code></pre>
-<h3 id="4-运行docker-compose文件">4. 运行docker-compose文件.</h3>
+git clone https://github.com/Charles-one/blog.actiger.com blog.actiger.com
+
+</code></pre><h3 id="4-运行docker-compose文件">4. 运行docker-compose文件.</h3>
 <pre><code># 进行执行目录中
 cd ~cd ~/nginx-hugoBlog
 
 # 执行
-docker-compose up -d</code></pre>
-<h4 id="验证是否正确-访问-http-blog-actiger-com-http-blog-actiger-com">验证是否正确, 访问<a href="http://blog.actiger.com" target="_blank">http://blog.actiger.com</a></h4>
+docker-compose up -d
+
+</code></pre><h4 id="验证是否正确-访问httpblogactigercomhttpblogactigercom">验证是否正确, 访问</h4>
 </div>
   
 </article></main>

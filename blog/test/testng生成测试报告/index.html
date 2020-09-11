@@ -7,7 +7,7 @@
     
     <title>TestNG生成测试报告 - Actiger跳跳虎</title>
     
-    <meta name="description" content="1. 使用的extentreports生成的测试报告, 报告中使用的css文件需要上强(墙) &lt;dependency&gt; &lt;groupId&gt;com.aventstack&lt;/groupId&gt; &lt;artifactId&gt;extentreports&lt;/artifactId&gt; &lt;version&gt;4.0.9&lt;/version&gt; &lt;/dependency&gt; 测试方法 package com.actiger.reports; import org.testng.Assert; import org.testng.Reporter; import org.testng.annotations.Test; public class TestReport { @Test public void test1(){ Assert.assertEquals(1,2); } @Test public void test2(){ Assert.assertEquals(1,1); } @Test public void test3(){ Assert.assertEquals(3,3); } @Test public void log1(){ Reporter.log(&#34;这是日志&#34;); throw new RuntimeException(&#34;这是一个异常&#34;); } } 配置的xml &lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt; &lt;suite name=&#34;mytest&#34;&gt; &lt;test name=&#34;test&#34;&gt; &lt;classes&gt; &lt;class name=&#34;com.actiger.reports.TestReport&#34;&gt; &lt;method&gt; &lt;include name=&#34;test1&#34;&gt;&lt;/include&gt; &lt;include name=&#34;test2&#34;&gt;&lt;/include&gt; &lt;include name=&#34;test3&#34;&gt;&lt;/include&gt; &lt;include name=&#34;log1&#34;&gt;&lt;/include&gt; &lt;/method&gt; &lt;/class&gt; &lt;/classes&gt; &lt;/test&gt; &lt;listeners&gt; &lt;listener class-name=&#34;com.">
+    <meta name="description" content="1. 使用的extentreports生成的测试报告, 报告中使用的css文件需要上强(墙) &lt;dependency&gt; &lt;groupId&gt;com.aventstack&lt;/groupId&gt; &lt;artifactId&gt;extentreports&lt;/artifactId&gt; &lt;version&gt;4.0.9&lt;/version&gt; &lt;/dependency&gt; 测试方法 package com.actiger.reports; import org.testng.Assert; import org.testng.Reporter; import org.testng.annotations.Test; public class TestReport { @Test public void test1(){ Assert.assertEquals(1,2); } @Test public void test2(){ Assert.assertEquals(1,1); } @Test public void test3(){ Assert.assertEquals(3,3); } @Test public void log1(){ Reporter.log(&quot;这是日志&quot;); throw new RuntimeException(&quot;这是一个异常&quot;); } } 配置的xml &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt; &lt;suite name=&quot;mytest&quot;&gt; &lt;test name=&quot;test&quot;&gt; &lt;classes&gt; &lt;class name=&quot;com.actiger.reports.TestReport&quot;&gt; &lt;method&gt; &lt;include name=&quot;test1&quot;&gt;&lt;/include&gt; &lt;include name=&quot;test2&quot;&gt;&lt;/include&gt; &lt;include name=&quot;test3&quot;&gt;&lt;/include&gt; &lt;include name=&quot;log1&quot;&gt;&lt;/include&gt; &lt;/method&gt; &lt;/class&gt; &lt;/classes&gt; &lt;/test&gt; &lt;listeners&gt; &lt;listener class-name=&quot;com.">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -80,15 +80,13 @@
     <h1 class="post-title">TestNG生成测试报告</h1>
     <div class="post-meta">June 16, 2019</div>
   </header>
-  <div class="post-content">
-
-<h3 id="1-使用的extentreports生成的测试报告-报告中使用的css文件需要上强-墙">1. 使用的extentreports生成的测试报告, 报告中使用的css文件需要上强(墙)</h3>
+  <div class="post-content"><h3 id="1-使用的extentreports生成的测试报告-报告中使用的css文件需要上强墙">1. 使用的extentreports生成的测试报告, 报告中使用的css文件需要上强(墙)</h3>
 <pre><code>&lt;dependency&gt;
     &lt;groupId&gt;com.aventstack&lt;/groupId&gt;
     &lt;artifactId&gt;extentreports&lt;/artifactId&gt;
     &lt;version&gt;4.0.9&lt;/version&gt;
-&lt;/dependency&gt;</code></pre>
-<h4 id="测试方法">测试方法</h4>
+&lt;/dependency&gt;
+</code></pre><h4 id="测试方法">测试方法</h4>
 <pre><code>package com.actiger.reports;
 
 import org.testng.Assert;
@@ -114,30 +112,31 @@ public class TestReport {
 
     @Test
     public void log1(){
-        Reporter.log(&#34;这是日志&#34;);
-        throw new RuntimeException(&#34;这是一个异常&#34;);
+        Reporter.log(&quot;这是日志&quot;);
+        throw new RuntimeException(&quot;这是一个异常&quot;);
     }
-}</code></pre>
-<h4 id="配置的xml">配置的xml</h4>
-<pre><code>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;
-&lt;suite name=&#34;mytest&#34;&gt;
-    &lt;test name=&#34;test&#34;&gt;
+}
+</code></pre><h4 id="配置的xml">配置的xml</h4>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;suite name=&quot;mytest&quot;&gt;
+    &lt;test name=&quot;test&quot;&gt;
         &lt;classes&gt;
-            &lt;class name=&#34;com.actiger.reports.TestReport&#34;&gt;
+            &lt;class name=&quot;com.actiger.reports.TestReport&quot;&gt;
                 &lt;method&gt;
-                    &lt;include name=&#34;test1&#34;&gt;&lt;/include&gt;
-                    &lt;include name=&#34;test2&#34;&gt;&lt;/include&gt;
-                    &lt;include name=&#34;test3&#34;&gt;&lt;/include&gt;
-                    &lt;include name=&#34;log1&#34;&gt;&lt;/include&gt;
+                    &lt;include name=&quot;test1&quot;&gt;&lt;/include&gt;
+                    &lt;include name=&quot;test2&quot;&gt;&lt;/include&gt;
+                    &lt;include name=&quot;test3&quot;&gt;&lt;/include&gt;
+                    &lt;include name=&quot;log1&quot;&gt;&lt;/include&gt;
                 &lt;/method&gt;
             &lt;/class&gt;
         &lt;/classes&gt;
     &lt;/test&gt;
     &lt;listeners&gt;
-        &lt;listener class-name=&#34;com.vimalselvam.testng.listener.ExtentTestNgFormatter&#34;&gt;&lt;/listener&gt;
+        &lt;listener class-name=&quot;com.vimalselvam.testng.listener.ExtentTestNgFormatter&quot;&gt;&lt;/listener&gt;
     &lt;/listeners&gt;
-&lt;/suite&gt;</code></pre>
-<h4 id="运行xml-并打开test-output中report-html即可查看">运行xml, 并打开test-output中report.html即可查看</h4>
+&lt;/suite&gt;
+
+</code></pre><h4 id="运行xml-并打开test-output中reporthtml即可查看">运行xml, 并打开test-output中report.html即可查看</h4>
 </div>
   
 </article></main>

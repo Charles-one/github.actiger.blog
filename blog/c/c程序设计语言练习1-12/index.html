@@ -80,25 +80,16 @@
     <h1 class="post-title">C程序设计语言练习1-12</h1>
     <div class="post-meta">April 11, 2020</div>
   </header>
-  <div class="post-content">
-
-<h2 id="1-要求-编写一个程序-以每行一个单词的形式打印其输入">1. 要求: 编写一个程序, 以每行一个单词的形式打印其输入.</h2>
-
+  <div class="post-content"><h2 id="1-要求-编写一个程序-以每行一个单词的形式打印其输入">1. 要求: 编写一个程序, 以每行一个单词的形式打印其输入.</h2>
 <h2 id="2-分析">2. 分析.</h2>
-
-<h3 id="1-在每个单词的结尾处换行-单词结尾的判断-即前一个字符即不是空格-制表符-也不是换行符-后面跟着空格或制表符或换行符">1. 在每个单词的结尾处换行, 单词结尾的判断, 即前一个字符即不是空格, 制表符, 也不是换行符,后面跟着空格或制表符或换行符.</h3>
-
-<h3 id="2-在遇到不是空格-不是制表符-不是换行符时输出-设置标记为1">2. 在遇到不是空格,不是制表符, 不是换行符时输出, 设置标记为1;</h3>
-
+<h3 id="1-在每个单词的结尾处换行-单词结尾的判断-即前一个字符即不是空格-制表符-也不是换行符后面跟着空格或制表符或换行符">1. 在每个单词的结尾处换行, 单词结尾的判断, 即前一个字符即不是空格, 制表符, 也不是换行符,后面跟着空格或制表符或换行符.</h3>
+<h3 id="2-在遇到不是空格不是制表符-不是换行符时输出-设置标记为1">2. 在遇到不是空格,不是制表符, 不是换行符时输出, 设置标记为1;</h3>
 <h3 id="3-遇到空格或制表符或换行符时-同时判断标记">3. 遇到空格或制表符或换行符时, 同时判断标记</h3>
-
 <ol>
 <li>标记是1则打印换行符(\n), 重置标记位为0.</li>
 <li>标记是0(表示上一个输入字符是空格或制表符或换行符)则不处理, 什么也不打印.</li>
 </ol>
-
 <h2 id="3-代码">3. 代码</h2>
-
 <h4 id="注意-在执行的时候每次回车都是输入-程序在while就开始循环判断-同时打印数据-c程序设计语言练习1-12之前的习题则在eof之后才打印">注意: 在执行的时候每次回车都是输入, 程序在while就开始循环判断, 同时打印数据. C程序设计语言练习1-12之前的习题则在EOF之后才打印.</h4>
 <pre><code>#include&lt;stdio.h&gt;
 
@@ -109,19 +100,20 @@ int main(){
     int c, state;
     state = OUT;
     while( (c= getchar() ) !=EOF ){
-        if( c != &#39; &#39; &amp;&amp; c != &#39;\t&#39; &amp;&amp; c != &#39;\n&#39;){
+        if( c != ' ' &amp;&amp; c != '\t' &amp;&amp; c != '\n'){
             putchar(c);
             state = IN;
-        }else if( ( c == &#39; &#39; || c == &#39;\t&#39; || c != &#39;\n&#39;) &amp;&amp; IN == state ){
+        }else if( ( c == ' ' || c == '\t' || c != '\n') &amp;&amp; IN == state ){
             state = OUT;
-            printf(&#34;\n&#34;);
-        }else if( ( c == &#39; &#39; || c == &#39;\t&#39; || c != &#39;\n&#39;) &amp;&amp; OUT == state ){
+            printf(&quot;\n&quot;);
+        }else if( ( c == ' ' || c == '\t' || c != '\n') &amp;&amp; OUT == state ){
             continue;
         }
     }
     return 0;
-}</code></pre>
-<h3 id="可简化写为">可简化写为.</h3>
+}
+
+</code></pre><h3 id="可简化写为">可简化写为.</h3>
 <pre><code>#include&lt;stdio.h&gt;
 
 #define IN 1
@@ -131,16 +123,18 @@ int main(){
     int c, state;
     state = OUT;
     while( (c= getchar() ) !=EOF ){
-        if( c != &#39; &#39; &amp;&amp; c != &#39;\t&#39; &amp;&amp; c != &#39;\n&#39;){
+        if( c != ' ' &amp;&amp; c != '\t' &amp;&amp; c != '\n'){
             putchar(c);
             state = IN;
         }else if( IN == state ){
             state = OUT;
-            printf(&#34;\n&#34;);
+            printf(&quot;\n&quot;);
         }
     }
     return 0;
-}</code></pre></div>
+}
+
+</code></pre></div>
   
 </article></main>
 <footer class="footer">

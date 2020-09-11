@@ -7,7 +7,7 @@
     
     <title>Linux.Mac三宝剑ag fasd fzf - Actiger跳跳虎</title>
     
-    <meta name="description" content="1.简介与安装 1. 简介ag是比grep更好的搜索软件, 提供高亮显示. Fasd时空机, 去过的地址都直接跳过去, 再也不用cd来cd去了. Fzf更强大的搜索文件. 2. 安装ag, Fasd Fzf # mac brew install the_silver_searcher fzf fasd # 还需要把 eval &#34;$(fasd --init auto)&#34; 放到.bashrc或者.zshrc中 # 重新生效source .bashrc或者source .zshrc # linux git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf ~/.fzf/install yum install the_silver_searcher yum install fasd 2. 使用. 1. 最有命令说明, 需要配置2中配置才可以使用.(bat是与cat类似,有语法高亮) # tab键补全, 最近打开最多带有a名字的匹配文件, 在任何目录中你都可以直接编辑你的相要的文件 v a # 在任意目录下都可以这样使用, cat与ag联用, 匹配a文件, 并搜索aaa caf a | ag &#34;aaa&#34; # 跳转, 配置最近最多a文件夹名, tab补全所有匹配的a的文件 j a # 预览当前目录下的文件 ffp 2.">
+    <meta name="description" content="1.简介与安装 1. 简介ag是比grep更好的搜索软件, 提供高亮显示. Fasd时空机, 去过的地址都直接跳过去, 再也不用cd来cd去了. Fzf更强大的搜索文件. 2. 安装ag, Fasd Fzf # mac brew install the_silver_searcher fzf fasd # 还需要把 eval &quot;$(fasd --init auto)&quot; 放到.bashrc或者.zshrc中 # 重新生效source .bashrc或者source .zshrc # linux git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf ~/.fzf/install yum install the_silver_searcher yum install fasd 2. 使用. 1. 最有命令说明, 需要配置2中配置才可以使用.(bat是与cat类似,有语法高亮) # tab键补全, 最近打开最多带有a名字的匹配文件, 在任何目录中你都可以直接编辑你的相要的文件 v a # 在任意目录下都可以这样使用, cat与ag联用, 匹配a文件, 并搜索aaa caf a | ag &quot;aaa&quot; # 跳转, 配置最近最多a文件夹名, tab补全所有匹配的a的文件 j a # 预览当前目录下的文件 ffp 2.">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -80,17 +80,13 @@
     <h1 class="post-title">Linux.Mac三宝剑ag fasd fzf</h1>
     <div class="post-meta">May 19, 2019</div>
   </header>
-  <div class="post-content">
-
-<h3 id="1-简介与安装">1.简介与安装</h3>
-
+  <div class="post-content"><h3 id="1简介与安装">1.简介与安装</h3>
 <h4 id="1-简介ag是比grep更好的搜索软件-提供高亮显示-fasd时空机-去过的地址都直接跳过去-再也不用cd来cd去了-fzf更强大的搜索文件">1. 简介ag是比grep更好的搜索软件, 提供高亮显示. Fasd时空机, 去过的地址都直接跳过去, 再也不用cd来cd去了. Fzf更强大的搜索文件.</h4>
-
 <h4 id="2-安装ag-fasd-fzf">2. 安装ag, Fasd Fzf</h4>
 <pre><code># mac
 brew install the_silver_searcher fzf fasd
 
-# 还需要把 eval &#34;$(fasd --init auto)&#34; 放到.bashrc或者.zshrc中
+# 还需要把 eval &quot;$(fasd --init auto)&quot; 放到.bashrc或者.zshrc中
 # 重新生效source .bashrc或者source .zshrc
 
 # linux
@@ -99,106 +95,110 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 
 yum install the_silver_searcher
 
-yum install fasd</code></pre>
-<h3 id="2-使用">2. 使用.</h3>
+yum install fasd
 
-<h4 id="1-最有命令说明-需要配置2中配置才可以使用-bat是与cat类似-有语法高亮">1. 最有命令说明, 需要配置2中配置才可以使用.(bat是与cat类似,有语法高亮)</h4>
+</code></pre><h3 id="2-使用">2. 使用.</h3>
+<h4 id="1-最有命令说明-需要配置2中配置才可以使用bat是与cat类似有语法高亮">1. 最有命令说明, 需要配置2中配置才可以使用.(bat是与cat类似,有语法高亮)</h4>
 <pre><code># tab键补全, 最近打开最多带有a名字的匹配文件, 在任何目录中你都可以直接编辑你的相要的文件
 v a
 
 # 在任意目录下都可以这样使用, cat与ag联用, 匹配a文件, 并搜索aaa
-caf a | ag &#34;aaa&#34;
+caf a | ag &quot;aaa&quot;
 
 # 跳转, 配置最近最多a文件夹名, tab补全所有匹配的a的文件
 j a
 
 # 预览当前目录下的文件
-ffp</code></pre>
-<h4 id="2-全部配置信息">2. 全部配置信息.</h4>
-<pre><code>alias jan=&#39;fasd -a&#39;        # any
-alias js=&#39;fasd -si&#39;       # show / search / select
-alias jd=&#39;fasd -d&#39;        # directory
-alias jf=&#39;fasd -f&#39;        # file
-alias jsd=&#39;fasd -sid&#39;     # interactive directory selection
-alias jsf=&#39;fasd -sif&#39;     # interactive file selection
-alias j=&#39;fasd_cd -d&#39;     # cd, same functionality as j in autojump
-alias jz=&#39;fasd_cd -d -i&#39; # cd with interactive selection
-alias jdd=&#39;fasd -D&#39; # 删除一个路径
+ffp
 
-# ja foo 列出最近操作的路径匹配&#39;foo&#39;的文件与目录
-# jf foo 列出最近操作的路径匹配&#39;foo&#39;的文件
-# jd foo 列出最近操作的路径匹配&#39;foo&#39;的目录
-# js foo 列出最近操作的路径匹配&#39;foo&#39;的文件与目录，并可以通过序号选择
-# jsf foo 列出最近操作的路径匹配&#39;foo&#39;的文件，并可以通过序号选择
-# jsd foo 列出最近操作的路径匹配&#39;foo&#39;的目录，并可以通过序号选择
-# j foo cd到最近操作的匹配&#39;foo&#39;并且得分最高的目录
-# jz foo 列出最近操作的路径匹配&#39;foo&#39;的目录，通过序号选择，然后cd进目录
+
+</code></pre><h4 id="2-全部配置信息">2. 全部配置信息.</h4>
+<pre><code>alias jan='fasd -a'        # any
+alias js='fasd -si'       # show / search / select
+alias jd='fasd -d'        # directory
+alias jf='fasd -f'        # file
+alias jsd='fasd -sid'     # interactive directory selection
+alias jsf='fasd -sif'     # interactive file selection
+alias j='fasd_cd -d'     # cd, same functionality as j in autojump
+alias jz='fasd_cd -d -i' # cd with interactive selection
+alias jdd='fasd -D' # 删除一个路径
+
+# ja foo 列出最近操作的路径匹配'foo'的文件与目录
+# jf foo 列出最近操作的路径匹配'foo'的文件
+# jd foo 列出最近操作的路径匹配'foo'的目录
+# js foo 列出最近操作的路径匹配'foo'的文件与目录，并可以通过序号选择
+# jsf foo 列出最近操作的路径匹配'foo'的文件，并可以通过序号选择
+# jsd foo 列出最近操作的路径匹配'foo'的目录，并可以通过序号选择
+# j foo cd到最近操作的匹配'foo'并且得分最高的目录
+# jz foo 列出最近操作的路径匹配'foo'的目录，通过序号选择，然后cd进目录
 # jdd 删除一个路径
 
 # File
-alias v=&#39;jf -e vim&#39;
-alias baf=&#39;jf -e bat&#39;
-alias batf=&#39;jf -e bat&#39;
-alias caf=&#39;jf -e cat&#39;
-alias catf=&#39;jf -e cat&#39;
-alias py3f=&#34;jf -e python3&#34;
-alias lsf=&#34;jd -e ls&#34;
-alias pbcopyf=&#39;jf -e pbcopy&#39;
-alias pbpastef=&#39;jf -e pbpaste&#39;
-alias scpf=&#39;jf -e scp&#39;
-alias shf=&#39;jf -e sh&#39;
+alias v='jf -e vim'
+alias baf='jf -e bat'
+alias batf='jf -e bat'
+alias caf='jf -e cat'
+alias catf='jf -e cat'
+alias py3f=&quot;jf -e python3&quot;
+alias lsf=&quot;jd -e ls&quot;
+alias pbcopyf='jf -e pbcopy'
+alias pbpastef='jf -e pbpaste'
+alias scpf='jf -e scp'
+alias shf='jf -e sh'
 # Folder
-alias mvf=&#39;jd -e mv&#39;
+alias mvf='jd -e mv'
 
-alias ffall=&#34;find / -type f | fzf | pbcopy&#34;
-alias ffm=&#34;find ~/ -type f | fzf | pbcopy&#34;
-alias ff=&#34;find . -type f | fzf | pbcopy&#34;
-alias ffec=&#34;find ~/ -type f | fzf -e | pbcopy&#34;
+alias ffall=&quot;find / -type f | fzf | pbcopy&quot;
+alias ffm=&quot;find ~/ -type f | fzf | pbcopy&quot;
+alias ff=&quot;find . -type f | fzf | pbcopy&quot;
+alias ffec=&quot;find ~/ -type f | fzf -e | pbcopy&quot;
 # preview file
-alias ffp=&#39;fzf --preview &#39;&#34;&#39;&#34;&#39;[[ $(file --mime {}) =~ binary ]] &amp;&amp; echo {} is a binary file || (rougify {}  || highlight -O ansi -l {} || coderay {} || cat {}) 2&gt; /dev/null | head -500&#39;&#34;&#39;&#34;
+alias ffp='fzf --preview '&quot;'&quot;'[[ $(file --mime {}) =~ binary ]] &amp;&amp; echo {} is a binary file || (rougify {}  || highlight -O ansi -l {} || coderay {} || cat {}) 2&gt; /dev/null | head -500'&quot;'&quot;
 
 # 跳到最近匹配的目录中
 
 jj() {
-    [ $# -gt 0 ] &amp;&amp; fasd_cd -d &#34;$*&#34; &amp;&amp; return
+    [ $# -gt 0 ] &amp;&amp; fasd_cd -d &quot;$*&quot; &amp;&amp; return
     local dir
-    dir=&#34;$(fasd -Rdl &#34;$1&#34; | fzf -1 -0 --no-sort +m)&#34; &amp;&amp; cd &#34;${dir}&#34; || return 1
+    dir=&quot;$(fasd -Rdl &quot;$1&quot; | fzf -1 -0 --no-sort +m)&quot; &amp;&amp; cd &quot;${dir}&quot; || return 1
 }
 
 jje() {
-    [ $# -gt 0 ] &amp;&amp; fasd_cd -d &#34;$*&#34; &amp;&amp; return
+    [ $# -gt 0 ] &amp;&amp; fasd_cd -d &quot;$*&quot; &amp;&amp; return
     local dir
-    dir=&#34;$(fasd -Rdl &#34;$1&#34; | fzf -e -1 -0 --no-sort +m)&#34; &amp;&amp; cd &#34;${dir}&#34; || return 1
+    dir=&quot;$(fasd -Rdl &quot;$1&quot; | fzf -e -1 -0 --no-sort +m)&quot; &amp;&amp; cd &quot;${dir}&quot; || return 1
 }
 
 # 从当前路径搜索并跳转
 
 jcd() {
   local dir
-  dir=$(find ${1:-.} -path &#39;*/\.*&#39; -prune \
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
                   -o -type d -print 2&gt; /dev/null | fzf +m) &amp;&amp;
-  cd &#34;$dir&#34;
+  cd &quot;$dir&quot;
 }
 # 从当前目录开始跳转
 jcde() {
   local dir
-  dir=$(find ${1:-.} -path &#39;*/\.*&#39; -prune \
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
                   -o -type d -print 2&gt; /dev/null | fzf -e +m) &amp;&amp;
-  cd &#34;$dir&#34;
+  cd &quot;$dir&quot;
 }
 
 # 匹配文件用vim打开
 jv() {
-    [ $# -gt 0 ] &amp;&amp; fasd -f -e ${EDITOR} &#34;$*&#34; &amp;&amp; return
+    [ $# -gt 0 ] &amp;&amp; fasd -f -e ${EDITOR} &quot;$*&quot; &amp;&amp; return
     local file
-    file=&#34;$(fasd -Rfl &#34;$1&#34; | fzf -1 -0 --no-sort +m)&#34; &amp;&amp; vim &#34;${file}&#34; || return 1
+    file=&quot;$(fasd -Rfl &quot;$1&quot; | fzf -1 -0 --no-sort +m)&quot; &amp;&amp; vim &quot;${file}&quot; || return 1
 }
 
 jve() {
-    [ $# -gt 0 ] &amp;&amp; fasd -f -e ${EDITOR} &#34;$*&#34; &amp;&amp; return
+    [ $# -gt 0 ] &amp;&amp; fasd -f -e ${EDITOR} &quot;$*&quot; &amp;&amp; return
     local file
-    file=&#34;$(fasd -Rfl &#34;$1&#34; | fzf -e -1 -0 --no-sort +m)&#34; &amp;&amp; vim &#34;${file}&#34; || return 1
-}</code></pre></div>
+    file=&quot;$(fasd -Rfl &quot;$1&quot; | fzf -e -1 -0 --no-sort +m)&quot; &amp;&amp; vim &quot;${file}&quot; || return 1
+}
+
+</code></pre></div>
   
 </article></main>
 <footer class="footer">

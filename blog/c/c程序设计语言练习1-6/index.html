@@ -7,7 +7,7 @@
     
     <title>C程序设计语言练习1-6 - Actiger跳跳虎</title>
     
-    <meta name="description" content=" 1. 要求: 验证表达式getchar() != EOF的值是0还是1 2. 分析. 1. getchar()是获取一个输入字符, 判断是否为输入结尾, 结尾特定EOF(End of File) 2. Linux中，在新的一行的开头，按下Ctrl-D，就代表EOF（如果在一行的中间按下Ctrl-D，则表示输出&rdquo;标准输入&rdquo;的缓存区，所以这时必须按两次Ctrl-D）；Windows中，Ctrl-Z表示EOF。（顺便提一句，Linux中按下Ctrl-Z，表示将该进程中断，在后台挂起，用fg命令可以重新切回到前台；按下Ctrl-C表示终止该进程。） 3. 代码 1. 注意a = getchare() != EOF与a = (getchar() != EOF)等价, 原因是=是赋值, !=比=的优先级高, 就像四则运算/号的优先级比&#43;号高一样. 2. while的判断到EOF时会中止执行, 里面语句不会执行, 故需要在外部打印getchar() != EOF的值. #include&lt;stdio.h&gt; int main(){ int a ; while(a = (getchar() != EOF)){ printf(&#34;%d\n&#34;, a); } printf(&#34;%d\n&#34;, a); return 0; }">
+    <meta name="description" content="1. 要求: 验证表达式getchar() != EOF的值是0还是1 2. 分析. 1. getchar()是获取一个输入字符, 判断是否为输入结尾, 结尾特定EOF(End of File) 2. Linux中，在新的一行的开头，按下Ctrl-D，就代表EOF（如果在一行的中间按下Ctrl-D，则表示输出&quot;标准输入&quot;的缓存区，所以这时必须按两次Ctrl-D）；Windows中，Ctrl-Z表示EOF。（顺便提一句，Linux中按下Ctrl-Z，表示将该进程中断，在后台挂起，用fg命令可以重新切回到前台；按下Ctrl-C表示终止该进程。） 3. 代码 1. 注意a = getchare() != EOF与a = (getchar() != EOF)等价, 原因是=是赋值, !=比=的优先级高, 就像四则运算/号的优先级比&#43;号高一样. 2. while的判断到EOF时会中止执行, 里面语句不会执行, 故需要在外部打印getchar() != EOF的值.  #include&lt;stdio.h&gt; int main(){ int a ; while(a = (getchar() != EOF)){ printf(&quot;%d\n&quot;, a); } printf(&quot;%d\n&quot;, a); return 0; } ">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -80,30 +80,24 @@
     <h1 class="post-title">C程序设计语言练习1-6</h1>
     <div class="post-meta">April 9, 2020</div>
   </header>
-  <div class="post-content">
-
-<h2 id="1-要求-验证表达式getchar-eof的值是0还是1">1. 要求: 验证表达式getchar() != EOF的值是0还是1</h2>
-
+  <div class="post-content"><h2 id="1-要求-验证表达式getchar--eof的值是0还是1">1. 要求: 验证表达式getchar() != EOF的值是0还是1</h2>
 <h2 id="2-分析">2. 分析.</h2>
-
-<h4 id="1-getchar-是获取一个输入字符-判断是否为输入结尾-结尾特定eof-end-of-file">1. getchar()是获取一个输入字符, 判断是否为输入结尾, 结尾特定EOF(End of File)</h4>
-
-<h4 id="2-linux中-在新的一行的开头-按下ctrl-d-就代表eof-如果在一行的中间按下ctrl-d-则表示输出-标准输入-的缓存区-所以这时必须按两次ctrl-d-windows中-ctrl-z表示eof-顺便提一句-linux中按下ctrl-z-表示将该进程中断-在后台挂起-用fg命令可以重新切回到前台-按下ctrl-c表示终止该进程">2. Linux中，在新的一行的开头，按下Ctrl-D，就代表EOF（如果在一行的中间按下Ctrl-D，则表示输出&rdquo;标准输入&rdquo;的缓存区，所以这时必须按两次Ctrl-D）；Windows中，Ctrl-Z表示EOF。（顺便提一句，Linux中按下Ctrl-Z，表示将该进程中断，在后台挂起，用fg命令可以重新切回到前台；按下Ctrl-C表示终止该进程。）</h4>
-
+<h4 id="1-getchar是获取一个输入字符-判断是否为输入结尾-结尾特定eofend-of-file">1. getchar()是获取一个输入字符, 判断是否为输入结尾, 结尾特定EOF(End of File)</h4>
+<h4 id="2-linux中在新的一行的开头按下ctrl-d就代表eof如果在一行的中间按下ctrl-d则表示输出标准输入的缓存区所以这时必须按两次ctrl-dwindows中ctrl-z表示eof顺便提一句linux中按下ctrl-z表示将该进程中断在后台挂起用fg命令可以重新切回到前台按下ctrl-c表示终止该进程">2. Linux中，在新的一行的开头，按下Ctrl-D，就代表EOF（如果在一行的中间按下Ctrl-D，则表示输出&quot;标准输入&quot;的缓存区，所以这时必须按两次Ctrl-D）；Windows中，Ctrl-Z表示EOF。（顺便提一句，Linux中按下Ctrl-Z，表示将该进程中断，在后台挂起，用fg命令可以重新切回到前台；按下Ctrl-C表示终止该进程。）</h4>
 <h2 id="3-代码">3. 代码</h2>
-
-<h4 id="1-注意a-getchare-eof与a-getchar-eof-等价-原因是-是赋值-比-的优先级高-就像四则运算-号的优先级比-号高一样">1. 注意a = getchare() != EOF与a = (getchar() != EOF)等价, 原因是=是赋值, !=比=的优先级高, 就像四则运算/号的优先级比+号高一样.</h4>
-
-<h4 id="2-while的判断到eof时会中止执行-里面语句不会执行-故需要在外部打印getchar-eof的值">2. while的判断到EOF时会中止执行, 里面语句不会执行, 故需要在外部打印getchar() != EOF的值.</h4>
-<pre><code>#include&lt;stdio.h&gt;
+<h4 id="1-注意a--getchare--eof与a--getchar--eof等价-原因是是赋值-比的优先级高-就像四则运算号的优先级比号高一样">1. 注意a = getchare() != EOF与a = (getchar() != EOF)等价, 原因是=是赋值, !=比=的优先级高, 就像四则运算/号的优先级比+号高一样.</h4>
+<h4 id="2-while的判断到eof时会中止执行-里面语句不会执行-故需要在外部打印getchar--eof的值">2. while的判断到EOF时会中止执行, 里面语句不会执行, 故需要在外部打印getchar() != EOF的值.</h4>
+<pre><code>
+#include&lt;stdio.h&gt;
 int main(){
     int a ;
     while(a = (getchar() != EOF)){
-        printf(&#34;%d\n&#34;, a);
+        printf(&quot;%d\n&quot;, a);
     }
-    printf(&#34;%d\n&#34;, a);
+    printf(&quot;%d\n&quot;, a);
     return 0;
-}</code></pre></div>
+}
+</code></pre></div>
   
 </article></main>
 <footer class="footer">
