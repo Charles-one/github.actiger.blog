@@ -80,23 +80,36 @@
     <h1 class="post-title">Kubernetes下nginx静态图床</h1>
     <div class="post-meta">September 11, 2020</div>
   </header>
-  <div class="post-content"><h3 id="1-为什么需要图床">1. 为什么需要图床</h3>
+  <div class="post-content">
+
+<h3 id="1-为什么需要图床">1. 为什么需要图床</h3>
+
 <h4 id="1-自己的搭建的图床地址不会更改-长期可用-服务保证-第3方服务-随时因为各种异常封禁的">1. 自己的搭建的图床地址不会更改, 长期可用, 服务保证, 第3方服务, 随时因为各种异常封禁的.</h4>
+
 <h4 id="2-hugo写markdown过程中需要使用图片-使用hugo相对地址比较麻烦">2. Hugo写markdown过程中需要使用图片. 使用Hugo相对地址比较麻烦.</h4>
-<h4 id="3-七牛又拍云之类需要备案和认证-时间和精力成本比较高">3. 七牛,又拍云之类需要备案和认证, 时间和精力成本比较高.</h4>
+
+<h4 id="3-七牛-又拍云之类需要备案和认证-时间和精力成本比较高">3. 七牛,又拍云之类需要备案和认证, 时间和精力成本比较高.</h4>
+
 <h4 id="4-而且自己搭建后-凡是可使用markdown的地方都可使用-富文本也可用-公众号之类文章也可以使用-综上图床必须的">4. 而且自己搭建后, 凡是可使用markdown的地方都可使用, 富文本也可用, 公众号之类文章也可以使用, 综上图床必须的.</h4>
+
 <h3 id="2-图床原理-需要搭建什么的图床">2. 图床原理, 需要搭建什么的图床.</h3>
+
 <h4 id="1-原理的话">1. 原理的话</h4>
+
 <ol>
 <li>就是服务器上的一个一个图片文件, 通过nginx apeache类服务器访问这些图片.</li>
 </ol>
+
 <h4 id="2-搭建什么的图床">2. 搭建什么的图床.</h4>
+
 <ol>
 <li>Chevereto + nginx可网页上传, 稍微有点难度, 有需求再上.</li>
 <li>Nginx 这个目前觉得最简单, 就用这个了.</li>
 </ol>
+
 <h3 id="3-在kubernetes下nginx-pod创建图床">3. 在Kubernetes下nginx pod创建图床.</h3>
-<h4 id="1-vim-nginx-deploymentyaml-使用到pvc-命名空间命名的是nginx-space">1. vim nginx-deployment.yaml, 使用到pvc, 命名空间命名的是nginx-space</h4>
+
+<h4 id="1-vim-nginx-deployment-yaml-使用到pvc-命名空间命名的是nginx-space">1. vim nginx-deployment.yaml, 使用到pvc, 命名空间命名的是nginx-space</h4>
 <pre><code>apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -151,8 +164,8 @@ spec:
   - port: 80
     protocol: TCP
   selector:
-    app: my-nginx
-</code></pre><h4 id="2-vim-pv-pvc-imgyaml">2. vim pv-pvc-img.yaml</h4>
+    app: my-nginx</code></pre>
+<h4 id="2-vim-pv-pvc-img-yaml">2. vim pv-pvc-img.yaml</h4>
 <pre><code>kind: PersistentVolume
 metadata:
   name: pv-img
@@ -163,7 +176,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: &quot;/root/img&quot;
+    path: &#34;/root/img&#34;
 
 ---
 
@@ -175,11 +188,11 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: &quot;&quot;
+  storageClassName: &#34;&#34;
   resources:
     requests:
-      storage: 500Mi
-</code></pre><h4 id="3-vim-etcnginxconfddefaultconf-nginx的配置文件-autoindex-on自动生成目录了">3. vim etc/nginx/conf.d/default.conf, nginx的配置文件, autoindex on自动生成目录了.</h4>
+      storage: 500Mi</code></pre>
+<h4 id="3-vim-etc-nginx-conf-d-default-conf-nginx的配置文件-autoindex-on自动生成目录了">3. vim etc/nginx/conf.d/default.conf, nginx的配置文件, autoindex on自动生成目录了.</h4>
 <pre><code>## For img
 server {
     listen       80;
@@ -200,9 +213,8 @@ server {
     location = /50x.html {
         root   /usr/share/nginx/img;
     }
-}
-
-</code></pre><h4 id="4-vim-my-nginxyml-增加imgactigercom地址ingress-nginx转发的service上">4. vim my-nginx.yml, 增加img.actiger.com地址ingress nginx转发的service上.</h4>
+}</code></pre>
+<h4 id="4-vim-my-nginx-yml-增加img-actiger-com地址ingress-nginx转发的service上">4. vim my-nginx.yml, 增加img.actiger.com地址ingress nginx转发的service上.</h4>
 <pre><code>apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -235,13 +247,16 @@ spec:
       paths:
       - backend:
           serviceName: my-nginx
-          servicePort: 80
+          servicePort: 80</code></pre>
+<h4 id="使用kubectl-apply-f-上面的yaml文件-即可">使用kubectl apply -f 上面的yaml文件, 即可.</h4>
 
-</code></pre><h4 id="使用kubectl-apply--f-上面的yaml文件-即可">使用kubectl apply -f 上面的yaml文件, 即可.</h4>
-<h3 id="4-上传文件在服务器的rootimg目录下-即可在见面上访问到-右键链接复制地址-贴到markdown中就可以随意用了">4. 上传文件在服务器的/root/img目录下, 即可在见面上访问到. 右键链接复制地址, 贴到markdown中就可以随意用了.</h3>
-<p><span><a target="_blank" href="https://img.actiger.com/blog/">img.actiger.com/blog/</a></span></p>
+<h3 id="4-上传文件在服务器的-root-img目录下-即可在见面上访问到-右键链接复制地址-贴到markdown中就可以随意用了">4. 上传文件在服务器的/root/img目录下, 即可在见面上访问到. 右键链接复制地址, 贴到markdown中就可以随意用了.</h3>
+
+<p><span><a target="_blank" href="https://img.actiger.com/blog/"><a href="https://img.actiger.com/blog/" target="_blank">https://img.actiger.com/blog/</a></a></span></p>
+
 <h4 id="如图">如图</h4>
-<p><img src="https://img.actiger.com/blog/right-copy-link-address.png" alt="CopyLinkAddress"></p>
+
+<p><img src="https://img.actiger.com/blog/right-copy-link-address.png" alt="CopyLinkAddress" /></p>
 </div>
   
 </article></main>

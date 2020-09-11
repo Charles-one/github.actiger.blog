@@ -7,7 +7,7 @@
     
     <title>Moco示例 - Actiger跳跳虎</title>
     
-    <meta name="description" content="1. Moco是什么? 简单的模拟服务器的程序库/工具, 有请求给出响应.在地址中下载moco-runner-0.12.0-standalone.jar. 2. 使用示例 1. 创建test.json [ { &quot;description&quot;: &quot;First test&quot;, &quot;request&quot;: { &quot;uri&quot;: &quot;/demo&quot; }, &quot;response&quot;: { &quot;text&quot;: &quot;First Response&quot; } } ] 2. 命令行启动服务, moco-runner-0.12.0-standalone.jar与test.json在相同目录下.  java -jar ./moco-runner-0.12.0-standalone.jar http -p 8888 -c test.json 3. 验证 访问http://localhost:8888/demo 2. 模拟一个带参数的请求, para.json [ { &quot;description&quot;: &quot;模拟一个有参数的Get请求&quot;, &quot;request&quot;: { &quot;uri&quot;: &quot;/getpara&quot;, &quot;method&quot;: &quot;get&quot;, &quot;queries&quot;: { &quot;name&quot;: &quot;xiaoming&quot;, &quot;age&quot;: &quot;20&quot; } }, &quot;response&quot;: { &quot;text&quot;: &quot;I am on the way.&quot; } } ]  java -jar .">
+    <meta name="description" content="1. Moco是什么? 简单的模拟服务器的程序库/工具, 有请求给出响应.在地址中下载moco-runner-0.12.0-standalone.jar. 2. 使用示例 1. 创建test.json [ { &#34;description&#34;: &#34;First test&#34;, &#34;request&#34;: { &#34;uri&#34;: &#34;/demo&#34; }, &#34;response&#34;: { &#34;text&#34;: &#34;First Response&#34; } } ] 2. 命令行启动服务, moco-runner-0.12.0-standalone.jar与test.json在相同目录下. java -jar ./moco-runner-0.12.0-standalone.jar http -p 8888 -c test.json 3. 验证 访问http://localhost:8888/demo 2. 模拟一个带参数的请求, para.json [ { &#34;description&#34;: &#34;模拟一个有参数的Get请求&#34;, &#34;request&#34;: { &#34;uri&#34;: &#34;/getpara&#34;, &#34;method&#34;: &#34;get&#34;, &#34;queries&#34;: { &#34;name&#34;: &#34;xiaoming&#34;, &#34;age&#34;: &#34;20&#34; } }, &#34;response&#34;: { &#34;text&#34;: &#34;I am on the way.&#34; } } ]java -jar .">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -80,181 +80,182 @@
     <h1 class="post-title">Moco示例</h1>
     <div class="post-meta">June 16, 2019</div>
   </header>
-  <div class="post-content"><h3 id="1-moco是什么-简单的模拟服务器的程序库工具-有请求给出响应在地址httpcentralmavenorgmaven2comgithubdreamheadmoco-runner中下载moco-runner-0120-standalonejar">1. Moco是什么? 简单的模拟服务器的程序库/工具, 有请求给出响应.在<a href="http://central.maven.org/maven2/com/github/dreamhead/moco-runner/">地址</a>中下载moco-runner-0.12.0-standalone.jar.</h3>
+  <div class="post-content">
+
+<h3 id="1-moco是什么-简单的模拟服务器的程序库-工具-有请求给出响应-在-地址-http-central-maven-org-maven2-com-github-dreamhead-moco-runner-中下载moco-runner-0-12-0-standalone-jar">1. Moco是什么? 简单的模拟服务器的程序库/工具, 有请求给出响应.在<a href="http://central.maven.org/maven2/com/github/dreamhead/moco-runner/" target="_blank">地址</a>中下载moco-runner-0.12.0-standalone.jar.</h3>
+
 <h3 id="2-使用示例">2. 使用示例</h3>
-<h4 id="1-创建testjson">1. 创建test.json</h4>
+
+<h4 id="1-创建test-json">1. 创建test.json</h4>
 <pre><code>[
   {
-    &quot;description&quot;: &quot;First test&quot;,
-    &quot;request&quot;: {
-      &quot;uri&quot;: &quot;/demo&quot;
+    &#34;description&#34;: &#34;First test&#34;,
+    &#34;request&#34;: {
+      &#34;uri&#34;: &#34;/demo&#34;
     },
-    &quot;response&quot;: {
-      &quot;text&quot;: &quot;First Response&quot;
+    &#34;response&#34;: {
+      &#34;text&#34;: &#34;First Response&#34;
     }
   }
-]
-</code></pre><h4 id="2-命令行启动服务-moco-runner-0120-standalonejar与testjson在相同目录下">2. 命令行启动服务, moco-runner-0.12.0-standalone.jar与test.json在相同目录下.</h4>
-<pre><code>
-java -jar ./moco-runner-0.12.0-standalone.jar http -p 8888 -c test.json
+]</code></pre>
+<h4 id="2-命令行启动服务-moco-runner-0-12-0-standalone-jar与test-json在相同目录下">2. 命令行启动服务, moco-runner-0.12.0-standalone.jar与test.json在相同目录下.</h4>
+<pre><code>java -jar ./moco-runner-0.12.0-standalone.jar http -p 8888 -c test.json</code></pre>
+<h4 id="3-验证">3. 验证</h4>
 
-</code></pre><h4 id="3-验证">3. 验证</h4>
-<h4 id="访问httplocalhost8888demohttplocalhost8888demo">访问<a href="http://localhost:8888/demo">http://localhost:8888/demo</a></h4>
-<h3 id="2-模拟一个带参数的请求-parajson">2. 模拟一个带参数的请求, para.json</h3>
+<h4 id="访问-http-localhost-8888-demo-http-localhost-8888-demo">访问<a href="http://localhost:8888/demo" target="_blank">http://localhost:8888/demo</a></h4>
+
+<h3 id="2-模拟一个带参数的请求-para-json">2. 模拟一个带参数的请求, para.json</h3>
 <pre><code>[
   {
-    &quot;description&quot;: &quot;模拟一个有参数的Get请求&quot;,
-    &quot;request&quot;: {
-      &quot;uri&quot;: &quot;/getpara&quot;,
-      &quot;method&quot;: &quot;get&quot;,
-      &quot;queries&quot;: {
-        &quot;name&quot;: &quot;xiaoming&quot;,
-        &quot;age&quot;: &quot;20&quot;
+    &#34;description&#34;: &#34;模拟一个有参数的Get请求&#34;,
+    &#34;request&#34;: {
+      &#34;uri&#34;: &#34;/getpara&#34;,
+      &#34;method&#34;: &#34;get&#34;,
+      &#34;queries&#34;: {
+        &#34;name&#34;: &#34;xiaoming&#34;,
+        &#34;age&#34;: &#34;20&#34;
       }
     },
-    &quot;response&quot;: {
-      &quot;text&quot;: &quot;I am on the way.&quot;
+    &#34;response&#34;: {
+      &#34;text&#34;: &#34;I am on the way.&#34;
     }
   }
-]
-</code></pre><pre><code>
-java -jar ./moco-runner-0.12.0-standalone.jar http -p 8888 -c para.json
-
-</code></pre><h3 id="3-模拟post请求">3. 模拟post请求</h3>
+]</code></pre><pre><code>java -jar ./moco-runner-0.12.0-standalone.jar http -p 8888 -c para.json</code></pre>
+<h3 id="3-模拟post请求">3. 模拟post请求</h3>
 <pre><code>[
   {
-    &quot;description&quot;: &quot;post请求&quot;,
-    &quot;request&quot;: {
-      &quot;uri&quot;: &quot;/post&quot;,
-      &quot;method&quot;:&quot;post&quot;
+    &#34;description&#34;: &#34;post请求&#34;,
+    &#34;request&#34;: {
+      &#34;uri&#34;: &#34;/post&#34;,
+      &#34;method&#34;:&#34;post&#34;
       },
-    &quot;response&quot;: {
-      &quot;text&quot;: &quot;First moco post request&quot;
+    &#34;response&#34;: {
+      &#34;text&#34;: &#34;First moco post request&#34;
     }
   }
-]
-</code></pre><h3 id="4-带参的post请求">4. 带参的post请求</h3>
+]</code></pre>
+<h3 id="4-带参的post请求">4. 带参的post请求</h3>
 <pre><code>[
   {
-    &quot;description&quot;: &quot;post请求&quot;,
-    &quot;request&quot;: {
-      &quot;uri&quot;: &quot;/postpara&quot;,
-      &quot;method&quot;:&quot;post&quot;,
-      &quot;forms&quot;: {
-        &quot;name&quot;: &quot;xiaoming&quot;
+    &#34;description&#34;: &#34;post请求&#34;,
+    &#34;request&#34;: {
+      &#34;uri&#34;: &#34;/postpara&#34;,
+      &#34;method&#34;:&#34;post&#34;,
+      &#34;forms&#34;: {
+        &#34;name&#34;: &#34;xiaoming&#34;
       }
     },
-    &quot;response&quot;: {
-      &quot;text&quot;: &quot;有参数&quot;
+    &#34;response&#34;: {
+      &#34;text&#34;: &#34;有参数&#34;
     }
   }
-]
-</code></pre><h3 id="5-带cookie信息-服务端返回浏览器cookie信息">5. 带cookie信息, 服务端返回浏览器cookie信息</h3>
+]</code></pre>
+<h3 id="5-带cookie信息-服务端返回浏览器cookie信息">5. 带cookie信息, 服务端返回浏览器cookie信息</h3>
 <pre><code>[
   {
-    &quot;description&quot;: &quot;cookie&quot;,
-    &quot;request&quot;: {
-      &quot;uri&quot;: &quot;/cookie&quot;,
-      &quot;method&quot;: &quot;get&quot;,
-      &quot;cookies&quot;: {
-        &quot;login&quot;: &quot;true&quot;
+    &#34;description&#34;: &#34;cookie&#34;,
+    &#34;request&#34;: {
+      &#34;uri&#34;: &#34;/cookie&#34;,
+      &#34;method&#34;: &#34;get&#34;,
+      &#34;cookies&#34;: {
+        &#34;login&#34;: &#34;true&#34;
       }
     },
-    &quot;response&quot;: {
-      &quot;text&quot;: &quot;hello&quot;
+    &#34;response&#34;: {
+      &#34;text&#34;: &#34;hello&#34;
     }
   },
     {
-        &quot;description&quot;: &quot;get cookies&quot;,
-        &quot;request&quot;: {
-            &quot;uri&quot;: &quot;/getcookies&quot;,
-            &quot;method&quot;: &quot;get&quot;
+        &#34;description&#34;: &#34;get cookies&#34;,
+        &#34;request&#34;: {
+            &#34;uri&#34;: &#34;/getcookies&#34;,
+            &#34;method&#34;: &#34;get&#34;
         },
-        &quot;response&quot;: {
-            &quot;text&quot;: &quot;getcookie success&quot;,
-            &quot;cookies&quot;: {
-                &quot;login&quot;: &quot;true&quot;,
-                &quot;status&quot;:&quot;10000&quot;
+        &#34;response&#34;: {
+            &#34;text&#34;: &#34;getcookie success&#34;,
+            &#34;cookies&#34;: {
+                &#34;login&#34;: &#34;true&#34;,
+                &#34;status&#34;:&#34;10000&#34;
             }
         }
     }
-]
-</code></pre><h4 id="使用jmeter添加cookie是必须要有的值login-true-localhost域-路径必不可少">使用Jmeter添加cookie是必须要有的值login true localhost(域) /(路径)必不可少.</h4>
+]</code></pre>
+<h4 id="使用jmeter添加cookie是必须要有的值login-true-localhost-域-路径-必不可少">使用Jmeter添加cookie是必须要有的值login true localhost(域) /(路径)必不可少.</h4>
+
 <h3 id="6-post-json格式的">6. post json格式的</h3>
 <pre><code>[
   {
-    &quot;description&quot;: &quot;带cookie的post请求&quot;,
-    &quot;request&quot;: {
-      &quot;uri&quot;: &quot;/postcookie&quot;,
-      &quot;method&quot;: &quot;post&quot;,
-      &quot;cookies&quot;: {
-        &quot;login&quot;: &quot;true&quot;
+    &#34;description&#34;: &#34;带cookie的post请求&#34;,
+    &#34;request&#34;: {
+      &#34;uri&#34;: &#34;/postcookie&#34;,
+      &#34;method&#34;: &#34;post&#34;,
+      &#34;cookies&#34;: {
+        &#34;login&#34;: &#34;true&#34;
       },
-      &quot;json&quot;: {
-        &quot;name&quot;: &quot;xiaoming&quot;,
-        &quot;age&quot;: &quot;18&quot;
+      &#34;json&#34;: {
+        &#34;name&#34;: &#34;xiaoming&#34;,
+        &#34;age&#34;: &#34;18&#34;
       }
     },
-    &quot;response&quot;: {
-      &quot;json&quot;: {
-        &quot;hell&quot;: &quot;你长了&quot;
+    &#34;response&#34;: {
+      &#34;json&#34;: {
+        &#34;hell&#34;: &#34;你长了&#34;
       }
     }
   }
-]
-</code></pre><h3 id="7-headers请求">7. headers请求</h3>
+]</code></pre>
+<h3 id="7-headers请求">7. headers请求</h3>
 <pre><code>[
   {
-    &quot;description&quot;: &quot;带header的请求&quot;,
-    &quot;request&quot;: {
-      &quot;uri&quot;: &quot;/headers&quot;,
-      &quot;method&quot;: &quot;post&quot;,
-      &quot;headers&quot;: {
-        &quot;content-type&quot;: &quot;application/json&quot;
+    &#34;description&#34;: &#34;带header的请求&#34;,
+    &#34;request&#34;: {
+      &#34;uri&#34;: &#34;/headers&#34;,
+      &#34;method&#34;: &#34;post&#34;,
+      &#34;headers&#34;: {
+        &#34;content-type&#34;: &#34;application/json&#34;
       },
-      &quot;json&quot;: {
-        &quot;name&quot;: &quot;xiaohong&quot;,
-        &quot;age&quot;: &quot;17&quot;
+      &#34;json&#34;: {
+        &#34;name&#34;: &#34;xiaohong&#34;,
+        &#34;age&#34;: &#34;17&#34;
       }
     },
-    &quot;response&quot;: {
-      &quot;json&quot;: {
-        &quot;hello&quot;: &quot;pretty&quot;,
-        &quot;status&quot;: &quot;200&quot;
+    &#34;response&#34;: {
+      &#34;json&#34;: {
+        &#34;hello&#34;: &#34;pretty&#34;,
+        &#34;status&#34;: &#34;200&#34;
       }
     }
   }
-]
-</code></pre><h3 id="8-重定向地址-重定向请求">8. 重定向地址, 重定向请求.</h3>
+]</code></pre>
+<h3 id="8-重定向地址-重定向请求">8. 重定向地址, 重定向请求.</h3>
 <pre><code>[
   {
-    &quot;description&quot;: &quot;重定向网页&quot;,
-    &quot;request&quot;: {
-      &quot;uri&quot;: &quot;/redirect&quot;,
-      &quot;method&quot;: &quot;get&quot;
+    &#34;description&#34;: &#34;重定向网页&#34;,
+    &#34;request&#34;: {
+      &#34;uri&#34;: &#34;/redirect&#34;,
+      &#34;method&#34;: &#34;get&#34;
     },
-    &quot;redirectTo&quot;: &quot;http://huya.com&quot;
+    &#34;redirectTo&#34;: &#34;http://huya.com&#34;
   },
   {
-    &quot;description&quot;: &quot;重定向请求&quot;,
-    &quot;request&quot;: {
-      &quot;uri&quot;: &quot;/redirect/to&quot;,
-      &quot;method&quot;: &quot;get&quot;
+    &#34;description&#34;: &#34;重定向请求&#34;,
+    &#34;request&#34;: {
+      &#34;uri&#34;: &#34;/redirect/to&#34;,
+      &#34;method&#34;: &#34;get&#34;
     },
-    &quot;redirectTo&quot;: &quot;/new/redirect&quot;
+    &#34;redirectTo&#34;: &#34;/new/redirect&#34;
   },
   {
-    &quot;description&quot;: &quot;指定的请求&quot;,
-    &quot;request&quot;: {
-      &quot;uri&quot;: &quot;/new/redirect&quot;,
-      &quot;method&quot;: &quot;get&quot;
+    &#34;description&#34;: &#34;指定的请求&#34;,
+    &#34;request&#34;: {
+      &#34;uri&#34;: &#34;/new/redirect&#34;,
+      &#34;method&#34;: &#34;get&#34;
     },
-    &quot;response&quot;: {
-      &quot;text&quot;: &quot;请求成功了&quot;
+    &#34;response&#34;: {
+      &#34;text&#34;: &#34;请求成功了&#34;
     }
   }
-]
-</code></pre></div>
+]</code></pre></div>
   
 </article></main>
 <footer class="footer">

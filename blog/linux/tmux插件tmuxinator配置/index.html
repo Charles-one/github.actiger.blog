@@ -8,7 +8,7 @@
     <title>Tmux插件tmuxinator配置 - Actiger跳跳虎</title>
     
     <meta name="description" content="1. 安装tmux的tmuxinator插件 Mac下安装:
-# 使用gem安装tmuxinator gem install tmuxinator # 查询环境, 获取gem安装程序执行目录, 目的是添加环境变量 gem env # 安装程序的执行目录 /usr/local/lib/ruby/gems/2.6.0/bin # 在.zshrc或者.bashrc中添加环境变量 export PATH=&quot;$PATH:/usr/local/lib/ruby/gems/2.6.0/bin&quot; 2. Tmuxinator配置 # 会自动创建文件在~/.tmuxinator中 tmuxinator edit hugo # 名称 name: hugo # 目录, 我存放hugo的目录 root: ~/Documents/actiger # 2个窗口, 1, 2是窗口名称 # layout: even-horizontal, 横着分割 # panes 不需要名称, hugo server --theme=paper 是执行命令hugo服务 windows: - 1: layout: even-horizontal panes: - hugo server --theme=paper - - 2: 3. tmuxinator使用  # tmux &amp; tumxinator , 可写.">
+# 使用gem安装tmuxinator gem install tmuxinator # 查询环境, 获取gem安装程序执行目录, 目的是添加环境变量 gem env # 安装程序的执行目录 /usr/local/lib/ruby/gems/2.6.0/bin # 在.zshrc或者.bashrc中添加环境变量 export PATH=&#34;$PATH:/usr/local/lib/ruby/gems/2.6.0/bin&#34; 2. Tmuxinator配置 # 会自动创建文件在~/.tmuxinator中 tmuxinator edit hugo # 名称 name: hugo # 目录, 我存放hugo的目录 root: ~/Documents/actiger # 2个窗口, 1, 2是窗口名称 # layout: even-horizontal, 横着分割 # panes 不需要名称, hugo server --theme=paper 是执行命令hugo服务 windows: - 1: layout: even-horizontal panes: - hugo server --theme=paper - - 2: 3. tmuxinator使用 # tmux &amp; tumxinator , 可写.">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -81,7 +81,10 @@
     <h1 class="post-title">Tmux插件tmuxinator配置</h1>
     <div class="post-meta">May 17, 2019</div>
   </header>
-  <div class="post-content"><h3 id="1-安装tmux的tmuxinator插件">1. 安装tmux的tmuxinator插件</h3>
+  <div class="post-content">
+
+<h3 id="1-安装tmux的tmuxinator插件">1. 安装tmux的tmuxinator插件</h3>
+
 <p>Mac下安装:</p>
 <pre><code># 使用gem安装tmuxinator
 gem install tmuxinator
@@ -92,10 +95,8 @@ gem env
 
 # 在.zshrc或者.bashrc中添加环境变量
 
-export PATH=&quot;$PATH:/usr/local/lib/ruby/gems/2.6.0/bin&quot;
-
-
-</code></pre><h3 id="2-tmuxinator配置">2. Tmuxinator配置</h3>
+export PATH=&#34;$PATH:/usr/local/lib/ruby/gems/2.6.0/bin&#34;</code></pre>
+<h3 id="2-tmuxinator配置">2. Tmuxinator配置</h3>
 <pre><code># 会自动创建文件在~/.tmuxinator中
 
 tmuxinator edit hugo
@@ -114,30 +115,26 @@ windows:
         panes:
             - hugo server --theme=paper
             -
-    - 2:
+    - 2:</code></pre>
+<h3 id="3-tmuxinator使用">3. tmuxinator使用</h3>
+<pre><code># tmux &amp; tumxinator , 可写.bashrc或者.zshrc中
 
-</code></pre><h3 id="3-tmuxinator使用">3. tmuxinator使用</h3>
-<pre><code>
-# tmux &amp; tumxinator , 可写.bashrc或者.zshrc中
+alias tmnew=&#39;tmux new -s&#39;
+alias tma=&#39;tmux a -t&#39;
+alias tmkill=&#34;tmux kill-session -t&#34;
 
-alias tmnew='tmux new -s'
-alias tma='tmux a -t'
-alias tmkill=&quot;tmux kill-session -t&quot;
-
-alias tmx=&quot;tmuxinator&quot;
-alias tmstart=&quot;tmuxinator start&quot;
-alias tmedit=&quot;tmuxinator edit&quot;
-alias tmopen=&quot;tmuxinator open&quot;
-alias tmdelete=&quot;tmuxinator delete&quot;
+alias tmx=&#34;tmuxinator&#34;
+alias tmstart=&#34;tmuxinator start&#34;
+alias tmedit=&#34;tmuxinator edit&#34;
+alias tmopen=&#34;tmuxinator open&#34;
+alias tmdelete=&#34;tmuxinator delete&#34;
 
 
 # 打开hugo
 tmuxinator hugo
 
 # 关闭hugo
-tmkill hugo
-
-</code></pre></div>
+tmkill hugo</code></pre></div>
   
 </article></main>
 <footer class="footer">

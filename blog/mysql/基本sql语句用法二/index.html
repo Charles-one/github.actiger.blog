@@ -90,164 +90,295 @@ describe usrinfo;
     <h1 class="post-title">基本SQL语句用法二</h1>
     <div class="post-meta">September 20, 2019</div>
   </header>
-  <div class="post-content"><h4 id="1创建表">1.创建表</h4>
+  <div class="post-content">
+
+<h4 id="1-创建表">1.创建表</h4>
+
 <p>create table if not exists usrinfo(
 id INT(11),
 number INT(11),
 name VARCHAR(255),
-birthday DATE
-);</p>
-<h4 id="2查询表结构">2.查询表结构</h4>
+ birthday DATE
+  );</p>
+
+<h4 id="2-查询表结构">2.查询表结构</h4>
+
 <p>show full columns from usrinfo;</p>
+
 <p>desc usrinfo;</p>
+
 <p>describe usrinfo;</p>
-<h4 id="3查询创建表的语句">3.查询创建表的语句</h4>
+
+<h4 id="3-查询创建表的语句">3.查询创建表的语句</h4>
+
 <p>show create table usrinfo;</p>
-<h4 id="4插入数据">4.插入数据</h4>
+
+<h4 id="4-插入数据">4.插入数据</h4>
+
 <h5 id="插入单选数据">插入单选数据</h5>
+
 <p>insert into usrinfo values (12123123,&ldquo;hello&rdquo;,&ldquo;1990-02-15&rdquo;);</p>
+
 <h5 id="插入多行数据">插入多行数据</h5>
+
 <p>insert into usrinfo values (12123123,&ldquo;hello&rdquo;,&ldquo;1990-02-15&rdquo;),
 (12123123,&ldquo;cc&rdquo;,&ldquo;1991-03-01&rdquo;);</p>
+
 <h5 id="插入某些列">插入某些列</h5>
+
 <p>insert into usrinfo(number,name) values (121234123,&ldquo;eefef&rdquo;);</p>
+
 <h5 id="插入某些列多行">插入某些列多行</h5>
+
 <p>insert into usrinfo(number,name) values (121234123,&ldquo;eefef&rdquo;),
 (121234123,&ldquo;eefef&rdquo;);</p>
-<h4 id="5查询某一列不重复的值">5.查询某一列不重复的值</h4>
+
+<h4 id="5-查询某一列不重复的值">5.查询某一列不重复的值</h4>
+
 <p>select distinct number from usrinfo;</p>
-<h4 id="6增加新的列">6.增加新的列</h4>
+
+<h4 id="6-增加新的列">6.增加新的列</h4>
+
 <h5 id="增加新列">增加新列</h5>
+
 <p>alter table usrinfo add id int(11);</p>
+
 <h5 id="并给修改新列的属性">并给修改新列的属性</h5>
+
 <p>alter table usrinfo change id id int not null auto_increment primary key;</p>
+
 <h5 id="更改新加列的排序">更改新加列的排序:</h5>
+
 <p>把id这列,放到第1列
 alter table usrinfo modify id int(11) first;</p>
+
 <h5 id="把birthday这列放在number后面">把birthday这列放在number后面</h5>
+
 <p>alter table usrinfo modify birthday date after number;</p>
-<h4 id="7重命名表-和-列名">7.重命名表 和 列名.</h4>
+
+<h4 id="7-重命名表-和-列名">7.重命名表 和 列名.</h4>
+
 <h5 id="更改表名">更改表名</h5>
-<p>alter table &lt;old_name&gt;  rename &lt;new_name&gt;;</p>
-<h5 id="更改列名后面必须有属性值才能修改成功">更改列名,后面必须有属性值,才能修改成功</h5>
+
+<p>alter table <old_name>  rename <new_name>;</p>
+
+<h5 id="更改列名-后面必须有属性值-才能修改成功">更改列名,后面必须有属性值,才能修改成功</h5>
+
 <p>alter table usrinfo change id new_id int(10) ;</p>
-<h5 id="更改列名-属性由int-转换为varchar">更改列名+ 属性,由int 转换为varchar</h5>
+
+<h5 id="更改列名-属性-由int-转换为varchar">更改列名+ 属性,由int 转换为varchar</h5>
+
 <p>alter table usrinfo change id new_id varchar(11);</p>
-<h4 id="8删除列">8.删除列.</h4>
-<h5 id="提前新建一个列-alter-table-usrinfo-add-dd-varchar11">提前新建一个列 alter table usrinfo add dd varchar(11);</h5>
+
+<h4 id="8-删除列">8.删除列.</h4>
+
+<h5 id="提前新建一个列-alter-table-usrinfo-add-dd-varchar-11">提前新建一个列 alter table usrinfo add dd varchar(11);</h5>
+
 <h5 id="mysql适用于下面的语句-别的数据库未知">mysql适用于下面的语句, 别的数据库未知.</h5>
+
 <p>alter table usrinfo drop dd;</p>
-<h4 id="9删除某个列中某行为null的数据注意是is-null-不是null">9.删除某个列中某行为null的数据,注意是is null 不是=null</h4>
+
+<h4 id="9-删除某个列中某行为null的数据-注意是is-null-不是-null">9.删除某个列中某行为null的数据,注意是is null 不是=null</h4>
+
 <p>delete from usrinfo where birthday is null;</p>
-<h4 id="10删除一个表">10.删除一个表</h4>
-<h5 id="为了删除我先创建一个表create-table-delid-int11-not-null-primary-key-auto_incrementname-varchar255phone-int11">为了删除我先创建一个表create table del(id int(11) not null primary key auto_increment,name varchar(255),phone int(11));</h5>
+
+<h4 id="10-删除一个表">10.删除一个表</h4>
+
+<h5 id="为了删除我先创建一个表create-table-del-id-int-11-not-null-primary-key-auto-increment-name-varchar-255-phone-int-11">为了删除我先创建一个表create table del(id int(11) not null primary key auto_increment,name varchar(255),phone int(11));</h5>
+
 <p>drop table del;</p>
-<h4 id="11返回唯一不同的值">11.返回唯一不同的值</h4>
+
+<h4 id="11-返回唯一不同的值">11.返回唯一不同的值</h4>
+
 <h5 id="查询单行的唯一不同的值">查询单行的唯一不同的值</h5>
+
 <p>select DISTINCT birthday from usrinfo;</p>
-<h5 id="查询多行唯一不同的值组合起来是唯一不同的值">查询多行唯一不同的值,组合起来是唯一不同的值</h5>
+
+<h5 id="查询多行唯一不同的值-组合起来是唯一不同的值">查询多行唯一不同的值,组合起来是唯一不同的值</h5>
+
 <p>select DISTINCT number,birthday from usrinfo;</p>
-<h4 id="12where的简单查询语句">12.where的简单查询语句</h4>
+
+<h4 id="12-where的简单查询语句">12.where的简单查询语句</h4>
+
 <h5 id="in-和-like">In 和 like</h5>
+
 <p>select * from usrinfo where name in (&ldquo;Hello&rdquo;);</p>
+
 <p>select * from usrinfo where name like &lsquo;%ello&rsquo;;
 %表示多个字符,_ 下划线表示一个字母,like不区分大小写的</p>
+
 <h5 id="binary-区分大小写">binary 区分大小写</h5>
+
 <p>select * from usrinfo where name like binary &lsquo;Hello&rsquo;;</p>
-<h4 id="13and和or">13.and和or</h4>
-<p>select * from usrinfo where name='hello&rsquo; and number='1233&rsquo;;
-select * from usrinfo where name='hello&rsquo; or name='Hello&rsquo;;
-select * from usrinfo where name='hello&rsquo; or number=1233;</p>
-<h4 id="14order-by">14.order by</h4>
-<h5 id="升序默认方式也是这种">升序,默认方式也是这种</h5>
+
+<h4 id="13-and和or">13.and和or</h4>
+
+<p>select * from usrinfo where name=&lsquo;hello&rsquo; and number=&lsquo;1233&rsquo;;
+select * from usrinfo where name=&lsquo;hello&rsquo; or name=&lsquo;Hello&rsquo;;
+select * from usrinfo where name=&lsquo;hello&rsquo; or number=1233;</p>
+
+<h4 id="14-order-by">14.order by</h4>
+
+<h5 id="升序-默认方式也是这种">升序,默认方式也是这种</h5>
+
 <p>select * from usrinfo order by number asc;</p>
+
 <h5 id="降序">降序</h5>
+
 <p>select * from usrinfo order by number desc;</p>
-<h4 id="15update">15.update</h4>
+
+<h4 id="15-update">15.update</h4>
+
 <h5 id="update-记录">update 记录</h5>
+
 <p>update usrinfo set number=999 where id=18;
 update usrinfo set number=999 wehre id in(18,19);
 <strong>update更新必须带where,否则会更新所有的数据</strong></p>
-<h4 id="16limit">16.limit</h4>
+
+<h4 id="16-limit">16.limit</h4>
+
 <h5 id="查询数据库中从2行到后n行的数据">查询数据库中从2行到后n行的数据</h5>
+
 <p>select * from usrinfo limit 2,n;</p>
-<h5 id="查询起始后n行数据如顶部的5行数据">查询起始后n行数据,如顶部的5行数据.</h5>
+
+<h5 id="查询起始后n行数据-如顶部的5行数据">查询起始后n行数据,如顶部的5行数据.</h5>
+
 <p>等价于select * from usrinfo limit 5;</p>
-<h4 id="17min-和-max">17.Min 和 Max</h4>
+
+<h4 id="17-min-和-max">17.Min 和 Max</h4>
+
 <h5 id="查询某列的最小值并赋值给参数">查询某列的最小值并赋值给参数</h5>
+
 <p>select min(id) as small_id from usrinfo;
 select max(id) as max_id from usrinfo;</p>
-<h4 id="18count计算搜索得到的行数-sum求合-avg求平均值">18.count计算搜索得到的行数, sum求合 avg求平均值</h4>
+
+<h4 id="18-count计算搜索得到的行数-sum求合-avg求平均值">18.count计算搜索得到的行数, sum求合 avg求平均值</h4>
+
 <h5 id="sum-和-avg-仅针对所有int数据">sum 和 avg 仅针对所有int数据</h5>
+
 <p>select count(id) from usrinfo;</p>
+
 <p>select avc(number) from usrinfo;</p>
-<h4 id="19alias-重命名">19.alias 重命名</h4>
+
+<h4 id="19-alias-重命名">19.alias 重命名</h4>
+
 <h5 id="mysql中语句">MySQL中语句</h5>
+
 <p>select id,CONCAT(name,&rsquo; , &lsquo;,address) as cc from usrinfo;</p>
+
 <h5 id="其它数据库写法">其它数据库写法</h5>
+
 <p>select id,name,&rsquo; , &lsquo;, address as cc from usrinfo;</p>
-<h4 id="20inner-join-left-join-rigth-join-full-join">20.inner join, left join, rigth join, full join</h4>
-<h4 id="mysql-not-have-fulljush-left-join-union-right-join">Mysql not have full,jush left join union right join.</h4>
+
+<h4 id="20-inner-join-left-join-rigth-join-full-join">20.inner join, left join, rigth join, full join</h4>
+
+<h4 id="mysql-not-have-full-jush-left-join-union-right-join">Mysql not have full,jush left join union right join.</h4>
+
 <h5 id="默认为join为inner-join两个表的交集-left-join-取左边表的集合包括交集但不包含右表没有交集的部分">默认为join为inner join两个表的交集, left join 取左边表的集合包括交集但不包含右表没有交集的部分,</h5>
-<h5 id="右连接与左连接相反全连接是左右表的并集">右连接与左连接相反,全连接是左右表的并集.</h5>
+
+<h5 id="右连接与左连接相反-全连接是左右表的并集">右连接与左连接相反,全连接是左右表的并集.</h5>
+
 <p>select o.id,o.name,c.id,c.number from order as o (inner) join customers as c on o.id = c.id;
 select o.id,o.name,c.id,c.number from order as o left join customers as c on o.id = c.id;
 select o.id,o.name,c.id,c.number from order as o right join customers as c on o.id = c.id;</p>
+
 <h5 id="全连接">全连接</h5>
+
 <p>select o.id,o.name,c.id,c.number from order as o right join customers as c on o.id = c.id
 union
 select o.id,o.name,c.id,c.number from order as o left join customers as c on o.id = c.id;</p>
+
 <h5 id="三个表inner-join">三个表inner join</h5>
+
 <p>select o.orderId,o.customerID,cu.costomerID,cu.costomerName,cp.CustomerID,cp.phone1 from
 (orders as o join customers as cu on where o.CustomerID = cu.CustomerID)
 join cphone as cp on o.CustomerID = cp.CustomerID;</p>
+
 <h4 id="21-self-join">21. self join</h4>
+
 <p>select A.CustomerName as CustomerName1,B.CustomerName as CustomerName2,A.Country
 from customers A, customers B
 where A.CustomerID &lt;&gt; B.CustomerID and A.Country= B.Country
 order by A.Country;</p>
+
 <h4 id="22-union">22. union</h4>
+
 <p>select CustomerID from orders
 union
 select CustomerID from customers;</p>
+
 <h5 id="重复值用all">重复值用ALL</h5>
+
 <p>select CustomerID from orders
 union
 select CustomerID from customers;</p>
+
 <h4 id="23-group-by-把查询到的结果分组">23. group by 把查询到的结果分组</h4>
+
 <h5 id="以国家为组统计有多少个id">以国家为组统计有多少个id</h5>
+
 <p>select count(c.CustomerID),c.Country
 from orders as o join customers as c on o.customerID = c.CustomerID group by c.Country;</p>
-<h5 id="以国家为组统计有多少个id并按照id个数排序从小到大">以国家为组统计有多少个id,并按照id个数排序,从小到大</h5>
+
+<h5 id="以国家为组统计有多少个id-并按照id个数排序-从小到大">以国家为组统计有多少个id,并按照id个数排序,从小到大</h5>
+
 <p>select count(c.CustomerID),c.Country
 from orders as o join customers as c on o.customerID = c.CustomerID group by c.Country order by count(c.CustomerID);</p>
-<h4 id="24-having-having是分组group-by后的筛选条件分组后的数据组内再筛选where则是在分组前筛选">24. having, having是分组(group by)后的筛选条件,分组后的数据组内再筛选,where则是在分组前筛选.</h4>
-<h5 id="以country分组然后找个数超过1的">以country分组,然后找个数超过1的.</h5>
+
+<h4 id="24-having-having是分组-group-by-后的筛选条件-分组后的数据组内再筛选-where则是在分组前筛选">24. having, having是分组(group by)后的筛选条件,分组后的数据组内再筛选,where则是在分组前筛选.</h4>
+
+<h5 id="以country分组-然后找个数超过1的">以country分组,然后找个数超过1的.</h5>
+
 <p>select count(CustomerID) as number,Country from customers where CustomerID&gt;1 group by Country having count(CustomerID) &gt; 1;</p>
-<h4 id="25-select-into-复制表或表结构的时候-只得到一个外壳-clone一个躯体-原表的主键外键约束触发器索引都不会被复制过来">25. select into, 复制表或表结构的时候, 只得到一个&quot;外壳&rdquo;, clone一个躯体, 原表的主键,外键,约束,触发器,索引都不会被复制过来.</h4>
+
+<h4 id="25-select-into-复制表或表结构的时候-只得到一个-外壳-clone一个躯体-原表的主键-外键-约束-触发器-索引都不会被复制过来">25. select into, 复制表或表结构的时候, 只得到一个&rdquo;外壳&rdquo;, clone一个躯体, 原表的主键,外键,约束,触发器,索引都不会被复制过来.</h4>
+
 <h5 id="非mysql用法">非mysql用法</h5>
+
 <p>select * into orders_back from orders;</p>
+
 <h5 id="mysql用法">mysql用法</h5>
+
 <p>create table orders_back (select * from orders);</p>
+
 <h5 id="复制部分列">复制部分列</h5>
+
 <p>create table order_b1(select orderId,orderDate from orders);</p>
+
 <h5 id="可以增加where语句">可以增加where语句</h5>
+
 <p>create table order_b2(select orderId,orderDate from orders where orderId &gt; 123);</p>
+
 <h5 id="只复制表">只复制表</h5>
+
 <p>create table orders_back3 (select * from orders where 1=2)</p>
+
 <h4 id="26-insert-into-select-从一个表拿数据插入另一个表中">26. Insert into select, 从一个表拿数据插入另一个表中,</h4>
+
 <h5 id="复制某些字段到另一个表中">复制某些字段到另一个表中</h5>
+
 <p>insert into orders_back(orderId,customerID,orderDate) select orderId,customerID,orderDate from orders;</p>
-<h5 id="复制整个表到另一个表中两张表的结构属性是一样的">复制整个表到另一个表中,两张表的结构属性是一样的</h5>
+
+<h5 id="复制整个表到另一个表中-两张表的结构属性是一样的">复制整个表到另一个表中,两张表的结构属性是一样的</h5>
+
 <p>insert into orders_back select * from orders;</p>
+
 <h5 id="也可以后面跟where语句进入-筛选要复制的列">也可以后面跟where语句进入, 筛选要复制的列</h5>
+
 <p>insert into orders_back select * from orders where orderId &gt; 1;</p>
+
 <h4 id="27-创建一个数据库-删除一个数据">27. 创建一个数据库, 删除一个数据</h4>
+
 <h5 id="你必须有创建或者删除数据库的权限">你必须有创建或者删除数据库的权限</h5>
+
 <p>create database mydata;</p>
+
 <h4 id="删除数据">删除数据</h4>
+
 <p>drop database mydata;</p>
-<h4 id="28-创建一个表时列的属性的限定">28. 创建一个表时,列的属性的限定</h4>
+
+<h4 id="28-创建一个表时-列的属性的限定">28. 创建一个表时,列的属性的限定</h4>
+
 <p>NOT NULL
 UNIQUE
 PRIMARY KEY
@@ -255,103 +386,140 @@ FOREIGN KEY
 CHECK
 DEFAULT
 INDEX</p>
+
 <h4 id="check">check</h4>
+
 <h5 id="mysql-用法">Mysql 用法</h5>
 <pre><code>create table person(
     id int(11) primary key,
     Age int(11),
     CHECK (Age &gt; = 18)
-);
-</code></pre><h5 id="oracle-sql-server用法">Oracle SQL server用法</h5>
+);</code></pre>
+<h5 id="oracle-sql-server用法">Oracle SQL server用法</h5>
 <pre><code>create table person(
     id int(11) primary key,
     Age int CHECK (Age&gt;=18)
-        );
-</code></pre><h4 id="多个check条件-能用mysql-oracle都可用">多个check条件, 能用mysql, oracle都可用</h4>
+        );</code></pre>
+<h4 id="多个check条件-能用mysql-oracle都可用">多个check条件, 能用mysql, oracle都可用</h4>
 <pre><code>create tables person(
     id int primary key,
     Age int(11),
     City varchar(255),
-    CONSTRAINT CHK_person check (Age&gt;=18 and City='Shanghai')
-);
-</code></pre><h5 id="增加一个check条件">增加一个check条件</h5>
-<pre><code>alter table person add CHECK (Age&gt;=18);
-</code></pre><h5 id="增加多个check条件-mysql-oracle都可用">增加多个check条件, mysql oracle都可用</h5>
-<pre><code>alter table person add CONSTRAINT CHK_personAge CHECK (Age&gt;=18 and city='Shanghai');
-</code></pre><h5 id="删除表中一个check条件">删除表中一个check条件</h5>
+    CONSTRAINT CHK_person check (Age&gt;=18 and City=&#39;Shanghai&#39;)
+);</code></pre>
+<h5 id="增加一个check条件">增加一个check条件</h5>
+<pre><code>alter table person add CHECK (Age&gt;=18);</code></pre>
+<h5 id="增加多个check条件-mysql-oracle都可用">增加多个check条件, mysql oracle都可用</h5>
+<pre><code>alter table person add CONSTRAINT CHK_personAge CHECK (Age&gt;=18 and city=&#39;Shanghai&#39;);</code></pre>
+<h5 id="删除表中一个check条件">删除表中一个check条件</h5>
+
 <h5 id="mysql用法-1">Mysql用法</h5>
-<pre><code>alter table person drop CHECK CHK_personAge;
-</code></pre><h5 id="oracesql-server用法">orace/SQL server用法</h5>
-<pre><code>alter table person drop CONSTRAINT CHK_personAge;
-</code></pre><h4 id="29-default-用法">29. Default 用法</h4>
+<pre><code>alter table person drop CHECK CHK_personAge;</code></pre>
+<h5 id="orace-sql-server用法">orace/SQL server用法</h5>
+<pre><code>alter table person drop CONSTRAINT CHK_personAge;</code></pre>
+<h4 id="29-default-用法">29. Default 用法</h4>
+
 <h5 id="创建表的时间">创建表的时间</h5>
 <pre><code>create table person(
     id int(11) primary key,
     Age int,
-    City varchar(255) DEFAULT 'Shanghai'
-);
-</code></pre><h4 id="增加表的属性时">增加表的属性时</h4>
+    City varchar(255) DEFAULT &#39;Shanghai&#39;
+);</code></pre>
+<h4 id="增加表的属性时">增加表的属性时</h4>
+
 <h5 id="mysql用法-2">Mysql用法</h5>
+
 <p>alter table person alter City set DEFAULT &lsquo;Shanghai&rsquo;;</p>
+
 <h5 id="oracle用法">oracle用法</h5>
+
 <p>alter table person modify City DEFAULT &lsquo;Shanghai&rsquo;;</p>
+
 <h4 id="删除默认">删除默认</h4>
+
 <h5 id="mysql-用法-1">Mysql 用法</h5>
+
 <p>alter table person alter City drop default;</p>
+
 <h5 id="oracle-sql-server-用法">Oracle SQL server 用法</h5>
+
 <p>alter table person alter COLUMN City drop default;</p>
+
 <h4 id="30-index-索引-聚集索引一个表最多有一个">30. Index 索引, 聚集索引一个表最多有一个</h4>
+
 <h5 id="创建一个索引和创建多个索引">创建一个索引和创建多个索引</h5>
+
 <p>create index ind_orderId on orders(orderId);
 create index ind_orderid on orders(orderId, orderDate);</p>
+
 <h5 id="删除一个索引">删除一个索引</h5>
-<h5 id="mysql格式是alter-table-table_name-drop-index-index_name">mysql,格式是alter table table_name drop INDEX index_name;</h5>
+
+<h5 id="mysql-格式是alter-table-table-name-drop-index-index-name">mysql,格式是alter table table_name drop INDEX index_name;</h5>
+
 <p>alter table orders drop INDEX ind_orderId;</p>
+
 <h5 id="oracle-db2">Oracle DB2</h5>
+
 <p>drop index index_name;</p>
+
 <h5 id="sql-server">SQL server</h5>
+
 <p>drop index table_name.index_name;</p>
-<h4 id="31-auto_increment-自动增加值">31. Auto_INCREMENT 自动增加值</h4>
+
+<h4 id="31-auto-increment-自动增加值">31. Auto_INCREMENT 自动增加值</h4>
+
 <h5 id="mysql">Mysql</h5>
 <pre><code>create table person(
     id int(11) auto_increment primary key,
     age int(3)
-);
-</code></pre><h5 id="sql-server-1">SQL server</h5>
+);</code></pre>
+<h5 id="sql-server-1">SQL server</h5>
 <pre><code>create table person(
     id int(11) IDENTITY(1,1) primary key,
     Age int(11)
-);
-</code></pre><h5 id="oracle-未知待更新">Oracle 未知待更新</h5>
+);</code></pre>
+<h5 id="oracle-未知待更新">Oracle 未知待更新</h5>
+
 <h4 id="32-view-视图是原表某些列的影分身-更改视图也就是更改原表的数据">32. View 视图是原表某些列的影分身, 更改视图也就是更改原表的数据.</h4>
+
 <p>create VIEW view_orders_list as select orderId,orderDate from orders;</p>
+
 <p>update view_orders_list set orderId=222 where orderId=22;</p>
-<h5 id="更新一个视图-可以更新列的直接在下面语句中增加就可以了">更新一个视图, 可以更新列的,直接在下面语句中增加就可以了.</h5>
+
+<h5 id="更新一个视图-可以更新列的-直接在下面语句中增加就可以了">更新一个视图, 可以更新列的,直接在下面语句中增加就可以了.</h5>
+
 <p>create or replace view view_list
 as
 select orderId,orderDate,customerID
 from orders ;</p>
+
 <h5 id="删除一个视图">删除一个视图</h5>
+
 <p>drop view view_list;</p>
+
 <h4 id="33-null-functions">33. Null Functions</h4>
+
 <p>select productName, unitPrice*(unitInstock+IFNULL(unitOrder,0)) from products;
 select productName, unitPrice*(unitInstock+COALESCE(unitOrder,0)) from products;</p>
+
 <h4 id="34-cross-join-是两个表笛卡尔集">34. Cross join 是两个表笛卡尔集</h4>
+
 <p>select * from orders cross join usrinfo;</p>
+
 <h4 id="35-update-与-inner-join连用">35. update 与 inner join连用</h4>
+
 <h5 id="oracle-中用法">oracle 中用法</h5>
-<pre><code>update orders set orderDate=&quot;1991-02-09&quot; where orders.customerID in(
+<pre><code>update orders set orderDate=&#34;1991-02-09&#34; where orders.customerID in(
     select customers.CustomerID from orders join customers on
     orders.customerID = customers.CustomerID;
-    );
-</code></pre><h5 id="mysql用法-3">Mysql用法</h5>
+    );</code></pre>
+<h5 id="mysql用法-3">Mysql用法</h5>
 <pre><code>update orders  as o join
 (select c.customerID from orders as o join customers as c on o.customerID = c.CustomerID)
 c on o.customerID = c.customerID
-set o.orderDate=&quot;1990-09-08&quot;;
-</code></pre><h5 id="36-date日期查询特定year-month-day的人">36 date日期查询特定year month day的人</h5>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> student <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">year</span>(birthday)<span style="color:#f92672">=</span><span style="color:#ae81ff">1990</span> <span style="color:#66d9ef">and</span> <span style="color:#66d9ef">month</span>(birthday)<span style="color:#f92672">=</span><span style="color:#ae81ff">02</span> <span style="color:#66d9ef">and</span> <span style="color:#66d9ef">day</span>(birthday)<span style="color:#f92672">=</span><span style="color:#ae81ff">13</span>;
-</code></pre></div></div>
+set o.orderDate=&#34;1990-09-08&#34;;</code></pre>
+<h5 id="36-date日期查询特定year-month-day的人">36 date日期查询特定year month day的人</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> student <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">year</span>(birthday)<span style="color:#f92672">=</span><span style="color:#ae81ff">1990</span> <span style="color:#66d9ef">and</span> <span style="color:#66d9ef">month</span>(birthday)<span style="color:#f92672">=</span><span style="color:#ae81ff">02</span> <span style="color:#66d9ef">and</span> <span style="color:#66d9ef">day</span>(birthday)<span style="color:#f92672">=</span><span style="color:#ae81ff">13</span>;</code></pre></div></div>
   
 </article></main>
 <footer class="footer">

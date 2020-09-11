@@ -7,7 +7,7 @@
     
     <title>华硕ASUS路由器AC5300莫名重启记录和排查 - Actiger跳跳虎</title>
     
-    <meta name="description" content="问题我的华硕路由器有时莫名奇妙的重启 出问题设备和版本 ASUS AC5300 3.0.0.4.384.45149 首先查看系统日志 May 5 13:05:25 weini: [软件中心]: httpdb进程准备就绪！ May 5 13:05:25 WAN Connection: WAN was restored. May 5 13:05:25 WLCEVENTD: eth8: Assoc D4:90:9C:E7:D2:03 May 5 13:05:26 kernel: UBIFS (ubi1:0): UBIFS: mounted UBI device 1, volume 0, name &quot;nvram&quot;, R/O mode May 5 13:05:26 kernel: UBIFS (ubi1:0): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes May 5 13:05:26 kernel: UBIFS (ubi1:0): FS size: 5840896 bytes (5 MiB, 46 LEBs), journal size 1015809 bytes (0 MiB, 6 LEBs) May 5 13:05:26 kernel: UBIFS (ubi1:0): reserved for root: 275879 bytes (269 KiB) May 5 13:05:26 kernel: UBIFS (ubi1:0): media format: w4/r0 (latest is w4/r0), UUID ABA6F10C-0F1C-4B89-AD25-4B74DEC12700, small LPT model May 5 13:05:26 kernel: UBIFS (ubi1:0): un-mount UBI device 1 May 5 13:05:26 kernel: ubi1: detaching mtd9 May 5 13:05:26 kernel: ubi1: mtd9 is detached May 5 13:05:26 ntp: start NTP update Mar 30 00:32:50 rc_service: ntp 1229:notify_rc restart_diskmon Mar 30 00:32:50 rc_service: waitting &quot;start_firewall&quot; via udhcpc .">
+    <meta name="description" content="问题我的华硕路由器有时莫名奇妙的重启 出问题设备和版本 ASUS AC5300 3.0.0.4.384.45149 首先查看系统日志 May 5 13:05:25 weini: [软件中心]: httpdb进程准备就绪！ May 5 13:05:25 WAN Connection: WAN was restored. May 5 13:05:25 WLCEVENTD: eth8: Assoc D4:90:9C:E7:D2:03 May 5 13:05:26 kernel: UBIFS (ubi1:0): UBIFS: mounted UBI device 1, volume 0, name &#34;nvram&#34;, R/O mode May 5 13:05:26 kernel: UBIFS (ubi1:0): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes May 5 13:05:26 kernel: UBIFS (ubi1:0): FS size: 5840896 bytes (5 MiB, 46 LEBs), journal size 1015809 bytes (0 MiB, 6 LEBs) May 5 13:05:26 kernel: UBIFS (ubi1:0): reserved for root: 275879 bytes (269 KiB) May 5 13:05:26 kernel: UBIFS (ubi1:0): media format: w4/r0 (latest is w4/r0), UUID ABA6F10C-0F1C-4B89-AD25-4B74DEC12700, small LPT model May 5 13:05:26 kernel: UBIFS (ubi1:0): un-mount UBI device 1 May 5 13:05:26 kernel: ubi1: detaching mtd9 May 5 13:05:26 kernel: ubi1: mtd9 is detached May 5 13:05:26 ntp: start NTP update Mar 30 00:32:50 rc_service: ntp 1229:notify_rc restart_diskmon Mar 30 00:32:50 rc_service: waitting &#34;start_firewall&#34; via udhcpc .">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -80,13 +80,17 @@
     <h1 class="post-title">华硕ASUS路由器AC5300莫名重启记录和排查</h1>
     <div class="post-meta">March 30, 2019</div>
   </header>
-  <div class="post-content"><h3 id="问题我的华硕路由器有时莫名奇妙的重启">问题我的华硕路由器有时莫名奇妙的重启</h3>
-<h4 id="出问题设备和版本-asus-ac5300-300438445149">出问题设备和版本 ASUS AC5300 3.0.0.4.384.45149</h4>
+  <div class="post-content">
+
+<h3 id="问题我的华硕路由器有时莫名奇妙的重启">问题我的华硕路由器有时莫名奇妙的重启</h3>
+
+<h4 id="出问题设备和版本-asus-ac5300-3-0-0-4-384-45149">出问题设备和版本 ASUS AC5300 3.0.0.4.384.45149</h4>
+
 <h4 id="首先查看系统日志">首先查看系统日志</h4>
 <pre><code>May  5 13:05:25 weini: [软件中心]: httpdb进程准备就绪！
 May  5 13:05:25 WAN Connection: WAN was restored.
 May  5 13:05:25 WLCEVENTD: eth8: Assoc D4:90:9C:E7:D2:03
-May  5 13:05:26 kernel: UBIFS (ubi1:0): UBIFS: mounted UBI device 1, volume 0, name &quot;nvram&quot;, R/O mode
+May  5 13:05:26 kernel: UBIFS (ubi1:0): UBIFS: mounted UBI device 1, volume 0, name &#34;nvram&#34;, R/O mode
 May  5 13:05:26 kernel: UBIFS (ubi1:0): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes
 May  5 13:05:26 kernel: UBIFS (ubi1:0): FS size: 5840896 bytes (5 MiB, 46 LEBs), journal size 1015809 bytes (0 MiB, 6 LEBs)
 May  5 13:05:26 kernel: UBIFS (ubi1:0): reserved for root: 275879 bytes (269 KiB)
@@ -96,17 +100,15 @@ May  5 13:05:26 kernel: ubi1: detaching mtd9
 May  5 13:05:26 kernel: ubi1: mtd9 is detached
 May  5 13:05:26 ntp: start NTP update
 Mar 30 00:32:50 rc_service: ntp 1229:notify_rc restart_diskmon
-Mar 30 00:32:50 rc_service: waitting &quot;start_firewall&quot; via udhcpc ...
+Mar 30 00:32:50 rc_service: waitting &#34;start_firewall&#34; via udhcpc ...
 Mar 30 00:32:50 WLCEVENTD: eth6: Assoc F0:B4:29:B0:E8:1B
 Mar 30 00:32:51 kernel: ubi1: attaching mtd9
 Mar 30 00:32:51 kernel: ubi1: scanning is finished
-Mar 30 00:32:51 kernel: ubi1: attached mtd9 (name &quot;misc1&quot;, size 8 MiB)
+Mar 30 00:32:51 kernel: ubi1: attached mtd9 (name &#34;misc1&#34;, size 8 MiB)
 Mar 30 00:32:51 kernel: ubi1: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
 Mar 30 00:32:51 kernel: ubi1: min./max. I/O unit sizes: 2048/2048, sub-page size 2048
 Mar 30 00:32:51 kernel: ubi1: VID header offset: 2048 (aligned 2048), data offset: 4096
-Mar 30 00:32:51 kernel: ubi1: good PEBs: 64, bad PEBs: 0, corrupted PEBs: 0
-
-</code></pre><pre><code>Mar 30 02:31:22 kernel: klogd started: BusyBox v1.24.1 (2018-12-27 20:18:22 CST)
+Mar 30 00:32:51 kernel: ubi1: good PEBs: 64, bad PEBs: 0, corrupted PEBs: 0</code></pre><pre><code>Mar 30 02:31:22 kernel: klogd started: BusyBox v1.24.1 (2018-12-27 20:18:22 CST)
 Mar 30 02:31:35 rss-redir[28262]: server recv: Connection reset by peer
 Mar 30 02:33:44 rss-redir[28272]: server recv: Connection reset by peer
 Mar 30 02:40:34 rss-redir[28267]: server recv: Connection reset by peer
@@ -161,31 +163,31 @@ Mar 30 04:21:00 rss-redir[28262]: remote recv: Connection reset by peer
 Mar 30 04:21:19 rss-redir[28267]: remote recv: Connection reset by peer
 Mar 30 04:44:32 rss-redir[28267]: remote recv: Connection timed out
 Mar 30 05:20:57 afpd[9283]: AFP3.3 Login by weini
-Mar 30 05:20:57 cnid_dbd[9290]: Couldn't open extension maping file /usr/etc/extmap.conf
-Mar 30 05:20:57 cnid_dbd[9290]: Couldn't load extension -&gt; type/creator mappings file &quot;/usr/etc/extmap.conf&quot;
-Mar 30 05:20:58 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.___var.txt&quot;): not an adouble:osx file
-Mar 30 05:20:58 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__folder_list.txt&quot;): not an adouble:osx file
-Mar 30 05:20:58 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__weini_var.txt&quot;): not an adouble:osx file
-Mar 30 05:21:39 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.___var.txt&quot;): not an adouble:osx file
-Mar 30 05:21:39 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__folder_list.txt&quot;): not an adouble:osx file
-Mar 30 05:21:39 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__weini_var.txt&quot;): not an adouble:osx file
-Mar 30 05:21:39 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.___var.txt&quot;): not an adouble:osx file
-Mar 30 05:21:39 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__folder_list.txt&quot;): not an adouble:osx file
-Mar 30 05:21:39 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__weini_var.txt&quot;): not an adouble:osx file
+Mar 30 05:20:57 cnid_dbd[9290]: Couldn&#39;t open extension maping file /usr/etc/extmap.conf
+Mar 30 05:20:57 cnid_dbd[9290]: Couldn&#39;t load extension -&gt; type/creator mappings file &#34;/usr/etc/extmap.conf&#34;
+Mar 30 05:20:58 afpd[9283]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.___var.txt&#34;): not an adouble:osx file
+Mar 30 05:20:58 afpd[9283]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.__folder_list.txt&#34;): not an adouble:osx file
+Mar 30 05:20:58 afpd[9283]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.__weini_var.txt&#34;): not an adouble:osx file
+Mar 30 05:21:39 afpd[9283]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.___var.txt&#34;): not an adouble:osx file
+Mar 30 05:21:39 afpd[9283]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.__folder_list.txt&#34;): not an adouble:osx file
+Mar 30 05:21:39 afpd[9283]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.__weini_var.txt&#34;): not an adouble:osx file
+Mar 30 05:21:39 afpd[9283]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.___var.txt&#34;): not an adouble:osx file
+Mar 30 05:21:39 afpd[9283]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.__folder_list.txt&#34;): not an adouble:osx file
+Mar 30 05:21:39 afpd[9283]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.__weini_var.txt&#34;): not an adouble:osx file
 Mar 30 05:21:40 kernel: thfsplus: walked past end of dir
 Mar 30 05:21:40 kernel: thfsplus: walked past end of dir
-Mar 30 05:21:45 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.___var.txt&quot;): not an adouble:osx file
-Mar 30 05:21:45 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__folder_list.txt&quot;): not an adouble:osx file
-Mar 30 05:21:45 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__weini_var.txt&quot;): not an adouble:osx file
-Mar 30 05:22:56 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.___var.txt&quot;): not an adouble:osx file
-Mar 30 05:22:56 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__folder_list.txt&quot;): not an adouble:osx file
-Mar 30 05:22:56 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__weini_var.txt&quot;): not an adouble:osx file
-Mar 30 05:25:05 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.___var.txt&quot;): not an adouble:osx file
-Mar 30 05:25:05 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__folder_list.txt&quot;): not an adouble:osx file
-Mar 30 05:25:05 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__weini_var.txt&quot;): not an adouble:osx file
-Mar 30 05:35:05 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.___var.txt&quot;): not an adouble:osx file
-Mar 30 05:35:05 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__folder_list.txt&quot;): not an adouble:osx file
-Mar 30 05:35:05 afpd[9283]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__weini_var.txt&quot;): not an adouble:osx file
+Mar 30 05:21:45 afpd[9283]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.___var.txt&#34;): not an adouble:osx file
+Mar 30 05:21:45 afpd[9283]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.__folder_list.txt&#34;): not an adouble:osx file
+Mar 30 05:21:45 afpd[9283]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.__weini_var.txt&#34;): not an adouble:osx file
+Mar 30 05:22:56 afpd[9283]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.___var.txt&#34;): not an adouble:osx file
+Mar 30 05:22:56 afpd[9283]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.__folder_list.txt&#34;): not an adouble:osx file
+Mar 30 05:22:56 afpd[9283]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.__weini_var.txt&#34;): not an adouble:osx file
+Mar 30 05:25:05 afpd[9283]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.___var.txt&#34;): not an adouble:osx file
+Mar 30 05:25:05 afpd[9283]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.__folder_list.txt&#34;): not an adouble:osx file
+Mar 30 05:25:05 afpd[9283]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.__weini_var.txt&#34;): not an adouble:osx file
+Mar 30 05:35:05 afpd[9283]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.___var.txt&#34;): not an adouble:osx file
+Mar 30 05:35:05 afpd[9283]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.__folder_list.txt&#34;): not an adouble:osx file
+Mar 30 05:35:05 afpd[9283]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.__weini_var.txt&#34;): not an adouble:osx file
 May  5 13:05:08 kernel: klogd started: BusyBox v1.24.1 (2018-12-27 20:18:22 CST)
 May  5 13:05:08 kernel: Linux version 4.1.27 (sadog@ubuntu) (gcc version 5.3.0 (Buildroot 2016.02) ) #2 SMP PREEMPT Thu Dec 27 20:40:52 CST 2018
 May  5 13:05:08 kernel: CPU: AArch64 Processor [420f1000] revision 0
@@ -218,47 +220,51 @@ May  5 13:05:08 kernel: Broadcom GBPM v0.1 initialized
 May  5 13:05:08 kernel: nand: Could not find valid ONFI parameter page; aborting
 May  5 13:05:08 kernel: &gt;&gt;&gt;&gt;&gt; For primary mtd partition rootfs, cferam/vmlinux.lz mounted as JFFS2, vmlinux fs mounted as UBIFS &lt;&lt;&lt;&lt;&lt;
 May  5 13:05:08 kernel: Secondary mtd partition rootfs_update detected as JFFS2 for cferam/vmlinux source and UBIFS for vmlinux filesystem
-May  5 13:05:08 kernel: Creating 10 MTD partitions on &quot;brcmnand.0&quot;:
-May  5 13:05:08 kernel: 0x000005c60000-0x00000af00000 : &quot;rootfs&quot;
-May  5 13:05:08 kernel: 0x000000540000-0x000005800000 : &quot;rootfs_update&quot;
-May  5 13:05:08 kernel: 0x00000f700000-0x00000ff00000 : &quot;data&quot;
-May  5 13:05:08 kernel: 0x000000000000-0x000000100000 : &quot;nvram&quot;
-May  5 13:05:08 kernel: 0x000000100000-0x000005800000 : &quot;image_update&quot;
-May  5 13:05:08 kernel: 0x000005800000-0x00000af00000 : &quot;image&quot;
-May  5 13:05:08 kernel: 0x000005800000-0x000005c60000 : &quot;bootfs&quot;
-May  5 13:05:08 kernel: 0x000000100000-0x000000540000 : &quot;bootfs_update&quot;
-May  5 13:05:08 kernel: 0x00000b700000-0x00000f700000 : &quot;misc2&quot;
-May  5 13:05:08 kernel: 0x00000af00000-0x00000b700000 : &quot;misc1&quot;
-May  5 13:05:08 kernel: brcmboard registered
+May  5 13:05:08 kernel: Creating 10 MTD partitions on &#34;brcmnand.0&#34;:
+May  5 13:05:08 kernel: 0x000005c60000-0x00000af00000 : &#34;rootfs&#34;
+May  5 13:05:08 kernel: 0x000000540000-0x000005800000 : &#34;rootfs_update&#34;
+May  5 13:05:08 kernel: 0x00000f700000-0x00000ff00000 : &#34;data&#34;
+May  5 13:05:08 kernel: 0x000000000000-0x000000100000 : &#34;nvram&#34;
+May  5 13:05:08 kernel: 0x000000100000-0x000005800000 : &#34;image_update&#34;
+May  5 13:05:08 kernel: 0x000005800000-0x00000af00000 : &#34;image&#34;
+May  5 13:05:08 kernel: 0x000005800000-0x000005c60000 : &#34;bootfs&#34;
+May  5 13:05:08 kernel: 0x000000100000-0x000000540000 : &#34;bootfs_update&#34;
+May  5 13:05:08 kernel: 0x00000b700000-0x00000f700000 : &#34;misc2&#34;
+May  5 13:05:08 kernel: 0x00000af00000-0x00000b700000 : &#34;misc1&#34;
+May  5 13:05:08 kernel: brcmboard registered</code></pre>
+<h4 id="重启可以看到mar-30-00-19-38-后-may-5-13-05-08-kernel-klogd-started-busybox-v1-24-1-2018-12-27-20-18-22-cst">重启可以看到Mar 30 00:19:38 后 May  5 13:05:08 kernel: klogd started: BusyBox v1.24.1 (2018-12-27 20:18:22 CST)</h4>
 
-</code></pre><h4 id="重启可以看到mar-30-001938-后-may--5-130508-kernel-klogd-started-busybox-v1241-2018-12-27-201822-cst">重启可以看到Mar 30 00:19:38 后 May  5 13:05:08 kernel: klogd started: BusyBox v1.24.1 (2018-12-27 20:18:22 CST)</h4>
 <h4 id="前面看到apf-推荐苹果timemachine备份造成重启">前面看到APF, 推荐苹果Timemachine备份造成重启</h4>
+
 <h4 id="还有个疑问-重启时的硬件时间不对">还有个疑问, 重启时的硬件时间不对.</h4>
+
 <h4 id="在华硕路由器系统设置中开启ssh-ssh登录到华硕路由器中">在华硕路由器系统设置中开启ssh, ssh登录到华硕路由器中</h4>
-<h4 id="查看etctz-内容是gmt-8-etclocaltime内容有cst-8-表示时区设置是正确的">查看/etc/TZ 内容是GMT-8, /etc/localtime内容有CST-8, 表示时区设置是正确的</h4>
+
+<h4 id="查看-etc-tz-内容是gmt-8-etc-localtime内容有cst-8-表示时区设置是正确的">查看/etc/TZ 内容是GMT-8, /etc/localtime内容有CST-8, 表示时区设置是正确的</h4>
+
 <h4 id="还是更改了ntp的服务地址">还是更改了ntp的服务地址</h4>
-<pre><code>cn.ntp.org.cn
-</code></pre><h3 id="后面再次验证-没有重启了-手动重启可以看到硬件时间仍然不对的">后面再次验证, 没有重启了. 手动重启可以看到硬件时间仍然不对的.</h3>
+<pre><code>cn.ntp.org.cn</code></pre>
+<h3 id="后面再次验证-没有重启了-手动重启可以看到硬件时间仍然不对的">后面再次验证, 没有重启了. 手动重启可以看到硬件时间仍然不对的.</h3>
 <pre><code>Mar 30 11:54:35 afpd[9584]: AFP statistics: 103709.69 KB read, 51241.18 KB written
 Mar 30 11:54:35 afpd[9584]: done
 Mar 30 11:55:09 afpd[10854]: AFP3.3 Login by weini
-Mar 30 11:55:09 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.___var.txt&quot;): not an adouble:osx file
-Mar 30 11:55:09 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__folder_list.txt&quot;): not an adouble:osx file
-Mar 30 11:55:09 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__weini_var.txt&quot;): not an adouble:osx file
-Mar 30 11:55:39 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.___var.txt&quot;): not an adouble:osx file
-Mar 30 11:55:39 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__folder_list.txt&quot;): not an adouble:osx file
-Mar 30 11:55:39 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__weini_var.txt&quot;): not an adouble:osx file
-Mar 30 11:55:39 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.___var.txt&quot;): not an adouble:osx file
-Mar 30 11:55:39 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__folder_list.txt&quot;): not an adouble:osx file
-Mar 30 11:55:39 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__weini_var.txt&quot;): not an adouble:osx file
+Mar 30 11:55:09 afpd[10854]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.___var.txt&#34;): not an adouble:osx file
+Mar 30 11:55:09 afpd[10854]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.__folder_list.txt&#34;): not an adouble:osx file
+Mar 30 11:55:09 afpd[10854]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.__weini_var.txt&#34;): not an adouble:osx file
+Mar 30 11:55:39 afpd[10854]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.___var.txt&#34;): not an adouble:osx file
+Mar 30 11:55:39 afpd[10854]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.__folder_list.txt&#34;): not an adouble:osx file
+Mar 30 11:55:39 afpd[10854]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.__weini_var.txt&#34;): not an adouble:osx file
+Mar 30 11:55:39 afpd[10854]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.___var.txt&#34;): not an adouble:osx file
+Mar 30 11:55:39 afpd[10854]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.__folder_list.txt&#34;): not an adouble:osx file
+Mar 30 11:55:39 afpd[10854]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.__weini_var.txt&#34;): not an adouble:osx file
 Mar 30 11:55:39 kernel: thfsplus: walked past end of dir
 Mar 30 11:55:39 kernel: thfsplus: walked past end of dir
-Mar 30 11:55:45 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.___var.txt&quot;): not an adouble:osx file
-Mar 30 11:55:45 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__folder_list.txt&quot;): not an adouble:osx file
-Mar 30 11:55:45 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__weini_var.txt&quot;): not an adouble:osx file
-Mar 30 11:56:47 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.___var.txt&quot;): not an adouble:osx file
-Mar 30 11:56:47 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__folder_list.txt&quot;): not an adouble:osx file
-Mar 30 11:56:47 afpd[10854]: ad_valid_header_osx(&quot;/tmp/mnt/sda1/.__weini_var.txt&quot;): not an adouble:osx file
+Mar 30 11:55:45 afpd[10854]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.___var.txt&#34;): not an adouble:osx file
+Mar 30 11:55:45 afpd[10854]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.__folder_list.txt&#34;): not an adouble:osx file
+Mar 30 11:55:45 afpd[10854]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.__weini_var.txt&#34;): not an adouble:osx file
+Mar 30 11:56:47 afpd[10854]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.___var.txt&#34;): not an adouble:osx file
+Mar 30 11:56:47 afpd[10854]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.__folder_list.txt&#34;): not an adouble:osx file
+Mar 30 11:56:47 afpd[10854]: ad_valid_header_osx(&#34;/tmp/mnt/sda1/.__weini_var.txt&#34;): not an adouble:osx file
 Mar 30 11:57:05 afpd[10854]: AFP logout by weini
 Mar 30 11:57:05 afpd[10854]: AFP statistics: 116551.07 KB read, 55467.70 KB written
 Mar 30 11:57:05 afpd[10854]: done
@@ -304,17 +310,17 @@ May  5 13:05:08 kernel: Broadcom GBPM v0.1 initialized
 May  5 13:05:08 kernel: nand: Could not find valid ONFI parameter page; aborting
 May  5 13:05:08 kernel: &gt;&gt;&gt;&gt;&gt; For primary mtd partition rootfs, cferam/vmlinux.lz mounted as JFFS2, vmlinux fs mounted as UBIFS &lt;&lt;&lt;&lt;&lt;
 May  5 13:05:08 kernel: Secondary mtd partition rootfs_update detected as JFFS2 for cferam/vmlinux source and UBIFS for vmlinux filesystem
-May  5 13:05:08 kernel: Creating 10 MTD partitions on &quot;brcmnand.0&quot;:
-May  5 13:05:08 kernel: 0x000005c60000-0x00000af00000 : &quot;rootfs&quot;
-May  5 13:05:08 kernel: 0x000000540000-0x000005800000 : &quot;rootfs_update&quot;
-May  5 13:05:08 kernel: 0x00000f700000-0x00000ff00000 : &quot;data&quot;
-May  5 13:05:08 kernel: 0x000000000000-0x000000100000 : &quot;nvram&quot;
-May  5 13:05:08 kernel: 0x000000100000-0x000005800000 : &quot;image_update&quot;
-May  5 13:05:08 kernel: 0x000005800000-0x00000af00000 : &quot;image&quot;
-May  5 13:05:08 kernel: 0x000005800000-0x000005c60000 : &quot;bootfs&quot;
-May  5 13:05:08 kernel: 0x000000100000-0x000000540000 : &quot;bootfs_update&quot;
-May  5 13:05:08 kernel: 0x00000b700000-0x00000f700000 : &quot;misc2&quot;
-May  5 13:05:08 kernel: 0x00000af00000-0x00000b700000 : &quot;misc1&quot;
+May  5 13:05:08 kernel: Creating 10 MTD partitions on &#34;brcmnand.0&#34;:
+May  5 13:05:08 kernel: 0x000005c60000-0x00000af00000 : &#34;rootfs&#34;
+May  5 13:05:08 kernel: 0x000000540000-0x000005800000 : &#34;rootfs_update&#34;
+May  5 13:05:08 kernel: 0x00000f700000-0x00000ff00000 : &#34;data&#34;
+May  5 13:05:08 kernel: 0x000000000000-0x000000100000 : &#34;nvram&#34;
+May  5 13:05:08 kernel: 0x000000100000-0x000005800000 : &#34;image_update&#34;
+May  5 13:05:08 kernel: 0x000005800000-0x00000af00000 : &#34;image&#34;
+May  5 13:05:08 kernel: 0x000005800000-0x000005c60000 : &#34;bootfs&#34;
+May  5 13:05:08 kernel: 0x000000100000-0x000000540000 : &#34;bootfs_update&#34;
+May  5 13:05:08 kernel: 0x00000b700000-0x00000f700000 : &#34;misc2&#34;
+May  5 13:05:08 kernel: 0x00000af00000-0x00000b700000 : &#34;misc1&#34;
 May  5 13:05:08 kernel: brcmboard registered
 May  5 13:05:08 kernel: brcmboard: brcm_board_init entry
 May  5 13:05:08 kernel: print_rst_status: Last RESET due to SW reset
@@ -347,7 +353,7 @@ May  5 13:05:08 kernel: pci 0002:00:00.0: of_irq_parse_pci() failed with rc=-22
 May  5 13:05:08 kernel: pci 0002:01:00.0: of_irq_parse_pci() failed with rc=-22
 May  5 13:05:08 kernel: ubi0: attaching mtd0
 May  5 13:05:08 kernel: ubi0: scanning is finished
-May  5 13:05:08 kernel: ubi0: attached mtd0 (name &quot;rootfs&quot;, size 82 MiB)
+May  5 13:05:08 kernel: ubi0: attached mtd0 (name &#34;rootfs&#34;, size 82 MiB)
 May  5 13:05:08 kernel: ubi0: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
 May  5 13:05:08 kernel: ubi0: min./max. I/O unit sizes: 2048/2048, sub-page size 2048
 May  5 13:05:08 kernel: ubi0: VID header offset: 2048 (aligned 2048), data offset: 4096
@@ -355,13 +361,13 @@ May  5 13:05:08 kernel: ubi0: good PEBs: 661, bad PEBs: 0, corrupted PEBs: 0
 May  5 13:05:08 kernel: ubi0: user volume: 1, internal volumes: 1, max. volumes count: 128
 May  5 13:05:08 kernel: ubi0: max/mean erase counter: 1/0, WL threshold: 4096, image sequence number: 0
 May  5 13:05:08 kernel: ubi0: available PEBs: 0, total reserved PEBs: 661, PEBs reserved for bad PEB handling: 13
-May  5 13:05:08 kernel: ubi0: background thread &quot;ubi_bgt0d&quot; started, PID 70
-May  5 13:05:08 kernel: UBIFS (ubi0:0): UBIFS: mounted UBI device 0, volume 0, name &quot;rootfs_ubifs&quot;, R/O mode
+May  5 13:05:08 kernel: ubi0: background thread &#34;ubi_bgt0d&#34; started, PID 70
+May  5 13:05:08 kernel: UBIFS (ubi0:0): UBIFS: mounted UBI device 0, volume 0, name &#34;rootfs_ubifs&#34;, R/O mode
 May  5 13:05:08 kernel: UBIFS (ubi0:0): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes
 May  5 13:05:08 kernel: UBIFS (ubi0:0): FS size: 80375808 bytes (76 MiB, 633 LEBs), journal size 9023488 bytes (8 MiB, 72 LEBs)
 May  5 13:05:08 kernel: UBIFS (ubi0:0): reserved for root: 0 bytes (0 KiB)
 May  5 13:05:08 kernel: UBIFS (ubi0:0): media format: w4/r0 (latest is w4/r0), UUID 667D54BB-C195-45B5-AA00-F807B65C3DAC, small LPT model
-May  5 13:05:08 kernel: wlcsm: module license 'Proprietary' taints kernel.
+May  5 13:05:08 kernel: wlcsm: module license &#39;Proprietary&#39; taints kernel.
 May  5 13:05:08 kernel: Disabling lock debugging due to kernel taint
 May  5 13:05:08 kernel: bm_base_addr 0xffffffc00e000000, size 33554432, bm_base_addr_phys 0x000000000e000000
 May  5 13:05:08 kernel: fm_base_addr 0xffffffc00d200000, size 14680064, fm_base_addr_phys 0x000000000d200000
@@ -373,8 +379,8 @@ May  5 13:05:08 kernel: rdd_init_params.runner_nat_cache_key_ptr=0xffffffc00d900
 May  5 13:05:08 kernel: FPM_BPM phy_addr 0x82c30000,virt_addr 0xffffff80003fe000
 May  5 13:05:08 kernel:  RDP PKT memory = 32MB : Max Possible Bufs &lt;16384&gt; of size &lt;2048&gt;; Allocating &lt;15360&gt; bufs; RDP enum &lt;5&gt;
 May  5 13:05:08 kernel: brcmchipinfo: brcm_chipinfo_init entry
-May  5 13:05:08 kernel: NBUFF v1.0 Initialized
-</code></pre><h3 id="反馈给华硕官方了-等待后续">反馈给华硕官方了, 等待后续</h3>
+May  5 13:05:08 kernel: NBUFF v1.0 Initialized</code></pre>
+<h3 id="反馈给华硕官方了-等待后续">反馈给华硕官方了, 等待后续</h3>
 </div>
   
 </article></main>

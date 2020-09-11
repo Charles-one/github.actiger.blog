@@ -7,7 +7,7 @@
     
     <title>TestNG参数化测试 - Actiger跳跳虎</title>
     
-    <meta name="description" content="1. 参数化测试, 使用DataProvider来参数化. @Test中dataProvider的名字与@DataProvider名称一致  @Test(dataProvider = &quot;data&quot;) public void dataProvider(String name, int age){ System.out.println(&quot;Name:&quot; &#43; name &#43; &quot;, &quot; &#43; &quot;Age:&quot; &#43; age); } @DataProvider(name = &quot;data&quot;) public Object[][] data(){ Object[][] oo = new Object[][]{ {&quot;zhangsan&quot;, 18}, {&quot;lisi&quot;, 20}, {&quot;wangwu&quot;, 30} }; return oo; } 2. 针对不方法识别, 使用不同参数  @Test(dataProvider = &quot;testMethod&quot;) public void method1(String name, int age){ System.out.println(&quot;Name:&quot; &#43; name &#43; &quot;, &quot; &#43; &quot;Age:&quot; &#43; age &#43; &quot;1111&quot;); } @Test(dataProvider = &quot;testMethod&quot;) public void method2(String name, int age){ System.">
+    <meta name="description" content="1. 参数化测试, 使用DataProvider来参数化. @Test中dataProvider的名字与@DataProvider名称一致 @Test(dataProvider = &#34;data&#34;) public void dataProvider(String name, int age){ System.out.println(&#34;Name:&#34; &#43; name &#43; &#34;, &#34; &#43; &#34;Age:&#34; &#43; age); } @DataProvider(name = &#34;data&#34;) public Object[][] data(){ Object[][] oo = new Object[][]{ {&#34;zhangsan&#34;, 18}, {&#34;lisi&#34;, 20}, {&#34;wangwu&#34;, 30} }; return oo; } 2. 针对不方法识别, 使用不同参数 @Test(dataProvider = &#34;testMethod&#34;) public void method1(String name, int age){ System.out.println(&#34;Name:&#34; &#43; name &#43; &#34;, &#34; &#43; &#34;Age:&#34; &#43; age &#43; &#34;1111&#34;); } @Test(dataProvider = &#34;testMethod&#34;) public void method2(String name, int age){ System.">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -80,59 +80,58 @@
     <h1 class="post-title">TestNG参数化测试</h1>
     <div class="post-meta">June 15, 2019</div>
   </header>
-  <div class="post-content"><h3 id="1-参数化测试-使用dataprovider来参数化">1. 参数化测试, 使用DataProvider来参数化.</h3>
-<h4 id="test中dataprovider的名字与dataprovider名称一致">@Test中dataProvider的名字与@DataProvider名称一致</h4>
-<pre><code>
-@Test(dataProvider = &quot;data&quot;)
+  <div class="post-content">
+
+<h3 id="1-参数化测试-使用dataprovider来参数化">1. 参数化测试, 使用DataProvider来参数化.</h3>
+
+<h4 id="test中dataprovider的名字与-dataprovider名称一致">@Test中dataProvider的名字与@DataProvider名称一致</h4>
+<pre><code>@Test(dataProvider = &#34;data&#34;)
 public void dataProvider(String name, int age){
-    System.out.println(&quot;Name:&quot; + name + &quot;, &quot; + &quot;Age:&quot; + age);
+    System.out.println(&#34;Name:&#34; + name + &#34;, &#34; + &#34;Age:&#34; + age);
 }
 
-@DataProvider(name = &quot;data&quot;)
+@DataProvider(name = &#34;data&#34;)
 public Object[][] data(){
     Object[][] oo = new Object[][]{
-        {&quot;zhangsan&quot;, 18},
-            {&quot;lisi&quot;, 20},
-            {&quot;wangwu&quot;, 30}
+        {&#34;zhangsan&#34;, 18},
+            {&#34;lisi&#34;, 20},
+            {&#34;wangwu&#34;, 30}
     };
     return oo;
-}
-</code></pre><h3 id="2-针对不方法识别-使用不同参数">2. 针对不方法识别, 使用不同参数</h3>
-<pre><code>
-@Test(dataProvider = &quot;testMethod&quot;)
+}</code></pre>
+<h3 id="2-针对不方法识别-使用不同参数">2. 针对不方法识别, 使用不同参数</h3>
+<pre><code>@Test(dataProvider = &#34;testMethod&#34;)
 public void method1(String name, int age){
-    System.out.println(&quot;Name:&quot; + name + &quot;, &quot; + &quot;Age:&quot; + age + &quot;1111&quot;);
+    System.out.println(&#34;Name:&#34; + name + &#34;, &#34; + &#34;Age:&#34; + age + &#34;1111&#34;);
 }
 
-@Test(dataProvider = &quot;testMethod&quot;)
+@Test(dataProvider = &#34;testMethod&#34;)
 public void method2(String name, int age){
-    System.out.println(&quot;Name:&quot; + name + &quot;, &quot; + &quot;Age:&quot; + age + &quot;2222&quot;);
+    System.out.println(&#34;Name:&#34; + name + &#34;, &#34; + &#34;Age:&#34; + age + &#34;2222&#34;);
 }
 
-@DataProvider(name = &quot;testMethod&quot;)
+@DataProvider(name = &#34;testMethod&#34;)
 public Object[][] switchMethod(Method method){
     Object[][] oo = null;
 
-    if(method.getName().equals(&quot;method1&quot;)){
+    if(method.getName().equals(&#34;method1&#34;)){
         oo = new Object[][]{
-            {&quot;zhangsan&quot;, 19},
-                {&quot;winnie&quot;, 30}
+            {&#34;zhangsan&#34;, 19},
+                {&#34;winnie&#34;, 30}
         };
         return oo;
     }
 
-    else if(method.getName().equals(&quot;method2&quot;)){
+    else if(method.getName().equals(&#34;method2&#34;)){
         oo = new Object[][]{
-            {&quot;Lisi&quot;, 20},
-                {&quot;cc&quot;, 26}
+            {&#34;Lisi&#34;, 20},
+                {&#34;cc&#34;, 26}
         };
         return oo;
     }
 
     return oo;
-}
-
-</code></pre></div>
+}</code></pre></div>
   
 </article></main>
 <footer class="footer">

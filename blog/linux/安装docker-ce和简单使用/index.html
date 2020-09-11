@@ -7,7 +7,13 @@
     
     <title>安装docker Ce和使用docker安装nginx - Actiger跳跳虎</title>
     
-    <meta name="description" content="0. 目录  安装Docker Docker简单使用  1.安装docker  卸载版本Docker  sudo yum remove docker \ docker-common \ docker-selinux \ docker-engine  设置仓库  sudo yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 sudo yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo  安装docker-ce  sudo yum install docker-ce  卸载docker-ce  sudo yum remove docker-ce sudo rm -rf /var/lib/docker  更换国内源  vim vim /etc/docker/daemon.json { &quot;registry-mirrors&quot;: [ &quot;http://hub-mirror.c.163.com&quot;] } 2.docker简单使用  下载镜像  docker pull nginx:1.">
+    <meta name="description" content="0. 目录  安装Docker Docker简单使用  1.安装docker  卸载版本Docker
+sudo yum remove docker \ docker-common \ docker-selinux \ docker-engine 设置仓库
+sudo yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 sudo yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo 安装docker-ce
+sudo yum install docker-ce 卸载docker-ce
+sudo yum remove docker-ce sudo rm -rf /var/lib/docker 更换国内源
+vim vim /etc/docker/daemon.json { &#34;registry-mirrors&#34;: [ &#34;http://hub-mirror.c.163.com&#34;] }  2.docker简单使用  下载镜像
+docker pull nginx:1.14.2# 生成容器 # -d是后台 --name重全名 80:80 外部端口:内部容器端口 docker container run -d -p 80:80 --name mnginx nginx:1.">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -80,58 +86,60 @@
     <h1 class="post-title">安装docker Ce和使用docker安装nginx</h1>
     <div class="post-meta">March 12, 2019</div>
   </header>
-  <div class="post-content"><h3 id="0-目录">0. 目录</h3>
+  <div class="post-content">
+
+<h3 id="0-目录">0. 目录</h3>
+
 <ol>
 <li><a href="#1">安装Docker</a></li>
 <li><a href="#2">Docker简单使用</a></li>
 </ol>
-<h3 id="a-name11安装dockera"><a name="1">1.安装docker</a></h3>
+
+<h3 id="a-name-1-1-安装docker-a"><a name="1">1.安装docker</a></h3>
+
 <ul>
-<li>卸载版本Docker</li>
-</ul>
+<li><p>卸载版本Docker</p>
 <pre><code>sudo yum remove docker \
-              docker-common \
-              docker-selinux \
-              docker-engine
-</code></pre><ul>
-<li>设置仓库</li>
-</ul>
+          docker-common \
+          docker-selinux \
+          docker-engine</code></pre></li>
+
+<li><p>设置仓库</p>
 <pre><code>sudo yum install -y yum-utils \
-  device-mapper-persistent-data \
-  lvm2
+device-mapper-persistent-data \
+lvm2
 
 sudo yum-config-manager \
-    --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo
-</code></pre><ul>
-<li>安装docker-ce</li>
-</ul>
-<pre><code>sudo yum install docker-ce
-</code></pre><ul>
-<li>卸载docker-ce</li>
-</ul>
+--add-repo \
+https://download.docker.com/linux/centos/docker-ce.repo</code></pre></li>
+
+<li><p>安装docker-ce</p>
+<pre><code>sudo yum install docker-ce</code></pre></li>
+
+<li><p>卸载docker-ce</p>
 <pre><code>sudo yum remove docker-ce
-sudo rm -rf /var/lib/docker
-</code></pre><ul>
-<li>更换国内源</li>
-</ul>
+sudo rm -rf /var/lib/docker</code></pre></li>
+
+<li><p>更换国内源</p>
 <pre><code>vim vim /etc/docker/daemon.json
 
 {
-  &quot;registry-mirrors&quot;: [ &quot;http://hub-mirror.c.163.com&quot;]
-}
-</code></pre><h3 id="a-name22docker简单使用a"><a name="2">2.docker简单使用</a></h3>
-<ul>
-<li>下载镜像</li>
+&#34;registry-mirrors&#34;: [ &#34;http://hub-mirror.c.163.com&#34;]
+}</code></pre></li>
 </ul>
-<pre><code>docker pull nginx:1.14.2
-</code></pre><pre><code># 生成容器
+
+<h3 id="a-name-2-2-docker简单使用-a"><a name="2">2.docker简单使用</a></h3>
+
+<ul>
+<li><p>下载镜像</p>
+<pre><code>docker pull nginx:1.14.2</code></pre><pre><code># 生成容器
 # -d是后台 --name重全名 80:80 外部端口:内部容器端口
 
-docker container run -d -p 80:80  --name mnginx   nginx:1.14.2
-</code></pre><ul>
-<li>测试</li>
+docker container run -d -p 80:80  --name mnginx   nginx:1.14.2</code></pre></li>
+
+<li><p>测试</p></li>
 </ul>
+
 <p>访问http://服务器的ip:80就能看到nginx, 本机服务器ip是localhost.</p>
 <pre><code># 关闭容器
 docker stop mynginx
@@ -140,11 +148,9 @@ docker stop mynginx
 docker ps -a
 
 # 启动容器
-docker start mginx
-
-</code></pre><ul>
-<li>挂载外部文件夹和配置信息</li>
-</ul>
+docker start mginx</code></pre>
+<ul>
+<li><p>挂载外部文件夹和配置信息</p>
 <pre><code># -v 后接主机文件夹:容器内文件夹
 docker run -p 80:80 --name m-vnginx -v /home/主机名/actiger/:/usr/share/nginx/html nginx:1.14.2
 
@@ -158,8 +164,9 @@ docker run -d -p 80:80 --name v2nginx -v /home/主机名/actiger/:/usr/share/ngi
 # 将容器内/etc/nginx下nginx.conf mime.types conf.d/default.conf复制到 /home/主机名/nginx中
 # 重新启动容器
 
-docker start v2nginx
-</code></pre></div>
+docker start v2nginx</code></pre></li>
+</ul>
+</div>
   
 </article></main>
 <footer class="footer">

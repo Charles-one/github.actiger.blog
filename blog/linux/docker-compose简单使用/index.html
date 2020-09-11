@@ -7,8 +7,9 @@
     
     <title>docker-compose简单使用 - Actiger跳跳虎</title>
     
-    <meta name="description" content="目录 1. docker-compose简介 2. docker-compose.yml简单配置说明 3. docker-compose运行 1. docker-compose简介与安装  简介   docker-compose是编排docker容器的, 就是管理这一批容器, 进行批量配置, 起动, 暂停, 删除容器等. 如果有多个容器, 使用docker一个个启动慢, 如果容器间有依赖, 还需要手动指定, 还有环境变量, 可以 一起设置.
- 使用下面命令安装docker-compose和docker. 或使用脚本一键安装  yum remove docker \ docker-common \ docker-selinux \ docker-engine yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo yum -y install docker-ce systemctl enable docker systemctl start docker curl -L &quot;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose chmod &#43;x /usr/local/bin/docker-compose 2.">
+    <meta name="description" content="目录 1. docker-compose简介 2. docker-compose.yml简单配置说明 3. docker-compose运行 1. docker-compose简介与安装  简介 &gt;docker-compose是编排docker容器的, 就是管理这一批容器, 进行批量配置, 起动, 暂停, 删除容器等. 如果有多个容器, 使用docker一个个启动慢, 如果容器间有依赖, 还需要手动指定, 还有环境变量, 可以 一起设置.
+ 使用下面命令安装docker-compose和docker. 或使用[脚本一键安装]()
+yum remove docker \ docker-common \ docker-selinux \ docker-engine yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo yum -y install docker-ce systemctl enable docker systemctl start docker curl -L &#34;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)&#34; -o /usr/local/bin/docker-compose chmod &#43;x /usr/local/bin/docker-compose  2.">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -81,51 +82,57 @@
     <h1 class="post-title">docker-compose简单使用</h1>
     <div class="post-meta">May 15, 2019</div>
   </header>
-  <div class="post-content"><h2 id="目录">目录</h2>
-<h3 id="a-hreffirst1-docker-compose简介a"><a href="#first">1. docker-compose简介</a></h3>
-<h3 id="a-hreftwo2-docker-composeyml简单配置说明a"><a href="#two">2. docker-compose.yml简单配置说明</a></h3>
-<h3 id="a-hrefthree3-docker-compose运行a"><a href="#three">3. docker-compose运行</a></h3>
-<h3 id="a-idfirst1-docker-compose简介与安装a"><a id="first">1. docker-compose简介与安装</a></h3>
+  <div class="post-content">
+
+<h2 id="目录">目录</h2>
+
+<h3 id="a-href-first-1-docker-compose简介-a"><a href="#first">1. docker-compose简介</a></h3>
+
+<h3 id="a-href-two-2-docker-compose-yml简单配置说明-a"><a href="#two">2. docker-compose.yml简单配置说明</a></h3>
+
+<h3 id="a-href-three-3-docker-compose运行-a"><a href="#three">3. docker-compose运行</a></h3>
+
+<h3 id="a-id-first-1-docker-compose简介与安装-a"><a id="first">1. docker-compose简介与安装</a></h3>
+
 <ol>
-<li>简介</li>
-</ol>
-<blockquote>
-<p>docker-compose是编排docker容器的, 就是管理这一批容器, 进行批量配置, 起动, 暂停, 删除容器等.
+<li><p>简介
+&gt;docker-compose是编排docker容器的, 就是管理这一批容器, 进行批量配置, 起动, 暂停, 删除容器等.
 如果有多个容器, 使用docker一个个启动慢, 如果容器间有依赖, 还需要手动指定, 还有环境变量, 可以
-一起设置.</p>
-</blockquote>
-<ol start="2">
-<li>使用下面命令安装docker-compose和docker. 或使用<a href="">脚本一键安装</a></li>
-</ol>
+一起设置.</p></li>
+
+<li><p>使用下面命令安装docker-compose和docker. 或使用[脚本一键安装]()</p>
 <pre><code>yum remove docker \
-              docker-common \
-              docker-selinux \
-              docker-engine
+          docker-common \
+          docker-selinux \
+          docker-engine
 
 
 yum install -y yum-utils \
-  device-mapper-persistent-data \
-  lvm2
+device-mapper-persistent-data \
+lvm2
 
 
 yum-config-manager \
-    --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo
+--add-repo \
+https://download.docker.com/linux/centos/docker-ce.repo
 
 yum -y install docker-ce
 
 systemctl enable docker
 systemctl start docker
 
-curl -L &quot;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose
+curl -L &#34;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)&#34; -o /usr/local/bin/docker-compose
 
-chmod +x /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose</code></pre></li>
+</ol>
 
-</code></pre><h3 id="a-idtwo2-docker-composeyml简单配置a"><a id="two">2. docker-compose.yml简单配置</a></h3>
+<h3 id="a-id-two-2-docker-compose-yml简单配置-a"><a id="two">2. docker-compose.yml简单配置</a></h3>
+
 <h3 id="这里以wordpress-nginx-mariadb为例">这里以wordpress-nginx-mariadb为例</h3>
+
 <h4 id="参数说明">参数说明</h4>
 <pre><code># 设置docker-compose 版本
-version: &quot;3&quot;
+version: &#34;3&#34;
 
 # 容器服务
 services:
@@ -174,43 +181,37 @@ services:
       WORDPRESS_DB_HOST: mariadb
       WORDPRESS_DB_USER: wordone
       WORDPRESS_DB_PASSWORD: wordpress_weiki_JKL_sdf1
-      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_NAME: wordpress</code></pre>
+<h3 id="a-id-three-3-docker-compose运行-直接拉取已经设置的配置-a"><a id="three">3. docker-compose运行, 直接拉取已经设置的配置</a></h3>
 
-</code></pre><h3 id="a-idthree3-docker-compose运行-直接拉取已经设置的配置a"><a id="three">3. docker-compose运行, 直接拉取已经设置的配置</a></h3>
 <ol>
-<li>使用git克隆docker-compose库, 并存放在当前用户目录中(即cd ~/ 所在地方)</li>
-</ol>
-<pre><code>
-git clone https://github.com/Charles-one/docker-compose.git ~/docker-compose
+<li><p>使用git克隆docker-compose库, 并存放在当前用户目录中(即cd ~/ 所在地方)</p>
+<pre><code>git clone https://github.com/Charles-one/docker-compose.git ~/docker-compose</code></pre></li>
 
-</code></pre><ol start="2">
-<li>复制一份执行文件到用户目录中</li>
-</ol>
-<pre><code>
-cp -r ~/docker-compose/wordpress-nginx-mariadb ~/wordpress-nginx-mariadb
+<li><p>复制一份执行文件到用户目录中</p>
+<pre><code>cp -r ~/docker-compose/wordpress-nginx-mariadb ~/wordpress-nginx-mariadb</code></pre></li>
 
-</code></pre><ol start="3">
-<li>进行文件夹中, 使用docker-compose 下载镜像, 构建镜像</li>
-</ol>
-<pre><code>
-# 进行需要运行的docker-compose库中
+<li><p>进行文件夹中, 使用docker-compose 下载镜像, 构建镜像</p>
+<pre><code># 进行需要运行的docker-compose库中
 cd ~/wordpress-nginx-mariadb
 
 # up 表示构建, -d后台运行
 # 运行后需要下载镜像, 时间比较长.
-docker-compose up -d
+docker-compose up -d</code></pre></li>
 
-</code></pre><ol start="4">
-<li>查看wordpress服务</li>
+<li><p>查看wordpress服务</p></li>
 </ol>
+
 <p>访问地址:</p>
+
 <blockquote>
 <p>http://你的服务器ip</p>
 </blockquote>
+
 <p>设置用户密码即可使用</p>
-<ol start="5">
-<li>其它docker-compose命令</li>
-</ol>
+
+<ol>
+<li><p>其它docker-compose命令</p>
 <pre><code># pull 拉取服务镜像
 docker-compose pull
 
@@ -234,9 +235,9 @@ docker-compose
 
 # logs 查看服务输出
 docker-compose logs
-docker-compose logs -f
-
-</code></pre></div>
+docker-compose logs -f</code></pre></li>
+</ol>
+</div>
   
 </article></main>
 <footer class="footer">

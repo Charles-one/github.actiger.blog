@@ -7,7 +7,7 @@
     
     <title>腾讯云安装docker碰到的问题 - Actiger跳跳虎</title>
     
-    <meta name="description" content="1. CentOS 7.6版本 docker版本yum install -y docker-ce-18.09.9-3.el7 docker-ce-cli-18.09.9-3.el7 2. 解决docker启动失败问题 Error starting daemon: error initializing graphdriver: \&quot;/var/lib/docker\&quot; contains several valid graphdrivers: devicemapper, overlay; Please cleanup or explicitly choose storage driver (-s &lt;DRIVER&gt;) 删除/var/lib/docker中的devicemapper即可  Error starting daemon: Error initializing network controller: list bridge addresses failed: no available network 缺少桥接,添加一个 ip link add name docker0 type bridge ip addr add dev docker0 172.17.0.1/16 重启docker systemctl restart docker ">
+    <meta name="description" content=" 1. CentOS 7.6版本 docker版本yum install -y docker-ce-18.09.9-3.el7 docker-ce-cli-18.09.9-3.el7 2. 解决docker启动失败问题 Error starting daemon: error initializing graphdriver: \&#34;/var/lib/docker\&#34; contains several valid graphdrivers: devicemapper, overlay; Please cleanup or explicitly choose storage driver (-s &lt;DRIVER&gt;) 删除/var/lib/docker中的devicemapper即可 Error starting daemon: Error initializing network controller: list bridge addresses failed: no available network 缺少桥接,添加一个 ip link add name docker0 type bridge ip addr add dev docker0 172.17.0.1/16 重启docker systemctl restart docker">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -80,19 +80,20 @@
     <h1 class="post-title">腾讯云安装docker碰到的问题</h1>
     <div class="post-meta">December 4, 2019</div>
   </header>
-  <div class="post-content"><h3 id="1-centos-76版本-docker版本yum-install--y-docker-ce-18099-3el7-docker-ce-cli-18099-3el7">1. CentOS 7.6版本 docker版本yum install -y docker-ce-18.09.9-3.el7 docker-ce-cli-18.09.9-3.el7</h3>
+  <div class="post-content">
+
+<h3 id="1-centos-7-6版本-docker版本yum-install-y-docker-ce-18-09-9-3-el7-docker-ce-cli-18-09-9-3-el7">1. CentOS 7.6版本 docker版本yum install -y docker-ce-18.09.9-3.el7 docker-ce-cli-18.09.9-3.el7</h3>
+
 <h3 id="2-解决docker启动失败问题">2. 解决docker启动失败问题</h3>
-<pre><code>Error starting daemon: error initializing graphdriver: \&quot;/var/lib/docker\&quot; contains several
-valid graphdrivers: devicemapper, overlay; Please cleanup or explicitly choose storage driver (-s &lt;DRIVER&gt;)
-</code></pre><h4 id="删除varlibdocker中的devicemapper即可">删除/var/lib/docker中的devicemapper即可</h4>
-<pre><code>
-Error starting daemon: Error initializing network controller: list bridge addresses failed: no available network
-</code></pre><h4 id="缺少桥接添加一个">缺少桥接,添加一个</h4>
+<pre><code>Error starting daemon: error initializing graphdriver: \&#34;/var/lib/docker\&#34; contains several
+valid graphdrivers: devicemapper, overlay; Please cleanup or explicitly choose storage driver (-s &lt;DRIVER&gt;)</code></pre>
+<h4 id="删除-var-lib-docker中的devicemapper即可">删除/var/lib/docker中的devicemapper即可</h4>
+<pre><code>Error starting daemon: Error initializing network controller: list bridge addresses failed: no available network</code></pre>
+<h4 id="缺少桥接-添加一个">缺少桥接,添加一个</h4>
 <pre><code>ip link add name docker0 type bridge
-ip addr add dev docker0 172.17.0.1/16
-</code></pre><h4 id="重启docker">重启docker</h4>
-<pre><code>systemctl restart docker
-</code></pre></div>
+ip addr add dev docker0 172.17.0.1/16</code></pre>
+<h4 id="重启docker">重启docker</h4>
+<pre><code>systemctl restart docker</code></pre></div>
   
 </article></main>
 <footer class="footer">

@@ -8,14 +8,14 @@
     <title>安装jenkins和插件 - Actiger跳跳虎</title>
     
     <meta name="description" content="0.安装Jenkins, 需要提前安装JDK 1.8 安装JDK参考
-1.安装Jnekins  尽量翻墙执行,否则容易报443错误  sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key yum search jenkins sudo yum install jenkins 2. 启动服务与添加防火墙端口  启动jenkins  systemctl start jenkins 如果这里有报错信息,并且提示 &ldquo;systemctl status jenkins.service&rdquo; and &ldquo;journalctl -xe&rdquo; for details 查看详情
+1.安装Jnekins  尽量翻墙执行,否则容易报443错误
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key yum search jenkins sudo yum install jenkins  2. 启动服务与添加防火墙端口  启动jenkins  systemctl start jenkins 如果这里有报错信息,并且提示 &ldquo;systemctl status jenkins.service&rdquo; and &ldquo;journalctl -xe&rdquo; for details 查看详情
 journalctl -xe可以看到原因/usr/bin/java: 没有那个文件或目录
 需要更改vim /etc/init.d/jenkins
-candidates=&quot; /etc/alternatives/java /usr/lib/jvm/java-1.8.0/bin/java /usr/lib/jvm/jre-1.8.0/bin/java /usr/lib/jvm/java-1.7.0/bin/java /usr/lib/jvm/jre-1.7.0/bin/java /usr/java/jdk1.8.0_152/bin/java 这个是修改后的jdk路径（修改前是/usr/bin/java） &quot; systemctl daemon-reload (重新加载工具)
+candidates=&#34; /etc/alternatives/java /usr/lib/jvm/java-1.8.0/bin/java /usr/lib/jvm/jre-1.8.0/bin/java /usr/lib/jvm/java-1.7.0/bin/java /usr/lib/jvm/jre-1.7.0/bin/java /usr/java/jdk1.8.0_152/bin/java 这个是修改后的jdk路径（修改前是/usr/bin/java） &#34; systemctl daemon-reload (重新加载工具)
 systemctl start jenkins (再次启动jenkins)
  检查是否能访问成功  jenkins 使用的8080端口
-访问http://&lt;服务器ip&gt;/8080
-访问失败, 检查端口是否存在">
+访问http://&lt;服务器ip&gt;/8080">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -88,66 +88,94 @@ systemctl start jenkins (再次启动jenkins)
     <h1 class="post-title">安装jenkins和插件</h1>
     <div class="post-meta">March 13, 2019</div>
   </header>
-  <div class="post-content"><h3 id="0安装jenkins-需要提前安装jdk-18">0.安装Jenkins, 需要提前安装JDK 1.8</h3>
+  <div class="post-content">
+
+<h3 id="0-安装jenkins-需要提前安装jdk-1-8">0.安装Jenkins, 需要提前安装JDK 1.8</h3>
+
 <p><a href="https://charles-one.github.io/actiger/linux/下载安装jdk和设置jdk环境变量/">安装JDK参考</a></p>
-<h3 id="1安装jnekins">1.安装Jnekins</h3>
+
+<h3 id="1-安装jnekins">1.安装Jnekins</h3>
+
 <ul>
-<li>尽量翻墙执行,否则容易报443错误</li>
-</ul>
+<li><p>尽量翻墙执行,否则容易报443错误</p>
 <pre><code>sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
 yum search jenkins
-sudo yum install jenkins
-</code></pre><h3 id="2-启动服务与添加防火墙端口">2. 启动服务与添加防火墙端口</h3>
+sudo yum install jenkins</code></pre></li>
+</ul>
+
+<h3 id="2-启动服务与添加防火墙端口">2. 启动服务与添加防火墙端口</h3>
+
 <ul>
 <li>启动jenkins</li>
 </ul>
+
 <p>systemctl start jenkins
 如果这里有报错信息,并且提示 &ldquo;systemctl status jenkins.service&rdquo; and &ldquo;journalctl -xe&rdquo; for details 查看详情</p>
+
 <p>journalctl -xe可以看到原因/usr/bin/java: 没有那个文件或目录</p>
+
 <p>需要更改vim /etc/init.d/jenkins</p>
-<pre><code>candidates=&quot;
+<pre><code>candidates=&#34;
 /etc/alternatives/java
 /usr/lib/jvm/java-1.8.0/bin/java
 /usr/lib/jvm/jre-1.8.0/bin/java
 /usr/lib/jvm/java-1.7.0/bin/java
 /usr/lib/jvm/jre-1.7.0/bin/java
 /usr/java/jdk1.8.0_152/bin/java  这个是修改后的jdk路径（修改前是/usr/bin/java）
-&quot;
-</code></pre><p>systemctl daemon-reload (重新加载工具)</p>
+&#34;</code></pre>
+<p>systemctl daemon-reload (重新加载工具)</p>
+
 <p>systemctl start jenkins (再次启动jenkins)</p>
+
 <ul>
 <li>检查是否能访问成功</li>
 </ul>
+
 <p>jenkins 使用的8080端口</p>
+
 <p>访问http://&lt;服务器ip&gt;/8080</p>
+
 <p>访问失败, 检查端口是否存在</p>
+
 <p>netstat -lntup</p>
+
 <p>检查防火墙端口是否打开</p>
 <pre><code>firewall-cmd --list-ports
 
-firewall-cmd --add-port=8080/tcp --permanent
+firewall-cmd --add-port=8080/tcp --permanent</code></pre>
+<p>重启防火墙, 生效刚刚添加的端口</p>
 
-</code></pre><p>重启防火墙, 生效刚刚添加的端口</p>
 <p>firewall-cmd &ndash;reload</p>
+
 <p>再次访问http://&lt;服务器ip&gt;/8080</p>
+
 <p>查询jenkins存放的密码</p>
+
 <p>cat /var/lib/jenkins/secrets/initialAdminPassword</p>
+
 <p>进入后提示离线</p>
+
 <p>vim /var/lib/jenkins/hudson.model.UpdateCenter.xml
-<a href="https://updates.jenkins.io/update-center.json">https://updates.jenkins.io/update-center.json</a> 中https更改成http</p>
+<a href="https://updates.jenkins.io/update-center.json" target="_blank">https://updates.jenkins.io/update-center.json</a> 中https更改成http</p>
+
 <p>重启jenkins服务</p>
+
 <p>sudo systemctl restart jenkins</p>
+
 <p>再次访问http://&lt;服务器ip&gt;/8080</p>
-<h3 id="3这里重新设置管理员密码原来的就不可用了安装推荐插件">3.这里重新设置管理员密码,原来的就不可用了.安装推荐插件</h3>
+
+<h3 id="3-这里重新设置管理员密码-原来的就不可用了-安装推荐插件">3.这里重新设置管理员密码,原来的就不可用了.安装推荐插件</h3>
+
 <ul>
 <li>设置登录名,密码,全名,邮箱.</li>
 </ul>
+
 <p>访问http://&lt;服务器ip&gt;/8080, 并登录
 出现空白页
 <strong>这里需要再次重启jenkins(更改登录用户和密码, 需要重新加载)</strong></p>
-<pre><code>sudo systemctl restart jenkins
-</code></pre><ul>
+<pre><code>sudo systemctl restart jenkins</code></pre>
+<ul>
 <li>安装插件, 推荐Blue Ocean(更好的界面管理), Git Parameter</li>
 </ul>
 </div>
