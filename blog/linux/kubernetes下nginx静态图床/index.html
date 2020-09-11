@@ -201,6 +201,41 @@ server {
     }
 }
 
+</code></pre><h4 id="4-vim-my-nginxyml-增加imgactigercom地址ingress-nginx转发的service上">4. vim my-nginx.yml, 增加img.actiger.com地址ingress nginx转发的service上.</h4>
+<pre><code>apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: nginx-space
+  name: my-nginx
+spec:
+  tls:
+  - hosts:
+    - blog.actiger.com
+    - www.actiger.com
+    secretName: ingress-secret
+  - hosts:
+    - actiger.com
+    secretName: ingress-top-secret
+  rules:
+  - host: img.actiger.com
+    http:
+      paths:
+      - backend:
+          serviceName: my-nginx
+          servicePort: 80
+  - host: www.actiger.com
+    http:
+      paths:
+      - backend:
+          serviceName: my-nginx
+          servicePort: 80
+  - host: actiger.com
+    http:
+      paths:
+      - backend:
+          serviceName: my-nginx
+          servicePort: 80
+
 </code></pre><h4 id="使用kubectl-apply--f-上面的yaml文件-即可">使用kubectl apply -f 上面的yaml文件, 即可.</h4>
 <h3 id="4-上传文件在服务器的rootimg目录下-即可在见面上访问到-右键链接复制地址-贴到markdown中就可以随意用了">4. 上传文件在服务器的/root/img目录下, 即可在见面上访问到. 右键链接复制地址, 贴到markdown中就可以随意用了.</h3>
 <p><a target="_blank" href="https://img.actiger.com"><a href="https://img.actiger.com">https://img.actiger.com</a></a></p>
