@@ -7,7 +7,7 @@
     
     <title>Kubernetes下nginx静态图床 - Actiger跳跳虎</title>
     
-    <meta name="description" content="1. 为什么需要图床 1. Hugo写markdown过程中需要使用图片. 使用Hugo相对地址比较麻烦. 2. 七牛,又拍云之类需要备案和认证, 时间和精力成本比较高, 而且面临过期问题. 3. 而且自己搭建后, 其他地方也能引用, 公众号之类文章也可以使用, 综上图床必须的. 2. 图床原理, 需要搭建什么的图床. 1. 原理的话  就是服务器上的一个一个图片文件, 通过nginx apeache类服务器访问这些图片.  2. 搭建什么的图床.  Chevereto. 有点难度 Nginx 这个目前觉得最简单.  3. 在Kubernetes下nginx pod创建图床. 1. vim nginx-deployment.yaml, 使用到pvc, 命名空间命名的是nginx-space apiVersion: apps/v1 kind: Deployment metadata: name: my-nginx namespace: nginx-space spec: replicas: 1 selector: matchLabels: app: my-nginx template: metadata: namespace: nginx-space labels: app: my-nginx spec: containers: - name: my-nginx image: nginx:1.16.0 ports: - containerPort: 80 volumeMounts: - mountPath: /usr/share/nginx/html name: www-actiger-com ####### img就是存放图片的 - mountPath: /usr/share/nginx/img name: img-actiger-com - mountPath: /etc/nginx/ name: nginx-config volumes: - name: www-actiger-com persistentVolumeClaim: claimName: pvc-www - name: img-actiger-com persistentVolumeClaim: claimName: pvc-img - name: nginx-config persistentVolumeClaim: claimName: pvc-nginxconfig nodeSelector: kubernetes.">
+    <meta name="description" content="1. 为什么需要图床 1. Hugo写markdown过程中需要使用图片. 使用Hugo相对地址比较麻烦. 2. 七牛,又拍云之类需要备案和认证, 时间和精力成本比较高, 而且面临过期问题. 3. 而且自己搭建后, 其他地方也能引用, 公众号之类文章也可以使用, 综上图床必须的. 2. 图床原理, 需要搭建什么的图床. 1. 原理的话  就是服务器上的一个一个图片文件, 通过nginx apeache类服务器访问这些图片.  2. 搭建什么的图床.  Chevereto &#43; nginx可网页上传, 稍微有点难度, 有需求再上. Nginx 这个目前觉得最简单, 就用这个了.  3. 在Kubernetes下nginx pod创建图床. 1. vim nginx-deployment.yaml, 使用到pvc, 命名空间命名的是nginx-space apiVersion: apps/v1 kind: Deployment metadata: name: my-nginx namespace: nginx-space spec: replicas: 1 selector: matchLabels: app: my-nginx template: metadata: namespace: nginx-space labels: app: my-nginx spec: containers: - name: my-nginx image: nginx:1.">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -91,8 +91,8 @@
 </ol>
 <h4 id="2-搭建什么的图床">2. 搭建什么的图床.</h4>
 <ol>
-<li>Chevereto. 有点难度</li>
-<li>Nginx 这个目前觉得最简单.</li>
+<li>Chevereto + nginx可网页上传, 稍微有点难度, 有需求再上.</li>
+<li>Nginx 这个目前觉得最简单, 就用这个了.</li>
 </ol>
 <h3 id="3-在kubernetes下nginx-pod创建图床">3. 在Kubernetes下nginx pod创建图床.</h3>
 <h4 id="1-vim-nginx-deploymentyaml-使用到pvc-命名空间命名的是nginx-space">1. vim nginx-deployment.yaml, 使用到pvc, 命名空间命名的是nginx-space</h4>
