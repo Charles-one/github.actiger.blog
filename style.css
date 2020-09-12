@@ -101,7 +101,9 @@ ul {
   padding: 0;
 }
 a {
-  color: var(--primary);
+  /*color: var(--primary);*/
+  color: rgb(65,133,244);;
+  font-size: 24px;
   text-decoration: none;
 }
 figure {
@@ -329,7 +331,7 @@ img {
   font-size: 12px;
 }
 .post-content a {
-  box-shadow: 0 1px 0 var(--primary);
+  /*box-shadow: 0 1px 0 var(--primary);*/
 }
 .post-content a code {
   margin-left: 0;
@@ -509,6 +511,7 @@ img {
 }
 .footer a {
   color: inherit;
+  font-size: 14px;
 }
 .footer a:hover {
   color: var(--primary);
