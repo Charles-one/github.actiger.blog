@@ -79,7 +79,8 @@
     <h2>Rsync同步文件或图片到服务器</h2>
   </header>
   <section class="entry-content">
-   <p>1. 上次用nginx做了静态资源, 图片图床. 同步是个问题.  单纯使用scp每次传输, 覆盖文件, 文件更新时间就没了. 思考有没有更好的工具.  2. 网上查询发现rsync, 同步神器了. 安装, Homebrew. brew install rsync 参数解释-r目录递归,u增量更新(修改时间变了才会更新), t保留修改时间. –exclude排除文件 ${HOME}/Pictures/img/表示上传img文件夹下的所有文件, 不上传img. ${HOME}/Pictures/img表示上传img这个文件夹. 所以保持与服务器上一致就可以了. vim .zshrc # rsync up(){ echo &#34;Upload Files...&#34; SERVER_FOLDER=&#34;img/blog/&#34; for i in &#34;$@&#34;; do rsync -rut --exclude .DS_Store $i b:${SERVER_FOLDER} done } upblog(){ LOCAL_FOLDER=&#34;${HOME}/Pictures/img/blog/&#34; SERVER_FOLDER=&#34;img/blog&#34; echo &#34;Upload Files...&#34; rsync -rut --exclude .DS_Store ${LOCAL_FOLDER} b:${SERVER_FOLDER} } upimg(){ LOCAL_FOLDER=&#34;${HOME}/Pictures/img/&#34; SERVER_FOLDER=&#34;img/&#34; rsync -rut --exclude .DS_Store ${LOCAL_FOLDER} b:${SERVER_FOLDER} } 重新生效....</p>
+   <p>1. 上次用nginx做了静态资源, 图片图床. 同步是个问题.  单纯使用scp每次传输, 覆盖文件, 文件更新时间就没了. 思考有没有更好的工具.  2. 网上查询发现rsync, 同步神器了. 安装, Homebrew. brew install rsync 参数解释-r目录递归,u增量更新(修改时间变了才会更新), t保留修改时间. –exclude排除文件 ${HOME}/Pictures/img/表示上传img文件夹下的所有文件, 不上传img. ${HOME}/Pictures/img表示上传img这个文件夹. 所以保持与服务器上一致就可以了.
+vim .zshrc # rsync up(){ echo &#34;Upload Files...&#34; SERVER_FOLDER=&#34;img/blog/&#34; for i in &#34;$@&#34;; do rsync -rut --exclude .DS_Store $i b:${SERVER_FOLDER} done } upblog(){ LOCAL_FOLDER=&#34;${HOME}/Pictures/img/blog/&#34; SERVER_FOLDER=&#34;img/blog&#34; echo &#34;Upload Files...&#34; rsync -rut --exclude .DS_Store ${LOCAL_FOLDER} b:${SERVER_FOLDER} } upimg(){ LOCAL_FOLDER=&#34;${HOME}/Pictures/img/&#34; SERVER_FOLDER=&#34;img/&#34; rsync -rut --exclude .DS_Store ${LOCAL_FOLDER} b:${SERVER_FOLDER} } 重新生效....</p>
   </section>
   <footer class="entry-footer">
     <time>September 12, 2020</time>

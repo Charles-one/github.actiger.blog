@@ -7,7 +7,8 @@
     
     <title>Rsync同步文件或图片到服务器 - Actiger跳跳虎</title>
     
-    <meta name="description" content="1. 上次用nginx做了静态资源, 图片图床. 同步是个问题.  单纯使用scp每次传输, 覆盖文件, 文件更新时间就没了. 思考有没有更好的工具.  2. 网上查询发现rsync, 同步神器了. 安装, Homebrew. brew install rsync 参数解释-r目录递归,u增量更新(修改时间变了才会更新), t保留修改时间. &ndash;exclude排除文件 ${HOME}/Pictures/img/表示上传img文件夹下的所有文件, 不上传img. ${HOME}/Pictures/img表示上传img这个文件夹. 所以保持与服务器上一致就可以了. vim .zshrc # rsync up(){ echo &quot;Upload Files...&quot; SERVER_FOLDER=&quot;img/blog/&quot; for i in &quot;$@&quot;; do rsync -rut --exclude .DS_Store $i b:${SERVER_FOLDER} done } upblog(){ LOCAL_FOLDER=&quot;${HOME}/Pictures/img/blog/&quot; SERVER_FOLDER=&quot;img/blog&quot; echo &quot;Upload Files...&quot; rsync -rut --exclude .DS_Store ${LOCAL_FOLDER} b:${SERVER_FOLDER} } upimg(){ LOCAL_FOLDER=&quot;${HOME}/Pictures/img/&quot; SERVER_FOLDER=&quot;img/&quot; rsync -rut --exclude .DS_Store ${LOCAL_FOLDER} b:${SERVER_FOLDER} } 重新生效.">
+    <meta name="description" content="1. 上次用nginx做了静态资源, 图片图床. 同步是个问题.  单纯使用scp每次传输, 覆盖文件, 文件更新时间就没了. 思考有没有更好的工具.  2. 网上查询发现rsync, 同步神器了. 安装, Homebrew. brew install rsync 参数解释-r目录递归,u增量更新(修改时间变了才会更新), t保留修改时间. &ndash;exclude排除文件 ${HOME}/Pictures/img/表示上传img文件夹下的所有文件, 不上传img. ${HOME}/Pictures/img表示上传img这个文件夹. 所以保持与服务器上一致就可以了.
+vim .zshrc # rsync up(){ echo &quot;Upload Files...&quot; SERVER_FOLDER=&quot;img/blog/&quot; for i in &quot;$@&quot;; do rsync -rut --exclude .DS_Store $i b:${SERVER_FOLDER} done } upblog(){ LOCAL_FOLDER=&quot;${HOME}/Pictures/img/blog/&quot; SERVER_FOLDER=&quot;img/blog&quot; echo &quot;Upload Files...&quot; rsync -rut --exclude .DS_Store ${LOCAL_FOLDER} b:${SERVER_FOLDER} } upimg(){ LOCAL_FOLDER=&quot;${HOME}/Pictures/img/&quot; SERVER_FOLDER=&quot;img/&quot; rsync -rut --exclude .DS_Store ${LOCAL_FOLDER} b:${SERVER_FOLDER} } 重新生效.">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -89,8 +90,9 @@
 <h4 id="安装-homebrew">安装, Homebrew.</h4>
 <pre><code>brew install rsync
 </code></pre><h4 id="参数解释-r目录递归u增量更新修改时间变了才会更新-t保留修改时间---exclude排除文件">参数解释-r目录递归,u增量更新(修改时间变了才会更新), t保留修改时间. &ndash;exclude排除文件</h4>
-<h4 id="homepicturesimg表示上传img文件夹下的所有文件-不上传img">${HOME}/Pictures/img/表示上传img文件夹下的所有文件, 不上传img.</h4>
-<h4 id="homepicturesimg表示上传img这个文件夹-所以保持与服务器上一致就可以了">${HOME}/Pictures/img表示上传img这个文件夹. 所以保持与服务器上一致就可以了.</h4>
+<p><strong>${HOME}/Pictures/img/</strong>表示上传img文件夹下的所有文件, 不上传img.
+<strong>${HOME}/Pictures/img</strong>表示上传img这个文件夹.
+<strong>所以保持与服务器上一致就可以了.</strong></p>
 <h4 id="vim-zshrc">vim .zshrc</h4>
 <pre><code># rsync
 
