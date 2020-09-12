@@ -76,6 +76,24 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>使用Hugo和GitHub Pages搭建静态网站</h2>
+  </header>
+  <section class="entry-content">
+   <p>0. 前提条件  电脑安装git(Mac linux都需要安装) 安装go并设置环境变量(仅linux下需要) 虚拟机Centos7.6.1810(测试用, 不需要安装)  1. 安装hugo   mac直接使用brew install hugo就可以了
+  linux下源码安装
+   下载并编译  mkdir ~/src cd ~/src git clone https://github.com/gohugoio/hugo.git cd hugo go install 添加环境变量  # 当前用户~/go文件绝对路径是GOPATH,Go编译后的文件在~/go/bin中 # 如现在当前用户是jenkins vim /etc/profile 添加 export export GOPATH=/var/lib/jenkins/go export PATH=${PATH}:$GOPATH/bin 重新生效/etc/profile文件
+source /etc/profile
+再次hugo vimersion
+就会显示hugo版本, 表示可用
+2. 使用Hugo创建个人网站  创建静态网站文件夹  cd ~ hugo new site actiger  写第一篇markdown文章, markdown语法参考  cd ~/actiger 在目录~/actiger下执行hugo new about....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>March 13, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/%E4%BD%BF%E7%94%A8hugo%E5%92%8Cgithub-pages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>使用jenkins构建指定版本的Github项目Hugo</h2>
   </header>
   <section class="entry-content">
@@ -229,21 +247,10 @@ systemctl restart sshd 添加防火墙端口  firewall-cmd --zone=public --add-p
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/%E6%9B%B4%E6%94%B9ssh%E7%AB%AF%E5%8F%A3%E4%B8%8E%E7%A6%81%E6%AD%A2root%E7%99%BB%E5%BD%95%E5%A2%9E%E5%BC%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8/"></a>
 </article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>About</h2>
-  </header>
-  <section class="entry-content">
-   <p>靡不有初 鲜克有终 ...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>March 9, 2019</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/about/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="/actiger/page/6/">← Prev Page</a>
+    <a class="next" href="/actiger/page/8/">Next Page →</a>
   </nav>
 </footer></main>
 <footer class="footer">

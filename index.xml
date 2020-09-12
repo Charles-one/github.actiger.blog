@@ -6,10 +6,19 @@
     <description>Recent content on Actiger跳跳虎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 11 Sep 2020 00:50:44 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 12 Sep 2020 20:48:14 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/actiger/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rsync同步文件或图片到服务器</title>
+      <link>https://charles-one.github.io/actiger/blog/linux/rsync%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6%E6%88%96%E5%9B%BE%E7%89%87%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <pubDate>Sat, 12 Sep 2020 20:48:14 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/actiger/blog/linux/rsync%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6%E6%88%96%E5%9B%BE%E7%89%87%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description>1. 上次用nginx做了静态资源, 图片图床. 同步是个问题.  单纯使用scp每次传输, 覆盖文件, 文件更新时间就没了. 思考有没有更好的工具.  2. 网上查询发现rsync, 同步神器了. 安装, Homebrew. brew install rsync 参数解释-r目录递归,u增量更新(修改时间变了才会更新), t保留修改时间. &amp;ndash;exclude排除文件 ${HOME}/Pictures/img/表示上传img文件夹下的所有文件, 不上传img. ${HOME}/Pictures/img表示上传img这个文件夹. 所以保持与服务器上一致就可以了. vim .zshrc # rsync up(){ echo &amp;quot;Upload Files...&amp;quot; SERVER_FOLDER=&amp;quot;img/blog/&amp;quot; for i in &amp;quot;$@&amp;quot;; do rsync -rut --exclude .DS_Store $i b:${SERVER_FOLDER} done } upblog(){ LOCAL_FOLDER=&amp;quot;${HOME}/Pictures/img/blog/&amp;quot; SERVER_FOLDER=&amp;quot;img/blog&amp;quot; echo &amp;quot;Upload Files...&amp;quot; rsync -rut --exclude .DS_Store ${LOCAL_FOLDER} b:${SERVER_FOLDER} } upimg(){ LOCAL_FOLDER=&amp;quot;${HOME}/Pictures/img/&amp;quot; SERVER_FOLDER=&amp;quot;img/&amp;quot; rsync -rut --exclude .DS_Store ${LOCAL_FOLDER} b:${SERVER_FOLDER} } 重新生效.</description>
+    </item>
     
     <item>
       <title>Kubernetes下nginx静态图床</title>

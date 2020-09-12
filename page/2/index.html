@@ -76,6 +76,18 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>C程序设计语言练习1-8</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. 要求: 编写一个统计空格,制表符与换行符个数的程序 2. 分析. 1. 使用getchar()获取输入的字符 2. 判断输入的符. 查询ASCII对照表, 空格ASCII值32(也可使用’ ‘). 制表符’\t’, 换行’\n’. 3. 代码 1. 想输入EOF, linux是按Ctrl &#43; D组合键2次, windows Ctrl &#43; Z, 2. else if的条件成立就进行下一次循环, 如果3个if条件程序判断3次, 没有效率.  #include&lt;stdio.h&gt; int main(){ int sumspace = 0; int sumt = 0; int sumn = 0; int c ; while( (c = getchar()) != EOF ){ if( c == 32){ sumspace&#43;&#43;; } else if(c == &#39;\t&#39;){ sumt&#43;&#43;; } else if(c == &#39;\n&#39;){ sumn&#43;&#43;; } } printf(&#34;空格数%d 制表符数%d 换行符数%d\n&#34;, sumspace, sumt, sumn); return 0; } ...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>April 9, 2020</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-8/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>C程序设计语言练习1-7</h2>
   </header>
   <section class="entry-content">
@@ -192,18 +204,6 @@ spring: datasource: driver-class-name: org.mariadb.jdbc.Driver url: jdbc:mariadb
     <time>December 4, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/blog/docker/%E8%85%BE%E8%AE%AF%E4%BA%91%E5%AE%89%E8%A3%85docker%E7%A2%B0%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>Kubernetes扩容增加node节点</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. Kubernetes扩容增加node节点 创建token  kubeadm token create 查看kubernetes认证的SHA256加密字符串是多少  openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2&gt;/dev/null | openssl dgst -sha256 -hex | sed &#39;s/^.* //&#39; 加入master节点  kubeadm join &lt;主master ip&gt;:6443 --token &lt;刚刚创建的token&gt; --discovery-token-ca-cert-hash sha256:&lt;上面的加密字符串&gt; 操作这些时先更新下系统. ...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>November 30, 2019</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/docker/kubernetes%E6%89%A9%E5%AE%B9%E5%A2%9E%E5%8A%A0node%E8%8A%82%E7%82%B9/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
