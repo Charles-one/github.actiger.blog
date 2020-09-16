@@ -6,10 +6,19 @@
     <description>Recent content in Blogs on Actiger跳跳虎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Sep 2020 20:48:14 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 16 Sep 2020 23:31:10 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/actiger/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Fswatch监控文件变化rsync上传文件</title>
+      <link>https://charles-one.github.io/actiger/blog/linux/fswatch%E7%9B%91%E6%8E%A7%E6%96%87%E4%BB%B6%E5%8F%98%E5%8C%96rsync%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Wed, 16 Sep 2020 23:31:10 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/actiger/blog/linux/fswatch%E7%9B%91%E6%8E%A7%E6%96%87%E4%BB%B6%E5%8F%98%E5%8C%96rsync%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/</guid>
+      <description>1. 上次手动上传总觉得不够智能, 能自动最好. 查询下fswatch可监控文件变动. 2. 写了个小脚本 vim rsyncblog.sh, -1参数表示监控到文件变动就退出监控.  LOCAL_PATH=&amp;quot;${HOME}/Pictures/img/blog/&amp;quot; SERVER_PATH=&amp;quot;img/blog/&amp;quot; function blog_fswatch(){ echo &amp;quot;watch ${LOCAL_PATH}&amp;quot; fswatch -1 ${LOCAL_PATH} rsyncblog } function rsyncblog(){ echo &amp;quot;rsync ${LOCAL_PATH} b${SERVER_PATH}&amp;quot; rsync -rut --exclude &#39;.DS_Store&#39; ${LOCAL_PATH} b:${SERVER_PATH} sleep 120 blog_fswatch } rsyncblog 3. 运行 ./rsyncblog.sh 结束运行, 键盘Control+C. </description>
+    </item>
     
     <item>
       <title>Rsync同步文件或图片到服务器</title>
@@ -17,7 +26,7 @@
       <pubDate>Sat, 12 Sep 2020 20:48:14 +0800</pubDate>
       
       <guid>https://charles-one.github.io/actiger/blog/linux/rsync%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6%E6%88%96%E5%9B%BE%E7%89%87%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
-      <description>1. 上次用nginx做了静态资源, 图片图床. 同步是个问题.  单纯使用scp每次传输, 覆盖文件, 文件更新时间就没了. 思考有没有更好的工具.  2. 网上查询发现rsync, 同步神器了. 安装, Homebrew. brew install rsync 参数解释-r目录递归,u增量更新(本地文件时间比上标文件新才更新), t保留修改时间. &amp;ndash;exclude排除文件 ${HOME}/Pictures/img/表示上传img文件夹下的所有文件, 不上传img. ${HOME}/Pictures/img表示上传img这个文件夹. 所以这个要注意
+      <description>1. 上次用nginx做了静态资源, 图片图床. 同步是个问题.  单纯使用scp每次传输, 覆盖文件, 文件更新时间就没了. 思考有没有更好的工具.  2. 网上查询发现rsync, 同步神器了. 安装, Homebrew. brew install rsync 参数解释-r目录递归,u增量更新(本地文件时间比上标文件新才更新), t保留修改时间. &amp;ndash;exclude排除文件 在本地删除文件后, rsync同步到服务器端时是不会删除对应的文件的, 需要加上参数&amp;ndash;delete, 会删除服务端比本地多余的文件, 重要文件同步谨慎使用. ${HOME}/Pictures/img/表示上传img文件夹下的所有文件, 不上传img. ${HOME}/Pictures/img表示上传img这个文件夹. 所以这个要注意
 vim .zshrc # rsync alias up=&amp;quot;rsync -rut --exclude &#39;.DS_Store&#39;&amp;quot; uponestoblog(){ echo &amp;quot;Upload Files...&amp;quot; SERVER_FOLDER=&amp;quot;img/blog/&amp;quot; for i in &amp;quot;$@&amp;quot;; do rsync -rut --exclude &#39;.DS_Store&#39; $i b:${SERVER_FOLDER} done } upblog(){ LOCAL_FOLDER=&amp;quot;${HOME}/Pictures/img/blog/&amp;quot; SERVER_FOLDER=&amp;quot;img/blog/&amp;quot; echo &amp;quot;Upload ${LOCAL_FOLDER} b:${SERVER_FOLDER}&amp;quot; rsync -rut --exclude &#39;.DS_Store&#39; ${LOCAL_FOLDER} b:${SERVER_FOLDER} } upimg(){ LOCAL_FOLDER=&amp;quot;${HOME}/Pictures/img/&amp;quot; SERVER_FOLDER=&amp;quot;img/&amp;quot; echo &amp;quot;Upload ${LOCAL_FOLDER} b:${SERVER_FOLDER}&amp;quot; rsync -rut --exclude &#39;.</description>
     </item>
     
