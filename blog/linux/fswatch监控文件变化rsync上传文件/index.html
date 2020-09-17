@@ -7,7 +7,7 @@
     
     <title>Fswatch监控文件变化rsync上传文件 - Actiger跳跳虎</title>
     
-    <meta name="description" content="1. 上次手动上传总觉得不够智能, 能自动最好. 查询下fswatch可监控文件变动. 2. 写了个小脚本 vim rsyncblog.sh, -1参数表示监控到文件变动就退出监控. LOCAL_PATH=&quot;${HOME}/Documents/actiger/content/&quot; LOCAL_SHELL=&quot;${HOME}/Documents/actiger/hall.sh&quot; #SERVER_PATH=&quot;img/blog/&quot; cd ${LOCAL_SHELL} function fswatchcontent(){ echo &quot;watch ${LOCAL_PATH}&quot; fswatch -1 ${LOCAL_PATH} gitpushgithub } function gitpushgithub(){ echo &quot;开始上传博客...&quot; sh ${LOCAL_SHELL} sleep 120 fswatchcontent } gitpushgithub 3. 运行 ./rsyncblog.sh 结束运行, 键盘Control&#43;C. ">
+    <meta name="description" content="1. 上次手动上传总觉得不够智能, 能自动最好. 查询下fswatch可监控文件变动. 2. 写了个小脚本 vim rsyncblog.sh, -1参数表示监控到文件变动就退出监控. LOCAL_PATH=&quot;${HOME}/Documents/actiger/content/&quot; LOCAL_SHELL=&quot;${HOME}/Documents/actiger/hall.sh&quot; #SERVER_PATH=&quot;img/blog/&quot; cd ${LOCAL_SHELL} function fswatchcontent(){ echo &quot;watch ${LOCAL_PATH}&quot; fswatch -1 ${LOCAL_PATH} gitpushgithub } function gitpushgithub(){ echo &quot;开始推送博客到github...&quot; sh ${LOCAL_SHELL} sleep 120 fswatchcontent } gitpushgithub 3. 运行 ./rsyncblog.sh 结束运行, 键盘Control&#43;C. ">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -97,7 +97,7 @@ function fswatchcontent(){
 }
 
 function gitpushgithub(){
-    echo &quot;开始上传博客...&quot;
+    echo &quot;开始推送博客到github...&quot;
     sh ${LOCAL_SHELL}
     sleep 120
     fswatchcontent
