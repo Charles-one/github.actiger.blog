@@ -312,7 +312,7 @@ describe usrinfo;
       <pubDate>Tue, 27 Aug 2019 10:30:00 +0800</pubDate>
       
       <guid>https://charles-one.github.io/actiger/blog/linux/%E7%94%B3%E8%AF%B7%E5%8D%95%E4%B8%AA%E5%9F%9F%E5%90%8D%E6%96%B9%E5%BC%8F/</guid>
-      <description>1. 起因 一级域名和二级域名都使用dns-01验证方式申请证书, 申请一级域名的时候更改了_acme-challenge.actiger.com, 续期的时候发现二级域名申请证书时的配置_acme-challenge.actiger.com验证失败, 续期失败 2. 解决方式, 使用不同方式申请证书, 续期不会有冲突 一级域名Actiger.com使用http文件申请证书 二级通用*.actiger.com用例dns-01的方式申请证书 3. 申请单个域名 certbot certonly --manual --preferred-challenges http --email example@icloud.com --domains actiger.com 提示在actiger.com/.well-known/acme-challenge/ 创建一个文件 假如你设置actiger.com跳转到www.actiger.com, 而www.actiger.com又跳转到blog.actiger.com, 可以把创建的文件放在blog.actiger.com/.well-known/acme-challenge/下 在服务器对应目录创建文件 创建文件成功后, 继续申请证书 申请证书成功后, 存放在/etc/letsencrypt下 </description>
+      <description>1. 起因 一级域名和二级域名都使用dns-01验证方式申请证书, 申请一级域名的时候更改了_acme-challenge.actiger.com, 续期的时候发现二级域名申请证书时的配置_acme-challenge.actiger.com验证失败, 续期失败 2. 解决方式, 使用不同方式申请证书, 续期不会有冲突 一级域名Actiger.com使用http文件申请证书 二级通用*.actiger.com用例dns-01的方式申请证书 3. 申请单个域名 certbot certonly --manual --preferred-challenges http --email example@icloud.com --domains actiger.com 提示在actiger.com/.well-known/acme-challenge/ 创建一个文件 假如你设置actiger.com跳转到www.actiger.com, 可以把创建的文件放在www.actiger.com/.well-known/acme-challenge/下 在服务器对应目录创建文件 创建文件成功后, 继续申请证书 申请证书成功后, 存放在/etc/letsencrypt下 </description>
     </item>
     
     <item>
@@ -485,7 +485,7 @@ describe usrinfo;
       <pubDate>Sun, 19 May 2019 02:50:28 +0800</pubDate>
       
       <guid>https://charles-one.github.io/actiger/blog/linux/%E4%BD%BF%E7%94%A8docker%E5%92%8Chugo%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
-      <description>1. 方案选择, 需要内容结构. 1. 练习的话, 可以这种方案. 虚拟机+本地hosts, 免费, 只能内网访问. 2. 最难的方案, 国内域名(备案时间可能会很长,外地备案条件苛刻)+国内云. 2. 在服务器上拉取docker-compose仓库. # 拉取仓库, 并存放在用户目录中 git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository # 复制这用到了docker-compose文件夹, 并存放在用户目录中 cp -r ~/docker-compose-repository/nginx-hugoBlog ~/nginx-hugoBlog 3. 使用hugo生成正确的博客目录 1. hugo生成网站目录 # 指定主题, 我使用了hugo-paper, 网站地址baseUrl, 目标目录, 我会上传多个平台, 所以指定下. # 注意 --bashUrl后的/是必须要有的. hugo --theme=hugo-paper --baseUrl=&amp;quot;http://blog.actiger.com/&amp;quot; --destination=&amp;quot;blog.actiger.com&amp;quot; 2. 上传步骤1生成的博客目录到github.com.  3. 在服务器上拉取上传的博客目录 # 进行docker-compose文件夹中 cd ~/nginx-hugoBlog # 拉取的docker-compose 默认配置是 ./blog.actiger.com:/usr/share/nginx/html . # docker-compose配置文件里的配置的目录, 与当前目录一致的. # 克隆代码时需要, 重命名与docker-compose配置挂载目录名一致. git clone https://github.com/Charles-one/blog.actiger.com blog.actiger.com 4.</description>
+      <description>1. 方案选择, 需要内容结构. 1. 练习的话, 可以这种方案. 虚拟机+本地hosts, 免费, 只能内网访问. 2. 最难的方案, 国内域名(备案时间可能会很长,外地备案条件苛刻)+国内云. 2. 在服务器上拉取docker-compose仓库. # 拉取仓库, 并存放在用户目录中 git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository # 复制这用到了docker-compose文件夹, 并存放在用户目录中 cp -r ~/docker-compose-repository/nginx-hugoBlog ~/nginx-hugoBlog 3. 使用hugo生成正确的博客目录 1. hugo生成网站目录 # 指定主题, 我使用了hugo-paper, 网站地址baseUrl, 目标目录, 我会上传多个平台, 所以指定下. # 注意 --bashUrl后的/是必须要有的. hugo --theme=hugo-paper --baseUrl=&amp;quot;http://www.actiger.com/&amp;quot; --destination=&amp;quot;www.actiger.com&amp;quot; 2. 上传步骤1生成的博客目录到github.com.  3. 在服务器上拉取上传的博客目录 # 进行docker-compose文件夹中 cd ~/nginx-hugoBlog # 拉取的docker-compose 默认配置是 ./www.actiger.com:/usr/share/nginx/html . # docker-compose配置文件里的配置的目录, 与当前目录一致的. # 克隆代码时需要, 重命名与docker-compose配置挂载目录名一致. git clone https://github.com/Charles-one/www.actiger.com www.actiger.com 4.</description>
     </item>
     
     <item>
@@ -495,8 +495,8 @@ describe usrinfo;
       
       <guid>https://charles-one.github.io/actiger/blog/linux/crontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</guid>
       <description>1. 使用Crontab的原因. 每次更新博客都要登录服务器(ssh延迟容易中断)手动去拉取代码, 不方便. 故设置成自动获取最新代码. 2. 选择crontab定时 查看下资源, 觉得crontab简单可行, 直接来用就好了. 3. 定时任务需需要做事情.  特定目录执行git pul的shell脚本. 这里我使用了  vim git_pull.sh
- #!/bin/bash # 进入目录中 cd ~/nginx-hugoBlog/blog.actiger.com/ # 拉取github中的代码 git pull 添加crontab任务文件  vim git_pull.cron
-# 设置5分钟拉取一次代码 */5 * * * * cd /root &amp;amp;&amp;amp; ./git_pull_blog.actiger.com.sh 把定时任务文件内容加到crontab中  # 添加root账户中 crontab -uroot git_pull.cron # 查询当前任务, root是账户, 添加的定时任务会放到这个目录中 crontab -uroot -l cat /var/spool/cron/root # 删除root用户的定时任务 crontab -uroot -r 日志的地址, 相当重要. # 日志文件 /var/spool/mail/root # 查看日志 # 可以把时间设置1分钟, 可以很快看到执行情况, 方便调试.</description>
+ #!/bin/bash # 进入目录中 cd ~/nginx-hugoBlog/www.actiger.com/ # 拉取github中的代码 git pull 添加crontab任务文件  vim git_pull.cron
+# 设置5分钟拉取一次代码 */5 * * * * cd /root &amp;amp;&amp;amp; ./git_pull_www.actiger.com.sh 把定时任务文件内容加到crontab中  # 添加root账户中 crontab -uroot git_pull.cron # 查询当前任务, root是账户, 添加的定时任务会放到这个目录中 crontab -uroot -l cat /var/spool/cron/root # 删除root用户的定时任务 crontab -uroot -r 日志的地址, 相当重要. # 日志文件 /var/spool/mail/root # 查看日志 # 可以把时间设置1分钟, 可以很快看到执行情况, 方便调试.</description>
     </item>
     
     <item>

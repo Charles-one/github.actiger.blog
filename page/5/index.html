@@ -165,7 +165,7 @@
     <h2>使用docker和hugo搭建自己的博客</h2>
   </header>
   <section class="entry-content">
-   <p>1. 方案选择, 需要内容结构. 1. 练习的话, 可以这种方案. 虚拟机&#43;本地hosts, 免费, 只能内网访问. 2. 最难的方案, 国内域名(备案时间可能会很长,外地备案条件苛刻)&#43;国内云. 2. 在服务器上拉取docker-compose仓库. # 拉取仓库, 并存放在用户目录中 git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository # 复制这用到了docker-compose文件夹, 并存放在用户目录中 cp -r ~/docker-compose-repository/nginx-hugoBlog ~/nginx-hugoBlog 3. 使用hugo生成正确的博客目录 1. hugo生成网站目录 # 指定主题, 我使用了hugo-paper, 网站地址baseUrl, 目标目录, 我会上传多个平台, 所以指定下. # 注意 --bashUrl后的/是必须要有的. hugo --theme=hugo-paper --baseUrl=&#34;http://blog.actiger.com/&#34; --destination=&#34;blog.actiger.com&#34; 2. 上传步骤1生成的博客目录到github.com.  3. 在服务器上拉取上传的博客目录 # 进行docker-compose文件夹中 cd ~/nginx-hugoBlog # 拉取的docker-compose 默认配置是 ./blog.actiger.com:/usr/share/nginx/html . # docker-compose配置文件里的配置的目录, 与当前目录一致的. # 克隆代码时需要, 重命名与docker-compose配置挂载目录名一致. git clone https://github.com/Charles-one/blog.actiger.com blog.actiger.com 4....</p>
+   <p>1. 方案选择, 需要内容结构. 1. 练习的话, 可以这种方案. 虚拟机&#43;本地hosts, 免费, 只能内网访问. 2. 最难的方案, 国内域名(备案时间可能会很长,外地备案条件苛刻)&#43;国内云. 2. 在服务器上拉取docker-compose仓库. # 拉取仓库, 并存放在用户目录中 git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository # 复制这用到了docker-compose文件夹, 并存放在用户目录中 cp -r ~/docker-compose-repository/nginx-hugoBlog ~/nginx-hugoBlog 3. 使用hugo生成正确的博客目录 1. hugo生成网站目录 # 指定主题, 我使用了hugo-paper, 网站地址baseUrl, 目标目录, 我会上传多个平台, 所以指定下. # 注意 --bashUrl后的/是必须要有的. hugo --theme=hugo-paper --baseUrl=&#34;http://www.actiger.com/&#34; --destination=&#34;www.actiger.com&#34; 2. 上传步骤1生成的博客目录到github.com.  3. 在服务器上拉取上传的博客目录 # 进行docker-compose文件夹中 cd ~/nginx-hugoBlog # 拉取的docker-compose 默认配置是 ./www.actiger.com:/usr/share/nginx/html . # docker-compose配置文件里的配置的目录, 与当前目录一致的. # 克隆代码时需要, 重命名与docker-compose配置挂载目录名一致. git clone https://github.com/Charles-one/www.actiger.com www.actiger.com 4....</p>
   </section>
   <footer class="entry-footer">
     <time>May 19, 2019</time>
@@ -178,8 +178,8 @@
   </header>
   <section class="entry-content">
    <p>1. 使用Crontab的原因. 每次更新博客都要登录服务器(ssh延迟容易中断)手动去拉取代码, 不方便. 故设置成自动获取最新代码. 2. 选择crontab定时 查看下资源, 觉得crontab简单可行, 直接来用就好了. 3. 定时任务需需要做事情.  特定目录执行git pul的shell脚本. 这里我使用了  vim git_pull.sh
- #!/bin/bash # 进入目录中 cd ~/nginx-hugoBlog/blog.actiger.com/ # 拉取github中的代码 git pull 添加crontab任务文件  vim git_pull.cron
-# 设置5分钟拉取一次代码 */5 * * * * cd /root &amp;&amp; ./git_pull_blog.actiger.com.sh 把定时任务文件内容加到crontab中  # 添加root账户中 crontab -uroot git_pull.cron # 查询当前任务, root是账户, 添加的定时任务会放到这个目录中 crontab -uroot -l cat /var/spool/cron/root # 删除root用户的定时任务 crontab -uroot -r 日志的地址, 相当重要. # 日志文件 /var/spool/mail/root # 查看日志 # 可以把时间设置1分钟, 可以很快看到执行情况, 方便调试....</p>
+ #!/bin/bash # 进入目录中 cd ~/nginx-hugoBlog/www.actiger.com/ # 拉取github中的代码 git pull 添加crontab任务文件  vim git_pull.cron
+# 设置5分钟拉取一次代码 */5 * * * * cd /root &amp;&amp; ./git_pull_www.actiger.com.sh 把定时任务文件内容加到crontab中  # 添加root账户中 crontab -uroot git_pull.cron # 查询当前任务, root是账户, 添加的定时任务会放到这个目录中 crontab -uroot -l cat /var/spool/cron/root # 删除root用户的定时任务 crontab -uroot -r 日志的地址, 相当重要. # 日志文件 /var/spool/mail/root # 查看日志 # 可以把时间设置1分钟, 可以很快看到执行情况, 方便调试....</p>
   </section>
   <footer class="entry-footer">
     <time>May 18, 2019</time>
