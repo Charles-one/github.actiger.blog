@@ -7,7 +7,7 @@
     
     <title>Fswatch监控文件变化rsync上传文件 - Actiger跳跳虎</title>
     
-    <meta name="description" content="1. 上次手动上传总觉得不够智能, 能自动最好. 查询下fswatch可监控文件变动. 2. 写了个小脚本 vim rsyncblog.sh, -1参数表示监控到文件变动就退出监控.  LOCAL_PATH=&quot;${HOME}/Pictures/img/blog/&quot; SERVER_PATH=&quot;img/blog/&quot; function blog_fswatch(){ echo &quot;watch ${LOCAL_PATH}&quot; fswatch -1 ${LOCAL_PATH} rsyncblog } function rsyncblog(){ echo &quot;rsync ${LOCAL_PATH} b${SERVER_PATH}&quot; rsync -rut --exclude &#39;.DS_Store&#39; ${LOCAL_PATH} b:${SERVER_PATH} sleep 120 blog_fswatch } rsyncblog 3. 运行 ./rsyncblog.sh 结束运行, 键盘Control&#43;C. ">
+    <meta name="description" content="1. 上次手动上传总觉得不够智能, 能自动最好. 查询下fswatch可监控文件变动. 2. 写了个小脚本 vim rsyncblog.sh, -1参数表示监控到文件变动就退出监控. LOCAL_PATH=&quot;${HOME}/Documents/actiger/content/&quot; LOCAL_SHELL=&quot;${HOME}/Documents/actiger/hall.sh&quot; #SERVER_PATH=&quot;img/blog/&quot; cd ${LOCAL_SHELL} function fswatchcontent(){ echo &quot;watch ${LOCAL_PATH}&quot; fswatch -1 ${LOCAL_PATH} gitpushgithub } function gitpushgithub(){ echo &quot;开始上传博客...&quot; sh ${LOCAL_SHELL} sleep 120 fswatchcontent } gitpushgithub 3. 运行 ./rsyncblog.sh 结束运行, 键盘Control&#43;C. ">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -83,25 +83,27 @@
   <div class="post-content"><h3 id="1-上次手动上传总觉得不够智能-能自动最好-查询下fswatch可监控文件变动">1. 上次手动上传总觉得不够智能, 能自动最好. 查询下fswatch可监控文件变动.</h3>
 <h3 id="2-写了个小脚本">2. 写了个小脚本</h3>
 <h4 id="vim-rsyncblogsh--1参数表示监控到文件变动就退出监控">vim rsyncblog.sh, -1参数表示监控到文件变动就退出监控.</h4>
-<pre><code>
-LOCAL_PATH=&quot;${HOME}/Pictures/img/blog/&quot;
+<pre><code>LOCAL_PATH=&quot;${HOME}/Documents/actiger/content/&quot;
 
-SERVER_PATH=&quot;img/blog/&quot;
+LOCAL_SHELL=&quot;${HOME}/Documents/actiger/hall.sh&quot;
 
-function blog_fswatch(){
+#SERVER_PATH=&quot;img/blog/&quot;
+cd ${LOCAL_SHELL}
+
+function fswatchcontent(){
     echo &quot;watch ${LOCAL_PATH}&quot;
     fswatch -1 ${LOCAL_PATH}
-    rsyncblog
+    gitpushgithub
 }
 
-function rsyncblog(){
-    echo &quot;rsync ${LOCAL_PATH} b${SERVER_PATH}&quot;
-    rsync -rut --exclude '.DS_Store' ${LOCAL_PATH} b:${SERVER_PATH}
+function gitpushgithub(){
+    echo &quot;开始上传博客...&quot;
+    sh ${LOCAL_SHELL}
     sleep 120
-    blog_fswatch
+    fswatchcontent
 }
 
-rsyncblog
+gitpushgithub
 
 </code></pre><h3 id="3-运行">3. 运行</h3>
 <pre><code>./rsyncblog.sh

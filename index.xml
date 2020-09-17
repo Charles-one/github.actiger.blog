@@ -17,7 +17,7 @@
       <pubDate>Wed, 16 Sep 2020 23:31:10 +0800</pubDate>
       
       <guid>https://charles-one.github.io/actiger/blog/linux/fswatch%E7%9B%91%E6%8E%A7%E6%96%87%E4%BB%B6%E5%8F%98%E5%8C%96rsync%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/</guid>
-      <description>1. 上次手动上传总觉得不够智能, 能自动最好. 查询下fswatch可监控文件变动. 2. 写了个小脚本 vim rsyncblog.sh, -1参数表示监控到文件变动就退出监控.  LOCAL_PATH=&amp;quot;${HOME}/Pictures/img/blog/&amp;quot; SERVER_PATH=&amp;quot;img/blog/&amp;quot; function blog_fswatch(){ echo &amp;quot;watch ${LOCAL_PATH}&amp;quot; fswatch -1 ${LOCAL_PATH} rsyncblog } function rsyncblog(){ echo &amp;quot;rsync ${LOCAL_PATH} b${SERVER_PATH}&amp;quot; rsync -rut --exclude &#39;.DS_Store&#39; ${LOCAL_PATH} b:${SERVER_PATH} sleep 120 blog_fswatch } rsyncblog 3. 运行 ./rsyncblog.sh 结束运行, 键盘Control+C. </description>
+      <description>1. 上次手动上传总觉得不够智能, 能自动最好. 查询下fswatch可监控文件变动. 2. 写了个小脚本 vim rsyncblog.sh, -1参数表示监控到文件变动就退出监控. LOCAL_PATH=&amp;quot;${HOME}/Documents/actiger/content/&amp;quot; LOCAL_SHELL=&amp;quot;${HOME}/Documents/actiger/hall.sh&amp;quot; #SERVER_PATH=&amp;quot;img/blog/&amp;quot; cd ${LOCAL_SHELL} function fswatchcontent(){ echo &amp;quot;watch ${LOCAL_PATH}&amp;quot; fswatch -1 ${LOCAL_PATH} gitpushgithub } function gitpushgithub(){ echo &amp;quot;开始上传博客...&amp;quot; sh ${LOCAL_SHELL} sleep 120 fswatchcontent } gitpushgithub 3. 运行 ./rsyncblog.sh 结束运行, 键盘Control+C. </description>
     </item>
     
     <item>
