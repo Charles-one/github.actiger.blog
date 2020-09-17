@@ -79,7 +79,7 @@
     <h2>Fswatch监控文件变化rsync上传文件</h2>
   </header>
   <section class="entry-content">
-   <p>1. 上次手动上传总觉得不够智能, 能自动最好. 查询下fswatch可监控文件变动. 2. 写了个小脚本 vim rsyncblog.sh, -1参数表示监控到文件变动就退出监控. LOCAL_PATH=&#34;${HOME}/Pictures/img/blog/&#34; SERVER_PATH=&#34;img/blog/&#34; function rsyncblog(){ echo &#34;\033[42;30m Begin rsync... \033[0m&#34; rsync -rut --exclude &#39;.DS_Store&#39; ${LOCAL_PATH} b:${SERVER_PATH} echo &#34;\033[42;30m Finash rsync. \033[0m&#34; fswatch_blog } function fswatch_blog(){ echo &#34;\033[42;30m watch ${LOCAL_PATH} \033[0m&#34; fswatch --exclude=&#39;.DS_Store&#39; -1 ${LOCAL_PATH} rsyncblog } 3. 运行 ./rsyncblog.sh 结束运行, 键盘Control&#43;C. ...</p>
+   <p>1. 上次手动上传总觉得不够智能, 能自动最好. 查询下fswatch可监控文件变动. 2. 写了个小脚本 vim rsyncblog.sh, -1参数表示监控到1次文件变动就退出监控. LOCAL_PATH=&#34;${HOME}/Pictures/img/blog/&#34; SERVER_PATH=&#34;img/blog/&#34; function rsyncblog(){ echo &#34;\033[42;30m Begin rsync... \033[0m&#34; rsync -rut --exclude &#39;.DS_Store&#39; ${LOCAL_PATH} b:${SERVER_PATH} echo &#34;\033[42;30m Finash rsync. \033[0m&#34; fswatch_blog } function fswatch_blog(){ echo &#34;\033[42;30m watch ${LOCAL_PATH} \033[0m&#34; fswatch --exclude=&#39;.DS_Store&#39; -1 ${LOCAL_PATH} rsyncblog } 3. 运行 ./rsyncblog.sh 结束运行, 键盘Control&#43;C. ...</p>
   </section>
   <footer class="entry-footer">
     <time>September 16, 2020</time>
