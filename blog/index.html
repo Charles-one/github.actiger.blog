@@ -95,7 +95,7 @@
   </header>
   <section class="entry-content">
    <p>1. 上次用nginx做了静态资源, 图片图床. 同步是个问题.  单纯使用scp每次传输, 覆盖文件, 文件更新时间就没了. 思考有没有更好的工具.  2. 网上查询发现rsync, 同步神器了. 安装, Homebrew. brew install rsync 参数解释-r目录递归,u增量更新(本地文件时间比上标文件新才更新), t保留修改时间. –exclude排除文件 在本地删除文件后, rsync同步到服务器端时是不会删除对应的文件的, 需要加上参数–delete, 会删除服务端比本地多余的文件, 重要文件同步谨慎使用. ${HOME}/Pictures/img/表示上传img文件夹下的所有文件, 不上传img. ${HOME}/Pictures/img表示上传img这个文件夹. 所以这个要注意
-vim .zshrc # rsync alias up=&#34;rsync -rut --exclude &#39;.DS_Store&#39;&#34; uponestoblog(){ echo &#34;Upload Files...&#34; SERVER_FOLDER=&#34;img/blog/&#34; for i in &#34;$@&#34;; do rsync -rut --exclude &#39;.DS_Store&#39; $i b:${SERVER_FOLDER} done } upblog(){ LOCAL_FOLDER=&#34;${HOME}/Pictures/img/blog/&#34; SERVER_FOLDER=&#34;img/blog/&#34; echo &#34;Upload ${LOCAL_FOLDER} b:${SERVER_FOLDER}&#34; rsync -rut --exclude &#39;.DS_Store&#39; ${LOCAL_FOLDER} b:${SERVER_FOLDER} } upimg(){ LOCAL_FOLDER=&#34;${HOME}/Pictures/img/&#34; SERVER_FOLDER=&#34;img/&#34; echo &#34;Upload ${LOCAL_FOLDER} b:${SERVER_FOLDER}&#34; rsync -rut --exclude &#39;....</p>
+vim .zshrc  alias up=&#34;rsync -rut --exclude &#39;.DS_Store&#39;&#34; uponestoblog(){ echo &#34;\033[42;30m Begin rsync Files... \033[0m&#34; SERVER_PATH=&#34;img/blog/&#34; for i in &#34;$@&#34;; do rsync -rut --exclude &#39;.DS_Store&#39; $i b:${SERVER_PATH} done } upblog(){ LOCAL_PATH=&#34;${HOME}/Pictures/img/blog/&#34; SERVER_PATH=&#34;img/blog/&#34; echo &#34;\033[42;30m Begin rsync ${LOCAL_PATH} b:${SERVER_PATH}... \033[0m&#34; rsync -rut --exclude &#39;....</p>
   </section>
   <footer class="entry-footer">
     <time>September 12, 2020</time>
