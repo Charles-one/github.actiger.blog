@@ -76,6 +76,19 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>MariaDB MySQL连接的2种错误</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. 常见MySQL Mariadb连接的2种错误 错误一 ERROR 1045 (28000): Access denied for user &#39;usera&#39;@&#39;localhost&#39; (using password:YES) 错误二 ERROR 1045 (28000): Access denied for user &#39;usera&#39;@&#39;localhost&#39; (using password:NO). 2. 错误一 常见错误是密码错误 重置密码即可 3. 错误二 输入账号密码时没有输入密码. 1. 命令行中没有-p进行无密码登录 2. 如果是IDE中的yaml文件确定password的缩进正确 cat application.yaml
+spring: datasource: driver-class-name: org.mariadb.jdbc.Driver url: jdbc:mariadb://localhost:3306/admin username: admin password: 123456 上面的password缩进错误, 就会提示(using password:No) 正确的是 spring: datasource: driver-class-name: org.mariadb.jdbc.Driver url: jdbc:mariadb://localhost:3306/admin username: admin password: 123456 ...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>December 12, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/mysql/mariadb-mysql%E8%BF%9E%E6%8E%A5%E7%9A%842%E7%A7%8D%E9%94%99%E8%AF%AF/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>腾讯云安装docker碰到的问题</h2>
   </header>
   <section class="entry-content">
@@ -199,18 +212,6 @@ describe usrinfo;
     <time>August 27, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/%E7%94%B3%E8%AF%B7%E5%8D%95%E4%B8%AA%E5%9F%9F%E5%90%8D%E6%96%B9%E5%BC%8F/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>Ingress-Ningx配置多个SSL证书</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. 起因 我删除域名服务商对顶级域名(即一级域名)的默认的重定向, 直接指向的我服务地址 使用的通配的二级域名证书 访问顶级域名像, 浏览器弹出安全提示了. 发现, 通配的二级域名证书不能用在actiger.com上 2. 申请顶级域名的证书. 申请过程 3. Ingress Nginx的配置my-nginx.yml  apiVersion: extensions/v1beta1 kind: Ingress metadata: namespace: nginx-space name: my-nginx spec: tls: - hosts: - weini.actiger.com - www.actiger.com secretName: ingress-secret - hosts: - actiger.com secretName: ingress-top-secret rules: - host: weini.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: www.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: test....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>June 20, 2019</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/docker/ingress-ningx%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAssl%E8%AF%81%E4%B9%A6/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

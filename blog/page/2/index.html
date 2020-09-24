@@ -79,6 +79,18 @@
 </header>
 <article class="post-entry">
   <header class="entry-header">
+    <h2>C程序设计语言练习1-10</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. 要求: 编写一个将输入复制到全输出的程序, 并将其中的制表符替换为\t, 将回退符替换为\b, 将反斜杠替换为\. 这样可以将制表符和回退符以可见的方式显示出来 2. 分析: 1. 制表符是\t, 输出是\\t, 反斜杠的输入\输出2个\, 那输出是\\\\. 3. 代码.  #include&lt;stdio.h&gt; int main(){ int input; while((input=getchar()) != EOF){ if(input == &#39;\\&#39;){ printf(&#34;\\\\&#34;); }else if(input == &#39;\t&#39;){ printf(&#34;\\t&#34;); }else if(input == &#39;\b&#39;){ printf(&#34;\\b&#34;); }else{ putchar(input); } } return 0; } ...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>April 11, 2020</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-10/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>C程序设计语言练习1-9</h2>
   </header>
   <section class="entry-content">
@@ -194,19 +206,6 @@
     <time>January 10, 2020</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/blog/test/jira%E4%B8%AD%E9%97%AE%E9%A2%98bug%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>MariaDB MySQL连接的2种错误</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. 常见MySQL Mariadb连接的2种错误 错误一 ERROR 1045 (28000): Access denied for user &#39;usera&#39;@&#39;localhost&#39; (using password:YES) 错误二 ERROR 1045 (28000): Access denied for user &#39;usera&#39;@&#39;localhost&#39; (using password:NO). 2. 错误一 常见错误是密码错误 重置密码即可 3. 错误二 输入账号密码时没有输入密码. 1. 命令行中没有-p进行无密码登录 2. 如果是IDE中的yaml文件确定password的缩进正确 cat application.yaml
-spring: datasource: driver-class-name: org.mariadb.jdbc.Driver url: jdbc:mariadb://localhost:3306/admin username: admin password: 123456 上面的password缩进错误, 就会提示(using password:No) 正确的是 spring: datasource: driver-class-name: org.mariadb.jdbc.Driver url: jdbc:mariadb://localhost:3306/admin username: admin password: 123456 ...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>December 12, 2019</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/mysql/mariadb-mysql%E8%BF%9E%E6%8E%A5%E7%9A%842%E7%A7%8D%E9%94%99%E8%AF%AF/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -76,6 +76,18 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>Ingress-Ningx配置多个SSL证书</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. 起因 我删除域名服务商对顶级域名(即一级域名)的默认的重定向, 直接指向的我服务地址 使用的通配的二级域名证书 访问顶级域名像, 浏览器弹出安全提示了. 发现, 通配的二级域名证书不能用在actiger.com上 2. 申请顶级域名的证书. 申请过程 3. Ingress Nginx的配置my-nginx.yml  apiVersion: extensions/v1beta1 kind: Ingress metadata: namespace: nginx-space name: my-nginx spec: tls: - hosts: - weini.actiger.com - www.actiger.com secretName: ingress-secret - hosts: - actiger.com secretName: ingress-top-secret rules: - host: weini.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: www.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: test....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>June 20, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/docker/ingress-ningx%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAssl%E8%AF%81%E4%B9%A6/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>Moco示例</h2>
   </header>
   <section class="entry-content">
@@ -181,18 +193,6 @@
     <time>June 5, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/blog/docker/kubernetes-mariadb-mysql/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>Kubernetes Ingress Nginx</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. 为了理解Nginx Ingress Controller, 先看下上海长宁来福士的人脸识别电梯, 正好在这上班😃. 把外部进入内部人脸识别闸机类比为NGINX Ingress Controller, 匹配域名, 把人或请求分配到内部service. 把人脸识别分配电梯类比为service, service控制着一组电梯, 将人或请求分配service下的电梯中. 把电梯类比为pod, 在service下, 处理人或请求. 2. 下面是配置文件, 角色与service绑定的, 使用到pv和pvc, 使用secret, 我的命名空间是nginx-space  创建name-space  kubectl create namespace nginx-space 设置默认返回内容 default-backend.yaml  apiVersion: extensions/v1beta1 kind: Deployment metadata: name: default-http-backend labels: k8s-app: default-http-backend namespace: nginx-space spec: replicas: 1 template: metadata: labels: k8s-app: default-http-backend spec: terminationGracePeriodSeconds: 60 containers: - name: default-http-backend # Any image is permissable as long as: # 1. It serves a 404 page at / # 2....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>June 4, 2019</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/docker/kubernetes-nginx-ingress/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

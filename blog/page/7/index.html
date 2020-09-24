@@ -79,6 +79,18 @@
 </header>
 <article class="post-entry">
   <header class="entry-header">
+    <h2>华硕ASUS路由器AC5300莫名重启记录和排查</h2>
+  </header>
+  <section class="entry-content">
+   <p>问题我的华硕路由器有时莫名奇妙的重启 出问题设备和版本 ASUS AC5300 3.0.0.4.384.45149 首先查看系统日志 May 5 13:05:25 weini: [软件中心]: httpdb进程准备就绪！ May 5 13:05:25 WAN Connection: WAN was restored. May 5 13:05:25 WLCEVENTD: eth8: Assoc D4:90:9C:E7:D2:03 May 5 13:05:26 kernel: UBIFS (ubi1:0): UBIFS: mounted UBI device 1, volume 0, name &#34;nvram&#34;, R/O mode May 5 13:05:26 kernel: UBIFS (ubi1:0): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes May 5 13:05:26 kernel: UBIFS (ubi1:0): FS size: 5840896 bytes (5 MiB, 46 LEBs), journal size 1015809 bytes (0 MiB, 6 LEBs) May 5 13:05:26 kernel: UBIFS (ubi1:0): reserved for root: 275879 bytes (269 KiB) May 5 13:05:26 kernel: UBIFS (ubi1:0): media format: w4/r0 (latest is w4/r0), UUID ABA6F10C-0F1C-4B89-AD25-4B74DEC12700, small LPT model May 5 13:05:26 kernel: UBIFS (ubi1:0): un-mount UBI device 1 May 5 13:05:26 kernel: ubi1: detaching mtd9 May 5 13:05:26 kernel: ubi1: mtd9 is detached May 5 13:05:26 ntp: start NTP update Mar 30 00:32:50 rc_service: ntp 1229:notify_rc restart_diskmon Mar 30 00:32:50 rc_service: waitting &#34;start_firewall&#34; via udhcpc ....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>March 30, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/%E5%8D%8E%E7%A1%95asus%E8%B7%AF%E7%94%B1%E5%99%A8ac5300%E8%8E%AB%E5%90%8D%E9%87%8D%E5%90%AF%E5%92%8C%E6%8E%92%E6%9F%A5/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>Jmeter性能测试并添加服务器cpu内存使用率</h2>
   </header>
   <section class="entry-content">
@@ -235,25 +247,6 @@ export JAVA_HOME=/usr/local/jdk1.8.0_201 export JRE_HOME=${JAVA_HOME}/jre export
     <time>March 12, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85jdk%E5%92%8C%E8%AE%BE%E7%BD%AEjdk%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>更改linux用户名</h2>
-  </header>
-  <section class="entry-content">
-   <p>0.前提条件  root用户及密码 原用户ccc  1. 更改用户ccc 使用root用户编辑更改
-/etc/passwd
-/etc/group
-/etc/shadow
-/etc/gshadow
-中&#34;原用户名&#34;为&#34;新用户名&#34;即可
-同时
-mv /home/olderuser /home/newuser ...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>March 12, 2019</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/%E6%9B%B4%E6%94%B9linux%E7%94%A8%E6%88%B7%E5%90%8D/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
