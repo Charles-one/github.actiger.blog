@@ -147,7 +147,7 @@ docker-compose run -d
     listen       80;
     server_name  www.actiger.com;
     # 把80端口http请定向到https
-    return 301 https://www.actiger.com$request_uri;
+    return 301 https://actiger.com$request_uri;
 }
 
 server{
@@ -158,10 +158,10 @@ server{
     *
     *
     *
-</code></pre><h3 id="4-测试访问httpswwwactigercomhttpswwwactigercom">4. 测试访问</h3>
+</code></pre><h3 id="4-测试访问httpsactigercomhttpsactigercom">4. 测试访问</h3>
 <h4 id="这里错乱的">这里错乱的</h4>
 <h4 id="需要hugo使用新baseurl生成博客目录-原来的httpwwwactigercom更改为httpswwwactigercom">需要hugo使用新baseurl生成博客目录, 原来的http://www.actiger.com/更改为https://www.actiger.com/</h4>
-<pre><code>hugo --theme=hugo-paper --baseUrl=&quot;https://www.actiger.com/&quot; --destination=&quot;www.actiger.com&quot;
+<pre><code>hugo --theme=hugo-paper --baseUrl=&quot;https://actiger.com/&quot; --destination=&quot;www.actiger.com&quot;
 
 </code></pre><h4 id="上传提交博客到github上-并到在服务器上拉取代码">上传提交博客到github上, 并到在服务器上拉取代码.</h4>
 <pre><code>cd ~/nginx-https-hugoBlog/www.actiger.com/

@@ -452,13 +452,13 @@ spec:
     requests:
       storage: 300Mi
 </code></pre><h3 id="3-创建服务">3. 创建服务</h3>
-<h4 id="如需更改里面内容-需要先删除kubectl-delete--f--防止生成没使用的pod-如有错误参考通过日志排查httpswwwactigercomblogdockerkubernetes安装">如需更改里面内容, 需要先删除kubectl delete -f * 防止生成没使用的pod. 如有错误参考</h4>
+<h4 id="如需更改里面内容-需要先删除kubectl-delete--f--防止生成没使用的pod-如有错误参考通过日志排查httpsactigercomblogdockerkubernetes安装">如需更改里面内容, 需要先删除kubectl delete -f * 防止生成没使用的pod. 如有错误参考</h4>
 <pre><code>kubectl apply -f default-backend.yaml,ingress-secret.yml,my-nginx.yml,nginx-deployment.yaml,nginx-ingress-controller-rbac.yml,nginx-ingress-controller.yaml,pv-blog.yaml,pvc-blog.yaml
 
 # 查看pods
 kubectl get pods -n nginx-space
 
-</code></pre><h3 id="4-访问httpswwwactigercomhttpswwwactigercom-替换你的地址就可以可以hosts指定自己的域名-虚拟机ip对应到域名上">4. 访问, 替换你的地址就可以(可以hosts指定自己的域名, 虚拟机ip对应到域名上).</h3>
+</code></pre><h3 id="4-访问httpsactigercomhttpsactigercom-替换你的地址就可以可以hosts指定自己的域名-虚拟机ip对应到域名上">4. 访问, 替换你的地址就可以(可以hosts指定自己的域名, 虚拟机ip对应到域名上).</h3>
 </div>
   
 </article></main>
