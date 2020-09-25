@@ -114,7 +114,7 @@ sed -i 's/a/b/g' `grep -rl hello --include=&quot;test*&quot; .`
 
 
 # 把.c文件结尾所有main替换成hello, find与ag过滤文件,
-# find .当前目录所有文件, ag &quot;\.c$&quot;中.转译$是结尾.
+# find .当前目录所有文件, ag &quot;\.c$&quot;中.需要转译,$表示结尾
 
 sed -i &quot;&quot; 's/main/hello/g' `find .|ag &quot;\.c$&quot;`
 
