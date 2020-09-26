@@ -79,7 +79,7 @@
     <h2>Sed命令替换文件中字符串</h2>
   </header>
   <section class="entry-content">
-   <p>1. 因为把域名从www.actiger.com更改为actiger.com了, 博客中大量引用的地址要替换, 所以就有了替换文件中字符串. 2. 随意查了下sed使用率比较高, linux, mac平台都有, 那就它了. 1. linux  # 替换文件中每行中第1个a为b sed -i &#39;s/a/b/&#39; 文件 # 替换文件中所有的a为b sed -i &#39;s/a/b/g&#39; 文件 # 不替换文件内容, 仅打印出替换后的效果, 下面命令打印所有行匹配的字符串. sed -e &#39;s/a/b/g&#39; 文件 2. mac  # 替换文件中所有的a为b, mac这里必须指定备份文件名称, &#34;&#34;表示空, 也可&#34;_backup&#34;原文件做个备份. sed -i &#34;&#34; &#39;s/a/b/g&#39; 文件 sed -i &#34;_backup&#34; &#39;s/a/b/g&#39; 文件 3. 还能和其他命令连着用, 比如正则匹配一些文件, 替换匹配文件中的内容. sed与grep和ag都可连用.  # 当前目前下test开头文件结尾所有main替换成hello sed -i &#39;s/a/b/g&#39; `grep -rl hello --include=&#34;test*&#34; .` # 把.c文件结尾所有main替换成hello, find与ag过滤文件, # find ....</p>
+   <p>1. 因为把域名从www.actiger.com更改为actiger.com了, 博客中大量引用的地址要替换, 所以就有了替换文件中字符串. 2. 随意查了下sed使用率比较高, linux, mac平台都有, 那就它了. 1. linux  # 替换文件中每行中第1个a为b sed -i &#39;s/a/b/&#39; 文件 # 替换文件中所有的a为b sed -i &#39;s/a/b/g&#39; 文件 # 不替换文件内容, 仅打印出替换后的效果, 下面命令打印所有行匹配的字符串. sed -e &#39;s/a/b/g&#39; 文件 2. mac  # 替换文件中所有的a为b, mac这里必须指定备份文件名称, &#34;&#34;表示空, 也可&#34;_backup&#34;原文件做个备份. sed -i &#34;&#34; &#39;s/a/b/g&#39; 文件 sed -i &#34;_backup&#34; &#39;s/a/b/g&#39; 文件 3. 还能和其他命令连着用, 比如正则匹配一些文件, 替换匹配文件中的内容. sed与grep和ag都可连用.  # 当前目前下test开头文件结尾所有main替换成hello sed -i &#39;s/a/b/g&#39; `grep -rl hello --include=&#34;test*&#34; .` # 把.c文件结尾所有main替换成hello, find与ag过滤文件, # find ${HOME}/WorkPlace/test当前目录所有文件, 一定要写全路径, 防止误操作....</p>
   </section>
   <footer class="entry-footer">
     <time>September 24, 2020</time>
