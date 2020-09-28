@@ -79,6 +79,18 @@
 </header>
 <article class="post-entry">
   <header class="entry-header">
+    <h2>SSH密钥生成配置和登陆服务器与github使用钥匙</h2>
+  </header>
+  <section class="entry-content">
+   <p>1.生成SSH公钥私钥  进入文件夹中(注:所有”#“表示说明)  cd ~/.ssh/ # 其中-t rsa是指定rsa加密算法, -C &#34;asus&#34;是添加描述asus ssh-keygen -t rsa -C &#34;asus&#34; # 说明: 默认是保存在/Users/你的用户名/.ssh/下, 如果你指定了名字则保存在当前路径下. # 指定的必须是文件且是绝对路径 # 在这里我已经在 ~/.ssh/中, 默认会保存在这里 Enter file in which to save the key (/Users/username(你的用户名)/.ssh/id_rsa): asus_rsa # 这里提示输入密码, 直接Enter表示不要密码 Enter passphrase (empty for no passphrase): # 与上面输入的密码保持一致, 如果上面没输入,这里也不要输入 Enter same passphrase again:  提示这些信息就表示生成成功  Your identification has been saved in /Users/username/.ssh/asus_rsa. Your public key has been saved in /Users/username/.ssh/asus_rsa.pub. The key fingerprint is: SHA256:WNwJoo/Rr0TvpnQIdA4YisZrF&#43;7ZM8lKNB4JLpJXALA asus The key&#39;s randomart image is: &#43;---[RSA 2048]----&#43; |&#43;....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>March 30, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/ssh%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90%E9%85%8D%E7%BD%AE%E5%92%8C%E7%99%BB%E9%99%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8Egithub%E4%BD%BF%E7%94%A8%E9%92%A5%E5%8C%99/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>华硕ASUS路由器AC5300莫名重启记录和排查</h2>
   </header>
   <section class="entry-content">
@@ -230,23 +242,6 @@ Score(s_id,c_id,s_s_score) –学生编号,课程编号,分数
     <time>March 12, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/blog/mysql/%E5%9F%BA%E6%9C%ACsql%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>下载安装JDK和设置JDK环境变量</h2>
-  </header>
-  <section class="entry-content">
-   <p>0. 准备工作  root用户及密码  1. 卸载原有JDK rpm -qa | grep &#34;java&#34; yum remove 上面筛选内容
-2. 下载JDK, 解压 进入https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html 右键选择linux x64 jdk-8u201-linux-i586.tar.gz的下载地址 使用wget下载
-wget --no-check-certificate --no-cookies --header &#34;Cookie: oraclelicense=accept-securebackup-cookie&#34; https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz 解压
-tar -zxvf jdk-8u201-linux-x64.tar.gz
-3. root移动文件, 并设置JAVA_HOME环境变量  移动文件夹  mv jdk1.8.0_201 /usr/local  设置JAVA_HOME环境变量  vim /etc/profile 可以对所有用户生效 添加下列信息
-export JAVA_HOME=/usr/local/jdk1.8.0_201 export JRE_HOME=${JAVA_HOME}/jre export CLASSPATH=.:${JAVA_HOME}/lib/dt.JAVA_HOME/lib/tools.jar:${JRE_HOME}/lib export PATH=${JAVA_HOME}/bin:${PATH}  重新生效/etc/profile  source /etc/profile  检测  java -version 预期会弹出java的版本...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>March 12, 2019</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85jdk%E5%92%8C%E8%AE%BE%E7%BD%AEjdk%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

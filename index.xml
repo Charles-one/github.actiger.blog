@@ -6,10 +6,19 @@
     <description>Recent content on Actiger跳跳虎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Sep 2020 23:57:03 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 28 Sep 2020 20:43:48 +0800</lastBuildDate>
     
 	<atom:link href="https://charles-one.github.io/actiger/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ohmyzsh与fzf搜索历史命令</title>
+      <link>https://charles-one.github.io/actiger/blog/linux/ohmyzsh%E4%B8%8Efzf%E6%90%9C%E7%B4%A2%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Mon, 28 Sep 2020 20:43:48 +0800</pubDate>
+      
+      <guid>https://charles-one.github.io/actiger/blog/linux/ohmyzsh%E4%B8%8Efzf%E6%90%9C%E7%B4%A2%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4/</guid>
+      <description>1. 经常终端里活动, 打的命令比较多, 怎么搜索历史命令, control+r和control+s的搜索不够直观, 还有没有比较好的搜索, 答案是有的fzf. 2. 安装oh-my-zsh和fzf 1. 安装Oh my zsh, 参考Oh my zsh github地址. sh -c &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;quot; 2. 安装fzf, 参考fzf github地址.  # mac brew install fzf # Debian, Ubuntu apt-get install fzf # CentOS yum install fzf 3. 在Oh my zsh中启用fzf # vim ~/.zshrc下插件括内增加fzf plugins=(git fzf) 再按下control + r就神奇了, 还能搜索历史命令. </description>
+    </item>
     
     <item>
       <title>Sed命令替换文件中字符串</title>
