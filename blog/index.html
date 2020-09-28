@@ -82,7 +82,7 @@
     <h2>Ohmyzsh与fzf搜索历史命令</h2>
   </header>
   <section class="entry-content">
-   <p>1. 经常终端里活动, 打的命令比较多, 怎么搜索历史命令, control&#43;r和control&#43;s的搜索不够直观, 还有没有比较好的搜索, 答案是有的fzf. 2. 安装oh-my-zsh和fzf 1. 安装Oh my zsh, 参考Oh my zsh github地址. sh -c &#34;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&#34; 2. 安装fzf, 参考fzf github地址.  # mac brew install fzf # Debian, Ubuntu apt-get install fzf # CentOS yum install fzf 3. 在Oh my zsh中启用fzf # vim ~/.zshrc下插件括内增加fzf plugins=(git fzf) 再按下control &#43; r就神奇了, 还能搜索历史命令. ...</p>
+   <p>1. 经常终端里活动, 打的命令比较多, 怎么搜索历史命令, control&#43;r和control&#43;s的搜索不够直观, 还有没有比较好的搜索, 答案是有的fzf. 2. 安装oh-my-zsh和fzf 1. 安装Oh my zsh, 参考Oh my zsh github地址. sh -c &#34;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&#34; 2. 更改shell为zsh  # chsh后输入 /bin/zsh, 如果没有zsh.则需要安装zsh. chsh /bin/zsh 2. 安装fzf, 参考fzf github地址.  # mac brew install fzf # Debian, Ubuntu apt-get install fzf # CentOS yum install fzf 3. 在Oh my zsh中启用fzf # vim ~/.zshrc下插件括内增加fzf plugins=(git fzf) 再按下control &#43; r就神奇了, 还能搜索历史命令如vim. ...</p>
   </section>
   <footer class="entry-footer">
     <time>September 28, 2020</time>

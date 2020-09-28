@@ -7,7 +7,7 @@
     
     <title>Ohmyzsh与fzf搜索历史命令 - Actiger跳跳虎</title>
     
-    <meta name="description" content="1. 经常终端里活动, 打的命令比较多, 怎么搜索历史命令, control&#43;r和control&#43;s的搜索不够直观, 还有没有比较好的搜索, 答案是有的fzf. 2. 安装oh-my-zsh和fzf 1. 安装Oh my zsh, 参考Oh my zsh github地址. sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot; 2. 安装fzf, 参考fzf github地址.  # mac brew install fzf # Debian, Ubuntu apt-get install fzf # CentOS yum install fzf 3. 在Oh my zsh中启用fzf # vim ~/.zshrc下插件括内增加fzf plugins=(git fzf) 再按下control &#43; r就神奇了, 还能搜索历史命令. ">
+    <meta name="description" content="1. 经常终端里活动, 打的命令比较多, 怎么搜索历史命令, control&#43;r和control&#43;s的搜索不够直观, 还有没有比较好的搜索, 答案是有的fzf. 2. 安装oh-my-zsh和fzf 1. 安装Oh my zsh, 参考Oh my zsh github地址. sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot; 2. 更改shell为zsh  # chsh后输入 /bin/zsh, 如果没有zsh.则需要安装zsh. chsh /bin/zsh 2. 安装fzf, 参考fzf github地址.  # mac brew install fzf # Debian, Ubuntu apt-get install fzf # CentOS yum install fzf 3. 在Oh my zsh中启用fzf # vim ~/.zshrc下插件括内增加fzf plugins=(git fzf) 再按下control &#43; r就神奇了, 还能搜索历史命令如vim. ">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -84,6 +84,12 @@
 <h3 id="2-安装oh-my-zsh和fzf">2. 安装oh-my-zsh和fzf</h3>
 <h4 id="1-安装oh-my-zsh-参考a-hrefhttpsgithubcomohmyzshohmyzsh-target_blankoh-my-zsh-github地址a">1. 安装Oh my zsh, 参考<a href="https://github.com/ohmyzsh/ohmyzsh" target="_blank">Oh my zsh github地址</a>.</h4>
 <pre><code>sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;
+</code></pre><h4 id="2-更改shell为zsh">2. 更改shell为zsh</h4>
+<pre><code>
+# chsh后输入 /bin/zsh, 如果没有zsh.则需要安装zsh.
+chsh
+/bin/zsh
+
 </code></pre><h4 id="2-安装fzf-参考a-hrefhttpsgithubcomjunegunnfzf-target_blankfzf-github地址a">2. 安装fzf, 参考<a href="https://github.com/junegunn/fzf" target="_blank">fzf github地址</a>.</h4>
 <pre><code>
 # mac
@@ -100,7 +106,7 @@ yum install fzf
 
 plugins=(git fzf)
 
-</code></pre><h4 id="再按下control--r就神奇了-还能搜索历史命令">再按下control + r就神奇了, 还能搜索历史命令.</h4>
+</code></pre><h4 id="再按下control--r就神奇了-还能搜索历史命令如vim">再按下control + r就神奇了, 还能搜索历史命令如vim.</h4>
 <p><img src="https://img.actiger.com/blog/ohmyzsh-fzf.png" alt="ohmyzsh-fzf"></p>
 </div>
   
