@@ -7,7 +7,7 @@
     
     <title>tmux保存会话和剪贴板插件安装及使用 - Actiger跳跳虎</title>
     
-    <meta name="description" content="0.内容  安装tmux 安装tmux插件管理 安装保存会话和剪贴板插件  1.安装tmux 为什么要使用tmux, 可以永久保存会话, 就不用每次都要切换到对应工作目录中.  Mac下  brew install tmux  linux, 参考  git clone https://github.com/tmux/tmux.git cd tmux sh autogen.sh ./configure &amp;&amp; make 2.安装tmux插件管理    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  新建~/.tmux.conf, 复制下面内容到这个文件下.  # List of plugins set -g @plugin &#39;tmux-plugins/tpm&#39; set -g @plugin &#39;tmux-plugins/tmux-sensible&#39; # Other examples: # set -g @plugin &#39;github_username/plugin_name&#39; # set -g @plugin &#39;git@github.com/user/plugin&#39; # set -g @plugin &#39;git@bitbucket.">
+    <meta name="description" content="0.内容  安装tmux 安装tmux插件管理 安装保存会话和剪贴板插件  1.安装tmux 为什么要使用tmux, 可以永久保存会话, 就不用每次都要切换到对应工作目录中.  Mac下  brew install tmux  linux, 参考Github地址  git clone https://github.com/tmux/tmux.git cd tmux sh autogen.sh ./configure &amp;&amp; make 2.安装tmux插件管理  参考地址  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm  新建~/.tmux.conf, 复制下面内容到这个文件下.  # List of plugins set -g @plugin &#39;tmux-plugins/tpm&#39; set -g @plugin &#39;tmux-plugins/tmux-sensible&#39; # Other examples: # set -g @plugin &#39;github_username/plugin_name&#39; # set -g @plugin &#39;git@github.com/user/plugin&#39; # set -g @plugin &#39;git@bitbucket.">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -93,7 +93,7 @@
 </ul>
 <pre><code>brew install tmux
 </code></pre><ul>
-<li>linux, 参考</li>
+<li>linux, <a href="https://github.com/tmux/tmux" target="_blank">参考Github地址</a></li>
 </ul>
 <pre><code>git clone https://github.com/tmux/tmux.git
 cd tmux
@@ -101,7 +101,7 @@ sh autogen.sh
 ./configure &amp;&amp; make
 </code></pre><h3 id="2安装tmux插件管理">2.安装tmux插件管理</h3>
 <ul>
-<li></li>
+<li><a href="https://github.com/tmux-plugins/tpm" target="_blank">参考地址</a></li>
 </ul>
 <pre><code>git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 </code></pre><ul>
@@ -138,7 +138,7 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 <pre><code>tmux
 # 然后按 Prefix + I(Prefix 前置键默认是Control + b, I是大写, 先按Prefix再按大写I)
 # 等待安装完成
-</code></pre><h3 id="4使用保存会话httpsgithubcomtmux-pluginstmux-resurrect和剪贴板httpsgithubcomtmux-pluginstmux-yank">4.使用保存和.</h3>
+</code></pre><h3 id="4使用保存a-hrefhttpsgithubcomtmux-pluginstmux-resurrect-target_blank会话a和a-hrefhttpsgithubcomtmux-pluginstmux-yank-target_blank剪贴板a">4.使用保存<a href="https://github.com/tmux-plugins/tmux-resurrect" target="_blank">会话</a>和<a href="https://github.com/tmux-plugins/tmux-yank" target="_blank">剪贴板</a>.</h3>
 <ul>
 <li>保存和恢复会话</li>
 </ul>
@@ -173,9 +173,6 @@ source ~/.bashrc
 
 # 用鼠标选中tmux任意内容再释放, 就可以复制到剪贴板中.
 </code></pre><p>mac用command+v就可以验证</p>
-<ul>
-<li></li>
-</ul>
 </div>
   
 </article></main>

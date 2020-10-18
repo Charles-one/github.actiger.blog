@@ -91,7 +91,9 @@
     <h2>Ingress-Ningx配置多个SSL证书</h2>
   </header>
   <section class="entry-content">
-   <p>1. 起因 我删除域名服务商对顶级域名(即一级域名)的默认的重定向, 直接指向的我服务地址 使用的通配的二级域名证书 访问顶级域名像, 浏览器弹出安全提示了. 发现, 通配的二级域名证书不能用在actiger.com上 2. 申请顶级域名的证书. 申请过程 3. Ingress Nginx的配置my-nginx.yml  apiVersion: extensions/v1beta1 kind: Ingress metadata: namespace: nginx-space name: my-nginx spec: tls: - hosts: - weini.actiger.com - www.actiger.com secretName: ingress-secret - hosts: - actiger.com secretName: ingress-top-secret rules: - host: weini.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: www.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: test....</p>
+   <p>1. 起因 我删除域名服务商对顶级域名(即一级域名)的默认的重定向, 直接指向的我服务地址 使用的通配的二级域名证书 actiger.com, 浏览器弹出安全提示了.
+发现, 通配的二级域名证书不能用在actiger.com的证书. 参考这里
+3. Ingress Nginx的配置my-nginx.yml  apiVersion: extensions/v1beta1 kind: Ingress metadata: namespace: nginx-space name: my-nginx spec: tls: - hosts: - weini.actiger.com - www.actiger.com secretName: ingress-secret - hosts: - actiger.com secretName: ingress-top-secret rules: - host: weini.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: www.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: test....</p>
   </section>
   <footer class="entry-footer">
     <time>June 20, 2019</time>
@@ -103,7 +105,7 @@
     <h2>Moco示例</h2>
   </header>
   <section class="entry-content">
-   <p>1. Moco是什么? 简单的模拟服务器的程序库/工具, 有请求给出响应.在中下载moco-runner-0.12.0-standalone.jar. 2. 使用示例 1. 创建test.json [ { &#34;description&#34;: &#34;First test&#34;, &#34;request&#34;: { &#34;uri&#34;: &#34;/demo&#34; }, &#34;response&#34;: { &#34;text&#34;: &#34;First Response&#34; } } ] 2. 命令行启动服务, moco-runner-0.12.0-standalone.jar与test.json在相同目录下.  java -jar ./moco-runner-0.12.0-standalone.jar http -p 8888 -c test.json 3. 验证 访问 2. 模拟一个带参数的请求, para.json [ { &#34;description&#34;: &#34;模拟一个有参数的Get请求&#34;, &#34;request&#34;: { &#34;uri&#34;: &#34;/getpara&#34;, &#34;method&#34;: &#34;get&#34;, &#34;queries&#34;: { &#34;name&#34;: &#34;xiaoming&#34;, &#34;age&#34;: &#34;20&#34; } }, &#34;response&#34;: { &#34;text&#34;: &#34;I am on the way.&#34; } } ]  java -jar ....</p>
+   <p>1. Moco是什么? 简单的模拟服务器的程序库/工具, 有请求给出响应.在地址中下载moco-runner-0.12.0-standalone.jar. 2. 使用示例 1. 创建test.json [ { &#34;description&#34;: &#34;First test&#34;, &#34;request&#34;: { &#34;uri&#34;: &#34;/demo&#34; }, &#34;response&#34;: { &#34;text&#34;: &#34;First Response&#34; } } ] 2. 命令行启动服务, moco-runner-0.12.0-standalone.jar与test.json在相同目录下.  java -jar ./moco-runner-0.12.0-standalone.jar http -p 8888 -c test.json 3. 验证 访问 http://localhost:8888/demo 2. 模拟一个带参数的请求, para.json [ { &#34;description&#34;: &#34;模拟一个有参数的Get请求&#34;, &#34;request&#34;: { &#34;uri&#34;: &#34;/getpara&#34;, &#34;method&#34;: &#34;get&#34;, &#34;queries&#34;: { &#34;name&#34;: &#34;xiaoming&#34;, &#34;age&#34;: &#34;20&#34; } }, &#34;response&#34;: { &#34;text&#34;: &#34;I am on the way....</p>
   </section>
   <footer class="entry-footer">
     <time>June 16, 2019</time>

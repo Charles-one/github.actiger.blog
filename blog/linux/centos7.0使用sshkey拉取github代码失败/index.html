@@ -7,7 +7,7 @@
     
     <title>Centos7.0使用SSHKEY拉取github代码失败 - Actiger跳跳虎</title>
     
-    <meta name="description" content="1. 报错信息与正确信息对比. 今天使用SSH key拉取github代码又失败了, 为什么是又😂.  贴出报错信息  # 出错主机日志 ssh -vT git@github.com OpenSSH_6.5 Server accepts key: pkalg ssh-rsa blen 279 debug1: key_parse_private_pem: PEM_read_PrivateKey failed debug1: read PEM private key done: type &lt;unknown&gt; Enter passphrase for key &#39;/root/.ssh/git_cron&#39;: 本机正确的日志 ssh -vT git@github.com OpenSSH_7.9p1, LibreSSL 2.7.3 debug1: Reading configuration data /Users/csx/.ssh/config debug1: /Users/csx/.ssh/config line 4: Applying options for githu debug1: Authentications that can continue: publickey debug1: Next authentication method: publickey debug1: Offering public key: /Users/csx/.">
+    <meta name="description" content="1. 报错信息与正确信息对比. 今天使用SSH key拉取github代码又失败了, 为什么是又😂. 上次端口错误 贴出报错信息  # 出错主机日志 ssh -vT git@github.com OpenSSH_6.5 Server accepts key: pkalg ssh-rsa blen 279 debug1: key_parse_private_pem: PEM_read_PrivateKey failed debug1: read PEM private key done: type &lt;unknown&gt; Enter passphrase for key &#39;/root/.ssh/git_cron&#39;: 本机正确的日志 ssh -vT git@github.com OpenSSH_7.9p1, LibreSSL 2.7.3 debug1: Reading configuration data /Users/csx/.ssh/config debug1: /Users/csx/.ssh/config line 4: Applying options for githu debug1: Authentications that can continue: publickey debug1: Next authentication method: publickey debug1: Offering public key: /Users/csx/.">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -80,7 +80,7 @@
     <h1 class="post-title">Centos7.0使用SSHKEY拉取github代码失败</h1>
     <div class="post-meta">May 23, 2019</div>
   </header>
-  <div class="post-content"><h3 id="1-报错信息与正确信息对比-今天使用ssh-key拉取github代码又失败了-为什么是又-上次端口错误httpsactigercombloglinuxcentos7使用ssh-key拉取github项目失败">1. 报错信息与正确信息对比. 今天使用SSH key拉取github代码又失败了, 为什么是又😂. </h3>
+  <div class="post-content"><h3 id="1-报错信息与正确信息对比-今天使用ssh-key拉取github代码又失败了-为什么是又-a-hrefhttpsactigercombloglinuxcentos7使用ssh-key拉取github项目失败-target_blank上次端口错误a">1. 报错信息与正确信息对比. 今天使用SSH key拉取github代码又失败了, 为什么是又😂. <a href="https://actiger.com/blog/linux/centos7使用ssh-key拉取github项目失败/" target="_blank">上次端口错误</a></h3>
 <h3 id="贴出报错信息">贴出报错信息</h3>
 <pre><code>
 # 出错主机日志
@@ -111,7 +111,7 @@ debug1: Server accepts key: /Users/csx/.ssh/git_rsa RSA SHA256:Teicz+bsGWbbB4P32
 <h4 id="我的ssh-key生成的时候是没有使用passphrase-每次在主机去测试的时候都让填写-很奇怪">我的SSH key生成的时候是没有使用passphrase, 每次在主机去测试的时候都让填写, 很奇怪.</h4>
 <h4 id="提示pem_read_privatekey-failed问题-怀疑是权限错误">提示PEM_read_PrivateKey failed问题, 怀疑是权限错误.</h4>
 <h4 id="将ssh设置成700-rsa设置成600-还提示同样的错误">将.ssh设置成700, rsa设置成600, 还提示同样的错误</h4>
-<h4 id="继续在网上搜索-这篇帖子httpsstackoverflowcomquestions43724881sshd-is-asking-for-a-passphrase-for-my-key-whereas-there-is-no-passphrase">继续在网上搜索, 这篇</h4>
+<h4 id="继续在网上搜索-这篇-a-hrefhttpsstackoverflowcomquestions43724881sshd-is-asking-for-a-passphrase-for-my-key-whereas-there-is-no-passphrase-target_blank帖子a">继续在网上搜索, 这篇 <a href="https://stackoverflow.com/questions/43724881/sshd-is-asking-for-a-passphrase-for-my-key-whereas-there-is-no-passphrase" target="_blank">帖子</a></h4>
 <h4 id="发现openssh-65支持的格式是">发现OpenSSH 6.5支持的格式是</h4>
 <pre><code>-----BEGIN RSA PRIVATE KEY-----
 

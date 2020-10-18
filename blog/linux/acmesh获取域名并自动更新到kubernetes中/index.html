@@ -7,8 +7,8 @@
     
     <title>acme.sh获取域名并自动更新到kubernetes中 - Actiger跳跳虎</title>
     
-    <meta name="description" content="0. 原因letsencrypt获取的证书只有3个月有效期, 每次手动更新易出错也会忘记, 所以使用crontab定时acme.sh定时更新最好不过了. 放下文章结构 1. 安装acme.sh, . # 推荐使用root用户, 后续也以root用户操作的. curl https://get.acme.sh | sh 2. 使用acme.sh的dns方式, 这里服务商以cloudflare为例.   域名使用cloudflare解析(注册cloudflare官方教程更换域名), 拿到Global API Key和邮箱.
-  .
+    <meta name="description" content="0. 原因letsencrypt获取的证书只有3个月有效期, 每次手动更新易出错也会忘记, 所以使用crontab定时acme.sh定时更新最好不过了. 放下文章结构 1. 安装acme.sh, acme.sh官网中文链接. # 推荐使用root用户, 后续也以root用户操作的. curl https://get.acme.sh | sh 2. 使用acme.sh的dns方式, 这里服务商以cloudflare为例.   域名使用cloudflare解析(注册cloudflare官方教程更换域名), 拿到Global API Key和邮箱.
+  参照官方教程中cloudflare部分.
   # Global API Key和邮箱 export CF_Key=&quot;cloudflare设置中的Global API Key&quot; export CF_Email=&quot;cloudflare注册邮箱&quot; # 首次生成域名证书(\*号需要转译) /root/.acme.sh/acme.sh --issue --dns dns_cf -d \*.actiger.com TLSCRT=$(cat /root/.acme.sh/\*.actiger.com/\*.actiger.com.cer) TLSKEY=$(cat /root/.acme.sh/\*.actiger.com/\*.actiger.com.key) # base64转换 ACTIGER_TLSCRT=$(echo &quot;${TLSCRT}&quot;|base64 -w 10000) ACTIGER_TLSKEY=$(echo &quot;${TLSKEY}&quot;|base64 -w 10000) # 生成新的secret. FILE_ACTIGER=&quot;/root/kubernetes/pro-blog-cc6/ingress-secret.yml&quot; cat &lt;&lt; EOF | tee ${FILE_ACTIGER} apiVersion: v1 data: tls.">
     <meta name="author" content="">
     
@@ -85,7 +85,7 @@
   <div class="post-content"><h3 id="0-原因letsencrypt获取的证书只有3个月有效期-每次手动更新易出错也会忘记-所以使用crontab定时acmesh定时更新最好不过了">0. 原因letsencrypt获取的证书只有3个月有效期, 每次手动更新易出错也会忘记, 所以使用crontab定时acme.sh定时更新最好不过了.</h3>
 <h5 id="放下文章结构">放下文章结构</h5>
 <p><img src="https://img.actiger.com/blog/acmesh-autoupdate-kubernetes-cert.png" alt="图片"></p>
-<h3 id="1-安装acmesh-acmesh官网中文链接httpsgithubcomacmesh-officialacmeshwiki说明">1. 安装acme.sh, .</h3>
+<h3 id="1-安装acmesh-a-hrefhttpsgithubcomacmesh-officialacmeshwiki说明-target_blankacmesh官网中文链接a">1. 安装acme.sh, <a href="https://github.com/acmesh-official/acme.sh/wiki/说明" target="_blank">acme.sh官网中文链接</a>.</h3>
 <pre><code># 推荐使用root用户, 后续也以root用户操作的.
 curl  https://get.acme.sh | sh
 </code></pre><h3 id="2-使用acmesh的dns方式-这里服务商以cloudflare为例">2. 使用acme.sh的dns方式, 这里服务商以cloudflare为例.</h3>
@@ -94,7 +94,7 @@ curl  https://get.acme.sh | sh
 <p>域名使用cloudflare解析(注册cloudflare官方教程更换域名), 拿到Global API Key和邮箱.</p>
 </li>
 <li>
-<p>.</p>
+<p><a href="https://github.com/acmesh-official/acme.sh/wiki/dnsapi" target="_blank">参照官方教程中cloudflare部分</a>.</p>
 </li>
 </ol>
 <pre><code># Global API Key和邮箱
@@ -164,7 +164,7 @@ EOF
 
 cd /root/kubernetes/pro-blog-cc6/ &amp;&amp; kubectl apply -f ingress-secret.yml
 
-</code></pre><h3 id="4-添加到定时任务中-每月1号和15号尝试更新证书-可参考crontab用法httpsactigercombloglinuxcrontab定时任务">4. 添加到定时任务中, 每月1号和15号尝试更新证书, 可参考.</h3>
+</code></pre><h3 id="4-添加到定时任务中-每月1号和15号尝试更新证书-可参考-a-hrefhttpsactigercombloglinuxcrontab定时任务-target_blankcrontab用法a">4. 添加到定时任务中, 每月1号和15号尝试更新证书, 可参考 <a href="https://actiger.com/blog/linux/crontab定时任务/" target="_blank">crontab用法</a>.</h3>
 <h4 id="41-vim-rootrootcron">4.1 vim /root/root.cron</h4>
 <pre><code>#进入脚本目录, 并执行更新证书脚本, 表示每月1号和15号 0点0分去更新证书.
 
