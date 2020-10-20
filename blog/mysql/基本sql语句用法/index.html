@@ -23,7 +23,7 @@ Score(s_id,c_id,s_s_score) –学生编号,课程编号,分数
     
     <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.74.3" />
+    <meta name="generator" content="Hugo 0.76.5" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -363,7 +363,7 @@ Score <span style="color:#66d9ef">as</span> sco
 <span style="color:#66d9ef">select</span> s_id, s_name <span style="color:#66d9ef">from</span> Student <span style="color:#66d9ef">where</span> s_id <span style="color:#66d9ef">in</span> (<span style="color:#66d9ef">select</span> s_id <span style="color:#66d9ef">from</span> Score <span style="color:#66d9ef">where</span> s_score<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">80</span> <span style="color:#66d9ef">and</span> c_id<span style="color:#f92672">=</span><span style="color:#ae81ff">03</span>);
 </code></pre></div><ul>
 <li>查询课程编号为“01”的课程比“02”的课程成绩高的所有学生的学号
-内连接 s1同学.s_id=s2同学.s_id, s1.c_id=&quot;01&rdquo;, s2.c_id=&quot;02&rdquo;, s1.s_score&gt;s2.s_score, 最后去重</li>
+内连接 s1同学.s_id=s2同学.s_id, s1.c_id=&ldquo;01&rdquo;, s2.c_id=&ldquo;02&rdquo;, s1.s_score&gt;s2.s_score, 最后去重</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> s1.s_id <span style="color:#66d9ef">from</span> Score s1,Score s2 <span style="color:#66d9ef">where</span> s1.s_id<span style="color:#f92672">=</span>s2.s_id <span style="color:#66d9ef">and</span> s1.c_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;01&#34;</span> <span style="color:#66d9ef">and</span> s2.c_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;02&#34;</span> <span style="color:#66d9ef">and</span> s1.s_score<span style="color:#f92672">&gt;</span>s2.s_score <span style="color:#66d9ef">group</span> <span style="color:#66d9ef">by</span> s1.s_id;
 </code></pre></div><ul>
@@ -397,7 +397,7 @@ Score <span style="color:#66d9ef">as</span> sco
 </code></pre></div><ul>
 <li>查询至少有一门课与学号为“01”的学生所学课程相同的学生的学号和姓名</li>
 </ul>
-<h4 id="注意是其他学生-应该去除自己s_id01的情况">注意是其他学生, 应该去除自己s_id=&quot;01&quot;的情况</h4>
+<h4 id="注意是其他学生-应该去除自己s_id01的情况">注意是其他学生, 应该去除自己s_id=&ldquo;01&quot;的情况</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> s_id,s_name <span style="color:#66d9ef">from</span> Student <span style="color:#66d9ef">where</span> s_id <span style="color:#66d9ef">in</span> (<span style="color:#66d9ef">select</span> s_id <span style="color:#66d9ef">from</span> Score <span style="color:#66d9ef">where</span> c_id <span style="color:#66d9ef">in</span> (<span style="color:#66d9ef">select</span> c_id <span style="color:#66d9ef">from</span> Score <span style="color:#66d9ef">where</span> s_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;02&#34;</span>) <span style="color:#66d9ef">group</span> <span style="color:#66d9ef">by</span> s_id);
 
 <span style="color:#75715e">-- 内连接
@@ -407,7 +407,7 @@ Student s <span style="color:#66d9ef">join</span> Score sco <span style="color:#
 </code></pre></div><ul>
 <li>查询和“01”号同学所学课程完全相同的其他同学的学号</li>
 </ul>
-<h4 id="注意是其他学生-应该去除自己s_id01的情况-1">注意是其他学生, 应该去除自己s_id=&quot;01&quot;的情况</h4>
+<h4 id="注意是其他学生-应该去除自己s_id01的情况-1">注意是其他学生, 应该去除自己s_id=&ldquo;01&quot;的情况</h4>
 <h4 id="属于的01学生的课程数-应该与01学生的总课程数一致才算完全一致">属于的&quot;01&quot;学生的课程数, 应该与&quot;01&quot;学生的总课程数一致才算完全一致.</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#75715e">-- 计算&#34;01&#34;号学生的课程数
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">select</span> <span style="color:#66d9ef">count</span>(c_id) <span style="color:#66d9ef">from</span> Score <span style="color:#66d9ef">where</span> s_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;01&#34;</span>;

@@ -25,7 +25,7 @@ describe usrinfo;
     
     <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.74.3" />
+    <meta name="generator" content="Hugo 0.76.5" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -155,9 +155,9 @@ alter table usrinfo modify id int(11) first;</p>
 <h5 id="binary-区分大小写">binary 区分大小写</h5>
 <p>select * from usrinfo where name like binary &lsquo;Hello&rsquo;;</p>
 <h4 id="13and和or">13.and和or</h4>
-<p>select * from usrinfo where name='hello&rsquo; and number='1233&rsquo;;
-select * from usrinfo where name='hello&rsquo; or name='Hello&rsquo;;
-select * from usrinfo where name='hello&rsquo; or number=1233;</p>
+<p>select * from usrinfo where name=&lsquo;hello&rsquo; and number=&lsquo;1233&rsquo;;
+select * from usrinfo where name=&lsquo;hello&rsquo; or name=&lsquo;Hello&rsquo;;
+select * from usrinfo where name=&lsquo;hello&rsquo; or number=1233;</p>
 <h4 id="14order-by">14.order by</h4>
 <h5 id="升序默认方式也是这种">升序,默认方式也是这种</h5>
 <p>select * from usrinfo order by number asc;</p>
@@ -183,7 +183,7 @@ select max(id) as max_id from usrinfo;</p>
 <p>select avc(number) from usrinfo;</p>
 <h4 id="19alias-重命名">19.alias 重命名</h4>
 <h5 id="mysql中语句">MySQL中语句</h5>
-<p>select id,CONCAT(name,&rsquo; , &lsquo;,address) as cc from usrinfo;</p>
+<p>select id,CONCAT(name,' , &lsquo;,address) as cc from usrinfo;</p>
 <h5 id="其它数据库写法">其它数据库写法</h5>
 <p>select id,name,&rsquo; , &lsquo;, address as cc from usrinfo;</p>
 <h4 id="20inner-join-left-join-rigth-join-full-join">20.inner join, left join, rigth join, full join</h4>
@@ -224,7 +224,7 @@ from orders as o join customers as c on o.customerID = c.CustomerID group by c.C
 <h4 id="24-having-having是分组group-by后的筛选条件分组后的数据组内再筛选where则是在分组前筛选">24. having, having是分组(group by)后的筛选条件,分组后的数据组内再筛选,where则是在分组前筛选.</h4>
 <h5 id="以country分组然后找个数超过1的">以country分组,然后找个数超过1的.</h5>
 <p>select count(CustomerID) as number,Country from customers where CustomerID&gt;1 group by Country having count(CustomerID) &gt; 1;</p>
-<h4 id="25-select-into-复制表或表结构的时候-只得到一个外壳-clone一个躯体-原表的主键外键约束触发器索引都不会被复制过来">25. select into, 复制表或表结构的时候, 只得到一个&quot;外壳&rdquo;, clone一个躯体, 原表的主键,外键,约束,触发器,索引都不会被复制过来.</h4>
+<h4 id="25-select-into-复制表或表结构的时候-只得到一个外壳-clone一个躯体-原表的主键外键约束触发器索引都不会被复制过来">25. select into, 复制表或表结构的时候, 只得到一个&quot;外壳&quot;, clone一个躯体, 原表的主键,外键,约束,触发器,索引都不会被复制过来.</h4>
 <h5 id="非mysql用法">非mysql用法</h5>
 <p>select * into orders_back from orders;</p>
 <h5 id="mysql用法">mysql用法</h5>

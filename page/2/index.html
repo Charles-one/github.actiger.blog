@@ -15,7 +15,7 @@
     
     <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.74.3" />
+    <meta name="generator" content="Hugo 0.76.5" />
     
     <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
     
@@ -103,7 +103,7 @@
     <h2>C程序设计语言练习1-9</h2>
   </header>
   <section class="entry-content">
-   <p>1. 要求: 编写一个输入复制到输出的程序, 将其中多个空格用一个空格代替. 2. 分析. 1. 比较前一个字符和当前字符如果同为空格(’ ‘), 则不打印, 否则打印. 3. 代码. 1. a的上一个字符可设默认一个非空格字符, 方便判断. #include&lt;stdio.h&gt; int main(){ int a, alast; alast=0; while((a=getchar()) !=EOF){ if(a==&#39; &#39; &amp;&amp; alast ==&#39; &#39;){ continue; } else{ putchar(a); } alast = a; } } ...</p>
+   <p>1. 要求: 编写一个输入复制到输出的程序, 将其中多个空格用一个空格代替. 2. 分析. 1. 比较前一个字符和当前字符如果同为空格(&#39; ‘), 则不打印, 否则打印. 3. 代码. 1. a的上一个字符可设默认一个非空格字符, 方便判断. #include&lt;stdio.h&gt; int main(){ int a, alast; alast=0; while((a=getchar()) !=EOF){ if(a==&#39; &#39; &amp;&amp; alast ==&#39; &#39;){ continue; } else{ putchar(a); } alast = a; } } ...</p>
   </section>
   <footer class="entry-footer">
     <time>April 10, 2020</time>
@@ -115,7 +115,7 @@
     <h2>C程序设计语言练习1-8</h2>
   </header>
   <section class="entry-content">
-   <p>1. 要求: 编写一个统计空格,制表符与换行符个数的程序 2. 分析. 1. 使用getchar()获取输入的字符 2. 判断输入的符. 查询ASCII对照表, 空格ASCII值32(也可使用’ ‘). 制表符’\t’, 换行’\n’. 3. 代码 1. 想输入EOF, linux是按Ctrl &#43; D组合键2次, windows Ctrl &#43; Z, 2. else if的条件成立就进行下一次循环, 如果3个if条件程序判断3次, 没有效率.  #include&lt;stdio.h&gt; int main(){ int sumspace = 0; int sumt = 0; int sumn = 0; int c ; while( (c = getchar()) != EOF ){ if( c == 32){ sumspace&#43;&#43;; } else if(c == &#39;\t&#39;){ sumt&#43;&#43;; } else if(c == &#39;\n&#39;){ sumn&#43;&#43;; } } printf(&#34;空格数%d 制表符数%d 换行符数%d\n&#34;, sumspace, sumt, sumn); return 0; } ...</p>
+   <p>1. 要求: 编写一个统计空格,制表符与换行符个数的程序 2. 分析. 1. 使用getchar()获取输入的字符 2. 判断输入的符. 查询ASCII对照表, 空格ASCII值32(也可使用&#39; ‘). 制表符’\t&#39;, 换行&#39;\n&#39;. 3. 代码 1. 想输入EOF, linux是按Ctrl &#43; D组合键2次, windows Ctrl &#43; Z, 2. else if的条件成立就进行下一次循环, 如果3个if条件程序判断3次, 没有效率.  #include&lt;stdio.h&gt; int main(){ int sumspace = 0; int sumt = 0; int sumn = 0; int c ; while( (c = getchar()) != EOF ){ if( c == 32){ sumspace&#43;&#43;; } else if(c == &#39;\t&#39;){ sumt&#43;&#43;; } else if(c == &#39;\n&#39;){ sumn&#43;&#43;; } } printf(&#34;空格数%d 制表符数%d 换行符数%d\n&#34;, sumspace, sumt, sumn); return 0; } ...</p>
   </section>
   <footer class="entry-footer">
     <time>April 9, 2020</time>
