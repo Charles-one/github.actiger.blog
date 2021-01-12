@@ -76,6 +76,28 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>基本SQL语句用法二</h2>
+  </header>
+  <section class="entry-content">
+   <p>1.创建表 create table if not exists usrinfo( id INT(11), number INT(11), name VARCHAR(255), birthday DATE );
+2.查询表结构 show full columns from usrinfo;
+desc usrinfo;
+describe usrinfo;
+3.查询创建表的语句 show create table usrinfo;
+4.插入数据 插入单选数据 insert into usrinfo values (12123123,“hello”,“1990-02-15”);
+插入多行数据 insert into usrinfo values (12123123,“hello”,“1990-02-15”), (12123123,“cc”,“1991-03-01”);
+插入某些列 insert into usrinfo(number,name) values (121234123,“eefef”);
+插入某些列多行 insert into usrinfo(number,name) values (121234123,“eefef”), (121234123,“eefef”);
+5.查询某一列不重复的值 select distinct number from usrinfo;
+6.增加新的列 增加新列 alter table usrinfo add id int(11);...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>September 20, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/mysql/%E5%9F%BA%E6%9C%ACsql%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95%E4%BA%8C/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>垃圾与垃圾篓</h2>
   </header>
   <section class="entry-content">
@@ -191,18 +213,6 @@
     <time>June 13, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/blog/test/testng%E4%BE%9D%E8%B5%96%E6%B5%8B%E8%AF%95%E5%92%8Cxml%E6%96%87%E4%BB%B6%E5%8F%82%E6%95%B0%E5%8C%96/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>TestNG异常测试</h2>
-  </header>
-  <section class="entry-content">
-   <p>TestNG异常测试 1. expectedException方法预期RuntimeException异常 2. expectedSuccess方法预期RuntimeException异常 3. expectedException用例结果是失败的, expectedSuccess执行用例成功(预期与结果一致) package com.actiger.test.expectedException; import org.testng.annotations.Test; public class ExpectedExcepiton { @Test(expectedExceptions = RuntimeException.class) public void expectedException(){ System.out.println(&#34;期望运行异常的结果!&#34;); } @Test(expectedExceptions = RuntimeException.class) public void expectedSuccess(){ System.out.println(&#34;期望运行异常的结果&#34;); throw new RuntimeException(); } } ...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>June 12, 2019</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/test/testng%E5%BC%82%E5%B8%B8%E6%B5%8B%E8%AF%95/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

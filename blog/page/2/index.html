@@ -79,6 +79,18 @@
 </header>
 <article class="post-entry">
   <header class="entry-header">
+    <h2>C程序设计语言练习1-14</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. 要求: 编写一个程序, 打印输入中各个字符出现频度的直方图. 2. 分析. 一.输入部分: 1. 统计什么样的字符? 这里就统计ASCII表中可显示字符, 查询ASCII表可显示字符知, 字符 32~126是可见的, 共95个. 2. 使用一维数组来计数. 3. 不在32~126中的字符, 单独统计到sum中. 4. 超出最大个数则用H打印出. 二.输出部分: 1. 水平直方图, 每行进行判断, 字符统计个数&lt;=HIST, 打印字符和字符统计个数的*, 字符统计个数&gt;HIST, 打印H. 2. 垂直直方图, 每行进行判断.  字符统计个数&lt;=HIST(能统计的最大数), HIST-字符统计个数&gt;当前行row, 打印空格, HIST-字符统计个数&lt;=当前行row, 打印*号. 字符统计个数&gt;HIST(能统计的最大数), 最后一行MAX-1(因为数组0开始数, 最后一行MAX-1)打印H, 其余打印空格.  3. 代码.  #include&lt;stdio.h&gt; #define MAX 95 #define HIST 20 int main(){ int input; int a[MAX]; int sum, row, col; sum = 0; for(row=0;row&lt;MAX;row&#43;&#43;){ a[row] = 0; } while( (input=getchar()) !...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>April 22, 2020</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-14/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>C程序设计语言练习1-13</h2>
   </header>
   <section class="entry-content">
@@ -192,20 +204,6 @@
     <time>March 3, 2020</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/blog/c/%E4%B8%8D%E5%87%86%E7%A1%AE%E7%9A%8401-%E6%B5%AE%E7%82%B9%E6%95%B0/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>acme.sh获取域名并自动更新到kubernetes中</h2>
-  </header>
-  <section class="entry-content">
-   <p>0. 原因letsencrypt获取的证书只有3个月有效期, 每次手动更新易出错也会忘记, 所以使用crontab定时acme.sh定时更新最好不过了. 放下文章结构 1. 安装acme.sh, acme.sh官网中文链接. # 推荐使用root用户, 后续也以root用户操作的. curl https://get.acme.sh | sh 2. 使用acme.sh的dns方式, 这里服务商以cloudflare为例.   域名使用cloudflare解析(注册cloudflare官方教程更换域名), 拿到Global API Key和邮箱.
-  参照官方教程中cloudflare部分.
-  # Global API Key和邮箱 export CF_Key=&#34;cloudflare设置中的Global API Key&#34; export CF_Email=&#34;cloudflare注册邮箱&#34; # 首次生成域名证书(\*号需要转译) /root/.acme.sh/acme.sh --issue --dns dns_cf -d \*.actiger.com TLSCRT=$(cat /root/.acme.sh/\*.actiger.com/\*.actiger.com.cer) TLSKEY=$(cat /root/.acme.sh/\*.actiger.com/\*.actiger.com.key) # base64转换 ACTIGER_TLSCRT=$(echo &#34;${TLSCRT}&#34;|base64 -w 10000) ACTIGER_TLSKEY=$(echo &#34;${TLSKEY}&#34;|base64 -w 10000) # 生成新的secret. FILE_ACTIGER=&#34;/root/kubernetes/pro-blog-cc6/ingress-secret.yml&#34; cat &lt;&lt; EOF | tee ${FILE_ACTIGER} apiVersion: v1 data: tls....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>February 10, 2020</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/acmesh%E8%8E%B7%E5%8F%96%E5%9F%9F%E5%90%8D%E5%B9%B6%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E5%88%B0kubernetes%E4%B8%AD/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
