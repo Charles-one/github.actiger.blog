@@ -79,6 +79,21 @@
 </header>
 <article class="post-entry">
   <header class="entry-header">
+    <h2>解决shell中bash空格问题</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. mac上如果有空格的文件夹, 在脚本中进入不了, 如test space文件夹. vim testcd.sh
+cd test\ space ls 执行./testcd.sh, 报错找不到
+./test.sh: line 1: cd: test : No such file or directory 2. 解决方式eval命令. 参照 https://www.unix.com/man-page/posix/1posix/eval/ eval cd test\ space ls 就可以正常执行./testcd.sh
+4. 可执行操作的文件, 命名尽量避免有空格的名字, 毕竟shell可是1978年 ...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>January 12, 2021</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/%E8%A7%A3%E5%86%B3shell%E4%B8%ADbash%E7%A9%BA%E6%A0%BC%E9%97%AE%E9%A2%98/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>企业私刑--Instagram被禁入狱照才能解封</h2>
   </header>
   <section class="entry-content">
@@ -209,18 +224,6 @@ vim .zshrc  alias up=&#34;rsync -rut --exclude &#39;.DS_Store&#39;&#34; uponesto
     <time>May 12, 2020</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%801.9%E5%AD%97%E7%AC%A6%E6%95%B0%E7%BB%84%E7%A4%BA%E4%BE%8B/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>C程序设计语言练习1-15</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. 要求: 重新编写1.2节中的测试计划转换程序, 使用函数实现温度转换计算. 2. 分析. 1. C = (5 / 9) (F - 32) 2. 华氏温度与摄氏温度都是整数, 故输入是整数, 输出也是整数. 3. 代码. 1. 整数. #include&lt;stdio.h&gt; // 华氏温度转摄氏温度 int transfc(int f); int main(){ int i; for(i=0;i&lt;=300;i=i&#43;20){ printf(&#34;%-3d %-3d\n&#34;, i, transfc(i)); } return 0; } int transfc(int f){ return (f - 32) * 5 / 9; } 2. 补充double数. #include&lt;stdio.h&gt; // 华氏温度转摄氏温度 double transfc(double f); int main(){ double i; for(i=0;i&lt;=300;i=i&#43;20){ printf(&#34;%-3.1f %-3.1f\n&#34;, i, transfc(i)); } return 0; } double transfc(double f){ return (f - 32....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>April 23, 2020</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-15/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
