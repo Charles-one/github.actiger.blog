@@ -8,9 +8,9 @@
     <title>解决shell中bash空格问题 - Actiger跳跳虎</title>
     
     <meta name="description" content="1. mac上如果有空格的文件夹, 在脚本中进入不了, 如test space文件夹. vim testcd.sh
-cd test\ space ls 执行./testcd.sh, 报错找不到
-./test.sh: line 1: cd: test : No such file or directory 2. 解决方式eval命令. 参照 https://www.unix.com/man-page/posix/1posix/eval/ eval cd test\ space ls 就可以正常执行./testcd.sh
-4. 可执行操作的文件, 命名尽量避免有空格的名字, 毕竟shell可是1978年 ">
+cd &quot;test\ space&quot; pwd 执行./testcd.sh, 报错找不到
+./test.sh: line 1: cd: test : No such file or directory 2. 解决方式eval命令. eval会扫描并替换参数. 官网 https://www.unix.com/man-page/posix/1posix/eval/ eval cd &quot;test\ space&quot; pwd 就可以正常执行./testcd.sh
+3. 可执行操作的文件夹, 命名尽量避免有空格的名字. ">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -85,16 +85,16 @@ cd test\ space ls 执行./testcd.sh, 报错找不到
   </header>
   <div class="post-content"><h3 id="1-mac上如果有空格的文件夹-在脚本中进入不了-如test-space文件夹">1. mac上如果有空格的文件夹, 在脚本中进入不了, 如test space文件夹.</h3>
 <p>vim  testcd.sh</p>
-<pre><code>cd test\ space
-ls
+<pre><code>cd &quot;test\ space&quot;
+pwd
 
 </code></pre><p>执行./testcd.sh, 报错找不到</p>
 <h4 id="testsh-line-1-cd-test--no-such-file-or-directory">./test.sh: line 1: cd: test : No such file or directory</h4>
-<h3 id="2-解决方式eval命令-参照-a-hrefhttpswwwunixcomman-pageposix1posixeval-target_blankhttpswwwunixcomman-pageposix1posixevala">2. 解决方式eval命令. 参照 <a href="https://www.unix.com/man-page/posix/1posix/eval/" target="_blank"><a href="https://www.unix.com/man-page/posix/1posix/eval/">https://www.unix.com/man-page/posix/1posix/eval/</a></a></h3>
-<pre><code>eval cd test\ space
-ls
+<h3 id="2-解决方式eval命令-eval会扫描并替换参数-官网-a-hrefhttpswwwunixcomman-pageposix1posixeval-target_blankhttpswwwunixcomman-pageposix1posixevala">2. 解决方式eval命令. eval会扫描并替换参数. 官网 <a href="https://www.unix.com/man-page/posix/1posix/eval/" target="_blank"><a href="https://www.unix.com/man-page/posix/1posix/eval/">https://www.unix.com/man-page/posix/1posix/eval/</a></a></h3>
+<pre><code>eval cd &quot;test\ space&quot;
+pwd
 </code></pre><p>就可以正常执行./testcd.sh</p>
-<h3 id="4-可执行操作的文件-命名尽量避免有空格的名字-毕竟shell可是1978年">4. 可执行操作的文件, 命名尽量避免有空格的名字, 毕竟shell可是1978年</h3>
+<h3 id="3-可执行操作的文件夹-命名尽量避免有空格的名字">3. 可执行操作的文件夹, 命名尽量避免有空格的名字.</h3>
 </div>
   
 </article></main>
