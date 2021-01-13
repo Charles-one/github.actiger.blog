@@ -9,7 +9,7 @@
     
     <meta name="description" content="1. mac上如果有空格的文件夹, 在脚本中进入不了, 如test space文件夹. vim testcd.sh
 cd &quot;test\ space&quot; pwd 执行./testcd.sh, 报错找不到
-./test.sh: line 1: cd: test : No such file or directory 2. 解决方式eval命令. eval会扫描并替换参数, 在引号内的命令同意会执行. 官网 https://www.unix.com/man-page/posix/1posix/eval/ eval cd &quot;test\ space&quot; pwd 就可以正常执行./testcd.sh
+./test.sh: line 1: cd: test : No such file or directory 2. 解决方式eval命令. eval会扫描并替换参数, 在引号内的命令也会执行. 官网 https://www.unix.com/man-page/posix/1posix/eval/ eval cd &quot;test\ space&quot; pwd 就可以正常执行./testcd.sh
 3. 可执行操作的文件夹, 命名尽量避免有空格的名字. ">
     <meta name="author" content="">
     
@@ -90,7 +90,7 @@ pwd
 
 </code></pre><p>执行./testcd.sh, 报错找不到</p>
 <h4 id="testsh-line-1-cd-test--no-such-file-or-directory">./test.sh: line 1: cd: test : No such file or directory</h4>
-<h3 id="2-解决方式eval命令-eval会扫描并替换参数-在引号内的命令同意会执行-官网-a-hrefhttpswwwunixcomman-pageposix1posixeval-target_blankhttpswwwunixcomman-pageposix1posixevala">2. 解决方式eval命令. eval会扫描并替换参数, 在引号内的命令同意会执行. 官网 <a href="https://www.unix.com/man-page/posix/1posix/eval/" target="_blank"><a href="https://www.unix.com/man-page/posix/1posix/eval/">https://www.unix.com/man-page/posix/1posix/eval/</a></a></h3>
+<h3 id="2-解决方式eval命令-eval会扫描并替换参数-在引号内的命令也会执行-官网-a-hrefhttpswwwunixcomman-pageposix1posixeval-target_blankhttpswwwunixcomman-pageposix1posixevala">2. 解决方式eval命令. eval会扫描并替换参数, 在引号内的命令也会执行. 官网 <a href="https://www.unix.com/man-page/posix/1posix/eval/" target="_blank"><a href="https://www.unix.com/man-page/posix/1posix/eval/">https://www.unix.com/man-page/posix/1posix/eval/</a></a></h3>
 <pre><code>eval cd &quot;test\ space&quot;
 pwd
 </code></pre><p>就可以正常执行./testcd.sh</p>
