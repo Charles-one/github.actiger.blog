@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>安装mariadb和设置utf 8mb4字符集 - Actiger跳跳虎</title>
+    
+    <meta name="description" content="0. 弃用docker后, 觉得有必要手动需要安装MariaDB, 并设置真正的utf-8mb4字体集 1. 安装MariaDB. 二种方式, 使用默认源和自建官方源. 1. 使用默认源 yum -y install -y mariadb-server mariadb-client  安装后执行, mysql_secure_installation是初始化  systemctl enable mariadb systemctl start mariadb mysql_secure_installation 2. 使用自建官方源, 可安装MariaDB 10.5稳定版. 官方文档地址  vim /etc/yum.repos.d/MariaDB.repo  # MariaDB 10.5 CentOS repository list - created 2021-01-14 03:58 UTC # http://downloads.mariadb.org/mariadb/repositories/ [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/10.5/centos7-amd64 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1  再执行安装命令即可  yum install -y mariadb-server mariadb-client  安装后执行, mysql_secure_installation是初始化.  systemctl enable mariadb systemctl start mariadb mysql_secure_installation 2.">
+    <meta name="author" content="">
+    
+    <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://charles-one.github.io/actiger/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://charles-one.github.io/actiger/apple-touch-icon.png">
+    <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
+    <meta name="generator" content="Hugo 0.80.0" />
+    
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
+    
+    
+    <script>
+      function setTheme() {
+        const time = new Date();
+
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then(res => res.json())
+            .then(data => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></p>
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">安装mariadb和设置utf 8mb4字符集</h1>
+    <div class="post-meta">January 14, 2021</div>
+  </header>
+  <div class="post-content"><h3 id="0-弃用docker后-觉得有必要手动需要安装mariadb-并设置真正的utf-8mb4字体集">0. 弃用docker后, 觉得有必要手动需要安装MariaDB, 并设置真正的utf-8mb4字体集</h3>
+<h3 id="1-安装mariadb-二种方式-使用默认源和自建官方源">1. 安装MariaDB. 二种方式, 使用默认源和自建官方源.</h3>
+<h4 id="1-使用默认源">1. 使用默认源</h4>
+<pre><code>yum -y install -y mariadb-server mariadb-client
+</code></pre><ul>
+<li>安装后执行, mysql_secure_installation是初始化</li>
+</ul>
+<pre><code>systemctl enable mariadb
+systemctl start mariadb
+mysql_secure_installation
+</code></pre><h4 id="2-使用自建官方源-可安装mariadb-105稳定版-a-target_blank-hrefhttpsdownloadsmariadborgmariadbrepositoriesdistrocentosdistro_releasecentos7-amd64--centos7mirrorustc-hefeiversion105官方文档地址a">2. 使用自建官方源, 可安装MariaDB 10.5稳定版. <a target="_blank" href="https://downloads.mariadb.org/mariadb/repositories/#distro=CentOS&distro_release=centos7-amd64--centos7&mirror=ustc-hefei&version=10.5">官方文档地址</a></h4>
+<ul>
+<li>vim /etc/yum.repos.d/MariaDB.repo</li>
+</ul>
+<pre><code># MariaDB 10.5 CentOS repository list - created 2021-01-14 03:58 UTC
+# http://downloads.mariadb.org/mariadb/repositories/
+[mariadb]
+name = MariaDB
+baseurl = http://yum.mariadb.org/10.5/centos7-amd64
+gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+gpgcheck=1
+</code></pre><ul>
+<li>再执行安装命令即可</li>
+</ul>
+<pre><code>yum install -y mariadb-server mariadb-client
+</code></pre><ul>
+<li>安装后执行, mysql_secure_installation是初始化.</li>
+</ul>
+<pre><code>systemctl enable mariadb
+systemctl start mariadb
+mysql_secure_installation
+</code></pre><h3 id="2-设置mariadb字符集-需要设置4个文件mycnf-clientcnf-mysql-clientscnf-servercnf">2. 设置MariaDB字符集. 需要设置4个文件my.cnf, client.cnf, mysql-clients.cnf, server.cnf.</h3>
+<ul>
+<li>vim /etc/my.cnf 增加以下内容</li>
+</ul>
+<pre><code>[client]
+default-character-set = utf8mb4
+
+[mysql]
+default-character-set = utf8mb4
+
+[mysqld]
+character-set-client-handshake = FALSE
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+</code></pre><ul>
+<li>vim /etc/my.cnf.d/client.cnf 在[client]后增加 default-character-set=utf8</li>
+</ul>
+<pre><code>[client]
+default-character-set=utf8mb4
+</code></pre><ul>
+<li>vim /etc/my.cnf.d/mysql-clients.cnf在[mysql]增加default-character-set=utf8mb4</li>
+</ul>
+<pre><code>[mysql]
+default-character-set=utf8mb4
+</code></pre><ul>
+<li>vim /etc/my.cnf.d/server.cnf 在[server]后增加character-set-server=utf8mb4</li>
+</ul>
+<pre><code>[server]
+character-set-server=utf8mb4
+</code></pre><h3 id="3-重启mariadb-连接数据库检查字符集">3. 重启MariaDB, 连接数据库,检查字符集.</h3>
+<ul>
+<li>重启MariaDB</li>
+</ul>
+<pre><code>systemctl restart mariadb
+</code></pre><ul>
+<li>连接数据库.</li>
+</ul>
+<pre><code># 回车输入密码即可
+mysql -uroot -hlocalhost -P3306 -p
+</code></pre><ul>
+<li>检查字符集</li>
+</ul>
+<pre><code>show variables like &quot;%character%&quot;;
+show variables like &quot;%collation%&quot;;
+</code></pre><img src="https://img.actiger.com/blog/utf-8mb4.png" alt="utf8mb4">
+<h3 id="4-补充utf8mb4_unicode_ci和utf8mb4_general_ci区别-mysql可以使用utf8mb4_0900_ai_ci-character_set_system是固定utf8不可更改">4. 补充utf8mb4_unicode_ci和utf8mb4_general_ci区别, MySQL可以使用utf8mb4_0900_ai_ci, character_set_system是固定utf8不可更改.</h3>
+<ul>
+<li>utf8mb4_unicode_ci和utf8mb4_general_ci区别</li>
+</ul>
+<p>utf8mb4_unicode_ci: 基于标准的Unicode来排序和比较，能够在各种语言之间精确排序，在特殊情况下，Unicode排序规则为了能够处理特殊字符的情况，实现了略微复杂的排序算法，所以兼容度比较高，但是性能不高。</p>
+<p>utf8mb4_general_ci: 没有实现Unicode排序规则，在遇到某些特殊语言或者字符集，排序结果可能不一致，但是在比较和排序的时候速度更快。</p>
+<ul>
+<li>MySQL可以使用utf8mb4_0900_ai_ci, 对应位置替换,show variables like &ldquo;%character%&quot;;与MariaDB一致,show variables like &ldquo;%collation%&quot;;有区别</li>
+</ul>
+<pre><code>collation_connection utf8mb4_0900_ai_ci
+collation_database utf8mb4_general_ci
+collation_server utf8mb4_0900_ai_ci
+default_collation_for_utf8mb4 utf8mb4_0900_ai_ci
+</code></pre><p>放个图
+<img src="https://img.actiger.com/blog/msqlutf8mb4.png" alt="msqlutf8mb4"></p>
+<ul>
+<li>character_set_system固定utf8格式, 不可更改.</li>
+</ul>
+</div>
+  
+</article></main>
+<footer class="footer">
+  <span><a>&copy; 2021 </a><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></span>
+  <span>&middot;</span>
+  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Powered by Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span><a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Theme️ Paper</a></span>
+  <span>&middot;</span>
+  <span><a href="https://github.com/charles-one/" rel="noopener" target="_blank">Github Me</a></span>
+</footer>
+<script src="https://charles-one.github.io/actiger/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+
