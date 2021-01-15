@@ -178,8 +178,15 @@ default_collation_for_utf8mb4 utf8mb4_0900_ai_ci
 <li>
 <p>参考<a href="https://mariadb.com/kb/en/supported-character-sets-and-collations/">MariaDB官方支持字符集</a></p>
 </li>
+<li>
+<p>创建用户和授权, 全部本地远程访问%代替, ssh方式使用固定ip代替localhost.</p>
+</li>
 </ul>
-</div>
+<pre><code>CREATE DATABASE testdatabase;
+CREATE USER 'testuser'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL ON testdatabase.* TO 'testuser'@'localhost';
+FLUSH PRIVILEGES;
+</code></pre></div>
   
 </article></main>
 <footer class="footer">
