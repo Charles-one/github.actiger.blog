@@ -8,12 +8,12 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 14 Jan 2021 21:29:04 +0800</lastBuildDate><atom:link href="https://charles-one.github.io/actiger/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>安装mariadb和设置utf 8mb4字符集</title>
+      <title>安装MariaDB和设置utf-8mb4字符集</title>
       <link>https://charles-one.github.io/actiger/blog/mysql/%E5%AE%89%E8%A3%85mariadb%E5%92%8C%E8%AE%BE%E7%BD%AEutf-8mb4%E5%AD%97%E7%AC%A6%E9%9B%86/</link>
       <pubDate>Thu, 14 Jan 2021 21:29:04 +0800</pubDate>
       
       <guid>https://charles-one.github.io/actiger/blog/mysql/%E5%AE%89%E8%A3%85mariadb%E5%92%8C%E8%AE%BE%E7%BD%AEutf-8mb4%E5%AD%97%E7%AC%A6%E9%9B%86/</guid>
-      <description>0. 弃用docker后, 觉得有必要手动需要安装MariaDB, 并设置真正的utf-8mb4字体集 1. 安装MariaDB. 二种方式, 使用默认源和自建官方源. 1. 使用默认源 yum -y install -y mariadb-server mariadb-client  安装后执行, mysql_secure_installation是初始化  systemctl enable mariadb systemctl start mariadb mysql_secure_installation 2. 使用自建官方源, 可安装MariaDB 10.5稳定版. 官方文档地址  vim /etc/yum.repos.d/MariaDB.repo  # MariaDB 10.5 CentOS repository list - created 2021-01-14 03:58 UTC # http://downloads.mariadb.org/mariadb/repositories/ [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/10.5/centos7-amd64 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1  再执行安装命令即可  yum install -y mariadb-server mariadb-client  安装后执行, mysql_secure_installation是初始化.  systemctl enable mariadb systemctl start mariadb mysql_secure_installation 2.</description>
+      <description>0. 弃用docker后, 觉得有必要手动需要安装MariaDB, 并设置真正的utf-8mb4字体集 1. 安装MariaDB. 二种方式, 使用默认源和自建官方源. 1. 使用默认源 yum -y install mariadb-server mariadb-client  安装后执行, mysql_secure_installation是初始化  systemctl enable mariadb systemctl start mariadb mysql_secure_installation 2. 使用自建官方源, 可安装MariaDB 10.5稳定版. 官方文档地址  vim /etc/yum.repos.d/MariaDB.repo  # MariaDB 10.5 CentOS repository list - created 2021-01-14 03:58 UTC # http://downloads.mariadb.org/mariadb/repositories/ [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/10.5/centos7-amd64 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1  再执行安装命令即可  yum install -y mariadb-server mariadb-client  安装后执行, mysql_secure_installation是初始化.  systemctl enable mariadb systemctl start mariadb mysql_secure_installation 2.</description>
     </item>
     
     <item>

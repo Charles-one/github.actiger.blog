@@ -79,10 +79,10 @@
 </header>
 <article class="post-entry">
   <header class="entry-header">
-    <h2>安装mariadb和设置utf 8mb4字符集</h2>
+    <h2>安装MariaDB和设置utf-8mb4字符集</h2>
   </header>
   <section class="entry-content">
-   <p>0. 弃用docker后, 觉得有必要手动需要安装MariaDB, 并设置真正的utf-8mb4字体集 1. 安装MariaDB. 二种方式, 使用默认源和自建官方源. 1. 使用默认源 yum -y install -y mariadb-server mariadb-client  安装后执行, mysql_secure_installation是初始化  systemctl enable mariadb systemctl start mariadb mysql_secure_installation 2. 使用自建官方源, 可安装MariaDB 10.5稳定版. 官方文档地址  vim /etc/yum.repos.d/MariaDB.repo  # MariaDB 10.5 CentOS repository list - created 2021-01-14 03:58 UTC # http://downloads.mariadb.org/mariadb/repositories/ [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/10.5/centos7-amd64 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1  再执行安装命令即可  yum install -y mariadb-server mariadb-client  安装后执行, mysql_secure_installation是初始化.  systemctl enable mariadb systemctl start mariadb mysql_secure_installation 2....</p>
+   <p>0. 弃用docker后, 觉得有必要手动需要安装MariaDB, 并设置真正的utf-8mb4字体集 1. 安装MariaDB. 二种方式, 使用默认源和自建官方源. 1. 使用默认源 yum -y install mariadb-server mariadb-client  安装后执行, mysql_secure_installation是初始化  systemctl enable mariadb systemctl start mariadb mysql_secure_installation 2. 使用自建官方源, 可安装MariaDB 10.5稳定版. 官方文档地址  vim /etc/yum.repos.d/MariaDB.repo  # MariaDB 10.5 CentOS repository list - created 2021-01-14 03:58 UTC # http://downloads.mariadb.org/mariadb/repositories/ [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/10.5/centos7-amd64 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1  再执行安装命令即可  yum install -y mariadb-server mariadb-client  安装后执行, mysql_secure_installation是初始化.  systemctl enable mariadb systemctl start mariadb mysql_secure_installation 2....</p>
   </section>
   <footer class="entry-footer">
     <time>January 14, 2021</time>
