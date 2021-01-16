@@ -7,7 +7,7 @@
     
     <title>安装MariaDB和设置utf-8mb4字符集 - Actiger跳跳虎</title>
     
-    <meta name="description" content="0. 弃用docker后, 觉得有必要手动需要安装MariaDB, 并设置真正的utf-8mb4字体集, MariaDB的utf-8只有3个字节, 无法存储表情. 1. 安装MariaDB. 二种方式, 使用默认源和自建官方源. 1. 使用默认源 yum -y install mariadb-server mariadb-client  安装后执行, mysql_secure_installation是初始化  systemctl enable mariadb systemctl start mariadb mysql_secure_installation 2. 使用自建官方源, 可安装MariaDB 10.5稳定版. 官方文档地址  vim /etc/yum.repos.d/MariaDB.repo  # MariaDB 10.5 CentOS repository list - created 2021-01-14 03:58 UTC # http://downloads.mariadb.org/mariadb/repositories/ [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/10.5/centos7-amd64 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1  再执行安装命令即可  yum install -y mariadb-server mariadb-client  安装后执行, mysql_secure_installation是初始化.  systemctl enable mariadb systemctl start mariadb mysql_secure_installation 2.">
+    <meta name="description" content="0. 不用k8s了, 要直接安装MariaDB, 并设置真正的utf-8mb4字体集, MariaDB的utf-8只有3个字节, 无法存储表情. 1. 安装MariaDB. 二种方式, 使用默认源和自建官方源. 1. 使用默认源 yum -y install mariadb-server mariadb-client  安装后执行, mysql_secure_installation是初始化  systemctl enable mariadb systemctl start mariadb mysql_secure_installation 2. 使用自建官方源, 可安装MariaDB 10.5稳定版. 官方文档地址  vim /etc/yum.repos.d/MariaDB.repo  # MariaDB 10.5 CentOS repository list - created 2021-01-14 03:58 UTC # http://downloads.mariadb.org/mariadb/repositories/ [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/10.5/centos7-amd64 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1  再执行安装命令即可  yum install -y mariadb-server mariadb-client  安装后执行, mysql_secure_installation是初始化.  systemctl enable mariadb systemctl start mariadb mysql_secure_installation 2.">
     <meta name="author" content="">
     
     <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
@@ -80,7 +80,7 @@
     <h1 class="post-title">安装MariaDB和设置utf-8mb4字符集</h1>
     <div class="post-meta">January 14, 2021</div>
   </header>
-  <div class="post-content"><h3 id="0-弃用docker后-觉得有必要手动需要安装mariadb-并设置真正的utf-8mb4字体集-mariadb的utf-8只有3个字节-无法存储表情">0. 弃用docker后, 觉得有必要手动需要安装MariaDB, 并设置真正的utf-8mb4字体集, MariaDB的utf-8只有3个字节, 无法存储表情.</h3>
+  <div class="post-content"><h3 id="0-不用k8s了-要直接安装mariadb-并设置真正的utf-8mb4字体集-mariadb的utf-8只有3个字节-无法存储表情">0. 不用k8s了, 要直接安装MariaDB, 并设置真正的utf-8mb4字体集, MariaDB的utf-8只有3个字节, 无法存储表情.</h3>
 <h3 id="1-安装mariadb-二种方式-使用默认源和自建官方源">1. 安装MariaDB. 二种方式, 使用默认源和自建官方源.</h3>
 <h4 id="1-使用默认源">1. 使用默认源</h4>
 <pre><code>yum -y install mariadb-server mariadb-client
@@ -192,11 +192,13 @@ FLUSH PRIVILEGES;
 <footer class="footer">
   <span><a>&copy; 2021 </a><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></span>
   <span>&middot;</span>
-  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Powered by Hugo️️</a>️</span>
+  <span><a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
   <span>&middot;</span>
   <span><a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Theme️ Paper</a></span>
   <span>&middot;</span>
-  <span><a href="https://github.com/charles-one/" rel="noopener" target="_blank">Github Me</a></span>
+  <span><a href="https://github.com/charles-one/" rel="noopener" target="_blank">Github</a></span>
+  <span>&middot;</span>
+  <span><a href="https://twitter.com/KevinLi1987" rel="noopener" target="_blank">Twitter</a></span>
 </footer>
 <script src="https://charles-one.github.io/actiger/highlight.min.js"></script>
 <script>
