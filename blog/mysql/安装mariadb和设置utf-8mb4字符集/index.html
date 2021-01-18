@@ -183,8 +183,8 @@ default_collation_for_utf8mb4 utf8mb4_0900_ai_ci
 </li>
 </ul>
 <pre><code>CREATE DATABASE testdatabase;
-CREATE USER 'testuser'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL ON testdatabase.* TO 'testuser'@'localhost';
+CREATE USER 'testuser'@'%' IDENTIFIED BY 'password';
+GRANT ALL ON testdatabase.* TO 'testuser'@'%';
 FLUSH PRIVILEGES;
 </code></pre></div>
   
