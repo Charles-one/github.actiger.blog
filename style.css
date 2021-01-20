@@ -16,6 +16,11 @@
     justify-content:center;
     align-items:center;
 }
+.div_footer_a{
+    display:flex;
+    bottom: 3px;
+
+}
 
 :root {
   --gap: 24px;
