@@ -9,7 +9,7 @@
 /* Theme
 -------------------------------------------------- */
 .div_footer{
-    float: left;
+    /*float: left;*/
 }
 .div_center{
     display:flex;
