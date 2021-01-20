@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <title>Kubernetes Ingress Nginx - Actiger跳跳虎</title>
+    <title>Kubernetes Ingress Nginx - AcTiger跳跳虎</title>
     
     <meta name="description" content="1. 为了理解Nginx Ingress Controller, 先看下上海长宁来福士的人脸识别电梯, 正好在这上班😃. 把外部进入内部人脸识别闸机类比为NGINX Ingress Controller, 匹配域名, 把人或请求分配到内部service. 把人脸识别分配电梯类比为service, service控制着一组电梯, 将人或请求分配service下的电梯中. 把电梯类比为pod, 在service下, 处理人或请求. 2. 下面是配置文件, 角色与service绑定的, 使用到pv和pvc, 使用secret, 我的命名空间是nginx-space  创建name-space  kubectl create namespace nginx-space 设置默认返回内容 default-backend.yaml  apiVersion: extensions/v1beta1 kind: Deployment metadata: name: default-http-backend labels: k8s-app: default-http-backend namespace: nginx-space spec: replicas: 1 template: metadata: labels: k8s-app: default-http-backend spec: terminationGracePeriodSeconds: 60 containers: - name: default-http-backend # Any image is permissable as long as: # 1. It serves a 404 page at / # 2.">
     <meta name="author" content="">
@@ -17,7 +17,7 @@
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
     <meta name="generator" content="Hugo 0.80.0" />
     
-    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="AcTiger跳跳虎">
     
     
     <script>
@@ -69,7 +69,7 @@
     </script>
     <header class="header">
       <nav class="nav">
-        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></p>
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">AcTiger跳跳虎</a></p>
       </nav>
     </header>
     <main class="main">
@@ -465,31 +465,31 @@ kubectl get pods -n nginx-space
 <footer class="footer">
 
 <div class="div_center">
-<div class="div_footer_a">
-    <a href="https://charles-one.github.io/actiger/">Actiger</a>
+<div class="div_footer">
+    <a href="https://charles-one.github.io/actiger/">AcTiger</a>
 </div>
 <div class="div_footer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
 <div class="div_footer">
-<a href="https://gohugo.io/" rel="noopener" target="_blank"><img height="18" width="18" src="https://img.actiger.com/blog/ico/hugo-favicon.png"></a>
+<a href="https://gohugo.io/" rel="noopener" target="_blank"><img height="23" width="23" src="https://img.actiger.com/blog/ico/hugo-favicon.png"></a>
 </div>
 
 <div class="div_footer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
 <div class="div_footer">
-<a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank"><img height="18" width="18" src="https://img.actiger.com/blog/ico/paper-favicon.ico"></a>
+<a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank"><img height="23" width="23" src="https://img.actiger.com/blog/ico/paper-favicon.ico"></a>
 </div>
 
 <div class="div_footer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
 <div  class="div_footer">
-<a href="https://github.com/charles-one/" rel="noopener" target="_blank"><img height="18" width="18" src="https://img.actiger.com/blog/ico/github-favicon.png"></a>
+<a href="https://github.com/charles-one/" rel="noopener" target="_blank"><img height="23" width="23" src="https://img.actiger.com/blog/ico/github-favicon.png"></a>
 </div>
 
 <div class="div_footer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
 <div class="div_footer">
-<a href="https://twitter.com/KevinLi1987" rel="noopener" target="_blank"><img height="19" width="19" src="https://img.actiger.com/blog/ico/twitter-favicon.ico"></a>
+<a href="https://twitter.com/KevinLi1987" rel="noopener" target="_blank"><img height="23" width="23" src="https://img.actiger.com/blog/ico/twitter-favicon.ico"></a>
 </div>
 
 </div>

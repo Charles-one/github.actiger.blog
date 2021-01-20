@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <title>Mac使用sshpass和alias管理ssh账号密码 - Actiger跳跳虎</title>
+    <title>Mac使用sshpass和alias管理ssh账号密码 - AcTiger跳跳虎</title>
     
     <meta name="description" content="0.内容.  使用brew安装sshpass软件 在.bashrc或者.zshrc中写入连接服务器别名alias, 并测试连接.  1.使用brew安装sshpass软件 因为sshpass对新手来手使用不安全(某方面密码可以history中看到), 所以仅推荐连接本机虚拟机中. 正是因为担心会滥用所以brew并没有直接提供sshpass的安装. 项目地址 https://github.com/hudochenkov/homebrew-sshpass 强制推荐使用 SSH密钥  直接使用brew安装  brew install hudochenkov/sshpass/sshpass 2.在.bashrc或者.zshrc中写入连接服务器别名alias  sshpass使用  # sshpass -p后接密码, ssh 后的-p是指定端口 # 分成2部分内容一是sshpass -p, 二是ssh root@10.211.55.9 -p 22 # 使用密码password连接10.211.55.9中22端口的root用户 sshpass -p&#39;password&#39; ssh root@10.211.55.9 -p 22  建立别名并生效, 这样就避免在history中直接看到密码.  alias tolocal=&quot;sshpass -p&#39;password&#39; ssh root@10.211.55.9 -p 12340&quot; 将上面内容放到.bashrc(bash用户)或者.zshrc(zsh用户)中
 再次生成配置
@@ -20,7 +20,7 @@ tolocal 即可连接本地虚拟机中.">
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
     <meta name="generator" content="Hugo 0.80.0" />
     
-    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="AcTiger跳跳虎">
     
     
     <script>
@@ -72,7 +72,7 @@ tolocal 即可连接本地虚拟机中.">
     </script>
     <header class="header">
       <nav class="nav">
-        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></p>
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">AcTiger跳跳虎</a></p>
       </nav>
     </header>
     <main class="main">
@@ -127,31 +127,31 @@ sshpass -p'password' ssh root@10.211.55.9 -p 22
 <footer class="footer">
 
 <div class="div_center">
-<div class="div_footer_a">
-    <a href="https://charles-one.github.io/actiger/">Actiger</a>
+<div class="div_footer">
+    <a href="https://charles-one.github.io/actiger/">AcTiger</a>
 </div>
 <div class="div_footer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
 <div class="div_footer">
-<a href="https://gohugo.io/" rel="noopener" target="_blank"><img height="18" width="18" src="https://img.actiger.com/blog/ico/hugo-favicon.png"></a>
+<a href="https://gohugo.io/" rel="noopener" target="_blank"><img height="23" width="23" src="https://img.actiger.com/blog/ico/hugo-favicon.png"></a>
 </div>
 
 <div class="div_footer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
 <div class="div_footer">
-<a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank"><img height="18" width="18" src="https://img.actiger.com/blog/ico/paper-favicon.ico"></a>
+<a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank"><img height="23" width="23" src="https://img.actiger.com/blog/ico/paper-favicon.ico"></a>
 </div>
 
 <div class="div_footer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
 <div  class="div_footer">
-<a href="https://github.com/charles-one/" rel="noopener" target="_blank"><img height="18" width="18" src="https://img.actiger.com/blog/ico/github-favicon.png"></a>
+<a href="https://github.com/charles-one/" rel="noopener" target="_blank"><img height="23" width="23" src="https://img.actiger.com/blog/ico/github-favicon.png"></a>
 </div>
 
 <div class="div_footer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
 <div class="div_footer">
-<a href="https://twitter.com/KevinLi1987" rel="noopener" target="_blank"><img height="19" width="19" src="https://img.actiger.com/blog/ico/twitter-favicon.ico"></a>
+<a href="https://twitter.com/KevinLi1987" rel="noopener" target="_blank"><img height="23" width="23" src="https://img.actiger.com/blog/ico/twitter-favicon.ico"></a>
 </div>
 
 </div>

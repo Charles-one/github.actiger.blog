@@ -10,16 +10,18 @@
 -------------------------------------------------- */
 .div_footer{
     /*float: left;*/
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    vertical-align:top;
 }
 .div_center{
     display:flex;
     justify-content:center;
     align-items:center;
+    vertical-align:top;
 }
 .div_footer_a{
-    display:flex;
-    bottom: 0px;
-
 }
 
 :root {
@@ -525,7 +527,7 @@ img {
 }
 .footer a {
   color: inherit;
-  font-size: 18px;
+  font-size: 24px;
 }
 .footer a:hover {
   /*color: var(--primary);*/

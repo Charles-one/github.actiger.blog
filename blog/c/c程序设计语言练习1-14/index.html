@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <title>C程序设计语言练习1-14 - Actiger跳跳虎</title>
+    <title>C程序设计语言练习1-14 - AcTiger跳跳虎</title>
     
     <meta name="description" content="1. 要求: 编写一个程序, 打印输入中各个字符出现频度的直方图. 2. 分析. 一.输入部分: 1. 统计什么样的字符? 这里就统计ASCII表中可显示字符, 查询ASCII表可显示字符知, 字符 32~126是可见的, 共95个. 2. 使用一维数组来计数. 3. 不在32~126中的字符, 单独统计到sum中. 4. 超出最大个数则用H打印出. 二.输出部分: 1. 水平直方图, 每行进行判断, 字符统计个数&lt;=HIST, 打印字符和字符统计个数的*, 字符统计个数&gt;HIST, 打印H. 2. 垂直直方图, 每行进行判断.  字符统计个数&lt;=HIST(能统计的最大数), HIST-字符统计个数&gt;当前行row, 打印空格, HIST-字符统计个数&lt;=当前行row, 打印*号. 字符统计个数&gt;HIST(能统计的最大数), 最后一行MAX-1(因为数组0开始数, 最后一行MAX-1)打印H, 其余打印空格.  3. 代码.  #include&lt;stdio.h&gt; #define MAX 95 #define HIST 20 int main(){ int input; int a[MAX]; int sum, row, col; sum = 0; for(row=0;row&lt;MAX;row&#43;&#43;){ a[row] = 0; } while( (input=getchar()) !">
     <meta name="author" content="">
@@ -17,7 +17,7 @@
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
     <meta name="generator" content="Hugo 0.80.0" />
     
-    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="AcTiger跳跳虎">
     
     
     <script>
@@ -69,7 +69,7 @@
     </script>
     <header class="header">
       <nav class="nav">
-        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></p>
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">AcTiger跳跳虎</a></p>
       </nav>
     </header>
     <main class="main">
@@ -156,31 +156,31 @@ int main(){
 <footer class="footer">
 
 <div class="div_center">
-<div class="div_footer_a">
-    <a href="https://charles-one.github.io/actiger/">Actiger</a>
+<div class="div_footer">
+    <a href="https://charles-one.github.io/actiger/">AcTiger</a>
 </div>
 <div class="div_footer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
 <div class="div_footer">
-<a href="https://gohugo.io/" rel="noopener" target="_blank"><img height="18" width="18" src="https://img.actiger.com/blog/ico/hugo-favicon.png"></a>
+<a href="https://gohugo.io/" rel="noopener" target="_blank"><img height="23" width="23" src="https://img.actiger.com/blog/ico/hugo-favicon.png"></a>
 </div>
 
 <div class="div_footer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
 <div class="div_footer">
-<a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank"><img height="18" width="18" src="https://img.actiger.com/blog/ico/paper-favicon.ico"></a>
+<a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank"><img height="23" width="23" src="https://img.actiger.com/blog/ico/paper-favicon.ico"></a>
 </div>
 
 <div class="div_footer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
 <div  class="div_footer">
-<a href="https://github.com/charles-one/" rel="noopener" target="_blank"><img height="18" width="18" src="https://img.actiger.com/blog/ico/github-favicon.png"></a>
+<a href="https://github.com/charles-one/" rel="noopener" target="_blank"><img height="23" width="23" src="https://img.actiger.com/blog/ico/github-favicon.png"></a>
 </div>
 
 <div class="div_footer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
 <div class="div_footer">
-<a href="https://twitter.com/KevinLi1987" rel="noopener" target="_blank"><img height="19" width="19" src="https://img.actiger.com/blog/ico/twitter-favicon.ico"></a>
+<a href="https://twitter.com/KevinLi1987" rel="noopener" target="_blank"><img height="23" width="23" src="https://img.actiger.com/blog/ico/twitter-favicon.ico"></a>
 </div>
 
 </div>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <title>使用docker和hugo搭建自己的博客 - Actiger跳跳虎</title>
+    <title>使用docker和hugo搭建自己的博客 - AcTiger跳跳虎</title>
     
     <meta name="description" content="1. 方案选择, 需要内容结构. 1. 练习的话, 可以这种方案. 虚拟机&#43;本地hosts, 免费, 只能内网访问. 2. 最难的方案, 国内域名(备案时间可能会很长,外地备案条件苛刻)&#43;国内云. 2. 在服务器上拉取docker-compose仓库. # 拉取仓库, 并存放在用户目录中 git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository # 复制这用到了docker-compose文件夹, 并存放在用户目录中 cp -r ~/docker-compose-repository/nginx-hugoBlog ~/nginx-hugoBlog 3. 使用hugo生成正确的博客目录 1. hugo生成网站目录 # 指定主题, 我使用了hugo-paper, 网站地址baseUrl, 目标目录, 我会上传多个平台, 所以指定下. # 注意 --bashUrl后的/是必须要有的. hugo --theme=hugo-paper --baseUrl=&quot;http://www.actiger.com/&quot; --destination=&quot;www.actiger.com&quot; 2. 上传步骤1生成的博客目录到github.com. 参考这里的步骤3和4 3. 在服务器上拉取上传的博客目录 # 进行docker-compose文件夹中 cd ~/nginx-hugoBlog # 拉取的docker-compose 默认配置是 ./www.actiger.com:/usr/share/nginx/html . # docker-compose配置文件里的配置的目录, 与当前目录一致的. # 克隆代码时需要, 重命名与docker-compose配置挂载目录名一致. git clone https://github.com/Charles-one/www.actiger.com www.actiger.com 4.">
     <meta name="author" content="">
@@ -17,7 +17,7 @@
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
     <meta name="generator" content="Hugo 0.80.0" />
     
-    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="AcTiger跳跳虎">
     
     
     <script>
@@ -69,7 +69,7 @@
     </script>
     <header class="header">
       <nav class="nav">
-        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></p>
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">AcTiger跳跳虎</a></p>
       </nav>
     </header>
     <main class="main">
@@ -126,31 +126,31 @@ docker-compose up -d
 <footer class="footer">
 
 <div class="div_center">
-<div class="div_footer_a">
-    <a href="https://charles-one.github.io/actiger/">Actiger</a>
+<div class="div_footer">
+    <a href="https://charles-one.github.io/actiger/">AcTiger</a>
 </div>
 <div class="div_footer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
 <div class="div_footer">
-<a href="https://gohugo.io/" rel="noopener" target="_blank"><img height="18" width="18" src="https://img.actiger.com/blog/ico/hugo-favicon.png"></a>
+<a href="https://gohugo.io/" rel="noopener" target="_blank"><img height="23" width="23" src="https://img.actiger.com/blog/ico/hugo-favicon.png"></a>
 </div>
 
 <div class="div_footer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
 <div class="div_footer">
-<a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank"><img height="18" width="18" src="https://img.actiger.com/blog/ico/paper-favicon.ico"></a>
+<a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank"><img height="23" width="23" src="https://img.actiger.com/blog/ico/paper-favicon.ico"></a>
 </div>
 
 <div class="div_footer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
 <div  class="div_footer">
-<a href="https://github.com/charles-one/" rel="noopener" target="_blank"><img height="18" width="18" src="https://img.actiger.com/blog/ico/github-favicon.png"></a>
+<a href="https://github.com/charles-one/" rel="noopener" target="_blank"><img height="23" width="23" src="https://img.actiger.com/blog/ico/github-favicon.png"></a>
 </div>
 
 <div class="div_footer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
 <div class="div_footer">
-<a href="https://twitter.com/KevinLi1987" rel="noopener" target="_blank"><img height="19" width="19" src="https://img.actiger.com/blog/ico/twitter-favicon.ico"></a>
+<a href="https://twitter.com/KevinLi1987" rel="noopener" target="_blank"><img height="23" width="23" src="https://img.actiger.com/blog/ico/twitter-favicon.ico"></a>
 </div>
 
 </div>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <title>Sed命令替换文件中字符串 - Actiger跳跳虎</title>
+    <title>Sed命令替换文件中字符串 - AcTiger跳跳虎</title>
     
     <meta name="description" content="1. 因为把域名从www.actiger.com更改为actiger.com了, 博客中大量引用的地址要替换, 所以就有了替换文件中字符串. 2. 随意查了下sed使用率比较高, linux, mac平台都有, 那就它了. 1. linux  # 替换文件中每行中第1个a为b sed -i &#39;s/a/b/&#39; 文件 # 替换文件中所有的a为b sed -i &#39;s/a/b/g&#39; 文件 # 不替换文件内容, 仅打印出替换后的效果, 下面命令打印所有行匹配的字符串. sed -e &#39;s/a/b/g&#39; 文件 2. mac  # 替换文件中所有的a为b, mac这里必须指定备份文件名称, &quot;&quot;表示空, 也可&quot;_backup&quot;原文件做个备份. sed -i &quot;&quot; &#39;s/a/b/g&#39; 文件 sed -i &quot;_backup&quot; &#39;s/a/b/g&#39; 文件 3. 还能和其他命令连着用, 比如正则匹配一些文件, 替换匹配文件中的内容. sed与grep和ag都可连用.  # 当前目前下test开头文件结尾所有main替换成hello sed -i &#39;s/a/b/g&#39; `grep -rl hello --include=&quot;test*&quot; .` # 把.c文件结尾所有main替换成hello, find与ag过滤文件, # find ${HOME}/WorkPlace/test当前目录所有文件, 一定要写全路径, 防止误操作.">
     <meta name="author" content="">
@@ -17,7 +17,7 @@
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
     <meta name="generator" content="Hugo 0.80.0" />
     
-    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="Actiger跳跳虎">
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="AcTiger跳跳虎">
     
     
     <script>
@@ -69,7 +69,7 @@
     </script>
     <header class="header">
       <nav class="nav">
-        <p class="logo"><a href="https://charles-one.github.io/actiger/">Actiger跳跳虎</a></p>
+        <p class="logo"><a href="https://charles-one.github.io/actiger/">AcTiger跳跳虎</a></p>
       </nav>
     </header>
     <main class="main">
@@ -125,31 +125,31 @@ sed -i &quot;&quot; 's/main/hello/g' `find ${HOME}/WorkPlace/test |ag &quot;\.c$
 <footer class="footer">
 
 <div class="div_center">
-<div class="div_footer_a">
-    <a href="https://charles-one.github.io/actiger/">Actiger</a>
+<div class="div_footer">
+    <a href="https://charles-one.github.io/actiger/">AcTiger</a>
 </div>
 <div class="div_footer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
 <div class="div_footer">
-<a href="https://gohugo.io/" rel="noopener" target="_blank"><img height="18" width="18" src="https://img.actiger.com/blog/ico/hugo-favicon.png"></a>
+<a href="https://gohugo.io/" rel="noopener" target="_blank"><img height="23" width="23" src="https://img.actiger.com/blog/ico/hugo-favicon.png"></a>
 </div>
 
 <div class="div_footer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
 <div class="div_footer">
-<a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank"><img height="18" width="18" src="https://img.actiger.com/blog/ico/paper-favicon.ico"></a>
+<a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank"><img height="23" width="23" src="https://img.actiger.com/blog/ico/paper-favicon.ico"></a>
 </div>
 
 <div class="div_footer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
 <div  class="div_footer">
-<a href="https://github.com/charles-one/" rel="noopener" target="_blank"><img height="18" width="18" src="https://img.actiger.com/blog/ico/github-favicon.png"></a>
+<a href="https://github.com/charles-one/" rel="noopener" target="_blank"><img height="23" width="23" src="https://img.actiger.com/blog/ico/github-favicon.png"></a>
 </div>
 
 <div class="div_footer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
 <div class="div_footer">
-<a href="https://twitter.com/KevinLi1987" rel="noopener" target="_blank"><img height="19" width="19" src="https://img.actiger.com/blog/ico/twitter-favicon.ico"></a>
+<a href="https://twitter.com/KevinLi1987" rel="noopener" target="_blank"><img height="23" width="23" src="https://img.actiger.com/blog/ico/twitter-favicon.ico"></a>
 </div>
 
 </div>
