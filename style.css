@@ -18,7 +18,7 @@
 }
 .div_footer_a{
     display:flex;
-    bottom: 3px;
+    bottom: 0px;
 
 }
 
@@ -528,8 +528,9 @@ img {
   font-size: 18px;
 }
 .footer a:hover {
-  color: var(--primary);
-  border-bottom: 1px solid var(--primary);
+  /*color: var(--primary);*/
+  color: rgba(65,133,244, 0.97);
+  /*border-bottom: 1px solid var(--primary);*/
 }
 /* 404
 -------------------------------------------------- */
