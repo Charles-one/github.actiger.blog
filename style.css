@@ -12,8 +12,9 @@
     float: left;
 }
 .div_center{
-    float: left;
-    text-align: center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 :root {
