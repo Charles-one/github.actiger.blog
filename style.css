@@ -520,6 +520,7 @@ img {
   font-size: 12px;
   text-align: center;
   line-height: 24px;
+  width: var(--main-width);
 }
 .footer span {
   margin-left: 1px;
