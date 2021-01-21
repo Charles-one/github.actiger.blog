@@ -8,6 +8,13 @@
 
 /* Theme
 -------------------------------------------------- */
+.logo_right{
+    /*display:flex;*/
+    /*float: right;*/
+    justify-content:center;
+    align-items:center;
+    vertical-align:top;
+}
 .div_footer{
     /*float: left;*/
     display:flex;
