@@ -8,13 +8,6 @@
 
 /* Theme
 -------------------------------------------------- */
-.logo_right{
-    /*display:flex;*/
-    /*float: right;*/
-    justify-content:center;
-    align-items:center;
-    vertical-align:top;
-}
 .div_footer{
     /*float: left;*/
     display:flex;
@@ -518,6 +511,16 @@ img {
 }
 /* Footer
 -------------------------------------------------- */
+.footer_base {
+  max-width: calc(var(--main-width) + var(--gap) * 2);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 8px;
+  color: var(--secondary);
+  font-size: 8px;
+  text-align: center;
+  line-height: 10px;
+}
 .footer {
   max-width: calc(var(--main-width) + var(--gap) * 2);
   margin-left: auto;
@@ -527,7 +530,6 @@ img {
   font-size: 12px;
   text-align: center;
   line-height: 24px;
-  width: var(--main-width);
 }
 .footer span {
   margin-left: 1px;
