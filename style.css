@@ -218,7 +218,7 @@ img {
   font-size: 13px;
   line-height: 36px;
   /*background: var(--primary);*/
-  background:   rgba(65,133,244,0.9);
+  background:   #3b73ab;
   border-radius: calc(36px / 2);
 }
 .pagination .prev {
