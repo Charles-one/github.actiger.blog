@@ -76,6 +76,22 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>Linux安装go并设置环境变量</h2>
+  </header>
+  <section class="entry-content">
+   <p>Mac用户直接使用brew install go即可 Linux用户 wget https://dl.google.com/go/go1.12.linux-amd64.tar.gz
+tar -C /usr/local -xzf go1.12.linux-amd64.tar.gz
+root用户去编辑vim /etc/profile中添加如下信息
+export PATH=$PATH:/usr/local/go/bin 用户使用go需要 重新生效这个文件
+source /etc/profile ...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>March 13, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/linux%E5%AE%89%E8%A3%85go%E5%B9%B6%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>安装jenkins和插件</h2>
   </header>
   <section class="entry-content">
