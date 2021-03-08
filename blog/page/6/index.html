@@ -79,6 +79,18 @@
 </header>
 <article class="post-entry">
   <header class="entry-header">
+    <h2>Centos7.0使用SSHKEY拉取github代码失败</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. 报错信息与正确信息对比. 今天使用SSH key拉取github代码又失败了, 为什么是又😂. 上次端口错误 贴出报错信息  # 出错主机日志 ssh -vT git@github.com OpenSSH_6.5 Server accepts key: pkalg ssh-rsa blen 279 debug1: key_parse_private_pem: PEM_read_PrivateKey failed debug1: read PEM private key done: type &lt;unknown&gt; Enter passphrase for key &#39;/root/.ssh/git_cron&#39;: 本机正确的日志 ssh -vT git@github.com OpenSSH_7.9p1, LibreSSL 2.7.3 debug1: Reading configuration data /Users/csx/.ssh/config debug1: /Users/csx/.ssh/config line 4: Applying options for githu debug1: Authentications that can continue: publickey debug1: Next authentication method: publickey debug1: Offering public key: /Users/csx/....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>May 23, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/centos7.0%E4%BD%BF%E7%94%A8sshkey%E6%8B%89%E5%8F%96github%E4%BB%A3%E7%A0%81%E5%A4%B1%E8%B4%A5/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>自动生成博客和提交到Github</h2>
   </header>
   <section class="entry-content">
@@ -188,21 +200,6 @@
     <time>May 17, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/tmux%E6%8F%92%E4%BB%B6tmuxinator%E9%85%8D%E7%BD%AE/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>Mosh简介,安装与使用</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. Mosh简介, 及为什么要使用Mosh 1. Mosh全称Mobile Shell, 移动远程终端应用程序. 与ssh类似, 却有很多新功能, 可以漫游, 支持间歇性连接, 这对网络延迟高或者移动使用更换IP非常友好, 2. 我的服务器是VPS, 在使用SSH过程中, 经常会中断, 频繁重新连接, 还要kill掉之前的终端. Mosh的用法与SSH一致, 无缝切换. 2. Mosh 安装. 需要服务器端和客户端都安装软件. 服务端安装脚本 1. 服务器端安装mosh, 并开启防火墙udp端口 yum -y install epel-release yum -y install mosh firewall-cmd --zone=public --permanent --add-port=60000-61000/udp firewall-cmd --reload 2. 本地安装 Mac:
-brew install mosh Windows: 参考
-3. Mosh使用. 使用规则与ssh一致. # 帮助 mosh -h # 连接 mosh root@192.168.0.1 # 使用ssh config配置连接 mosh locale_centos7 ssh config配置可以参考这里
-或者这里...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>May 17, 2019</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/mosh%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%BD%BF%E7%94%A8/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

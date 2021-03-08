@@ -79,6 +79,18 @@
 </header>
 <article class="post-entry">
   <header class="entry-header">
+    <h2>TestNG超时测试</h2>
+  </header>
+  <section class="entry-content">
+   <p>TestNG超时测试 超出预期时间则用例失败 package com.actiger.test.timeout; import org.testng.annotations.Test; public class TimeOut { @Test(timeOut = 3000) public void testSuccess() throws InterruptedException{ Thread.sleep(2000); } @Test(timeOut = 2000) public void testFail() throws InterruptedException{ Thread.sleep(3000); } } ...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>June 16, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/test/testng%E8%B6%85%E6%97%B6%E6%B5%8B%E8%AF%95/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>TestNG多线程配置</h2>
   </header>
   <section class="entry-content">
@@ -186,18 +198,6 @@
     <time>May 27, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/blog/docker/kubernetes%E5%A4%AA%E9%9A%BE%E4%BA%86/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>Centos7.0使用SSHKEY拉取github代码失败</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. 报错信息与正确信息对比. 今天使用SSH key拉取github代码又失败了, 为什么是又😂. 上次端口错误 贴出报错信息  # 出错主机日志 ssh -vT git@github.com OpenSSH_6.5 Server accepts key: pkalg ssh-rsa blen 279 debug1: key_parse_private_pem: PEM_read_PrivateKey failed debug1: read PEM private key done: type &lt;unknown&gt; Enter passphrase for key &#39;/root/.ssh/git_cron&#39;: 本机正确的日志 ssh -vT git@github.com OpenSSH_7.9p1, LibreSSL 2.7.3 debug1: Reading configuration data /Users/csx/.ssh/config debug1: /Users/csx/.ssh/config line 4: Applying options for githu debug1: Authentications that can continue: publickey debug1: Next authentication method: publickey debug1: Offering public key: /Users/csx/....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>May 23, 2019</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/centos7.0%E4%BD%BF%E7%94%A8sshkey%E6%8B%89%E5%8F%96github%E4%BB%A3%E7%A0%81%E5%A4%B1%E8%B4%A5/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

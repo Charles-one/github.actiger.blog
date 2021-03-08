@@ -79,6 +79,18 @@
 </header>
 <article class="post-entry">
   <header class="entry-header">
+    <h2>申诉很多次无法拿回ins账号</h2>
+  </header>
+  <section class="entry-content">
+   <p>申请多次无法拿回封禁账户 不过还是不会用提交照片方式拿回, 就样 有点可以不明白, 判定违反社区规则, 却不列出哪一项, 上传入狱照就能证明无罪??? 这什么鬼逻辑, 奇特. 算了, 重新注册一个 ...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>March 8, 2021</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/thought/%E7%94%B3%E8%AF%89%E5%BE%88%E5%A4%9A%E6%AC%A1%E6%97%A0%E6%B3%95%E6%8B%BF%E5%9B%9Eins%E8%B4%A6%E5%8F%B7/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>IP被禁了</h2>
   </header>
   <section class="entry-content">
@@ -207,18 +219,6 @@ vim .zshrc  alias up=&#34;rsync -rut --exclude &#39;.DS_Store&#39;&#34; uponesto
     <time>September 12, 2020</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/rsync%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6%E6%88%96%E5%9B%BE%E7%89%87%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>Kubernetes下nginx静态图床</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. 为什么需要图床 1. 自己的搭建的图床地址不会更改, 长期可用, 服务保证, 第3方服务, 随时因为各种异常封禁的. 2. Hugo写markdown过程中需要使用图片. 使用Hugo相对地址比较麻烦. 3. 七牛,又拍云之类需要备案和认证, 时间和精力成本比较高. 4. 而且自己搭建后, 凡是可使用markdown的地方都可使用, 富文本也可用, 公众号之类文章也可以使用, 综上图床必须的. 2. 图床原理, 需要搭建什么的图床. 1. 原理的话  就是服务器上的一个一个图片文件, 通过nginx apeache类服务器访问这些图片.  2. 搭建什么的图床.  Chevereto &#43; nginx可网页上传, 稍微有点难度, 有需求再上. Nginx 这个目前觉得最简单, 就用这个了.  3. 在Kubernetes下nginx pod创建图床. 1. vim nginx-deployment.yaml, 使用到pvc, 命名空间命名的是nginx-space apiVersion: apps/v1 kind: Deployment metadata: name: my-nginx namespace: nginx-space spec: replicas: 1 selector: matchLabels: app: my-nginx template: metadata: namespace: nginx-space labels: app: my-nginx spec: containers: - name: my-nginx image: nginx:1....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>September 11, 2020</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/kubernetes%E4%B8%8Bnginx%E9%9D%99%E6%80%81%E5%9B%BE%E5%BA%8A/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
