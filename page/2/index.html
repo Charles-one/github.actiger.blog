@@ -81,18 +81,6 @@
 
 <article class="post-entry">
   <header class="entry-header">
-    <h2>Kubernetes下nginx静态图床</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. 为什么需要图床 1. 自己的搭建的图床地址不会更改, 长期可用, 服务保证, 第3方服务, 随时因为各种异常封禁的. 2. Hugo写markdown过程中需要使用图片. 使用Hugo相对地址比较麻烦. 3. 七牛,又拍云之类需要备案和认证, 时间和精力成本比较高. 4. 而且自己搭建后, 凡是可使用markdown的地方都可使用, 富文本也可用, 公众号之类文章也可以使用, 综上图床必须的. 2. 图床原理, 需要搭建什么的图床. 1. 原理的话  就是服务器上的一个一个图片文件, 通过nginx apeache类服务器访问这些图片.  2. 搭建什么的图床.  Chevereto &#43; nginx可网页上传, 稍微有点难度, 有需求再上. Nginx 这个目前觉得最简单, 就用这个了.  3. 在Kubernetes下nginx pod创建图床. 1. vim nginx-deployment.yaml, 使用到pvc, 命名空间命名的是nginx-space apiVersion: apps/v1 kind: Deployment metadata: name: my-nginx namespace: nginx-space spec: replicas: 1 selector: matchLabels: app: my-nginx template: metadata: namespace: nginx-space labels: app: my-nginx spec: containers: - name: my-nginx image: nginx:1....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>September 11, 2020</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/linux/kubernetes%E4%B8%8Bnginx%E9%9D%99%E6%80%81%E5%9B%BE%E5%BA%8A/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
     <h2>往哪走</h2>
   </header>
   <section class="entry-content">
@@ -211,6 +199,18 @@
     <time>April 9, 2020</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-8/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>C程序设计语言练习1-7</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. 要求: 编写一个打印EOF值的程序 2. 分析 1. 查询得到EOF的值是-1, 帮用%d即可打印出来 3. 代码 #include&lt;stdio.h&gt; int main(){ printf(&#34;EOF is %d\n&#34;, EOF); return 0; } ...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>April 9, 2020</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/c/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%BB%83%E4%B9%A01-7/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
