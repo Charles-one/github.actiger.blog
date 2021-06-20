@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <title>重现sudo漏洞 - AcTiger跳跳虎</title>
+    <title>重现sudo漏洞 - AcTiger 跳跳虎</title>
     
     <meta name="description" content="1. 首先创建onetiger用户, 然后在/etc/sudoers中添加onetiger用户的sudo命令, 即/etc/sudoers中添加下面代码(root身份) onetiger ALL=/bin/vim 2. 登录onetiger用户 3. 以onetiger用户执行下面命令, 以用户id -1或4294967295运行后, 再0(用户id是0是root)用户运行命令成功. sudo -u#-1 vim /etc/sudoers sudo -u#0 vim /etc/sudoers 4. 解决办法. 4.1 CVE-2019-14287 漏洞影响 1.8.28 之前的 Sudo 版本, 将 sudo 软件包更新为最新版本. 4.2 禁用非root用户的sudo权限. ">
     <meta name="author" content="">
@@ -16,7 +16,7 @@
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
     <meta name="generator" content="Hugo 0.84.0" />
     
-    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="AcTiger跳跳虎">
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="AcTiger 跳跳虎">
     
     
     <script>
@@ -71,8 +71,14 @@
         <div class="div_center">
             <a >&nbsp&nbsp&nbsp&nbsp&nbsp</a>
             <a href="https://charles-one.github.io/actiger/"><img src="https://actiger.com/favicon.ico" width="32px" height="32px" alt="favicon" /></a>
-            <p class="logo"><a href="https://charles-one.github.io/actiger/">AcTiger跳跳虎</a></p>
+            <p class="logo"><a href="https://charles-one.github.io/actiger/">AcTiger 跳跳虎</a></p>
         </div>
+        <ul class="menu">
+          <li>
+              <a href="https://charles-one.github.io/actiger/about">关于我</a>
+          </li>
+        </ul>
+        
       </nav>
     </header>
     <main class="main">

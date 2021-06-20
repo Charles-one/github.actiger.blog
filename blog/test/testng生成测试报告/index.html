@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <title>TestNG生成测试报告 - AcTiger跳跳虎</title>
+    <title>TestNG生成测试报告 - AcTiger 跳跳虎</title>
     
     <meta name="description" content="1. 使用的extentreports生成的测试报告, 报告中使用的css文件需要上强(墙) &lt;dependency&gt; &lt;groupId&gt;com.aventstack&lt;/groupId&gt; &lt;artifactId&gt;extentreports&lt;/artifactId&gt; &lt;version&gt;4.0.9&lt;/version&gt; &lt;/dependency&gt; 测试方法 package com.actiger.reports; import org.testng.Assert; import org.testng.Reporter; import org.testng.annotations.Test; public class TestReport { @Test public void test1(){ Assert.assertEquals(1,2); } @Test public void test2(){ Assert.assertEquals(1,1); } @Test public void test3(){ Assert.assertEquals(3,3); } @Test public void log1(){ Reporter.log(&quot;这是日志&quot;); throw new RuntimeException(&quot;这是一个异常&quot;); } } 配置的xml &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt; &lt;suite name=&quot;mytest&quot;&gt; &lt;test name=&quot;test&quot;&gt; &lt;classes&gt; &lt;class name=&quot;com.actiger.reports.TestReport&quot;&gt; &lt;method&gt; &lt;include name=&quot;test1&quot;&gt;&lt;/include&gt; &lt;include name=&quot;test2&quot;&gt;&lt;/include&gt; &lt;include name=&quot;test3&quot;&gt;&lt;/include&gt; &lt;include name=&quot;log1&quot;&gt;&lt;/include&gt; &lt;/method&gt; &lt;/class&gt; &lt;/classes&gt; &lt;/test&gt; &lt;listeners&gt; &lt;listener class-name=&quot;com.">
     <meta name="author" content="">
@@ -16,7 +16,7 @@
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
     <meta name="generator" content="Hugo 0.84.0" />
     
-    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="AcTiger跳跳虎">
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="AcTiger 跳跳虎">
     
     
     <script>
@@ -71,8 +71,14 @@
         <div class="div_center">
             <a >&nbsp&nbsp&nbsp&nbsp&nbsp</a>
             <a href="https://charles-one.github.io/actiger/"><img src="https://actiger.com/favicon.ico" width="32px" height="32px" alt="favicon" /></a>
-            <p class="logo"><a href="https://charles-one.github.io/actiger/">AcTiger跳跳虎</a></p>
+            <p class="logo"><a href="https://charles-one.github.io/actiger/">AcTiger 跳跳虎</a></p>
         </div>
+        <ul class="menu">
+          <li>
+              <a href="https://charles-one.github.io/actiger/about">关于我</a>
+          </li>
+        </ul>
+        
       </nav>
     </header>
     <main class="main">

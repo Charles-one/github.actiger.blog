@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <title>安装MariaDB和设置utf-8mb4字符集 - AcTiger跳跳虎</title>
+    <title>安装MariaDB和设置utf-8mb4字符集 - AcTiger 跳跳虎</title>
     
     <meta name="description" content="0. 不用k8s了, 要直接安装MariaDB, 并设置真正的utf-8, MariaDB的utf-8只有3个字节, 不是真正的utf-8, utf-8mb4才是. 1. 安装MariaDB. 二种方式, 使用默认源和自建官方源. 1. 使用默认源 yum -y install mariadb-server mariadb-client  安装后执行, mysql_secure_installation是初始化  systemctl enable mariadb systemctl start mariadb mysql_secure_installation 2. 使用自建官方源, 可安装MariaDB 10.5稳定版. 官方文档地址  vim /etc/yum.repos.d/MariaDB.repo  # MariaDB 10.5 CentOS repository list - created 2021-01-14 03:58 UTC # http://downloads.mariadb.org/mariadb/repositories/ [mariadb] name = MariaDB baseurl = http://yum.mariadb.org/10.5/centos7-amd64 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB gpgcheck=1  再执行安装命令即可  yum install -y mariadb-server mariadb-client  安装后执行, mysql_secure_installation是初始化.">
     <meta name="author" content="">
@@ -16,7 +16,7 @@
     <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
     <meta name="generator" content="Hugo 0.84.0" />
     
-    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="AcTiger跳跳虎">
+    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="AcTiger 跳跳虎">
     
     
     <script>
@@ -71,8 +71,14 @@
         <div class="div_center">
             <a >&nbsp&nbsp&nbsp&nbsp&nbsp</a>
             <a href="https://charles-one.github.io/actiger/"><img src="https://actiger.com/favicon.ico" width="32px" height="32px" alt="favicon" /></a>
-            <p class="logo"><a href="https://charles-one.github.io/actiger/">AcTiger跳跳虎</a></p>
+            <p class="logo"><a href="https://charles-one.github.io/actiger/">AcTiger 跳跳虎</a></p>
         </div>
+        <ul class="menu">
+          <li>
+              <a href="https://charles-one.github.io/actiger/about">关于我</a>
+          </li>
+        </ul>
+        
       </nav>
     </header>
     <main class="main">

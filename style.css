@@ -178,7 +178,7 @@ img {
   margin-right: var(--gap);
 }
 .logo a {
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 700;
   color: rgba(79, 158, 158, 0.97);
 }
@@ -192,7 +192,11 @@ img {
   margin-left: var(--gap);
 }
 .menu a {
-  font-size: 16px;
+  /*font-size: 16px;*/
+  font-size: 24px;
+  font-weight: 500;
+  color: rgba(79, 158, 158, 0.97);
+  /*color: rgba(0, 0, 0, 0.97);*/
 }
 /* Main
 -------------------------------------------------- */
@@ -214,11 +218,13 @@ img {
   display: flex;
 }
 .pagination a {
-  color: var(--theme);
-  font-size: 13px;
+  /*color: var(--theme);*/
+  color: rgba(0,0,0,1);
+  font-size: 14px;
   line-height: 36px;
   /*background: var(--primary);*/
-  background:   #3b73ab;
+  /*background:   #3b73ab;*/
+  background:     rgba(240, 240, 240, 0.97);
   border-radius: calc(36px / 2);
 }
 .pagination .prev {
