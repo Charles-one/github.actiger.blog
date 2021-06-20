@@ -194,9 +194,9 @@ img {
 .menu a {
   /*font-size: 16px;*/
   font-size: 24px;
-  font-weight: 500;
-  color: rgba(79, 158, 158, 0.97);
-  /*color: rgba(0, 0, 0, 0.97);*/
+  font-weight: 450;
+  /*color: rgba(79, 158, 158, 0.97);*/
+  color: rgba(0, 0, 0, 0.70);
 }
 /* Main
 -------------------------------------------------- */
