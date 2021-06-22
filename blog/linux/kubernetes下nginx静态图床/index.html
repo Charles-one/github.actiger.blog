@@ -10,13 +10,13 @@
     <meta name="description" content="1. 为什么需要图床 1. 自己的搭建的图床地址不会更改, 长期可用, 服务保证, 第3方服务, 随时因为各种异常封禁的. 2. Hugo写markdown过程中需要使用图片. 使用Hugo相对地址比较麻烦. 3. 七牛,又拍云之类需要备案和认证, 时间和精力成本比较高. 4. 而且自己搭建后, 凡是可使用markdown的地方都可使用, 富文本也可用, 公众号之类文章也可以使用, 综上图床必须的. 2. 图床原理, 需要搭建什么的图床. 1. 原理的话  就是服务器上的一个一个图片文件, 通过nginx apeache类服务器访问这些图片.  2. 搭建什么的图床.  Chevereto &#43; nginx可网页上传, 稍微有点难度, 有需求再上. Nginx 这个目前觉得最简单, 就用这个了.  3. 在Kubernetes下nginx pod创建图床. 1. vim nginx-deployment.yaml, 使用到pvc, 命名空间命名的是nginx-space apiVersion: apps/v1 kind: Deployment metadata: name: my-nginx namespace: nginx-space spec: replicas: 1 selector: matchLabels: app: my-nginx template: metadata: namespace: nginx-space labels: app: my-nginx spec: containers: - name: my-nginx image: nginx:1.">
     <meta name="author" content="">
     
-    <link href="https://charles-one.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
-    <link href="https://charles-one.github.io/actiger/style.css" rel="stylesheet">
+    <link href="https://leezicai.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://leezicai.github.io/actiger/style.css" rel="stylesheet">
     
-    <link rel="icon" href="https://charles-one.github.io/actiger/favicon.ico">
+    <link rel="icon" href="https://leezicai.github.io/actiger/favicon.ico">
     <meta name="generator" content="Hugo 0.84.0" />
     
-    <link rel="alternate" type="application/atom+xml" href="https://charles-one.github.io/actiger/index.xml" title="AcTiger 跳跳虎">
+    <link rel="alternate" type="application/atom+xml" href="https://leezicai.github.io/actiger/index.xml" title="AcTiger 跳跳虎">
     
     
     <script>
@@ -70,12 +70,12 @@
       <nav class="nav">
         <div class="div_center">
             <a >&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-            <a href="https://charles-one.github.io/actiger/"><img src="https://actiger.com/favicon.ico" width="32px" height="32px" alt="favicon" /></a>
-            <p class="logo"><a href="https://charles-one.github.io/actiger/">AcTiger 跳跳虎</a></p>
+            <a href="https://leezicai.github.io/actiger/"><img src="https://actiger.com/favicon.ico" width="32px" height="32px" alt="favicon" /></a>
+            <p class="logo"><a href="https://leezicai.github.io/actiger/">AcTiger 跳跳虎</a></p>
         </div>
         <ul class="menu">
           <li>
-              <a href="https://charles-one.github.io/actiger/about">关于我</a>
+              <a href="https://leezicai.github.io/actiger/about">关于我</a>
           </li>
         </ul>
         
@@ -257,7 +257,7 @@ spec:
 
 <div class="div_center">
 <div class="div_footer">
-    <a href="https://charles-one.github.io/actiger/">AcTiger</a>
+    <a href="https://leezicai.github.io/actiger/">AcTiger</a>
 </div>
 <div class="div_footer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
@@ -289,7 +289,7 @@ spec:
 <footer class="footer_base">
 </footer>
 
-<script src="https://charles-one.github.io/actiger/highlight.min.js"></script>
+<script src="https://leezicai.github.io/actiger/highlight.min.js"></script>
 <script>
   hljs.initHighlightingOnLoad();
 </script>
