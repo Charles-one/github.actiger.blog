@@ -88,30 +88,6 @@
 </header>
 <article class="post-entry">
   <header class="entry-header">
-    <h2>解决mac文件损坏不能打开问题</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. mac下载后安装的文件提示文件损坏, 需要换到垃圾桶中. 2. 解决方法, 打开终端terminal # 切换到管理员, su后输入管理员root密码 su # xxx就是你安装的程序 xattr -d com.apple.quarantine /Applications/xxxx.app # 退出管理员root exit 3. 重新去打开安装的程序 ...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>November 28, 2019</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/mac/%E8%A7%A3%E5%86%B3mac%E6%96%87%E4%BB%B6%E6%8D%9F%E5%9D%8F%E4%B8%8D%E8%83%BD%E6%89%93%E5%BC%80%E9%97%AE%E9%A2%98/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>解决NodePod模式外网无法访问mysql服务问题</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. 创建NodePod的mysql或MariaDB服务, 请参考Kubernetes Mariadb Mysql安装. 2. 安装完成使用ip:30016 用户 密码连接失败, 使用over ssh方式却可以连接成功. 排查问题  查看防火墙端口打开30016端口   firewall-cmd --list-ports # 没有则添加 firewall-cmd --zone=public --add-port=30016/tcp --permanent firewall-cmd --reload 关闭防火墙, 为啥关闭以后再开一篇解释  systemctl stop firewalld 查询iptables规则,  iptables -L -n # iptables 被kubernetes接管后的规则比较多，仔细看下FORWARD规则发现， # policy DROP状态， # 这就导致了我们直接访问node节点的IP加上端口会无法访问容器. # 临时生效 iptables -P FORWARD ACCEPT 永久生效  vim /usr/lib/systemd/system/docker.service # 在[Service]下增加一条规则 ............ ExecStartPost=/sbin/iptables -I FORWARD -s 0.0.0.0/0 -j ACCEPT # 重启docker生效 systemctl daemon-reload systemctl restart docker 重新使用刚才mysql或mariadb连接测试....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>November 28, 2019</time>
-  </footer>
-  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/docker/%E8%A7%A3%E5%86%B3nodepod%E6%A8%A1%E5%BC%8F%E5%A4%96%E7%BD%91%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AEmysql%E6%9C%8D%E5%8A%A1%E9%97%AE%E9%A2%98/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
     <h2>Centos8网络设置</h2>
   </header>
   <section class="entry-content">
@@ -225,6 +201,30 @@ describe usrinfo;
     <time>June 16, 2019</time>
   </footer>
   <a class="entry-link" href="https://charles-one.github.io/actiger/blog/test/testng%E8%B6%85%E6%97%B6%E6%B5%8B%E8%AF%95/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>TestNG多线程配置</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. 在方法注释中配置多线程, 配置线程池  package com.actiger.test.thread; import org.testng.annotations.Test; public class MultiThread { @Test(invocationCount = 10, threadPoolSize = 3) public void test(){ System.out.println(&#34;1&#34;); System.out.println(&#34;Thread ID:%s%n&#34; &#43; Thread.currentThread().getId()); } } 2. 在xml中配置多线程, 不可配置为线程池. package com.actiger.test.thread; import org.testng.annotations.Test; public class MultiThreadOnXml { @Test public void test1(){ System.out.println(&#34;Thread ID: &#34; &#43; Thread.currentThread().getId()); } @Test public void test2(){ System.out.println(&#34;Thread ID: &#34; &#43; Thread.currentThread().getId()); } @Test public void test3(){ System.out.println(&#34;Thread ID: &#34; &#43; Thread.currentThread().getId()); } } multiThread....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>June 16, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/test/testng%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%85%8D%E7%BD%AE/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>TestNG参数化测试</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. 参数化测试, 使用DataProvider来参数化. @Test中dataProvider的名字与@DataProvider名称一致  @Test(dataProvider = &#34;data&#34;) public void dataProvider(String name, int age){ System.out.println(&#34;Name:&#34; &#43; name &#43; &#34;, &#34; &#43; &#34;Age:&#34; &#43; age); } @DataProvider(name = &#34;data&#34;) public Object[][] data(){ Object[][] oo = new Object[][]{ {&#34;zhangsan&#34;, 18}, {&#34;lisi&#34;, 20}, {&#34;wangwu&#34;, 30} }; return oo; } 2. 针对不方法识别, 使用不同参数  @Test(dataProvider = &#34;testMethod&#34;) public void method1(String name, int age){ System.out.println(&#34;Name:&#34; &#43; name &#43; &#34;, &#34; &#43; &#34;Age:&#34; &#43; age &#43; &#34;1111&#34;); } @Test(dataProvider = &#34;testMethod&#34;) public void method2(String name, int age){ System....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>June 15, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://charles-one.github.io/actiger/blog/test/testng%E5%8F%82%E6%95%B0%E5%8C%96%E6%B5%8B%E8%AF%95/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
