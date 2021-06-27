@@ -14,7 +14,7 @@
     <link href="https://leezicai.github.io/actiger/style.css" rel="stylesheet">
     
     <link rel="icon" href="https://leezicai.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.84.0" />
+    <meta name="generator" content="Hugo 0.84.1" />
     
     <link rel="alternate" type="application/atom+xml" href="https://leezicai.github.io/actiger/index.xml" title="AcTiger 跳跳虎">
     
@@ -84,6 +84,26 @@
     </header>
     <main class="main">
 
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>安装jenkins和插件</h2>
+  </header>
+  <section class="entry-content">
+   <p>0.安装Jenkins, 需要提前安装JDK 1.8 安装JDK参考
+1.安装Jnekins  尽量翻墙执行,否则容易报443错误  sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key yum search jenkins sudo yum install jenkins 2. 启动服务与添加防火墙端口  启动jenkins  systemctl start jenkins 如果这里有报错信息,并且提示 “systemctl status jenkins.service” and “journalctl -xe” for details 查看详情
+journalctl -xe可以看到原因/usr/bin/java: 没有那个文件或目录
+需要更改vim /etc/init.d/jenkins
+candidates=&#34; /etc/alternatives/java /usr/lib/jvm/java-1.8.0/bin/java /usr/lib/jvm/jre-1.8.0/bin/java /usr/lib/jvm/java-1.7.0/bin/java /usr/lib/jvm/jre-1.7.0/bin/java /usr/java/jdk1.8.0_152/bin/java 这个是修改后的jdk路径（修改前是/usr/bin/java） &#34; systemctl daemon-reload (重新加载工具)
+systemctl start jenkins (再次启动jenkins)
+ 检查是否能访问成功  jenkins 使用的8080端口
+访问http://&lt;服务器ip&gt;/8080
+访问失败, 检查端口是否存在...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>March 13, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://leezicai.github.io/actiger/blog/linux/%E5%AE%89%E8%A3%85jenkins%E5%92%8C%E6%8F%92%E4%BB%B6/"></a>
+</article>
 <article class="post-entry">
   <header class="entry-header">
     <h2>安装docker Ce和使用docker安装nginx</h2>
