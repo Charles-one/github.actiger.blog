@@ -86,18 +86,6 @@
 
 <article class="post-entry">
   <header class="entry-header">
-    <h2>Linux.Mac三宝剑ag fasd fzf</h2>
-  </header>
-  <section class="entry-content">
-   <p>1.简介与安装 1. 简介ag是比grep更好的搜索软件, 提供高亮显示. Fasd时空机, 去过的地址都直接跳过去, 再也不用cd来cd去了. Fzf更强大的搜索文件. 2. 安装ag, Fasd Fzf # mac brew install the_silver_searcher fzf fasd # 还需要把 eval &#34;$(fasd --init auto)&#34; 放到.bashrc或者.zshrc中 # 重新生效source .bashrc或者source .zshrc # linux git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf ~/.fzf/install yum install the_silver_searcher yum install fasd 2. 使用. 1. 最有命令说明, 需要配置2中配置才可以使用.(bat是与cat类似,有语法高亮) # tab键补全, 最近打开最多带有a名字的匹配文件, 在任何目录中你都可以直接编辑你的相要的文件 v a # 在任意目录下都可以这样使用, cat与ag联用, 匹配a文件, 并搜索aaa caf a | ag &#34;aaa&#34; # 跳转, 配置最近最多a文件夹名, tab补全所有匹配的a的文件 j a # 预览当前目录下的文件 ffp 2....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>May 19, 2019</time>
-  </footer>
-  <a class="entry-link" href="https://leezicai.github.io/actiger/blog/linux/linux.mac%E4%B8%89%E5%AE%9D%E5%89%91ag-fasd-fzf/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
     <h2>介绍spf13插件使用和我的vim配置</h2>
   </header>
   <section class="entry-content">
@@ -215,6 +203,19 @@ brew install mosh Windows: 参考
     <time>May 16, 2019</time>
   </footer>
   <a class="entry-link" href="https://leezicai.github.io/actiger/blog/linux/centos7%E6%9B%B4%E6%96%B0%E5%86%85%E6%A0%B8%E7%BF%BB%E8%BD%A6%E4%B9%8B%E6%97%85/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>docker-compose简单使用</h2>
+  </header>
+  <section class="entry-content">
+   <p>目录 1. docker-compose简介 2. docker-compose.yml简单配置说明 3. docker-compose运行 1. docker-compose简介与安装  简介   docker-compose是编排docker容器的, 就是管理这一批容器, 进行批量配置, 起动, 暂停, 删除容器等. 如果有多个容器, 使用docker一个个启动慢, 如果容器间有依赖, 还需要手动指定, 还有环境变量, 可以 一起设置.
+ 使用下面命令安装docker-compose和docker. 或使用  yum remove docker \ docker-common \ docker-selinux \ docker-engine yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo yum -y install docker-ce systemctl enable docker systemctl start docker curl -L &#34;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)&#34; -o /usr/local/bin/docker-compose chmod &#43;x /usr/local/bin/docker-compose 2....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>May 15, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://leezicai.github.io/actiger/blog/linux/docker-compose%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
