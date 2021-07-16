@@ -699,7 +699,7 @@ Jmeter插件管理
   linux下源码安装
    下载并编译  mkdir ~/src cd ~/src git clone https://github.com/gohugoio/hugo.git cd hugo go install 添加环境变量  # 当前用户~/go文件绝对路径是GOPATH,Go编译后的文件在~/go/bin中 # 如现在当前用户是jenkins vim /etc/profile 添加 export export GOPATH=/var/lib/jenkins/go export PATH=${PATH}:$GOPATH/bin 重新生效/etc/profile文件
 source /etc/profile
-再次hugo vimersion
+再次hugo version
 就会显示hugo版本, 表示可用
 2. 使用Hugo创建个人网站  创建静态网站文件夹  cd ~ hugo new site actiger  写第一篇markdown文章, markdown语法参考  cd ~/actiger 在目录~/actiger下执行hugo new about.</description>
     </item>
