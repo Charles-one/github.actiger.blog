@@ -24,7 +24,7 @@ describe usrinfo;
     <link href="https://leezicai.github.io/actiger/style.css" rel="stylesheet">
     
     <link rel="icon" href="https://leezicai.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.85.0" />
+    <meta name="generator" content="Hugo 0.86.1" />
     
     <link rel="alternate" type="application/atom+xml" href="https://leezicai.github.io/actiger/index.xml" title="AcTiger 跳跳虎">
     
@@ -359,7 +359,7 @@ select productName, unitPrice*(unitInstock+COALESCE(unitOrder,0)) from products;
 c on o.customerID = c.customerID
 set o.orderDate=&quot;1990-09-08&quot;;
 </code></pre><h5 id="36-date日期查询特定year-month-day的人">36 date日期查询特定year month day的人</h5>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> student <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">year</span>(birthday)<span style="color:#f92672">=</span><span style="color:#ae81ff">1990</span> <span style="color:#66d9ef">and</span> <span style="color:#66d9ef">month</span>(birthday)<span style="color:#f92672">=</span><span style="color:#ae81ff">02</span> <span style="color:#66d9ef">and</span> <span style="color:#66d9ef">day</span>(birthday)<span style="color:#f92672">=</span><span style="color:#ae81ff">13</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> student <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">year</span>(birthday)<span style="color:#f92672">=</span><span style="color:#ae81ff">1990</span> <span style="color:#66d9ef">and</span> <span style="color:#66d9ef">month</span>(birthday)<span style="color:#f92672">=</span><span style="color:#ae81ff">02</span> <span style="color:#66d9ef">and</span> <span style="color:#66d9ef">day</span>(birthday)<span style="color:#f92672">=</span><span style="color:#ae81ff">13</span>;
 </code></pre></div></div>
   
 </article></main>

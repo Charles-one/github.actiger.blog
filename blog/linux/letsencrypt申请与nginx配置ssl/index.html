@@ -14,7 +14,7 @@
     <link href="https://leezicai.github.io/actiger/style.css" rel="stylesheet">
     
     <link rel="icon" href="https://leezicai.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.85.0" />
+    <meta name="generator" content="Hugo 0.86.1" />
     
     <link rel="alternate" type="application/atom+xml" href="https://leezicai.github.io/actiger/index.xml" title="AcTiger 跳跳虎">
     
@@ -127,7 +127,7 @@ dig TXT _acme-challenge.actiger.com
 <p><img src="https://img.actiger.com/blog/tech/success.png" alt="img"></p>
 <h3 id="3-拉取docker-compose文件-运行">3. 拉取docker-compose文件, 运行.</h3>
 <h4 id="1-注意修改内容-非常重要">1. 注意修改内容, 非常重要.</h4>
-<h5 id="docker-composeyml-中-wwwactigercom需要更改为自己的">docker-compose.yml 中 <a href="http://www.actiger.com">www.actiger.com</a>需要更改为自己的.</h5>
+<h5 id="docker-composeyml-中-wwwactigercom需要更改为自己的">docker-compose.yml 中 需要更改为自己的.</h5>
 <h5 id="etcnginxconfddefaultconf-中wwwactigercom-ssl_certificate-ssl_certificate_key需要更改为自己的">etc/nginx/conf.d/default.conf 中www.actiger.com, ssl_certificate, ssl_certificate_key需要更改为自己的.</h5>
 <h4 id="2-拉取运行-hugo文件也拉取到nginx-https-hugoblog文件夹中">2. 拉取运行, hugo文件也拉取到nginx-https-hugoBlog文件夹中.</h4>
 <pre><code># 拉取docker-compose文件
@@ -167,7 +167,7 @@ server{
     *
     *
     *
-</code></pre><h3 id="4-测试访问-a-hrefhttpwwwactigercom-target_blankhttpwwwactigercoma">4. 测试访问 <a href="http://www.actiger.com" target="_blank"><a href="http://www.actiger.com">http://www.actiger.com</a></a></h3>
+</code></pre><h3 id="4-测试访问-a-hrefhttpwwwactigercom-target_blankhttpwwwactigercoma">4. 测试访问 <a href="http://www.actiger.com" target="_blank"></a></h3>
 <h4 id="这里错乱的">这里错乱的</h4>
 <h4 id="需要hugo使用新baseurl生成博客目录-原来的httpwwwactigercom更改为httpswwwactigercom">需要hugo使用新baseurl生成博客目录, 原来的http://www.actiger.com/更改为https://www.actiger.com/</h4>
 <pre><code>hugo --theme=hugo-paper --baseUrl=&quot;https://actiger.com/&quot; --destination=&quot;www.actiger.com&quot;
@@ -176,7 +176,7 @@ server{
 <pre><code>cd ~/nginx-https-hugoBlog/www.actiger.com/
 
 git pull
-</code></pre><h4 id="重新访问-a-hrefhttpswwwactigercom-target_blankhttpswwwactigercoma">重新访问 <a href="https://www.actiger.com" target="_blank"><a href="https://www.actiger.com">https://www.actiger.com</a></a></h4>
+</code></pre><h4 id="重新访问-a-hrefhttpswwwactigercom-target_blankhttpswwwactigercoma">重新访问 <a href="https://www.actiger.com" target="_blank"></a></h4>
 </div>
   
 </article></main>
