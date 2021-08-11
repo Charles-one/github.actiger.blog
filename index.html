@@ -86,6 +86,20 @@
 
 <article class="first-entry">
   <header class="entry-header">
+    <h2>Java</h2>
+  </header>
+  <section class="entry-content">
+   <p>Scanner   hasNext() 表示判断下一个输入项是否是字符串, hasNextInt() 表示判断下一个输入项是否是int, 否则返回false
+  next()获取输入项的字符串, nextInt 获取项输入的int
+  import java.util.Scanner; public class Demo1_Scanner { public static void main(String[] args) { Scanner scanner = new Scanner(System.in); if( scanner.hasNextInt()) { int p = scanner.nextInt(); System.out.println(p); } else { System.out.println(&#34;输入内容不是int 数字&#34;); } scanner.close(); } } 输入1个整数, 1个数字串, 输出数字和字符串, 错误示例 import java.util.Scanner; public class Demo2_Scanner { public static void main(String[] args) { // 输入1个整数, 1个字符串的 错误示例 Scanner sc = new Scanner(System....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>August 11, 2021</time>
+  </footer>
+  <a class="entry-link" href="https://leezicai.github.io/actiger/blog/java/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>Readme</h2>
   </header>
   <section class="entry-content">
@@ -206,18 +220,6 @@ vim .zshrc  alias up=&#34;rsync -rut --exclude &#39;.DS_Store&#39;&#34; uponesto
     <time>September 12, 2020</time>
   </footer>
   <a class="entry-link" href="https://leezicai.github.io/actiger/blog/linux/rsync%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6%E6%88%96%E5%9B%BE%E7%89%87%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>Kubernetes下nginx静态图床</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. 为什么需要图床 1. 自己的搭建的图床地址不会更改, 长期可用, 服务保证, 第3方服务, 随时因为各种异常封禁的. 2. Hugo写markdown过程中需要使用图片. 使用Hugo相对地址比较麻烦. 3. 七牛,又拍云之类需要备案和认证, 时间和精力成本比较高. 4. 而且自己搭建后, 凡是可使用markdown的地方都可使用, 富文本也可用, 公众号之类文章也可以使用, 综上图床必须的. 2. 图床原理, 需要搭建什么的图床. 1. 原理的话  就是服务器上的一个一个图片文件, 通过nginx apeache类服务器访问这些图片.  2. 搭建什么的图床.  Chevereto &#43; nginx可网页上传, 稍微有点难度, 有需求再上. Nginx 这个目前觉得最简单, 就用这个了.  3. 在Kubernetes下nginx pod创建图床. 1. vim nginx-deployment.yaml, 使用到pvc, 命名空间命名的是nginx-space apiVersion: apps/v1 kind: Deployment metadata: name: my-nginx namespace: nginx-space spec: replicas: 1 selector: matchLabels: app: my-nginx template: metadata: namespace: nginx-space labels: app: my-nginx spec: containers: - name: my-nginx image: nginx:1....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>September 11, 2020</time>
-  </footer>
-  <a class="entry-link" href="https://leezicai.github.io/actiger/blog/linux/kubernetes%E4%B8%8Bnginx%E9%9D%99%E6%80%81%E5%9B%BE%E5%BA%8A/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

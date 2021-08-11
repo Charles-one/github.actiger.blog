@@ -86,6 +86,21 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>Mosh简介,安装与使用</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. Mosh简介, 及为什么要使用Mosh 1. Mosh全称Mobile Shell, 移动远程终端应用程序. 与ssh类似, 却有很多新功能, 可以漫游, 支持间歇性连接, 这对网络延迟高或者移动使用更换IP非常友好, 2. 我的服务器是VPS, 在使用SSH过程中, 经常会中断, 频繁重新连接, 还要kill掉之前的终端. Mosh的用法与SSH一致, 无缝切换. 2. Mosh 安装. 需要服务器端和客户端都安装软件. 服务端安装脚本 1. 服务器端安装mosh, 并开启防火墙udp端口 yum -y install epel-release yum -y install mosh firewall-cmd --zone=public --permanent --add-port=60000-61000/udp firewall-cmd --reload 2. 本地安装 Mac:
+brew install mosh Windows: 参考
+3. Mosh使用. 使用规则与ssh一致. # 帮助 mosh -h # 连接 mosh root@192.168.0.1 # 使用ssh config配置连接 mosh locale_centos7 ssh config配置可以参考这里
+或者这里...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>May 17, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://leezicai.github.io/actiger/blog/linux/mosh%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%BD%BF%E7%94%A8/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>Centos7更新内核翻车之旅</h2>
   </header>
   <section class="entry-content">
@@ -217,26 +232,6 @@ source /etc/profile
     <time>March 13, 2019</time>
   </footer>
   <a class="entry-link" href="https://leezicai.github.io/actiger/blog/linux/%E4%BD%BF%E7%94%A8hugo%E5%92%8Cgithub-pages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>使用jenkins构建指定版本的Github项目Hugo</h2>
-  </header>
-  <section class="entry-content">
-   <p>0. 前提条件, 会使用到jenkins, go语言编译hugo   安装jenkinx&lt;/&gt;
-  Linux安装go并设置环境变量
-  1. 创建一个jenkins任务  创建一个Jenkins任务    输入Enter an item name, 这里名字是basic_hugo
-  选择Github组织
-  再选择最左下&#34;OK&#34;按钮, 创建
-  2. 编辑已创建的basic_hugo任务  进入basic_hugo任务编辑页面    进入http://&lt;服务器ip&gt;:8080/me/my-views/view/all/, 在名称下basicd_hugo鼠标悬停上去, 多选, 选择Configure (或者使用Blue Ocean插件http://&lt;服务器ip&gt;:8080/blue/organizations/jenkins/basic_hugo/activity, 选择项目名称旁边的设置齿轮)
-  进入编辑页, http://10.211.55.9:8080/job/basic_hugo/configure
-   在编辑页中设置github中hugo地址, 参数化分支名称  GitHub项目-&gt;项目URL 填写 参数化构建过程-&gt;字符参数 Name: BARNCH Default Value: master Description	分支名称
-Source Code Management-&gt;Git-&gt;Repositories...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>March 13, 2019</time>
-  </footer>
-  <a class="entry-link" href="https://leezicai.github.io/actiger/blog/linux/%E4%BD%BF%E7%94%A8jenkins%E6%9E%84%E5%BB%BA%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC%E7%9A%84github%E9%A1%B9%E7%9B%AEhugo/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
