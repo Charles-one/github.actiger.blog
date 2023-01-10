@@ -24,7 +24,7 @@ describe usrinfo;
     <link href="https://leezicai.github.io/actiger/style.css" rel="stylesheet">
     
     <link rel="icon" href="https://leezicai.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.87.0" />
+    <meta name="generator" content="Hugo 0.109.0">
     
     <link rel="alternate" type="application/atom+xml" href="https://leezicai.github.io/actiger/index.xml" title="AcTiger 跳跳虎">
     
@@ -192,7 +192,7 @@ select max(id) as max_id from usrinfo;</p>
 <p>select avc(number) from usrinfo;</p>
 <h4 id="19alias-重命名">19.alias 重命名</h4>
 <h5 id="mysql中语句">MySQL中语句</h5>
-<p>select id,CONCAT(name,' , &lsquo;,address) as cc from usrinfo;</p>
+<p>select id,CONCAT(name,&rsquo; , &lsquo;,address) as cc from usrinfo;</p>
 <h5 id="其它数据库写法">其它数据库写法</h5>
 <p>select id,name,&rsquo; , &lsquo;, address as cc from usrinfo;</p>
 <h4 id="20inner-join-left-join-rigth-join-full-join">20.inner join, left join, rigth join, full join</h4>
@@ -266,38 +266,38 @@ DEFAULT
 INDEX</p>
 <h4 id="check">check</h4>
 <h5 id="mysql-用法">Mysql 用法</h5>
-<pre><code>create table person(
+<pre tabindex="0"><code>create table person(
     id int(11) primary key,
     Age int(11),
     CHECK (Age &gt; = 18)
 );
 </code></pre><h5 id="oracle-sql-server用法">Oracle SQL server用法</h5>
-<pre><code>create table person(
+<pre tabindex="0"><code>create table person(
     id int(11) primary key,
     Age int CHECK (Age&gt;=18)
         );
 </code></pre><h4 id="多个check条件-能用mysql-oracle都可用">多个check条件, 能用mysql, oracle都可用</h4>
-<pre><code>create tables person(
+<pre tabindex="0"><code>create tables person(
     id int primary key,
     Age int(11),
     City varchar(255),
-    CONSTRAINT CHK_person check (Age&gt;=18 and City='Shanghai')
+    CONSTRAINT CHK_person check (Age&gt;=18 and City=&#39;Shanghai&#39;)
 );
 </code></pre><h5 id="增加一个check条件">增加一个check条件</h5>
-<pre><code>alter table person add CHECK (Age&gt;=18);
+<pre tabindex="0"><code>alter table person add CHECK (Age&gt;=18);
 </code></pre><h5 id="增加多个check条件-mysql-oracle都可用">增加多个check条件, mysql oracle都可用</h5>
-<pre><code>alter table person add CONSTRAINT CHK_personAge CHECK (Age&gt;=18 and city='Shanghai');
+<pre tabindex="0"><code>alter table person add CONSTRAINT CHK_personAge CHECK (Age&gt;=18 and city=&#39;Shanghai&#39;);
 </code></pre><h5 id="删除表中一个check条件">删除表中一个check条件</h5>
 <h5 id="mysql用法-1">Mysql用法</h5>
-<pre><code>alter table person drop CHECK CHK_personAge;
+<pre tabindex="0"><code>alter table person drop CHECK CHK_personAge;
 </code></pre><h5 id="oracesql-server用法">orace/SQL server用法</h5>
-<pre><code>alter table person drop CONSTRAINT CHK_personAge;
+<pre tabindex="0"><code>alter table person drop CONSTRAINT CHK_personAge;
 </code></pre><h4 id="29-default-用法">29. Default 用法</h4>
 <h5 id="创建表的时间">创建表的时间</h5>
-<pre><code>create table person(
+<pre tabindex="0"><code>create table person(
     id int(11) primary key,
     Age int,
-    City varchar(255) DEFAULT 'Shanghai'
+    City varchar(255) DEFAULT &#39;Shanghai&#39;
 );
 </code></pre><h4 id="增加表的属性时">增加表的属性时</h4>
 <h5 id="mysql用法-2">Mysql用法</h5>
@@ -322,12 +322,12 @@ create index ind_orderid on orders(orderId, orderDate);</p>
 <p>drop index table_name.index_name;</p>
 <h4 id="31-auto_increment-自动增加值">31. Auto_INCREMENT 自动增加值</h4>
 <h5 id="mysql">Mysql</h5>
-<pre><code>create table person(
+<pre tabindex="0"><code>create table person(
     id int(11) auto_increment primary key,
     age int(3)
 );
 </code></pre><h5 id="sql-server-1">SQL server</h5>
-<pre><code>create table person(
+<pre tabindex="0"><code>create table person(
     id int(11) IDENTITY(1,1) primary key,
     Age int(11)
 );
@@ -349,18 +349,18 @@ select productName, unitPrice*(unitInstock+COALESCE(unitOrder,0)) from products;
 <p>select * from orders cross join usrinfo;</p>
 <h4 id="35-update-与-inner-join连用">35. update 与 inner join连用</h4>
 <h5 id="oracle-中用法">oracle 中用法</h5>
-<pre><code>update orders set orderDate=&quot;1991-02-09&quot; where orders.customerID in(
+<pre tabindex="0"><code>update orders set orderDate=&#34;1991-02-09&#34; where orders.customerID in(
     select customers.CustomerID from orders join customers on
     orders.customerID = customers.CustomerID;
     );
 </code></pre><h5 id="mysql用法-3">Mysql用法</h5>
-<pre><code>update orders  as o join
+<pre tabindex="0"><code>update orders  as o join
 (select c.customerID from orders as o join customers as c on o.customerID = c.CustomerID)
 c on o.customerID = c.customerID
-set o.orderDate=&quot;1990-09-08&quot;;
+set o.orderDate=&#34;1990-09-08&#34;;
 </code></pre><h5 id="36-date日期查询特定year-month-day的人">36 date日期查询特定year month day的人</h5>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> student <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">year</span>(birthday)<span style="color:#f92672">=</span><span style="color:#ae81ff">1990</span> <span style="color:#66d9ef">and</span> <span style="color:#66d9ef">month</span>(birthday)<span style="color:#f92672">=</span><span style="color:#ae81ff">02</span> <span style="color:#66d9ef">and</span> <span style="color:#66d9ef">day</span>(birthday)<span style="color:#f92672">=</span><span style="color:#ae81ff">13</span>;
-</code></pre></div></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> student <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">year</span>(birthday)<span style="color:#f92672">=</span><span style="color:#ae81ff">1990</span> <span style="color:#66d9ef">and</span> <span style="color:#66d9ef">month</span>(birthday)<span style="color:#f92672">=</span><span style="color:#ae81ff">02</span> <span style="color:#66d9ef">and</span> <span style="color:#66d9ef">day</span>(birthday)<span style="color:#f92672">=</span><span style="color:#ae81ff">13</span>;
+</span></span></code></pre></div></div>
   
 </article></main>
 <footer class="footer">

@@ -14,7 +14,7 @@
     <link href="https://leezicai.github.io/actiger/style.css" rel="stylesheet">
     
     <link rel="icon" href="https://leezicai.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.87.0" />
+    <meta name="generator" content="Hugo 0.109.0">
     
     <link rel="alternate" type="application/atom+xml" href="https://leezicai.github.io/actiger/index.xml" title="AcTiger 跳跳虎">
     
@@ -86,6 +86,18 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>Centos7.0使用SSHKEY拉取github代码失败</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. 报错信息与正确信息对比. 今天使用SSH key拉取github代码又失败了, 为什么是又😂. 上次端口错误 贴出报错信息 # 出错主机日志 ssh -vT git@github.com OpenSSH_6.5 Server accepts key: pkalg ssh-rsa blen 279 debug1: key_parse_private_pem: PEM_read_PrivateKey failed debug1: read PEM private key done: type &lt;unknown&gt; Enter passphrase for key &#39;/root/.ssh/git_cron&#39;: 本机正确的日志 ssh -vT git@github.com OpenSSH_7.9p1, LibreSSL 2.7.3 debug1: Reading configuration data /Users/csx/.ssh/config debug1: /Users/csx/.ssh/config line 4: Applying options for githu debug1: Authentications that can continue: publickey debug1: Next authentication method: publickey debug1: Offering public key: /Users/csx/....</p>
+  </section>
+  <footer class="entry-footer">
+    <time>May 23, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://leezicai.github.io/actiger/blog/linux/centos7.0%E4%BD%BF%E7%94%A8sshkey%E6%8B%89%E5%8F%96github%E4%BB%A3%E7%A0%81%E5%A4%B1%E8%B4%A5/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>自动生成博客和提交到Github</h2>
   </header>
   <section class="entry-content">
@@ -113,7 +125,7 @@
     <h2>介绍spf13插件使用和我的vim配置</h2>
   </header>
   <section class="entry-content">
-   <p>1. spf13简介 Steve Francia使用的vim配置, vim插件插件集合.  2. spf13常用插件简单使用, 中文.  Surronund 编辑字符周围的符号的.  # *号表示当前光标停留位置, 所有的操作在vim的nomal模式 Old text Command New text ~ &#34;Hello *world!&#34; ds&#34; Hello world! [123&#43;4*56]/2 cs]) (123&#43;456)/2 &#34;Look ma, I&#39;m *HTML!&#34; cs&#34;&lt;q&gt; &lt;q&gt;Look ma, I&#39;m HTML!&lt;/q&gt; if *x&gt;3 { ysW( if ( x&gt;3 ) { my $str = *whee!; vllllS&#39; my $str = &#39;whee!&#39;;  EasyMotion 跳到任何地方  # 再打对应的字符就可直接跳到单词的首字符位置 ,,w # 再打对应的字符就可直接跳到单词的尾字符位置 ,,e  Fugitive Git的插件, 可以vim中批量提交git文件, 查看git diff等....</p>
+   <p>1. spf13简介 Steve Francia使用的vim配置, vim插件插件集合. 2. spf13常用插件简单使用, 中文. Surronund 编辑字符周围的符号的. # *号表示当前光标停留位置, 所有的操作在vim的nomal模式 Old text Command New text ~ &#34;Hello *world!&#34; ds&#34; Hello world! [123&#43;4*56]/2 cs]) (123&#43;456)/2 &#34;Look ma, I&#39;m *HTML!&#34; cs&#34;&lt;q&gt; &lt;q&gt;Look ma, I&#39;m HTML!&lt;/q&gt; if *x&gt;3 { ysW( if ( x&gt;3 ) { my $str = *whee!; vllllS&#39; my $str = &#39;whee!&#39;; EasyMotion 跳到任何地方 # 再打对应的字符就可直接跳到单词的首字符位置 ,,w # 再打对应的字符就可直接跳到单词的尾字符位置 ,,e Fugitive Git的插件, 可以vim中批量提交git文件, 查看git diff等. # &lt;leader&gt; 这里就 , 键 &lt;leader&gt;gs :Gstatus &lt;leader&gt;gd :Gdiff &lt;leader&gt;gc :Gcommit &lt;leader&gt;gb :Gblame &lt;leader&gt;gl :Glog &lt;leader&gt;gp :Git push Syntastic 语法检查, 有语法错误的地方会有提示....</p>
   </section>
   <footer class="entry-footer">
     <time>May 19, 2019</time>
@@ -149,9 +161,9 @@
     <h2>Crontab定时任务</h2>
   </header>
   <section class="entry-content">
-   <p>1. 使用Crontab的原因. 每次更新博客都要登录服务器(ssh延迟容易中断)手动去拉取代码, 不方便. 故设置成自动获取最新代码. 2. 选择crontab定时 查看下资源, 觉得crontab简单可行, 直接来用就好了. 3. 定时任务需需要做事情.  特定目录执行git pul的shell脚本. 这里我使用了 ssh key可以参考这里的  vim git_pull.sh
- #!/bin/bash # 进入目录中 cd ~/nginx-hugoBlog/www.actiger.com/ # 拉取github中的代码 git pull 添加crontab任务文件  vim git_pull.cron
-# 设置5分钟拉取一次代码 */5 * * * * cd /root &amp;&amp; ./git_pull_www.actiger.com.sh 把定时任务文件内容加到crontab中  # 添加root账户中 crontab -uroot git_pull.cron # 查询当前任务, root是账户, 添加的定时任务会放到这个目录中 crontab -uroot -l cat /var/spool/cron/root # 删除root用户的定时任务 crontab -uroot -r 日志的地址, 相当重要. # 日志文件 /var/spool/mail/root # 查看日志 # 可以把时间设置1分钟, 可以很快看到执行情况, 方便调试....</p>
+   <p>1. 使用Crontab的原因. 每次更新博客都要登录服务器(ssh延迟容易中断)手动去拉取代码, 不方便. 故设置成自动获取最新代码. 2. 选择crontab定时 查看下资源, 觉得crontab简单可行, 直接来用就好了. 3. 定时任务需需要做事情. 特定目录执行git pul的shell脚本. 这里我使用了 ssh key可以参考这里的 vim git_pull.sh
+#!/bin/bash # 进入目录中 cd ~/nginx-hugoBlog/www.actiger.com/ # 拉取github中的代码 git pull 添加crontab任务文件 vim git_pull.cron
+# 设置5分钟拉取一次代码 */5 * * * * cd /root &amp;&amp; ./git_pull_www.actiger.com.sh 把定时任务文件内容加到crontab中 # 添加root账户中 crontab -uroot git_pull.cron # 查询当前任务, root是账户, 添加的定时任务会放到这个目录中 crontab -uroot -l cat /var/spool/cron/root # 删除root用户的定时任务 crontab -uroot -r 日志的地址, 相当重要. # 日志文件 /var/spool/mail/root # 查看日志 # 可以把时间设置1分钟, 可以很快看到执行情况, 方便调试....</p>
   </section>
   <footer class="entry-footer">
     <time>May 18, 2019</time>
@@ -175,7 +187,7 @@
     <h2>使用docker搭建nextcloud</h2>
   </header>
   <section class="entry-content">
-   <p>1. nextcloud 个人私有云, 可以像网盘一样同步个人文件, 远程访问下载等. 2. 使用docker-compose搭建 使用 docker-compose-repository搭建  git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository cp -r ~/docker-compose-repository/nextcloud ~/nextcloud cd ~/nextcloud # 自动下载并启动容器 dc up -d 访问地址 http://服务ip地址
+   <p>1. nextcloud 个人私有云, 可以像网盘一样同步个人文件, 远程访问下载等. 2. 使用docker-compose搭建 使用 docker-compose-repository搭建 git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository cp -r ~/docker-compose-repository/nextcloud ~/nextcloud cd ~/nextcloud # 自动下载并启动容器 dc up -d 访问地址 http://服务ip地址
 # 用户名和密码自己设置 # # 页面上选择数据库mariadb # 页面上填写就是你上面mariadb内容 # 用户名: nextcloud # 数据库: nextcloud # 密码: nextcloud_weiki_JKL_sdf # 地址(不是默认的localhost): mariadb ...</p>
   </section>
   <footer class="entry-footer">
@@ -189,27 +201,12 @@
   </header>
   <section class="entry-content">
    <p>1. 安装tmux的tmuxinator插件 Mac下安装:
-# 使用gem安装tmuxinator gem install tmuxinator # 查询环境, 获取gem安装程序执行目录, 目的是添加环境变量 gem env # 安装程序的执行目录 /usr/local/lib/ruby/gems/2.6.0/bin # 在.zshrc或者.bashrc中添加环境变量 export PATH=&#34;$PATH:/usr/local/lib/ruby/gems/2.6.0/bin&#34; 2. Tmuxinator配置 # 会自动创建文件在~/.tmuxinator中 tmuxinator edit hugo # 名称 name: hugo # 目录, 我存放hugo的目录 root: ~/Documents/actiger # 2个窗口, 1, 2是窗口名称 # layout: even-horizontal, 横着分割 # panes 不需要名称, hugo server --theme=paper 是执行命令hugo服务 windows: - 1: layout: even-horizontal panes: - hugo server --theme=paper - - 2: 3. tmuxinator使用  # tmux &amp; tumxinator , 可写....</p>
+# 使用gem安装tmuxinator gem install tmuxinator # 查询环境, 获取gem安装程序执行目录, 目的是添加环境变量 gem env # 安装程序的执行目录 /usr/local/lib/ruby/gems/2.6.0/bin # 在.zshrc或者.bashrc中添加环境变量 export PATH=&#34;$PATH:/usr/local/lib/ruby/gems/2.6.0/bin&#34; 2. Tmuxinator配置 # 会自动创建文件在~/.tmuxinator中 tmuxinator edit hugo # 名称 name: hugo # 目录, 我存放hugo的目录 root: ~/Documents/actiger # 2个窗口, 1, 2是窗口名称 # layout: even-horizontal, 横着分割 # panes 不需要名称, hugo server --theme=paper 是执行命令hugo服务 windows: - 1: layout: even-horizontal panes: - hugo server --theme=paper - - 2: 3. tmuxinator使用 # tmux &amp; tumxinator , 可写....</p>
   </section>
   <footer class="entry-footer">
     <time>May 17, 2019</time>
   </footer>
   <a class="entry-link" href="https://leezicai.github.io/actiger/blog/linux/tmux%E6%8F%92%E4%BB%B6tmuxinator%E9%85%8D%E7%BD%AE/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>Mosh简介,安装与使用</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. Mosh简介, 及为什么要使用Mosh 1. Mosh全称Mobile Shell, 移动远程终端应用程序. 与ssh类似, 却有很多新功能, 可以漫游, 支持间歇性连接, 这对网络延迟高或者移动使用更换IP非常友好, 2. 我的服务器是VPS, 在使用SSH过程中, 经常会中断, 频繁重新连接, 还要kill掉之前的终端. Mosh的用法与SSH一致, 无缝切换. 2. Mosh 安装. 需要服务器端和客户端都安装软件. 服务端安装脚本 1. 服务器端安装mosh, 并开启防火墙udp端口 yum -y install epel-release yum -y install mosh firewall-cmd --zone=public --permanent --add-port=60000-61000/udp firewall-cmd --reload 2. 本地安装 Mac:
-brew install mosh Windows: 参考
-3. Mosh使用. 使用规则与ssh一致. # 帮助 mosh -h # 连接 mosh root@192.168.0.1 # 使用ssh config配置连接 mosh locale_centos7 ssh config配置可以参考这里
-或者这里...</p>
-  </section>
-  <footer class="entry-footer">
-    <time>May 17, 2019</time>
-  </footer>
-  <a class="entry-link" href="https://leezicai.github.io/actiger/blog/linux/mosh%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%BD%BF%E7%94%A8/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

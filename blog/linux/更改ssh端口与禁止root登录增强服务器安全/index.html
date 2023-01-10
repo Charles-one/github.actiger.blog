@@ -7,20 +7,22 @@
     
     <title>更改ssh端口与禁止root登录增强服务器安全 - AcTiger 跳跳虎</title>
     
-    <meta name="description" content="0.前提条件 1.安装软件Centos7, 版本7.6.1810 CentOS-7-x86_64-Minimal-1810.iso 2.root用户及密码, 已联网  如未联网,请打开网卡, 并重启 设置/etc/sysconfig/network-scripts/ifcfg-eth0 中ONBOOT =yes  重启电脑
-reboot 1.登录root  需要查询当前Centos7的主机ip  ifconfig 提示无此命令
+    <meta name="description" content="0.前提条件 1.安装软件Centos7, 版本7.6.1810 CentOS-7-x86_64-Minimal-1810.iso 2.root用户及密码, 已联网 如未联网,请打开网卡, 并重启 设置/etc/sysconfig/network-scripts/ifcfg-eth0 中ONBOOT =yes 重启电脑
+reboot 1.登录root 需要查询当前Centos7的主机ip ifconfig 提示无此命令
 yum -y install net-tools
 再次 ifconfig查询ip
-使用ssh软件登录root用户, 默认使用22端口, 不用指定  ssh root@ip 输入密码
-2.更改ssh服务端口, 防火墙端口, SELINUX端口  更改sshd.service端口, 端口可选择&gt;10000避免与其他软件冲突.  vim /etc/ssh/sshd_config更改Port 12340
-systemctl restart sshd 添加防火墙端口  firewall-cmd --zone=public --add-port=12340/tcp --permanent (永久生效必须用--permanent) firewall-cmd --reload 更改SELINUX端口, 因为SELINUX的原因, ssh被设定到22端口上了, 必须更改  借助软件来更改 安装 yum -y install policycoreutils-python semanage port -a -t ssh_port_t -p tcp 12340">
+使用ssh软件登录root用户, 默认使用22端口, 不用指定 ssh root@ip 输入密码
+2.更改ssh服务端口, 防火墙端口, SELINUX端口 更改sshd.service端口, 端口可选择&gt;10000避免与其他软件冲突. vim /etc/ssh/sshd_config更改Port 12340
+systemctl restart sshd 添加防火墙端口 firewall-cmd --zone=public --add-port=12340/tcp --permanent (永久生效必须用--permanent) firewall-cmd --reload 更改SELINUX端口, 因为SELINUX的原因, ssh被设定到22端口上了, 必须更改 借助软件来更改 安装 yum -y install policycoreutils-python semanage port -a -t ssh_port_t -p tcp 12340
+注意不要关闭当前窗口 另开一个窗口, 尝试登录
+ssh root@ip -P 12340 输入密码">
     <meta name="author" content="">
     
     <link href="https://leezicai.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
     <link href="https://leezicai.github.io/actiger/style.css" rel="stylesheet">
     
     <link rel="icon" href="https://leezicai.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.87.0" />
+    <meta name="generator" content="Hugo 0.109.0">
     
     <link rel="alternate" type="application/atom+xml" href="https://leezicai.github.io/actiger/index.xml" title="AcTiger 跳跳虎">
     
@@ -103,12 +105,12 @@ systemctl restart sshd 添加防火墙端口  firewall-cmd --zone=public --add-p
 设置/etc/sysconfig/network-scripts/ifcfg-eth0 中ONBOOT =yes</li>
 </ul>
 <p>重启电脑</p>
-<pre><code>reboot
+<pre tabindex="0"><code>reboot
 </code></pre><h3 id="1登录root">1.登录root</h3>
 <ol>
 <li>需要查询当前Centos7的主机ip</li>
 </ol>
-<pre><code>ifconfig
+<pre tabindex="0"><code>ifconfig
 </code></pre><p>提示无此命令</p>
 <p>yum -y install net-tools</p>
 <p>再次
@@ -116,18 +118,18 @@ ifconfig查询ip</p>
 <ol start="2">
 <li>使用ssh软件登录root用户, 默认使用22端口, 不用指定</li>
 </ol>
-<pre><code>ssh root@ip
+<pre tabindex="0"><code>ssh root@ip
 </code></pre><p>输入密码</p>
 <h3 id="2更改ssh服务端口-防火墙端口-selinux端口">2.更改ssh服务端口, 防火墙端口, SELINUX端口</h3>
 <ol>
 <li>更改sshd.service端口, 端口可选择&gt;10000避免与其他软件冲突.</li>
 </ol>
 <p>vim /etc/ssh/sshd_config更改Port 12340</p>
-<pre><code>systemctl restart sshd
+<pre tabindex="0"><code>systemctl restart sshd
 </code></pre><ol start="2">
 <li>添加防火墙端口</li>
 </ol>
-<pre><code>firewall-cmd --zone=public --add-port=12340/tcp --permanent  (永久生效必须用--permanent)
+<pre tabindex="0"><code>firewall-cmd --zone=public --add-port=12340/tcp --permanent  (永久生效必须用--permanent)
 firewall-cmd --reload
 </code></pre><ol start="3">
 <li>更改SELINUX端口, 因为SELINUX的原因, ssh被设定到22端口上了, 必须更改</li>
@@ -139,7 +141,7 @@ semanage port -a -t ssh_port_t -p tcp 12340</p>
 <li><strong>注意不要关闭当前窗口</strong></li>
 </ol>
 <p>另开一个窗口, 尝试登录</p>
-<pre><code>ssh root@ip -P 12340
+<pre tabindex="0"><code>ssh root@ip -P 12340
 </code></pre><p>输入密码</p>
 <h3 id="3设置root用户无法远程登录">3.设置root用户无法远程登录</h3>
 <p><strong>如果当且仅有一个root用户, 可直接添加一个add user ccc password hellocc</strong></p>
@@ -154,11 +156,11 @@ systemctl restart sshd</p>
 <ol start="2">
 <li>新建窗口检测root能否登录</li>
 </ol>
-<pre><code>ssh root@ip -P 12340
+<pre tabindex="0"><code>ssh root@ip -P 12340
 </code></pre><p>这时登录失败的</p>
-<pre><code>ssh ccc@ip -P 12340
+<pre tabindex="0"><code>ssh ccc@ip -P 12340
 </code></pre><p>输入密码, 预期是登录成功的</p>
-<pre><code>su
+<pre tabindex="0"><code>su
 </code></pre><p>输入root密码即可变成root用户</p>
 <p><strong>需要2个用户密码才更改服务器设置,是不是安全了很多</strong></p>
 </div>

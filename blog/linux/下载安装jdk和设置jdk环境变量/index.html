@@ -7,19 +7,19 @@
     
     <title>下载安装JDK和设置JDK环境变量 - AcTiger 跳跳虎</title>
     
-    <meta name="description" content="0. 准备工作  root用户及密码  1. 卸载原有JDK rpm -qa | grep &quot;java&quot; yum remove 上面筛选内容
+    <meta name="description" content="0. 准备工作 root用户及密码 1. 卸载原有JDK rpm -qa | grep &#34;java&#34; yum remove 上面筛选内容
 2. 下载JDK, 解压 进入https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html 右键选择linux x64 jdk-8u201-linux-i586.tar.gz的下载地址 使用wget下载
-wget --no-check-certificate --no-cookies --header &quot;Cookie: oraclelicense=accept-securebackup-cookie&quot; https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz 解压
+wget --no-check-certificate --no-cookies --header &#34;Cookie: oraclelicense=accept-securebackup-cookie&#34; https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz 解压
 tar -zxvf jdk-8u201-linux-x64.tar.gz
-3. root移动文件, 并设置JAVA_HOME环境变量  移动文件夹  mv jdk1.8.0_201 /usr/local  设置JAVA_HOME环境变量  vim /etc/profile 可以对所有用户生效 添加下列信息
-export JAVA_HOME=/usr/local/jdk1.8.0_201 export JRE_HOME=${JAVA_HOME}/jre export CLASSPATH=.:${JAVA_HOME}/lib/dt.JAVA_HOME/lib/tools.jar:${JRE_HOME}/lib export PATH=${JAVA_HOME}/bin:${PATH}  重新生效/etc/profile  source /etc/profile  检测  java -version 预期会弹出java的版本">
+3. root移动文件, 并设置JAVA_HOME环境变量 移动文件夹 mv jdk1.8.0_201 /usr/local 设置JAVA_HOME环境变量 vim /etc/profile 可以对所有用户生效 添加下列信息
+export JAVA_HOME=/usr/local/jdk1.8.0_201 export JRE_HOME=${JAVA_HOME}/jre export CLASSPATH=.:${JAVA_HOME}/lib/dt.JAVA_HOME/lib/tools.jar:${JRE_HOME}/lib export PATH=${JAVA_HOME}/bin:${PATH} 重新生效/etc/profile source /etc/profile 检测 java -version 预期会弹出java的版本">
     <meta name="author" content="">
     
     <link href="https://leezicai.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
     <link href="https://leezicai.github.io/actiger/style.css" rel="stylesheet">
     
     <link rel="icon" href="https://leezicai.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.87.0" />
+    <meta name="generator" content="Hugo 0.109.0">
     
     <link rel="alternate" type="application/atom+xml" href="https://leezicai.github.io/actiger/index.xml" title="AcTiger 跳跳虎">
     
@@ -99,37 +99,37 @@ export JAVA_HOME=/usr/local/jdk1.8.0_201 export JRE_HOME=${JAVA_HOME}/jre export
 <li>root用户及密码</li>
 </ul>
 <h3 id="1-卸载原有jdk">1. 卸载原有JDK</h3>
-<pre><code>rpm -qa | grep &quot;java&quot;
+<pre tabindex="0"><code>rpm -qa | grep &#34;java&#34;
 </code></pre><p>yum remove 上面筛选内容</p>
 <h3 id="2-下载jdk-解压">2. 下载JDK, 解压</h3>
 <p>进入https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 右键选择linux x64 jdk-8u201-linux-i586.tar.gz的下载地址
 使用wget下载</p>
-<pre><code>wget --no-check-certificate --no-cookies --header &quot;Cookie: oraclelicense=accept-securebackup-cookie&quot; https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz
+<pre tabindex="0"><code>wget --no-check-certificate --no-cookies --header &#34;Cookie: oraclelicense=accept-securebackup-cookie&#34; https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz
 </code></pre><p>解压</p>
 <p>tar -zxvf jdk-8u201-linux-x64.tar.gz</p>
 <h3 id="3-root移动文件-并设置java_home环境变量">3. root移动文件, 并设置JAVA_HOME环境变量</h3>
 <ul>
 <li>移动文件夹</li>
 </ul>
-<pre><code>mv jdk1.8.0_201 /usr/local
+<pre tabindex="0"><code>mv jdk1.8.0_201 /usr/local
 </code></pre><ul>
 <li>设置JAVA_HOME环境变量</li>
 </ul>
 <p>vim /etc/profile 可以对所有用户生效
 添加下列信息</p>
-<pre><code>export JAVA_HOME=/usr/local/jdk1.8.0_201
+<pre tabindex="0"><code>export JAVA_HOME=/usr/local/jdk1.8.0_201
 export JRE_HOME=${JAVA_HOME}/jre
 export CLASSPATH=.:${JAVA_HOME}/lib/dt.JAVA_HOME/lib/tools.jar:${JRE_HOME}/lib
 export PATH=${JAVA_HOME}/bin:${PATH}
 </code></pre><ul>
 <li>重新生效/etc/profile</li>
 </ul>
-<pre><code>source /etc/profile
+<pre tabindex="0"><code>source /etc/profile
 </code></pre><ul>
 <li>检测</li>
 </ul>
-<pre><code>java -version
+<pre tabindex="0"><code>java -version
 </code></pre><p>预期会弹出java的版本</p>
 </div>
   

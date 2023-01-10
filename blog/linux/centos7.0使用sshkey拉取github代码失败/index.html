@@ -7,14 +7,14 @@
     
     <title>Centos7.0使用SSHKEY拉取github代码失败 - AcTiger 跳跳虎</title>
     
-    <meta name="description" content="1. 报错信息与正确信息对比. 今天使用SSH key拉取github代码又失败了, 为什么是又😂. 上次端口错误 贴出报错信息  # 出错主机日志 ssh -vT git@github.com OpenSSH_6.5 Server accepts key: pkalg ssh-rsa blen 279 debug1: key_parse_private_pem: PEM_read_PrivateKey failed debug1: read PEM private key done: type &lt;unknown&gt; Enter passphrase for key &#39;/root/.ssh/git_cron&#39;: 本机正确的日志 ssh -vT git@github.com OpenSSH_7.9p1, LibreSSL 2.7.3 debug1: Reading configuration data /Users/csx/.ssh/config debug1: /Users/csx/.ssh/config line 4: Applying options for githu debug1: Authentications that can continue: publickey debug1: Next authentication method: publickey debug1: Offering public key: /Users/csx/.">
+    <meta name="description" content="1. 报错信息与正确信息对比. 今天使用SSH key拉取github代码又失败了, 为什么是又😂. 上次端口错误 贴出报错信息 # 出错主机日志 ssh -vT git@github.com OpenSSH_6.5 Server accepts key: pkalg ssh-rsa blen 279 debug1: key_parse_private_pem: PEM_read_PrivateKey failed debug1: read PEM private key done: type &lt;unknown&gt; Enter passphrase for key &#39;/root/.ssh/git_cron&#39;: 本机正确的日志 ssh -vT git@github.com OpenSSH_7.9p1, LibreSSL 2.7.3 debug1: Reading configuration data /Users/csx/.ssh/config debug1: /Users/csx/.ssh/config line 4: Applying options for githu debug1: Authentications that can continue: publickey debug1: Next authentication method: publickey debug1: Offering public key: /Users/csx/.">
     <meta name="author" content="">
     
     <link href="https://leezicai.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
     <link href="https://leezicai.github.io/actiger/style.css" rel="stylesheet">
     
     <link rel="icon" href="https://leezicai.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.87.0" />
+    <meta name="generator" content="Hugo 0.109.0">
     
     <link rel="alternate" type="application/atom+xml" href="https://leezicai.github.io/actiger/index.xml" title="AcTiger 跳跳虎">
     
@@ -91,7 +91,7 @@
   </header>
   <div class="post-content"><h3 id="1-报错信息与正确信息对比-今天使用ssh-key拉取github代码又失败了-为什么是又-a-hrefhttpsactigercombloglinuxcentos7使用ssh-key拉取github项目失败-target_blank上次端口错误a">1. 报错信息与正确信息对比. 今天使用SSH key拉取github代码又失败了, 为什么是又😂. <a href="https://actiger.com/blog/linux/centos7使用ssh-key拉取github项目失败/" target="_blank">上次端口错误</a></h3>
 <h3 id="贴出报错信息">贴出报错信息</h3>
-<pre><code>
+<pre tabindex="0"><code>
 # 出错主机日志
 ssh -vT git@github.com
 
@@ -100,10 +100,9 @@ OpenSSH_6.5
 Server accepts key: pkalg ssh-rsa blen 279
 debug1: key_parse_private_pem: PEM_read_PrivateKey failed
 debug1: read PEM private key done: type &lt;unknown&gt;
-Enter passphrase for key '/root/.ssh/git_cron':
-
+Enter passphrase for key &#39;/root/.ssh/git_cron&#39;:
 </code></pre><h3 id="本机正确的日志">本机正确的日志</h3>
-<pre><code>ssh -vT git@github.com
+<pre tabindex="0"><code>ssh -vT git@github.com
 
 OpenSSH_7.9p1, LibreSSL 2.7.3
 debug1: Reading configuration data /Users/csx/.ssh/config
@@ -114,27 +113,24 @@ debug1: Authentications that can continue: publickey
 debug1: Next authentication method: publickey
 debug1: Offering public key: /Users/csx/.ssh/git_rsa RSA SHA256:Teicz+bsGWbbB4P327A0nB5eU/u+aVxxn4RNxS3QBZc explicit
 debug1: Server accepts key: /Users/csx/.ssh/git_rsa RSA SHA256:Teicz+bsGWbbB4P327A0nB5eU/u+aVxxn4RNxS3QBZc explicit
-
-
 </code></pre><h3 id="2-分析与尝试解决">2. 分析与尝试解决.</h3>
 <h4 id="我的ssh-key生成的时候是没有使用passphrase-每次在主机去测试的时候都让填写-很奇怪">我的SSH key生成的时候是没有使用passphrase, 每次在主机去测试的时候都让填写, 很奇怪.</h4>
 <h4 id="提示pem_read_privatekey-failed问题-怀疑是权限错误">提示PEM_read_PrivateKey failed问题, 怀疑是权限错误.</h4>
 <h4 id="将ssh设置成700-rsa设置成600-还提示同样的错误">将.ssh设置成700, rsa设置成600, 还提示同样的错误</h4>
 <h4 id="继续在网上搜索-这篇-a-hrefhttpsstackoverflowcomquestions43724881sshd-is-asking-for-a-passphrase-for-my-key-whereas-there-is-no-passphrase-target_blank帖子a">继续在网上搜索, 这篇 <a href="https://stackoverflow.com/questions/43724881/sshd-is-asking-for-a-passphrase-for-my-key-whereas-there-is-no-passphrase" target="_blank">帖子</a></h4>
 <h4 id="发现openssh-65支持的格式是">发现OpenSSH 6.5支持的格式是</h4>
-<pre><code>-----BEGIN RSA PRIVATE KEY-----
+<pre tabindex="0"><code>-----BEGIN RSA PRIVATE KEY-----
 
 -----END RSA PRIVATE KEY-----
 </code></pre><h4 id="我是使用本机生成的ssh-key格式">我是使用本机生成的SSH KEY格式</h4>
-<pre><code>
+<pre tabindex="0"><code>
 -----BEGIN OPENSSH PRIVATE KEY-----
 
 -----END OPENSSH PRIVATE KEY-----
 </code></pre><h4 id="79的版本已经使用新版本ssh-key格式-65的不支持造成的">7.9的版本已经使用新版本SSH KEY格式, 6.5的不支持造成的.</h4>
 <h3 id="3-解决办法-是更新openssh">3. 解决办法, 是更新OpenSSH</h3>
-<pre><code># 查看可以更新的openSSH
+<pre tabindex="0"><code># 查看可以更新的openSSH
 yum update
-
 </code></pre><h4 id="手动选择openssh的软件包即可-推荐全部更新-因为老版本的软件使用问题太多了">手动选择openssh的软件包即可, 推荐全部更新, 因为老版本的软件使用问题太多了.</h4>
 </div>
   

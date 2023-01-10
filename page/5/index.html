@@ -14,7 +14,7 @@
     <link href="https://leezicai.github.io/actiger/style.css" rel="stylesheet">
     
     <link rel="icon" href="https://leezicai.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.87.0" />
+    <meta name="generator" content="Hugo 0.109.0">
     
     <link rel="alternate" type="application/atom+xml" href="https://leezicai.github.io/actiger/index.xml" title="AcTiger 跳跳虎">
     
@@ -86,10 +86,22 @@
 
 <article class="post-entry">
   <header class="entry-header">
+    <h2>TestNG超时测试</h2>
+  </header>
+  <section class="entry-content">
+   <p>TestNG超时测试 超出预期时间则用例失败 package com.actiger.test.timeout; import org.testng.annotations.Test; public class TimeOut { @Test(timeOut = 3000) public void testSuccess() throws InterruptedException{ Thread.sleep(2000); } @Test(timeOut = 2000) public void testFail() throws InterruptedException{ Thread.sleep(3000); } } ...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>June 16, 2019</time>
+  </footer>
+  <a class="entry-link" href="https://leezicai.github.io/actiger/blog/test/testng%E8%B6%85%E6%97%B6%E6%B5%8B%E8%AF%95/"></a>
+</article>
+<article class="post-entry">
+  <header class="entry-header">
     <h2>TestNG多线程配置</h2>
   </header>
   <section class="entry-content">
-   <p>1. 在方法注释中配置多线程, 配置线程池  package com.actiger.test.thread; import org.testng.annotations.Test; public class MultiThread { @Test(invocationCount = 10, threadPoolSize = 3) public void test(){ System.out.println(&#34;1&#34;); System.out.println(&#34;Thread ID:%s%n&#34; &#43; Thread.currentThread().getId()); } } 2. 在xml中配置多线程, 不可配置为线程池. package com.actiger.test.thread; import org.testng.annotations.Test; public class MultiThreadOnXml { @Test public void test1(){ System.out.println(&#34;Thread ID: &#34; &#43; Thread.currentThread().getId()); } @Test public void test2(){ System.out.println(&#34;Thread ID: &#34; &#43; Thread.currentThread().getId()); } @Test public void test3(){ System.out.println(&#34;Thread ID: &#34; &#43; Thread.currentThread().getId()); } } multiThread....</p>
+   <p>1. 在方法注释中配置多线程, 配置线程池 package com.actiger.test.thread; import org.testng.annotations.Test; public class MultiThread { @Test(invocationCount = 10, threadPoolSize = 3) public void test(){ System.out.println(&#34;1&#34;); System.out.println(&#34;Thread ID:%s%n&#34; &#43; Thread.currentThread().getId()); } } 2. 在xml中配置多线程, 不可配置为线程池. package com.actiger.test.thread; import org.testng.annotations.Test; public class MultiThreadOnXml { @Test public void test1(){ System.out.println(&#34;Thread ID: &#34; &#43; Thread.currentThread().getId()); } @Test public void test2(){ System.out.println(&#34;Thread ID: &#34; &#43; Thread.currentThread().getId()); } @Test public void test3(){ System.out.println(&#34;Thread ID: &#34; &#43; Thread.currentThread().getId()); } } multiThread.xml配置 &lt;?...</p>
   </section>
   <footer class="entry-footer">
     <time>June 16, 2019</time>
@@ -101,7 +113,7 @@
     <h2>TestNG参数化测试</h2>
   </header>
   <section class="entry-content">
-   <p>1. 参数化测试, 使用DataProvider来参数化. @Test中dataProvider的名字与@DataProvider名称一致  @Test(dataProvider = &#34;data&#34;) public void dataProvider(String name, int age){ System.out.println(&#34;Name:&#34; &#43; name &#43; &#34;, &#34; &#43; &#34;Age:&#34; &#43; age); } @DataProvider(name = &#34;data&#34;) public Object[][] data(){ Object[][] oo = new Object[][]{ {&#34;zhangsan&#34;, 18}, {&#34;lisi&#34;, 20}, {&#34;wangwu&#34;, 30} }; return oo; } 2. 针对不方法识别, 使用不同参数  @Test(dataProvider = &#34;testMethod&#34;) public void method1(String name, int age){ System.out.println(&#34;Name:&#34; &#43; name &#43; &#34;, &#34; &#43; &#34;Age:&#34; &#43; age &#43; &#34;1111&#34;); } @Test(dataProvider = &#34;testMethod&#34;) public void method2(String name, int age){ System....</p>
+   <p>1. 参数化测试, 使用DataProvider来参数化. @Test中dataProvider的名字与@DataProvider名称一致 @Test(dataProvider = &#34;data&#34;) public void dataProvider(String name, int age){ System.out.println(&#34;Name:&#34; &#43; name &#43; &#34;, &#34; &#43; &#34;Age:&#34; &#43; age); } @DataProvider(name = &#34;data&#34;) public Object[][] data(){ Object[][] oo = new Object[][]{ {&#34;zhangsan&#34;, 18}, {&#34;lisi&#34;, 20}, {&#34;wangwu&#34;, 30} }; return oo; } 2. 针对不方法识别, 使用不同参数 @Test(dataProvider = &#34;testMethod&#34;) public void method1(String name, int age){ System.out.println(&#34;Name:&#34; &#43; name &#43; &#34;, &#34; &#43; &#34;Age:&#34; &#43; age &#43; &#34;1111&#34;); } @Test(dataProvider = &#34;testMethod&#34;) public void method2(String name, int age){ System....</p>
   </section>
   <footer class="entry-footer">
     <time>June 15, 2019</time>
@@ -113,7 +125,7 @@
     <h2>TestNG依赖测试和xml文件参数化</h2>
   </header>
   <section class="entry-content">
-   <p>1. TestNG依赖测试, 1个用例依赖其他的测试方法, 怎么表示这种关系呢, 在注解后加标签dependsOnMethods 例如, 方法2就依赖于方法1, 如果方法1执行失败了, 方法2就无法执行了.  package com.actiger.test.all; import org.testng.annotations.Test; public class Dependon{ @Test public void dependon1(){ System.out.println(&#34;dependon 1111111&#34;); throw new RuntimeException(); } @Test(dependsOnMethods = {&#34;dependon1&#34;}) public void dependon2(){ System.out.println(&#34;dependon 2222222&#34;); } } 2. TestNG的xml文件参数化 1.创建方法 package com.actiger.test.paramter; import org.testng.annotations.Parameters; import org.testng.annotations.Test; public class ParamterTest { @Test @Parameters({&#34;name&#34;, &#34;age&#34;}) public void paramTest1(String name, int age){ System.out.println(&#34;Name:&#34;&#43; name &#43; &#34;, &#34; &#43; &#34;Age:&#34; &#43; age); } } 2....</p>
+   <p>1. TestNG依赖测试, 1个用例依赖其他的测试方法, 怎么表示这种关系呢, 在注解后加标签dependsOnMethods 例如, 方法2就依赖于方法1, 如果方法1执行失败了, 方法2就无法执行了. package com.actiger.test.all; import org.testng.annotations.Test; public class Dependon{ @Test public void dependon1(){ System.out.println(&#34;dependon 1111111&#34;); throw new RuntimeException(); } @Test(dependsOnMethods = {&#34;dependon1&#34;}) public void dependon2(){ System.out.println(&#34;dependon 2222222&#34;); } } 2. TestNG的xml文件参数化 1.创建方法 package com.actiger.test.paramter; import org.testng.annotations.Parameters; import org.testng.annotations.Test; public class ParamterTest { @Test @Parameters({&#34;name&#34;, &#34;age&#34;}) public void paramTest1(String name, int age){ System.out.println(&#34;Name:&#34;&#43; name &#43; &#34;, &#34; &#43; &#34;Age:&#34; &#43; age); } } 2. 配置执行的xml文件和参数 resoureces中parameter必须在class标签后 &lt;?...</p>
   </section>
   <footer class="entry-footer">
     <time>June 13, 2019</time>
@@ -137,7 +149,7 @@
     <h2>TestNG中注解Before After执行顺序</h2>
   </header>
   <section class="entry-content">
-   <p>1. TestNG是什么 TestNG一种开源自动测试框架, 相当灵活的注解和配置, 自由测试. 2. Before After执行顺序    注解 描述     @BeforeSuite 套件, 在所有测试开始时运行1次   @BeforeTest 在所有类Classes前, BeforeSuite后运行1次,注解的方法将在testNG.xml文件test标签内的所有类方法运行前执行   @BeforeClass 在单个class类前执行1次   @BeforeGroups 在所有配置方法组前运行1次   @BeforeMethod 在单个配置方法前运行   @AfterMethod 在单个配置方法后运行   @AfterGroups 在所有配置方法组后运行1次   @AfterClass 在单个class类后执行1次   @AfterTest 在所有类Classes后, AfterSuite前运行1次, 注解的方法将在testNG.xml文件test标签内的所有类方法运行后执行。   @AfterSuite 套件, 在所有测试结束时运行1次    package com.actiger.test.suite; import org.testng.annotations.*; public class LoginTest { @Test(groups = {&#34;group&#34;}) public void loginTest(){ System....</p>
+   <p>1. TestNG是什么 TestNG一种开源自动测试框架, 相当灵活的注解和配置, 自由测试. 2. Before After执行顺序 注解 描述 @BeforeSuite 套件, 在所有测试开始时运行1次 @BeforeTest 在所有类Classes前, BeforeSuite后运行1次,注解的方法将在testNG.xml文件test标签内的所有类方法运行前执行 @BeforeClass 在单个class类前执行1次 @BeforeGroups 在所有配置方法组前运行1次 @BeforeMethod 在单个配置方法前运行 @AfterMethod 在单个配置方法后运行 @AfterGroups 在所有配置方法组后运行1次 @AfterClass 在单个class类后执行1次 @AfterTest 在所有类Classes后, AfterSuite前运行1次, 注解的方法将在testNG.xml文件test标签内的所有类方法运行后执行。 @AfterSuite 套件, 在所有测试结束时运行1次 package com.actiger.test.suite; import org.testng.annotations.*; public class LoginTest { @Test(groups = {&#34;group&#34;}) public void loginTest(){ System.out.println(&#34;Login test&#34;); } @Test(groups = {&#34;group&#34;}) public void cc(){ System.out.println(&#34;See you &#34;); } @BeforeTest(groups = {&#34;group&#34;}) public void beforeTestGroup(){ System.out.println(&#34;Before Test&#34;); } @AfterTest(groups = {&#34;group&#34;}) public void afterTestGroup() { System....</p>
   </section>
   <footer class="entry-footer">
     <time>June 12, 2019</time>
@@ -149,7 +161,7 @@
     <h2>Kubernetes Mariadb Mysql</h2>
   </header>
   <section class="entry-content">
-   <p>1. 创建一个对外可使用的数据库, 外部网络访问使用NodePort. pod使用到PV,PVC, Secret. 2. 使用PV和PVC创建硬盘, PersistentVolume持久卷, 持久卷申请.  创建持久卷 pv-maria.yaml, 这里在node节点上申请hostPath申请空间  apiVersion: v1 kind: PersistentVolume metadata: name: pv-hostpath spec: capacity: storage: 300Mi accessModes: - ReadWriteOnce hostPath: path: &#34;/root/mariadb&#34; 创建持久卷申请pvc-maria.yaml, 申请容量与PV一致才会绑定成功.  apiVersion: v1 kind: PersistentVolumeClaim metadata: name: pvc-hostpath spec: accessModes: - ReadWriteOnce storageClassName: &#34;&#34; resources: requests: storage: 200Mi 3. 为数据库root密码创建Secret文件mariapass.yml. root密码需要base64转换. apiVersion: v1 kind: Secret metadata: name: mariapass type: Opaque data: password: &lt;base64加密你的root密码&gt; username: cm9vdA== 4. 创建数据库pod, 使用mariapass....</p>
+   <p>1. 创建一个对外可使用的数据库, 外部网络访问使用NodePort. pod使用到PV,PVC, Secret. 2. 使用PV和PVC创建硬盘, PersistentVolume持久卷, 持久卷申请. 创建持久卷 pv-maria.yaml, 这里在node节点上申请hostPath申请空间 apiVersion: v1 kind: PersistentVolume metadata: name: pv-hostpath spec: capacity: storage: 300Mi accessModes: - ReadWriteOnce hostPath: path: &#34;/root/mariadb&#34; 创建持久卷申请pvc-maria.yaml, 申请容量与PV一致才会绑定成功. apiVersion: v1 kind: PersistentVolumeClaim metadata: name: pvc-hostpath spec: accessModes: - ReadWriteOnce storageClassName: &#34;&#34; resources: requests: storage: 200Mi 3. 为数据库root密码创建Secret文件mariapass.yml. root密码需要base64转换. apiVersion: v1 kind: Secret metadata: name: mariapass type: Opaque data: password: &lt;base64加密你的root密码&gt; username: cm9vdA== 4. 创建数据库pod, 使用mariapass.yml中密码和PVC. 创建文件mariadb.yaml 在env中使用密码, 在volumes使用PVC apiVersion: v1 kind: Service metadata: name: mysql spec: type: NodePort ports: - port: 3306 targetPort: 3306 nodePort: 30016 selector: app: mysql --- apiVersion: extensions/v1beta1 kind: Deployment metadata: name: mysql spec: selector: matchLabels: app: mysql template: metadata: labels: app: mysql spec: containers: - name: mysql image: mariadb:10....</p>
   </section>
   <footer class="entry-footer">
     <time>June 5, 2019</time>
@@ -161,7 +173,7 @@
     <h2>Kubernetes Ingress Nginx</h2>
   </header>
   <section class="entry-content">
-   <p>1. 为了理解Nginx Ingress Controller, 先看下上海长宁来福士的人脸识别电梯, 正好在这上班😃. 把外部进入内部人脸识别闸机类比为NGINX Ingress Controller, 匹配域名, 把人或请求分配到内部service. 把人脸识别分配电梯类比为service, service控制着一组电梯, 将人或请求分配service下的电梯中. 把电梯类比为pod, 在service下, 处理人或请求. 2. 下面是配置文件, 角色与service绑定的, 使用到pv和pvc, 使用secret, 我的命名空间是nginx-space  创建name-space  kubectl create namespace nginx-space 设置默认返回内容 default-backend.yaml  apiVersion: extensions/v1beta1 kind: Deployment metadata: name: default-http-backend labels: k8s-app: default-http-backend namespace: nginx-space spec: replicas: 1 template: metadata: labels: k8s-app: default-http-backend spec: terminationGracePeriodSeconds: 60 containers: - name: default-http-backend # Any image is permissable as long as: # 1. It serves a 404 page at / # 2....</p>
+   <p>1. 为了理解Nginx Ingress Controller, 先看下上海长宁来福士的人脸识别电梯, 正好在这上班😃. 把外部进入内部人脸识别闸机类比为NGINX Ingress Controller, 匹配域名, 把人或请求分配到内部service. 把人脸识别分配电梯类比为service, service控制着一组电梯, 将人或请求分配service下的电梯中. 把电梯类比为pod, 在service下, 处理人或请求. 2. 下面是配置文件, 角色与service绑定的, 使用到pv和pvc, 使用secret, 我的命名空间是nginx-space 创建name-space kubectl create namespace nginx-space 设置默认返回内容 default-backend.yaml apiVersion: extensions/v1beta1 kind: Deployment metadata: name: default-http-backend labels: k8s-app: default-http-backend namespace: nginx-space spec: replicas: 1 template: metadata: labels: k8s-app: default-http-backend spec: terminationGracePeriodSeconds: 60 containers: - name: default-http-backend # Any image is permissable as long as: # 1. It serves a 404 page at / # 2....</p>
   </section>
   <footer class="entry-footer">
     <time>June 4, 2019</time>
@@ -173,9 +185,9 @@
     <h2>Kubernetes安装</h2>
   </header>
   <section class="entry-content">
-   <p>1. PD安装2个Centos7.6 1816虚拟机(例如主机名cc和主机名cc2), 或2台云主机, 或VM安装虚拟机(建议使用主机同一网络).请勿使用克隆, 克隆的虚拟与原虚拟机product_uuid一致. 安装或启动过程中容易碰到问题, 日志排查图放在前面官方安装地址 2. 安装前检查  hostname必须不一致  hostname  网络互通, 互ping
-  mac ip地址不一致
-  ifconfig product_uuid不一致  cat /sys/class/dmi/id/product_uuid 禁用Swap交换分区, 保证kubelet正确运行, 必须永久禁用. 在安装设置中有对应的设置.  3. 安装前2台虚拟机都需要的设置 安装指定版本的docker.   # 移除旧版本docker yum remove docker \ docker-common \ docker-selinux \ docker-engine # 安装工具 yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 # 安装指定版本containerd.io yum install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm # 下载设置源 yum-config-manager \ --add-repo \ https://download....</p>
+   <p>1. PD安装2个Centos7.6 1816虚拟机(例如主机名cc和主机名cc2), 或2台云主机, 或VM安装虚拟机(建议使用主机同一网络).请勿使用克隆, 克隆的虚拟与原虚拟机product_uuid一致. 安装或启动过程中容易碰到问题, 日志排查图放在前面官方安装地址 2. 安装前检查 hostname必须不一致 hostname 网络互通, 互ping
+mac ip地址不一致
+ifconfig product_uuid不一致 cat /sys/class/dmi/id/product_uuid 禁用Swap交换分区, 保证kubelet正确运行, 必须永久禁用. 在安装设置中有对应的设置. 3. 安装前2台虚拟机都需要的设置 安装指定版本的docker. # 移除旧版本docker yum remove docker \ docker-common \ docker-selinux \ docker-engine # 安装工具 yum install -y yum-utils \ device-mapper-persistent-data \ lvm2 # 安装指定版本containerd.io yum install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm # 下载设置源 yum-config-manager \ --add-repo \ https://download.docker.com/linux/centos/docker-ce.repo # 查看全部版本的docker. yum list docker-ce --showduplicates | sort -r # kubernetes支持最高18....</p>
   </section>
   <footer class="entry-footer">
     <time>June 4, 2019</time>
@@ -193,18 +205,6 @@
     <time>May 27, 2019</time>
   </footer>
   <a class="entry-link" href="https://leezicai.github.io/actiger/blog/docker/kubernetes%E5%A4%AA%E9%9A%BE%E4%BA%86/"></a>
-</article>
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>Centos7.0使用SSHKEY拉取github代码失败</h2>
-  </header>
-  <section class="entry-content">
-   <p>1. 报错信息与正确信息对比. 今天使用SSH key拉取github代码又失败了, 为什么是又😂. 上次端口错误 贴出报错信息  # 出错主机日志 ssh -vT git@github.com OpenSSH_6.5 Server accepts key: pkalg ssh-rsa blen 279 debug1: key_parse_private_pem: PEM_read_PrivateKey failed debug1: read PEM private key done: type &lt;unknown&gt; Enter passphrase for key &#39;/root/.ssh/git_cron&#39;: 本机正确的日志 ssh -vT git@github.com OpenSSH_7.9p1, LibreSSL 2.7.3 debug1: Reading configuration data /Users/csx/.ssh/config debug1: /Users/csx/.ssh/config line 4: Applying options for githu debug1: Authentications that can continue: publickey debug1: Next authentication method: publickey debug1: Offering public key: /Users/csx/....</p>
-  </section>
-  <footer class="entry-footer">
-    <time>May 23, 2019</time>
-  </footer>
-  <a class="entry-link" href="https://leezicai.github.io/actiger/blog/linux/centos7.0%E4%BD%BF%E7%94%A8sshkey%E6%8B%89%E5%8F%96github%E4%BB%A3%E7%A0%81%E5%A4%B1%E8%B4%A5/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

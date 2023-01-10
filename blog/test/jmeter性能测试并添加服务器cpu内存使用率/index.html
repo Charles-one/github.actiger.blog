@@ -7,25 +7,27 @@
     
     <title>Jmeter性能测试并添加服务器cpu内存使用率 - AcTiger 跳跳虎</title>
     
-    <meta name="description" content="0. 准备工作  搭建静态博客Hugo, 建立Hugo服务作为测试接口 服务端centOS7.6.1810, 服务端ServerAgent 本机安装Java8, 并设置环境变量 本机jmeter, jmeter插件管理, Servers Performance Monitoring插件  1.服务端CentOS7 搭建Hugo, 并建立Hugo服务, 创建接口.  搭建Huog  请参考这个搭建Hugo文章
+    <meta name="description" content="0. 准备工作 搭建静态博客Hugo, 建立Hugo服务作为测试接口 服务端centOS7.6.1810, 服务端ServerAgent 本机安装Java8, 并设置环境变量 本机jmeter, jmeter插件管理, Servers Performance Monitoring插件 1.服务端CentOS7 搭建Hugo, 并建立Hugo服务, 创建接口. 搭建Huog 请参考这个搭建Hugo文章
 参考到这条语句下就可以了,这条语句下面的内容不用看了
-hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&quot; --port=1313  创建接口  hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&quot; --port=1313  检测服务端接口  在浏览器中访问 http://你的ip:1313.如未指定,则是http://localhost:1313
+hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&#34; --port=1313 创建接口 hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&#34; --port=1313 检测服务端接口 在浏览器中访问 http://你的ip:1313.如未指定,则是http://localhost:1313
 能正常访问显示文章就完成了
-2. 本机下载jmeter, jmeter插件管理, Servers Performance Monitoring插件  下载地址Jmeter, 安装插件  Jmeter下载地址
+2. 本机下载jmeter, jmeter插件管理, Servers Performance Monitoring插件 下载地址Jmeter, 安装插件 Jmeter下载地址
 下载并解压
 Jmeter插件管理
 下载并解压出对应jar文件, 并放在apache-jmeter-5.1/lib/ext中
 关闭Jmeter, 再重新打开Jmeter
 进入选项(Options)-&gt;插件管理(Plugins Manager)中
 搜索perfmon并安装
-3. 服务端下载PerfMon Server Agent运行, 添加防火墙端口4444   下载PerfMon Server Agent">
+3. 服务端下载PerfMon Server Agent运行, 添加防火墙端口4444 下载PerfMon Server Agent
+添加防火墙接口4444, 因为PerfMon Server Agent使用的是这个端口, 解压运行
+firewall-cmd --add-port=4444/tcp --permanent firewall-cmd --reload wget https://github.">
     <meta name="author" content="">
     
     <link href="https://leezicai.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
     <link href="https://leezicai.github.io/actiger/style.css" rel="stylesheet">
     
     <link rel="icon" href="https://leezicai.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.87.0" />
+    <meta name="generator" content="Hugo 0.109.0">
     
     <link rel="alternate" type="application/atom+xml" href="https://leezicai.github.io/actiger/index.xml" title="AcTiger 跳跳虎">
     
@@ -113,11 +115,11 @@ Jmeter插件管理
 </ul>
 <p>请参考这个<a target="_blank" href="https://actiger.com/blog/linux/使用hugo和github-pages搭建静态网站/">搭建Hugo文章</a></p>
 <p><strong>参考到这条语句下就可以了,这条语句下面的内容不用看了</strong></p>
-<pre><code>hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&quot; --port=1313
+<pre tabindex="0"><code>hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&#34; --port=1313
 </code></pre><ul>
 <li>创建接口</li>
 </ul>
-<pre><code>hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&quot; --port=1313
+<pre tabindex="0"><code>hugo server --theme=hugo-paper --bind=“10.211.55.9即是你的ip(不指定则默认只能本地访问)” --baseUrl=“http://10.211.55.9&#34; --port=1313
 </code></pre><ul>
 <li>检测服务端接口</li>
 </ul>
@@ -143,7 +145,7 @@ Jmeter插件管理
 <p>添加防火墙接口4444, 因为PerfMon Server Agent使用的是这个端口, 解压运行</p>
 </li>
 </ul>
-<pre><code>
+<pre tabindex="0"><code>
 firewall-cmd --add-port=4444/tcp --permanent
 firewall-cmd --reload
 
@@ -153,7 +155,6 @@ unzip -d ServerAgent-2.2.1 ServerAgent-2.2.1.zip  (如果缺少unzip, yum instal
 
 cd ServerAgent-2.2.1
 ./startAgent.sh
-
 </code></pre><h3 id="4-本机启动jmeter-并获取服务端cpu内存使用">4. 本机启动Jmeter, 并获取服务端cpu,内存使用</h3>
 <p><strong>使用Jmeter须安装Java, Java环境变量</strong></p>
 <p>在apache-jmeter-5.1/bin下 ./jmeter(linxu mac下启动)</p>
@@ -189,7 +190,7 @@ cd ServerAgent-2.2.1
 在apache-jmeter-5.1/bin下 (linxu mac下启动, windows是jmeter.bat)</p>
 </li>
 </ol>
-<pre><code>./jmeter -n -t test_file/my_hugo_test.jmx -l result_report_4.jtl -e -o Report_4
+<pre tabindex="0"><code>./jmeter -n -t test_file/my_hugo_test.jmx -l result_report_4.jtl -e -o Report_4
 </code></pre><p>报告放在Report_4中, 用浏览器打开index.html即可</p>
 <p>结合图形页面中cpu 内存使用, 分析接口压力情况</p>
 </div>

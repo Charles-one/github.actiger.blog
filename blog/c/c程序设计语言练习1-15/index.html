@@ -7,14 +7,14 @@
     
     <title>C程序设计语言练习1-15 - AcTiger 跳跳虎</title>
     
-    <meta name="description" content="1. 要求: 重新编写1.2节中的测试计划转换程序, 使用函数实现温度转换计算. 2. 分析. 1. C = (5 / 9) (F - 32) 2. 华氏温度与摄氏温度都是整数, 故输入是整数, 输出也是整数. 3. 代码. 1. 整数. #include&lt;stdio.h&gt; // 华氏温度转摄氏温度 int transfc(int f); int main(){ int i; for(i=0;i&lt;=300;i=i&#43;20){ printf(&quot;%-3d %-3d\n&quot;, i, transfc(i)); } return 0; } int transfc(int f){ return (f - 32) * 5 / 9; } 2. 补充double数. #include&lt;stdio.h&gt; // 华氏温度转摄氏温度 double transfc(double f); int main(){ double i; for(i=0;i&lt;=300;i=i&#43;20){ printf(&quot;%-3.1f %-3.1f\n&quot;, i, transfc(i)); } return 0; } double transfc(double f){ return (f - 32.">
+    <meta name="description" content="1. 要求: 重新编写1.2节中的测试计划转换程序, 使用函数实现温度转换计算. 2. 分析. 1. C = (5 / 9) (F - 32) 2. 华氏温度与摄氏温度都是整数, 故输入是整数, 输出也是整数. 3. 代码. 1. 整数. #include&lt;stdio.h&gt; // 华氏温度转摄氏温度 int transfc(int f); int main(){ int i; for(i=0;i&lt;=300;i=i&#43;20){ printf(&#34;%-3d %-3d\n&#34;, i, transfc(i)); } return 0; } int transfc(int f){ return (f - 32) * 5 / 9; } 2. 补充double数. #include&lt;stdio.h&gt; // 华氏温度转摄氏温度 double transfc(double f); int main(){ double i; for(i=0;i&lt;=300;i=i&#43;20){ printf(&#34;%-3.1f %-3.1f\n&#34;, i, transfc(i)); } return 0; } double transfc(double f){ return (f - 32.">
     <meta name="author" content="">
     
     <link href="https://leezicai.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
     <link href="https://leezicai.github.io/actiger/style.css" rel="stylesheet">
     
     <link rel="icon" href="https://leezicai.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.87.0" />
+    <meta name="generator" content="Hugo 0.109.0">
     
     <link rel="alternate" type="application/atom+xml" href="https://leezicai.github.io/actiger/index.xml" title="AcTiger 跳跳虎">
     
@@ -95,13 +95,13 @@
 <h3 id="2-华氏温度与摄氏温度都是整数-故输入是整数-输出也是整数">2. 华氏温度与摄氏温度都是整数, 故输入是整数, 输出也是整数.</h3>
 <h2 id="3-代码">3. 代码.</h2>
 <h3 id="1-整数">1. 整数.</h3>
-<pre><code>#include&lt;stdio.h&gt;
+<pre tabindex="0"><code>#include&lt;stdio.h&gt;
 // 华氏温度转摄氏温度
 int transfc(int f);
 int main(){
     int i;
     for(i=0;i&lt;=300;i=i+20){
-        printf(&quot;%-3d %-3d\n&quot;, i, transfc(i));
+        printf(&#34;%-3d %-3d\n&#34;, i, transfc(i));
     }
     return 0;
 }
@@ -110,13 +110,13 @@ int transfc(int f){
     return (f - 32) * 5 / 9;
 }
 </code></pre><h3 id="2-补充double数">2. 补充double数.</h3>
-<pre><code>#include&lt;stdio.h&gt;
+<pre tabindex="0"><code>#include&lt;stdio.h&gt;
 // 华氏温度转摄氏温度
 double transfc(double f);
 int main(){
     double i;
     for(i=0;i&lt;=300;i=i+20){
-        printf(&quot;%-3.1f %-3.1f\n&quot;, i, transfc(i));
+        printf(&#34;%-3.1f %-3.1f\n&#34;, i, transfc(i));
     }
     return 0;
 }
@@ -124,7 +124,6 @@ int main(){
 double transfc(double f){
     return (f - 32.0) * 5.0 / 9.0;
 }
-
 </code></pre></div>
   
 </article></main>

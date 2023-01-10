@@ -7,7 +7,7 @@
     
     <title>使用docker搭建nextcloud - AcTiger 跳跳虎</title>
     
-    <meta name="description" content="1. nextcloud 个人私有云, 可以像网盘一样同步个人文件, 远程访问下载等. 2. 使用docker-compose搭建 使用 docker-compose-repository搭建  git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository cp -r ~/docker-compose-repository/nextcloud ~/nextcloud cd ~/nextcloud # 自动下载并启动容器 dc up -d 访问地址 http://服务ip地址
+    <meta name="description" content="1. nextcloud 个人私有云, 可以像网盘一样同步个人文件, 远程访问下载等. 2. 使用docker-compose搭建 使用 docker-compose-repository搭建 git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository cp -r ~/docker-compose-repository/nextcloud ~/nextcloud cd ~/nextcloud # 自动下载并启动容器 dc up -d 访问地址 http://服务ip地址
 # 用户名和密码自己设置 # # 页面上选择数据库mariadb # 页面上填写就是你上面mariadb内容 # 用户名: nextcloud # 数据库: nextcloud # 密码: nextcloud_weiki_JKL_sdf # 地址(不是默认的localhost): mariadb ">
     <meta name="author" content="">
     
@@ -15,7 +15,7 @@
     <link href="https://leezicai.github.io/actiger/style.css" rel="stylesheet">
     
     <link rel="icon" href="https://leezicai.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.87.0" />
+    <meta name="generator" content="Hugo 0.109.0">
     
     <link rel="alternate" type="application/atom+xml" href="https://leezicai.github.io/actiger/index.xml" title="AcTiger 跳跳虎">
     
@@ -93,7 +93,7 @@
   <div class="post-content"><h3 id="1-nextcloud-个人私有云-可以像网盘一样同步个人文件-远程访问下载等">1. nextcloud 个人私有云, 可以像网盘一样同步个人文件, 远程访问下载等.</h3>
 <h3 id="2-使用docker-compose搭建">2. 使用docker-compose搭建</h3>
 <h4 id="使用-a-hrefhttpsgithubcomcharles-onedocker-compose-repository-target_blankdocker-compose-repository搭建a">使用 <a href="https://github.com/Charles-one/docker-compose-repository" target="_blank">docker-compose-repository搭建</a></h4>
-<pre><code>
+<pre tabindex="0"><code>
 git clone https://github.com/Charles-one/docker-compose-repository.git ~/docker-compose-repository
 
 cp -r ~/docker-compose-repository/nextcloud ~/nextcloud
@@ -103,10 +103,9 @@ cd ~/nextcloud
 # 自动下载并启动容器
 
 dc up -d
-
 </code></pre><h4 id="访问地址">访问地址</h4>
 <p>http://服务ip地址</p>
-<pre><code># 用户名和密码自己设置
+<pre tabindex="0"><code># 用户名和密码自己设置
 #
 # 页面上选择数据库mariadb
 # 页面上填写就是你上面mariadb内容
@@ -114,7 +113,6 @@ dc up -d
 # 数据库: nextcloud
 # 密码:  nextcloud_weiki_JKL_sdf
 # 地址(不是默认的localhost):  mariadb
-
 </code></pre></div>
   
 </article></main>

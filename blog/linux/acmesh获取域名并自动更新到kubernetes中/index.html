@@ -7,16 +7,16 @@
     
     <title>acme.sh获取域名并自动更新到kubernetes中 - AcTiger 跳跳虎</title>
     
-    <meta name="description" content="0. 原因letsencrypt获取的证书只有3个月有效期, 每次手动更新易出错也会忘记, 所以使用crontab定时acme.sh定时更新最好不过了. 放下文章结构 1. 安装acme.sh, acme.sh官网中文链接. # 推荐使用root用户, 后续也以root用户操作的. curl https://get.acme.sh | sh 2. 使用acme.sh的dns方式, 这里服务商以cloudflare为例.   域名使用cloudflare解析(注册cloudflare官方教程更换域名), 拿到Global API Key和邮箱.
-  参照官方教程中cloudflare部分.
-  # Global API Key和邮箱 export CF_Key=&quot;cloudflare设置中的Global API Key&quot; export CF_Email=&quot;cloudflare注册邮箱&quot; # 首次生成域名证书(\*号需要转译) /root/.acme.sh/acme.sh --issue --dns dns_cf -d \*.actiger.com TLSCRT=$(cat /root/.acme.sh/\*.actiger.com/\*.actiger.com.cer) TLSKEY=$(cat /root/.acme.sh/\*.actiger.com/\*.actiger.com.key) # base64转换 ACTIGER_TLSCRT=$(echo &quot;${TLSCRT}&quot;|base64 -w 10000) ACTIGER_TLSKEY=$(echo &quot;${TLSKEY}&quot;|base64 -w 10000) # 生成新的secret. FILE_ACTIGER=&quot;/root/kubernetes/pro-blog-cc6/ingress-secret.yml&quot; cat &lt;&lt; EOF | tee ${FILE_ACTIGER} apiVersion: v1 data: tls.">
+    <meta name="description" content="0. 原因letsencrypt获取的证书只有3个月有效期, 每次手动更新易出错也会忘记, 所以使用crontab定时acme.sh定时更新最好不过了. 放下文章结构 1. 安装acme.sh, acme.sh官网中文链接. # 推荐使用root用户, 后续也以root用户操作的. curl https://get.acme.sh | sh 2. 使用acme.sh的dns方式, 这里服务商以cloudflare为例. 域名使用cloudflare解析(注册cloudflare官方教程更换域名), 拿到Global API Key和邮箱.
+参照官方教程中cloudflare部分.
+# Global API Key和邮箱 export CF_Key=&#34;cloudflare设置中的Global API Key&#34; export CF_Email=&#34;cloudflare注册邮箱&#34; # 首次生成域名证书(\*号需要转译) /root/.acme.sh/acme.sh --issue --dns dns_cf -d \*.actiger.com TLSCRT=$(cat /root/.acme.sh/\*.actiger.com/\*.actiger.com.cer) TLSKEY=$(cat /root/.acme.sh/\*.actiger.com/\*.actiger.com.key) # base64转换 ACTIGER_TLSCRT=$(echo &#34;${TLSCRT}&#34;|base64 -w 10000) ACTIGER_TLSKEY=$(echo &#34;${TLSKEY}&#34;|base64 -w 10000) # 生成新的secret. FILE_ACTIGER=&#34;/root/kubernetes/pro-blog-cc6/ingress-secret.yml&#34; cat &lt;&lt; EOF | tee ${FILE_ACTIGER} apiVersion: v1 data: tls.crt: ${ACTIGER_TLSCRT} tls.key: ${ACTIGER_TLSKEY} kind: Secret metadata: name: ingress-secret namespace: nginx-space type: Opaque EOF # 生效 cd /root/kubernetes/pro-blog-cc6/ &amp;&amp; kubectl apply -f ingress-secret.">
     <meta name="author" content="">
     
     <link href="https://leezicai.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
     <link href="https://leezicai.github.io/actiger/style.css" rel="stylesheet">
     
     <link rel="icon" href="https://leezicai.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.87.0" />
+    <meta name="generator" content="Hugo 0.109.0">
     
     <link rel="alternate" type="application/atom+xml" href="https://leezicai.github.io/actiger/index.xml" title="AcTiger 跳跳虎">
     
@@ -95,7 +95,7 @@
 <h5 id="放下文章结构">放下文章结构</h5>
 <p><img src="https://img.actiger.com/blog/tech/acmesh-autoupdate-kubernetes-cert.png" alt="图片"></p>
 <h3 id="1-安装acmesh-a-hrefhttpsgithubcomacmesh-officialacmeshwiki说明-target_blankacmesh官网中文链接a">1. 安装acme.sh, <a href="https://github.com/acmesh-official/acme.sh/wiki/说明" target="_blank">acme.sh官网中文链接</a>.</h3>
-<pre><code># 推荐使用root用户, 后续也以root用户操作的.
+<pre tabindex="0"><code># 推荐使用root用户, 后续也以root用户操作的.
 curl  https://get.acme.sh | sh
 </code></pre><h3 id="2-使用acmesh的dns方式-这里服务商以cloudflare为例">2. 使用acme.sh的dns方式, 这里服务商以cloudflare为例.</h3>
 <ol>
@@ -106,10 +106,10 @@ curl  https://get.acme.sh | sh
 <p><a href="https://github.com/acmesh-official/acme.sh/wiki/dnsapi" target="_blank">参照官方教程中cloudflare部分</a>.</p>
 </li>
 </ol>
-<pre><code># Global API Key和邮箱
+<pre tabindex="0"><code># Global API Key和邮箱
 
-export CF_Key=&quot;cloudflare设置中的Global API Key&quot;
-export CF_Email=&quot;cloudflare注册邮箱&quot;
+export CF_Key=&#34;cloudflare设置中的Global API Key&#34;
+export CF_Email=&#34;cloudflare注册邮箱&#34;
 
 # 首次生成域名证书(\*号需要转译)
 /root/.acme.sh/acme.sh --issue --dns dns_cf -d \*.actiger.com
@@ -120,13 +120,13 @@ TLSKEY=$(cat /root/.acme.sh/\*.actiger.com/\*.actiger.com.key)
 
 # base64转换
 
-ACTIGER_TLSCRT=$(echo &quot;${TLSCRT}&quot;|base64 -w 10000)
+ACTIGER_TLSCRT=$(echo &#34;${TLSCRT}&#34;|base64 -w 10000)
 
-ACTIGER_TLSKEY=$(echo &quot;${TLSKEY}&quot;|base64 -w 10000)
+ACTIGER_TLSKEY=$(echo &#34;${TLSKEY}&#34;|base64 -w 10000)
 
 # 生成新的secret.
 
-FILE_ACTIGER=&quot;/root/kubernetes/pro-blog-cc6/ingress-secret.yml&quot;
+FILE_ACTIGER=&#34;/root/kubernetes/pro-blog-cc6/ingress-secret.yml&#34;
 
 cat &lt;&lt; EOF | tee ${FILE_ACTIGER}
 apiVersion: v1
@@ -142,22 +142,21 @@ EOF
 
 # 生效
 cd /root/kubernetes/pro-blog-cc6/ &amp;&amp; kubectl apply -f ingress-secret.yml
-
 </code></pre><h3 id="3-自动更新证书脚本">3. 自动更新证书脚本.</h3>
 <h4 id="vim-rootautoupdatecertsh-脚本内容">vim /root/autoupdatecert.sh, 脚本内容.</h4>
-<pre><code>/root/.acme.sh/acme.sh --cron
+<pre tabindex="0"><code>/root/.acme.sh/acme.sh --cron
 
 TLSCRT=$(cat /root/.acme.sh/\*.actiger.com/\*.actiger.com.cer)
 
 TLSKEY=$(cat /root/.acme.sh/\*.actiger.com/\*.actiger.com.key)
 
 
-ACTIGER_TLSCRT=$(echo &quot;${TLSCRT}&quot;|base64 -w 10000)
+ACTIGER_TLSCRT=$(echo &#34;${TLSCRT}&#34;|base64 -w 10000)
 
-ACTIGER_TLSKEY=$(echo &quot;${TLSKEY}&quot;|base64 -w 10000)
+ACTIGER_TLSKEY=$(echo &#34;${TLSKEY}&#34;|base64 -w 10000)
 
 # kubernetes中secret在该位置
-FILE_ACTIGER=&quot;/root/kubernetes/pro-blog-cc6/ingress-secret.yml&quot;
+FILE_ACTIGER=&#34;/root/kubernetes/pro-blog-cc6/ingress-secret.yml&#34;
 
 cat &lt;&lt; EOF | tee ${FILE_ACTIGER}
 apiVersion: v1
@@ -172,14 +171,13 @@ type: Opaque
 EOF
 
 cd /root/kubernetes/pro-blog-cc6/ &amp;&amp; kubectl apply -f ingress-secret.yml
-
 </code></pre><h3 id="4-添加到定时任务中-每月1号和15号尝试更新证书-可参考-a-hrefhttpsactigercombloglinuxcrontab定时任务-target_blankcrontab用法a">4. 添加到定时任务中, 每月1号和15号尝试更新证书, 可参考 <a href="https://actiger.com/blog/linux/crontab定时任务/" target="_blank">crontab用法</a>.</h3>
 <h4 id="41-vim-rootrootcron">4.1 vim /root/root.cron</h4>
-<pre><code>#进入脚本目录, 并执行更新证书脚本, 表示每月1号和15号 0点0分去更新证书.
+<pre tabindex="0"><code>#进入脚本目录, 并执行更新证书脚本, 表示每月1号和15号 0点0分去更新证书.
 
 0 0 1,15 * *  cd /root/ &amp;&amp; ./autoupdatecert.sh
 </code></pre><h4 id="42-添加上面定时任务">4.2 添加上面定时任务</h4>
-<pre><code>crontab -uroot /root/root.cron
+<pre tabindex="0"><code>crontab -uroot /root/root.cron
 </code></pre><h3 id="5-附录常见错误">5. 附录常见错误.</h3>
 <h4 id="1-echo-cat-actigercomcer与echo-cat-actigercomcer区别-第1个输出换行符被替换成了空格-第2个不会-在本文脚本中第2个才是正确">1. echo $(cat *.actiger.com.cer)与echo &ldquo;$(cat *.actiger.com.cer)&ldquo;区别, 第1个输出换行符被替换成了空格, 第2个不会. 在本文脚本中第2个才是正确.</h4>
 <h4 id="2-unset-变量名-删除变量名">2. unset ${变量名} 删除变量名</h4>

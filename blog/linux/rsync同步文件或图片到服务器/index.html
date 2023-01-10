@@ -7,15 +7,15 @@
     
     <title>Rsync同步文件或图片到服务器 - AcTiger 跳跳虎</title>
     
-    <meta name="description" content="1. 上次用nginx做了静态资源, 图片图床. 同步是个问题.  单纯使用scp每次传输, 覆盖文件, 文件更新时间就没了. 思考有没有更好的工具.  2. 网上查询发现rsync, 同步神器了. 安装, Homebrew. brew install rsync 参数解释-r目录递归,u增量更新(本地文件时间比上标文件新才更新), t保留修改时间. &ndash;exclude排除文件 在本地删除文件后, rsync同步到服务器端时是不会删除对应的文件的, 需要加上参数&ndash;delete, 会删除服务端比本地多余的文件, 重要文件同步谨慎使用. ${HOME}/Pictures/img/表示上传img文件夹下的所有文件, 不上传img. ${HOME}/Pictures/img表示上传img这个文件夹. 所以这个要注意
-vim .zshrc  alias up=&quot;rsync -rut --exclude &#39;.DS_Store&#39;&quot; uponestoblog(){ echo &quot;\033[42;30m Begin rsync Files... \033[0m&quot; SERVER_PATH=&quot;img/blog/&quot; for i in &quot;$@&quot;; do rsync -rut --exclude &#39;.DS_Store&#39; $i b:${SERVER_PATH} done } upblog(){ LOCAL_PATH=&quot;${HOME}/Pictures/img/blog/&quot; SERVER_PATH=&quot;img/blog/&quot; echo &quot;\033[42;30m Begin rsync ${LOCAL_PATH} b:${SERVER_PATH}... \033[0m&quot; rsync -rut --exclude &#39;.">
+    <meta name="description" content="1. 上次用nginx做了静态资源, 图片图床. 同步是个问题. 单纯使用scp每次传输, 覆盖文件, 文件更新时间就没了. 思考有没有更好的工具. 2. 网上查询发现rsync, 同步神器了. 安装, Homebrew. brew install rsync 参数解释-r目录递归,u增量更新(本地文件时间比上标文件新才更新), t保留修改时间. &ndash;exclude排除文件 在本地删除文件后, rsync同步到服务器端时是不会删除对应的文件的, 需要加上参数&ndash;delete, 会删除服务端比本地多余的文件, 重要文件同步谨慎使用. ${HOME}/Pictures/img/表示上传img文件夹下的所有文件, 不上传img. ${HOME}/Pictures/img表示上传img这个文件夹. 所以这个要注意
+vim .zshrc alias up=&#34;rsync -rut --exclude &#39;.DS_Store&#39;&#34; uponestoblog(){ echo &#34;\033[42;30m Begin rsync Files... \033[0m&#34; SERVER_PATH=&#34;img/blog/&#34; for i in &#34;$@&#34;; do rsync -rut --exclude &#39;.DS_Store&#39; $i b:${SERVER_PATH} done } upblog(){ LOCAL_PATH=&#34;${HOME}/Pictures/img/blog/&#34; SERVER_PATH=&#34;img/blog/&#34; echo &#34;\033[42;30m Begin rsync ${LOCAL_PATH} b:${SERVER_PATH}... \033[0m&#34; rsync -rut --exclude &#39;.DS_Store&#39; ${LOCAL_PATH} b:${SERVER_PATH} echo &#34;\033[42;30m Finash.">
     <meta name="author" content="">
     
     <link href="https://leezicai.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
     <link href="https://leezicai.github.io/actiger/style.css" rel="stylesheet">
     
     <link rel="icon" href="https://leezicai.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.87.0" />
+    <meta name="generator" content="Hugo 0.109.0">
     
     <link rel="alternate" type="application/atom+xml" href="https://leezicai.github.io/actiger/index.xml" title="AcTiger 跳跳虎">
     
@@ -97,44 +97,43 @@ vim .zshrc  alias up=&quot;rsync -rut --exclude &#39;.DS_Store&#39;&quot; upones
 </ol>
 <h3 id="2-网上查询发现rsync-同步神器了">2. 网上查询发现rsync, 同步神器了.</h3>
 <h4 id="安装-homebrew">安装, Homebrew.</h4>
-<pre><code>brew install rsync
+<pre tabindex="0"><code>brew install rsync
 </code></pre><h4 id="参数解释-r目录递归u增量更新本地文件时间比上标文件新才更新-t保留修改时间---exclude排除文件">参数解释-r目录递归,u增量更新(本地文件时间比上标文件新才更新), t保留修改时间. &ndash;exclude排除文件</h4>
 <h4 id="在本地删除文件后-rsync同步到服务器端时是不会删除对应的文件的-需要加上参数--delete-会删除服务端比本地多余的文件-重要文件同步谨慎使用">在本地删除文件后, rsync同步到服务器端时是不会删除对应的文件的, 需要加上参数&ndash;delete, 会删除服务端比本地多余的文件, 重要文件同步谨慎使用.</h4>
 <p><strong>${HOME}/Pictures/img/</strong>表示上传img文件夹下的所有文件, 不上传img.
 <strong>${HOME}/Pictures/img</strong>表示上传img这个文件夹.
 <strong>所以这个要注意</strong></p>
 <h4 id="vim-zshrc">vim .zshrc</h4>
-<pre><code>
-alias up=&quot;rsync -rut --exclude '.DS_Store'&quot;
+<pre tabindex="0"><code>
+alias up=&#34;rsync -rut --exclude &#39;.DS_Store&#39;&#34;
 
 uponestoblog(){
-    echo &quot;\033[42;30m Begin rsync Files...  \033[0m&quot;
-    SERVER_PATH=&quot;img/blog/&quot;
-    for i in &quot;$@&quot;; do
-        rsync -rut --exclude '.DS_Store' $i b:${SERVER_PATH}
+    echo &#34;\033[42;30m Begin rsync Files...  \033[0m&#34;
+    SERVER_PATH=&#34;img/blog/&#34;
+    for i in &#34;$@&#34;; do
+        rsync -rut --exclude &#39;.DS_Store&#39; $i b:${SERVER_PATH}
     done
 }
 upblog(){
-    LOCAL_PATH=&quot;${HOME}/Pictures/img/blog/&quot;
-    SERVER_PATH=&quot;img/blog/&quot;
-    echo &quot;\033[42;30m Begin rsync ${LOCAL_PATH} b:${SERVER_PATH}...  \033[0m&quot;
-    rsync -rut --exclude '.DS_Store' ${LOCAL_PATH} b:${SERVER_PATH}
-    echo &quot;\033[42;30m Finash.  \033[0m&quot;
+    LOCAL_PATH=&#34;${HOME}/Pictures/img/blog/&#34;
+    SERVER_PATH=&#34;img/blog/&#34;
+    echo &#34;\033[42;30m Begin rsync ${LOCAL_PATH} b:${SERVER_PATH}...  \033[0m&#34;
+    rsync -rut --exclude &#39;.DS_Store&#39; ${LOCAL_PATH} b:${SERVER_PATH}
+    echo &#34;\033[42;30m Finash.  \033[0m&#34;
 }
 
 upimg(){
-    LOCAL_PATH=&quot;${HOME}/Pictures/img/&quot;
-    SERVER_PATH=&quot;img/&quot;
-    echo &quot;\033[42;30m Begin rsync ${LOCAL_PATH} b:${SERVER_PATH}...  \033[0m&quot;
-    rsync -rut --exclude '.DS_Store' ${LOCAL_PATH} b:${SERVER_PATH}
-    echo &quot;\033[42;30m Finash.  \033[0m&quot;
+    LOCAL_PATH=&#34;${HOME}/Pictures/img/&#34;
+    SERVER_PATH=&#34;img/&#34;
+    echo &#34;\033[42;30m Begin rsync ${LOCAL_PATH} b:${SERVER_PATH}...  \033[0m&#34;
+    rsync -rut --exclude &#39;.DS_Store&#39; ${LOCAL_PATH} b:${SERVER_PATH}
+    echo &#34;\033[42;30m Finash.  \033[0m&#34;
 }
-
 </code></pre><h4 id="重新生效zshrc">重新生效.zshrc</h4>
-<pre><code>source .zshrc
+<pre tabindex="0"><code>source .zshrc
 </code></pre><h3 id="3-开心上传图床了-平时用的就几个文件夹-需要参数化嘛">3. 开心上传图床了, 平时用的就几个文件夹, 需要参数化嘛😃</h3>
 <h4 id="使用alias重命名的up命令-b是服务器名称a-target_blank-hrefhttpsactigercombloglinuxssh密钥生成配置和登陆服务器与github使用钥匙参考ssh密钥配置a">使用alias重命名的up命令, b是服务器名称.<a target="_blank" href="https://actiger.com/blog/linux/ssh密钥生成配置和登陆服务器与github使用钥匙/">参考SSH密钥配置</a></h4>
-<pre><code>upimg
+<pre tabindex="0"><code>upimg
 
 # 或者up命令
 up ~/Pictures/img/ b:img/

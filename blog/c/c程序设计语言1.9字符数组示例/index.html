@@ -7,19 +7,19 @@
     
     <title>C程序设计语言1.9字符数组示例 - AcTiger 跳跳虎</title>
     
-    <meta name="description" content="1. 要求: 程序读入一组文本行, 并把最长的文本行打印出来. 2. 分析.   要做什么, 读取一行, 与最长行比较, 保存最长行, 读取完, 比较完了, 打印最长行.
-  读取一行, 碰到换行符或EOF结束符是一行, 能读取的最大长度也是一行, 记录行的长度.
-  循环内当前行长度与最大行长度比较, 当前行比最大行长, 最大行=当前行, 否则不变.
-  循环结束后, 结束行与最大行比较, 结束行长度&gt;最大行, 最大行=结束行.
-  打印最大行.
-  3. 代码. 1. 为了结束循环, 结束行的长度返回负数. 负数比较时需要转为正数. 2. int数组中&#39;\0&rsquo;表示结束, 这个特殊需要记下.  #include&lt;stdio.h&gt; #include&lt;stdlib.h&gt; #define MAXLINE 1000 int getLine(char line[], int maxline); void copy(char to[], char from[], int maxline); int main(){ int index; int len; int max; max = 0; char line[MAXLINE]; char maxlong[MAXLINE]; while((len=getLine(line, MAXLINE)) &gt; 0){ if(len &gt; max){ max = len; copy(maxlong, line, MAXLINE); } } if(len&lt;0){ if(abs(len) &gt; max){ copy(maxlong, line, MAXLINE); } } for(index=0;maxlong[index] !">
+    <meta name="description" content="1. 要求: 程序读入一组文本行, 并把最长的文本行打印出来. 2. 分析. 要做什么, 读取一行, 与最长行比较, 保存最长行, 读取完, 比较完了, 打印最长行.
+读取一行, 碰到换行符或EOF结束符是一行, 能读取的最大长度也是一行, 记录行的长度.
+循环内当前行长度与最大行长度比较, 当前行比最大行长, 最大行=当前行, 否则不变.
+循环结束后, 结束行与最大行比较, 结束行长度&gt;最大行, 最大行=结束行.
+打印最大行.
+3. 代码. 1. 为了结束循环, 结束行的长度返回负数. 负数比较时需要转为正数. 2. int数组中&rsquo;\0&rsquo;表示结束, 这个特殊需要记下. #include&lt;stdio.h&gt; #include&lt;stdlib.h&gt; #define MAXLINE 1000 int getLine(char line[], int maxline); void copy(char to[], char from[], int maxline); int main(){ int index; int len; int max; max = 0; char line[MAXLINE]; char maxlong[MAXLINE]; while((len=getLine(line, MAXLINE)) &gt; 0){ if(len &gt; max){ max = len; copy(maxlong, line, MAXLINE); } } if(len&lt;0){ if(abs(len) &gt; max){ copy(maxlong, line, MAXLINE); } } for(index=0;maxlong[index] !">
     <meta name="author" content="">
     
     <link href="https://leezicai.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
     <link href="https://leezicai.github.io/actiger/style.css" rel="stylesheet">
     
     <link rel="icon" href="https://leezicai.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.87.0" />
+    <meta name="generator" content="Hugo 0.109.0">
     
     <link rel="alternate" type="application/atom+xml" href="https://leezicai.github.io/actiger/index.xml" title="AcTiger 跳跳虎">
     
@@ -116,8 +116,8 @@
 <p><img src="https://img.actiger.com/blog/tech/1e9.c.png" alt="思维导图"></p>
 <h2 id="3-代码">3. 代码.</h2>
 <h4 id="1-为了结束循环-结束行的长度返回负数-负数比较时需要转为正数">1. 为了结束循环, 结束行的长度返回负数. 负数比较时需要转为正数.</h4>
-<h4 id="2-int数组中0表示结束-这个特殊需要记下">2. int数组中'\0&rsquo;表示结束, 这个特殊需要记下.</h4>
-<pre><code>
+<h4 id="2-int数组中0表示结束-这个特殊需要记下">2. int数组中&rsquo;\0&rsquo;表示结束, 这个特殊需要记下.</h4>
+<pre tabindex="0"><code>
 #include&lt;stdio.h&gt;
 #include&lt;stdlib.h&gt;
 #define MAXLINE 1000
@@ -142,10 +142,10 @@ int main(){
             copy(maxlong, line, MAXLINE);
         }
     }
-    for(index=0;maxlong[index] != '\0' &amp;&amp; index &lt; MAXLINE; index++){
-        printf(&quot;%c&quot;, maxlong[index]);
+    for(index=0;maxlong[index] != &#39;\0&#39; &amp;&amp; index &lt; MAXLINE; index++){
+        printf(&#34;%c&#34;, maxlong[index]);
         if(index == MAXLINE - 1){
-            printf(&quot;test&quot;);
+            printf(&#34;test&#34;);
         }
     }
 
@@ -157,12 +157,12 @@ int main(){
 int getLine(char line[], int maxline){
     int input, i;
     i = 0;
-    while((input=getchar()) != EOF &amp;&amp;  input != '\n' &amp;&amp; i&lt;maxline){
+    while((input=getchar()) != EOF &amp;&amp;  input != &#39;\n&#39; &amp;&amp; i&lt;maxline){
         line[i] = input;
         ++i;
     }
     if(i &lt;= maxline -1){
-        line[i] = '\0';
+        line[i] = &#39;\0&#39;;
     }
 
     if(input == EOF){
@@ -178,8 +178,6 @@ void copy(char to[], char from[], int max){
         to[i] = from[i];
     }
 }
-
-
 </code></pre></div>
   
 </article></main>

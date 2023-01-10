@@ -7,14 +7,14 @@
     
     <title>介绍spf13插件使用和我的vim配置 - AcTiger 跳跳虎</title>
     
-    <meta name="description" content="1. spf13简介 Steve Francia使用的vim配置, vim插件插件集合.  2. spf13常用插件简单使用, 中文.  Surronund 编辑字符周围的符号的.  # *号表示当前光标停留位置, 所有的操作在vim的nomal模式 Old text Command New text ~ &quot;Hello *world!&quot; ds&quot; Hello world! [123&#43;4*56]/2 cs]) (123&#43;456)/2 &quot;Look ma, I&#39;m *HTML!&quot; cs&quot;&lt;q&gt; &lt;q&gt;Look ma, I&#39;m HTML!&lt;/q&gt; if *x&gt;3 { ysW( if ( x&gt;3 ) { my $str = *whee!; vllllS&#39; my $str = &#39;whee!&#39;;  EasyMotion 跳到任何地方  # 再打对应的字符就可直接跳到单词的首字符位置 ,,w # 再打对应的字符就可直接跳到单词的尾字符位置 ,,e  Fugitive Git的插件, 可以vim中批量提交git文件, 查看git diff等.">
+    <meta name="description" content="1. spf13简介 Steve Francia使用的vim配置, vim插件插件集合. 2. spf13常用插件简单使用, 中文. Surronund 编辑字符周围的符号的. # *号表示当前光标停留位置, 所有的操作在vim的nomal模式 Old text Command New text ~ &#34;Hello *world!&#34; ds&#34; Hello world! [123&#43;4*56]/2 cs]) (123&#43;456)/2 &#34;Look ma, I&#39;m *HTML!&#34; cs&#34;&lt;q&gt; &lt;q&gt;Look ma, I&#39;m HTML!&lt;/q&gt; if *x&gt;3 { ysW( if ( x&gt;3 ) { my $str = *whee!; vllllS&#39; my $str = &#39;whee!&#39;; EasyMotion 跳到任何地方 # 再打对应的字符就可直接跳到单词的首字符位置 ,,w # 再打对应的字符就可直接跳到单词的尾字符位置 ,,e Fugitive Git的插件, 可以vim中批量提交git文件, 查看git diff等. # &lt;leader&gt; 这里就 , 键 &lt;leader&gt;gs :Gstatus &lt;leader&gt;gd :Gdiff &lt;leader&gt;gc :Gcommit &lt;leader&gt;gb :Gblame &lt;leader&gt;gl :Glog &lt;leader&gt;gp :Git push Syntastic 语法检查, 有语法错误的地方会有提示.">
     <meta name="author" content="">
     
     <link href="https://leezicai.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
     <link href="https://leezicai.github.io/actiger/style.css" rel="stylesheet">
     
     <link rel="icon" href="https://leezicai.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.87.0" />
+    <meta name="generator" content="Hugo 0.109.0">
     
     <link rel="alternate" type="application/atom+xml" href="https://leezicai.github.io/actiger/index.xml" title="AcTiger 跳跳虎">
     
@@ -95,19 +95,18 @@
 <ul>
 <li>Surronund 编辑字符周围的符号的.</li>
 </ul>
-<pre><code># *号表示当前光标停留位置, 所有的操作在vim的nomal模式
+<pre tabindex="0"><code># *号表示当前光标停留位置, 所有的操作在vim的nomal模式
 
 Old text                  Command     New text ~
-&quot;Hello *world!&quot;           ds&quot;         Hello world!
+&#34;Hello *world!&#34;           ds&#34;         Hello world!
 [123+4*56]/2              cs])        (123+456)/2
-&quot;Look ma, I'm *HTML!&quot;     cs&quot;&lt;q&gt;      &lt;q&gt;Look ma, I'm HTML!&lt;/q&gt;
+&#34;Look ma, I&#39;m *HTML!&#34;     cs&#34;&lt;q&gt;      &lt;q&gt;Look ma, I&#39;m HTML!&lt;/q&gt;
 if *x&gt;3 {                 ysW(        if ( x&gt;3 ) {
-my $str = *whee!;         vllllS'     my $str = 'whee!';
-
+my $str = *whee!;         vllllS&#39;     my $str = &#39;whee!&#39;;
 </code></pre><ul>
 <li>EasyMotion 跳到任何地方</li>
 </ul>
-<pre><code># 再打对应的字符就可直接跳到单词的首字符位置
+<pre tabindex="0"><code># 再打对应的字符就可直接跳到单词的首字符位置
 ,,w
 
 # 再打对应的字符就可直接跳到单词的尾字符位置
@@ -115,14 +114,13 @@ my $str = *whee!;         vllllS'     my $str = 'whee!';
 </code></pre><ul>
 <li>Fugitive Git的插件, 可以vim中批量提交git文件, 查看git diff等.</li>
 </ul>
-<pre><code># &lt;leader&gt; 这里就 , 键
+<pre tabindex="0"><code># &lt;leader&gt; 这里就 , 键
 &lt;leader&gt;gs :Gstatus
 &lt;leader&gt;gd :Gdiff
 &lt;leader&gt;gc :Gcommit
 &lt;leader&gt;gb :Gblame
 &lt;leader&gt;gl :Glog
 &lt;leader&gt;gp :Git push
-
 </code></pre><ul>
 <li>
 <p>Syntastic 语法检查, 有语法错误的地方会有提示.</p>
@@ -132,7 +130,7 @@ my $str = *whee!;         vllllS'     my $str = 'whee!';
 </li>
 </ul>
 <p>一些在Normal模式下的快捷键</p>
-<pre><code># 切换是否显示NERDTree目录
+<pre tabindex="0"><code># 切换是否显示NERDTree目录
 control + e
 
 # 切换到左边目录中
@@ -206,11 +204,10 @@ MacVim 还可以借助快捷键来完成 tab 的关闭、切换
 cmd+w   关闭当前的 tab
 cmd+{   前一个 tab
 cmd+}   后一个 tab
-
 </code></pre><ul>
 <li>Emmet.vim 用来快捷生成代码的</li>
 </ul>
-<pre><code># #标签可生成id, $是自增, *3是数据3
+<pre tabindex="0"><code># #标签可生成id, $是自增, *3是数据3
 div&gt;p#foo$*3&gt;a
 
 h$[title=item$]{Header $}*3
@@ -220,50 +217,49 @@ h$[title=item$]{Header $}*3
 </code></pre><ul>
 <li>NERDCommenter 用来智能注释的</li>
 </ul>
-<pre><code># 注释或取消注释
+<pre tabindex="0"><code># 注释或取消注释
 &lt;leader&gt; + c + 空格键
 
 # 智能注释
 &lt;leader&gt; + c + s
 </code></pre><h3 id="我个人的配置">我个人的配置.</h3>
 <h4 id="1-使用的插件vimrcbundleslocal">1. 使用的插件.vimrc.bundles.local</h4>
-<pre><code>Bundle 'rizzatti/dash.vim'
-&quot;Plugin 'heracek/HTML-AutoCloseTag', {'name': 'HTML-AutoCloseTag2'}
-UnBundle 'amirh/HTML-AutoCloseTag'
+<pre tabindex="0"><code>Bundle &#39;rizzatti/dash.vim&#39;
+&#34;Plugin &#39;heracek/HTML-AutoCloseTag&#39;, {&#39;name&#39;: &#39;HTML-AutoCloseTag2&#39;}
+UnBundle &#39;amirh/HTML-AutoCloseTag&#39;
 
 
-Bundle 'nginx.vim'
+Bundle &#39;nginx.vim&#39;
 
 # 快速搜索文件
-Bundle 'junegunn/fzf.vim'
-Bundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Bundle &#39;junegunn/fzf.vim&#39;
+Bundle &#39;junegunn/fzf&#39;, { &#39;dir&#39;: &#39;~/.fzf&#39;, &#39;do&#39;: &#39;./install --all&#39; }
 
 # 让目录树也显示git文件状态
-Bundle 'Xuyuanp/nerdtree-git-plugin'
+Bundle &#39;Xuyuanp/nerdtree-git-plugin&#39;
 
 # 自动对齐
-Bundle 'junegunn/vim-easy-align'
-
+Bundle &#39;junegunn/vim-easy-align&#39;
 </code></pre><h4 id="2-使用的vimrclocal文件">2. 使用的.vimrc.local文件.</h4>
 <h4 id="1-强烈推荐设置新键到w保存-wq保存退出-q这些键">1. 强烈推荐设置新键到:w保存, :wq保存退出, :q这些键</h4>
 <h4 id="这样-快速-慢了就触发录制功能-再按q会退出">这样, 快速, 慢了就触发录制功能, 再按q会退出.</h4>
 <h4 id="保存退出就只用1个键2次就可以了-这个使用的最多-完成不用移动手指位置">保存退出就只用1个键2次就可以了, 这个使用的最多, 完成不用移动手指位置.</h4>
-<pre><code>nnoremap qq :wq&lt;CR&gt;
+<pre tabindex="0"><code>nnoremap qq :wq&lt;CR&gt;
 nnoremap qw :w&lt;CR&gt;
 nnoremap q0 :q&lt;CR&gt;
 nnoremap q- :bw&lt;CR&gt;
 nnoremap qa :qa&lt;CR&gt;
 </code></pre><h4 id="2-完整的vimrclocal文件">2. 完整的.vimrc.local文件</h4>
-<pre><code>set nospell
-&quot;退出编辑模式时自动保存
+<pre tabindex="0"><code>set nospell
+&#34;退出编辑模式时自动保存
 au InsertLeave *.* write
 
-&quot; 主题
-&quot;colo
+&#34; 主题
+&#34;colo
 
-&quot;编辑行没有黑色条
+&#34;编辑行没有黑色条
 highlight CursorLine cterm=NONE ctermbg=NONE
-&quot;设置编辑模式下, vim可以使用emacs的光标移动
+&#34;设置编辑模式下, vim可以使用emacs的光标移动
 inoremap &lt;C-e&gt; &lt;END&gt;
 inoremap &lt;C-a&gt; &lt;HOME&gt;
 inoremap &lt;C-f&gt; &lt;Right&gt;
@@ -273,20 +269,20 @@ inoremap &lt;C-n&gt; &lt;Down&gt;
 inoremap &lt;C-d&gt; &lt;Delete&gt;
 inoremap &lt;C-h&gt; &lt;BS&gt;
 
-&quot;neocomplete不加载python文件的补全
-&quot;autocmd FileType python NeoCompleteLock
+&#34;neocomplete不加载python文件的补全
+&#34;autocmd FileType python NeoCompleteLock
 
-&quot;禁用鼠标
-&quot;set mouse-=a
+&#34;禁用鼠标
+&#34;set mouse-=a
 
-&quot; fasd.vim &lt;tab&gt; shortkey
+&#34; fasd.vim &lt;tab&gt; shortkey
 nnoremap &lt;silent&gt; &lt;C-p&gt; :Files&lt;CR&gt;
 
-let g:ctrlp_map = '&lt;C-i&gt;&lt;c-p&gt;'
+let g:ctrlp_map = &#39;&lt;C-i&gt;&lt;c-p&gt;&#39;
 
-&quot; emmet
-let g:user_emmet_mode='a'
-let g:user_emmet_leader_key='&lt;C-L&gt;'
+&#34; emmet
+let g:user_emmet_mode=&#39;a&#39;
+let g:user_emmet_leader_key=&#39;&lt;C-L&gt;&#39;
 let g:user_emmet_install_global = 0
 
 
@@ -296,23 +292,23 @@ set foldmethod=manual
 
 hi Folded term=NONE cterm=NONE ctermbg=236
 
-&quot; Syntastic 自定义出现语法错误的提示符号.
-&quot;let g:syntastic_error_symbol = &quot;\u2717&quot;
-&quot;let g:syntastic_warning_symbol = &quot;\u26A0&quot;
-let g:syntastic_error_symbol = '●'
-let g:syntastic_warning_symbol = '▶︎'
-let syntastic_style_error_symbol = '○●'
-let syntastic_style_warning_symbol = '○▶︎'
+&#34; Syntastic 自定义出现语法错误的提示符号.
+&#34;let g:syntastic_error_symbol = &#34;\u2717&#34;
+&#34;let g:syntastic_warning_symbol = &#34;\u26A0&#34;
+let g:syntastic_error_symbol = &#39;●&#39;
+let g:syntastic_warning_symbol = &#39;▶︎&#39;
+let syntastic_style_error_symbol = &#39;○●&#39;
+let syntastic_style_warning_symbol = &#39;○▶︎&#39;
 let g:multi_cursor_use_default_mapping=0
 
-&quot; Default mapping
-let g:multi_cursor_start_word_key      = '&lt;C-n&gt;'
-let g:multi_cursor_select_all_word_key = '&lt;A-n&gt;'
-let g:multi_cursor_start_key           = 'g&lt;C-n&gt;'
-let g:multi_cursor_select_all_key      = 'g&lt;A-n&gt;'
-let g:multi_cursor_next_key            = '&lt;C-n&gt;'
-let g:multi_cursor_prev_key            = '&lt;C-p&gt;'
-let g:multi_cursor_skip_key            = '&lt;C-x&gt;'
+&#34; Default mapping
+let g:multi_cursor_start_word_key      = &#39;&lt;C-n&gt;&#39;
+let g:multi_cursor_select_all_word_key = &#39;&lt;A-n&gt;&#39;
+let g:multi_cursor_start_key           = &#39;g&lt;C-n&gt;&#39;
+let g:multi_cursor_select_all_key      = &#39;g&lt;A-n&gt;&#39;
+let g:multi_cursor_next_key            = &#39;&lt;C-n&gt;&#39;
+let g:multi_cursor_prev_key            = &#39;&lt;C-p&gt;&#39;
+let g:multi_cursor_skip_key            = &#39;&lt;C-x&gt;&#39;
 
 
 noremap &lt;leader&gt;fw :bw&lt;CR&gt;
@@ -350,58 +346,57 @@ nnoremap q- :bw&lt;CR&gt;
 nnoremap qa :qa&lt;CR&gt;
 
 
-&quot;autocmd VimEnter * NERDTree
-&quot; NERDTree 显示行号
+&#34;autocmd VimEnter * NERDTree
+&#34; NERDTree 显示行号
 let NERDTreeShowLineNumbers=1
 let NERDTreeAutoCenter=1
-&quot; 是否显示隐藏文件
+&#34; 是否显示隐藏文件
 let NERDTreeShowHidden=0
-&quot; 设置宽度
+&#34; 设置宽度
 let NERDTreeWinSize=28
-&quot; 在终端启动vim时，共享NERDTree
+&#34; 在终端启动vim时，共享NERDTree
 let g:nerdtree_tabs_open_on_console_startup=1
-&quot; 忽略一下文件的显示
-let NERDTreeIgnore=['\.pyc','\~$','\.swp']
-&quot; 显示书签列表
+&#34; 忽略一下文件的显示
+let NERDTreeIgnore=[&#39;\.pyc&#39;,&#39;\~$&#39;,&#39;\.swp&#39;]
+&#34; 显示书签列表
 let NERDTreeShowBookmarks=1
 
 
 let g:NERDTreeIndicatorMapCustom = {
-    \ &quot;Modified&quot;  : &quot;⦿&quot;,
-    \ &quot;Staged&quot;    : &quot;●&quot;,
-    \ &quot;Untracked&quot; : &quot;○&quot;,
-    \ &quot;Renamed&quot;   : &quot;➜&quot;,
-    \ &quot;Unmerged&quot;  : &quot;□&quot;,
-    \ &quot;Deleted&quot;   : &quot;✖&quot;,
-    \ &quot;Dirty&quot;     : &quot;✗&quot;,
-    \ &quot;Clean&quot;     : &quot;✔︎&quot;,
-    \ 'Ignored'   : '☒',
-    \ &quot;Unknown&quot;   : &quot;?&quot;
+    \ &#34;Modified&#34;  : &#34;⦿&#34;,
+    \ &#34;Staged&#34;    : &#34;●&#34;,
+    \ &#34;Untracked&#34; : &#34;○&#34;,
+    \ &#34;Renamed&#34;   : &#34;➜&#34;,
+    \ &#34;Unmerged&#34;  : &#34;□&#34;,
+    \ &#34;Deleted&#34;   : &#34;✖&#34;,
+    \ &#34;Dirty&#34;     : &#34;✗&#34;,
+    \ &#34;Clean&#34;     : &#34;✔︎&#34;,
+    \ &#39;Ignored&#39;   : &#39;☒&#39;,
+    \ &#34;Unknown&#34;   : &#34;?&#34;
     \ }
 
 
 
 let g:deoplete#enable_at_startup = 1
-&quot;let g:pymode_init = 0
-&quot;let g:pymode_lint = 0
+&#34;let g:pymode_init = 0
+&#34;let g:pymode_lint = 0
 
-let g:pymode_python = 'python3'
+let g:pymode_python = &#39;python3&#39;
 
 nmap &lt;leader&gt;mm i&lt;space&gt;&lt;ESC&gt;
 
-&quot; java
+&#34; java
 
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
-&quot; youcompleteme
-let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
-let g:ycm_key_invoke_completion = '&lt;c-x&gt;'
+&#34; youcompleteme
+let g:ycm_global_ycm_extra_conf=&#39;~/.vim/.ycm_extra_conf.py&#39;
+let g:ycm_key_invoke_completion = &#39;&lt;c-x&gt;&#39;
 
 
-&quot; tagbar
+&#34; tagbar
 let g:tagbar_width=22
 let g:tagbar_right=1
-
 </code></pre></div>
   
 </article></main>

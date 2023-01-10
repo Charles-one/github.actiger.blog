@@ -7,16 +7,16 @@
     
     <title>Crontab定时任务 - AcTiger 跳跳虎</title>
     
-    <meta name="description" content="1. 使用Crontab的原因. 每次更新博客都要登录服务器(ssh延迟容易中断)手动去拉取代码, 不方便. 故设置成自动获取最新代码. 2. 选择crontab定时 查看下资源, 觉得crontab简单可行, 直接来用就好了. 3. 定时任务需需要做事情.  特定目录执行git pul的shell脚本. 这里我使用了 ssh key可以参考这里的  vim git_pull.sh
- #!/bin/bash # 进入目录中 cd ~/nginx-hugoBlog/www.actiger.com/ # 拉取github中的代码 git pull 添加crontab任务文件  vim git_pull.cron
-# 设置5分钟拉取一次代码 */5 * * * * cd /root &amp;&amp; ./git_pull_www.actiger.com.sh 把定时任务文件内容加到crontab中  # 添加root账户中 crontab -uroot git_pull.cron # 查询当前任务, root是账户, 添加的定时任务会放到这个目录中 crontab -uroot -l cat /var/spool/cron/root # 删除root用户的定时任务 crontab -uroot -r 日志的地址, 相当重要. # 日志文件 /var/spool/mail/root # 查看日志 # 可以把时间设置1分钟, 可以很快看到执行情况, 方便调试.">
+    <meta name="description" content="1. 使用Crontab的原因. 每次更新博客都要登录服务器(ssh延迟容易中断)手动去拉取代码, 不方便. 故设置成自动获取最新代码. 2. 选择crontab定时 查看下资源, 觉得crontab简单可行, 直接来用就好了. 3. 定时任务需需要做事情. 特定目录执行git pul的shell脚本. 这里我使用了 ssh key可以参考这里的 vim git_pull.sh
+#!/bin/bash # 进入目录中 cd ~/nginx-hugoBlog/www.actiger.com/ # 拉取github中的代码 git pull 添加crontab任务文件 vim git_pull.cron
+# 设置5分钟拉取一次代码 */5 * * * * cd /root &amp;&amp; ./git_pull_www.actiger.com.sh 把定时任务文件内容加到crontab中 # 添加root账户中 crontab -uroot git_pull.cron # 查询当前任务, root是账户, 添加的定时任务会放到这个目录中 crontab -uroot -l cat /var/spool/cron/root # 删除root用户的定时任务 crontab -uroot -r 日志的地址, 相当重要. # 日志文件 /var/spool/mail/root # 查看日志 # 可以把时间设置1分钟, 可以很快看到执行情况, 方便调试.">
     <meta name="author" content="">
     
     <link href="https://leezicai.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
     <link href="https://leezicai.github.io/actiger/style.css" rel="stylesheet">
     
     <link rel="icon" href="https://leezicai.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.87.0" />
+    <meta name="generator" content="Hugo 0.109.0">
     
     <link rel="alternate" type="application/atom+xml" href="https://leezicai.github.io/actiger/index.xml" title="AcTiger 跳跳虎">
     
@@ -100,7 +100,7 @@
 <li>特定目录执行git pul的shell脚本. 这里我使用了 <a href="https://actiger.com/blog/linux/ssh密钥生成配置和登陆服务器与github使用钥匙/" target="_blank">ssh key可以参考这里的</a></li>
 </ol>
 <p>vim git_pull.sh</p>
-<pre><code>
+<pre tabindex="0"><code>
 #!/bin/bash
 
 # 进入目录中
@@ -110,19 +110,17 @@ cd ~/nginx-hugoBlog/www.actiger.com/
 # 拉取github中的代码
 
 git pull
-
 </code></pre><ol start="2">
 <li>添加crontab任务文件</li>
 </ol>
 <p>vim git_pull.cron</p>
-<pre><code># 设置5分钟拉取一次代码
+<pre tabindex="0"><code># 设置5分钟拉取一次代码
 
 */5 * * * * cd /root &amp;&amp; ./git_pull_www.actiger.com.sh
-
 </code></pre><ol start="3">
 <li>把定时任务文件内容加到crontab中</li>
 </ol>
-<pre><code># 添加root账户中
+<pre tabindex="0"><code># 添加root账户中
 
 crontab -uroot git_pull.cron
 
@@ -134,16 +132,14 @@ cat /var/spool/cron/root
 # 删除root用户的定时任务
 
 crontab -uroot -r
-
 </code></pre><h4 id="日志的地址-相当重要">日志的地址, 相当重要.</h4>
-<pre><code># 日志文件 /var/spool/mail/root
+<pre tabindex="0"><code># 日志文件 /var/spool/mail/root
 # 查看日志
 # 可以把时间设置1分钟, 可以很快看到执行情况, 方便调试.
 
 tail -f /var/spool/mail/root
-
 </code></pre><h3 id="4-crontab-时间配置">4. crontab 时间配置</h3>
-<pre><code># 格式是
+<pre tabindex="0"><code># 格式是
 # 分 时 月份中第日 月份 星期中第几天 运行的命令
 
 # 每分钟执行一次,
@@ -166,7 +162,6 @@ tail -f /var/spool/mail/root
 # 每月初一, 十五去执行
 
 0 0 1,15 * *  命令
-
 </code></pre></div>
   
 </article></main>

@@ -7,14 +7,14 @@
     
     <title>TestNG中注解Before After执行顺序 - AcTiger 跳跳虎</title>
     
-    <meta name="description" content="1. TestNG是什么 TestNG一种开源自动测试框架, 相当灵活的注解和配置, 自由测试. 2. Before After执行顺序    注解 描述     @BeforeSuite 套件, 在所有测试开始时运行1次   @BeforeTest 在所有类Classes前, BeforeSuite后运行1次,注解的方法将在testNG.xml文件test标签内的所有类方法运行前执行   @BeforeClass 在单个class类前执行1次   @BeforeGroups 在所有配置方法组前运行1次   @BeforeMethod 在单个配置方法前运行   @AfterMethod 在单个配置方法后运行   @AfterGroups 在所有配置方法组后运行1次   @AfterClass 在单个class类后执行1次   @AfterTest 在所有类Classes后, AfterSuite前运行1次, 注解的方法将在testNG.xml文件test标签内的所有类方法运行后执行。   @AfterSuite 套件, 在所有测试结束时运行1次    package com.actiger.test.suite; import org.testng.annotations.*; public class LoginTest { @Test(groups = {&quot;group&quot;}) public void loginTest(){ System.">
+    <meta name="description" content="1. TestNG是什么 TestNG一种开源自动测试框架, 相当灵活的注解和配置, 自由测试. 2. Before After执行顺序 注解 描述 @BeforeSuite 套件, 在所有测试开始时运行1次 @BeforeTest 在所有类Classes前, BeforeSuite后运行1次,注解的方法将在testNG.xml文件test标签内的所有类方法运行前执行 @BeforeClass 在单个class类前执行1次 @BeforeGroups 在所有配置方法组前运行1次 @BeforeMethod 在单个配置方法前运行 @AfterMethod 在单个配置方法后运行 @AfterGroups 在所有配置方法组后运行1次 @AfterClass 在单个class类后执行1次 @AfterTest 在所有类Classes后, AfterSuite前运行1次, 注解的方法将在testNG.xml文件test标签内的所有类方法运行后执行。 @AfterSuite 套件, 在所有测试结束时运行1次 package com.actiger.test.suite; import org.testng.annotations.*; public class LoginTest { @Test(groups = {&#34;group&#34;}) public void loginTest(){ System.out.println(&#34;Login test&#34;); } @Test(groups = {&#34;group&#34;}) public void cc(){ System.out.println(&#34;See you &#34;); } @BeforeTest(groups = {&#34;group&#34;}) public void beforeTestGroup(){ System.out.println(&#34;Before Test&#34;); } @AfterTest(groups = {&#34;group&#34;}) public void afterTestGroup() { System.">
     <meta name="author" content="">
     
     <link href="https://leezicai.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
     <link href="https://leezicai.github.io/actiger/style.css" rel="stylesheet">
     
     <link rel="icon" href="https://leezicai.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.87.0" />
+    <meta name="generator" content="Hugo 0.109.0">
     
     <link rel="alternate" type="application/atom+xml" href="https://leezicai.github.io/actiger/index.xml" title="AcTiger 跳跳虎">
     
@@ -143,91 +143,88 @@
 </tr>
 </tbody>
 </table>
-<pre><code>package com.actiger.test.suite;
+<pre tabindex="0"><code>package com.actiger.test.suite;
 
 import org.testng.annotations.*;
 
 public class LoginTest {
-    @Test(groups = {&quot;group&quot;})
+    @Test(groups = {&#34;group&#34;})
     public void loginTest(){
-        System.out.println(&quot;Login test&quot;);
+        System.out.println(&#34;Login test&#34;);
     }
 
-    @Test(groups = {&quot;group&quot;})
+    @Test(groups = {&#34;group&#34;})
     public void cc(){
-        System.out.println(&quot;See you &quot;);
+        System.out.println(&#34;See you &#34;);
     }
 
-    @BeforeTest(groups = {&quot;group&quot;})
+    @BeforeTest(groups = {&#34;group&#34;})
     public void beforeTestGroup(){
-        System.out.println(&quot;Before Test&quot;);
+        System.out.println(&#34;Before Test&#34;);
     }
 
-    @AfterTest(groups = {&quot;group&quot;})
+    @AfterTest(groups = {&#34;group&#34;})
     public void afterTestGroup() {
-        System.out.println(&quot;After Test&quot;);
+        System.out.println(&#34;After Test&#34;);
     }
 
-    @BeforeMethod(groups = {&quot;group&quot;})
+    @BeforeMethod(groups = {&#34;group&#34;})
     public void beforeMethod(){
-        System.out.println(&quot;before Method&quot;);
+        System.out.println(&#34;before Method&#34;);
     }
 
-    @AfterMethod(groups = {&quot;group&quot;})
+    @AfterMethod(groups = {&#34;group&#34;})
     public void afterMethod(){
-        System.out.println(&quot;after Method&quot;);
+        System.out.println(&#34;after Method&#34;);
     }
 
-    @BeforeClass(groups = {&quot;group&quot;})
+    @BeforeClass(groups = {&#34;group&#34;})
     public void beforeClass(){
-        System.out.println(&quot;Before Class&quot;);
+        System.out.println(&#34;Before Class&#34;);
     }
-    @AfterClass(groups = {&quot;group&quot;})
+    @AfterClass(groups = {&#34;group&#34;})
     public void afterClass(){
-        System.out.println(&quot;After Class&quot;);
+        System.out.println(&#34;After Class&#34;);
     }
-    @BeforeGroups(groups = {&quot;group&quot;})
+    @BeforeGroups(groups = {&#34;group&#34;})
     public void beforeGroup(){
-        System.out.println(&quot;Before Group&quot;);
+        System.out.println(&#34;Before Group&#34;);
     }
 
-    @AfterGroups(groups = {&quot;group&quot;})
+    @AfterGroups(groups = {&#34;group&#34;})
     public void afterGroup(){
-        System.out.println(&quot;After Group&quot;);
+        System.out.println(&#34;After Group&#34;);
     }
 
 
-    @BeforeSuite(groups = {&quot;group&quot;})
+    @BeforeSuite(groups = {&#34;group&#34;})
     public void beforeSuite(){
-        System.out.println(&quot;before suite!&quot;);
+        System.out.println(&#34;before suite!&#34;);
     }
 
-    @AfterSuite(groups = {&quot;group&quot;})
+    @AfterSuite(groups = {&#34;group&#34;})
     public void afterSuite(){
-        System.out.println(&quot;after suite&quot;);
+        System.out.println(&#34;after suite&#34;);
     }
 }
-
 </code></pre><h4 id="xml注解-testxml">xml注解, test.xml</h4>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
-&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot; &gt;
-&lt;suite name=&quot;suite&quot;&gt;
-    &lt;test name=&quot;loginTest&quot;&gt;
+<pre tabindex="0"><code>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;
+&lt;!DOCTYPE suite SYSTEM &#34;http://testng.org/testng-1.0.dtd&#34; &gt;
+&lt;suite name=&#34;suite&#34;&gt;
+    &lt;test name=&#34;loginTest&#34;&gt;
         &lt;groups&gt;
             &lt;run&gt;
-                &lt;include name=&quot;group&quot;&gt;&lt;/include&gt;
+                &lt;include name=&#34;group&#34;&gt;&lt;/include&gt;
             &lt;/run&gt;
         &lt;/groups&gt;
         &lt;classes&gt;
-            &lt;class name=&quot;com.actiger.test.suite.LoginTest&quot; &gt;&lt;/class&gt;
+            &lt;class name=&#34;com.actiger.test.suite.LoginTest&#34; &gt;&lt;/class&gt;
         &lt;/classes&gt;
     &lt;/test&gt;
 &lt;/suite&gt;
-
 </code></pre><h3 id="3-添加group标签">3. 添加group标签</h3>
 <p>在注释后添加组, 这个注释是运行在这个组下</p>
-<pre><code>@BeforeTest(groups = {&quot;group&quot;})
-
+<pre tabindex="0"><code>@BeforeTest(groups = {&#34;group&#34;})
 </code></pre><h4 id="在xml中配置groups内中group-有groups的注释都会执行">在xml中配置groups内中&quot;group&quot;, 有&quot;groups&quot;的注释都会执行</h4>
 </div>
   

@@ -7,14 +7,14 @@
     
     <title>解决NodePod模式外网无法访问mysql服务问题 - AcTiger 跳跳虎</title>
     
-    <meta name="description" content="1. 创建NodePod的mysql或MariaDB服务, 请参考Kubernetes Mariadb Mysql安装. 2. 安装完成使用ip:30016 用户 密码连接失败, 使用over ssh方式却可以连接成功. 排查问题  查看防火墙端口打开30016端口   firewall-cmd --list-ports # 没有则添加 firewall-cmd --zone=public --add-port=30016/tcp --permanent firewall-cmd --reload 关闭防火墙, 为啥关闭以后再开一篇解释  systemctl stop firewalld 查询iptables规则,  iptables -L -n # iptables 被kubernetes接管后的规则比较多，仔细看下FORWARD规则发现， # policy DROP状态， # 这就导致了我们直接访问node节点的IP加上端口会无法访问容器. # 临时生效 iptables -P FORWARD ACCEPT 永久生效  vim /usr/lib/systemd/system/docker.service # 在[Service]下增加一条规则 ............ ExecStartPost=/sbin/iptables -I FORWARD -s 0.0.0.0/0 -j ACCEPT # 重启docker生效 systemctl daemon-reload systemctl restart docker 重新使用刚才mysql或mariadb连接测试.">
+    <meta name="description" content="1. 创建NodePod的mysql或MariaDB服务, 请参考Kubernetes Mariadb Mysql安装. 2. 安装完成使用ip:30016 用户 密码连接失败, 使用over ssh方式却可以连接成功. 排查问题 查看防火墙端口打开30016端口 firewall-cmd --list-ports # 没有则添加 firewall-cmd --zone=public --add-port=30016/tcp --permanent firewall-cmd --reload 关闭防火墙, 为啥关闭以后再开一篇解释 systemctl stop firewalld 查询iptables规则, iptables -L -n # iptables 被kubernetes接管后的规则比较多，仔细看下FORWARD规则发现， # policy DROP状态， # 这就导致了我们直接访问node节点的IP加上端口会无法访问容器. # 临时生效 iptables -P FORWARD ACCEPT 永久生效 vim /usr/lib/systemd/system/docker.service # 在[Service]下增加一条规则 ............ ExecStartPost=/sbin/iptables -I FORWARD -s 0.0.0.0/0 -j ACCEPT # 重启docker生效 systemctl daemon-reload systemctl restart docker 重新使用刚才mysql或mariadb连接测试. ">
     <meta name="author" content="">
     
     <link href="https://leezicai.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
     <link href="https://leezicai.github.io/actiger/style.css" rel="stylesheet">
     
     <link rel="icon" href="https://leezicai.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.87.0" />
+    <meta name="generator" content="Hugo 0.109.0">
     
     <link rel="alternate" type="application/atom+xml" href="https://leezicai.github.io/actiger/index.xml" title="AcTiger 跳跳虎">
     
@@ -95,7 +95,7 @@
 <ol>
 <li>查看防火墙端口打开30016端口</li>
 </ol>
-<pre><code>
+<pre tabindex="0"><code>
 firewall-cmd --list-ports
 
 # 没有则添加
@@ -104,11 +104,11 @@ firewall-cmd --reload
 </code></pre><ol start="2">
 <li>关闭防火墙, 为啥关闭以后再开一篇解释</li>
 </ol>
-<pre><code>systemctl stop firewalld
+<pre tabindex="0"><code>systemctl stop firewalld
 </code></pre><ol start="3">
 <li>查询iptables规则,</li>
 </ol>
-<pre><code>iptables -L -n
+<pre tabindex="0"><code>iptables -L -n
 
 # iptables 被kubernetes接管后的规则比较多，仔细看下FORWARD规则发现，
 # policy DROP状态，
@@ -119,7 +119,7 @@ iptables -P FORWARD ACCEPT
 </code></pre><ol start="4">
 <li>永久生效</li>
 </ol>
-<pre><code>vim /usr/lib/systemd/system/docker.service
+<pre tabindex="0"><code>vim /usr/lib/systemd/system/docker.service
 
 
 # 在[Service]下增加一条规则

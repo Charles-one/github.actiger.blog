@@ -9,14 +9,14 @@
     
     <meta name="description" content="1. 起因 我删除域名服务商对顶级域名(即一级域名)的默认的重定向, 直接指向的我服务地址 使用的通配的二级域名证书 actiger.com, 浏览器弹出安全提示了.
 发现, 通配的二级域名证书不能用在actiger.com的证书. 参考这里
-3. Ingress Nginx的配置my-nginx.yml  apiVersion: extensions/v1beta1 kind: Ingress metadata: namespace: nginx-space name: my-nginx spec: tls: - hosts: - weini.actiger.com - www.actiger.com secretName: ingress-secret - hosts: - actiger.com secretName: ingress-top-secret rules: - host: weini.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: www.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: test.">
+3. Ingress Nginx的配置my-nginx.yml apiVersion: extensions/v1beta1 kind: Ingress metadata: namespace: nginx-space name: my-nginx spec: tls: - hosts: - weini.actiger.com - www.actiger.com secretName: ingress-secret - hosts: - actiger.com secretName: ingress-top-secret rules: - host: weini.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: www.actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: actiger.com http: paths: - backend: serviceName: my-nginx servicePort: 80 - host: test.">
     <meta name="author" content="">
     
     <link href="https://leezicai.github.io/actiger/an-old-hope.min.css" rel="stylesheet">
     <link href="https://leezicai.github.io/actiger/style.css" rel="stylesheet">
     
     <link rel="icon" href="https://leezicai.github.io/actiger/favicon.ico">
-    <meta name="generator" content="Hugo 0.87.0" />
+    <meta name="generator" content="Hugo 0.109.0">
     
     <link rel="alternate" type="application/atom+xml" href="https://leezicai.github.io/actiger/index.xml" title="AcTiger 跳跳虎">
     
@@ -98,7 +98,7 @@
 <h4 id="发现-通配的二级域名证书不能用在a-hrefhttpactigercom-target_blankactigercoma的证书">发现, 通配的二级域名证书不能用在<a href="http://actiger.com" target="_blank">actiger.com</a>的证书.</h4>
 <p><a href="https://actiger.com/blog/linux/acmesh获取域名并自动更新到kubernetes中/" target="_blank">参考这里</a></p>
 <h3 id="3-ingress-nginx的配置my-nginxyml">3. Ingress Nginx的配置my-nginx.yml</h3>
-<pre><code>
+<pre tabindex="0"><code>
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -138,29 +138,27 @@ spec:
       - backend:
           serviceName: my-nginx
           servicePort: 80
-
 </code></pre><h3 id="4-配置域名解析到服务ip-测试https有没有生效">4. 配置域名解析到服务IP, 测试https有没有生效</h3>
-<pre><code>
+<pre tabindex="0"><code>
 curl -vL actiger.com
 
 # 类似下面的表示证书配置成功
 
 * Ignoring the response-body
 * Connection #0 to host actiger.com left intact
-* Issue another request to this URL: 'https://actiger.com/'
+* Issue another request to this URL: &#39;https://actiger.com/&#39;
 *   Trying &lt;ip&gt;...
 * TCP_NODELAY set
 * Connected to actiger.com (&lt;ip&gt;) port 443 (#1)
 * ALPN, offering http/1.1
 * TLS 1.2 connection using TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 * Server certificate: actiger.com
-* Server certificate: Let's Encrypt Authority X3
+* Server certificate: Let&#39;s Encrypt Authority X3
 * Server certificate: DST Root CA X3
 &gt; GET / HTTP/1.1
 &gt; Host: actiger.com
 &gt; User-Agent: curl/7.63.0
 &gt; Accept: */*
-
 </code></pre></div>
   
 </article></main>
